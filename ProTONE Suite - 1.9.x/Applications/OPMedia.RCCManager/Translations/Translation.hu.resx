@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_APP_NAME">
+    <value>Remote Control Device Manager</value>
+  </data>
+  <data name="TXT_REMOTELIST">
+    <value>Távvezérlő eszközök listája:</value>
+  </data>
+  <data name="TXT_REMOTENAME">
+    <value>Távirányító berendezés neve:</value>
+  </data>
+  <data name="TXT_BUTTONS">
+    <value>Távirányító gombok</value>
+  </data>
+  <data name="TXT_INPUTPINDATA">
+    <value>Input pin konfiguráció</value>
+  </data>
+  <data name="TXT_CFGDATA">
+    <value>Pin konfigurációs adatok:</value>
+  </data>
+  <data name="TXT_PINTYPE">
+    <value>Pin típus:</value>
+  </data>
+  <data name="TXT_OUTPUTPINDATA">
+    <value>Kimeneti pin konfiguráció</value>
+  </data>
+  <data name="TXT_ADDREMOTECONFIG">
+    <value>Kedvencek Remote Control Device</value>
+  </data>
+  <data name="TXT_CHANGEEMOTECONFIG">
+    <value>Konfigurálása Remote Control Device</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEREMOTE">
+    <value>Biztos benne, hogy el kívánja távolítani a kijelölt távirányító eszköz?
+Ön nem tudja visszavonni ezt eltávolítás!</value>
+  </data>
+  <data name="TXT_ENTERDATA">
+    <value>Nincs konfigurációs adatok megadva.</value>
+  </data>
+  <data name="TXT_CFG">
+    <value>Ez a tüskés típus kell konfigurálható ProTONE Player.</value>
+  </data>
+  <data name="TXT_NOTCFG">
+    <value>Ez a tüskés típus nem igényel konfigurációt.</value>
+  </data>
+  <data name="TXT_BUTTON_NAME">
+    <value>Név</value>
+  </data>
+  <data name="TXT_TARGET_WNDNAME">
+    <value>Cél-ablak</value>
+  </data>
+  <data name="TXT_NODATA">
+    <value>Nincs konfigurációs adatok még nem határozták meg.</value>
+  </data>
+  <data name="TXT_BUTTONNAME">
+    <value>Gomb neve:</value>
+  </data>
+  <data name="TXT_INPUTDATA">
+    <value>Bemeneti adatok (sajtó Detect az adatokat):</value>
+  </data>
+  <data name="TXT_OUTPUTDATA">
+    <value>Adatok output pin:</value>
+  </data>
+  <data name="TXT_DETECT">
+    <value>Detect</value>
+  </data>
+  <data name="TXT_ADDBUTTON">
+    <value>Kedvencek gomb a "{0} '</value>
+  </data>
+  <data name="TXT_CHANGEBUTTON">
+    <value>Configure Button '{0}'</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEBUTTON">
+    <value>Biztos benne, hogy el kívánja távolítani a kijelölt távirányító gomb?
+Ön nem tudja visszavonni ezt eltávolítás!</value>
+  </data>
+  <data name="TXT_PRESSBUTTON">
+    <value>Nyomjon meg egy gombot a távirányítón. A Átugrani felderítése, nyomja meg az Enter vagy Escape.</value>
+  </data>
+  <data name="TXT_ADD_REPEAT">
+    <value>Add gombra, és ismételje meg</value>
+  </data>
+  <data name="TXT_ADD_ONCE">
+    <value>Kedvencek gomb</value>
+  </data>
+  <data name="TXT_TARGETWNDNAME">
+    <value>Címe a cél application / ablak:</value>
+  </data>
+  <data name="TXT_WINDOWBASED">
+    <value>Küldje parancs az aktív program ablaka</value>
+  </data>
+  <data name="TXT_SAVE_BEFORE_EXIT">
+    <value>Ön tett változtatásokat a távirányító berendezéseket.
+Szeretné menteni ezeket a változásokat, mielőtt kilép?</value>
+  </data>
+  <data name="TXT_APPLY_CFG">
+    <value>Beállítások mentése?</value>
+  </data>
+  <data name="TXT_SECONDS">
+    <value>másodperc.</value>
+  </data>
+  <data name="TXT_TIMEDREPEATRATE">
+    <value>Parancs ismétlés gyakorisága:
+ (0 = nincs ismétlés)</value>
+  </data>
+  <data name="TXT_PROTONE_REMOTE_COMMAND">
+    <value>ProTONE Remote Control Command:</value>
+  </data>
+  <data name="TXT_PRESS_KEY">
+    <value>Nyomja meg a gombot kombináció hozzárendelni kívánt.</value>
+  </data>
+  <data name="TXT_DEFAULTWINDOWNAME">
+    <value>Default_window_name</value>
+  </data>
+  <data name="TXT_NOBUTTONSREQUIRED">
+    <value>Ez a készülék nem igényel gomb konfigurációt.</value>
+  </data>
+  <data name="TXT_APPLYTIP">
+    <value>Mentés távirányító konfigurációs</value>
+  </data>
+  <data name="TXT_DEVICENAME">
+    <value>Eszköz neve: {0}</value>
+  </data>
+  <data name="TXT_INPUTPIN">
+    <value>Input pin: {0} {1}</value>
+  </data>
+  <data name="TXT_OUTPUTPIN">
+    <value>Output pin: {0} {1}</value>
+  </data>
+  <data name="TXT_BUTTONNAME_FULL">
+    <value>Gomb neve: {0} ['{1}' -&gt; '{2}']</value>
+  </data>
+  <data name="TXT_NO_BUTTONS_YET">
+    <value>Gombok még nem határoztak meg ehhez az eszközhöz.</value>
+  </data>
+  <data name="TXT_ADD_BUTTON">
+    <value>Új gombot ...</value>
+  </data>
+  <data name="TXT_DEL_BUTTON">
+    <value>Törlés létező gomb</value>
+  </data>
+  <data name="TXT_MOD_BUTTON">
+    <value>Meglévő gombot ...</value>
+  </data>
+  <data name="TXT_ADD_DEVICE">
+    <value>Új eszköz hozzáadása ...</value>
+  </data>
+  <data name="TXT_DEL_DEVICE">
+    <value>Törölje a meglévő eszköz</value>
+  </data>
+  <data name="TXT_MOD_DEVICE">
+    <value>Meglévő eszköz ...</value>
+  </data>
+  <data name="TXT_CONFIG_FILES_FILTER">
+    <value>Távirányító konfigurációs fájlok (*.config)|*.config||</value>
+  </data>
+  <data name="TXT_ADMIN_RIGHTS_REQUIRED">
+    <value>A Remote Control Device Manager igényel rendszergazdai jogokkal futtatni.
+ Kell indítani az alkalmazás alatt felhasználói fiók rendszergazdai jogokkal.</value>
+  </data>
+</root>

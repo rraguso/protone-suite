@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ACT_HIBERNATE">
+  <value>Adja meg a hibernált</value>
+</data>
+<data name="TXT_ACT_LAUNCHPROGRAM">
+  <value>Indítsa el a program</value>
+</data>
+<data name="TXT_ACT_NONE">
+  <value>Figyelmen kívül hagyja az esemény</value>
+</data>
+<data name="TXT_ACT_SHUTDOWN">
+  <value>Kapcsolja ki a PC</value>
+</data>
+<data name="TXT_ACT_STANDBY">
+  <value>Adja meg a készenléti</value>
+</data>
+<data name="TXT_NEWNOW">
+  <value>New most</value>
+</data>
+<data name="TXT_NEWNOW_BMDESC">
+  <value>Adjon hozzá egy új könyvjelzőt az aktuális lejátszási idő</value>
+</data>
+<data name="TXT_NEW_BMDESC">
+  <value>Új könyvjelző</value>
+</data>
+<data name="TXT_DELETE_BMDESC">
+  <value>Könyvjelző törlése</value>
+</data>
+<data name="TXT_ADD_BOOKMARK">
+  <value>Könyvjelző hozzáadása</value>
+</data>
+<data name="TXT_AUDIOSETTINGS">
+  <value>Audio Settings</value>
+</data>
+<data name="TXT_AUDIO_AVAILABLE">
+  <value>Audio stream elérhető.</value>
+</data>
+<data name="TXT_AUDIO_FILES">
+  <value>Audio fájlok</value>
+</data>
+<data name="TXT_AVAILABLE_DVD_MEDIA">
+  <value>vagy nyissuk meg a rendelkezésre álló DVD adathordozó a rendszer:</value>
+</data>
+<data name="TXT_BOOKMARK_DEFAULT_TEXT">
+  <value>Alapértelmezett könyvjelző szövegét (használja Bookmark Manager módosítani)</value>
+</data>
+<data name="TXT_BOOKMARK_DESC">
+  <value>Könyvjelző description:</value>
+</data>
+<data name="TXT_BOOKMARK_MANAGER">
+  <value>Könyvjelző menedzser</value>
+</data>
+<data name="TXT_BOOKMARK_TIME">
+  <value>Könyvjelző idő:</value>
+</data>
+<data name="TXT_BTNCLEAR">
+  <value>Törlés teljes playlist.&#xD;
+Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNDELETE">
+  <value>Törlés kiválasztott elemeket.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNFULLSCREEN">
+  <value>Toggle Full Screen&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNFWD">
+  <value>Gyors előre 5 másodpercig.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNJUMPTOITEM">
+  <value>Nyissa meg a 'Jump to playlist tétel "párbeszédpanelen.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNLOAD">
+  <value>Helyezzen be új fájl (ok).&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNLOADPLAYLIST">
+  <value>Helyezzen be egy új lejátszási listát.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNLOOPPLAY">
+  <value>Váltás on / off játszik hurok.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNMOVEDOWN">
+  <value>Mozgassa a kiválasztott elemek egy hellyel meghatározott playlist.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNMOVEUP">
+  <value>Mozgassa a kiválasztott elemek egy hellyel felfelé playlist.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNNEXT">
+  <value>Ugrás a következő fájlra playlist.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNOPENDISK">
+  <value>Megnyitja a Load DVD adathordozó párbeszédablakban.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNOPENSETTINGS">
+  <value>Megjeleníti a Beállítások párbeszédablakban.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNPAUSE">
+  <value>A lejátszás szüneteltetése.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNPLAY">
+  <value>Játssz fájlt.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNPLAYLISTEND">
+  <value>Aktiválja a "cselekvés playlist end '&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNPREV">
+  <value>Ugrás az előző fájlra playlist.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNREW">
+  <value>Visszatekerés, 5 másodpercig.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNSAVEPLAYLIST">
+  <value>Mentse az aktuális lejátszási listát.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNSTOP">
+  <value>A lejátszás leállítása.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNTOGGLESHUFFLE">
+  <value>Aktiválja playlist shuffle módban.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNVOLDN">
+  <value>Hangerő le 5%-kal.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_BTNVOLUP">
+  <value>Hangerő fel 5%-kal.&#xD;
+ Gyorsparancs: {0}</value>
+</data>
+<data name="TXT_CMDADDBOOKMARK">
+  <value>Könyvjelző hozzáadása</value>
+</data>
+<data name="TXT_CMDBOOKMARKMANAGER">
+  <value>Nyissa bookmark manager</value>
+</data>
+<data name="TXT_CMDCFGAUDIO">
+  <value>Megjeleníti Audio Configuration</value>
+</data>
+<data name="TXT_CMDCFGREMOTE">
+  <value>Megjeleníti Remote Control Configuration</value>
+</data>
+<data name="TXT_CMDCFGSUBTITLES">
+  <value>Megjeleníti Feliratok és OSD konfigurációs</value>
+</data>
+<data name="TXT_CMDCFGTIMER">
+  <value>Megjeleníti Timer beállítások</value>
+</data>
+<data name="TXT_CMDCFGVIDEO">
+  <value>Megjeleníti Videó konfiguráció</value>
+</data>
+<data name="TXT_CMDCLEAR">
+  <value>Törlés teljes playlist.</value>
+</data>
+<data name="TXT_CMDDELETE">
+  <value>Törlés kiválasztott elemeket.</value>
+</data>
+<data name="TXT_CMDFULLSCREEN">
+  <value>Toggle Full Screen</value>
+</data>
+<data name="TXT_CMDFWD">
+  <value>Gyors előre 5 másodpercig.</value>
+</data>
+<data name="TXT_CMDJUMPTOITEM">
+  <value>Nyissa meg a 'Jump to playlist elem' párbeszédablak</value>
+</data>
+<data name="TXT_CMDLOAD">
+  <value>Helyezzen be új fájl (ok).</value>
+</data>
+<data name="TXT_CMDLOADPLAYLIST">
+  <value>Helyezzen be egy új lejátszási listát.</value>
+</data>
+<data name="TXT_CMDLOOPPLAY">
+  <value>Vált játszik hurok.</value>
+</data>
+<data name="TXT_CMDMOVEDOWN">
+  <value>Mozgassa a kiválasztott elemek egy hellyel megállapított playlist.</value>
+</data>
+<data name="TXT_CMDMOVEUP">
+  <value>Mozgassa a kiválasztott elemek egy hellyel fel playlist.</value>
+</data>
+<data name="TXT_CMDNEXT">
+  <value>Ugrás a következő fájlra playlist.</value>
+</data>
+<data name="TXT_CMDOPENDISK">
+  <value>Megnyitja a Load DVD adathordozó párbeszédpanel</value>
+</data>
+<data name="TXT_CMDOPENURL">
+  <value>Nyisson meg egy URL</value>
+</data>
+<data name="TXT_CMDPAUSE">
+  <value>A lejátszás szüneteltetése.</value>
+</data>
+<data name="TXT_CMDPLAY">
+  <value>Lejátszás fájlt.</value>
+</data>
+<data name="TXT_CMDPLAYLISTEND">
+  <value>Aktiválja a "cselekvés playlist end"</value>
+</data>
+<data name="TXT_CMDPREV">
+  <value>Ugrás az előző fájlra playlist.</value>
+</data>
+<data name="TXT_CMDREW">
+  <value>Visszacsévéléshez 5 másodperc.</value>
+</data>
+<data name="TXT_CMDSAVEPLAYLIST">
+  <value>Mentse az aktuális lejátszási listát.</value>
+</data>
+<data name="TXT_CMDSEARCHSUBTITLES">
+  <value>Keres felirat erre a mozifilmre klipek</value>
+</data>
+<data name="TXT_CMDSTOP">
+  <value>A lejátszás leállítása.</value>
+</data>
+<data name="TXT_CMDTOGGLESHUFFLE">
+  <value>Aktiválja playlist shuffle módban.</value>
+</data>
+<data name="TXT_CMDVOLDN">
+  <value>Hangerő le 5%-kal.</value>
+</data>
+<data name="TXT_CMDVOLUP">
+  <value>Hangerő fel 5%-kal.</value>
+</data>
+<data name="TXT_CONFIGUREAUDIO">
+  <value>Audio Settings</value>
+</data>
+<data name="TXT_CONFIGUREPLAYLIST">
+  <value>Playlist</value>
+</data>
+<data name="TXT_CONFIGURESUBTITLES">
+  <value>A felirat beállítások</value>
+</data>
+<data name="TXT_CONFIGUREVIDEO">
+  <value>Video Settings</value>
+</data>
+<data name="TXT_CONFIRM_OVERWRITE_SUBTITLE">
+  <value>Még felirat felülírása</value>
+</data>
+<data name="TXT_EDITID3ARTWORK">
+  <value>ID3 Artwork szerkesztő</value>
+</data>
+<data name="TXT_ELAPSED_TIME">
+  <value>Eltelt idő.&#xD;
+ Kattintson duplán a váltás hátralévő idő</value>
+</data>
+<data name="TXT_ENABLEREMOTECONTROL">
+  <value>Hagyjuk ProTONE Player is távvezérelhető.</value>
+</data>
+<data name="TXT_ENABLE_PLAYLISTEVT">
+  <value>Fellépés "playlist vége" esemény</value>
+</data>
+<data name="TXT_ENABLE_SCHEDULEDEVT">
+  <value>Cselekvési menetrend pillanat</value>
+</data>
+<data name="TXT_ENDED">
+  <value>Vége</value>
+</data>
+<data name="TXT_ENQUEUEFILES">
+  <value>Sorba állítása fájlok végén az aktuális lejátszási lista</value>
+</data>
+<data name="TXT_ENTER_KEYWORD">
+  <value>Adja meg a keresett kulcsszót (ok), szóközzel elválasztva:</value>
+</data>
+<data name="TXT_FFDSHOW_SUBTITLES">
+  <value>Nyílt FFDShow felirat beállításai ...</value>
+</data>
+<data name="TXT_FILETYPES">
+  <value>Fájltípusok</value>
+</data>
+<data name="TXT_FILETYPES_ASSOCIATIONS">
+  <value>Associate ProTONE Player ezekkel fájltípusok:</value>
+</data>
+<data name="TXT_HANDLEEXPLORERLAUNCH">
+  <value>Amikor a fájl elindul a Windows Explorer:</value>
+</data>
+<data name="TXT_HIBERNATE_PC">
+  <value>tegye a számítógépet hibernált állapotban</value>
+</data>
+<data name="TXT_IGNOREMOUSEMOVE">
+  <value>Figyelmen kívül hagyása egér mozgását teljes képernyős módban</value>
+</data>
+<data name="TXT_JUMP_TO_ITEM">
+  <value>Ugrás a playlist elem</value>
+</data>
+<data name="TXT_LAUNCH_PROGRAM">
+  <value>indítani egyéni program</value>
+</data>
+<data name="TXT_LAUNCH_RCCMANAGER">
+  <value>Indítsa ProTONE RCC Manager ...</value>
+</data>
+<data name="TXT_LEFTVOL">
+  <value>LVOL</value>
+</data>
+<data name="TXT_LOADMEDIAFILES">
+  <value>Betöltése médiafájlok ...</value>
+</data>
+<data name="TXT_LOADPLAYLIST">
+  <value>Betöltése playlist ...</value>
+</data>
+<data name="TXT_LOAD_DVD_FOLDER">
+  <value>Kérjük, válasszon egy videót DVD tartalom mappa&#xD;
+ (Vagy egy VIDEO_TS mappát, vagy anyavállalata):</value>
+</data>
+<data name="TXT_MATCHING_ITEMS">
+  <value>Matching tételek (dupla kattintással, vagy nyomja meg az Entert, hogy játsszon egy elem):</value>
+</data>
+<data name="TXT_MEDIA_NAME">
+  <value>Media neve:</value>
+</data>
+<data name="TXT_MEDIA_STATE">
+  <value>Media most {0}</value>
+</data>
+<data name="TXT_MEDIA_TIME">
+  <value>Idő:</value>
+</data>
+<data name="TXT_MEDIASTATENOTIFICATIONSENABLED">
+  <value>Kijelző bejelentési tippek mellett a tálcán, ha a multimédia állapotváltások</value>
+</data>
+<data name="TXT_MINMOVIEDURATION">
+  <value>Ne töltsön le a felirat, ha a klip rövidebb&#xD;
+ (0 = mindig letölthető)</value>
+</data>
+<data name="TXT_MNUAUDIO">
+  <value>Audio Settings ...</value>
+</data>
+<data name="TXT_MNULOADPLAYLIST">
+  <value>Betöltése Playlist ...</value>
+</data>
+<data name="TXT_MNULOOPPLAY">
+  <value>Loop Play</value>
+</data>
+<data name="TXT_MNUSAVEPLAYLIST">
+  <value>Save Playlist ...</value>
+</data>
+<data name="TXT_MNUSCHEDULER">
+  <value>Timer Options ...</value>
+</data>
+<data name="TXT_MNUSETTINGS">
+  <value>Beállítások ...</value>
+</data>
+<data name="TXT_MNUSUBTITLE">
+  <value>Feliratok és OSD ...</value>
+</data>
+<data name="TXT_MNUTOOLS">
+  <value>Beállítások és opciók</value>
+</data>
+<data name="TXT_MNUVIDEO">
+  <value>Video Settings ...</value>
+</data>
+<data name="TXT_MOVEDOWN">
+  <value>Lefelé</value>
+</data>
+<data name="TXT_MOVEUP">
+  <value>Felköltözik</value>
+</data>
+<data name="TXT_NEW_BOOKMARK">
+  <value>Új könyvjelző</value>
+</data>
+<data name="TXT_NEW_BOOKMARK_ADDED">
+  <value>Egy új könyvjelző adunk: {0}</value>
+</data>
+<data name="TXT_NOT_CONFIGURABLE">
+  <value>Ez a lehetőség nem áll rendelkezésre ebben a pillanatban.</value>
+</data>
+<data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
+  <value>Ez a lehetőség nem áll rendelkezésre ebben a pillanatban.&#xD;
+ Telepítenie kell a FFDShow codec csomag annak érdekében, hogy intézkedések ezt a lehetőséget.</value>
+</data>
+<data name="TXT_NO_LANG">
+  <value>Nincs nyelv</value>
+</data>
+<data name="TXT_NO_SUBS_FOUND">
+  <value>Sajnáljuk, de nincs felirat találtak erre a mozifilmre klip.</value>
+</data>
+<data name="TXT_ONDAYS">
+  <value>hétköznap:</value>
+</data>
+<data name="TXT_OSD">
+  <value>On-Screen Display (OSD)</value>
+</data>
+<data name="TXT_OSDCFG">
+  <value>OSD Settings</value>
+</data>
+<data name="TXT_OSDCOLOR">
+  <value>OSD Text Color</value>
+</data>
+<data name="TXT_OSDENABLED">
+  <value>Engedélyezése On-Screen Display (OSD)</value>
+</data>
+<data name="TXT_OSDFONT">
+  <value>OSD Text betűtípus</value>
+</data>
+<data name="TXT_OSDSAMPLETEXT">
+  <value>OSD Text Sample</value>
+</data>
+<data name="TXT_OSDTIMER">
+  <value>OSD Láthatóság Timer (másodperc):</value>
+</data>
+<data name="TXT_OSD_FULLSCREEN">
+  <value>Teljes képernyős mód {0}</value>
+</data>
+<data name="TXT_OSD_PAUSED">
+  <value>Szüneteltetve</value>
+</data>
+<data name="TXT_OSD_PLAY">
+  <value>Játék: {0}</value>
+</data>
+<data name="TXT_OSD_SEEKTO">
+  <value>Lejátszás folytatható: {0}</value>
+</data>
+<data name="TXT_OSD_VOL">
+  <value>Hangerő: {0}%</value>
+</data>
+<data name="TXT_OVERWRITE_SUBTITLE">
+  <value>A kiválasztott videóklip már van felirat.&#xD;
+Ha egy másik felirat is megtalálható az interneten, akkor felülírja a meglévőt.&#xD;
+&#xD;
+Biztosan szeretne keresni egy másik felirat?</value>
+</data>
+<data name="TXT_PAUSED">
+  <value>Szüneteltetve</value>
+</data>
+<data name="TXT_PLAYFILES">
+  <value>Fájlok lejátszása (helyébe aktuális lejátszási listának)</value>
+</data>
+<data name="TXT_PLAYING">
+  <value>Lejátszása</value>
+</data>
+<data name="TXT_PLAYLIST">
+  <value>Playlist</value>
+</data>
+<data name="TXT_PLAYLISTEND_EVT">
+  <value>Ha a lista vége ...</value>
+</data>
+<data name="TXT_PLAYLISTEVT_DESC">
+  <value>Figyelem: ez a beállítás nem marad meg tartósan az egész programot ülés!&#xD;
+ Ha a lejátszási listák vége:</value>
+</data>
+<data name="TXT_PLAYLISTS">
+  <value>Listák</value>
+</data>
+<data name="TXT_PLAYLIST_END_MSG">
+  <value>a lejátszási lista véget ért</value>
+</data>
+<data name="TXT_PLAY_FROM">
+  <value>tól: {0}</value>
+</data>
+<data name="TXT_PREFFEREDSUBTITLELANG">
+  <value>Közkedvelt Felirat nyelv:</value>
+</data>
+<data name="TXT_PROCEED_SCHEDULED_ACTION">
+  <value>ProTONE Player megpróbálja {0}. Ez történik, mert úgy állította be a lejátszót, hogy ezt, ha {1}. Szeretné folytatni?&#xD;
+&#xD;
+Tudod megszakíthatja ezt a műveletet, ha rákattint Megszakítás belül, a fennmaradó időkeretet (lásd számláló alább). Ha ez az idő eltelik, és nem választott minden olyan cselekedettől, akkor feltételezhető, úgy döntött, hogy folytassa.</value>
+</data>
+<data name="TXT_PROTONE_ENQUEUE">
+  <value>Sorba állítása a ProTONE Player</value>
+</data>
+<data name="TXT_PROTONE_PLAY">
+  <value>Lejátszás ProTONE Player</value>
+</data>
+<data name="TXT_REMAINING_TIME">
+  <value>Hátralévő idő.&#xD;
+ duplán kattintson váltás eltelt idő</value>
+</data>
+<data name="TXT_REMOTECONTROLCFG">
+  <value>Távirányító</value>
+</data>
+<data name="TXT_REMOTECONTROLDEFINITION">
+  <value>Megadásához a programok és eszközök, amelyek szabadon ellenőrzése ProTONE Player, akkor használja a ProTONE RCC Manager program.&#xD;
+ Kattintson az alábbi gombra, hogy indítson ProTONE RCC Manager ...</value>
+</data>
+<data name="TXT_RIGHTVOL">
+  <value>RVOL</value>
+</data>
+<data name="TXT_SAVEPLAYLIST">
+  <value>Lista mentése másként ...</value>
+</data>
+<data name="TXT_SCHEDULEDEVT_DESC">
+  <value>Mikor az időzített pillanatban történik:</value>
+</data>
+<data name="TXT_SCHEDULEDEVT_TIME">
+  <value>Menetrend időzítő esemény:</value>
+</data>
+<data name="TXT_SCHEDULED_ACTION_PROCEED">
+  <value>Folytassa intézkedés végrehajtását?</value>
+</data>
+<data name="TXT_SCHEDULED_EVENT_MSG">
+  <value>a tervezett pillanat történt</value>
+</data>
+<data name="TXT_SCHEDULERSETTINGS">
+  <value>Időzítő</value>
+</data>
+<data name="TXT_SCHEDULERWAITTIMERPROCEED">
+  <value>Hány percet kell várni előtt megerősítést eljárás&#xD;
+ (0 = nem kér megerősítést, folytassa közvetlenül):</value>
+</data>
+<data name="TXT_SEARCH_SUBTITLES">
+  <value>Keresés a feliratok ...</value>
+</data>
+<data name="TXT_SELECT_ALLAUDIO">
+  <value>Minden audio fájlokat</value>
+</data>
+<data name="TXT_SELECT_ALLPLAYLISTS">
+  <value>Az összes lejátszási lista</value>
+</data>
+<data name="TXT_SELECT_ALLVIDEO">
+  <value>Az összes videó fájlokat</value>
+</data>
+<data name="TXT_SELECT_DVD">
+  <value>Töltsön DVD Media</value>
+</data>
+<data name="TXT_SERIALDEVICE">
+  <value>Remote Control Device</value>
+</data>
+<data name="TXT_SERVERTYPE">
+  <value>Kiszolgáló típusa</value>
+</data>
+<data name="TXT_SERVERURL">
+  <value>URL</value>
+</data>
+<data name="TXT_SHELL_INTEGRATION">
+  <value>Integrálja a Windows Explorer</value>
+</data>
+<data name="TXT_SHUFFLE">
+  <value>Csoszog</value>
+</data>
+<data name="TXT_SHUTDOWN_PC">
+  <value>állítsa le a PC</value>
+</data>
+<data name="TXT_SKIP_DVD_MENU">
+  <value>Figyelmen kívül hagyja a DVD-menü (lejátszás közvetlenül első cím)</value>
+</data>
+<data name="TXT_STANDBY_PC">
+  <value>helyezze a számítógépet készenléti állapotba</value>
+</data>
+<data name="TXT_STOPPED">
+  <value>Leállítva</value>
+</data>
+<data name="TXT_SUBTITLEDOWNLOADNOTIFY">
+  <value>{0} feliratnak talált a {1}:</value>
+</data>
+<data name="TXT_SUBTITLES">
+  <value>Feliratok</value>
+</data>
+<data name="TXT_SUBTITLESCFG">
+  <value>A felirat beállítások</value>
+</data>
+<data name="TXT_SUBTITLESETTINGS">
+  <value>Feliratok / OSD</value>
+</data>
+<data name="TXT_SUBTITLE_DOWNLOAD">
+  <value>Hagyjuk letöltése Feliratok Interneten</value>
+</data>
+<data name="TXT_SUB_DOWNLOAD_ERROR">
+  <value>Felirat keresés megszakadt, mert hiba történt.</value>
+</data>
+<data name="TXT_SUB_HINTS">
+  <value>Tipp: Az eredményeket válogatják szét ezeket a kritériumokat (ebben a sorrendben): a kiválasztott oszlop nyelv (Preferred language on top),&#xD;
+ prio (szerver rend = végzésével felirat szerverek Feliratok / OSD Settings oldalon). Kattintson az oszlop fejlécére válasszon másik rendezési citeria.</value>
+</data>
+<data name="TXT_SUB_LOAD">
+  <value>Helyezze a kiválasztott felirat</value>
+</data>
+<data name="TXT_SUB_LOADED">
+  <value>A kiválasztott felirat sikeresen betöltve! Jó szórakozást!</value>
+</data>
+<data name="TXT_SYSTEMDIAGNOSTICS">
+  <value>Diagnostics</value>
+</data>
+<data name="TXT_SYSTEM_NOT_OK">
+  <value>Multimédia kodekek nem telepítette és konfigurálta az OK gombot.</value>
+</data>
+<data name="TXT_SYSTEM_OK">
+  <value>Multimédia kodekek vannak telepítve és konfigurálva az OK gombot.</value>
+</data>
+<data name="TXT_TIMESCALE">
+  <value>Idő skála.&#xD;
+ Kattintson játszani elhelyezkedés: {0}</value>
+</data>
+<data name="TXT_TIMESCALE_BOOKMARK">
+  <value>Idő skála.&#xD;
+ Kattintson játszani könyvjelző: "{1}"&#xD;
+ Könyvjelzők ideje: {0}</value>
+</data>
+<data name="TXT_TOTAL_TIME">
+  <value>Teljes idő.</value>
+</data>
+<data name="TXT_UNSELECT_ALLAUDIO">
+  <value>No audio fájlokat</value>
+</data>
+<data name="TXT_UNSELECT_ALLPLAYLISTS">
+  <value>No listák</value>
+</data>
+<data name="TXT_UNSELECT_ALLVIDEO">
+  <value>No videofájlok</value>
+</data>
+<data name="TXT_VIDEOSETTINGS">
+  <value>Video Settings</value>
+</data>
+<data name="TXT_VIDEO_AVAILABLE">
+  <value>Videó folyam elérhető.</value>
+</data>
+<data name="TXT_VIDEO_FILES">
+  <value>Video fájlok</value>
+</data>
+<data name="TXT_VIDEO_HD_FILES">
+  <value>High Definition videó fájlok</value>
+</data>
+<data name="TXT_VOLSCALE">
+  <value>Kötet skála.&#xD;
+ Kattintson a beállított hangerő, hogy: {0}%</value>
+</data>
+<data name="TXT_INSTALLCOMPONENT">
+  <value>Telepítés alkatrész ...</value>
+</data>
+<data name="TXT_PRIO">
+  <value>Prioritás</value>
+</data>
+<data name="TXT_MINUTES">
+  <value>perc (ek).</value>
+</data>
+<data name="TXT_MISC_SETTINGS">
+  <value>Egyéb lehetőségek</value>
+</data>
+<data name="TXT_METADATAPATTERNS">
+  <value>A minták rendelkezésre álló lejátszási lista elem formázási alapulnak ezek kombinációit kulcsszavak:&#xD;
+&#xD;
+&lt;A&gt; = előadó neve, mint a metaadatok&#xD;
+&lt;B&gt; = album neve, mint a metaadatok&#xD;
+&lt;T&gt; = neve, mint a metaadatok&#xD;
+&lt;C&gt; = megjegyzés, mint a metaadatok&#xD;
+&lt;G&gt; = műfaj, mint a metaadatok&#xD;
+&lt;#&gt; = # követni, mint a metaadatok;&#xD;
+&lt;Y&gt; = év, mint a metaadatok.</value>
+</data>
+<data name="TXT_DISPLAY_FILENAME">
+  <value>Nincs formázási lehetőségek vannak megadva.&#xD;
+ A program megjeleníti a fájl neve lejátszási bejegyzést.</value>
+</data>
+<data name="TXT_FILENAME_FORMAT">
+  <value>Ha a metaadatok hiányzik, használja a fájl nevét értelmezi, mint:</value>
+</data>
+<data name="TXT_USE_METADATA">
+  <value>A fájl metaadatainak (ID3 mezők)</value>
+</data>
+<data name="TXT_FALLBACKMONITOR">
+  <value>Tartalék Monitor:</value>
+</data>
+<data name="TXT_FALLBACKMONITORDESC">
+  <value>A tartalék monitor fogják használni megjelenítésére videó tartalmát, amikor a Közkedvelt monitor nem csatlakozik a rendszerhez.</value>
+</data>
+<data name="TXT_MONITORAFFINITY">
+  <value>Monitorok</value>
+</data>
+<data name="TXT_PREFERREDMONITOR">
+  <value>Közkedvelt Monitor:</value>
+</data>
+<data name="TXT_PREFERREDMONITORDESC">
+  <value>A Közkedvelt monitor fogják használni megjelenítésére video tartalmak, amikor csatlakoztatva van a rendszerhez.</value>
+</data>
+<data name="TXT_RESTOREDEFAULTSDESC">
+  <value>A 'Restore Defaults "állítja mind az elsődleges és tartalék monitor az elsődleges monitor csatlakozik a rendszerhez.</value>
+</data>
+<data name="TXT_PLAYLISTOPTIONS">
+  <value>Playlist</value>
+</data>
+<data name="TXT_PREFERREDMONITORDETACHED">
+  <value>Az előnyben részesített monitor már nem csatlakozik a rendszerhez. Ahhoz, hogy válasszon egy másik Közkedvelt monitor, használja a "Restore defaults", akkor újra válassza ki a kívánt monitor.</value>
+</data>
+<data name="TXT_PLAYLIST_FORMAT">
+  <value>Formátum playlist bejegyzéseket:</value>
+</data>
+<data name="TXT_INVALIDDVDVOLUME">
+  <value>Ön meg Érvénytelen DVD kötetet. Kérjük, válassza ki újra.</value>
+</data>
+<data name="TXT_PANELSHIDDEN_NOADMIN">
+  <value>Mivel a felhasználói fiók nem rendelkezik rendszergazdai jogosultságokkal, akkor nem tudja megtekinteni a Támogatott fájlok és a távvezérlő beállításait.&#xD;
+&#xD;
+Annak érdekében, hogy ezekre a beállításokra, akkor meg kell indítani ProTONE Player alatt felhasználói fiók, amely admin priviledges</value>
+</data>
+<data name="TXT_MNUCLEAR">
+  <value>Kódolatlan playlist</value>
+</data>
+<data name="TXT_MNUDELETE">
+  <value>Törlése playlist elem</value>
+</data>
+<data name="TXT_MNUJUMPTOITEM">
+  <value>Ugrás playlist elem ...</value>
+</data>
+<data name="TXT_MNUMOVEDOWN">
+  <value>Lefelé</value>
+</data>
+<data name="TXT_MNUMOVEUP">
+  <value>Felköltözik</value>
+</data>
+<data name="TXT_MNUPLAYLISTEND">
+  <value>Playlist end esemény</value>
+</data>
+<data name="TXT_MNUTOGGLESHUFFLE">
+  <value>Véletlenszerű lejátszás</value>
+</data>
+<data name="TXT_MNUFULLSCREEN">
+  <value>Toggle Full Screen</value>
+</data>
+<data name="TXT_MNUFWD">
+  <value>Forward 5 másodperc</value>
+</data>
+<data name="TXT_MNULOAD">
+  <value>Load fájlokat ...</value>
+</data>
+<data name="TXT_MNUNEXT">
+  <value>Játssz következő</value>
+</data>
+<data name="TXT_MNUOPENDISK">
+  <value>DVD betöltése ...</value>
+</data>
+<data name="TXT_MNUOPENURL">
+  <value>URL megnyitása ...</value>
+</data>
+<data name="TXT_MNUPAUSE">
+  <value>Szünet</value>
+</data>
+<data name="TXT_MNUPLAY">
+  <value>Játék</value>
+</data>
+<data name="TXT_MNUPREV">
+  <value>Játssz előző</value>
+</data>
+<data name="TXT_MNUREW">
+  <value>Rewind 5 másodperc</value>
+</data>
+<data name="TXT_MNUSTOP">
+  <value>Stop</value>
+</data>
+<data name="TXT_MNUVOLDN">
+  <value>Volume megállapított 5%-kal</value>
+</data>
+<data name="TXT_MNUVOLUP">
+  <value>Hangerő fel 5%-kal</value>
+</data>
+<data name="TXT_MNUCFGAUDIO">
+  <value>Audio Settings ...</value>
+</data>
+<data name="TXT_MNUCFGSUBTITLES">
+  <value>Felirat beállításai ...</value>
+</data>
+<data name="TXT_MNUCFGTIMER">
+  <value>Scheduler Settings ...</value>
+</data>
+<data name="TXT_MNUCFGVIDEO">
+  <value>Video Settings ...</value>
+</data>
+<data name="TXT_MNUOPENSETTINGS">
+  <value>Beállítások ...</value>
+</data>
+<data name="TXT_MNUSHOWLOGCONSOLE">
+  <value>Megjelenítés log file ...</value>
+</data>
+<data name="TXT_CMDHIDEBOOKMARKMANAGER">
+  <value>Elrejtése Könyvjelző menedzser</value>
+</data>
+<data name="TXT_SUBFONTS">
+  <value>Betűtípusok és színek</value>
+</data>
+<data name="TXT_SUBSAMPLETEXT">
+  <value>Subtitle Text Sample</value>
+</data>
+<data name="TXT_SUBFONT">
+  <value>Subtitle Text betűtípus</value>
+</data>
+<data name="TXT_SUBCOLOR">
+  <value>Subtitle Text Color</value>
+</data>
+<data name="TXT_SUBENABLED">
+  <value>Engedélyezése felirat</value>
+</data>
+<data name="TXT_NOTIFYSUBDOWNLOADED">
+  <value>Kijelző bejelentési tippek mellett a tálcán, amikor felirat letöltés befejeződött</value>
+</data>
+<data name="TXT_RESTORE_DEFAULTSERVERS">
+  <value>Betöltése az alapértelmezett kiszolgálók</value>
+</data>
+<data name="TXT_ALBUM">
+  <value>Album neve</value>
+</data>
+<data name="TXT_ARTIST">
+  <value>Artist</value>
+</data>
+<data name="TXT_ARTWORK">
+  <value>Beágyazott képek</value>
+</data>
+<data name="TXT_BITRATE">
+  <value>Bináris sebesség</value>
+</data>
+<data name="TXT_CHANNELS">
+  <value>Hang mód</value>
+</data>
+<data name="TXT_COMMENTS">
+  <value>Megjegyzések</value>
+</data>
+<data name="TXT_DURATION">
+  <value>Időtartam</value>
+</data>
+<data name="TXT_FRAME_RATE">
+  <value>Képkockasebesség</value>
+</data>
+<data name="TXT_FREQUENCY">
+  <value>Mintavételezési frekvencia</value>
+</data>
+<data name="TXT_GENRE">
+  <value>Musical Műfaj</value>
+</data>
+<data name="TXT_ID3INFO">
+  <value>ID3 mező információ</value>
+</data>
+<data name="TXT_TITLE">
+  <value>Title</value>
+</data>
+<data name="TXT_TRACK">
+  <value>Nyomon követése Index</value>
+</data>
+<data name="TXT_VIDEO_SIZE">
+  <value>Videó mérete</value>
+</data>
+<data name="TXT_YEAR">
+  <value>Gyártási év</value>
+</data>
+<data name="TXT_PICTURE">
+  <value>Kép</value>
+</data>
+<data name="TXT_PICTURE_TEXT">
+  <value>Kép Leírás</value>
+</data>
+<data name="TXT_PICTURE_TYPE">
+  <value>ID3 Kép Típus</value>
+</data>
+<data name="TXT_ID3PATTERNS">
+  <value>Az ID3 minták alapján ezek kombinációit kulcsszavak:&#xD;
+&#xD;
+&lt;N&gt; = fájl neve;&#xD;
+&lt;F&gt; = mappa neve;&#xD;
+&lt;A&gt; = előadó neve, mint az ID3 Info;&#xD;
+&lt;B&gt; = album neve, mint az ID3 információ;&#xD;
+&lt;T&gt; = neve, mint a ID3 információ;&#xD;
+&lt;C&gt; = megjegyzések az ID3 információ;&#xD;
+&lt;G&gt; = műfaj, mint az ID3 információ;&#xD;
+&lt;#&gt; = # követni, mint az ID3 információ;&#xD;
+&lt;Y&gt; = év, mint az ID3 információ.&#xD;
+&#xD;
+Karakter tartományok, mint például &lt;N2-12,14-20&gt; is megengedettek.</value>
+</data>
+<data name="TXT_RESETVIDEOPOSITION">
+  <value>Visszaállítása videó &#xD;
+ablak helyzetét</value>
+</data>
+<data name="TXT_RESETVIDEOPOSITION_HINT">
+  <value>Használja ezt a parancsot, hogy a video renderelés ablak az aktív képernyőn.</value>
+</data>
+<data name="TXT_SUBTITLE_AVAILABLE">
+  <value>Felirat áll</value>
+</data>
+<data name="TXT_SUBTITLE_DOWNLOADING">
+  <value>Feliratok letöltése, kérem várjon ...</value>
+</data>
+    
+</root>
