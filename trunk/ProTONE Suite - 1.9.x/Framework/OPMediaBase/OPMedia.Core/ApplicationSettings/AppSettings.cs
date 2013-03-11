@@ -1078,44 +1078,14 @@ namespace OPMedia.Core.ApplicationSettings
 
         public static bool SubEnabled
         {
-            get
-            {
-                if (ApplicationInfo.IsPlayer)
-                {
-                    return _config.GetValue("SubEnabled", false);
-                }
-
-                return false;
-            }
-
-            set
-            {
-                if (ApplicationInfo.IsPlayer)
-                {
-                    _config.SetValue("SubEnabled", value);
-                }
-            }
+            get { return _config.GetValue("SubEnabled", false); }
+            set { _config.SetValue("SubEnabled", value); }
         }
 
         public static bool OsdEnabled
         {
-            get
-            {
-                if (ApplicationInfo.IsPlayer)
-                {
-                    return _config.GetValue("OsdEnabled", false);
-                }
-
-                return false;
-            }
-
-            set
-            {
-                if (ApplicationInfo.IsPlayer)
-                {
-                    _config.SetValue("OsdEnabled", value);
-                }
-            }
+            get { return _config.GetValue("OsdEnabled", false); }
+            set { _config.SetValue("OsdEnabled", value); }
         }
 
         public static Color OsdColor

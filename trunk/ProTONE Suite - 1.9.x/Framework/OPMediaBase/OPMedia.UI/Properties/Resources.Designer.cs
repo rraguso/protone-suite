@@ -81,6 +81,13 @@ namespace OPMedia.UI.Properties {
             }
         }
         
+        public static System.Drawing.Icon Colors {
+            get {
+                object obj = ResourceManager.GetObject("Colors", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap Delete {
             get {
                 object obj = ResourceManager.GetObject("Delete", resourceCulture);

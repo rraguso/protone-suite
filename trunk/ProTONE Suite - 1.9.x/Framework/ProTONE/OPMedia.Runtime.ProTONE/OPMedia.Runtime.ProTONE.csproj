@@ -120,7 +120,6 @@
     <Compile Include="FileInformation\MediaFileInfo.cs" />
     <Compile Include="FileInformation\VideoDvdInformation.cs" />
     <Compile Include="FileInformation\VideoFileInfo.cs" />
-    <Compile Include="GlobalEvents\EventNames.cs" />
     <Compile Include="Haali\HaaliConfig.cs" />
     <Compile Include="HeartbeatConsumer.cs" />
     <Compile Include="Playlists\DvdPlaylistItem.cs" />

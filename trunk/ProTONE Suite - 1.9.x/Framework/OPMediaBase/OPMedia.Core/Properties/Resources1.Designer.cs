@@ -81,6 +81,13 @@ namespace OPMedia.Core.Properties {
             }
         }
         
+        public static System.Drawing.Icon Clock {
+            get {
+                object obj = ResourceManager.GetObject("Clock", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         public static System.Drawing.Icon ir_remote {
             get {
                 object obj = ResourceManager.GetObject("ir_remote", resourceCulture);

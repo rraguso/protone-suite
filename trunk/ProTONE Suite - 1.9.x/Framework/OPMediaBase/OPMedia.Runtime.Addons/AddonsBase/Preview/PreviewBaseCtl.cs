@@ -87,16 +87,5 @@ namespace OPMedia.Runtime.Addons.AddonsBase.Preview
                 return false;
             }
         }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // PreviewBaseCtl
-            // 
-            this.Name = "PreviewBaseCtl";
-            this.ResumeLayout(false);
-
-        }
     }
 }

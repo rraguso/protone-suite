@@ -148,6 +148,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             pnlPlaylist.LaunchFile += new LaunchFileEventHandler(pnlPlaylist_LaunchFile);
             pnlPlaylist.PlaylistItemMenuClick += new EventHandler(HandlePlaylistItemMenuClick);
+
+            if (!DesignMode)
+            {
+                MediaRenderer.DefaultInstance.MediaStateChanged += new MediaStateChangedHandler(OnMediaStateChanged);
+                MediaRenderer.DefaultInstance.MediaRendererHeartbeat += new MediaRendererEventHandler(OnMediaRendererHeartbeat);
+            }
         }
 
         [EventSink(LocalEventNames.JumpToBookmark)]
@@ -261,6 +267,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 {
                     AppSettings.RenderPanelWidth = playlistWidth;
                 }
+
+                MediaRenderer.DefaultInstance.MediaStateChanged -= new MediaStateChangedHandler(OnMediaStateChanged);
+                MediaRenderer.DefaultInstance.MediaRendererHeartbeat -= new MediaRendererEventHandler(OnMediaRendererHeartbeat);
             }
         }
 
@@ -326,8 +335,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             SetVolume(newVal);
         }
 
-        [EventSink(LocalEventNames.MediaStateChanged)]
-        public void OnMediaStateChanged(MediaState oldState, string oldMedia, 
+        private void OnMediaStateChanged(MediaState oldState, string oldMedia, 
             MediaState newState, string newMedia)
         {
             OnMediaRendererHeartbeat();
@@ -346,8 +354,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
         }
 
-        [EventSink(LocalEventNames.MediaRendererHeartbeat)]
-        public void OnMediaRendererHeartbeat()
+        private void OnMediaRendererHeartbeat()
         {
             pnlRendering.ElapsedSeconds = (int)(MediaRenderer.DefaultInstance.MediaPosition);
             pnlRendering.TotalSeconds = (int)(MediaRenderer.DefaultInstance.MediaLength);

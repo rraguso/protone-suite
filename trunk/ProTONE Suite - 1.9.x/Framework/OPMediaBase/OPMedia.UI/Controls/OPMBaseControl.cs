@@ -102,6 +102,8 @@ namespace OPMedia.UI.Controls
 
         public OPMBaseControl() : base()
         {
+            InitializeComponent();
+
             ApplyBackColor();
             
             this.FontSize = FontSizes.Normal;

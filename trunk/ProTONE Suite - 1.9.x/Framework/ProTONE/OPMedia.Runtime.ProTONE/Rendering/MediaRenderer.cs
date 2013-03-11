@@ -27,7 +27,6 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Core;
 using System.IO;
 
-using LocalEventNames = OPMedia.Runtime.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.SubtitleDownload;
 
@@ -48,6 +47,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         Shrink,
         Expand
     }
+
+    public delegate void MediaRendererEventHandler();
+    public delegate void MediaStateChangedHandler(MediaState oldState, string oldMedia, MediaState newState, string newMedia);
+    public delegate void MediaRenderingExceptionHandler(RenderingExceptionEventArgs args);
+    
 
     public sealed class MediaRenderer : IDisposable
     {
@@ -523,7 +527,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             double diff = (nowTime - _prevTime);
             _prevTime = nowTime;
 
-            EventDispatch.DispatchEvent(LocalEventNames.MediaRendererClock);
+            FireMediaRendererClock();
 
             MediaState newState = MediaState.Ended;
 
@@ -558,8 +562,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
                 if (newState != oldState || newMedia != oldMedia)
                 {
-                    EventDispatch.DispatchEvent(LocalEventNames.MediaStateChanged, 
-                        oldState, oldMedia, newState, newMedia);
+                    FireMediaStateChanged(oldState, oldMedia, newState, newMedia);
                 }
 
                 switch (newState)
@@ -592,7 +595,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
                 if (newState != MediaState.Stopped && newState != MediaState.Ended)
                 {
-                    EventDispatch.DispatchEvent(LocalEventNames.MediaRendererHeartbeat);
+                    FireMediaRendererHeartbeat();
                 }
             }
             catch
@@ -614,7 +617,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             {
                 RenderingException rex = RenderingException.FromException(ex);
                 RenderingExceptionEventArgs args = new RenderingExceptionEventArgs(rex);
-                EventDispatch.DispatchEvent(LocalEventNames.MediaRendererException, args);
+                FireMediaRenderingException(args);
 
                 if (args.Handled)
                     return;
@@ -707,8 +710,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             return false;
         }
 
-
-
         #region IDisposable Members
 
         public void Dispose()
@@ -716,6 +717,45 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             throw new NotImplementedException();
         }
 
+        #endregion
+
+        #region Published events
+        public event MediaRendererEventHandler MediaRendererClock = null;
+        private void FireMediaRendererClock()
+        {
+            if (MediaRendererClock != null)
+            {
+                MediaRendererClock();
+            }
+        }
+
+        public event MediaRendererEventHandler MediaRendererHeartbeat = null;
+        private void FireMediaRendererHeartbeat()
+        {
+            if (MediaRendererHeartbeat != null)
+            {
+                MediaRendererHeartbeat();
+            }
+        }
+
+        public event MediaStateChangedHandler MediaStateChanged = null;
+        private void FireMediaStateChanged(MediaState oldState, string oldMedia, MediaState newState, string newMedia)
+        {
+            if (MediaStateChanged != null)
+            {
+                MediaStateChanged(oldState, oldMedia, newState, newMedia);
+            }
+        }
+        
+        public event MediaRenderingExceptionHandler MediaRenderingException = null;
+        private void FireMediaRenderingException(RenderingExceptionEventArgs args)
+        {
+            if (MediaRenderingException != null)
+            {
+                MediaRenderingException(args);
+            }
+        }
+        
         #endregion
     }
 

@@ -49,7 +49,6 @@ namespace OPMedia.Runtime.Addons.AddonsBase.Navigation
         public NavBaseCtl()
             : base()
         {
-            InitializeComponent();
         }
 
         /// <summary>
@@ -62,18 +61,6 @@ namespace OPMedia.Runtime.Addons.AddonsBase.Navigation
             {
                 return null;
             }
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // NavBaseCtl
-            // 
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(45)))), ((int)(((byte)(120)))));
-            this.Name = "NavBaseCtl";
-            this.Size = new System.Drawing.Size(388, 385);
-            this.ResumeLayout(false);
         }
 
         public virtual void OnActiveStateChanged(bool isActive)

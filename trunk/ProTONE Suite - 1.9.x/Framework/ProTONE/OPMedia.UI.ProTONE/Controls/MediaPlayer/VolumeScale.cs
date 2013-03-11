@@ -168,16 +168,22 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         void HandleDestroyed(object sender, EventArgs e)
         {
-            EventDispatch.UnregisterHandler(this);
+            if (!DesignMode)
+            {
+                MediaRenderer.DefaultInstance.MediaRendererClock -= new MediaRendererEventHandler(OnMediaRendererClock);
+            }
         }
 
         void HandleCreated(object sender, EventArgs e)
         {
-            EventDispatch.RegisterHandler(this);
+            if (!DesignMode)
+            {
+                MediaRenderer.DefaultInstance.MediaRendererClock += new MediaRendererEventHandler(OnMediaRendererClock);
+            }
+
         }
 
-        [EventSink(LocalEventNames.MediaRendererClock)]
-        public void OnClock()
+        public void OnMediaRendererClock()
         {
             if (!DesignMode)
             {

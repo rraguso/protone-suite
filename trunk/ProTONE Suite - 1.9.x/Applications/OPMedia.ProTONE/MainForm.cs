@@ -94,12 +94,23 @@ namespace OPMedia.ProTONE
 
                 this.Resize += new EventHandler(MainForm_Resize);
                 this.Shown += new EventHandler(MainForm_Shown);
+                this.HandleDestroyed += new EventHandler(MainForm_HandleDestroyed);
 
                 this.mnuTools.Image = Resources.settings;
                 this.notifyIcon.ContextMenuStrip = this.cmsMain;
                 mediaPlayer.SetRenderingMenu(cmsMain);
 
                 OnPerformTranslation();
+
+                MediaRenderer.DefaultInstance.MediaStateChanged += new MediaStateChangedHandler(OnMediaStateChanged);
+            }
+        }
+
+        void MainForm_HandleDestroyed(object sender, EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                MediaRenderer.DefaultInstance.MediaStateChanged -= new MediaStateChangedHandler(OnMediaStateChanged);
             }
         }
 
@@ -144,7 +155,6 @@ namespace OPMedia.ProTONE
             mediaPlayer.DoLayout();
         }
 
-        [EventSink(OPMedia.UI.ProTONE.GlobalEvents.EventNames.MediaStateChanged)]
         void OnMediaStateChanged(MediaState oldState, string oldMedia, MediaState newState, string newMedia)
         {
             string mediaState = string.Empty;

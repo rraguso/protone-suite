@@ -148,16 +148,5 @@ namespace OPMedia.Runtime.Addons.AddonsBase.Prop
         {
             Reload(null);
         }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // PropBaseCtl
-            // 
-            this.Name = "PropBaseCtl";
-            this.ResumeLayout(false);
-
-        }
     }
 }

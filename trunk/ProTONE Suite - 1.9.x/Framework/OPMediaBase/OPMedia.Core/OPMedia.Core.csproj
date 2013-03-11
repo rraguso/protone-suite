@@ -252,6 +252,7 @@
     <EmbeddedResource Include="Resources\VideoFile.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="Resources\Clock.ico" />
     <Content Include="Resources\shell32_166.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

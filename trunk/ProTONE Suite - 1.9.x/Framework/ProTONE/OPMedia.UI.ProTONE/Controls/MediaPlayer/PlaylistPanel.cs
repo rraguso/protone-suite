@@ -89,6 +89,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
            
             AdjustWidth();
             UpdateTotalTime(0);
+
+            if (!DesignMode)
+            {
+                MediaRenderer.DefaultInstance.MediaRendererHeartbeat += new MediaRendererEventHandler(OnMediaRendererHeartbeat);
+            }
         }
 
         void MainWindow_Shown(object sender, EventArgs e)
@@ -107,7 +112,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             lvPlaylist.OverrideBackColor = ThemeManager.SpecialListColor;
         }
 
-        [EventSink(LocalEventNames.MediaRendererHeartbeat)]
         public void OnMediaRendererHeartbeat()
         {
             try
@@ -184,6 +188,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             {
                 _abortLoad = true;
                 PersistentPlaylist.Save(playlist);
+
+                if (!DesignMode)
+                {
+                    MediaRenderer.DefaultInstance.MediaRendererHeartbeat -= new MediaRendererEventHandler(OnMediaRendererHeartbeat);
+                }
             }
             catch (Exception ex)
             {

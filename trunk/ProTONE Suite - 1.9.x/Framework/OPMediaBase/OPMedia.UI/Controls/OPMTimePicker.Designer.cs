@@ -61,7 +61,8 @@
             this.btnPlus.MinimumSize = new System.Drawing.Size(13, 10);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(13, 10);
-            this.btnPlus.TabIndex = 1;
+            this.btnPlus.TabIndex = 0;
+            this.btnPlus.TabStop = false;
             // 
             // btnMinus
             // 
@@ -73,7 +74,8 @@
             this.btnMinus.MinimumSize = new System.Drawing.Size(13, 10);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(13, 10);
-            this.btnMinus.TabIndex = 2;
+            this.btnMinus.TabIndex = 0;
+            this.btnMinus.TabStop = false;
             this.btnMinus.Tag = "-";
             // 
             // tableLayoutPanel1
