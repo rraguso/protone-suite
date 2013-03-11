@@ -102,7 +102,7 @@ namespace SubtitleEditor.extension.Navigation
                         //si.ReadOnly = false;
                         item.SubItems.Add(si);
 
-                        si = new OPMListViewSubItem(item, se.OneLineContents);
+                        si = new OPMListViewSubItem(item, se.ContentsForNavigationPanel);
                         //si.ReadOnly = false;
                         item.SubItems.Add(si);
 

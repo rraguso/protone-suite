@@ -19,6 +19,7 @@ using OPMedia.Runtime.Shortcuts;
 using SubtitleEditor.extension.DataLayer;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.Runtime.Addons.AddonsBase;
+using OPMedia.Runtime.Addons;
 
 namespace SubtitleEditor.Navigation
 {
@@ -108,6 +109,7 @@ namespace SubtitleEditor.Navigation
                 items.Add(item);
 
                 base.RaiseNavigationAction(NavActionType.ActionSelectFile, items, elem);
+                base.RaiseNavigationAction(NavActionType.ActionReloadPreview, items, elem);
             }
         }
 
@@ -896,6 +898,19 @@ namespace SubtitleEditor.Navigation
                         {
                             _sub = SubtitleBase.LoadFromFile(dlg.FileName);
                             lvSubtitles.Subtitle = _sub;
+
+                            List<string> items = new List<string>();
+                            items.Add(dlg.FileName);
+
+                            base.RaiseNavigationAction(NavActionType.ActionDoubleClickFile, items, _sub);
+
+                            if (_sub.Elements != null && _sub.Elements.Count > 0)
+                            {
+                                lvSubtitles.Select();
+                                lvSubtitles.Focus();
+                                lvSubtitles.Items[0].Selected = true;
+                                //base.RaiseNavigationAction(NavActionType.ActionReloadPreview, items, _sub.Elements[0]);
+                            }
                         }
                     }
                     break;

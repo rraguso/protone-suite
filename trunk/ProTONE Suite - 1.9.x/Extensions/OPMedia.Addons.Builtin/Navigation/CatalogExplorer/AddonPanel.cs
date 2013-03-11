@@ -36,6 +36,7 @@ using OPMedia.Core.GlobalEvents;
 using OPMedia.Core.Utilities;
 using OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer;
 using OPMedia.UI.Controls.Dialogs;
+using OPMedia.Runtime.Addons;
 
 /*
  * IMPORTANT NOTE: In Media Catalog, instead of paths are used VPaths. 

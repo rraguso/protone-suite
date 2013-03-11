@@ -128,21 +128,6 @@ namespace SubtitleEditor.extension.DataLayer
             return GenerateRtf(Lines);
         }
 
-        protected override void SetRtfDisplay(string value)
-        {
-            string txt = value.Replace("\r\n", "").Replace("\n", "").Replace("\r", "");
-            int index = txt.IndexOf(@"\fs24");
-            txt = txt.Substring(index + 5).TrimEnd('}');
-            txt = txt.Replace(@"\lang1048", "");
-            txt = txt.Replace(@"\lang1033", "");
-            txt = txt.Replace(@"\f0", "").Replace(@"\f1", "").Replace(@"\f2", "");
-            txt = txt.Replace(@"\par", "\n").Trim().Trim('\n');
-
-            txt = StringUtils.ConvertRtfTagsToDiacriticals(txt);
-
-            
-        }
-
         private string GenerateRtf(List<string> list)
         {
             StringBuilder sb = new StringBuilder();
@@ -151,32 +136,9 @@ namespace SubtitleEditor.extension.DataLayer
                 sb.AppendLine(s);
             }
 
-            return GenerateRtf(sb.ToString());
+            return SubtitleBase.GenerateRtf(sb.ToString());
         }
 
-        const string RtfContainerTemplate =
-            @"{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fnil\fcharset238 Arial;}}\viewkind4\uc1\pard\lang1033\fs24 \f1 <TEXT>}";
-
-
-        private string GenerateRtf(string subText)
-        {
-            subText = subText
-                .Replace("<b>", @"\b ")
-                .Replace("</b>", @"\b0")
-                .Replace("<i>", @"\i ")
-                .Replace("</i>", @"\i0 ")
-                .Replace("<u>", @"\ul ")
-                .Replace("</u>", @"\ulnone ")
-                .Replace("<s>", @"\strike ")
-                .Replace("</s>", @"\strike0 ")
-                .Replace("\r\n", @"\par ")
-                .Replace("\r", @"\par ")
-                .Replace("\n", @"\par ")
-                ;
-
-            string rtf = subText;// StringUtils.ConvertDiacriticalsToRtfTags(subText);
-
-            return RtfContainerTemplate.Replace("<TEXT>", rtf);
-        }
+        
     }
 }

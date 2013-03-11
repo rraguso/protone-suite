@@ -70,6 +70,7 @@
     <Compile Include="Property\AddonPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Rendering\MediaRendererInstance.cs" />
     <Compile Include="Translations\Translation.Designer.cs">
       <DependentUpon>Translation.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -81,7 +82,9 @@
       <DependentUpon>Translation.ro.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\CurrentTime.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Configuration\SubtitleEditorCfgPanel.resx">
       <DependentUpon>SubtitleEditorCfgPanel.cs</DependentUpon>
@@ -254,6 +257,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Up.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

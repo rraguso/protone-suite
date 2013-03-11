@@ -88,6 +88,13 @@ namespace SubtitleEditor.extension.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap CurrentTime {
+            get {
+                object obj = ResourceManager.GetObject("CurrentTime", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Cut {
             get {
                 object obj = ResourceManager.GetObject("Cut", resourceCulture);

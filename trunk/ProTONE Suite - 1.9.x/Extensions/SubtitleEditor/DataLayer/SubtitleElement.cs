@@ -13,20 +13,16 @@ namespace SubtitleEditor.extension.DataLayer
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
         public List<string> Lines { get; set; }
+        
         public string RtfDisplay
         {
             get
             {
                 return BuildRtfDisplay();
             }
-
-            set
-            {
-                SetRtfDisplay(value);
-            }
         }
 
-        public string OneLineContents
+        public string ContentsForNavigationPanel
         {
             get
             {
@@ -58,7 +54,6 @@ namespace SubtitleEditor.extension.DataLayer
         
         protected abstract void DoReadFromStream(StreamReader sr);
         protected abstract void DoWriteToStream(StreamWriter sr);
-        protected abstract void SetRtfDisplay(string value);
         protected abstract string BuildRtfDisplay();
     }
 }

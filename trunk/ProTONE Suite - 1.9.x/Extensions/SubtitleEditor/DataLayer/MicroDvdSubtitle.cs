@@ -69,8 +69,5 @@ namespace SubtitleEditor.extension.DataLayer
             return "";
         }
 
-        protected override void SetRtfDisplay(string value)
-        {
-        }
     }
 }
