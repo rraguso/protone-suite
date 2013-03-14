@@ -830,6 +830,7 @@ namespace OPMedia.Core.ApplicationSettings
                 _config.SetValue("ShufflePlaylist", value);
             }
         }
+
         #endregion
 
         #region Remote control and communication
@@ -1070,6 +1071,33 @@ namespace OPMedia.Core.ApplicationSettings
         #endregion
 
         #region Subtitle and OSD
+
+        public static int SUB_LastFilterIndex
+        {
+            get
+            {
+                return _config.GetValue("SUB_LastFilterIndex", 0);
+            }
+
+            set
+            {
+                _config.SetValue("SUB_LastFilterIndex", value);
+            }
+        }
+
+        public static string SUB_LastOpenedFolder
+        {
+            get
+            {
+                return _config.GetValue("SUB_LastOpenedFolder", PathUtils.CurrentDir);
+            }
+
+            set
+            {
+                _config.SetValue("SUB_LastOpenedFolder", value);
+            }
+        }
+
         public static int PrefferedSubtitleLang
         {
             get { return _config.GetValue("PrefferedSubtitleLang", 1033); }
