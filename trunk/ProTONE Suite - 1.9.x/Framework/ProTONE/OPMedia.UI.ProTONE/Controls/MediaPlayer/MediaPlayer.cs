@@ -317,7 +317,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             string text = Translator.Translate(format, args);
 
-            FfdShowHelper.DisplayOsdMessage(text);
+            MediaRenderer.DefaultInstance.DisplayOsdMessage(text);
 
             if (AppSettings.MediaStateNotificationsEnabled)
             {
@@ -380,7 +380,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     if (bmk != null)
                     {
                         Logger.LogHeavyTrace("Display Bookmark: " + bmk.ToString());
-                        FfdShowHelper.DisplayOsdMessage(bmk.Title.Replace(";", "\r\n"));
+                        MediaRenderer.DefaultInstance.DisplayOsdMessage(bmk.Title.Replace(";", "\r\n"));
                     }
                 }
             }
@@ -672,8 +672,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 MediaRenderer.DefaultInstance.MediaState != MediaState.Stopped)
             {
                 MediaRenderer.DefaultInstance.AudioVolume = (int)volume;
-
-                FfdShowHelper.DisplayOsdMessage(Translator.Translate("TXT_OSD_VOL", (int)volume / 100));
+                MediaRenderer.DefaultInstance.DisplayOsdMessage(Translator.Translate("TXT_OSD_VOL", (int)volume / 100));
             }
 
             if (pnlRendering.ProjectedVolume != AppSettings.LastVolume)

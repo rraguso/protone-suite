@@ -29,6 +29,9 @@ using System.IO;
 
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.SubtitleDownload;
+using OPMedia.Runtime.ProTONE.FfdShowApi;
+using OPMedia.Core.ApplicationSettings;
+using OPMedia.UI.Generic;
 
 #endregion
 
@@ -714,7 +717,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         #endregion
@@ -756,6 +759,126 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             }
         }
         
+        #endregion
+
+        #region FFdShow subtitle and OSD
+
+        IntPtr _oldFfdShowHandle = IntPtr.Zero;
+
+        public string CurrentSubtitleFile
+        {
+            get
+            {
+                using (FfdShowLib i = FfdShowInstance())
+                {
+                    return i.CurrentSubtitleFile;
+                }
+            }
+
+            set
+            {
+                using (FfdShowLib i = FfdShowInstance())
+                {
+                    i.CurrentSubtitleFile = value;
+                }
+            }
+        }
+
+        public void DisplayOsdMessage(string msg)
+        {
+            if (AppSettings.OsdEnabled)
+            {
+                using (FfdShowLib i = FfdShowInstance())
+                {
+                    int osdPersistTimer = AppSettings.OsdPersistTimer;
+                    float frameRate = i.getFrameRate();
+                    int persistFrames = (int)(osdPersistTimer * frameRate / 1000);
+
+                    // OsdPersistTimer is given in msec
+                    i.clearOsd();
+                    i.setOsdDuration(persistFrames);
+                    i.displayOSDMessage(msg, true);
+                }
+            }
+        }
+
+        public void ReloadFfdShowSettings()
+        {
+            using (FfdShowLib i = FfdShowInstance())
+            {
+                EnforceSettings(i);
+            }
+        }
+
+        private void EnforceSettings(FfdShowLib ffdShowLib)
+        {
+            // Subtitles
+            ffdShowLib.DoShowSubtitles = AppSettings.SubEnabled;
+
+            if (AppSettings.SubEnabled)
+            {
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontColor,
+                    ColorHelper.BGR(AppSettings.SubColor));
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontSizeA,
+                    AppSettings.SubFont.Height);
+                ffdShowLib.setStringParam(FFDShowConstants.FFDShowDataId.IDFF_fontName,
+                    AppSettings.SubFont.OriginalFontName);
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontCharset,
+                  AppSettings.SubFont.GdiCharSet);
+
+                LOGFONT lf = new LOGFONT();
+                AppSettings.SubFont.ToLogFont(lf);
+
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontWeight,
+                    lf.lfWeight);
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontItalic,
+                   lf.lfItalic);
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontUnderline,
+                   lf.lfUnderline);
+            }
+
+            if (AppSettings.OsdEnabled)
+            {
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontColor,
+                    ColorHelper.BGR(AppSettings.OsdColor));
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontSize,
+                    AppSettings.OsdFont.Height);
+                ffdShowLib.setStringParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontName,
+                    AppSettings.OsdFont.OriginalFontName);
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontCharset,
+                    AppSettings.OsdFont.GdiCharSet);
+
+                LOGFONT lf = new LOGFONT();
+                AppSettings.OsdFont.ToLogFont(lf);
+
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontWeight,
+                    lf.lfWeight);
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontItalic,
+                   lf.lfItalic);
+                ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontUnderline,
+                   lf.lfUnderline);
+            }
+        }
+
+        private FfdShowLib FfdShowInstance()
+        {
+            string renderFile = this.GetRenderFile();
+            FfdShowLib ffdShowLib = new FfdShowLib(renderFile);
+
+            if (ffdShowLib.checkFFDShowActive())
+            {
+                if (ffdShowLib.FFDShowInstanceHandle != _oldFfdShowHandle)
+                {
+                    // API re-created so enforce parameters
+                    EnforceSettings(ffdShowLib);
+
+                    _oldFfdShowHandle = ffdShowLib.FFDShowInstanceHandle;
+                }
+            }
+
+            return ffdShowLib;
+        }
+
         #endregion
     }
 

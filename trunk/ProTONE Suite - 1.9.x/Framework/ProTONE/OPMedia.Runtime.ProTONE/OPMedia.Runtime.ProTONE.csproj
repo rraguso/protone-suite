@@ -145,7 +145,6 @@
     <Compile Include="Rendering\DS\DSTechnology.cs" />
     <Compile Include="Rendering\DS\DSFileRenderer.cs" />
     <Compile Include="Rendering\DS\DvdTypes.cs" />
-    <Compile Include="FfdShowApi\FfdShowHelper.cs" />
     <Compile Include="Rendering\MediaRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\Base\StreamRenderer.cs" />

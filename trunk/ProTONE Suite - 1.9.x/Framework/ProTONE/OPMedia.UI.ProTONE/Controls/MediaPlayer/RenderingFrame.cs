@@ -50,7 +50,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             string text = Translator.Translate("TXT_OSD_FULLSCREEN", (string)(_fullScreen ?
                     Translator.Translate("TXT_ON") : Translator.Translate("TXT_OFF")));
 
-            FfdShowHelper.DisplayOsdMessage(text);
+            MediaRenderer.DefaultInstance.DisplayOsdMessage(text);
         }
 
         void RenderingFrame_Resize(object sender, EventArgs e)

@@ -11,6 +11,7 @@ using OPMedia.Core.ApplicationSettings;
 using OPMedia.UI.Controls;
 using OPMedia.Runtime.ProTONE;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
+using OPMedia.Runtime.ProTONE.Rendering;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
@@ -41,7 +42,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             AppSettings.MediaStateNotificationsEnabled = chkMediaStateNotificationsEnabled.Checked;
 
             // Tell FFDShow to reload subtitle and OSD settings
-            FfdShowHelper.ReloadSettings();
+            MediaRenderer.DefaultInstance.ReloadFfdShowSettings();
         }
 
         public SubtitleOsdPage()
