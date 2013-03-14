@@ -6,7 +6,7 @@ using System.IO;
 
 namespace SubtitleEditor.extension.DataLayer
 {
-    public abstract class SubtitleElement
+    public class SubtitleElement
     {
         public int StartFrames { get; set; }
         public int EndFrames { get; set; }
@@ -18,8 +18,19 @@ namespace SubtitleEditor.extension.DataLayer
         {
             get
             {
-                return BuildRtfDisplay();
+                return GenerateRtf(Lines);
             }
+        }
+
+        protected string GenerateRtf(List<string> list)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in list)
+            {
+                sb.AppendLine(s);
+            }
+
+            return Subtitle.GenerateRtf(sb.ToString());
         }
 
         public string ContentsForNavigationPanel
@@ -38,22 +49,13 @@ namespace SubtitleEditor.extension.DataLayer
             }
         }
 
-        public SubtitleElement(StreamReader stream)
+        public SubtitleElement()
         {
-            StartTime = EndTime = TimeSpan.MinValue;
-            StartFrames = EndFrames = 0;
-            Lines = new List<string>();
-
-            DoReadFromStream(stream);
+            this.StartTime = TimeSpan.MinValue;
+            this.EndTime = TimeSpan.MinValue;
+            this.StartFrames = 0;
+            this.EndFrames = 0;
+            this.Lines = new List<string>();
         }
-
-        public void SaveElement(StreamWriter stream)
-        {
-            DoWriteToStream(stream);
-        }
-        
-        protected abstract void DoReadFromStream(StreamReader sr);
-        protected abstract void DoWriteToStream(StreamWriter sr);
-        protected abstract string BuildRtfDisplay();
     }
 }

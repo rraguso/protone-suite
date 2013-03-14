@@ -18,8 +18,8 @@ namespace SubtitleEditor.extension.Navigation
         ColumnHeader hdrEndFrame = new ColumnHeader();
         ColumnHeader hdrContent = new ColumnHeader();
 
-        private SubtitleBase _subtitle = null;
-        public SubtitleBase Subtitle
+        private Subtitle _subtitle = null;
+        public Subtitle Subtitle
         {
             get { return _subtitle; }
             set { _subtitle = value; DisplaySubtitle(); }
@@ -86,7 +86,7 @@ namespace SubtitleEditor.extension.Navigation
                         ListViewItem item = new ListViewItem(index.ToString());
                         item.Tag = se;
 
-                        OPMListViewSubItem si = new OPMListViewSubItem(item, se.StartTime.ToString(SubtitleBase.TimeDisplayFormat));
+                        OPMListViewSubItem si = new OPMListViewSubItem(item, se.StartTime.ToString(Subtitle.TimeDisplayFormat));
                         //si.ReadOnly = false;
                         item.SubItems.Add(si);
 
@@ -94,7 +94,7 @@ namespace SubtitleEditor.extension.Navigation
                         //si.ReadOnly = false;
                         item.SubItems.Add(si);
 
-                        si = new OPMListViewSubItem(item, se.EndTime.ToString(SubtitleBase.TimeDisplayFormat));
+                        si = new OPMListViewSubItem(item, se.EndTime.ToString(Subtitle.TimeDisplayFormat));
                         //si.ReadOnly = false;
                         item.SubItems.Add(si);
 

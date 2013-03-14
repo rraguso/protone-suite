@@ -154,7 +154,7 @@ namespace SubtitleEditor.Property
 
         void OnContentsChanged(object sender, EventArgs e)
         {
-            string rtf = SubtitleBase.GenerateRtf(tbContents.Text);
+            string rtf = Subtitle.GenerateRtf(tbContents.Text);
             try
             {
                 rtbContents.Rtf = rtf;

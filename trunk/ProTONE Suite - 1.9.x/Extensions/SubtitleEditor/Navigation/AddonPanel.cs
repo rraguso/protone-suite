@@ -20,6 +20,8 @@ using SubtitleEditor.extension.DataLayer;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.Runtime.Addons.AddonsBase;
 using OPMedia.Runtime.Addons;
+using OPMedia.Core.ApplicationSettings;
+using System.IO;
 
 namespace SubtitleEditor.Navigation
 {
@@ -65,7 +67,7 @@ namespace SubtitleEditor.Navigation
         private System.Windows.Forms.Timer updateUiTimer;
         private extension.Navigation.SubtitleListView lvSubtitles;
 
-        public SubtitleBase _sub = new DefaultSubtitle();
+        public Subtitle _sub = Subtitle.Empty;
 
         public override List<string> HandledFileTypes
         {
@@ -883,7 +885,7 @@ namespace SubtitleEditor.Navigation
             switch (action)
             {
                 case ToolAction.ToolActionNew:
-                    _sub = new DefaultSubtitle();
+                    _sub = Subtitle.Empty;
                     lvSubtitles.Subtitle = _sub;
                     break;
 
@@ -892,11 +894,14 @@ namespace SubtitleEditor.Navigation
                         OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
                         dlg.Title = Translator.Translate("TXT_OPEN_SUBTITLE");
                         dlg.Filter = "Subtitle files (*.srt, *.sub)|*.srt;*.sub||";//Translator.Translate("TXT_CATALOG_FILTER");
-                        //dlg.InitialDirectory = AppSettings.MCLastOpenedFolder;
+                        dlg.InitialDirectory = AppSettings.SUB_LastOpenedFolder;
 
                         if (dlg.ShowDialog() == DialogResult.OK)
                         {
-                            _sub = SubtitleBase.LoadFromFile(dlg.FileName);
+                            _sub = new Subtitle(dlg.FileName);
+
+                            AppSettings.SUB_LastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+
                             lvSubtitles.Subtitle = _sub;
 
                             List<string> items = new List<string>();
@@ -916,7 +921,7 @@ namespace SubtitleEditor.Navigation
                     break;
                 
                 case ToolAction.ToolActionSave:
-                    if (_sub is DefaultSubtitle)
+                    if (_sub.IsEmpty)
                     {
                         goto saveas;
                     }
@@ -934,12 +939,13 @@ namespace SubtitleEditor.Navigation
                         dlg.Filter = "Subtitle files (*.srt, *.sub)|*.srt;*.sub||";//Translator.Translate("TXT_CATALOG_FILTER");
                         dlg.AddExtension = true;
                         dlg.DefaultExt = "srt";
-                    
-                        //dlg.InitialDirectory = AppSettings.MCLastOpenedFolder;
+                        dlg.InitialDirectory = AppSettings.SUB_LastOpenedFolder;
 
                         if (dlg.ShowDialog() == DialogResult.OK)
                         {
-                            _sub = _sub.SaveToFile(dlg.FileName);
+                            _sub.SaveToFile(dlg.FileName);
+
+                            AppSettings.SUB_LastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
                         }
                     }
                     break;

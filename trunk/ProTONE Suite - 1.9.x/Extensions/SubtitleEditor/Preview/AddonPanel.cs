@@ -28,7 +28,7 @@ namespace SubtitleEditor.Preview
         private OPMTableLayoutPanel opmTableLayoutPanel1;
         private OPMedia.UI.ProTONE.Controls.MediaPlayer.RenderingPanel renderingPanel1;
 
-        SubtitleBase _sub = null;
+        Subtitle _sub = null;
             
         public AddonPanel()
         {
@@ -54,10 +54,10 @@ namespace SubtitleEditor.Preview
         protected override void DoBeginPreview(string item, object additionalData)
         {
             MediaRendererInstance.Instance.RenderPanel = renderingZone1;
-            _sub = additionalData as SubtitleBase;
+            _sub = additionalData as Subtitle;
             if (_sub != null)
             {
-                MediaRendererInstance.Instance.SetRenderFile(_sub.VideoFile);
+                MediaRendererInstance.Instance.SetRenderFile(_sub.VideoFileInfo.Path);
                 MediaRendererInstance.Instance.StartRenderer();
                 MediaRendererInstance.Instance.PauseRenderer();
             }
@@ -81,7 +81,7 @@ namespace SubtitleEditor.Preview
                 }
 
                 MediaRendererInstance.Instance.ResumeRenderer(elem.StartTime.TotalSeconds - 0.2);
-                FfdShowHelper.DisplayOsdMessage(sb.ToString());
+                MediaRendererInstance.Instance.DisplayOsdMessage(sb.ToString());
                 //Thread.Sleep(500);
                 MediaRendererInstance.Instance.PauseRenderer();
             }

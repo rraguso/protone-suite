@@ -47,10 +47,10 @@
     <Compile Include="Configuration\SubtitleEditorCfgPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DataLayer\MicroDvdSubtitle.cs" />
-    <Compile Include="DataLayer\SubRipSubtitle.cs" />
-    <Compile Include="DataLayer\SubtitleBase.cs" />
-    <Compile Include="DataLayer\DefaultSubtitle.cs" />
+    <Compile Include="DataLayer\BaseSubtitleSupport.cs" />
+    <Compile Include="DataLayer\MicroDvdSupport.cs" />
+    <Compile Include="DataLayer\SubRipSupport.cs" />
+    <Compile Include="DataLayer\Subtitle.cs" />
     <Compile Include="DataLayer\SubtitleElement.cs" />
     <Compile Include="Navigation\AddonPanel.cs">
       <SubType>UserControl</SubType>
