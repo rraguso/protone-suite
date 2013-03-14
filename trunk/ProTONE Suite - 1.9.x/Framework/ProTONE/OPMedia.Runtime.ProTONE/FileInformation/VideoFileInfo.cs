@@ -97,6 +97,14 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
     {
         double _f;
 
+        public double Value
+        {
+            get
+            {
+                return _f;
+            }
+        }
+
         public FrameRate(double f)
         {
             this = new FrameRate();
