@@ -129,6 +129,7 @@ namespace SubtitleEditor.Property
                 tpDuration.OnValueChanged += new EventHandler(OnDurationChanged);
 
                 base.Modified = false;
+                btnSave.Enabled = btnUndo.Enabled = false;
             }
         }
 
@@ -170,6 +171,7 @@ namespace SubtitleEditor.Property
         void OnPropertyChanged(object sender, EventArgs e)
         {
             base.Modified = true;
+            btnSave.Enabled = btnUndo.Enabled = true;
         }
 
         #endregion
@@ -180,6 +182,9 @@ namespace SubtitleEditor.Property
             {
                 _elem.Lines = new List<string>(tbContents.Lines);
             }
+
+            base.Modified = false;
+            btnSave.Enabled = btnUndo.Enabled = false;
         }
 
         #region Auto-generated code
@@ -195,6 +200,8 @@ namespace SubtitleEditor.Property
             this.btnItalic = new OPMedia.UI.Controls.OPMToolStripButton();
             this.btnUnderlined = new OPMedia.UI.Controls.OPMToolStripButton();
             this.btnStrikethrough = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.btnColor = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.btnStartNow = new OPMedia.UI.Controls.OPMButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rtbContents = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -208,10 +215,8 @@ namespace SubtitleEditor.Property
             this.tpDuration = new OPMedia.UI.Controls.OPMTimePicker();
             this.label4 = new OPMedia.UI.Controls.OPMLabel();
             this.label5 = new OPMedia.UI.Controls.OPMLabel();
-            this.btnStartNow = new OPMedia.UI.Controls.OPMButton();
             this.btnEndNow = new OPMedia.UI.Controls.OPMButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnColor = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.opmToolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -335,6 +340,32 @@ namespace SubtitleEditor.Property
             this.btnStrikethrough.Size = new System.Drawing.Size(23, 22);
             this.btnStrikethrough.Text = "S";
             // 
+            // btnColor
+            // 
+            this.btnColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnColor.Image = ((System.Drawing.Image)(resources.GetObject("btnColor.Image")));
+            this.btnColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(23, 22);
+            this.btnColor.Text = " ";
+            // 
+            // btnStartNow
+            // 
+            this.btnStartNow.AutoSize = true;
+            this.btnStartNow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStartNow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStartNow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartNow.Location = new System.Drawing.Point(90, 321);
+            this.btnStartNow.Margin = new System.Windows.Forms.Padding(1, 4, 0, 0);
+            this.btnStartNow.MaximumSize = new System.Drawing.Size(21, 21);
+            this.btnStartNow.MinimumSize = new System.Drawing.Size(21, 21);
+            this.btnStartNow.Name = "btnStartNow";
+            this.btnStartNow.OverrideBackColor = System.Drawing.Color.Empty;
+            this.btnStartNow.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnStartNow.Size = new System.Drawing.Size(21, 21);
+            this.btnStartNow.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnStartNow, "Use current playback time as start time");
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -385,6 +416,7 @@ namespace SubtitleEditor.Property
             this.btnSave.Size = new System.Drawing.Size(72, 24);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "TXT_APPLY";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnUndo
             // 
@@ -398,6 +430,7 @@ namespace SubtitleEditor.Property
             this.btnUndo.Size = new System.Drawing.Size(72, 24);
             this.btnUndo.TabIndex = 1;
             this.btnUndo.Text = "TXT_UNDO";
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // label1
             // 
@@ -522,23 +555,6 @@ namespace SubtitleEditor.Property
             this.label5.Text = "TXT_CONTENTS";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnStartNow
-            // 
-            this.btnStartNow.AutoSize = true;
-            this.btnStartNow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStartNow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnStartNow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStartNow.Location = new System.Drawing.Point(90, 321);
-            this.btnStartNow.Margin = new System.Windows.Forms.Padding(1, 4, 0, 0);
-            this.btnStartNow.MaximumSize = new System.Drawing.Size(21, 21);
-            this.btnStartNow.MinimumSize = new System.Drawing.Size(21, 21);
-            this.btnStartNow.Name = "btnStartNow";
-            this.btnStartNow.OverrideBackColor = System.Drawing.Color.Empty;
-            this.btnStartNow.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnStartNow.Size = new System.Drawing.Size(21, 21);
-            this.btnStartNow.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnStartNow, "Use current playback time as start time");
-            // 
             // btnEndNow
             // 
             this.btnEndNow.AutoSize = true;
@@ -555,15 +571,6 @@ namespace SubtitleEditor.Property
             this.btnEndNow.Size = new System.Drawing.Size(21, 21);
             this.btnEndNow.TabIndex = 16;
             this.toolTip1.SetToolTip(this.btnEndNow, "Use current playback time as end time");
-            // 
-            // btnColor
-            // 
-            this.btnColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnColor.Image = ((System.Drawing.Image)(resources.GetObject("btnColor.Image")));
-            this.btnColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(23, 22);
-            this.btnColor.Text = " ";
             // 
             // AddonPanel
             // 
@@ -585,5 +592,15 @@ namespace SubtitleEditor.Property
         }
 
         #endregion
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveProperties();
+        }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            ShowProperties(null, _elem);
+        }
     }
 }

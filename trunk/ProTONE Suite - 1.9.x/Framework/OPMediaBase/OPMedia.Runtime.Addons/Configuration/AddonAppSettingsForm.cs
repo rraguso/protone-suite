@@ -6,6 +6,7 @@ using OPMedia.Core;
 using System.Windows.Forms;
 using OPMedia.UI;
 using OPMedia.Runtime.Addons.AddonsBase;
+using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.Runtime.Addons.Configuration
 {
@@ -34,10 +35,10 @@ namespace OPMedia.Runtime.Addons.Configuration
 
         public override void AddAditionalPanels()
         {
+            Translator.RegisterTranslationAssembly(GetType().Assembly);
+
             AddPanel(typeof(AddonCfgPanel));
             AddPanel(typeof(AddonSettingsPanel), !AddonsConfig.IsInitialConfig);
-
-
         }
 
         public override void RemoveUnneededPanels()

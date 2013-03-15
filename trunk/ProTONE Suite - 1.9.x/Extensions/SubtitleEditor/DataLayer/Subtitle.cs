@@ -7,6 +7,7 @@ using System.IO;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using SubtitleEditor.Rendering;
+using OPMedia.Core.Utilities;
 
 namespace SubtitleEditor.extension.DataLayer
 {
@@ -142,7 +143,7 @@ namespace SubtitleEditor.extension.DataLayer
                 .Replace("\n", @"\par ")
                 ;
 
-            string rtf = subText;// StringUtils.ConvertDiacriticalsToRtfTags(subText);
+            string rtf = StringUtils.ConvertDiacriticalsToRtfTags(subText);
 
             return RtfContainerTemplate.Replace("<TEXT>", rtf);
         }

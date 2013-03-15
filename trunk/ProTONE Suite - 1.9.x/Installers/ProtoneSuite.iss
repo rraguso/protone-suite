@@ -99,6 +99,7 @@ Source: {#BINDIR}\Resources\bookmark.ico; DestDir: {app}\Resources; Flags: promp
 Source: {#BINDIR}\Resources\AudioFile.ico; DestDir: {app}\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\Resources\VideoFile.ico; DestDir: {app}\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\Resources\Playlist.ico; DestDir: {app}\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\Resources\Subtitle.ico; DestDir: {app}\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
 
 Source: {#BINDIR}\ro\OPMedia.ProTONE.resources.dll; DestDir: {app}\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\ro\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
@@ -162,6 +163,12 @@ Source: {#BINDIR}\ru\OPMedia.ServiceHelper.RCCService.resources.dll; DestDir: {a
 Source: {#BINDIR}\hu\OPMedia.RCCManager.resources.dll; DestDir: {app}\hu\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemRemote
 Source: {#BINDIR}\hu\OPMedia.ServiceHelper.RCCService.resources.dll; DestDir: {app}\hu\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
+Source: {#BINDIR}\SubtitleEditor.extension.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary\itemSubEdit
+Source: {#BINDIR}\ro\SubtitleEditor.extension.resources.dll; DestDir: {app}\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemLibrary\itemSubEdit
+Source: {#BINDIR}\de\SubtitleEditor.extension.resources.dll; DestDir: {app}\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemLibrary\itemSubEdit
+Source: {#BINDIR}\fr\SubtitleEditor.extension.resources.dll; DestDir: {app}\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemLibrary\itemSubEdit
+Source: {#BINDIR}\ru\SubtitleEditor.extension.resources.dll; DestDir: {app}\ru\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemLibrary\itemSubEdit
+Source: {#BINDIR}\hu\SubtitleEditor.extension.resources.dll; DestDir: {app}\hu\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemLibrary\itemSubEdit
 
 Source: isxdl.dll; DestDir: {tmp}; Flags: dontcopy
 Source: ..\Externals\ffdshow\ff_kernelDeint.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
@@ -224,6 +231,7 @@ Name: default; Description: default; Flags: iscustom; Languages: en de fr ro ru 
 [Components]
 Name: itemPlayer; Description: {cm:itemPlayer}; Flags: fixed checkablealone; Types: default
 Name: itemPlayer\itemLibrary; Description: {cm:itemLibrary}; Flags: dontinheritcheck; Types: default
+Name: itemPlayer\itemLibrary\itemSubEdit; Description: {cm:itemSubEdit}; Flags: dontinheritcheck; Types: default
 Name: itemPlayer\itemRemote; Description: {cm:itemRemote}; Flags: dontinheritcheck; Types: default
 Name: itemCodecs; Description: {cm:itemCodecs}; Flags: fixed checkablealone; Types: default; Check: CodecsAreMissing
 Name: itemCodecs\itemFFDShow; Description: {cm:itemFfdShow}; Flags: checkablealone; Check: FFDShowIsMissing; Types: default

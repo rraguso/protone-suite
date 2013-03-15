@@ -8,6 +8,7 @@ using OPMedia.UI.ProTONE.Controls.MediaPlayer;
 using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
+using OPMedia.Core.Utilities;
 
 namespace SubtitleEditor.Rendering
 {
@@ -171,7 +172,7 @@ namespace SubtitleEditor.Rendering
 
         internal void DisplayOsdMessage(string p)
         {
-            _renderer.DisplayOsdMessage(p);
+            _renderer.DisplayOsdMessage(StringUtils.FixDiacriticals(p));
         }
     }
 }

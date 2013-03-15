@@ -85,7 +85,13 @@ namespace OPMedia.UI.Themes
 
         public new DialogResult ShowDialog()
         {
-            return base.ShowDialog(MainThread.MainWindow);
+            Form owner = null;
+            if (this != MainThread.MainWindow)
+            {
+                owner = MainThread.MainWindow;
+            }
+
+            return base.ShowDialog(owner);
         }
 
         public ThemeForm() : base()
