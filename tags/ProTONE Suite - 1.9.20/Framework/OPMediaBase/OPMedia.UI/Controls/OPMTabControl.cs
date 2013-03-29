@@ -1,0 +1,299 @@
+using System.Windows.Forms;
+using System.Drawing;
+using System;
+using System.Drawing.Drawing2D;
+using OPMedia.UI.Themes;
+using System.ComponentModel;
+using OPMedia.Core.TranslationSupport;
+using System.Drawing.Text;
+
+namespace OPMedia.UI.Controls
+{
+    public class OPMTabControl : TabControl
+    {
+        public new ImageList ImageList { get; private set;}
+
+        [ReadOnly(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new Font Font { get { return base.Font; } }
+
+        [ReadOnly(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new TabSizeMode SizeMode { get { return base.SizeMode; } }
+
+        [ReadOnly(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new Point Padding
+        {
+            get { return base.Padding; }
+        }
+
+        private Timer _tmr = null;
+
+        public OPMTabControl()
+            : base()
+        {
+            ImageList = new ImageList();
+            ImageList.ColorDepth = ColorDepth.Depth32Bit;
+            ImageList.TransparentColor = Color.Magenta;
+            base.ImageList = this.ImageList;
+
+            base.SizeMode = TabSizeMode.Normal;
+
+            base.SetStyle(ControlStyles.ResizeRedraw, true);
+            base.SetStyle(ControlStyles.UserPaint, true);
+            base.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            base.SetStyle(ControlStyles.DoubleBuffer, true);
+            base.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
+            base.Font = ThemeManager.VeryLargeFont;
+            base.FontHeight = ThemeManager.VeryLargeFont.Height;
+
+            base.Padding = new Point(1, 1);
+
+            this.SelectedIndexChanged += new EventHandler(OPMTabControl_SelectedIndexChanged);
+
+            _tmr = new Timer();
+            _tmr.Interval = 500;
+            _tmr.Tick += new EventHandler(_tmr_Tick);
+            _tmr.Start();
+        }
+
+        void _tmr_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                _tmr.Stop();
+
+                for (int i = 0; i < base.TabPages.Count; i++)
+                {
+                    TabPage tp = TabPages[i];
+
+                    Padding p = new Padding(5, 10, 5, 5);
+                    if (tp.Padding != p)
+                    {
+                        tp.Padding = p;
+                    }
+                    if (tp.BackColor != ThemeManager.BackColor)
+                    {
+                        tp.BackColor = ThemeManager.BackColor;
+                    }
+                }
+            }
+            finally
+            {
+                _tmr.Start();
+            }
+        }
+        
+        void OPMTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Invalidate(true);
+        }        
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.CompositingMode = CompositingMode.SourceOver;
+            e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
+            e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
+            Rectangle rcx = new Rectangle(
+                ClientRectangle.Left,
+                ClientRectangle.Top + ItemSize.Height + 2,
+                ClientRectangle.Width - 2, 
+                ClientRectangle.Height - ItemSize.Height - 4);
+            Rectangle rcx2 = new Rectangle(rcx.Location, rcx.Size);
+            rcx2.Inflate(-1, -1);
+
+            using (Pen p = new Pen(ThemeManager.BorderColor))
+            {
+                e.Graphics.DrawRectangle(p, rcx);
+            }
+
+            for (int i = 0; i < base.TabPages.Count; i++)
+            {
+                PaintTabPageHeader(i, e.Graphics);
+            }
+        }
+
+        private void PaintTabPageHeader(int i, Graphics graphics)
+        {
+            TabPage tp = TabPages[i];
+
+            Rectangle rcDraw = base.GetTabRect(i);
+
+            bool selected = (SelectedTab == tp);
+            bool isLast = (TabPages.Count - 1 <= i);
+            bool isPrev = (SelectedIndex == (i + 1));
+            
+            Rectangle rcx = new Rectangle(
+                rcDraw.Left - 2, 
+                rcDraw.Top,
+                rcDraw.Width, 
+                rcDraw.Height);
+            Rectangle rcx2 = new Rectangle(
+                rcDraw.Left - 1,
+                rcDraw.Top + 1,
+                rcDraw.Width - 2,
+                rcDraw.Height);
+
+            using (Brush b = new LinearGradientBrush(rcx, ControlPaint.Light(ThemeManager.BorderColor), ThemeManager.BorderColor, 90))
+            using (Pen p = new Pen(ThemeManager.BorderColor))
+            {
+                graphics.FillRectangle(b, rcx);
+                graphics.DrawRectangle(p, rcx);
+            }
+
+            if (selected)
+            {
+                using (Brush b = new SolidBrush(ThemeManager.BackColor))
+                {
+                    graphics.FillRectangle(b, rcx2);
+                }
+            }
+            else if (!isLast && !isPrev)
+            {
+                Point p1 = new Point(rcDraw.Right - 3, rcDraw.Top + 2);
+                Point p2 = new Point(rcDraw.Right - 3, rcDraw.Bottom - 2);
+                Point p3 = new Point(rcDraw.Right - 2, rcDraw.Top + 2);
+                Point p4 = new Point(rcDraw.Right - 2, rcDraw.Bottom - 2);
+                
+                using (Pen pen1 = new Pen(ThemeManager.ForeColor))
+                using (Pen pen2 = new Pen(ThemeManager.WndValidColor))
+                {
+                    graphics.DrawLine(pen1, p1, p2);
+                    graphics.DrawLine(pen2, p3, p4);
+                }
+            }
+
+            #region Draw image
+
+            int textOffset = 4;
+            Image img = GetTabPageImage(tp);
+
+            if (img != null)
+            {
+                int size = Math.Min(rcDraw.Height - 4, img.Height);
+                int diff = (rcDraw.Height - size) / 2;
+
+                textOffset += size;
+
+                Rectangle rcImage = new Rectangle(rcDraw.Left + diff, rcDraw.Top + diff,
+                    size, size);
+
+                graphics.DrawImage(img, rcImage);
+            }
+            #endregion
+
+            #region Draw text
+            Rectangle rcText = new Rectangle(rcDraw.Left + textOffset, rcDraw.Top,
+                    rcDraw.Width - textOffset, rcDraw.Height);
+
+            StringFormat fmt = new StringFormat();
+            fmt.Alignment = StringAlignment.Near;
+            fmt.LineAlignment = StringAlignment.Center;
+            fmt.Trimming = StringTrimming.EllipsisCharacter;
+            fmt.FormatFlags = StringFormatFlags.NoWrap;
+
+            using (Brush tb = new SolidBrush(ThemeManager.ForeColor))
+            {
+                if (selected)
+                {
+                    graphics.DrawString(tp.Text, ThemeManager.NormalBoldFont, tb, rcText, fmt);
+                }
+                else
+                {
+                    graphics.DrawString(tp.Text, ThemeManager.NormalFont, tb, rcText, fmt);
+                }
+            }
+
+            #endregion
+        }
+
+        private Image GetTabPageImage(TabPage tp)
+        {
+            Image img = null;
+
+            //if (tp is OPMTabPage)
+            //{
+            //    img = (tp as OPMTabPage).Image;
+            //}
+
+            if (img == null && ImageList != null && ImageList.Images.Count > 0)
+            {
+                if (tp.ImageIndex < ImageList.Images.Count)
+                {
+                    img = ImageList.Images[tp.ImageIndex];
+                }
+
+                if (img == null && ImageList.Images.ContainsKey(tp.ImageKey))
+                {
+                    img = ImageList.Images[tp.ImageKey];
+                }
+            }
+
+            return img;
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs pevent)
+        {
+            pevent.Graphics.CompositingMode = CompositingMode.SourceOver;
+            pevent.Graphics.CompositingQuality = CompositingQuality.GammaCorrected;
+            pevent.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Rectangle rc = new Rectangle(-1, -1, Width + 2, Height + 2);
+
+            using (Brush b = new SolidBrush(ThemeManager.BackColor))
+            {
+                pevent.Graphics.FillRectangle(b, rc);
+            }
+        }
+    }
+
+    public class OPMTabPage : TabPage
+    {
+        [ReadOnly(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new Font Font { get { return base.Font; } }
+
+        public Control Control
+        {
+            get
+            {
+                if (Controls.Count > 0)
+                {
+                    return Controls[0];
+                }
+
+                return null;
+            }
+        }
+
+        public OPMTabPage()
+            : base()
+        {
+            base.Font = ThemeManager.VeryLargeFont;
+        }
+
+        public OPMTabPage(string title = "", Control control = null)
+        {
+            this.Text = title;
+            base.Font = ThemeManager.VeryLargeFont;
+
+            if (control != null)
+            {
+                this.Controls.Add(control);
+            }
+
+        }
+    }
+}
+

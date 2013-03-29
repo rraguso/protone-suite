@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ACT_HIBERNATE">
+  <value>Введите в спящем режиме</value>
+</data>
+<data name="TXT_ACT_LAUNCHPROGRAM">
+  <value>Разработать программу</value>
+</data>
+<data name="TXT_ACT_NONE">
+  <value>Не обращайте внимания на события</value>
+</data>
+<data name="TXT_ACT_SHUTDOWN">
+  <value>Выключите компьютер</value>
+</data>
+<data name="TXT_ACT_STANDBY">
+  <value>Введите в режиме ожидания</value>
+</data>
+<data name="TXT_NEWNOW">
+  <value>Новые сейчас</value>
+</data>
+<data name="TXT_NEWNOW_BMDESC">
+  <value>Добавить новую закладку в текущее время воспроизведения</value>
+</data>
+<data name="TXT_NEW_BMDESC">
+  <value>Добавить новую закладку</value>
+</data>
+<data name="TXT_DELETE_BMDESC">
+  <value>Удалить закладку</value>
+</data>
+<data name="TXT_ADD_BOOKMARK">
+  <value>Добавить закладку</value>
+</data>
+<data name="TXT_AUDIOSETTINGS">
+  <value>Настройки звука</value>
+</data>
+<data name="TXT_AUDIO_AVAILABLE">
+  <value>Звуковой поток в наличии.</value>
+</data>
+<data name="TXT_AUDIO_FILES">
+  <value>Аудио файлы</value>
+</data>
+<data name="TXT_AVAILABLE_DVD_MEDIA">
+  <value>или открыть одну из имеющихся средств массовой информации DVD в системе:</value>
+</data>
+<data name="TXT_BOOKMARK_DEFAULT_TEXT">
+  <value>По умолчанию закладки текст (использовать Bookmark Manager менять)</value>
+</data>
+<data name="TXT_BOOKMARK_DESC">
+  <value>Добавить описание:</value>
+</data>
+<data name="TXT_BOOKMARK_MANAGER">
+  <value>Bookmark Manager</value>
+</data>
+<data name="TXT_BOOKMARK_TIME">
+  <value>Закладка время:</value>
+</data>
+<data name="TXT_BTNCLEAR">
+  <value>Удалите весь плейлист&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNDELETE">
+  <value>Удалить выбранные элементы&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNFULLSCREEN">
+  <value>Переключить Full Screen&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNFWD">
+  <value>. Быстрая перемотка вперед с 5 секунд&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNJUMPTOITEM">
+  <value>. Откройте 'Перейти в плейлист элемента диалогового&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNLOAD">
+  <value>Загрузите новый файл (ы)&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNLOADPLAYLIST">
+  <value>Загрузите новый плейлист&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNLOOPPLAY">
+  <value>. Включает / выключает играет в цикле&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNMOVEDOWN">
+  <value>Переместить выбранные элементы с на одну позицию вниз в плейлист&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNMOVEUP">
+  <value>Переместить выбранные элементы с одной позиции в плейлист&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNNEXT">
+  <value>Переход к следующему файлу в плейлист&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNOPENDISK">
+  <value>Открывает нагрузки DVD средствах массовой информации диалоговом&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNOPENSETTINGS">
+  <value>. Отображает диалоговое окно Параметры&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNPAUSE">
+  <value>. Пауза воспроизведения&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNPLAY">
+  <value>Играть файл&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNPLAYLISTEND">
+  <value>Активизирует "действие на плейлист конца '&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNPREV">
+  <value>Переход к предыдущему файлу в плейлист&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNREW">
+  <value>. Перемотка с 5 секунд&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNSAVEPLAYLIST">
+  <value>Сохранить текущий плейлист&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNSTOP">
+  <value>Остановить воспроизведение&#xD;
+ Shortcut:. {0}</value>
+</data>
+<data name="TXT_BTNTOGGLESHUFFLE">
+  <value>. Активирует режим случайного воспроизведения плейлиста&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNVOLDN">
+  <value>. Снижение громкости на 5%&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_BTNVOLUP">
+  <value>. Объем выросли на 5%&#xD;
+ Shortcut: {0}</value>
+</data>
+<data name="TXT_CMDADDBOOKMARK">
+  <value>Добавить закладку</value>
+</data>
+<data name="TXT_CMDBOOKMARKMANAGER">
+  <value>Откройте менеджер закладок</value>
+</data>
+<data name="TXT_CMDCFGAUDIO">
+  <value>Отображает Audio Configuration</value>
+</data>
+<data name="TXT_CMDCFGREMOTE">
+  <value>Отображает настройки удаленного управления</value>
+</data>
+<data name="TXT_CMDCFGSUBTITLES">
+  <value>Дисплеи Субтитры и OSD конфигурации</value>
+</data>
+<data name="TXT_CMDCFGTIMER">
+  <value>Отображает параметры таймера</value>
+</data>
+<data name="TXT_CMDCFGVIDEO">
+  <value>Отображение видео Конфигурация</value>
+</data>
+<data name="TXT_CMDCLEAR">
+  <value>Удаление всего списка воспроизведения.</value>
+</data>
+<data name="TXT_CMDDELETE">
+  <value>Удалить выбранные элементы.</value>
+</data>
+<data name="TXT_CMDFULLSCREEN">
+  <value>Переключить Full Screen</value>
+</data>
+<data name="TXT_CMDFWD">
+  <value>Быстрая перемотка вперед с 5 секунд.</value>
+</data>
+<data name="TXT_CMDJUMPTOITEM">
+  <value>Откройте 'Перейти в плейлист элемента диалогового</value>
+</data>
+<data name="TXT_CMDLOAD">
+  <value>Загрузите новый файл (ы).</value>
+</data>
+<data name="TXT_CMDLOADPLAYLIST">
+  <value>Загрузите новый плейлист.</value>
+</data>
+<data name="TXT_CMDLOOPPLAY">
+  <value>Переключение играть в петлю.</value>
+</data>
+<data name="TXT_CMDMOVEDOWN">
+  <value>Переместить выбранные элементы с на одну позицию вниз в списке.</value>
+</data>
+<data name="TXT_CMDMOVEUP">
+  <value>Переместить выбранные элементы с на одну позицию вверх в списке.</value>
+</data>
+<data name="TXT_CMDNEXT">
+  <value>Переход к следующему файлу в списке воспроизведения.</value>
+</data>
+<data name="TXT_CMDOPENDISK">
+  <value>Открывает нагрузки DVD средствах массовой информации диалоговом</value>
+</data>
+<data name="TXT_CMDOPENURL">
+  <value>Открыть URL</value>
+</data>
+<data name="TXT_CMDPAUSE">
+  <value>Пауза воспроизведения.</value>
+</data>
+<data name="TXT_CMDPLAY">
+  <value>Играть файла.</value>
+</data>
+<data name="TXT_CMDPLAYLISTEND">
+  <value>Активизирует "действие на конец плейлиста"</value>
+</data>
+<data name="TXT_CMDPREV">
+  <value>Переход к предыдущему файлу в списке воспроизведения.</value>
+</data>
+<data name="TXT_CMDREW">
+  <value>Перемотка с 5 секунд.</value>
+</data>
+<data name="TXT_CMDSAVEPLAYLIST">
+  <value>Сохранить текущий список воспроизведения.</value>
+</data>
+<data name="TXT_CMDSEARCHSUBTITLES">
+  <value>Поисковые субтитров для видеоклипов</value>
+</data>
+<data name="TXT_CMDSTOP">
+  <value>Остановка воспроизведения.</value>
+</data>
+<data name="TXT_CMDTOGGLESHUFFLE">
+  <value>Активизирует плейлист случайном порядке.</value>
+</data>
+<data name="TXT_CMDVOLDN">
+  <value>Снижение громкости на 5%.</value>
+</data>
+<data name="TXT_CMDVOLUP">
+  <value>Объем выросли на 5%.</value>
+</data>
+<data name="TXT_CONFIGUREAUDIO">
+  <value>Настройки звука</value>
+</data>
+<data name="TXT_CONFIGUREPLAYLIST">
+  <value>Playlist</value>
+</data>
+<data name="TXT_CONFIGURESUBTITLES">
+  <value>Настройки субтитров</value>
+</data>
+<data name="TXT_CONFIGUREVIDEO">
+  <value>Настройки видео</value>
+</data>
+<data name="TXT_CONFIRM_OVERWRITE_SUBTITLE">
+  <value>Подтвердите субтитров перезаписать</value>
+</data>
+<data name="TXT_EDITID3ARTWORK">
+  <value>Работа ID3 Редактор</value>
+</data>
+<data name="TXT_ELAPSED_TIME">
+  <value>Прошедшее время.&#xD;
+ Двойной щелчок для переключения оставшееся время</value>
+</data>
+<data name="TXT_ENABLEREMOTECONTROL">
+  <value>Разрешить ProTone игрока будет управляться дистанционно.</value>
+</data>
+<data name="TXT_ENABLE_PLAYLISTEVT">
+  <value>Действия на "плейлист закончился" события</value>
+</data>
+<data name="TXT_ENABLE_SCHEDULEDEVT">
+  <value>Действие на регулярных момент</value>
+</data>
+<data name="TXT_ENDED">
+  <value>Завершен</value>
+</data>
+<data name="TXT_ENQUEUEFILES">
+  <value>Добавляет файлы в конце текущего плейлиста</value>
+</data>
+<data name="TXT_ENTER_KEYWORD">
+  <value>Введите ключевое слово для поиска (ы), разделенных пробелами:</value>
+</data>
+<data name="TXT_FFDSHOW_SUBTITLES">
+  <value>Открытое FFDShow Настройки субтитров ...</value>
+</data>
+<data name="TXT_FILETYPES">
+  <value>Типы файлов</value>
+</data>
+<data name="TXT_FILETYPES_ASSOCIATIONS">
+  <value>Ассоциированный игрока ProTone с этими типами файлов:</value>
+</data>
+<data name="TXT_HANDLEEXPLORERLAUNCH">
+  <value>Когда файлы запускаются из Windows Explorer:</value>
+</data>
+<data name="TXT_HIBERNATE_PC">
+  <value>поставить компьютер в спящий режим</value>
+</data>
+<data name="TXT_IGNOREMOUSEMOVE">
+  <value>Игнорировать движения мыши в полноэкранном режиме</value>
+</data>
+<data name="TXT_JUMP_TO_ITEM">
+  <value>Перейти к пункту плейлист</value>
+</data>
+<data name="TXT_LAUNCH_PROGRAM">
+  <value>запуска пользовательских программ</value>
+</data>
+<data name="TXT_LAUNCH_RCCMANAGER">
+  <value>Запуск ProTone РСС Manager ...</value>
+</data>
+<data name="TXT_LEFTVOL">
+  <value>LVOL</value>
+</data>
+<data name="TXT_LOADMEDIAFILES">
+  <value>Загрузка медиа-файлов ...</value>
+</data>
+<data name="TXT_LOADPLAYLIST">
+  <value>Загрузите плейлист ...</value>
+</data>
+<data name="TXT_LOAD_DVD_FOLDER">
+  <value>Пожалуйста, выберите видео контента DVD папки&#xD;
+ (либо папку VIDEO_TS, или его родитель):</value>
+</data>
+<data name="TXT_MATCHING_ITEMS">
+  <value>Соответствующие пункты (двойным щелчком мыши или нажмите клавишу ввода, чтобы играть единицу):</value>
+</data>
+<data name="TXT_MEDIA_NAME">
+  <value>Носитель:</value>
+</data>
+<data name="TXT_MEDIA_STATE">
+  <value>СМИ теперь {0}</value>
+</data>
+<data name="TXT_MEDIA_TIME">
+  <value>Время:</value>
+</data>
+<data name="TXT_MEDIASTATENOTIFICATIONSENABLED">
+  <value>Отображение уведомления подсказки рядом системном трее, когда государственные СМИ изменениями</value>
+</data>
+<data name="TXT_MINMOVIEDURATION">
+  <value>Не загружать субтитры, если клип короче, чем&#xD;
+ (0 = всегда скачать)</value>
+</data>
+<data name="TXT_MNUAUDIO">
+  <value>Настройки звука ...</value>
+</data>
+<data name="TXT_MNULOADPLAYLIST">
+  <value>Загрузите Playlist ...</value>
+</data>
+<data name="TXT_MNULOOPPLAY">
+  <value>Loop Play</value>
+</data>
+<data name="TXT_MNUSAVEPLAYLIST">
+  <value>Сохранить Playlist ...</value>
+</data>
+<data name="TXT_MNUSCHEDULER">
+  <value>Timer Options ...</value>
+</data>
+<data name="TXT_MNUSETTINGS">
+  <value>Настройки ...</value>
+</data>
+<data name="TXT_MNUSUBTITLE">
+  <value>Субтитры и OSD ...</value>
+</data>
+<data name="TXT_MNUTOOLS">
+  <value>Настройки и параметры</value>
+</data>
+<data name="TXT_MNUVIDEO">
+  <value>Настройки видео ...</value>
+</data>
+<data name="TXT_MOVEDOWN">
+  <value>Вниз</value>
+</data>
+<data name="TXT_MOVEUP">
+  <value>Вверх</value>
+</data>
+<data name="TXT_NEW_BOOKMARK">
+  <value>Новая закладка</value>
+</data>
+<data name="TXT_NEW_BOOKMARK_ADDED">
+  <value>Закладка нового было добавлено: {0}</value>
+</data>
+<data name="TXT_NOT_CONFIGURABLE">
+  <value>Эта опция не доступна в данный момент.</value>
+</data>
+<data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
+  <value>Эта опция не доступна в данный момент.&#xD;
+ Вы должны установить пакет кодеков FFDShow, чтобы иметь действия этой опции.</value>
+</data>
+<data name="TXT_NO_LANG">
+  <value>Нет языка</value>
+</data>
+<data name="TXT_NO_SUBS_FOUND">
+  <value>К сожалению, нет субтитров были найдены для этого ролика.</value>
+</data>
+<data name="TXT_ONDAYS">
+  <value>В будние дни:</value>
+</data>
+<data name="TXT_OSD">
+  <value>On-Screen Display (OSD)</value>
+</data>
+<data name="TXT_OSDCFG">
+  <value>Настройки экранного меню OSD</value>
+</data>
+<data name="TXT_OSDCOLOR">
+  <value>OSD Цвет текста</value>
+</data>
+<data name="TXT_OSDENABLED">
+  <value>Включить On-Screen Display (OSD)</value>
+</data>
+<data name="TXT_OSDFONT">
+  <value>OSD шрифт текста</value>
+</data>
+<data name="TXT_OSDSAMPLETEXT">
+  <value>OSD образца текста</value>
+</data>
+<data name="TXT_OSDTIMER">
+  <value>OSD Видимость таймера (в секундах):</value>
+</data>
+<data name="TXT_OSD_FULLSCREEN">
+  <value>Полноэкранный режим {0}</value>
+</data>
+<data name="TXT_OSD_PAUSED">
+  <value>Приостановлена</value>
+</data>
+<data name="TXT_OSD_PLAY">
+  <value>Игра: {0}</value>
+</data>
+<data name="TXT_OSD_SEEKTO">
+  <value>Воспроизведение возобновляется с: {0}</value>
+</data>
+<data name="TXT_OSD_VOL">
+  <value>Объем: {0}%</value>
+</data>
+<data name="TXT_OVERWRITE_SUBTITLE">
+  <value>Выбранный клип уже есть субтитры.&#xD;
+ Если другой субтитрами можно найти на Интернет, он будет перезаписывать существующие.&#xD;
+&#xD;
+Вы уверены, что хотите найти другую субтитров?</value>
+</data>
+<data name="TXT_PAUSED">
+  <value>Приостановлена</value>
+</data>
+<data name="TXT_PLAYFILES">
+  <value>Воспроизведение файлов (замена текущего плей-листа)</value>
+</data>
+<data name="TXT_PLAYING">
+  <value>Игра</value>
+</data>
+<data name="TXT_PLAYLIST">
+  <value>Playlist</value>
+</data>
+<data name="TXT_PLAYLISTEND_EVT">
+  <value>Когда плейлист заканчивается ...</value>
+</data>
+<data name="TXT_PLAYLISTEVT_DESC">
+  <value>Внимание: этот параметр не является постоянным в программу сессий&#xD;
+&#xD;
+ Когда плейлисты заканчивается:</value>
+</data>
+<data name="TXT_PLAYLISTS">
+  <value>Плейлисты</value>
+</data>
+<data name="TXT_PLAYLIST_END_MSG">
+  <value>плейлист закончился</value>
+</data>
+<data name="TXT_PLAY_FROM">
+  <value>от: {0}</value>
+</data>
+<data name="TXT_PREFFEREDSUBTITLELANG">
+  <value>Предпочтительный язык субтитров:</value>
+</data>
+<data name="TXT_PROCEED_SCHEDULED_ACTION">
+  <value>ProTone Игрок пытается {0}. Это происходит потому, что вы настроили игроков сделать это, когда {1}. Вы хотите продолжить?&#xD;
+&#xD;
+Вы можете прервать эту операцию, если вы щелкните Прервать течение оставшегося периода времени (см. счетчика ниже). Если это время истекает, и Вы не выбрали ни одного действия, то будем считать, вы выбрали для продолжения.</value>
+</data>
+<data name="TXT_PROTONE_ENQUEUE">
+  <value>Добавляет в ProTone игрока</value>
+</data>
+<data name="TXT_PROTONE_PLAY">
+  <value>Играть в ProTone игрока</value>
+</data>
+<data name="TXT_REMAINING_TIME">
+  <value>Оставшееся время.&#xD;
+Двойной щелчок для переключения прошедшее время</value>
+</data>
+<data name="TXT_REMOTECONTROLCFG">
+  <value>Пульт дистанционного управления</value>
+</data>
+<data name="TXT_REMOTECONTROLDEFINITION">
+  <value>Для определения программ и устройств, которым разрешено управлять ProTone игроком, вы должны использовать ProTone РСС программы Manager.&#xD;
+Нажмите на кнопку ниже, чтобы начать ProTone РСС Manager ...</value>
+</data>
+<data name="TXT_RIGHTVOL">
+  <value>RVOL</value>
+</data>
+<data name="TXT_SAVEPLAYLIST">
+  <value>Сохранить плейлист как ...</value>
+</data>
+<data name="TXT_SCHEDULEDEVT_DESC">
+  <value>Когда запланирован момент происходит:</value>
+</data>
+<data name="TXT_SCHEDULEDEVT_TIME">
+  <value>Расписание событий таймера по адресу:</value>
+</data>
+<data name="TXT_SCHEDULED_ACTION_PROCEED">
+  <value>Продолжить выполнение действия?</value>
+</data>
+<data name="TXT_SCHEDULED_EVENT_MSG">
+  <value>запланировано момент произошло</value>
+</data>
+<data name="TXT_SCHEDULERSETTINGS">
+  <value>Таймер</value>
+</data>
+<data name="TXT_SCHEDULERWAITTIMERPROCEED">
+  <value>Сколько минут ждать подтверждения, прежде чем продолжить&#xD;
+ (0 = не запрашивает подтверждения, перейдем непосредственно):</value>
+</data>
+<data name="TXT_SEARCH_SUBTITLES">
+  <value>Поиск субтитров ...</value>
+</data>
+<data name="TXT_SELECT_ALLAUDIO">
+  <value>Все аудио файлы</value>
+</data>
+<data name="TXT_SELECT_ALLPLAYLISTS">
+  <value>Все плейлисты</value>
+</data>
+<data name="TXT_SELECT_ALLVIDEO">
+  <value>Все видео файлы</value>
+</data>
+<data name="TXT_SELECT_DVD">
+  <value>Загрузите DVD Media</value>
+</data>
+<data name="TXT_SERIALDEVICE">
+  <value>Устройство дистанционного управления</value>
+</data>
+<data name="TXT_SERVERTYPE">
+  <value>Тип сервера</value>
+</data>
+<data name="TXT_SERVERURL">
+  <value>URL</value>
+</data>
+<data name="TXT_SHELL_INTEGRATION">
+  <value>Интеграция с Windows Explorer</value>
+</data>
+<data name="TXT_SHUFFLE">
+  <value>Тасовать</value>
+</data>
+<data name="TXT_SHUTDOWN_PC">
+  <value>выключить компьютер</value>
+</data>
+<data name="TXT_SKIP_DVD_MENU">
+  <value>Не обращайте внимания на меню DVD (воспроизведение напрямую первый титул)</value>
+</data>
+<data name="TXT_STANDBY_PC">
+  <value>поставить компьютер в режим ожидания</value>
+</data>
+<data name="TXT_STOPPED">
+  <value>Остановившийся</value>
+</data>
+<data name="TXT_SUBTITLEDOWNLOADNOTIFY">
+  <value>{0} субтитры были найдены {1}:</value>
+</data>
+<data name="TXT_SUBTITLES">
+  <value>Субтитры</value>
+</data>
+<data name="TXT_SUBTITLESCFG">
+  <value>Настройки субтитров</value>
+</data>
+<data name="TXT_SUBTITLESETTINGS">
+  <value>Субтитры / OSD</value>
+</data>
+<data name="TXT_SUBTITLE_DOWNLOAD">
+  <value>Разрешить загрузку субтитров из Интернета</value>
+</data>
+<data name="TXT_SUB_DOWNLOAD_ERROR">
+  <value>Субтитры поиск был прерван, потому что произошла ошибка.</value>
+</data>
+<data name="TXT_SUB_HINTS">
+  <value>Подсказка: Результаты сортируются по этим критериям (в указанном порядке): выбранный столбец, язык (предпочтительный язык на вершине),&#xD;
+ PRIO (сервер порядке = порядке субтитры Субтитры серверов в / OSD странице Настройки). Нажмите на заголовок столбца, чтобы выбрать другой вид citeria.</value>
+</data>
+<data name="TXT_SUB_LOAD">
+  <value>Загрузите выбранные субтитры</value>
+</data>
+<data name="TXT_SUB_LOADED">
+  <value>Выбранные субтитры были успешно загружены! Наслаждайтесь!</value>
+</data>
+<data name="TXT_SYSTEMDIAGNOSTICS">
+  <value>Диагностика</value>
+</data>
+<data name="TXT_SYSTEM_NOT_OK">
+  <value>Мультимедиа кодеки не установлены и настроены OK.</value>
+</data>
+<data name="TXT_SYSTEM_OK">
+  <value>Мультимедиа кодеки установлены и настроены OK.</value>
+</data>
+<data name="TXT_TIMESCALE">
+  <value>. Временная шкала&#xD;
+ Нажмите, чтобы играть с позиции: {0}</value>
+</data>
+<data name="TXT_TIMESCALE_BOOKMARK">
+  <value>. Временная шкала&#xD;
+ Нажмите, чтобы играть с закладкой: "{1}"&#xD;
+ Bookmark время: {0}</value>
+</data>
+<data name="TXT_TOTAL_TIME">
+  <value>Общее время.</value>
+</data>
+<data name="TXT_UNSELECT_ALLAUDIO">
+  <value>Нет аудио файлов</value>
+</data>
+<data name="TXT_UNSELECT_ALLPLAYLISTS">
+  <value>Нет плейлистов</value>
+</data>
+<data name="TXT_UNSELECT_ALLVIDEO">
+  <value>Нет видео файлов</value>
+</data>
+<data name="TXT_VIDEOSETTINGS">
+  <value>Настройки видео</value>
+</data>
+<data name="TXT_VIDEO_AVAILABLE">
+  <value>Видео поток в наличии.</value>
+</data>
+<data name="TXT_VIDEO_FILES">
+  <value>Видео файлы</value>
+</data>
+<data name="TXT_VIDEO_HD_FILES">
+  <value>Высокая видео файлы определения</value>
+</data>
+<data name="TXT_VOLSCALE">
+  <value>. Том масштабе&#xD;
+ Нажмите, чтобы установить объем: {0}%</value>
+</data>
+<data name="TXT_INSTALLCOMPONENT">
+  <value>Установить компонент ...</value>
+</data>
+<data name="TXT_PRIO">
+  <value>Приоритет</value>
+</data>
+<data name="TXT_MINUTES">
+  <value>минут (ы).</value>
+</data>
+<data name="TXT_MISC_SETTINGS">
+  <value>Разные варианты</value>
+</data>
+<data name="TXT_METADATAPATTERNS">
+  <value>Модели доступны для форматирования элемента плейлист основаны на комбинации этих ключевых слов:&#xD;
+&#xD;
+&lt;A&gt; = имя исполнителя, как в метаданные;&#xD;
+&lt;B&gt; = название альбома, как и в метаданных;&#xD;
+&lt;T&gt; = звание, как и в метаданных;&#xD;
+&lt;C&gt; = комментариях, как и в метаданных;&#xD;
+&lt;G&gt; = жанра, как в метаданные;&#xD;
+&lt;#&gt; = # отслеживать, как в метаданные;&#xD;
+&lt;Y&gt; = год, как и в метаданных.</value>
+</data>
+<data name="TXT_DISPLAY_FILENAME">
+  <value>Нет форматирования аргументы.&#xD;
+ Программа будет отображать имя файла в записи плейлиста.</value>
+</data>
+<data name="TXT_FILENAME_FORMAT">
+  <value>Если метаданные не хватает, использовать имя файла обрабатывается как:</value>
+</data>
+<data name="TXT_USE_METADATA">
+  <value>Используйте файл метаданных (например, поля ID3)</value>
+</data>
+<data name="TXT_FALLBACKMONITOR">
+  <value>Резервный монитор:</value>
+</data>
+<data name="TXT_FALLBACKMONITORDESC">
+  <value>Резервный монитор будет использоваться для отображения видео содержания всякий раз, когда желаемый монитор не подключен к системе.</value>
+</data>
+<data name="TXT_MONITORAFFINITY">
+  <value>Мониторы</value>
+</data>
+<data name="TXT_PREFERREDMONITOR">
+  <value>Котировки привилегированных Monitor:</value>
+</data>
+<data name="TXT_PREFERREDMONITORDESC">
+  <value>Желаемый монитор будет использоваться для отображения видео содержания, если он подключен к системе.</value>
+</data>
+<data name="TXT_RESTOREDEFAULTSDESC">
+  <value>Использование "Восстановить значения по умолчанию" будет установлен как предпочтительный и резервный монитор для основного монитора, подключенных к системе.</value>
+</data>
+<data name="TXT_PLAYLISTOPTIONS">
+  <value>Playlist</value>
+</data>
+<data name="TXT_PREFERREDMONITORDETACHED">
+  <value>Предпочтительным монитор не подключен к системе. Чтобы выбрать другой желаемый монитор, использовать "Восстановить значения по умолчанию", затем повторно выберите нужный монитор.</value>
+</data>
+<data name="TXT_PLAYLIST_FORMAT">
+  <value>Формат воспроизведения записи, как:</value>
+</data>
+<data name="TXT_INVALIDDVDVOLUME">
+  <value>Вы указали неправильный объем DVD. Пожалуйста, повторный.</value>
+</data>
+<data name="TXT_PANELSHIDDEN_NOADMIN">
+  <value>Потому что ваша учетная запись не обладает правами администратора, вы не будете сможете просмотреть поддерживаемые файлы и настройки дистанционного управления.&#xD;
+&#xD;
+ Для того, чтобы настроить эти параметры, вы должны запустить ProTone Игрок под учетной записи пользователя, который имеет привилегии администратора</value>
+</data>
+<data name="TXT_MNUCLEAR">
+  <value>Очистить плейлист</value>
+</data>
+<data name="TXT_MNUDELETE">
+  <value>Очистить плейлист пункта</value>
+</data>
+<data name="TXT_MNUJUMPTOITEM">
+  <value>Перейти к пункту плейлист ...</value>
+</data>
+<data name="TXT_MNUMOVEDOWN">
+  <value>Вниз</value>
+</data>
+<data name="TXT_MNUMOVEUP">
+  <value>Вверх</value>
+</data>
+<data name="TXT_MNUPLAYLISTEND">
+  <value>Playlist конца события</value>
+</data>
+<data name="TXT_MNUTOGGLESHUFFLE">
+  <value>Воспроизведение в произвольном порядке</value>
+</data>
+<data name="TXT_MNUFULLSCREEN">
+  <value>Переключить Full Screen</value>
+</data>
+<data name="TXT_MNUFWD">
+  <value>Нападающий 5 секунд</value>
+</data>
+<data name="TXT_MNULOAD">
+  <value>Загрузка файлов ...</value>
+</data>
+<data name="TXT_MNUNEXT">
+  <value>Воспроизвести следующий</value>
+</data>
+<data name="TXT_MNUOPENDISK">
+  <value>Загрузите DVD ...</value>
+</data>
+<data name="TXT_MNUOPENURL">
+  <value>Открыть URL ...</value>
+</data>
+<data name="TXT_MNUPAUSE">
+  <value>Пауза</value>
+</data>
+<data name="TXT_MNUPLAY">
+  <value>Играть</value>
+</data>
+<data name="TXT_MNUPREV">
+  <value>Воспроизведение предыдущего</value>
+</data>
+<data name="TXT_MNUREW">
+  <value>Перемотка 5 секунд</value>
+</data>
+<data name="TXT_MNUSTOP">
+  <value>Стоп</value>
+</data>
+<data name="TXT_MNUVOLDN">
+  <value>Снижение громкости на 5%</value>
+</data>
+<data name="TXT_MNUVOLUP">
+  <value>Объем выросли на 5%</value>
+</data>
+<data name="TXT_MNUCFGAUDIO">
+  <value>Настройки звука ...</value>
+</data>
+<data name="TXT_MNUCFGSUBTITLES">
+  <value>Настройки субтитров ...</value>
+</data>
+<data name="TXT_MNUCFGTIMER">
+  <value>Scheduler Settings ...</value>
+</data>
+<data name="TXT_MNUCFGVIDEO">
+  <value>Настройки видео ...</value>
+</data>
+<data name="TXT_MNUOPENSETTINGS">
+  <value>Настройки ...</value>
+</data>
+<data name="TXT_MNUSHOWLOGCONSOLE">
+  <value>Показать файл журнала ...</value>
+</data>
+<data name="TXT_CMDHIDEBOOKMARKMANAGER">
+  <value>Скрыть менеджер закладок</value>
+</data>
+<data name="TXT_SUBFONTS">
+  <value>Шрифты и цвета</value>
+</data>
+<data name="TXT_SUBSAMPLETEXT">
+  <value>Пример текста с субтитрами</value>
+</data>
+<data name="TXT_SUBFONT">
+  <value>Субтитры Шрифт</value>
+</data>
+<data name="TXT_SUBCOLOR">
+  <value>Subtitle Text Color</value>
+</data>
+<data name="TXT_SUBENABLED">
+  <value>Включить субтитры</value>
+</data>
+<data name="TXT_NOTIFYSUBDOWNLOADED">
+  <value>Отображение уведомления подсказки рядом системном трее, когда субтитров завершения загрузки</value>
+</data>
+<data name="TXT_RESTORE_DEFAULTSERVERS">
+  <value>Загрузка сервера по умолчанию</value>
+</data>
+<data name="TXT_ALBUM">
+  <value>Название альбома</value>
+</data>
+<data name="TXT_ARTIST">
+  <value>Исполнитель</value>
+</data>
+<data name="TXT_ARTWORK">
+  <value>Встроенные изображения</value>
+</data>
+<data name="TXT_BITRATE">
+  <value>Двоичные ставка</value>
+</data>
+<data name="TXT_CHANNELS">
+  <value>Режим аудио</value>
+</data>
+<data name="TXT_COMMENTS">
+  <value>Комментарии</value>
+</data>
+<data name="TXT_DURATION">
+  <value>Продолжительность</value>
+</data>
+<data name="TXT_FRAME_RATE">
+  <value>Частота кадров</value>
+</data>
+<data name="TXT_FREQUENCY">
+  <value>Частота дискретизации</value>
+</data>
+<data name="TXT_GENRE">
+  <value>Музыкальные Жанр</value>
+</data>
+<data name="TXT_ID3INFO">
+  <value>ID3 информационного поля</value>
+</data>
+<data name="TXT_TITLE">
+  <value>Название</value>
+</data>
+<data name="TXT_TRACK">
+  <value>Трек в Bing</value>
+</data>
+<data name="TXT_VIDEO_SIZE">
+  <value>Размер видео</value>
+</data>
+<data name="TXT_YEAR">
+  <value>Год выпуска</value>
+</data>
+<data name="TXT_PICTURE">
+  <value>Изображение</value>
+</data>
+<data name="TXT_PICTURE_TEXT">
+  <value>Описание изображения</value>
+</data>
+<data name="TXT_PICTURE_TYPE">
+  <value>ID3 Тип изображения</value>
+</data>
+<data name="TXT_ID3PATTERNS">
+  <value>ID3 модели основаны на комбинации этих ключевых слов:&#xD;
+&#xD;
+ &lt;N&gt; = имя файла;&#xD;
+ ф = имя папки;&#xD;
+ &lt;A&gt; = имя исполнителя, как и в ID3 Информация,&#xD;
+ &lt;B&gt; = название альбома, как и в ID3 ​​Info;&#xD;
+ &lt;T&gt; = звание, как и в ID3 ​​Info;&#xD;
+ &lt;C&gt; = комментариях, как и в ID3 ​​Info;&#xD;
+ &lt; G&gt; = жанра, как в ID3 ​​Info;&#xD;
+ &lt;#&gt; = # отслеживать, как в ID3 ​​Info;.&#xD;
+ &lt;Y&gt; = год, как и в ID3 ​​информация&#xD;
+&#xD;
+ диапазоны символов, таких как &lt;N2-12,14-20&gt; также разрешается.</value>
+</data>
+<data name="TXT_RESETVIDEOPOSITION">
+  <value>Сброс позиции&#xD;
+окна видео</value>
+</data>
+<data name="TXT_RESETVIDEOPOSITION_HINT">
+  <value>Используйте эту команду, чтобы привести в окно рендеринга видео в текущий активный экран.</value>
+</data>
+<data name="TXT_SUBTITLE_AVAILABLE">
+  <value>Cубтитров доступный</value>
+</data>
+<data name="TXT_SUBTITLE_DOWNLOADING">
+  <value>Загрузка субтитров, пожалуйста подождите ...</value>
+</data>
+    
+</root>
