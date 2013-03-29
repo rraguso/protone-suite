@@ -18,9 +18,6 @@ en.ItemRemote=Install ProTONE Remote Control
 en.ItemCodecs=Install Multimedia Codecs
 en.ItemFfdShow=Audio/Video Support (FFD Show)
 en.ItemHDSupport=High Definition Video Support (Haali)
-
-en.ItemSubEdit=Install Subtitle Editor extension
-
 ;--
 en.cfgShellSupport=Configuring Windows Explorer integration ...
 en.cfgMediaLibrary=Configuring ProTONE Media Library ...
@@ -71,8 +68,6 @@ ro.ItemRemote=Instaleaza Telecomanda ProTONE
 ro.ItemCodecs=Instaleaza Codecurile Multimedia
 ro.ItemFfdShow=Suport Audio/Video
 ro.ItemHDSupport=Suport Video High Definition (Haali)
-
-ro.ItemSubEdit=Instaleaza Editorul de Subtirtrari
 ;--
 ro.cfgShellSupport=Se configureaza integrarea cu Windows Explorer ...
 ro.cfgMediaLibrary=Se configureaza Biblioteca Media ProTONE ...
@@ -123,8 +118,6 @@ de.ItemRemote=Installieren ProTONE Fernsteuerung
 de.ItemCodecs=Installieren Multimedia Codecs
 de.ItemFfdShow=Audio/Video Unterstützung (FFD Show)
 de.ItemHDSupport=High Definition Video Unterstützung (Haali)
-
-de.ItemSubEdit=Installieren Untertitlel-Editor
 ;--
 de.cfgShellSupport=Konfigurieren Windows Explorer integration ...
 de.cfgMediaLibrary=Konfigurieren ProTONE-Mediathek ...
@@ -175,9 +168,6 @@ fr.ItemRemote = Installer ProTone Télécommande
 fr.ItemCodecs = installer les codecs multimédia
 fr.ItemFfdShow = Support de audio / vidéo (FFDShow)
 fr.ItemHDSupport = Support de vidéo haute définition (Haali)
-
-fr.ItemSubEdit=Installer le Editeur de Sous-titres
-;--
 fr.cfgShellSupport = Configuration Intégration de Windows Explorer ...
 fr.cfgMediaLibrary = Configuration ProTone Médiathèque ...
 fr.instRccService = Installation du Service RCC ...
@@ -227,8 +217,6 @@ ru.ItemRemote = Установить ProTone дистанционного упр
 ru.ItemCodecs = установить кодеки мультимедиа?
 ru.ItemFfdShow = Audio / Video Support (FFD Show)
 ru.ItemHDSupport = High Поддержка видео разрешения (Haali)
-
-ru.ItemSubEdit=Install Subtitle Editor extension
 ;--
 ru.cfgShellSupport = Настройка Windows Explorer интеграции ...
 ru.cfgMediaLibrary = Настройка ProTone медиа библиотеку ...
@@ -279,8 +267,6 @@ hu.ItemRemote = Telepítési ProTONE Remote Control
 hu.ItemCodecs = telepíthetek multimédiás kodekeket
 hu.ItemFfdShow = Audio / Video Support (FFD Show)
 hu.ItemHDSupport = High Definition Video Support (Haali)
-
-hu.ItemSubEdit=Install Subtitle Editor extension
 ;--
 hu.cfgShellSupport = konfigurálása Windows Explorer integrálása ...
 hu.cfgMediaLibrary = konfigurálása ProTONE Media Library ...
@@ -310,4 +296,5 @@ hu.delFirewallRccService = eltávolítása RCC szolgáltatásai a Windows tuzfal
 hu.delFirewallRccManager = eltávolítása RCC Manager Windows tuzfal ...
 ;--
 hu.WaitDownload = Kérem várjon, amíg a letöltés végéig ...
+
 
