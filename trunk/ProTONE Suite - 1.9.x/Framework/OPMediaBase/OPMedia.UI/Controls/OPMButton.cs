@@ -14,6 +14,7 @@ using System.ComponentModel;
 
 namespace OPMedia.UI.Controls
 {
+    [ToolboxBitmap(typeof(Button))]
     public class OPMButton : Button
     {
         bool _isKeyDown = false;

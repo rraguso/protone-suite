@@ -174,48 +174,48 @@ Source: {#BINDIR}\hu\OPMedia.RCCManager.resources.dll; DestDir: {app}\hu\; Flags
 Source: {#BINDIR}\hu\OPMedia.ServiceHelper.RCCService.resources.dll; DestDir: {app}\hu\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
 Source: isxdl.dll; DestDir: {tmp}; Flags: dontcopy
-Source: ..\Externals\ffdshow\ff_kernelDeint.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ff_liba52.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ff_libdts.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ff_libfaad2.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ff_libmad.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ff_samplerate.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ff_unrar.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ff_wmv9.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ffdshow.ax; DestDir: {app}\Codecs; Flags: regserver; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ffdshow.reg; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\ffmpeg.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\IntelQuickSyncDecoder.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\libmpeg2_ff.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\ffdshow\TomsMoComp_ff.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\Externals\haali\avi.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\avi.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\avs.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\avss.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\dsmux.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\dsmux.x64.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\dxr.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\dxr.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\gdsmux.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\gdsmux.x64.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mkunicode.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mkunicode.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mkv2vfr.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mkv2vfr.x64.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mkx.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mkx.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mkzlib.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mkzlib.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mp4.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\mp4.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\ogm.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\ogm.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\splitter.ax; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\ts.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\Externals\haali\ts.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\ffdshow\ff_kernelDeint.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_liba52.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_libdts.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_libfaad2.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_libmad.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_samplerate.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_unrar.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_wmv9.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ffdshow.ax; DestDir: {app}\Codecs; Flags: regserver; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ffdshow.reg; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ffmpeg.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\IntelQuickSyncDecoder.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\libmpeg2_ff.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\TomsMoComp_ff.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\haali\avi.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\avi.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\avs.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\avss.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\dsmux.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\dsmux.x64.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\dxr.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\dxr.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\gdsmux.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\gdsmux.x64.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkunicode.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkunicode.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkv2vfr.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkv2vfr.x64.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkx.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkx.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkzlib.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkzlib.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mp4.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mp4.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\ogm.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\ogm.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\splitter.ax; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\ts.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\ts.x64.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
 
-Source: ..\bin\Templates\Catalog\Default Catalog; DestDir: {app}\Templates\Catalog; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
-Source: ..\bin\Templates\RemoteControl\ProTONEOnSerial.Config; DestDir: {app}\Templates\RemoteControl; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
+Source: {#BINDIR}\Templates\Catalog\Default Catalog; DestDir: {app}\Templates\Catalog; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
+Source: {#BINDIR}\Templates\RemoteControl\ProTONEOnSerial.Config; DestDir: {app}\Templates\RemoteControl; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
 [Icons]
 Name: {group}\{cm:UninstallProgram,ProTONE Suite}; Filename: {uninstallexe}
@@ -275,6 +275,8 @@ Filename: {sys}\netsh.exe; Parameters: "firewall delete allowedprogram program="
 [Registry]
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: InstallLanguageID; ValueData: {language}; Flags: uninsdeletevalue noerror
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: DownloadUriBase; ValueData: http://opmedia.3x.ro/downloads/; Flags: noerror uninsdeletevalue
+Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: HelpUriBase; ValueData: http://opmedia.3x.ro/docs/; Flags: noerror uninsdeletevalue
+Root: HKLM; Subkey: {#REGENTRY}; ValueType: dword; ValueName: UseOnlineDocumentation; ValueData: 1; Flags: noerror uninsdeletevalue
 
 [UninstallDelete]
 Name: {app}\InstallUtil.InstallLog; Type: files

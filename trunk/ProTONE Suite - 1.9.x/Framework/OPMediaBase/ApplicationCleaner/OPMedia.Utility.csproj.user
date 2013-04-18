@@ -6,4 +6,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <StartArguments>cleanup</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OPM Framework for GAC|x64'">
+    <StartArguments>cleanup</StartArguments>
+  </PropertyGroup>
 </Project>

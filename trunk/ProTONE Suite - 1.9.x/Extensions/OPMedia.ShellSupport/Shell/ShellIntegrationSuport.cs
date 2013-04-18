@@ -109,6 +109,7 @@ namespace OPMedia.ShellSupport
                 throw new ArgumentException();
             }
 
+            ApplicationInfo.RegisterAppName(GetType().Assembly);
             Translator.RegisterTranslationAssembly(GetType().Assembly);
             Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
 

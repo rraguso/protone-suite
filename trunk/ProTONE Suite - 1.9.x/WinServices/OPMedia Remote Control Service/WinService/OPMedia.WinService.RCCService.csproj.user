@@ -3,4 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <StartArguments>-standalone</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OPM Framework for GAC|x86'">
+    <StartArguments>-standalone</StartArguments>
+  </PropertyGroup>
 </Project>

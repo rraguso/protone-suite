@@ -13,6 +13,7 @@ using OPMedia.Core.GlobalEvents;
 
 namespace OPMedia.UI.Controls
 {
+    [ToolboxBitmap(typeof(Label))]
     public class OPMLabel : Label
     {
         #region GUI Properties

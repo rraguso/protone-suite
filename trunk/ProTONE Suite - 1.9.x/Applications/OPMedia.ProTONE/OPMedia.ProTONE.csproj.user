@@ -7,4 +7,7 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OPM Framework for GAC|x86'">
+    <StartProgram>E:\Personal\ProTONE Suite - 1.8.x\bin\OPMedia.ProTON.exe</StartProgram>
+  </PropertyGroup>
 </Project>

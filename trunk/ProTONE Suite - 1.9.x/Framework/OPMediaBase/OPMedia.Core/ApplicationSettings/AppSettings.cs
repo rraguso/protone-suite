@@ -1314,5 +1314,33 @@ namespace OPMedia.Core.ApplicationSettings
         }
 
         #endregion
+
+        #region Non-Suite settings
+        public static string LanguageID
+        {
+            get
+            {
+                return _config.GetValue("LanguageID", "en");
+            }
+
+            set
+            {
+                _config.SetValue("LanguageID", value);
+            }
+        }
+
+        public static int SkinType
+        {
+            get
+            {
+                return _config.GetValue("SkinType", (int)Theme.Default.Value);
+            }
+
+            set
+            {
+                _config.SetValue("SkinType", value);
+            }
+        }
+        #endregion
     }
 }

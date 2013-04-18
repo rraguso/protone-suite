@@ -11,6 +11,23 @@ namespace OPMedia.Core
 {
     public static class ApplicationInfo
     {
+        public static string _appName = null;
+
+        public static void RegisterAppName(Assembly asm)
+        {
+            if (!(IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost))
+            {
+                try
+                {
+                    _appName = asm.GetName().Name;
+                }
+                catch
+                {
+                    _appName = null;
+                }
+            }
+        }
+
         public static string ApplicationLaunchPath
         {
             get
@@ -23,7 +40,12 @@ namespace OPMedia.Core
         {
             get
             {
-                return Process.GetCurrentProcess().MainModule.FileVersionInfo.FileDescription;
+                if (string.IsNullOrEmpty(_appName))
+                {
+                    return Process.GetCurrentProcess().MainModule.FileVersionInfo.FileDescription;
+                }
+
+                return _appName;
             }
         }
 
@@ -79,6 +101,14 @@ namespace OPMedia.Core
             }
         }
 
+        internal static bool IsSuiteApplication
+        {
+            get
+            {
+                return (IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsShellExtension);
+            }
+        }
+
         public static bool IsPlayer
         {
             get
@@ -108,6 +138,14 @@ namespace OPMedia.Core
             get
             {
                 return string.Compare(ApplicationName, Constants.MediaHostName, true) == 0;
+            }
+        }
+
+        public static bool IsShellExtension
+        {
+            get
+            {
+                return string.Compare(ApplicationName, Constants.ShellSupportName, true) == 0;
             }
         }
     }

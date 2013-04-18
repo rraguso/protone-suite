@@ -9,4 +9,10 @@
     <StartArguments>/codebase OPMedia.ShellSupport.dll</StartArguments>
     <StartWorkingDirectory>E:\Personal\ProTONE Suite - 1.9.x\bin\</StartWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OPM Framework for GAC|x86'">
+    <StartProgram>C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe</StartProgram>
+    <StartWorkingDirectory>E:\Personal\ProTONE Suite - 1.9.x\bin\</StartWorkingDirectory>
+    <StartArguments>/codebase OPMedia.ShellSupport.dll</StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
 </Project>

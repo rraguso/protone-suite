@@ -19,8 +19,9 @@ namespace OPMedia.Core
         public const string MediaHostName =         "OPMedia.MediaHost";
         public const string SyncPlayerName =        "OPMedia.SyncPlayer";
         public const string RCCServiceShortName =   "OPMedia.RCCService";
+        public const string ShellSupportName =      "OPMedia.ShellSupport";
 
-        public const string ShellSupportBinary =    "OPMedia.ShellSupport.dll";
+        public const string ShellSupportBinary =    ShellSupportName + ".dll";
         public const string LibraryBinary =         LibraryName + ".exe";
         public const string PlayerBinary =          PlayerName + ".exe";
         public const string RCCManagerBinary =      RCCManagerName + ".exe";

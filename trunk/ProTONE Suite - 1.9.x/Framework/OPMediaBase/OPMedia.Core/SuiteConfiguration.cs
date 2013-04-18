@@ -14,6 +14,7 @@ using System.Globalization;
 using OPMedia.Core.TranslationSupport;
 using System.Runtime.InteropServices;
 using OPMedia.Core.Logging;
+using OPMedia.Core.ApplicationSettings;
 
 namespace OPMedia.Core
 {
@@ -24,7 +25,7 @@ namespace OPMedia.Core
         public const int VerWinVista = 60;
         public const int VerWin7     = 61;
 
-        static readonly string ConfigRegPath = 
+        static readonly string _configRegPath = 
             string.Format("Software\\{0}\\{1}", Constants.CompanyName, Constants.SuiteName);
 
         static object _languageSyncRoot = new object();
@@ -32,6 +33,17 @@ namespace OPMedia.Core
         static System.Windows.Forms.Timer _tmrReadRegistry = null;
 
         static Dictionary<string, CultureInfo> _cultures = new Dictionary<string, CultureInfo>();
+
+        public static string ConfigRegPath
+        {
+            get
+            {
+                if (ApplicationInfo.IsSuiteApplication)
+                    return _configRegPath;
+
+                return "Software\\" + ApplicationInfo.ApplicationName;
+            }
+        }
 
         static SuiteConfiguration()
         {
@@ -60,7 +72,7 @@ namespace OPMedia.Core
                         }
                     }
                 }
-                catch 
+                catch
                 {
                     _languageId = InstallLanguageID;
                 }
@@ -98,7 +110,7 @@ namespace OPMedia.Core
                 }
                 catch
                 {
-                    _skinType = (int)Theme.Default.Value; 
+                    _skinType = (int)Theme.Default.Value;
                 }
 
                 LanguageID = _languageId;
@@ -139,7 +151,7 @@ namespace OPMedia.Core
                         }
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Logger.LogException(ex);
                 }
@@ -176,20 +188,22 @@ namespace OPMedia.Core
                 {
                     _skinType = (int)value;
                     EventDispatch.DispatchEvent(EventNames.ThemeUpdated);
-                }
 
-                try
-                {
-                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(ConfigRegPath))
+                    try
                     {
-                        if (key != null)
+                        using (RegistryKey key = Registry.CurrentUser.CreateSubKey(ConfigRegPath))
                         {
-                            key.SetValue("SkinType", (int)value);
+                            if (key != null)
+                            {
+                                key.SetValue("SkinType", (int)value);
+                            }
                         }
                     }
-                }
-                catch
-                {
+                    catch
+                    {
+                    }
+
+                    AppSettings.SkinType = _skinType;
                 }
             }
         }
@@ -241,11 +255,9 @@ namespace OPMedia.Core
                     {
                         return key.GetValue("InstallLanguageID", "en") as string;
                     }
-                    else
-                    {
-                        return "en";
-                    }
                 }
+
+                return "en";
             }
         }
 
@@ -255,16 +267,11 @@ namespace OPMedia.Core
             {
                 if (UseOnlineDocumentation)
                 {
-                    const string defaultUri = "http://opmedia.3x.ro/docs";
                     using (RegistryKey key = Registry.LocalMachine.OpenSubKey(ConfigRegPath))
                     {
                         if (key != null)
                         {
-                            return key.GetValue("HelpUriBase", defaultUri) as string;
-                        }
-                        else
-                        {
-                            return defaultUri;
+                            return key.GetValue("HelpUriBase", string.Empty) as string;
                         }
                     }
                 }
@@ -277,36 +284,34 @@ namespace OPMedia.Core
         {
             get
             {
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(ConfigRegPath))
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(ConfigRegPath))
                 {
                     if (key != null)
                     {
                         int val = (int)key.GetValue("UseOnlineDocumentation", 0);
                         return (val != 0);
                     }
-                    else
-                    {
-                        return true;
-                    }
                 }
+
+                return false;
             }
 
-            set
-            {
-                try
-                {
-                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(ConfigRegPath))
-                    {
-                        if (key != null)
-                        {
-                            key.SetValue("UseOnlineDocumentation", value ? 1 : 0);
-                        }
-                    }
-                }
-                catch
-                {
-                }
-            }
+            //set
+            //{
+            //    try
+            //    {
+            //        using (RegistryKey key = Registry.LocalMachine.CreateSubKey(ConfigRegPath))
+            //        {
+            //            if (key != null)
+            //            {
+            //                key.SetValue("UseOnlineDocumentation", value ? 1 : 0);
+            //            }
+            //        }
+            //    }
+            //    catch
+            //    {
+            //    }
+            //}
         }
         
 
@@ -314,19 +319,15 @@ namespace OPMedia.Core
         {
             get 
             {
-                const string defaultUri = "http://opmedia.3x.ro/downloads/";
-
                 using (RegistryKey key = Registry.LocalMachine.OpenSubKey(ConfigRegPath))
                 {
                     if (key != null)
                     {
-                        return key.GetValue("DownloadUriBase", defaultUri) as string;
-                    }
-                    else
-                    {
-                        return defaultUri;
+                        return key.GetValue("DownloadUriBase", string.Empty) as string;
                     }
                 }
+
+                return string.Empty;
             }
         }
         
@@ -341,11 +342,9 @@ namespace OPMedia.Core
                         int val = (int)key.GetValue("AllowAutomaticUpdates", 1);
                         return (val != 0);
                     }
-                    else
-                    {
-                        return true;
-                    }
                 }
+
+                return false;
             }
             
             set 
@@ -437,10 +436,13 @@ namespace OPMedia.Core
                 string retVal = string.Empty;
                 try
                 {
-                    RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\OPMedia Research\" + Constants.PlayerName);
-                    if (key != null)
+                    if (ApplicationInfo.IsSuiteApplication)
                     {
-                        retVal = key.GetValue("InstallPathOverride") as string;
+                        RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\OPMedia Research\" + Constants.PlayerName);
+                        if (key != null)
+                        {
+                            retVal = key.GetValue("InstallPathOverride") as string;
+                        }
                     }
 
                     if (string.IsNullOrEmpty(retVal))
