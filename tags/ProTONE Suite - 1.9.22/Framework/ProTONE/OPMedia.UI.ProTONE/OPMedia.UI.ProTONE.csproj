@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{742E1775-5F08-40E3-97D1-E0EEEB7198F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OPMedia.UI.ProTONE</RootNamespace>
+    <AssemblyName>OPMedia.UI.ProTONE</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Build|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\..\bin\OPMedia.UI.ProTONE.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OPM Framework for GAC|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\OPM Framework for GAC\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\..\bin\OPMedia.UI.ProTONE.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="taglib-sharp">
+      <HintPath>..\..\..\Externals\taglib-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="XmlRpc, Version=2.5.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Externals\XmlRpc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\MediaPlayer\MenuBuilder.cs" />
+    <Compile Include="Controls\OSD\OSDLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TrayNotificationTarget.cs" />
+    <Compile Include="Configuration\FileTypesPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\MiscSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\MiscSettingsPanel.Designer.cs">
+      <DependentUpon>MiscSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\DiagnosticsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\DiagnosticsPage.Designer.cs">
+      <DependentUpon>DiagnosticsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\PlaylistOptionsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\PlaylistOptionsPage.Designer.cs">
+      <DependentUpon>PlaylistOptionsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\RemoteControlPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\RemoteControlPage.Designer.cs">
+      <DependentUpon>RemoteControlPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\SchedulerSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\SchedulerSettingsPanel.Designer.cs">
+      <DependentUpon>SchedulerSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\ProTONESettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\SubtitlesConfig\SubtitleSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\SubtitlesConfig\SubtitleSettingsPanel.Designer.cs">
+      <DependentUpon>SubtitleSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\SubtitlesConfig\SubtitleSubtitlePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\SubtitlesConfig\SubtitleSubtitlePage.Designer.cs">
+      <DependentUpon>SubtitleSubtitlePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\SubtitlesConfig\SubtitleFontsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\SubtitlesConfig\SubtitleFontsPage.Designer.cs">
+      <DependentUpon>SubtitleFontsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookmarkManagement\BookmarkManagerCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BookmarkManagement\BookmarkManagerCtl.Designer.cs">
+      <DependentUpon>BookmarkManagerCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookmarkManagement\BookmarkPropertyBrowser.cs" />
+    <Compile Include="Dialogs\JumpToItemDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\BookmarkManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\BookmarkManager.Designer.cs">
+      <DependentUpon>BookmarkManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ID3ArtworkDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ID3ArtworkDlg.Designer.cs">
+      <DependentUpon>ID3ArtworkDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SelectDvdDriveDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalEvents\EventNames.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\MediaPlayer\MediaInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\MediaInfo.Designer.cs">
+      <DependentUpon>MediaInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\MediaPlayer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\MediaPlayer.Designer.cs">
+      <DependentUpon>MediaPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\PlaybackControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\PlaybackControlPanel.Designer.cs">
+      <DependentUpon>PlaybackControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\PlaylistControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\PlaylistControlPanel.Designer.cs">
+      <DependentUpon>PlaylistControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\PlaylistPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\PlaylistPanel.Designer.cs">
+      <DependentUpon>PlaylistPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\RenderingFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\RenderingFrame.Designer.cs">
+      <DependentUpon>RenderingFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\RenderingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\RenderingPanel.Designer.cs">
+      <DependentUpon>RenderingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\RenderingZone.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\TimeScale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\TimeScale.Designer.cs">
+      <DependentUpon>TimeScale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\VolumeScale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MediaPlayer\VolumeScale.Designer.cs">
+      <DependentUpon>VolumeScale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SubtitleDownload\SubtitleDownloadNotifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubtitleDownload\SubtitleDownloadNotifyForm.Designer.cs">
+      <DependentUpon>SubtitleDownloadNotifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubtitleDownload\SubtitleDownloadProcessor.cs" />
+    <Compile Include="Translations\Translation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Translation.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\FileTypesPanel.resx">
+      <DependentUpon>FileTypesPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MiscConfig\DiagnosticsPage.resx">
+      <DependentUpon>DiagnosticsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MiscConfig\MiscSettingsPanel.resx">
+      <DependentUpon>MiscSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MiscConfig\PlaylistOptionsPage.resx">
+      <DependentUpon>PlaylistOptionsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MiscConfig\RemoteControlPage.resx">
+      <DependentUpon>RemoteControlPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\SubtitlesConfig\SubtitleFontsPage.resx">
+      <DependentUpon>SubtitleFontsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\SubtitlesConfig\SubtitleSettingsPanel.resx">
+      <DependentUpon>SubtitleSettingsPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\SubtitlesConfig\SubtitleSubtitlePage.resx">
+      <DependentUpon>SubtitleSubtitlePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookmarkManagement\BookmarkManagerCtl.resx">
+      <DependentUpon>BookmarkManagerCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\MediaInfo.resx">
+      <DependentUpon>MediaInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\MediaPlayer.resx">
+      <DependentUpon>MediaPlayer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\PlaybackControlPanel.resx">
+      <DependentUpon>PlaybackControlPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\PlaylistControlPanel.resx">
+      <DependentUpon>PlaylistControlPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\PlaylistPanel.resx">
+      <DependentUpon>PlaylistPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\RenderingFrame.resx">
+      <DependentUpon>RenderingFrame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\RenderingPanel.resx">
+      <DependentUpon>RenderingPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\RenderingZone.resx">
+      <DependentUpon>RenderingZone.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\TimeScale.resx">
+      <DependentUpon>TimeScale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MediaPlayer\VolumeScale.resx">
+      <DependentUpon>VolumeScale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.fr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.ru.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OPMediaBase\OPMedia.Core\OPMedia.Core.csproj">
+      <Project>{D75C6E16-0208-40FD-8C54-F073667F5384}</Project>
+      <Name>OPMedia.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OPMediaBase\OPMedia.Runtime.Addons\OPMedia.Runtime.Addons.csproj">
+      <Project>{EAD6662B-2B4A-47A8-A82B-B44463668177}</Project>
+      <Name>OPMedia.Runtime.Addons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OPMedia.Runtime.ProTONE\OPMedia.Runtime.ProTONE.csproj">
+      <Project>{8C047807-786E-4B9C-8DF5-1DF99F75C874}</Project>
+      <Name>OPMedia.Runtime.ProTONE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OPMediaBase\OPMedia.Runtime\OPMedia.Runtime.csproj">
+      <Project>{0A0114C0-4409-42F3-940C-31038104261C}</Project>
+      <Name>OPMedia.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OPMediaBase\OPMedia.UI\OPMedia.UI.csproj">
+      <Project>{3405ACFC-77F4-470D-BF75-4754A8214998}</Project>
+      <Name>OPMedia.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Translations\Translation.de.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.hu.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Translation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\SchedulerSettingsPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SchedulerSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\SelectDvdDriveDlg.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SelectDvdDriveDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.ro.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Translation.ro.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCfgAudio.png" />
+    <None Include="Resources\btnCfgSubtitles.png" />
+    <None Include="Resources\btnCfgVideo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\JumpToItemDlg.resx">
+      <DependentUpon>JumpToItemDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Resources\ended.png" />
+    <None Include="Resources\paused.png" />
+    <None Include="Resources\playing.png" />
+    <None Include="Resources\stopped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\BookmarkManager.resx">
+      <DependentUpon>BookmarkManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ID3ArtworkDlg.resx">
+      <DependentUpon>ID3ArtworkDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubtitleDownload\SubtitleDownloadNotifyForm.resx">
+      <DependentUpon>SubtitleDownloadNotifyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subtitles16.png" />
+    <None Include="Resources\Playlist.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\delete3.png" />
+    <Content Include="Resources\movedown.png" />
+    <Content Include="Resources\moveup.png" />
+    <None Include="Resources\btnCfgTimer.png" />
+    <None Include="Resources\btnFwd.png" />
+    <None Include="Resources\btnVolDn.png" />
+    <None Include="Resources\btnVolUp.png" />
+    <None Include="Resources\btnRew.png" />
+    <None Include="Resources\btnOpenURL.png" />
+    <None Include="Resources\Miscellaneous.png" />
+    <None Include="Resources\btnDelete.png" />
+    <None Include="Resources\btnFullScreen.png" />
+    <None Include="Resources\btnLoad.png" />
+    <None Include="Resources\btnLoadPlaylist.png" />
+    <None Include="Resources\btnLoopPlay.png" />
+    <None Include="Resources\btnNext.png" />
+    <None Include="Resources\btnOpenDisk.png" />
+    <None Include="Resources\btnOpenSettings.png" />
+    <None Include="Resources\btnPause.png" />
+    <None Include="Resources\btnPlay.png" />
+    <None Include="Resources\btnPlaylistEnd.png" />
+    <None Include="Resources\btnPrev.png" />
+    <None Include="Resources\btnSavePlaylist.png" />
+    <None Include="Resources\btnStop.png" />
+    <None Include="Resources\btnToggleShuffle.png" />
+    <None Include="Resources\Addons.png" />
+    <None Include="Resources\btnClear.png" />
+    <None Include="Resources\diagnostics.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\add2.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\subtitles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scheduler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileTypes.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1019 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_ABORT">
+    <value>Elvetél</value>
+  </data>
+  <data name="TXT_ABOUT">
+    <value>A {0}</value>
+  </data>
+  <data name="TXT_ADD">
+    <value>Hozzáadás ...</value>
+  </data>
+  <data name="TXT_ADD_FILES">
+    <value>Fájlok hozzáadása ...</value>
+  </data>
+  <data name="TXT_ADD_FOLDER">
+    <value>Mappa hozzáadása ...</value>
+  </data>
+  <data name="TXT_ALL_FILES_FILTER">
+    <value>Minden fájl  (*.*)|*.*||</value>
+  </data>
+  <data name="TXT_ALTKEY">
+    <value>Váltakozó</value>
+  </data>
+  <data name="TXT_APPHELP">
+    <value>Tartalma ...</value>
+  </data>
+  <data name="TXT_APPLY">
+    <value>Alkalmaz</value>
+  </data>
+  <data name="TXT_APP_RESTART">
+    <value>Program újraindítás szükséges</value>
+  </data>
+  <data name="TXT_ARGUMENTS">
+    <value>Adja meg a program parancssori argumentumok:</value>
+  </data>
+  <data name="TXT_BACK">
+    <value>Vissza</value>
+  </data>
+  <data name="TXT_BROWSE">
+    <value>Tallózás ...</value>
+  </data>
+  <data name="TXT_BTNCLOSE">
+    <value>Bezárás gombra.</value>
+  </data>
+  <data name="TXT_BTNMAXIMIZE">
+    <value>Maximalizálása.</value>
+  </data>
+  <data name="TXT_BTNMINIMIZE">
+    <value>Kis méret.</value>
+  </data>
+  <data name="TXT_BTNRESTOREDOWN">
+    <value>Restore le.</value>
+  </data>
+  <data name="TXT_BUILDING_OBJECT_LIST">
+    <value>Létrehozása objektum lista ...</value>
+  </data>
+  <data name="TXT_CANCEL">
+    <value>Töröl</value>
+  </data>
+  <data name="TXT_CAUTION">
+    <value>Vigyázat</value>
+  </data>
+  <data name="TXT_CHANGE">
+    <value>Módosítása ...</value>
+  </data>
+  <data name="TXT_CHOOSELOGPATH">
+    <value>Válassza ki a mappa tárolja a log fájlokat:</value>
+  </data>
+  <data name="TXT_CHOOSEPROGRAM">
+    <value>Válassza ki a programot végre kell hajtani:</value>
+  </data>
+  <data name="TXT_CHOOSEWORKDIR">
+    <value>Válassza ki a programot munkakönyvtár:</value>
+  </data>
+  <data name="TXT_CLEARLOG">
+    <value>Napló törlése Fájl</value>
+  </data>
+  <data name="TXT_CLEARWINDOW">
+    <value>Világos ablak</value>
+  </data>
+  <data name="TXT_CLICK_LIST_TO_EDIT">
+    <value>Kattintson a listában a sejtek szerkeszteni őket.</value>
+  </data>
+  <data name="TXT_CMDCFGKEYBOARD">
+    <value>Megjeleníti a Billentyűparancsok.</value>
+  </data>
+  <data name="TXT_CMDGENERICAPPLY">
+    <value>Módosítások alkalmazása.</value>
+  </data>
+  <data name="TXT_CMDGENERICCOPY">
+    <value>Adatok másolása (vagy fájlokat)</value>
+  </data>
+  <data name="TXT_CMDGENERICCUT">
+    <value>Vágott adatok (vagy fájlokat)</value>
+  </data>
+  <data name="TXT_CMDGENERICDELETE">
+    <value>Törölje adatok (vagy fájlokat)</value>
+  </data>
+  <data name="TXT_CMDGENERICNEW">
+    <value>Új dokumentum.</value>
+  </data>
+  <data name="TXT_CMDGENERICOPEN">
+    <value>Megnyitott dokumentumot.</value>
+  </data>
+  <data name="TXT_CMDGENERICPASTE">
+    <value>Paste adatok (vagy fájlokat)</value>
+  </data>
+  <data name="TXT_CMDGENERICREFRESH">
+    <value>Adatfrissítés</value>
+  </data>
+  <data name="TXT_CMDGENERICRENAME">
+    <value>Nevezze át a fájlokat</value>
+  </data>
+  <data name="TXT_CMDGENERICSAVE">
+    <value>Dokumentum mentése.</value>
+  </data>
+  <data name="TXT_CMDGENERICSEARCH">
+    <value>Keresési adatok (vagy fájlokat)</value>
+  </data>
+  <data name="TXT_CMDGENERICUNDO">
+    <value>Visszavonása változásokat.</value>
+  </data>
+  <data name="TXT_CMDOPENHELP">
+    <value>Nyissa súgófájlt</value>
+  </data>
+  <data name="TXT_CMDOPENSETTINGS">
+    <value>Megjeleníti a Beállítások párbeszédablakban.</value>
+  </data>
+  <data name="TXT_CMDSHOWLOGCONSOLE">
+    <value>Megjeleníti a naplófájl konzol</value>
+  </data>
+  <data name="TXT_CMDSWITCHWINDOWS">
+    <value>Váltás addon ablakok.</value>
+  </data>
+  <data name="TXT_COMMAND">
+    <value>Parancs neve</value>
+  </data>
+  <data name="TXT_CONFIRM">
+    <value>Még</value>
+  </data>
+  <data name="TXT_CONFIRM_ABORT">
+    <value>Biztosan meg akarja szakítani a műveletet?</value>
+  </data>
+  <data name="TXT_CONFIRM_DELETE">
+    <value>Biztos benne, hogy törli a fájlt:
+{0}?</value>
+  </data>
+  <data name="TXT_CONFIRM_DELETE_DIR">
+    <value>A mappa: {0} nem üres.
+Szeretné törölni (beleértve annak tartalmát)?</value>
+  </data>
+  <data name="TXT_CONFIRM_DELETE_EMPTYDIR">
+    <value>Biztos benne, hogy törölni akarja a mappát:
+{0}?</value>
+  </data>
+  <data name="TXT_CONFIRM_DELETE_ROHS">
+    <value>A fájl {0} egy vagy több ilyen tulajdonságok: Read-Only/Hidden/System.
+Még mindig törölni akarja?</value>
+  </data>
+  <data name="TXT_CONFIRM_OVERWRITE">
+    <value>A cél fájl {0} már létezik.
+Szeretné felülírni?</value>
+  </data>
+  <data name="TXT_CONFIRM_OVERWRITE_RO">
+    <value>A cél fájl {0} már létezik, és ez egy csak olvasható fájlt.
+Szeretné felülírni?</value>
+  </data>
+  <data name="TXT_COPY">
+    <value>Másolás</value>
+  </data>
+  <data name="TXT_CUR_PROGRESS">
+    <value>{0}: {1} tétel out of {2} ({3}% kész)</value>
+  </data>
+  <data name="TXT_CUT">
+    <value>Vágott</value>
+  </data>
+  <data name="TXT_DEFINE_PROGRAM">
+    <value>[Kérjük, határozza meg a programot végre kell hajtani]</value>
+  </data>
+  <data name="TXT_DELETE">
+    <value>Töröl</value>
+  </data>
+  <data name="TXT_DESCRIPTION">
+    <value>Parancs leírása</value>
+  </data>
+  <data name="TXT_DESC_COPY_TASK">
+    <value>Másolás</value>
+  </data>
+  <data name="TXT_DESC_DELETE_TASK">
+    <value>Törlése</value>
+  </data>
+  <data name="TXT_DESC_MOVE_TASK">
+    <value>Mozgó</value>
+  </data>
+  <data name="TXT_DOUBLE_CLICK_TO_EDIT">
+    <value>kattintson duplán a szerkeszteni</value>
+  </data>
+  <data name="TXT_DOWNLOAD">
+    <value>Letöltés</value>
+  </data>
+  <data name="TXT_DRAWBORDERS">
+    <value>Döntetlen bőrű határok és a címsorban (ajánlott)</value>
+  </data>
+  <data name="TXT_EDITKEYDESC">
+    <value>Nyomja meg az új kulcsot kombináció: {0}.
+Aktuális parancsikon: {1}.</value>
+  </data>
+  <data name="TXT_ENABLESKINNEDBORDERS">
+    <value>Engedélyezése bőrű határok</value>
+  </data>
+  <data name="TXT_ENABLE_LOG">
+    <value>Engedélyezze a programot fakitermelés</value>
+  </data>
+  <data name="TXT_ERROR">
+    <value>Hiba</value>
+  </data>
+  <data name="TXT_ERRORS">
+    <value>Bejelentkezés hibaüzenetek</value>
+  </data>
+  <data name="TXT_ERRORS_COPY_TASK">
+    <value>Néhány hiba megjelent másolás közben a megadott fájlokat.
+További részletek az alábbi listában.</value>
+  </data>
+  <data name="TXT_ERRORS_DELETE_TASK">
+    <value>Néhány hiba megjelent törlése során a megadott fájlokat.
+További részletek az alábbi listában.</value>
+  </data>
+  <data name="TXT_ERRORS_ENCOUNTERED">
+    <value>Néhány hiba jelent meg a művelet során.</value>
+  </data>
+  <data name="TXT_ERRORS_MOVE_TASK">
+    <value>Néhány hiba meg mozgás közben a megadott fájlokat.
+További részletek az alábbi listában.</value>
+  </data>
+  <data name="TXT_EVERYDAY">
+    <value>Minden nap</value>
+  </data>
+  <data name="TXT_EXIT">
+    <value>Kijárat</value>
+  </data>
+  <data name="TXT_FILE">
+    <value>Fájl</value>
+  </data>
+  <data name="TXT_FILENAME">
+    <value>File Name</value>
+  </data>
+  <data name="TXT_FOLDERNOTACCESSIBLE">
+    <value>Ez a mappa nem érhető el. Lehet, hogy át lett helyezve, eltávolították, vagy a lemez lehetett volna távolítani a számítógépről.</value>
+  </data>
+  <data name="TXT_FORWARD">
+    <value>Előre</value>
+  </data>
+  <data name="TXT_FREEZEWINDOW">
+    <value>Lock ablak</value>
+  </data>
+  <data name="TXT_FRIDAY">
+    <value>Péntek</value>
+  </data>
+  <data name="TXT_GENERALSETTINGS">
+    <value>Általános</value>
+  </data>
+  <data name="TXT_HEAVY_TRACE">
+    <value>Engedélyezze a részletes hibakeresési naplózás</value>
+  </data>
+  <data name="TXT_HELP">
+    <value>Segítség</value>
+  </data>
+  <data name="TXT_INFO">
+    <value>Bejelentkezés információs üzenetek</value>
+  </data>
+  <data name="TXT_INSERT_DISK">
+    <value>Helyezze disk</value>
+  </data>
+  <data name="TXT_INSERT_MEDIA">
+    <value>Kérjük, illessze be a lemezt feliratú {0} (desc: {1}) a {2} meghajtót.</value>
+  </data>
+  <data name="TXT_KEY">
+    <value>Shortcut</value>
+  </data>
+  <data name="TXT_KEYCOMMANDEDITOR">
+    <value>Adjuk kulcsok {0}</value>
+  </data>
+  <data name="TXT_KEYMAP">
+    <value>Keyboard Map</value>
+  </data>
+  <data name="TXT_KEYMAP_DESC">
+    <value>Szerkesztéséhez egy parancsikont, kattintson a hozzá tartozó linkeket az alábbi táblázat tartalmazza. A hivatkozások fogyatékkal élő kapcsolatokat nem lehet változást a felhasználó által (azaz például: OpenHelp = F1, stb.)</value>
+  </data>
+  <data name="TXT_LANGUAGE">
+    <value>Nyelv</value>
+  </data>
+  <data name="TXT_LOGFILENAME">
+    <value>Log fájl neve:</value>
+  </data>
+  <data name="TXT_LOGGINGSETTINGS">
+    <value>Fakitermelés</value>
+  </data>
+  <data name="TXT_LOGLINECONSOLE">
+    <value>Naplófájl konzol</value>
+  </data>
+  <data name="TXT_LOGLINECOUNT">
+    <value>Naplóbejegyzések count:</value>
+  </data>
+  <data name="TXT_LOG_DESC">
+    <value>Ez a program változat épült végre fakitermelés.
+Minden log level alapértelmezés szerint engedélyezve vannak.</value>
+  </data>
+  <data name="TXT_LOG_KEEPDAYS">
+    <value>Hány nap, hogy a régi naplófájlok 
+(min = 2, max = 10):</value>
+  </data>
+  <data name="TXT_LOG_PATH">
+    <value>Log fájlok elérési út:</value>
+  </data>
+  <data name="TXT_MODIFY">
+    <value>Módosít</value>
+  </data>
+  <data name="TXT_MONDAY">
+    <value>Hétfő</value>
+  </data>
+  <data name="TXT_MULTIRENAME">
+    <value>Több fájl átnevezése</value>
+  </data>
+  <data name="TXT_NA">
+    <value>N / A</value>
+  </data>
+  <data name="TXT_NETWORK_SETTINGS">
+    <value>Hálózat</value>
+  </data>
+  <data name="TXT_NEW">
+    <value>Új</value>
+  </data>
+  <data name="TXT_NO">
+    <value>Nem</value>
+  </data>
+  <data name="TXT_NO_NETWORK">
+    <value>Figyelem: nincs működőképes hálózati kapcsolat.</value>
+  </data>
+  <data name="TXT_OFF">
+    <value>OFF</value>
+  </data>
+  <data name="TXT_OK">
+    <value>Rendben</value>
+  </data>
+  <data name="TXT_ON">
+    <value>ON</value>
+  </data>
+  <data name="TXT_OPEN">
+    <value>Nyitva</value>
+  </data>
+  <data name="TXT_OR">
+    <value>vagy</value>
+  </data>
+  <data name="TXT_PASSWORD">
+    <value>Jelszó</value>
+  </data>
+  <data name="TXT_PASTE">
+    <value>Paszta</value>
+  </data>
+  <data name="TXT_PORT_NAME">
+    <value>Serial Port neve:</value>
+  </data>
+  <data name="TXT_PORT_SETTINGS">
+    <value>Soros port beállítások:</value>
+  </data>
+  <data name="TXT_PROCEED">
+    <value>Halad</value>
+  </data>
+  <data name="TXT_PROGRAMSTARTUPINFO">
+    <value>Program indításakor információk</value>
+  </data>
+  <data name="TXT_PROGRAMS_FILTER">
+    <value>Végrehajtható fájlok (*.exe)|*.exe|All files (*.*)|*.*||</value>
+  </data>
+  <data name="TXT_PROGRAM_DEF">
+    <value>Program kell végrehajtani (kattintson az alábbi linkre, hogy módosítani):</value>
+  </data>
+  <data name="TXT_READONLY">
+    <value>Csak olvasható</value>
+  </data>
+  <data name="TXT_ARCHIVE">
+    <value>Archívum</value>
+  </data>
+  <data name="TXT_HIDDEN">
+    <value>Rejtett</value>
+  </data>
+  <data name="TXT_SYSTEM">
+    <value>Rendszer</value>
+  </data>
+  <data name="TXT_REFRESH">
+    <value>Felfrissít</value>
+  </data>
+  <data name="TXT_SATURDAY">
+    <value>Szombat</value>
+  </data>
+  <data name="TXT_SAVE">
+    <value>Kivéve</value>
+  </data>
+  <data name="TXT_SAVE_AS">
+    <value>Mentés másként ...</value>
+  </data>
+  <data name="TXT_SEARCH">
+    <value>Keresés</value>
+  </data>
+  <data name="TXT_SERIALPORTLCFG">
+    <value>Beállítása Serial Port</value>
+  </data>
+  <data name="TXT_SERIAL_PORT_NAME">
+    <value>Beállításai Serial Port:</value>
+  </data>
+  <data name="TXT_SERVER">
+    <value>Server</value>
+  </data>
+  <data name="TXT_SETSKIN">
+    <value>Állítsa be a felhasználói felület Theme (per teljes ProTONE Suite):</value>
+  </data>
+  <data name="TXT_SETTINGS">
+    <value>Program beállítások</value>
+  </data>
+  <data name="TXT_SETUILANGUAGE">
+    <value>Állítsa be a felhasználói felület nyelve (per teljes ProTONE Suite):</value>
+  </data>
+  <data name="TXT_SHOWLOG">
+    <value>Megjelenítés log file ...</value>
+  </data>
+  <data name="TXT_SHOWSPLITTERS">
+    <value>Aktuális panel osztók a fő ablakban</value>
+  </data>
+  <data name="TXT_SIZE">
+    <value>Méret</value>
+  </data>
+  <data name="TXT_SUCCESS">
+    <value>Feladat sikeres.</value>
+  </data>
+  <data name="TXT_SUCCESS_COPY_TASK">
+    <value>Fájlok másolása sikeresen befejeződött.</value>
+  </data>
+  <data name="TXT_SUCCESS_DELETE_TASK">
+    <value>Fájlok törlése sikeresen befejeződött.</value>
+  </data>
+  <data name="TXT_SUCCESS_MOVE_TASK">
+    <value>Move fájlokat sikeresen befejeződött.</value>
+  </data>
+  <data name="TXT_SUNDAY">
+    <value>Vasárnap</value>
+  </data>
+  <data name="TXT_TASK_CANCEL">
+    <value>Megszakítás feladatok?</value>
+  </data>
+  <data name="TXT_TASK_CANCEL_MSG">
+    <value>Biztos benne, hogy megszakítja a végrehajtó feladatokat?</value>
+  </data>
+  <data name="TXT_SPECIFYURL">
+    <value>URL megadása:</value>
+  </data>
+  <data name="TXT_TCPIPINVALIDFORMAT">
+    <value>A beírt szöveg nem jelent meg egy érvényes URL-címet.</value>
+  </data>
+  <data name="TXT_TCPIPURI">
+    <value>Írja be az URL-t:</value>
+  </data>
+  <data name="TXT_THEREARENOITEMS">
+    <value>Jelenleg nincs megjeleníthető elem a panelen.</value>
+  </data>
+  <data name="TXT_THURSDAY">
+    <value>Csütörtök</value>
+  </data>
+  <data name="TXT_TRACE">
+    <value>Megjelenítés hibakeresési nyomok</value>
+  </data>
+  <data name="TXT_TUESDAY">
+    <value>Kedd</value>
+  </data>
+  <data name="TXT_UNDO">
+    <value>Kibont</value>
+  </data>
+  <data name="TXT_UP">
+    <value>Fel</value>
+  </data>
+  <data name="TXT_USERNAME">
+    <value>Használó</value>
+  </data>
+  <data name="TXT_VERSION">
+    <value>Verzió: {0}</value>
+  </data>
+  <data name="TXT_WAIT_COPY">
+    <value>Kérem várjon, amíg a fájlok másolását ...</value>
+  </data>
+  <data name="TXT_WAIT_DELETE">
+    <value>Várjon, amíg a fájlok törlése ...</value>
+  </data>
+  <data name="TXT_WAIT_MOVE">
+    <value>Várjon, amíg a mozgó kép ...</value>
+  </data>
+  <data name="TXT_WARNING">
+    <value>Bejelentkezés figyelmeztető üzenetek</value>
+  </data>
+  <data name="TXT_WEDNESDAY">
+    <value>Szerda</value>
+  </data>
+  <data name="TXT_WIZARDBACK">
+    <value>&lt; Vissza</value>
+  </data>
+  <data name="TXT_WIZARDCANCEL">
+    <value>Mégse</value>
+  </data>
+  <data name="TXT_WIZARDFINISH">
+    <value>Befejezés</value>
+  </data>
+  <data name="TXT_WIZARDNEXT">
+    <value>Tovább&gt;</value>
+  </data>
+  <data name="TXT_WIZARDOK">
+    <value>OK</value>
+  </data>
+  <data name="TXT_WIZARDREPEAT">
+    <value>Ismételje meg a varázsló</value>
+  </data>
+  <data name="TXT_WIZARDSTEPDELIMITER">
+    <value> a </value>
+  </data>
+  <data name="TXT_WIZARDSTEPTEXT">
+    <value>Lépés </value>
+  </data>
+  <data name="TXT_WIZFINISHED">
+    <value>befejezte a feladat végrehajtását.</value>
+  </data>
+  <data name="TXT_WIZFINISHING">
+    <value>fut, kérem várjon ...</value>
+  </data>
+  <data name="TXT_WIZSTEPRESULTS">
+    <value>Eredmények</value>
+  </data>
+  <data name="TXT_WIZTASKSFINISHED">
+    <value>Minden feladat varázsló befejezte sikerült!</value>
+  </data>
+  <data name="TXT_WIZTASKSFINISHED_ERRORS">
+    <value>Minden varázsló feladat végeztével, de néhány észlelt hibát. Részletek az alábbi listából.</value>
+  </data>
+  <data name="TXT_WIZTASKSRUNNING">
+    <value>Várjon, amíg a varázsló feladatok futnak ...</value>
+  </data>
+  <data name="TXT_WORKDIR">
+    <value>Program munkakönyvtár:</value>
+  </data>
+  <data name="TXT_YES">
+    <value>Igen</value>
+  </data>
+  <data name="TXT_YESALL">
+    <value>Igen minden</value>
+  </data>
+  <data name="TXT_DEFINE_PROXYSERVERADDRESS">
+    <value>[Adjuk meg a proxy szerver címét]</value>
+  </data>
+  <data name="TXT_DEFINE_PROXYSERVERUSERNAME">
+    <value>[Adjuk meg a proxy szerver username]</value>
+  </data>
+  <data name="TXT_PROXYTYPE">
+    <value>Proxy szerver típusa:</value>
+  </data>
+  <data name="TXT_PROXYADDRESS">
+    <value>Proxy-szerver címe:</value>
+  </data>
+  <data name="TXT_PROXYPORT">
+    <value>Proxy szerver port:</value>
+  </data>
+  <data name="TXT_PROXYUSERNAME">
+    <value>Felhasználói név:</value>
+  </data>
+  <data name="TXT_PROXYPASSWORD">
+    <value>Jelszó:</value>
+  </data>
+  <data name="TXT_LEVEL_AUTOMATIC">
+    <value>Automatikus</value>
+  </data>
+  <data name="TXT_LEVEL_ERROR">
+    <value>Hiba</value>
+  </data>
+  <data name="TXT_LEVEL_EXCEPTION">
+    <value>Kivétel</value>
+  </data>
+  <data name="TXT_LEVEL_HEAVYTRACE">
+    <value>Részletes hibakeresés trace</value>
+  </data>
+  <data name="TXT_LEVEL_INFO">
+    <value>Információ</value>
+  </data>
+  <data name="TXT_LEVEL_TRACE">
+    <value>Nyom</value>
+  </data>
+  <data name="TXT_LEVEL_WARNING">
+    <value>Figyelmeztetés</value>
+  </data>
+  <data name="TXT_RESULTS">
+    <value>Eredmények:</value>
+  </data>
+  <data name="TXT_PRIMARY_MONITOR">
+    <value>[ELSŐDLEGES MONITOR]</value>
+  </data>
+  <data name="TXT_CONFIRM_PROPERTYSAVE">
+    <value>Az elem tulajdonságai megváltoztak. Kívánja menteni a változásokat?</value>
+  </data>
+  <data name="TXT_CONFIRMSAVECHANGES">
+    <value>Változtatások mentése?</value>
+  </data>
+  <data name="TXT_DUPPLICATE_SHORTCUT">
+    <value>Shortcut már használatban van</value>
+  </data>
+  <data name="TXT_DUP_SHORTCUT_FIXED">
+    <value>A kulcs kombináció "{0}" már hozzá van rendelve '{1}', és nem lehet módosítani.
+Kérjük, adjon meg egy másik kombinációt.</value>
+  </data>
+  <data name="TXT_DUP_SHORTCUT_CONFIRM">
+    <value>A kulcs kombináció "{0}" már hozzá van rendelve '{1}'.
+Szeretné újra hozzárendelés '{2}'?</value>
+  </data>
+  <data name="TXT_CONFIRM_RESTORE">
+    <value>Biztos benne, hogy szeretné, hogy töltse be az alapértelmezett beállításokat?</value>
+  </data>
+  <data name="TXT_RESTORESHORTCUTSDESC">
+    <value>Használja a "Restore Defaults", hogy betölti az alapértelmezett billentyűzet shortcut konfiguráció.</value>
+  </data>
+  <data name="TXT_RESTOREDEFAULTS">
+    <value>Alapértékek visszaállítása</value>
+  </data>
+  <data name="TXT_PID">
+    <value>Process ID</value>
+  </data>
+  <data name="TXT_TID">
+    <value>Thread ID</value>
+  </data>
+  <data name="TXT_KEEPONTOP">
+    <value>Tartsa ablak tetején a többiek</value>
+  </data>
+  <data name="TXT_SAVEWINDOW">
+    <value>Mentés log ablakban ...</value>
+  </data>
+  <data name="TXT_SAVELOGFILE">
+    <value>Mentse log fájl ...</value>
+  </data>
+  <data name="TXT_SHOWTRACE">
+    <value>Megjelenítés nyomok</value>
+  </data>
+  <data name="TXT_SHOWINFO">
+    <value>Megjelenítés infó</value>
+  </data>
+  <data name="TXT_SHOWWARNING">
+    <value>Megjelenítés figyelmeztetések</value>
+  </data>
+  <data name="TXT_SHOWERROR">
+    <value>Megjelenítés hibák</value>
+  </data>
+  <data name="TXT_SAVELOGORWINDOW">
+    <value>Mentse log fájl vagy ablak</value>
+  </data>
+  <data name="TXT_NOTIFYUPDATE">
+    <value>A program új változata áll rendelkezésre: {0}.
+Szeretné frissíteni erre a verzióra?</value>
+  </data>
+  <data name="TXT_CONFIRMUPDATE">
+    <value>Még programfrissítés</value>
+  </data>
+  <data name="TXT_WAITDOWNLOADUPDATE">
+    <value>Várjon, amíg a letöltésben alkalmazás frissítési fájlokat.
+Gomb megnyomásával ESC szakítani a letöltést, és megtartani a meglévő alkalmazás verziót.</value>
+  </data>
+  <data name="TXT_ALLOWAUTOUPDATES">
+    <value>Engedélyezése automatikus program frissítés</value>
+  </data>
+  <data name="TXT_CHECKUPDATE">
+    <value>Ellenőrizze programfrissítéseket</value>
+  </data>
+  <data name="TXT_DISABLEAUTODOWNLOADS">
+    <value>Kapcsolja ki az automatikus frissítések</value>
+  </data>
+  <data name="TXT_NOUPDATEREQUIRED">
+    <value>Ez a program a legfrissebb verziót.
+ A pillanatban, akkor nem kell frissíteni a programot.</value>
+  </data>
+  <data name="TXT_CONFIRM_MOVE">
+    <value>Biztos benne, hogy szeretné helyezni a fájlt:
+{0}?</value>
+  </data>
+  <data name="TXT_CONFIRM_MOVE_DIR">
+    <value>A mappa: {0} nem üres.
+Szeretné áthelyezni, és annak minden tartalmát?</value>
+  </data>
+  <data name="TXT_CONFIRM_MOVE_EMPTYDIR">
+    <value>Biztos benne, hogy szeretné helyezni a mappát:
+{0}?</value>
+  </data>
+  <data name="TXT_CONFIRM_MOVE_ROHS">
+    <value>A fájl {0} egy vagy több ilyen tulajdonságok: Read-Only/Hidden/System.
+Még mindig akarja mozgatni?</value>
+  </data>
+  <data name="TXT_NOPROXY">
+    <value>Nincs proxy</value>
+  </data>
+  <data name="TXT_HTTPPROXY">
+    <value>HTTP Proxy</value>
+  </data>
+  <data name="TXT_SOCKS4PROXY">
+    <value>SOCKS4 Proxy</value>
+  </data>
+  <data name="TXT_SOCKS5PROXY">
+    <value>SOCKS5 Proxy</value>
+  </data>
+  <data name="TXT_IEPROXY">
+    <value>Az Internet Explorer proxy beállításai</value>
+  </data>
+  <data name="TXT_FILE_TYPE">
+    <value>Fájltípus</value>
+  </data>
+  <data name="TXT_LOOK_IN">
+    <value>Keresés a</value>
+  </data>
+  <data name="TXT_SAMPLE">
+    <value>Példa:</value>
+  </data>
+  <data name="TXT_FONT">
+    <value>Betűtípus:</value>
+  </data>
+  <data name="TXT_FONT_STYLE">
+    <value>Betűstílus:</value>
+  </data>
+  <data name="TXT_SCRIPT">
+    <value>Karakterkészlet:</value>
+  </data>
+  <data name="TXT_CHOOSE_COLOR">
+    <value>Válasszon egy színt:</value>
+  </data>
+  <data name="TXT_ACTIVE">
+    <value>Aktív</value>
+  </data>
+  <data name="TXT_FLAG_ERRORS">
+    <value>Megjelenítés
+hibák</value>
+  </data>
+  <data name="TXT_FLAG_WARNINGS">
+    <value>Megjelenítés
+figyelmeztetések</value>
+  </data>
+  <data name="TXT_FLAG_INFOS">
+    <value>Megjelenítés 
+információk</value>
+  </data>
+  <data name="TXT_FLAG_TRACES">
+    <value>Megjelenítés
+Debug Traces</value>
+  </data>
+  <data name="TXT_LOGFILE_FILTER">
+    <value>Log fájlok  (*.log)|*.log||</value>
+  </data>
+  <data name="TXT_SAVELOGFILE_PART">
+    <value>Mentse részleges log fájl: </value>
+  </data>
+  <data name="TXT_DRIVE_DESC_FORMAT">
+    <value>{0}  [{1}]  [{2}]  [{3} MB szabad]  [{4}]</value>
+  </data>
+  <data name="TXT_SELECT_FOLDER">
+    <value>Válasszon ki egy mappát:</value>
+  </data>
+  <data name="TXT_NEW_FOLDER">
+    <value>Új mappa létrehozása</value>
+  </data>
+  <data name="TXT_FORMAT_UNKNOWN">
+    <value>Ismeretlen formátum</value>
+  </data>
+  <data name="TXT_NOT_READY">
+    <value>Not Ready</value>
+  </data>
+  <data name="TXT_NO_LABEL">
+    <value>Nincs címke</value>
+  </data>
+  <data name="TXT_NO_NAME">
+    <value>Nincs neve</value>
+  </data>
+  <data name="TXT_READY">
+    <value>Kész</value>
+  </data>
+  <data name="TXT_CURRENT_PATH">
+    <value>Jelenlegi útvonal: {0}</value>
+  </data>
+  <data name="TXT_DISABLE">
+    <value>Letiltása</value>
+  </data>
+  <data name="TXT_EDIT">
+    <value>Szerkeszt</value>
+  </data>
+  <data name="TXT_ENABLE">
+    <value>Engedélyezése</value>
+  </data>
+  <data name="TXT_ENABLED">
+    <value>Engedélyezve</value>
+  </data>
+  <data name="TXT_EXPORT">
+    <value>Export</value>
+  </data>
+  <data name="TXT_EXPORT_FULL">
+    <value>Teljes export ...</value>
+  </data>
+  <data name="TXT_EXPORT_PARTIAL">
+    <value>Részleges export ...</value>
+  </data>
+  <data name="TXT_IMPORT">
+    <value>Importál</value>
+  </data>
+  <data name="TXT_IMPORT_FULL">
+    <value>Teljes import ...</value>
+  </data>
+  <data name="TXT_IMPORT_PARTIAL">
+    <value>Részleges import (a merge) ...</value>
+  </data>
+  <data name="TXT_INPUT_DATA">
+    <value>Bemeneti adatok</value>
+  </data>
+  <data name="TXT_OUTPUT_DATA">
+    <value>Kimeneti adatok</value>
+  </data>
+  <data name="TXT_DISK_CDR">
+    <value>Optikai lemez (CD, DVD vagy BlueRay)</value>
+  </data>
+  <data name="TXT_DISK_FIL">
+    <value>Fájl</value>
+  </data>
+  <data name="TXT_DISK_FLD">
+    <value>Mappa</value>
+  </data>
+  <data name="TXT_DISK_HDD">
+    <value>Rögzített lemez (merevlemez)</value>
+  </data>
+  <data name="TXT_DISK_NET">
+    <value>Hálózati meghajtó</value>
+  </data>
+  <data name="TXT_DISK_NRT">
+    <value>Disk nélkül gyökérkönyvtárában</value>
+  </data>
+  <data name="TXT_DISK_RAM">
+    <value>Virtual RAM lemez</value>
+  </data>
+  <data name="TXT_DISK_REM">
+    <value>Cserélhető lemez (floppy lemezről vagy USB flash).</value>
+  </data>
+  <data name="TXT_DISK_UNK">
+    <value>Ismeretlen lemez típusa</value>
+  </data>
+  <data name="TXT_NEW_FILENAME">
+    <value>Új fájl neve</value>
+  </data>
+  <data name="TXT_OLD_FILENAME">
+    <value>Régi fájl neve</value>
+  </data>
+  <data name="TXT_ATTRIBUTES">
+    <value>Tulajdonságok</value>
+  </data>
+  <data name="TXT_CREATIONDATE">
+    <value>Kiállítás időpontja</value>
+  </data>
+  <data name="TXT_EXTENSION">
+    <value>Kiterjesztés</value>
+  </data>
+  <data name="TXT_FILESIZE">
+    <value>Fájlméret</value>
+  </data>
+  <data name="TXT_FILESYSTEMINFO">
+    <value>Fájlinformációk</value>
+  </data>
+  <data name="TXT_LASTACCESSDATE">
+    <value>Utolsó hozzáférés</value>
+  </data>
+  <data name="TXT_LASTCHANGEDATE">
+    <value>Utolsó módosítás</value>
+  </data>
+  <data name="TXT_NAME">
+    <value>Név</value>
+  </data>
+  <data name="TXT_PARENT">
+    <value>Szülő mappa</value>
+  </data>
+  <data name="TXT_PATH">
+    <value>Útvonal</value>
+  </data>
+  <data name="TXT_DESC">
+    <value>Leírás</value>
+  </data>
+  <data name="TXT_LOGMESSAGE">
+    <value>Bejelentkezés Üzenet</value>
+  </data>
+  <data name="TXT_MODULENAME">
+    <value>Modul neve</value>
+  </data>
+  <data name="TXT_TIMESTAMP">
+    <value>Timestamp</value>
+  </data>
+  <data name="TXT_CONFIRM_CREATE">
+    <value>A fájl {0} nem létezik még.
+Szeretné létrehozni?</value>
+  </data>
+  <data name="TXT_ASSISTANCE">
+    <value>Támogatás</value>
+  </data>
+</root>

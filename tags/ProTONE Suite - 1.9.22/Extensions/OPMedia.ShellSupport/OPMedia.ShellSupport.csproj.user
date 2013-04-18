@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectView>ShowAllFiles</ProjectView>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe</StartProgram>
+    <StartArguments>/codebase OPMedia.ShellSupport.dll</StartArguments>
+    <StartWorkingDirectory>E:\Personal\ProTONE Suite - 1.9.x\bin\</StartWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OPM Framework for GAC|x86'">
+    <StartProgram>C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe</StartProgram>
+    <StartWorkingDirectory>E:\Personal\ProTONE Suite - 1.9.x\bin\</StartWorkingDirectory>
+    <StartArguments>/codebase OPMedia.ShellSupport.dll</StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+</Project>
