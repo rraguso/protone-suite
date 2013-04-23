@@ -168,7 +168,8 @@ namespace OPMedia.Core.Utilities
             _launchPaths.Add(KnownFileType.Playlist, SuiteConfiguration.PlayerInstallationPath);
             _launchPaths.Add(KnownFileType.Bookmark, SuiteConfiguration.PlayerInstallationPath);
             _launchPaths.Add(KnownFileType.Catalog, SuiteConfiguration.LibraryInstallationPath);
-            _launchPaths.Add(KnownFileType.Subtitle, SuiteConfiguration.LibraryInstallationPath);
+            //_launchPaths.Add(KnownFileType.Subtitle, SuiteConfiguration.LibraryInstallationPath);
+            _launchPaths.Add(KnownFileType.Subtitle, "");
 
             _descriptions.Add(KnownFileType.AudioFile, "");
             _descriptions.Add(KnownFileType.VideoFile, "");
@@ -228,11 +229,11 @@ namespace OPMedia.Core.Utilities
         {
             foreach (string s in _knownFileTypes.Keys)
             {
-                RegisterFileType(s, false);
+                RegisterFileType(s, true);
             }
 
-            RegisterFileType("BMK", false);
-            RegisterFileType("CTX", false);
+            RegisterFileType("BMK", true);
+            RegisterFileType("CTX", true);
         }
 
         public static void UnregisterKnownFileTypes()
@@ -255,44 +256,47 @@ namespace OPMedia.Core.Utilities
                 if (regMediaType)
                 {
                     // ==== Register media type ====
-                    using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(info.MediaType))
+                    using (RegistryKey mediaTypeKey = Registry.ClassesRoot.CreateSubKey(info.MediaType))
                     {
-                        if (key != null)
+                        if (mediaTypeKey != null)
                         {
-                            key.SetValue("", info.Description);
+                            mediaTypeKey.SetValue("", info.Description);
                         }
-                    }
-                }
 
-                // ==== Register icon ====
-                string keyPath = string.Format("{0}\\DefaultIcon", info.MediaType);
+                        // ==== Register icon ====
+                        using (RegistryKey defaultIconKey = mediaTypeKey.CreateSubKey("DefaultIcon"))
+                        {
+                            if (defaultIconKey != null)
+                            {
+                                string newValue = string.Format(@"{0}\Resources\{1}.ico", SuiteConfiguration.InstallationPath, info.KnownFileType);
+                                defaultIconKey.SetValue("", newValue);
+                            }
+                        }
 
-                using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyPath))
-                {
-                    if (key != null)
-                    {
-                        string newValue = string.Format(@"{0}\Resources\{1}.ico", SuiteConfiguration.InstallationPath, info.KnownFileType);
-                        key.SetValue("", newValue);
-                    }
-                }
+                        if (File.Exists(info.LaunchPath))
+                        {
+                            using (RegistryKey shellKey = mediaTypeKey.CreateSubKey("shell"))
+                            {
+                                if (shellKey != null)
+                                {
+                                    // ==== Change default action to OPEN ====
+                                    shellKey.SetValue("", "open");
 
-                // ==== Change default action to OPEN ====
-                keyPath = string.Format("{0}\\shell", info.MediaType);
-                using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyPath))
-                {
-                    if (key != null)
-                    {
-                        key.SetValue("", "open");
-                    }
-                }
-
-                // ==== Update OPEN action command ====
-                keyPath = string.Format("{0}\\shell\\open\\command", info.MediaType);
-                using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyPath))
-                {
-                    if (key != null)
-                    {
-                        key.SetValue("", string.Format("\"{0}\" launch \"%L\"", info.LaunchPath));
+                                    // ==== Update OPEN action command ====
+                                    using (RegistryKey key = shellKey.CreateSubKey("open\\command"))
+                                    {
+                                        if (key != null)
+                                        {
+                                            key.SetValue("", string.Format("\"{0}\" launch \"%L\"", info.LaunchPath));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            mediaTypeKey.DeleteSubKeyTree("shell", false);
+                        }
                     }
                 }
             }
@@ -307,32 +311,23 @@ namespace OPMedia.Core.Utilities
                 if (unregMediaType)
                 {
                     // ==== Unregister media type ====
-                    using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(info.MediaType))
+                    using (RegistryKey mediaTypeKey = Registry.ClassesRoot.CreateSubKey(info.MediaType))
                     {
-                        if (key != null)
+                        if (mediaTypeKey != null)
                         {
-                            key.SetValue("", "");
+                            mediaTypeKey.SetValue("", "");
+
+                            // ==== Unregister icon ====
+                            using (RegistryKey defaultIconKey = mediaTypeKey.CreateSubKey("DefaultIcon"))
+                            {
+                                if (defaultIconKey != null)
+                                {
+                                    defaultIconKey.SetValue("", "");
+                                }
+                            }
+
+                            mediaTypeKey.DeleteSubKeyTree("shell", false);
                         }
-                    }
-                }
-
-                // ==== Unregister icon ====
-                string keyPath = string.Format("{0}\\DefaultIcon", info.MediaType);
-                using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyPath))
-                {
-                    if (key != null)
-                    {
-                        key.SetValue("", "");
-                    }
-                }
-
-                // ==== Update OPEN action command ====
-                keyPath = string.Format("{0}\\shell\\open\\command", info.MediaType);
-                using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyPath))
-                {
-                    if (key != null)
-                    {
-                        key.SetValue("", "");
                     }
                 }
             }
