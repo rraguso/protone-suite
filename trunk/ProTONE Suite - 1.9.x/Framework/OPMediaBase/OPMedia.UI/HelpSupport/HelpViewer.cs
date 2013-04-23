@@ -9,6 +9,7 @@ using OPMedia.UI.Generic;
 using OPMedia.Core;
 using System.Windows.Forms;
 using OPMedia.Core.GlobalEvents;
+using System.Net;
 
 namespace OPMedia.UI.HelpSupport
 {
@@ -87,12 +88,11 @@ namespace OPMedia.UI.HelpSupport
         internal void OpenURL(string helpUri)
         {
             _uri = helpUri;
+            StringBuilder sb = new StringBuilder();
 
             Uri uri = new Uri(helpUri);
             if (uri.Scheme == "file")
             {
-                StringBuilder sb = new StringBuilder();
-
                 try
                 {
                     
@@ -118,7 +118,34 @@ namespace OPMedia.UI.HelpSupport
             }
             else
             {
-                wbHelpDisplay.Navigate(helpUri);
+                //wbHelpDisplay.Navigate(helpUri);
+
+                HttpWebRequest request = WebRequest.Create(helpUri) as HttpWebRequest;
+
+                // execute the request
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                {
+                    using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+                    {
+                        string[] docLines = sr.ReadToEnd().Split(Environment.NewLine.ToCharArray());
+                        for (int i = 0; i < docLines.Length; i++)
+                        {
+                            if (docLines[i].ToLowerInvariant() == "<!-- insert stylesheet here -->")
+                            {
+                                docLines[i] = GenerateStyleSheet();
+                            }
+                            else if (docLines[i].ToLowerInvariant().Contains("<img"))
+                            {
+                                docLines[i] = docLines[i].ToLowerInvariant().Replace("src=\"images", string.Format("src=\"{0}/images",
+                                    "http://protone-suite.googlecode.com/svn/wiki/ProTONE Suite - 1.9.x"));
+                            }
+
+                            sb.AppendLine(docLines[i]);
+                        }
+                    }
+                }
+
+                wbHelpDisplay.DocumentText = sb.ToString();
             }
         }
 

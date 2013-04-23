@@ -274,8 +274,8 @@ Filename: {sys}\netsh.exe; Parameters: "firewall delete allowedprogram program="
 
 [Registry]
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: InstallLanguageID; ValueData: {language}; Flags: uninsdeletevalue noerror
-Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: DownloadUriBase; ValueData: http://opmedia.3x.ro/downloads/; Flags: noerror uninsdeletevalue
-Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: HelpUriBase; ValueData: http://opmedia.3x.ro/docs/; Flags: noerror uninsdeletevalue
+Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: DownloadUriBase; ValueData: http://protone-suite.googlecode.com/svn/trunk/ProTONE Suite - 1.9.x/_builds/; Flags: noerror uninsdeletevalue
+Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: HelpUriBase; ValueData: http://protone-suite.googlecode.com/svn/wiki/ProTONE Suite - 1.9.x/; Flags: noerror uninsdeletevalue
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: dword; ValueName: UseOnlineDocumentation; ValueData: 1; Flags: noerror uninsdeletevalue
 
 [UninstallDelete]
