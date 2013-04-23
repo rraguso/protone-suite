@@ -202,7 +202,4 @@
   <data name="Subtitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\subtitle.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clock.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

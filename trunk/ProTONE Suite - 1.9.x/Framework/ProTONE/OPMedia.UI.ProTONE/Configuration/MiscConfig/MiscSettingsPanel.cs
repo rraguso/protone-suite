@@ -57,7 +57,7 @@ namespace OPMedia.UI.ProTONE.Configuration
                 tp.ImageIndex = i++;
             }
 
-            if (!SuiteConfiguration.CanModifyRegistry ||
+            if (!SuiteConfiguration.CurrentUserIsAdministrator ||
                 !SuiteConfiguration.IsRCCServiceInstalled)
             {
                 tabMisc.TabPages.Remove(tpRemote);
@@ -84,7 +84,7 @@ namespace OPMedia.UI.ProTONE.Configuration
         {
             pagePlaylist.Save();
 
-            if (SuiteConfiguration.CanModifyRegistry &&
+            if (SuiteConfiguration.CurrentUserIsAdministrator &&
                 SuiteConfiguration.IsRCCServiceInstalled)
             {
                 pageRemote.Save();

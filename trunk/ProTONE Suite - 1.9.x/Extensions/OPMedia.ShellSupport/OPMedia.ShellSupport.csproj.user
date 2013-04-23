@@ -6,8 +6,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <StartAction>Program</StartAction>
     <StartProgram>C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe</StartProgram>
-    <StartArguments>/codebase OPMedia.ShellSupport.dll</StartArguments>
-    <StartWorkingDirectory>E:\Personal\ProTONE Suite - 1.9.x\bin\</StartWorkingDirectory>
+    <StartArguments>/u OPMedia.ShellSupport.dll</StartArguments>
+    <StartWorkingDirectory>E:\Personal\ProTONE Suite\trunk\ProTONE Suite - 1.9.x\bin\</StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OPM Framework for GAC|x86'">
     <StartProgram>C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe</StartProgram>

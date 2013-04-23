@@ -93,7 +93,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>opmedia.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -207,7 +208,6 @@
     <Compile Include="Controls\OPMShellTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\OPMToolboxBitmapAttribute.cs" />
     <Compile Include="Controls\SelfValidableCollection.cs" />
     <Compile Include="Controls\OPMToolStrip.cs">
       <SubType>Component</SubType>
@@ -614,7 +614,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>SerialPortCfgPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="opmedia.snk" />
     <None Include="Resources\ImageNotFound.png" />
     <None Include="Resources\menuChildren.png" />
     <None Include="Resources\settings.png" />

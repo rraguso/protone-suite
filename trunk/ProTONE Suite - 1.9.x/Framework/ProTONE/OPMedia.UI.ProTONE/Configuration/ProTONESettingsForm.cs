@@ -43,11 +43,11 @@ namespace OPMedia.UI.ProTONE.Configuration
             }
             else if (ApplicationInfo.IsPlayer)
             {
-                AddPanel(typeof(FileTypesPanel), SuiteConfiguration.CanModifyRegistry);
+                AddPanel(typeof(FileTypesPanel), SuiteConfiguration.CurrentUserIsAdministrator);
                 AddPanel(typeof(MiscellaneousSettingsPanel));
                 AddPanel(typeof(SchedulerSettingsPanel));
 
-                if (!SuiteConfiguration.CanModifyRegistry)
+                if (!SuiteConfiguration.CurrentUserIsAdministrator)
                 {
                     MessageDisplay.Show(Translator.Translate("TXT_PANELSHIDDEN_NOADMIN"),
                         Translator.Translate("TXT_CAUTION"), MessageBoxIcon.Exclamation);

@@ -94,7 +94,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>opmedia.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -253,7 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Addons.png" />
-    <None Include="opmedia.snk" />
     <None Include="Resources\AddonsSettings.png" />
     <None Include="Resources\Preview.bmp" />
     <None Include="Resources\Properties.bmp" />

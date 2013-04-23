@@ -15,6 +15,7 @@ using OPMedia.Core.TranslationSupport;
 using System.Runtime.InteropServices;
 using OPMedia.Core.Logging;
 using OPMedia.Core.ApplicationSettings;
+using System.Security.Principal;
 
 namespace OPMedia.Core
 {
@@ -534,22 +535,15 @@ namespace OPMedia.Core
 
         #region Generic purpoise API
 
-        public static bool CanModifyRegistry
+        public static bool CurrentUserIsAdministrator
         {
             get
             {
                 try
                 {
-                    using (RegistryKey key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\OPMedia Research\opmtest"))
-                    {
-                        if (key != null)
-                        {
-                            key.SetValue("aa", "bb");
-                        }
-                    }
-
-                    Registry.LocalMachine.DeleteSubKey(@"SOFTWARE\OPMedia Research\opmtest");
-                    return true;
+                    WindowsIdentity user = WindowsIdentity.GetCurrent();
+                    WindowsPrincipal principal = new WindowsPrincipal(user);
+                    return principal.IsInRole(WindowsBuiltInRole.Administrator);
                 }
                 catch
                 {

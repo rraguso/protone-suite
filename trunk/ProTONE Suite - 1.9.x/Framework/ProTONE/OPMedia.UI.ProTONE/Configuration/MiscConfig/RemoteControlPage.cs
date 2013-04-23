@@ -24,7 +24,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         void OnLoad(object sender, EventArgs e)
         {
             chkEnableRemoting.Checked = ProTONERemoteConfig.EnableRemoteControl;
-            this.Enabled = SuiteConfiguration.CanModifyRegistry;
+            this.Enabled = SuiteConfiguration.CurrentUserIsAdministrator;
         }
 
         protected override void SaveInternal()

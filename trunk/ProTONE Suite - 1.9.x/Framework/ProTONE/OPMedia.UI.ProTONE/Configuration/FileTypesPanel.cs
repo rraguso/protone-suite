@@ -92,7 +92,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             tableLayoutPanel1.Enabled = cbShellIntegration.Checked;
             pnlButtons.Enabled = cbShellIntegration.Checked;
 
-            this.Enabled = SuiteConfiguration.CanModifyRegistry;
+            this.Enabled = SuiteConfiguration.CurrentUserIsAdministrator;
 
             this.HandleCreated += new EventHandler(FileTypesPanel_HandleCreated);
         }

@@ -11,7 +11,8 @@
     <RootNamespace>OPMedia.Runtime</RootNamespace>
     <AssemblyName>OPMedia.Runtime</AssemblyName>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>opmedia.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -171,9 +172,6 @@
       <Project>{D75C6E16-0208-40FD-8C54-F073667F5384}</Project>
       <Name>OPMedia.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="opmedia.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

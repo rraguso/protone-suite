@@ -41,7 +41,7 @@ namespace OPMedia.RCCManager
 
                 LoggedApplication.Start(Constants.RCCManagerName);
 
-                if (!SuiteConfiguration.CanModifyRegistry)
+                if (!SuiteConfiguration.CurrentUserIsAdministrator)
                 {
                     MessageDisplay.Show(Translator.Translate("TXT_ADMIN_RIGHTS_REQUIRED"),
                         Translator.Translate("TXT_CAUTION"), MessageBoxIcon.Exclamation);
