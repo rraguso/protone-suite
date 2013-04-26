@@ -66,9 +66,9 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                         new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
                     _plItem.MediaFileInfo.BookmarkCollectionChanged +=
                         new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
-
-                    LoadBookmarks();
                 }
+
+                LoadBookmarks();
             } 
         }
 
@@ -190,14 +190,17 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         private void LoadBookmarks()
         {
             lvBookmarks.Items.Clear();
+            lblItem.Text = string.Empty;
 
             if (_plItem == null)
             {
+                this.Enabled = false;
                 return;
             }
 
             try
             {
+                this.Enabled = true;
                 lblItem.Text = _plItem.MediaFileInfo.Path;
 
                 if (_plItem.MediaFileInfo.Bookmarks != null)
