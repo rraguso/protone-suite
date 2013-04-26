@@ -194,7 +194,6 @@ namespace OPMedia.UI.Dialogs
             // 
             this.tsbClearLog.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsbClearLog.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbClearLog.Image = global::OPMedia.UI.Properties.Resources.Delete;
             this.tsbClearLog.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClearLog.Name = "tsbClearLog";
             this.tsbClearLog.Size = new System.Drawing.Size(23, 36);

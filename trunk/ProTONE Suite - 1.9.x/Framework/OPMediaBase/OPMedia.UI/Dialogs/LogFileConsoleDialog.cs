@@ -99,6 +99,7 @@ namespace OPMedia.UI.Dialogs
             tsbSave.Text = string.Empty;
 
             tsbFreezeWindow.Image = Resources.Stop.ToBitmap();
+            tsbClearLog.Image = Resources.Delete.Resize(false);
 
             OnLanguageUpdated();
         }
