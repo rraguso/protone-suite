@@ -15,7 +15,7 @@ namespace OPMedia.Core
 
         public static void RegisterAppName(Assembly asm)
         {
-            if (!(IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost))
+            if (!(IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsUtility))
             {
                 try
                 {
