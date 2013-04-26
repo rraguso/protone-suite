@@ -39,6 +39,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
     public partial class PlaylistPanel : OPMBaseControl
     {
+        OPMToolTipManager _ttm = null;
         OPMToolTip _tip = new OPMToolTip();
 
         Playlist playlist = new Playlist();
@@ -59,6 +60,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             InitializeComponent();
 
+            _ttm = new OPMToolTipManager(lvPlaylist);
+
             ThemeManager.SetFont(lvPlaylist, FontSizes.Normal);
             lvPlaylist.ShowItemToolTips = false;
             lvPlaylist.MultiSelect = true;
@@ -67,7 +70,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             lvPlaylist.OverrideBackColor = ThemeManager.SpecialListColor;
 
             lvPlaylist.ItemMouseHover += new ListViewItemMouseHoverEventHandler(lvPlaylist_ItemMouseHover);
-            lvPlaylist.MouseHover += new EventHandler(lvPlaylist_MouseHover);
             
             playlist.PlaylistUpdated += 
                 new PlaylistUpdatedEventHandler(playlist_PlaylistUpdated);
@@ -784,7 +786,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                         ExtendedSubItemDetail esid = lvsi.Tag as ExtendedSubItemDetail;
                         if (esid != null && !string.IsNullOrEmpty(esid.Text))
                         {
-                            _tip.SetSimpleToolTip(lvPlaylist, esid.Text, Resources.ResourceManager.GetImage("subtitles"));
+                            _ttm.ShowSimpleToolTip(esid.Text, Resources.ResourceManager.GetImage("subtitles"));
                             set = true;
                         }
                         else
@@ -798,7 +800,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                                 Image customImage = pli.MediaFileInfo.CustomImage;
 
-                                _tip.SetToolTip(lvPlaylist, pli.DisplayName, pli.MediaInfo, img, customImage);
+                                _ttm.ShowToolTip(pli.DisplayName, pli.MediaInfo, img, customImage);
                                 set = true;
                             }
                         }
@@ -810,19 +812,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 if (!set)
                 {
                     Debug.WriteLine("PL: lvPlaylist_ItemMouseHover no tip to set ...");
-                    _tip.RemoveAll();
+                    _ttm.RemoveAll();
                 }
-            }
-        }
-
-        void lvPlaylist_MouseHover(object sender, EventArgs e)
-        {
-            Point p = lvPlaylist.PointToClient(MousePosition);
-            ListViewItem item = lvPlaylist.GetItemAt(p.X, p.Y);
-
-            if (item == null)
-            {
-                _tip.RemoveAll();
             }
         }
 

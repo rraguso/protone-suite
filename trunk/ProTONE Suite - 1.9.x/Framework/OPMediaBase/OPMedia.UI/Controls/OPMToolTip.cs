@@ -30,31 +30,14 @@ namespace OPMedia.UI.Controls
     {
         const int ImageMaxHeight = 80;
 
+        static Control __generic = new Control();
+
         private Dictionary<Control, OPMToolTipData> _data = new Dictionary<Control, OPMToolTipData>();
 
         Font _fVal = ThemeManager.SmallestFont;
         Font _fKey = ThemeManager.SmallFont;
         Font _fTitle = ThemeManager.LargeFont;
         static Font _def = new Font("Segoe UI", 12.0f, FontStyle.Regular, GraphicsUnit.World);
-
-        public void ShowSimpleToolTip(Control ctl, string text, Image img = null)
-        {
-            Dictionary<string, string> d = null;
-            if (text != null)
-            {
-                d = new Dictionary<string, string>();
-                d.Add(text, string.Empty);
-            }
-
-            ShowToolTip(ctl, Translator.Translate("TXT_APP_NAME"), d,
-                img ?? ImageProvider.ApplicationIconLarge);
-        }
-
-        public void ShowToolTip(Control ctl, string title, Dictionary<string, string> values = null, Image img = null, Image customImage = null)
-        {
-            string fake = AssignData(ctl, title, values, img, customImage);
-            base.Show(fake, ctl);
-        }
 
         public void SetSimpleToolTip(Control ctl, string text, Image img = null)
         {
@@ -75,28 +58,17 @@ namespace OPMedia.UI.Controls
             base.SetToolTip(ctl, fake);
         }
 
-        void ctl_MouseHover(object sender, EventArgs e)
-        {
-            ShowInternal(sender as Control);
-        }
-
-        void ShowInternal(Control ctl)
-        {
-            if (ctl != null && _data.ContainsKey(ctl))
-            {
-                OPMToolTipData data = _data[ctl];
-                if (data != null)
-                {
-                    Size s = CalculateSize(ctl, data);
-                    this.ShowToolTip(ctl, data.Title, data.Values, data.TitleImage);
-                }
-            }
-        }
+       
 
         private string AssignData(Control ctl, string title, Dictionary<string, string> values, Image titleImage, Image customImage)
         {
             titleImage = GetScaledImage(titleImage);
             customImage = GetScaledImage(customImage);
+
+            if (ctl == null)
+            {
+                ctl = __generic;
+            }
 
             if (_data.ContainsKey(ctl))
             {
@@ -166,6 +138,7 @@ namespace OPMedia.UI.Controls
             base.OwnerDraw = true;
             this.Draw += new DrawToolTipEventHandler(OPMToolTip_Draw);
             this.Popup += new PopupEventHandler(OPMToolTip_Popup);
+            
         }
 
         void OPMToolTip_Popup(object sender, PopupEventArgs e)
@@ -364,6 +337,93 @@ namespace OPMedia.UI.Controls
             }
 
             return null;
+        }
+    }
+
+    public class OPMToolTipManager
+    {
+        private OPMToolTip _tip = null;
+        private Control _ctl = null;
+
+        public void ShowSimpleToolTip(string text, Image img = null)
+        {
+            if (ToolTipCreated())
+            {
+                _tip.SetSimpleToolTip(_ctl, text, img);
+            }
+        }
+
+        public void ShowToolTip(string title, Dictionary<string, string> values = null, Image img = null, Image customImage = null)
+        {
+            if (ToolTipCreated())
+            {
+                _tip.SetToolTip(_ctl, title, values, img, customImage);
+            }
+        }
+
+        public OPMToolTipManager(Control ctl)
+        {
+            _ctl = ctl;
+            _ctl.MouseMove += new MouseEventHandler(_ctl_MouseMove);
+        }
+
+        void _ctl_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point pos = new Point(Cursor.Position.X, Cursor.Position.Y);
+            if (_pos != Point.Empty)
+            {
+                int dx = Math.Abs(_pos.X - pos.X);
+                int dy = Math.Abs(_pos.Y - pos.Y);
+
+                if (dx > 3 || dy > 3)
+                {
+                    RemoveAll();
+                }
+            }
+        }
+
+        private bool ToolTipCreated()
+        {
+            try
+            {
+                RemoveAll();
+
+                _tip = new OPMToolTip();
+                _tip.Disposed += new EventHandler(_tip_Disposed);
+                _tip.Popup += new PopupEventHandler(_tip_Popup);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        Point _pos = Point.Empty;
+
+        void _tip_Popup(object sender, PopupEventArgs e)
+        {
+            _pos = new Point(Cursor.Position.X, Cursor.Position.Y);
+        }
+
+        void _tip_Disposed(object sender, EventArgs e)
+        {
+            if (sender == _tip)
+            {
+                _tip = null;
+                _pos = Point.Empty;
+            }
+        }
+
+        public void RemoveAll()
+        {
+            if (_tip != null)
+            {
+                _tip.Hide(_ctl);
+                _tip.Dispose();
+                _tip = null;
+                _pos = Point.Empty;
+            }
         }
     }
 }

@@ -209,6 +209,8 @@ namespace OPMedia.UI.Themes
 
             InitializeComponent();
 
+            _ttm = new OPMToolTipManager(this);
+
             this.CornerSize = DefaultCornerSize;
             this.FormButtons = FormButtons.All;
             this.AllowResize = true;
@@ -659,7 +661,7 @@ namespace OPMedia.UI.Themes
             }
         }
 
-        OPMToolTip _tip = new OPMToolTip();
+        OPMToolTipManager _ttm = null;
 
         void OnMouseHover(object sender, EventArgs e)
         {
@@ -670,13 +672,13 @@ namespace OPMedia.UI.Themes
                 {
                     Graphics g = this.CreateGraphics();
                     SizeF size = g.MeasureString(_text, _titleBarFont);
-                    _tip.ShowSimpleToolTip(this, _text);
+                    _ttm.ShowSimpleToolTip(_text);
                     return;
                 }
 
                 if (_rcMinimize != Rectangle.Empty && _rcMinimize.Contains(pt))
                 {
-                    _tip.ShowSimpleToolTip(this, Translator.Translate("TXT_BTNMINIMIZE"));
+                    _ttm.ShowSimpleToolTip(Translator.Translate("TXT_BTNMINIMIZE"));
                     return;
                 }
 
@@ -686,13 +688,13 @@ namespace OPMedia.UI.Themes
                         Translator.Translate("TXT_BTNMAXIMIZE") : 
                         Translator.Translate("TXT_BTNRESTOREDOWN");
 
-                    _tip.ShowSimpleToolTip(this, tip);
+                    _ttm.ShowSimpleToolTip(tip);
                     return;
                 }
 
                 if (_rcClose != Rectangle.Empty && _rcClose.Contains(pt))
                 {
-                    _tip.ShowSimpleToolTip(this, Translator.Translate("TXT_BTNCLOSE"));
+                    _ttm.ShowSimpleToolTip(Translator.Translate("TXT_BTNCLOSE"));
                 }
             });
         }
