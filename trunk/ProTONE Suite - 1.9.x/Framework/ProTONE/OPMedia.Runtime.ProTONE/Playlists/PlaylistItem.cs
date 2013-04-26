@@ -101,24 +101,29 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     }
                 }
 
-                retVal = AppSettings.PlaylistEntryFormat;
-                StringUtils.ReplaceToken(ref retVal, "<A", artist);
-                StringUtils.ReplaceToken(ref retVal, "<B", album);
-                StringUtils.ReplaceToken(ref retVal, "<T", title);
-                StringUtils.ReplaceToken(ref retVal, "<G", genre);
-                StringUtils.ReplaceToken(ref retVal, "<C", comments);
-                StringUtils.ReplaceToken(ref retVal, "<#", track);
-                StringUtils.ReplaceToken(ref retVal, "<Y", year);
+                if (AppSettings.UseMetadata || AppSettings.UseFileNameFormat)
+                {
+                    // Format entries if any formatting rules are applied
+
+                    retVal = AppSettings.PlaylistEntryFormat;
+                    StringUtils.ReplaceToken(ref retVal, "<A", artist ?? string.Empty);
+                    StringUtils.ReplaceToken(ref retVal, "<B", album ?? string.Empty);
+                    StringUtils.ReplaceToken(ref retVal, "<T", title ?? string.Empty);
+                    StringUtils.ReplaceToken(ref retVal, "<G", genre ?? string.Empty);
+                    StringUtils.ReplaceToken(ref retVal, "<C", comments ?? string.Empty);
+                    StringUtils.ReplaceToken(ref retVal, "<#", track ?? string.Empty);
+                    StringUtils.ReplaceToken(ref retVal, "<Y", year ?? string.Empty);
+                }
+
+                retVal = retVal.Trim();
+                retVal = retVal.Trim(new char[] { '-' });
+                retVal = retVal.Trim();
 
                 if (string.IsNullOrEmpty(retVal))
                 {
                     // Use file name
                     retVal = mi.Name;
                 }
-
-                retVal = retVal.Trim();
-                retVal = retVal.Trim(new char[] { '-' });
-                retVal = retVal.Trim();
 
                 return retVal;
             }
