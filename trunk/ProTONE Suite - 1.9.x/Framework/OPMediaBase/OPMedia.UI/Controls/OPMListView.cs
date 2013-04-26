@@ -909,30 +909,42 @@ namespace OPMedia.UI.Controls
 			{
 				// non-editable column
 				return;
-			}
+            }
 
-            // Set the bounding rectangle for the in-place edit control
-            // Check if edit control is overlayed on column header.
-            if (editedSubItem.Bounds.Location.Y + ClientSize.Height >= Height - 3)
-            {
-                int origHeight = activeEditControl.Height;
-                int dh = (editedSubItem.Bounds.Height - origHeight) / 2;
+            #region Commented code
+            //// Set the bounding rectangle for the in-place edit control
+            //// Check if edit control is overlayed on column header.
+            //if (editedSubItem.Bounds.Location.Y + ClientSize.Height >= Height - 3)
+            //{
+            //    int origHeight = activeEditControl.Height;
+            //    int dh = (editedSubItem.Bounds.Height - origHeight) / 2;
 
 
-                // Not overlayed, so display the edit control.
-                activeEditControl.Bounds = new Rectangle(editedSubItem.Bounds.Left, editedSubItem.Bounds.Top + dh,
-                    editedSubItem.Bounds.Width, editedSubItem.Bounds.Height - dh);
+            //    // Not overlayed, so display the edit control.
+            //    activeEditControl.Bounds = new Rectangle(editedSubItem.Bounds.Left, editedSubItem.Bounds.Top + dh,
+            //        editedSubItem.Bounds.Width, editedSubItem.Bounds.Height - dh);
 
-                activeEditControl.Height = origHeight;
+            //    activeEditControl.Height = origHeight;
                 
-            }
-            else
-            {
-                // Overlayed, so control must be hidden.
-                // Caution, Setting visible to false will trigger OnLeave event.
-                // So the "hiding" control must be done by means of resizing.
-                activeEditControl.Bounds = new Rectangle(0, 0, 0, 0);
-            }
+            //}
+            //else
+            //{
+            //    // Overlayed, so control must be hidden.
+            //    // Caution, Setting visible to false will trigger OnLeave event.
+            //    // So the "hiding" control must be done by means of resizing.
+            //    activeEditControl.Bounds = new Rectangle(0, 0, 0, 0);
+            //}
+            #endregion
+
+            int origHeight = activeEditControl.Height;
+            int dh = (editedSubItem.Bounds.Height - origHeight) / 2;
+
+            // Not overlayed, so display the edit control.
+            activeEditControl.Bounds = new Rectangle(editedSubItem.Bounds.Left, editedSubItem.Bounds.Top + dh,
+                editedSubItem.Bounds.Width, editedSubItem.Bounds.Height - dh);
+
+            activeEditControl.Height = origHeight;
+
 
             // Enable the control
             activeEditControl.Visible = true;
