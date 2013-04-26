@@ -247,7 +247,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
         private void NavigateUp()
         {
             AddCurrentFolderToHistory();
-            BrowseCatalogFolder(ParentFolderTarget);
+            BrowseCatalogFolder(ParentFolderTarget, _curFolder);
         }
 
         public CatalogItem ExploreBackTarget
@@ -287,7 +287,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             }
         }
 
-        private void BrowseCatalogFolder(CatalogItem folder)
+        private void BrowseCatalogFolder(CatalogItem folder, CatalogItem prevFolder = null)
         {
             try
             {
@@ -295,7 +295,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
                 if (folder != null)
                 {
-                    lvCatalogFolder.DisplayCatalogFolder(_cat, folder);
+                    lvCatalogFolder.DisplayCatalogFolder(_cat, folder, prevFolder);
                     _curFolder = folder;
 
                     List<string> paths = new List<string>();

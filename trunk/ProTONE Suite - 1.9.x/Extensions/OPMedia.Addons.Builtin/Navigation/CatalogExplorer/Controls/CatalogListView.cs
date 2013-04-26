@@ -343,7 +343,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.Controls
             }
         }
 
-        public void DisplayCatalogFolder(Catalog cat, CatalogItem folder)
+        public void DisplayCatalogFolder(Catalog cat, CatalogItem folder, CatalogItem prevFolder = null)
         {
             this.Items.Clear();
 
@@ -392,7 +392,25 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.Controls
                     this.Items.Add(item);
                 }
 
+                int lastVisibleIndex = 0;
+                foreach (ListViewItem item in this.Items)
+                {
+                    CatalogItem ci = item.Tag as CatalogItem;
+                    if (ci != null && prevFolder != null && ci.VPath == prevFolder.VPath)
+                    {
+                        item.Selected = true;
+                        item.Focused = true;
 
+                        lastVisibleIndex = item.Index;
+
+                        break;
+                    }
+                }
+
+                EnsureVisible(lastVisibleIndex);
+
+                this.Select();
+                this.Focus();
             }
         }
 

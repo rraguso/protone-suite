@@ -836,6 +836,8 @@ namespace OPMedia.UI.Controls
             {
                 if (selection != null && selection.Count > 0)
                 {
+                    bool focusSet = false;
+
                     foreach (ListViewItem item in Items)
                     {
                         string path = string.Empty;
@@ -846,6 +848,12 @@ namespace OPMedia.UI.Controls
 
                         if (selection.Contains(path.ToLowerInvariant()))
                         {
+                            if (!focusSet)
+                            {
+                                item.Focused = true;
+                                focusSet = true;
+                            }
+
                             item.Selected = true;
                             EnsureVisible(item.Index);
                         }
@@ -865,17 +873,20 @@ namespace OPMedia.UI.Controls
                         if (string.Compare(info.FullName, m_strPrevDirPath, false) == 0)
                         {
                             item.Selected = true;
-                            //item.SubItems[0].Selected = true;
+                            item.Focused = true;
 
-                            if (item.Index > lastVisibleIndex)
-                                lastVisibleIndex = item.Index;
-
+                            lastVisibleIndex = item.Index;
+                           
+                            break;
                         }
                     }
                 }
 
                 EnsureVisible(lastVisibleIndex);
             }
+
+            this.Select();
+            this.Focus();
 		}
 
         private static string[] EnumerateFiles(string sourceFolder, string filters, System.IO.SearchOption searchOption)
