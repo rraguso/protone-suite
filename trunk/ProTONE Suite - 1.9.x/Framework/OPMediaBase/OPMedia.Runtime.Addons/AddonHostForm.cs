@@ -850,7 +850,7 @@ namespace OPMedia.Runtime.Addons
         int _localContentWidth = -1;
         public override void OnWindowStateChanged(FormWindowState oldState, FormWindowState newState)
         {
-            if (newState == FormWindowState.Minimized)
+            if (newState != FormWindowState.Normal)
             {
                 _localContentWidth = pnlLocalContent.Width;
             }
