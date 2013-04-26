@@ -62,7 +62,7 @@ namespace OPMedia.Utility
             {
                 Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
 
-                LoggedApplication.Start("OPMedia.Utility");
+                LoggedApplication.Start(Constants.UtilityName);
                 Application.Run(LogFileConsoleDialog.ShowLogConsole(true));
                 return false;
             }

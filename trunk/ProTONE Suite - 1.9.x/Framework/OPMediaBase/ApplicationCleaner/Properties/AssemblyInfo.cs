@@ -6,8 +6,8 @@ using OPMedia.Core;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OPMedia.Utility")]
-[assembly: AssemblyDescription("OPMedia Cleaner Application")]
+[assembly: AssemblyTitle(Constants.UtilityName)]
+[assembly: AssemblyDescription(Constants.UtilityName + " Application")]
 
 [assembly: ComVisible(false)]
 [assembly: AssemblyCompany(Constants.CompanyName)]

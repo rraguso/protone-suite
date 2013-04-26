@@ -105,7 +105,7 @@ namespace OPMedia.Core
         {
             get
             {
-                return (IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsShellExtension);
+                return (IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsShellExtension || IsUtility);
             }
         }
 
@@ -146,6 +146,14 @@ namespace OPMedia.Core
             get
             {
                 return string.Compare(ApplicationName, Constants.ShellSupportName, true) == 0;
+            }
+        }
+
+        public static bool IsUtility
+        {
+            get
+            {
+                return string.Compare(ApplicationName, Constants.UtilityName, true) == 0;
             }
         }
     }

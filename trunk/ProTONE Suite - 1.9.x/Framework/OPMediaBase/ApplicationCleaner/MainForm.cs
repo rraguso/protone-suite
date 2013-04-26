@@ -180,7 +180,7 @@ namespace OPMedia.Utility
                 Constants.LibraryName,
                 Constants.PlayerName,
                 Constants.RCCManagerName,
-                "OPMedia.Utility",
+                Constants.UtilityName,
             };
 
             foreach (string appSubfolder in appSubfolders)

@@ -20,6 +20,7 @@ namespace OPMedia.Core
         public const string SyncPlayerName =        "OPMedia.SyncPlayer";
         public const string RCCServiceShortName =   "OPMedia.RCCService";
         public const string ShellSupportName =      "OPMedia.ShellSupport";
+        public const string UtilityName =           "OPMedia.Utility";
 
         public const string ShellSupportBinary =    ShellSupportName + ".dll";
         public const string LibraryBinary =         LibraryName + ".exe";
@@ -28,6 +29,7 @@ namespace OPMedia.Core
         public const string MediaHostBinary =       MediaHostName + ".exe";
         public const string SyncPlayerBinary =      SyncPlayerName + ".exe";
         public const string RCCServiceBinary =      RCCServiceShortName + ".exe";
+        public const string UtilityBinary =         UtilityName + ".exe";
 
         public const string RCCServiceLongName =    "OPMedia Remote Control and Communication Service";
         public const string RCCServiceDescription = "Manages communication amongst ProTONE Player and external applications.";
