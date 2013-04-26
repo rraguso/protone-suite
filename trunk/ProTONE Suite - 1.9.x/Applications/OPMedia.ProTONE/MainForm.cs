@@ -138,7 +138,7 @@ namespace OPMedia.ProTONE
                 {
                     string name = cmd.ToString().Replace("Cmd", "btn");
 
-                    Bitmap img = OPMedia.UI.Properties.Resources.ResourceManager.GetImage(name);
+                    Bitmap img = OPMedia.UI.ProTONE.Properties.Resources.ResourceManager.GetImage(name);
                     if (img != null)
                     {
                         string btnTitle = Translator.Translate("TXT_" + cmd.ToString().ToUpperInvariant());
