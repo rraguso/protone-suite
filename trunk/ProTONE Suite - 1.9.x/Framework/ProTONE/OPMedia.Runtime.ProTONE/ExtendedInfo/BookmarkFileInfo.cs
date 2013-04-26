@@ -67,7 +67,7 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
             LoadBookmarks(false);
         }
 
-        internal void LoadBookmarks(bool afterSave)
+        internal void LoadBookmarks(bool raiseEvent)
         {
             StreamReader sr = null;
 
@@ -98,7 +98,7 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
                     line = sr.ReadLine();
                 }
 
-                if (afterSave && BookmarkCollectionChanged != null)
+                if (raiseEvent && BookmarkCollectionChanged != null)
                 {
                     BookmarkCollectionChanged(null, null);
                 }

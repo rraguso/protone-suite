@@ -123,6 +123,13 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
             lvBookmarks.ColumnWidthChanging += new ColumnWidthChangingEventHandler(lvBookmarks_ColumnWidthChanging);
             lvBookmarks.Resize += new EventHandler(lvBookmarks_Resize);
+            lvBookmarks.SubItemEdited += new OPMListView.EditableListViewEventHandler(lvBookmarks_SubItemEdited);
+        }
+
+        void lvBookmarks_SubItemEdited(object sender, ListViewSubItemEventArgs args)
+        {
+            SaveBookmarks();
+            LoadBookmarks();
         }
 
         void lvBookmarks_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -276,9 +283,11 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             si.ReadOnly = false;
             item.SubItems.Add(si);
 
-            lvBookmarks.Items.Add(item);
+            item = lvBookmarks.Items.Add(item);
 
             item.Selected = true;
+
+            lvBookmarks.StartEditing(item, si);
         }
 
         private void btnAddCurrent_Click(object sender, EventArgs e)
@@ -306,9 +315,11 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             si.ReadOnly = false;
             item.SubItems.Add(si);
 
-            lvBookmarks.Items.Add(item);
+            item = lvBookmarks.Items.Add(item);
 
             item.Selected = true;
+
+            lvBookmarks.StartEditing(item, si);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -317,6 +328,9 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             {
                 lvBookmarks.Items.Remove(lvBookmarks.SelectedItems[0]);
 
+                SaveBookmarks();
+                LoadBookmarks();
+
                 lvBookmarks.Select();
                 lvBookmarks.Focus();
 
@@ -324,6 +338,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                 {
                     lvBookmarks.Items[0].Selected = true;
                 }
+
             }
         }
 

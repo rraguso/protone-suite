@@ -73,6 +73,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             double len = GetMediaLength();
         }
 
+        protected override void DoResumeRenderer(double fromPosition)
+        {
+            base.DoResumeRenderer(fromPosition);
+            
+            // This is called to enforce re-caching the bookmarks
+            renderMediaInfo.LoadBookmarks();
+        }
+
         protected override double GetMediaLength()
         {
             double val = 0;

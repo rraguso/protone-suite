@@ -171,6 +171,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             return (prevBmk != Bookmark.Empty) ? prevBmk : null;
         }
 
+        public void LoadBookmarks()
+        {
+            _bookmarkInfo.LoadBookmarks(true);
+        }
+
         public void SaveBookmarks()
         {
             _bookmarkInfo.SaveBookmarks();

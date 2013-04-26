@@ -492,11 +492,6 @@ namespace OPMedia.UI.Controls
                 // Possibly not editable
                 return;
 
-            Rectangle rc = subItem.Bounds;
-
-            row = item.Index;
-            column = item.SubItems.IndexOf(subItem);
-
             StartEditing(item, subItem);
             base.OnMouseClick(e);
         }
@@ -747,8 +742,11 @@ namespace OPMedia.UI.Controls
         /// </summary>
 		/// <param name="editedItem">The item to be edited.</param>
 		/// <param name="editedSubItem">The subitem to be edited.</param>
-        private void StartEditing(ListViewItem editedItem, OPMListViewSubItem editedSubItem)
+        public void StartEditing(ListViewItem editedItem, OPMListViewSubItem editedSubItem)
         {
+            row = editedItem.Index;
+            column = editedItem.SubItems.IndexOf(editedSubItem);
+
             if (row < 0 || column < 0 || editedSubItem == null)
                 return;
 
