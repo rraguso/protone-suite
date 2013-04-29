@@ -122,7 +122,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
         [EventSink(EventNames.ExecuteShortcut)]
         public void OnExecuteShortcut(OPMShortcutEventArgs args)
         {
-            if (FindForm() != null && !args.Handled)
+            if (FindForm() != null && !args.Handled && ContainsFocus)
             {
                 switch (args.cmd)
                 {

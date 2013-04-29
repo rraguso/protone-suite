@@ -146,88 +146,88 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         [EventSink(EventNames.ExecuteShortcut)]
         public void OnExecuteShortcut(OPMShortcutEventArgs args)
         {
-            if (args.Handled)
-                return;
-
-            switch (args.cmd)
+            if (FindForm() != null && !args.Handled && ContainsFocus)
             {
-                case OPMShortcut.CmdGenericRename:
-                    HandleAction(ToolAction.ToolActionRename);
-                    args.Handled = true;
-                    break;
+                switch (args.cmd)
+                {
+                    case OPMShortcut.CmdGenericRename:
+                        HandleAction(ToolAction.ToolActionRename);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdGenericPaste:
-                    HandleAction(ToolAction.ToolActionPaste);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdGenericPaste:
+                        HandleAction(ToolAction.ToolActionPaste);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdGenericCut:
-                    HandleAction(ToolAction.ToolActionCut);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdGenericCut:
+                        HandleAction(ToolAction.ToolActionCut);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdGenericCopy:
-                    HandleAction(ToolAction.ToolActionCopy);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdGenericCopy:
+                        HandleAction(ToolAction.ToolActionCopy);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdGenericDelete:
-                    HandleAction(ToolAction.ToolActionDelete);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdGenericDelete:
+                        HandleAction(ToolAction.ToolActionDelete);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdSwitchWindows:
-                    CancelAutoPreview();
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdSwitchWindows:
+                        CancelAutoPreview();
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdChangeDisk:
-                    tsbDrives.ShowDropDown();
-                    tsbDrives.Select();
+                    case OPMShortcut.CmdChangeDisk:
+                        tsbDrives.ShowDropDown();
+                        tsbDrives.Select();
 
-                    if (tsbDrives.DropDownItems.Count > 0)
-                    {
-                        tsbDrives.DropDownItems[0].Select();
-                    }
+                        if (tsbDrives.DropDownItems.Count > 0)
+                        {
+                            tsbDrives.DropDownItems[0].Select();
+                        }
 
-                    args.Handled = true;
-                    break;
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdFavManager:
-                    HandleAction(ToolAction.ToolActionFavoritesManage);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdFavManager:
+                        HandleAction(ToolAction.ToolActionFavoritesManage);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdNavigateBack:
-                    HandleAction(ToolAction.ToolActionBack);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdNavigateBack:
+                        HandleAction(ToolAction.ToolActionBack);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdNavigateForward:
-                    HandleAction(ToolAction.ToolActionFwd);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdNavigateForward:
+                        HandleAction(ToolAction.ToolActionFwd);
+                        args.Handled = true;
+                        break;
 
-                // Already implemented inside the list
-                //case OPMShortcut.CmdNavigateUp:
-                //    HandleAction(ToolAction.ToolActionUp);
-                //    args.Handled = true;
-                //    break;
+                    // Already implemented inside the list
+                    //case OPMShortcut.CmdNavigateUp:
+                    //    HandleAction(ToolAction.ToolActionUp);
+                    //    args.Handled = true;
+                    //    break;
 
-                case OPMShortcut.CmdGenericSearch:
-                    HandleAction(ToolAction.ToolActionSearch);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdGenericSearch:
+                        HandleAction(ToolAction.ToolActionSearch);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdGenericRefresh:
-                    HandleAction(ToolAction.ToolActionReload);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdGenericRefresh:
+                        HandleAction(ToolAction.ToolActionReload);
+                        args.Handled = true;
+                        break;
 
-                case OPMShortcut.CmdID3Wizard:
-                    HandleAction(ToolAction.ToolActionID3Wizard);
-                    args.Handled = true;
-                    break;
+                    case OPMShortcut.CmdID3Wizard:
+                        HandleAction(ToolAction.ToolActionID3Wizard);
+                        args.Handled = true;
+                        break;
+                }
             }
 
             //Application.DoEvents();
