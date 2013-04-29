@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,961 +59,962 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="TXT_ABORT">
-    <value>Прервать</value>
-  </data>
-  <data name="TXT_ABOUT">
-    <value>О {0}</value>
-  </data>
-  <data name="TXT_ADD">
-    <value>Добавить ...</value>
-  </data>
-  <data name="TXT_ADD_FILES">
-    <value>Добавить файлы ...</value>
-  </data>
-  <data name="TXT_ADD_FOLDER">
-    <value>Добавить папку ...</value>
-  </data>
-  <data name="TXT_ALL_FILES_FILTER">
-    <value>Все файлы (*.*)|*.*||</value>
-  </data>
-  <data name="TXT_ALTKEY">
-    <value>Заместитель</value>
-  </data>
-  <data name="TXT_APPHELP">
-    <value>Содержание ...</value>
-  </data>
-  <data name="TXT_APPLY">
-    <value>Применять</value>
-  </data>
-  <data name="TXT_APP_RESTART">
-    <value>Требуется перезапуск программы</value>
-  </data>
-  <data name="TXT_ARGUMENTS">
-    <value>Укажите команду программы аргументы строки:</value>
-  </data>
-  <data name="TXT_BACK">
-    <value>Назад</value>
-  </data>
-  <data name="TXT_BROWSE">
-    <value>Обзор ...</value>
-  </data>
-  <data name="TXT_BTNCLOSE">
-    <value>Закрыть.</value>
-  </data>
-  <data name="TXT_BTNMAXIMIZE">
-    <value>Развернуть.</value>
-  </data>
-  <data name="TXT_BTNMINIMIZE">
-    <value>Свернуть.</value>
-  </data>
-  <data name="TXT_BTNRESTOREDOWN">
-    <value>Восстановление вниз.</value>
-  </data>
-  <data name="TXT_BUILDING_OBJECT_LIST">
-    <value>Создание списка объектов ...</value>
-  </data>
-  <data name="TXT_CANCEL">
-    <value>Отменить</value>
-  </data>
-  <data name="TXT_CAUTION">
-    <value>Внимание</value>
-  </data>
-  <data name="TXT_CHANGE">
-    <value>Изменить ...</value>
-  </data>
-  <data name="TXT_CHOOSELOGPATH">
-    <value>Выберите папку для сохранения файлов журналов:</value>
-  </data>
-  <data name="TXT_CHOOSEPROGRAM">
-    <value>Выберите программу, которая будет выполняться:</value>
-  </data>
-  <data name="TXT_CHOOSEWORKDIR">
-    <value>Выберите программу рабочей папки:</value>
-  </data>
-  <data name="TXT_CLEARLOG">
-    <value>Ясно файла журнала</value>
-  </data>
-  <data name="TXT_CLEARWINDOW">
-    <value>Очистить окно</value>
-  </data>
-  <data name="TXT_CLICK_LIST_TO_EDIT">
-    <value>Нажмите на список клетки редактировать их.</value>
-  </data>
-  <data name="TXT_CMDCFGKEYBOARD">
-    <value>Отображение горячих клавиш.</value>
-  </data>
-  <data name="TXT_CMDGENERICAPPLY">
-    <value>Apply Changes.</value>
-  </data>
-  <data name="TXT_CMDGENERICCOPY">
-    <value>Копирование данных (или файлов)</value>
-  </data>
-  <data name="TXT_CMDGENERICCUT">
-    <value>Вырезать данных (или файлов)</value>
-  </data>
-  <data name="TXT_CMDGENERICDELETE">
-    <value>Удаление данных (или файлов)</value>
-  </data>
-  <data name="TXT_CMDGENERICNEW">
-    <value>Новый документ.</value>
-  </data>
-  <data name="TXT_CMDGENERICOPEN">
-    <value>Открытый документ.</value>
-  </data>
-  <data name="TXT_CMDGENERICPASTE">
-    <value>Вставить данных (или файлов)</value>
-  </data>
-  <data name="TXT_CMDGENERICREFRESH">
-    <value>Обновить данные</value>
-  </data>
-  <data name="TXT_CMDGENERICRENAME">
-    <value>Переименование файлов</value>
-  </data>
-  <data name="TXT_CMDGENERICSAVE">
-    <value>Сохранить документ.</value>
-  </data>
-  <data name="TXT_CMDGENERICSEARCH">
-    <value>Поиск данных (или файлов)</value>
-  </data>
-  <data name="TXT_CMDGENERICUNDO">
-    <value>Отмена изменений.</value>
-  </data>
-  <data name="TXT_CMDOPENHELP">
-    <value>Откройте файл справки</value>
-  </data>
-  <data name="TXT_CMDOPENSETTINGS">
-    <value>Отображает окно.</value>
-  </data>
-  <data name="TXT_CMDSHOWLOGCONSOLE">
-    <value>Отображение консоли файл журнала</value>
-  </data>
-  <data name="TXT_CMDSWITCHWINDOWS">
-    <value>Переключение между окнами аддон.</value>
-  </data>
-  <data name="TXT_COMMAND">
-    <value>Название команды</value>
-  </data>
-  <data name="TXT_CONFIRM">
-    <value>Подтверждать</value>
-  </data>
-  <data name="TXT_CONFIRM_ABORT">
-    <value>Вы уверены, что хотите отменить операцию?</value>
-  </data>
-  <data name="TXT_CONFIRM_DELETE">
-    <value>Вы уверены, что хотите удалить файл:
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ABORT">
+  <value>Прервать</value>
+</data>
+<data name="TXT_ABOUT">
+  <value>О {0}</value>
+</data>
+<data name="TXT_ADD">
+  <value>Добавить ...</value>
+</data>
+<data name="TXT_ADD_FILES">
+  <value>Добавить файлы ...</value>
+</data>
+<data name="TXT_ADD_FOLDER">
+  <value>Добавить папку ...</value>
+</data>
+<data name="TXT_ALL_FILES_FILTER">
+  <value>Все файлы (*.*)|*.*||</value>
+</data>
+<data name="TXT_ALTKEY">
+  <value>Заместитель</value>
+</data>
+<data name="TXT_APPHELP">
+  <value>Содержание ...</value>
+</data>
+<data name="TXT_APPLY">
+  <value>Применять</value>
+</data>
+<data name="TXT_APP_RESTART">
+  <value>Требуется перезапуск программы</value>
+</data>
+<data name="TXT_ARGUMENTS">
+  <value>Укажите команду программы аргументы строки:</value>
+</data>
+<data name="TXT_BACK">
+  <value>Назад</value>
+</data>
+<data name="TXT_BROWSE">
+  <value>Обзор ...</value>
+</data>
+<data name="TXT_BTNCLOSE">
+  <value>Закрыть.</value>
+</data>
+<data name="TXT_BTNMAXIMIZE">
+  <value>Развернуть.</value>
+</data>
+<data name="TXT_BTNMINIMIZE">
+  <value>Свернуть.</value>
+</data>
+<data name="TXT_BTNRESTOREDOWN">
+  <value>Восстановление вниз.</value>
+</data>
+<data name="TXT_BUILDING_OBJECT_LIST">
+  <value>Создание списка объектов ...</value>
+</data>
+<data name="TXT_CANCEL">
+  <value>Отменить</value>
+</data>
+<data name="TXT_CAUTION">
+  <value>Внимание</value>
+</data>
+<data name="TXT_CHANGE">
+  <value>Изменить ...</value>
+</data>
+<data name="TXT_CHOOSELOGPATH">
+  <value>Выберите папку для сохранения файлов журналов:</value>
+</data>
+<data name="TXT_CHOOSEPROGRAM">
+  <value>Выберите программу, которая будет выполняться:</value>
+</data>
+<data name="TXT_CHOOSEWORKDIR">
+  <value>Выберите программу рабочей папки:</value>
+</data>
+<data name="TXT_CLEARLOG">
+  <value>Ясно файла журнала</value>
+</data>
+<data name="TXT_CLEARWINDOW">
+  <value>Очистить окно</value>
+</data>
+<data name="TXT_CLICK_LIST_TO_EDIT">
+  <value>Нажмите на список клетки редактировать их.</value>
+</data>
+<data name="TXT_CMDCFGKEYBOARD">
+  <value>Отображение горячих клавиш.</value>
+</data>
+<data name="TXT_CMDGENERICAPPLY">
+  <value>Apply Changes.</value>
+</data>
+<data name="TXT_CMDGENERICCOPY">
+  <value>Копирование данных (или файлов)</value>
+</data>
+<data name="TXT_CMDGENERICCUT">
+  <value>Вырезать данных (или файлов)</value>
+</data>
+<data name="TXT_CMDGENERICDELETE">
+  <value>Удаление данных (или файлов)</value>
+</data>
+<data name="TXT_CMDGENERICNEW">
+  <value>Новый документ.</value>
+</data>
+<data name="TXT_CMDGENERICOPEN">
+  <value>Открытый документ.</value>
+</data>
+<data name="TXT_CMDGENERICPASTE">
+  <value>Вставить данных (или файлов)</value>
+</data>
+<data name="TXT_CMDGENERICREFRESH">
+  <value>Обновить данные</value>
+</data>
+<data name="TXT_CMDGENERICRENAME">
+  <value>Переименование файлов</value>
+</data>
+<data name="TXT_CMDGENERICSAVE">
+  <value>Сохранить документ.</value>
+</data>
+<data name="TXT_CMDGENERICSEARCH">
+  <value>Поиск данных (или файлов)</value>
+</data>
+<data name="TXT_CMDGENERICUNDO">
+  <value>Отмена изменений.</value>
+</data>
+<data name="TXT_CMDOPENHELP">
+  <value>Откройте файл справки</value>
+</data>
+<data name="TXT_CMDOPENSETTINGS">
+  <value>Отображает окно.</value>
+</data>
+<data name="TXT_CMDSHOWLOGCONSOLE">
+  <value>Отображение консоли файл журнала</value>
+</data>
+<data name="TXT_CMDSWITCHWINDOWS">
+  <value>Переключение между окнами аддон.</value>
+</data>
+<data name="TXT_COMMAND">
+  <value>Название команды</value>
+</data>
+<data name="TXT_CONFIRM">
+  <value>Подтверждать</value>
+</data>
+<data name="TXT_CONFIRM_ABORT">
+  <value>Вы уверены, что хотите отменить операцию?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE">
+  <value>Вы уверены, что хотите удалить файл:&#xD;
 {0}?</value>
-  </data>
-  <data name="TXT_CONFIRM_DELETE_DIR">
-    <value>В папке: {0} не пусто.
+</data>
+<data name="TXT_CONFIRM_DELETE_DIR">
+  <value>В папке: {0} не пусто.&#xD;
 Вы хотите, чтобы удалить его (включая его содержание)?</value>
-  </data>
-  <data name="TXT_CONFIRM_DELETE_EMPTYDIR">
-    <value>Вы уверены, что хотите удалить папку:
+</data>
+<data name="TXT_CONFIRM_DELETE_EMPTYDIR">
+  <value>Вы уверены, что хотите удалить папку:&#xD;
 {0}?</value>
-  </data>
-  <data name="TXT_CONFIRM_DELETE_ROHS">
-    <value>Файл {0} имеет один или более из этих атрибутов: Read-Only/Hidden/System.
+</data>
+<data name="TXT_CONFIRM_DELETE_ROHS">
+  <value>Файл {0} имеет один или более из этих атрибутов: Read-Only/Hidden/System.&#xD;
 Вы все еще хотите удалить его?</value>
-  </data>
-  <data name="TXT_CONFIRM_OVERWRITE">
-    <value>Конечный файл {0} уже существует.
+</data>
+<data name="TXT_CONFIRM_OVERWRITE">
+  <value>Конечный файл {0} уже существует.&#xD;
 Вы хотите перезаписать его?</value>
-  </data>
-  <data name="TXT_CONFIRM_OVERWRITE_RO">
-    <value>Конечный файл {0} уже существует, и это файл только для чтения.
+</data>
+<data name="TXT_CONFIRM_OVERWRITE_RO">
+  <value>Конечный файл {0} уже существует, и это файл только для чтения.&#xD;
 Вы хотите перезаписать его?</value>
-  </data>
-  <data name="TXT_COPY">
-    <value>Скопировать</value>
-  </data>
-  <data name="TXT_CUR_PROGRESS">
-    <value>{0}: {1} элементов из {2} ({3}% готово)</value>
-  </data>
-  <data name="TXT_CUT">
-    <value>Вырезать</value>
-  </data>
-  <data name="TXT_DEFINE_PROGRAM">
-    <value>[Пожалуйста, определить программу, которая будет выполняться]</value>
-  </data>
-  <data name="TXT_DELETE">
-    <value>Удалять</value>
-  </data>
-  <data name="TXT_DESCRIPTION">
-    <value>Описание команды</value>
-  </data>
-  <data name="TXT_DESC_COPY_TASK">
-    <value>Копирование</value>
-  </data>
-  <data name="TXT_DESC_DELETE_TASK">
-    <value>Удаление</value>
-  </data>
-  <data name="TXT_DESC_MOVE_TASK">
-    <value>Перемещение</value>
-  </data>
-  <data name="TXT_DOUBLE_CLICK_TO_EDIT">
-    <value>Двойной клик для редактирования</value>
-  </data>
-  <data name="TXT_DOWNLOAD">
-    <value>Скачать</value>
-  </data>
-  <data name="TXT_DRAWBORDERS">
-    <value>Ничья кожей границ и заголовка (рекомендуется)</value>
-  </data>
-  <data name="TXT_EDITKEYDESC">
-    <value>Нажмите новое сочетание клавиш для: {0}.
+</data>
+<data name="TXT_COPY">
+  <value>Скопировать</value>
+</data>
+<data name="TXT_CUR_PROGRESS">
+  <value>{0}: {1} элементов из {2} ({3}% готово)</value>
+</data>
+<data name="TXT_CUT">
+  <value>Вырезать</value>
+</data>
+<data name="TXT_DEFINE_PROGRAM">
+  <value>[Пожалуйста, определить программу, которая будет выполняться]</value>
+</data>
+<data name="TXT_DELETE">
+  <value>Удалять</value>
+</data>
+<data name="TXT_DESCRIPTION">
+  <value>Описание команды</value>
+</data>
+<data name="TXT_DESC_COPY_TASK">
+  <value>Копирование</value>
+</data>
+<data name="TXT_DESC_DELETE_TASK">
+  <value>Удаление</value>
+</data>
+<data name="TXT_DESC_MOVE_TASK">
+  <value>Перемещение</value>
+</data>
+<data name="TXT_DOUBLE_CLICK_TO_EDIT">
+  <value>Двойной клик для редактирования</value>
+</data>
+<data name="TXT_DOWNLOAD">
+  <value>Скачать</value>
+</data>
+<data name="TXT_DRAWBORDERS">
+  <value>Ничья кожей границ и заголовка (рекомендуется)</value>
+</data>
+<data name="TXT_EDITKEYDESC">
+  <value>Нажмите новое сочетание клавиш для: {0}.&#xD;
 данной ярлык: {1}.</value>
-  </data>
-  <data name="TXT_ENABLESKINNEDBORDERS">
-    <value>Включить кожей границ</value>
-  </data>
-  <data name="TXT_ENABLE_LOG">
-    <value>Включить программу регистрации</value>
-  </data>
-  <data name="TXT_ERROR">
-    <value>Ошибка</value>
-  </data>
-  <data name="TXT_ERRORS">
-    <value>Войти сообщения об ошибках</value>
-  </data>
-  <data name="TXT_ERRORS_COPY_TASK">
-    <value>Некоторые ошибки появились во время копирования указанных файлов.
+</data>
+<data name="TXT_ENABLESKINNEDBORDERS">
+  <value>Включить кожей границ</value>
+</data>
+<data name="TXT_ENABLE_LOG">
+  <value>Включить программу регистрации</value>
+</data>
+<data name="TXT_ERROR">
+  <value>Ошибка</value>
+</data>
+<data name="TXT_ERRORS">
+  <value>Войти сообщения об ошибках</value>
+</data>
+<data name="TXT_ERRORS_COPY_TASK">
+  <value>Некоторые ошибки появились во время копирования указанных файлов.&#xD;
 Более подробная информация в списке ниже.</value>
-  </data>
-  <data name="TXT_ERRORS_DELETE_TASK">
-    <value>Некоторые ошибки появились во время удаления указанного файла.
+</data>
+<data name="TXT_ERRORS_DELETE_TASK">
+  <value>Некоторые ошибки появились во время удаления указанного файла.&#xD;
 Подробнее в списке ниже.</value>
-  </data>
-  <data name="TXT_ERRORS_ENCOUNTERED">
-    <value>Некоторые ошибки появились во время операции.</value>
-  </data>
-  <data name="TXT_ERRORS_MOVE_TASK">
-    <value>Некоторые ошибки появились при перемещении указанных файлов.
+</data>
+<data name="TXT_ERRORS_ENCOUNTERED">
+  <value>Некоторые ошибки появились во время операции.</value>
+</data>
+<data name="TXT_ERRORS_MOVE_TASK">
+  <value>Некоторые ошибки появились при перемещении указанных файлов.&#xD;
 Подробнее в списке ниже.</value>
-  </data>
-  <data name="TXT_EVERYDAY">
-    <value>Каждый день</value>
-  </data>
-  <data name="TXT_EXIT">
-    <value>Выход</value>
-  </data>
-  <data name="TXT_FILE">
-    <value>Файл</value>
-  </data>
-  <data name="TXT_FILENAME">
-    <value>Имя файла</value>
-  </data>
-  <data name="TXT_FOLDERNOTACCESSIBLE">
-    <value>Эта папка больше не доступны. Это может быть перемещен, удален или его диск можно было удалить из компьютера.</value>
-  </data>
-  <data name="TXT_FORWARD">
-    <value>Вперед</value>
-  </data>
-  <data name="TXT_FREEZEWINDOW">
-    <value>Блокировка окна</value>
-  </data>
-  <data name="TXT_FRIDAY">
-    <value>Пятница</value>
-  </data>
-  <data name="TXT_GENERALSETTINGS">
-    <value>Общий</value>
-  </data>
-  <data name="TXT_HEAVY_TRACE">
-    <value>Включить подробное ведение журнала отладки</value>
-  </data>
-  <data name="TXT_HELP">
-    <value>Помогите</value>
-  </data>
-  <data name="TXT_INFO">
-    <value>Вход информационные сообщения</value>
-  </data>
-  <data name="TXT_INSERT_DISK">
-    <value>Вставьте диск</value>
-  </data>
-  <data name="TXT_INSERT_MEDIA">
-    <value>Пожалуйста, вставьте диск с надписью {0} (по убыванию: {1}) в {2} диска.</value>
-  </data>
-  <data name="TXT_KEY">
-    <value>Ярлык</value>
-  </data>
-  <data name="TXT_KEYCOMMANDEDITOR">
-    <value>Определение ключей для {0}</value>
-  </data>
-  <data name="TXT_KEYMAP">
-    <value>Клавиатура карте</value>
-  </data>
-  <data name="TXT_KEYMAP_DESC">
-    <value>Чтобы изменить ярлык, нажмите на ее связанные ссылки в таблице ниже. ярлыки с ограниченными ссылки не может быть изменено пользователем (e.g: OpenHelp = F1, и т.д.).</value>
-  </data>
-  <data name="TXT_LANGUAGE">
-    <value>Язык</value>
-  </data>
-  <data name="TXT_LOGFILENAME">
-    <value>Имя файла журнала:</value>
-  </data>
-  <data name="TXT_LOGGINGSETTINGS">
-    <value>Каротаж</value>
-  </data>
-  <data name="TXT_LOGLINECONSOLE">
-    <value>Файл журнала консоли</value>
-  </data>
-  <data name="TXT_LOGLINECOUNT">
-    <value>Вход записи фото:</value>
-  </data>
-  <data name="TXT_LOG_DESC">
-    <value>Эта версия программы построена с принудительной регистрации.
+</data>
+<data name="TXT_EVERYDAY">
+  <value>Каждый день</value>
+</data>
+<data name="TXT_EXIT">
+  <value>Выход</value>
+</data>
+<data name="TXT_FILE">
+  <value>Файл</value>
+</data>
+<data name="TXT_FILENAME">
+  <value>Имя файла</value>
+</data>
+<data name="TXT_FOLDERNOTACCESSIBLE">
+  <value>Эта папка больше не доступны. Это может быть перемещен, удален или его диск можно было удалить из компьютера.</value>
+</data>
+<data name="TXT_FORWARD">
+  <value>Вперед</value>
+</data>
+<data name="TXT_FREEZEWINDOW">
+  <value>Блокировка окна</value>
+</data>
+<data name="TXT_FRIDAY">
+  <value>Пятница</value>
+</data>
+<data name="TXT_GENERALSETTINGS">
+  <value>Общий</value>
+</data>
+<data name="TXT_HEAVY_TRACE">
+  <value>Включить подробное ведение журнала отладки</value>
+</data>
+<data name="TXT_HELP">
+  <value>Помогите</value>
+</data>
+<data name="TXT_INFO">
+  <value>Вход информационные сообщения</value>
+</data>
+<data name="TXT_INSERT_DISK">
+  <value>Вставьте диск</value>
+</data>
+<data name="TXT_INSERT_MEDIA">
+  <value>Пожалуйста, вставьте диск с надписью {0} (по убыванию: {1}) в {2} диска.</value>
+</data>
+<data name="TXT_KEY">
+  <value>Ярлык</value>
+</data>
+<data name="TXT_KEYCOMMANDEDITOR">
+  <value>Определение ключей для {0}</value>
+</data>
+<data name="TXT_KEYMAP">
+  <value>Клавиатура карте</value>
+</data>
+<data name="TXT_KEYMAP_DESC">
+  <value>Чтобы изменить ярлык, нажмите на ее связанные ссылки в таблице ниже. ярлыки с ограниченными ссылки не может быть изменено пользователем (e.g: OpenHelp = F1, и т.д.).</value>
+</data>
+<data name="TXT_LANGUAGE">
+  <value>Язык</value>
+</data>
+<data name="TXT_LOGFILENAME">
+  <value>Имя файла журнала:</value>
+</data>
+<data name="TXT_LOGGINGSETTINGS">
+  <value>Каротаж</value>
+</data>
+<data name="TXT_LOGLINECONSOLE">
+  <value>Файл журнала консоли</value>
+</data>
+<data name="TXT_LOGLINECOUNT">
+  <value>Вход записи фото:</value>
+</data>
+<data name="TXT_LOG_DESC">
+  <value>Эта версия программы построена с принудительной регистрации.&#xD;
 Все журналы уровне включен по умолчанию.</value>
-  </data>
-  <data name="TXT_LOG_KEEPDAYS">
-    <value>Как много дней, чтобы сохранить старые файлы журналов 
+</data>
+<data name="TXT_LOG_KEEPDAYS">
+  <value>Как много дней, чтобы сохранить старые файлы журналов &#xD;
 (мин = 2, макс = 10):</value>
-  </data>
-  <data name="TXT_LOG_PATH">
-    <value>Вход пути к файлам:</value>
-  </data>
-  <data name="TXT_MODIFY">
-    <value>Изменять</value>
-  </data>
-  <data name="TXT_MONDAY">
-    <value>Понедельник</value>
-  </data>
-  <data name="TXT_MULTIRENAME">
-    <value>Переименование нескольких файлов</value>
-  </data>
-  <data name="TXT_NA">
-    <value>N / A</value>
-  </data>
-  <data name="TXT_NETWORK_SETTINGS">
-    <value>Сеть</value>
-  </data>
-  <data name="TXT_NEW">
-    <value>Новое</value>
-  </data>
-  <data name="TXT_NO">
-    <value>Нет</value>
-  </data>
-  <data name="TXT_NO_NETWORK">
-    <value>Внимание: Существует нет оперативного подключения к сети.</value>
-  </data>
-  <data name="TXT_OFF">
-    <value>OFF</value>
-  </data>
-  <data name="TXT_OK">
-    <value>Хорошо</value>
-  </data>
-  <data name="TXT_ON">
-    <value>ПО</value>
-  </data>
-  <data name="TXT_OPEN">
-    <value>Открыто</value>
-  </data>
-  <data name="TXT_OR">
-    <value>или</value>
-  </data>
-  <data name="TXT_PASSWORD">
-    <value>Пароль</value>
-  </data>
-  <data name="TXT_PASTE">
-    <value>Паста</value>
-  </data>
-  <data name="TXT_PORT_NAME">
-    <value>Имя порта:</value>
-  </data>
-  <data name="TXT_PORT_SETTINGS">
-    <value>Параметры последовательного порта:</value>
-  </data>
-  <data name="TXT_PROCEED">
-    <value>Продолжить</value>
-  </data>
-  <data name="TXT_PROGRAMSTARTUPINFO">
-    <value>Программа информацию о запуске</value>
-  </data>
-  <data name="TXT_PROGRAMS_FILTER">
-    <value>Исполняемые файлы (*.exe)|*.exe|Все файлы (*.*)|*.*||</value>
-  </data>
-  <data name="TXT_PROGRAM_DEF">
-    <value>Программа должна быть выполнена (нажмите на ссылку ниже, чтобы изменить):</value>
-  </data>
-  <data name="TXT_READONLY">
-    <value>Только для чтения</value>
-  </data>
-  <data name="TXT_ARCHIVE">
-    <value>Архив</value>
-  </data>
-  <data name="TXT_HIDDEN">
-    <value>Скрытый</value>
-  </data>
-  <data name="TXT_SYSTEM">
-    <value>Система</value>
-  </data>
-  <data name="TXT_REFRESH">
-    <value>Обновление</value>
-  </data>
-  <data name="TXT_SATURDAY">
-    <value>Суббота</value>
-  </data>
-  <data name="TXT_SAVE">
-    <value>Экономить</value>
-  </data>
-  <data name="TXT_SAVE_AS">
-    <value>Сохранить как ...</value>
-  </data>
-  <data name="TXT_SEARCH">
-    <value>Искать</value>
-  </data>
-  <data name="TXT_SERIALPORTLCFG">
-    <value>Настройка последовательного порта</value>
-  </data>
-  <data name="TXT_SERIAL_PORT_NAME">
-    <value>Установки для последовательного порта:</value>
-  </data>
-  <data name="TXT_SERVER">
-    <value>Сервер</value>
-  </data>
-  <data name="TXT_SETSKIN">
-    <value>Установить темы пользовательского интерфейса (за весь ProTone Suite):</value>
-  </data>
-  <data name="TXT_SETTINGS">
-    <value>Настройки программы</value>
-  </data>
-  <data name="TXT_SETUILANGUAGE">
-    <value>Установить язык пользовательского интерфейса (за весь ProTone Suite):</value>
-  </data>
-  <data name="TXT_SHOWLOG">
-    <value>Показать файл журнала ...</value>
-  </data>
-  <data name="TXT_SHOWSPLITTERS">
-    <value>Показать панель разветвители в главном окне</value>
-  </data>
-  <data name="TXT_SIZE">
-    <value>Размер</value>
-  </data>
-  <data name="TXT_SUCCESS">
-    <value>Целевая успешным.</value>
-  </data>
-  <data name="TXT_SUCCESS_COPY_TASK">
-    <value>Копирование файлов завершена успешно.</value>
-  </data>
-  <data name="TXT_SUCCESS_DELETE_TASK">
-    <value>Удаление файлов завершена успешно.</value>
-  </data>
-  <data name="TXT_SUCCESS_MOVE_TASK">
-    <value>Перемещение файлов завершена успешно.</value>
-  </data>
-  <data name="TXT_SUNDAY">
-    <value>Воскресенье</value>
-  </data>
-  <data name="TXT_TASK_CANCEL">
-    <value>Abort задачи?</value>
-  </data>
-  <data name="TXT_TASK_CANCEL_MSG">
-    <value>Вы уверены, что хотите прервать выполнение задачи?</value>
-  </data>
-  <data name="TXT_SPECIFYURL">
-    <value>Укажите URL:</value>
-  </data>
-  <data name="TXT_TCPIPINVALIDFORMAT">
-    <value>Введенная строка не является действительным URL.</value>
-  </data>
-  <data name="TXT_TCPIPURI">
-    <value>Введите URL:</value>
-  </data>
-  <data name="TXT_THEREARENOITEMS">
-    <value>Есть нет элементов для отображения в этой панели.</value>
-  </data>
-  <data name="TXT_THURSDAY">
-    <value>Четверг</value>
-  </data>
-  <data name="TXT_TRACE">
-    <value>Показать отладки следы</value>
-  </data>
-  <data name="TXT_TUESDAY">
-    <value>Вторник</value>
-  </data>
-  <data name="TXT_UNDO">
-    <value>Аннулировать</value>
-  </data>
-  <data name="TXT_UP">
-    <value>Вверх</value>
-  </data>
-  <data name="TXT_USERNAME">
-    <value>Юзер</value>
-  </data>
-  <data name="TXT_VERSION">
-    <value>Версия: {0}</value>
-  </data>
-  <data name="TXT_WAIT_COPY">
-    <value>Пожалуйста, подождите при копировании файлов ...</value>
-  </data>
-  <data name="TXT_WAIT_DELETE">
-    <value>Подождите, пока удаление файлов ...</value>
-  </data>
-  <data name="TXT_WAIT_MOVE">
-    <value>Пожалуйста подождите, пока перемещение файлов ...</value>
-  </data>
-  <data name="TXT_WARNING">
-    <value>Вход предупреждения</value>
-  </data>
-  <data name="TXT_WEDNESDAY">
-    <value>Среда</value>
-  </data>
-  <data name="TXT_WIZARDBACK">
-    <value>&lt; Назад</value>
-  </data>
-  <data name="TXT_WIZARDCANCEL">
-    <value>Отменa</value>
-  </data>
-  <data name="TXT_WIZARDFINISH">
-    <value>Заканчивать</value>
-  </data>
-  <data name="TXT_WIZARDNEXT">
-    <value>Далee &gt;</value>
-  </data>
-  <data name="TXT_WIZARDOK">
-    <value>OK</value>
-  </data>
-  <data name="TXT_WIZARDREPEAT">
-    <value>Повторить мастера</value>
-  </data>
-  <data name="TXT_WIZARDSTEPDELIMITER">
-    <value> из </value>
-  </data>
-  <data name="TXT_WIZARDSTEPTEXT">
-    <value>Шаг </value>
-  </data>
-  <data name="TXT_WIZFINISHED">
-    <value>завершил выполнение задачи.</value>
-  </data>
-  <data name="TXT_WIZFINISHING">
-    <value>работает, пожалуйста, подождите ...</value>
-  </data>
-  <data name="TXT_WIZSTEPRESULTS">
-    <value>Результаты</value>
-  </data>
-  <data name="TXT_WIZTASKSFINISHED">
-    <value>Все мастера задач закончили успешно!</value>
-  </data>
-  <data name="TXT_WIZTASKSFINISHED_ERRORS">
-    <value>Все мастера задач закончили, но некоторые ошибки были обнаружены. Подробности в списке ниже.</value>
-  </data>
-  <data name="TXT_WIZTASKSRUNNING">
-    <value>Пожалуйста подождите, пока мастер задачи выполняются ...</value>
-  </data>
-  <data name="TXT_WORKDIR">
-    <value>Программа рабочей папки:</value>
-  </data>
-  <data name="TXT_YES">
-    <value>Да</value>
-  </data>
-  <data name="TXT_YESALL">
-    <value>Да для всех</value>
-  </data>
-  <data name="TXT_DEFINE_PROXYSERVERADDRESS">
-    <value>[Определить адрес прокси-сервера]</value>
-  </data>
-  <data name="TXT_DEFINE_PROXYSERVERUSERNAME">
-    <value>[Определение прокси-сервер имя пользователя]</value>
-  </data>
-  <data name="TXT_PROXYTYPE">
-    <value>Тип прокси сервера:</value>
-  </data>
-  <data name="TXT_PROXYADDRESS">
-    <value>Адрес прокси-сервера:</value>
-  </data>
-  <data name="TXT_PROXYPORT">
-    <value>Порт прокси-сервера:</value>
-  </data>
-  <data name="TXT_PROXYUSERNAME">
-    <value>Имя пользователя:</value>
-  </data>
-  <data name="TXT_PROXYPASSWORD">
-    <value>Пароль:</value>
-  </data>
-  <data name="TXT_LEVEL_AUTOMATIC">
-    <value>Автоматический</value>
-  </data>
-  <data name="TXT_LEVEL_ERROR">
-    <value>Ошибка</value>
-  </data>
-  <data name="TXT_LEVEL_EXCEPTION">
-    <value>Исключение</value>
-  </data>
-  <data name="TXT_LEVEL_HEAVYTRACE">
-    <value>Подробная отладочного</value>
-  </data>
-  <data name="TXT_LEVEL_INFO">
-    <value>Информация</value>
-  </data>
-  <data name="TXT_LEVEL_TRACE">
-    <value>Прослеживать</value>
-  </data>
-  <data name="TXT_LEVEL_WARNING">
-    <value>Предупреждение</value>
-  </data>
-  <data name="TXT_RESULTS">
-    <value>Результаты:</value>
-  </data>
-  <data name="TXT_PRIMARY_MONITOR">
-    <value>[PRIMARY MONITOR]</value>
-  </data>
-  <data name="TXT_CONFIRM_PROPERTYSAVE">
-    <value>Пункт свойства были изменены. Вы хотите сохранить изменения?</value>
-  </data>
-  <data name="TXT_CONFIRMSAVECHANGES">
-    <value>Сохранить изменения?</value>
-  </data>
-  <data name="TXT_DUPPLICATE_SHORTCUT">
-    <value>Ярлык уже используется</value>
-  </data>
-  <data name="TXT_DUP_SHORTCUT_FIXED">
-    <value>Комбинация клавиш '{0}' уже назначена '{1}' и не может быть изменен.
+</data>
+<data name="TXT_LOG_PATH">
+  <value>Вход пути к файлам:</value>
+</data>
+<data name="TXT_MODIFY">
+  <value>Изменять</value>
+</data>
+<data name="TXT_MONDAY">
+  <value>Понедельник</value>
+</data>
+<data name="TXT_MULTIRENAME">
+  <value>Переименование нескольких файлов</value>
+</data>
+<data name="TXT_NA">
+  <value>N / A</value>
+</data>
+<data name="TXT_NETWORK_SETTINGS">
+  <value>Сеть</value>
+</data>
+<data name="TXT_NEW">
+  <value>Новое</value>
+</data>
+<data name="TXT_NO">
+  <value>Нет</value>
+</data>
+<data name="TXT_NO_NETWORK">
+  <value>Внимание: Существует нет оперативного подключения к сети.</value>
+</data>
+<data name="TXT_OFF">
+  <value>OFF</value>
+</data>
+<data name="TXT_OK">
+  <value>Хорошо</value>
+</data>
+<data name="TXT_ON">
+  <value>ПО</value>
+</data>
+<data name="TXT_OPEN">
+  <value>Открыто</value>
+</data>
+<data name="TXT_OR">
+  <value>или</value>
+</data>
+<data name="TXT_PASSWORD">
+  <value>Пароль</value>
+</data>
+<data name="TXT_PASTE">
+  <value>Паста</value>
+</data>
+<data name="TXT_PORT_NAME">
+  <value>Имя порта:</value>
+</data>
+<data name="TXT_PORT_SETTINGS">
+  <value>Параметры последовательного порта:</value>
+</data>
+<data name="TXT_PROCEED">
+  <value>Продолжить</value>
+</data>
+<data name="TXT_PROGRAMSTARTUPINFO">
+  <value>Программа информацию о запуске</value>
+</data>
+<data name="TXT_PROGRAMS_FILTER">
+  <value>Исполняемые файлы (*.exe)|*.exe|Все файлы (*.*)|*.*||</value>
+</data>
+<data name="TXT_PROGRAM_DEF">
+  <value>Программа должна быть выполнена (нажмите на ссылку ниже, чтобы изменить):</value>
+</data>
+<data name="TXT_READONLY">
+  <value>Только для чтения</value>
+</data>
+<data name="TXT_ARCHIVE">
+  <value>Архив</value>
+</data>
+<data name="TXT_HIDDEN">
+  <value>Скрытый</value>
+</data>
+<data name="TXT_SYSTEM">
+  <value>Система</value>
+</data>
+<data name="TXT_REFRESH">
+  <value>Обновление</value>
+</data>
+<data name="TXT_SATURDAY">
+  <value>Суббота</value>
+</data>
+<data name="TXT_SAVE">
+  <value>Экономить</value>
+</data>
+<data name="TXT_SAVE_AS">
+  <value>Сохранить как ...</value>
+</data>
+<data name="TXT_SEARCH">
+  <value>Искать</value>
+</data>
+<data name="TXT_SERIALPORTLCFG">
+  <value>Настройка последовательного порта</value>
+</data>
+<data name="TXT_SERIAL_PORT_NAME">
+  <value>Установки для последовательного порта:</value>
+</data>
+<data name="TXT_SERVER">
+  <value>Сервер</value>
+</data>
+<data name="TXT_SETSKIN">
+  <value>Установить темы пользовательского интерфейса (за весь ProTone Suite):</value>
+</data>
+<data name="TXT_SETTINGS">
+  <value>Настройки программы</value>
+</data>
+<data name="TXT_SETUILANGUAGE">
+  <value>Установить язык пользовательского интерфейса (за весь ProTone Suite):</value>
+</data>
+<data name="TXT_SHOWLOG">
+  <value>Показать файл журнала ...</value>
+</data>
+<data name="TXT_SHOWSPLITTERS">
+  <value>Показать панель разветвители в главном окне</value>
+</data>
+<data name="TXT_SIZE">
+  <value>Размер</value>
+</data>
+<data name="TXT_SUCCESS">
+  <value>Целевая успешным.</value>
+</data>
+<data name="TXT_SUCCESS_COPY_TASK">
+  <value>Копирование файлов завершена успешно.</value>
+</data>
+<data name="TXT_SUCCESS_DELETE_TASK">
+  <value>Удаление файлов завершена успешно.</value>
+</data>
+<data name="TXT_SUCCESS_MOVE_TASK">
+  <value>Перемещение файлов завершена успешно.</value>
+</data>
+<data name="TXT_SUNDAY">
+  <value>Воскресенье</value>
+</data>
+<data name="TXT_TASK_CANCEL">
+  <value>Abort задачи?</value>
+</data>
+<data name="TXT_TASK_CANCEL_MSG">
+  <value>Вы уверены, что хотите прервать выполнение задачи?</value>
+</data>
+<data name="TXT_SPECIFYURL">
+  <value>Укажите URL:</value>
+</data>
+<data name="TXT_TCPIPINVALIDFORMAT">
+  <value>Введенная строка не является действительным URL.</value>
+</data>
+<data name="TXT_TCPIPURI">
+  <value>Введите URL:</value>
+</data>
+<data name="TXT_THEREARENOITEMS">
+  <value>Есть нет элементов для отображения в этой панели.</value>
+</data>
+<data name="TXT_THURSDAY">
+  <value>Четверг</value>
+</data>
+<data name="TXT_TRACE">
+  <value>Показать отладки следы</value>
+</data>
+<data name="TXT_TUESDAY">
+  <value>Вторник</value>
+</data>
+<data name="TXT_UNDO">
+  <value>Аннулировать</value>
+</data>
+<data name="TXT_UP">
+  <value>Вверх</value>
+</data>
+<data name="TXT_USERNAME">
+  <value>Юзер</value>
+</data>
+<data name="TXT_VERSION">
+  <value>Версия: {0}</value>
+</data>
+<data name="TXT_WAIT_COPY">
+  <value>Пожалуйста, подождите при копировании файлов ...</value>
+</data>
+<data name="TXT_WAIT_DELETE">
+  <value>Подождите, пока удаление файлов ...</value>
+</data>
+<data name="TXT_WAIT_MOVE">
+  <value>Пожалуйста подождите, пока перемещение файлов ...</value>
+</data>
+<data name="TXT_WARNING">
+  <value>Вход предупреждения</value>
+</data>
+<data name="TXT_WEDNESDAY">
+  <value>Среда</value>
+</data>
+<data name="TXT_WIZARDBACK">
+  <value>&lt; Назад</value>
+</data>
+<data name="TXT_WIZARDCANCEL">
+  <value>Отменa</value>
+</data>
+<data name="TXT_WIZARDFINISH">
+  <value>Заканчивать</value>
+</data>
+<data name="TXT_WIZARDNEXT">
+  <value>Далee &gt;</value>
+</data>
+<data name="TXT_WIZARDOK">
+  <value>OK</value>
+</data>
+<data name="TXT_WIZARDREPEAT">
+  <value>Повторить мастера</value>
+</data>
+<data name="TXT_WIZARDSTEPDELIMITER">
+  <value> из </value>
+</data>
+<data name="TXT_WIZARDSTEPTEXT">
+  <value>Шаг </value>
+</data>
+<data name="TXT_WIZFINISHED">
+  <value>завершил выполнение задачи.</value>
+</data>
+<data name="TXT_WIZFINISHING">
+  <value>работает, пожалуйста, подождите ...</value>
+</data>
+<data name="TXT_WIZSTEPRESULTS">
+  <value>Результаты</value>
+</data>
+<data name="TXT_WIZTASKSFINISHED">
+  <value>Все мастера задач закончили успешно!</value>
+</data>
+<data name="TXT_WIZTASKSFINISHED_ERRORS">
+  <value>Все мастера задач закончили, но некоторые ошибки были обнаружены. Подробности в списке ниже.</value>
+</data>
+<data name="TXT_WIZTASKSRUNNING">
+  <value>Пожалуйста подождите, пока мастер задачи выполняются ...</value>
+</data>
+<data name="TXT_WORKDIR">
+  <value>Программа рабочей папки:</value>
+</data>
+<data name="TXT_YES">
+  <value>Да</value>
+</data>
+<data name="TXT_YESALL">
+  <value>Да для всех</value>
+</data>
+<data name="TXT_DEFINE_PROXYSERVERADDRESS">
+  <value>[Определить адрес прокси-сервера]</value>
+</data>
+<data name="TXT_DEFINE_PROXYSERVERUSERNAME">
+  <value>[Определение прокси-сервер имя пользователя]</value>
+</data>
+<data name="TXT_PROXYTYPE">
+  <value>Тип прокси сервера:</value>
+</data>
+<data name="TXT_PROXYADDRESS">
+  <value>Адрес прокси-сервера:</value>
+</data>
+<data name="TXT_PROXYPORT">
+  <value>Порт прокси-сервера:</value>
+</data>
+<data name="TXT_PROXYUSERNAME">
+  <value>Имя пользователя:</value>
+</data>
+<data name="TXT_PROXYPASSWORD">
+  <value>Пароль:</value>
+</data>
+<data name="TXT_LEVEL_AUTOMATIC">
+  <value>Автоматический</value>
+</data>
+<data name="TXT_LEVEL_ERROR">
+  <value>Ошибка</value>
+</data>
+<data name="TXT_LEVEL_EXCEPTION">
+  <value>Исключение</value>
+</data>
+<data name="TXT_LEVEL_HEAVYTRACE">
+  <value>Подробная отладочного</value>
+</data>
+<data name="TXT_LEVEL_INFO">
+  <value>Информация</value>
+</data>
+<data name="TXT_LEVEL_TRACE">
+  <value>Прослеживать</value>
+</data>
+<data name="TXT_LEVEL_WARNING">
+  <value>Предупреждение</value>
+</data>
+<data name="TXT_RESULTS">
+  <value>Результаты:</value>
+</data>
+<data name="TXT_PRIMARY_MONITOR">
+  <value>[PRIMARY MONITOR]</value>
+</data>
+<data name="TXT_CONFIRM_PROPERTYSAVE">
+  <value>Пункт свойства были изменены. Вы хотите сохранить изменения?</value>
+</data>
+<data name="TXT_CONFIRMSAVECHANGES">
+  <value>Сохранить изменения?</value>
+</data>
+<data name="TXT_DUPPLICATE_SHORTCUT">
+  <value>Ярлык уже используется</value>
+</data>
+<data name="TXT_DUP_SHORTCUT_FIXED">
+  <value>Комбинация клавиш '{0}' уже назначена '{1}' и не может быть изменен.&#xD;
 Пожалуйста, введите другую комбинацию.</value>
-  </data>
-  <data name="TXT_DUP_SHORTCUT_CONFIRM">
-    <value>Комбинация клавиш '{0}' уже назначена '{1}'.
+</data>
+<data name="TXT_DUP_SHORTCUT_CONFIRM">
+  <value>Комбинация клавиш '{0}' уже назначена '{1}'.&#xD;
 Вы хотите, чтобы повторно назначить его на '{2}'?</value>
-  </data>
-  <data name="TXT_CONFIRM_RESTORE">
-    <value>Вы уверены, что хотите загрузить настройки по умолчанию?</value>
-  </data>
-  <data name="TXT_RESTORESHORTCUTSDESC">
-    <value>Используйте "Восстановить значения по умолчанию", чтобы загрузить клавиатуры по умолчанию контекстном конфигурации.</value>
-  </data>
-  <data name="TXT_RESTOREDEFAULTS">
-    <value>Восстановить значения по умолчанию</value>
-  </data>
-  <data name="TXT_PID">
-    <value>Процесс ID</value>
-  </data>
-  <data name="TXT_TID">
-    <value>Тема ID</value>
-  </data>
-  <data name="TXT_KEEPONTOP">
-    <value>Держать окно поверх других</value>
-  </data>
-  <data name="TXT_SAVEWINDOW">
-    <value>Сохранить войти окно, как ...</value>
-  </data>
-  <data name="TXT_SAVELOGFILE">
-    <value>Сохранить файл журнала как ...</value>
-  </data>
-  <data name="TXT_SHOWTRACE">
-    <value>Показать следов</value>
-  </data>
-  <data name="TXT_SHOWINFO">
-    <value>Показать информация</value>
-  </data>
-  <data name="TXT_SHOWWARNING">
-    <value>Показать предупреждения</value>
-  </data>
-  <data name="TXT_SHOWERROR">
-    <value>Показать ошибки</value>
-  </data>
-  <data name="TXT_SAVELOGORWINDOW">
-    <value>Сохранить файл журнала или окна</value>
-  </data>
-  <data name="TXT_NOTIFYUPDATE">
-    <value>Новая версия программы доступна: {0}.
+</data>
+<data name="TXT_CONFIRM_RESTORE">
+  <value>Вы уверены, что хотите загрузить настройки по умолчанию?</value>
+</data>
+<data name="TXT_RESTORESHORTCUTSDESC">
+  <value>Используйте "Восстановить значения по умолчанию", чтобы загрузить клавиатуры по умолчанию контекстном конфигурации.</value>
+</data>
+<data name="TXT_RESTOREDEFAULTS">
+  <value>Восстановить значения по умолчанию</value>
+</data>
+<data name="TXT_PID">
+  <value>Процесс ID</value>
+</data>
+<data name="TXT_TID">
+  <value>Тема ID</value>
+</data>
+<data name="TXT_KEEPONTOP">
+  <value>Держать окно поверх других</value>
+</data>
+<data name="TXT_SAVEWINDOW">
+  <value>Сохранить войти окно, как ...</value>
+</data>
+<data name="TXT_SAVELOGFILE">
+  <value>Сохранить файл журнала как ...</value>
+</data>
+<data name="TXT_SHOWTRACE">
+  <value>Показать следов</value>
+</data>
+<data name="TXT_SHOWINFO">
+  <value>Показать информация</value>
+</data>
+<data name="TXT_SHOWWARNING">
+  <value>Показать предупреждения</value>
+</data>
+<data name="TXT_SHOWERROR">
+  <value>Показать ошибки</value>
+</data>
+<data name="TXT_SAVELOGORWINDOW">
+  <value>Сохранить файл журнала или окна</value>
+</data>
+<data name="TXT_NOTIFYUPDATE">
+  <value>Новая версия программы доступна: {0}.&#xD;
 Вы хотите обновиться до этой версии?</value>
-  </data>
-  <data name="TXT_CONFIRMUPDATE">
-    <value>Подтвердите обновление программы</value>
-  </data>
-  <data name="TXT_WAITDOWNLOADUPDATE">
-    <value>Пожалуйста, подождите при загрузке файлов обновления программы.
-Вы можете нажать ESC, чтобы прервать процесс загрузки и сохранить существующую версию приложения.</value>
-  </data>
-  <data name="TXT_ALLOWAUTOUPDATES">
-    <value>Разрешить автоматическое обновление программы</value>
-  </data>
-  <data name="TXT_CHECKUPDATE">
-    <value>Проверка обновлений программы</value>
-  </data>
-  <data name="TXT_DISABLEAUTODOWNLOADS">
-    <value>Отключить автоматические обновления</value>
-  </data>
-  <data name="TXT_NOUPDATEREQUIRED">
-    <value>Эта программа имеет последнюю доступную версию.
+</data>
+<data name="TXT_CONFIRMUPDATE">
+  <value>Подтвердите обновление программы</value>
+</data>
+<data name="TXT_WAITDOWNLOADUPDATE">
+  <value>Пожалуйста, подождите при загрузке файлов обновления программы. Вы можете нажать ESC, чтобы прервать процесс загрузки и сохранить существующую версию приложения.</value>
+</data>
+<data name="TXT_ALLOWAUTOUPDATES">
+  <value>Разрешить автоматическое обновление программы</value>
+</data>
+<data name="TXT_CHECKUPDATE">
+  <value>Проверка обновлений программы</value>
+</data>
+<data name="TXT_DISABLEAUTODOWNLOADS">
+  <value>Отключить автоматические обновления</value>
+</data>
+<data name="TXT_NOUPDATEREQUIRED">
+  <value>Эта программа имеет последнюю доступную версию.&#xD;
  На данный момент, вам не нужно обновлять программу.</value>
-  </data>
-  <data name="TXT_CONFIRM_MOVE">
-    <value>Вы уверены, что хотите переместить файл:
+</data>
+<data name="TXT_CONFIRM_MOVE">
+  <value>Вы уверены, что хотите переместить файл:&#xD;
 {0}?</value>
-  </data>
-  <data name="TXT_CONFIRM_MOVE_DIR">
-    <value>В папке: {0} не пусто.
+</data>
+<data name="TXT_CONFIRM_MOVE_DIR">
+  <value>В папке: {0} не пусто.&#xD;
 Вы хотите, чтобы переместить его и все ее содержимое?</value>
-  </data>
-  <data name="TXT_CONFIRM_MOVE_EMPTYDIR">
-    <value>Вы уверены, что хотите переместить папку:
+</data>
+<data name="TXT_CONFIRM_MOVE_EMPTYDIR">
+  <value>Вы уверены, что хотите переместить папку:&#xD;
 {0}?</value>
-  </data>
-  <data name="TXT_CONFIRM_MOVE_ROHS">
-    <value>Файл {0} имеет один или более из этих атрибутов: Read-Only/Hidden/System.
+</data>
+<data name="TXT_CONFIRM_MOVE_ROHS">
+  <value>Файл {0} имеет один или более из этих атрибутов: Read-Only/Hidden/System.&#xD;
 Вы все еще хотите, чтобы переместить его?</value>
-  </data>
-  <data name="TXT_NOPROXY">
-    <value>Нет прокси</value>
-  </data>
-  <data name="TXT_HTTPPROXY">
-    <value>HTTP Proxy</value>
-  </data>
-  <data name="TXT_SOCKS4PROXY">
-    <value>SOCKS4 прокси</value>
-  </data>
-  <data name="TXT_SOCKS5PROXY">
-    <value>SOCKS5 прокси</value>
-  </data>
-  <data name="TXT_IEPROXY">
-    <value>Используйте настройках интернет проводника прокси</value>
-  </data>
-  <data name="TXT_FILE_TYPE">
-    <value>Тип файла</value>
-  </data>
-  <data name="TXT_LOOK_IN">
-    <value>Поиск в</value>
-  </data>
-  <data name="TXT_SAMPLE">
-    <value>Oбразец:</value>
-  </data>
-  <data name="TXT_FONT">
-    <value>Шрифт:</value>
-  </data>
-  <data name="TXT_FONT_STYLE">
-    <value>Стиль шрифта:</value>
-  </data>
-  <data name="TXT_SCRIPT">
-    <value>Hабор символов</value>
-  </data>
-  <data name="TXT_CHOOSE_COLOR">
-    <value>Bыбрать цвет:</value>
-  </data>
-  <data name="TXT_ACTIVE">
-    <value>Aктив</value>
-  </data>
-  <data name="TXT_FLAG_ERRORS">
-    <value>Показать
+</data>
+<data name="TXT_NOPROXY">
+  <value>Нет прокси</value>
+</data>
+<data name="TXT_HTTPPROXY">
+  <value>HTTP Proxy</value>
+</data>
+<data name="TXT_SOCKS4PROXY">
+  <value>SOCKS4 прокси</value>
+</data>
+<data name="TXT_SOCKS5PROXY">
+  <value>SOCKS5 прокси</value>
+</data>
+<data name="TXT_IEPROXY">
+  <value>Используйте настройках интернет проводника прокси</value>
+</data>
+<data name="TXT_FILE_TYPE">
+  <value>Тип файла</value>
+</data>
+<data name="TXT_LOOK_IN">
+  <value>Поиск в</value>
+</data>
+<data name="TXT_SAMPLE">
+  <value>Oбразец:</value>
+</data>
+<data name="TXT_FONT">
+  <value>Шрифт:</value>
+</data>
+<data name="TXT_FONT_STYLE">
+  <value>Стиль шрифта:</value>
+</data>
+<data name="TXT_SCRIPT">
+  <value>Hабор символов</value>
+</data>
+<data name="TXT_CHOOSE_COLOR">
+  <value>Bыбрать цвет:</value>
+</data>
+<data name="TXT_ACTIVE">
+  <value>Aктив</value>
+</data>
+<data name="TXT_FLAG_ERRORS">
+  <value>Показать&#xD;
 ошибки</value>
-  </data>
-  <data name="TXT_FLAG_WARNINGS">
-    <value>Показать
+</data>
+<data name="TXT_FLAG_WARNINGS">
+  <value>Показать&#xD;
 предупреждения</value>
-  </data>
-  <data name="TXT_FLAG_INFOS">
-    <value>Показать
+</data>
+<data name="TXT_FLAG_INFOS">
+  <value>Показать&#xD;
 информация</value>
-  </data>
-  <data name="TXT_FLAG_TRACES">
-    <value>Показать
+</data>
+<data name="TXT_FLAG_TRACES">
+  <value>Показать&#xD;
 Debug Следы</value>
-  </data>
-  <data name="TXT_LOGFILE_FILTER">
-    <value>Журналы файлам (*.log)|*.log||</value>
-  </data>
-  <data name="TXT_SAVELOGFILE_PART">
-    <value>Сохранить частичном файл журнала как:</value>
-  </data>
-  <data name="TXT_DRIVE_DESC_FORMAT">
-    <value>{0}  [{1}]  [{2}]  [{3} МБ свободного]  [{4}]</value>
-  </data>
-  <data name="TXT_SELECT_FOLDER">
-    <value>Выберите папку:</value>
-  </data>
-  <data name="TXT_NEW_FOLDER">
-    <value>Создайте новую папку</value>
-  </data>
-  <data name="TXT_FORMAT_UNKNOWN">
-    <value>Неизвестный формат</value>
-  </data>
-  <data name="TXT_NOT_READY">
-    <value>Не готов</value>
-  </data>
-  <data name="TXT_NO_LABEL">
-    <value>Нет этикетки</value>
-  </data>
-  <data name="TXT_NO_NAME">
-    <value>Без названия</value>
-  </data>
-  <data name="TXT_READY">
-    <value>Готовый</value>
-  </data>
-  <data name="TXT_CURRENT_PATH">
-    <value>Текущий путь: {0}</value>
-  </data>
-  <data name="TXT_DISABLE">
-    <value>Запрещать</value>
-  </data>
-  <data name="TXT_EDIT">
-    <value>Редактировать</value>
-  </data>
-  <data name="TXT_ENABLE">
-    <value>Включить</value>
-  </data>
-  <data name="TXT_ENABLED">
-    <value>Доступно</value>
-  </data>
-  <data name="TXT_EXPORT">
-    <value>Экспорт</value>
-  </data>
-  <data name="TXT_EXPORT_FULL">
-    <value>Полный экспорт ...</value>
-  </data>
-  <data name="TXT_EXPORT_PARTIAL">
-    <value>Частичный экспорт ...</value>
-  </data>
-  <data name="TXT_IMPORT">
-    <value>Импорт</value>
-  </data>
-  <data name="TXT_IMPORT_FULL">
-    <value>Полный импорт ...</value>
-  </data>
-  <data name="TXT_IMPORT_PARTIAL">
-    <value>Частичный импорт (со слиянием) ...</value>
-  </data>
-  <data name="TXT_INPUT_DATA">
-    <value>Входные данные</value>
-  </data>
-  <data name="TXT_OUTPUT_DATA">
-    <value>Выходные данные</value>
-  </data>
-  <data name="TXT_DISK_CDR">
-    <value>Оптических дисков (CD, DVD или BlueRay)</value>
-  </data>
-  <data name="TXT_DISK_FIL">
-    <value>Файл</value>
-  </data>
-  <data name="TXT_DISK_FLD">
-    <value>Папка</value>
-  </data>
-  <data name="TXT_DISK_HDD">
-    <value>Жесткий диск (жесткий диск)</value>
-  </data>
-  <data name="TXT_DISK_NET">
-    <value>Сетевой диск</value>
-  </data>
-  <data name="TXT_DISK_NRT">
-    <value>Диск без корневой папке</value>
-  </data>
-  <data name="TXT_DISK_RAM">
-    <value>Виртуальный RAM диск</value>
-  </data>
-  <data name="TXT_DISK_REM">
-    <value>Съемный диск (дискету или USB-флэш).</value>
-  </data>
-  <data name="TXT_DISK_UNK">
-    <value>Неизвестный тип диска</value>
-  </data>
-  <data name="TXT_NEW_FILENAME">
-    <value>Новое имя файла</value>
-  </data>
-  <data name="TXT_OLD_FILENAME">
-    <value>Старое имя файла</value>
-  </data>
-  <data name="TXT_ATTRIBUTES">
-    <value>Атрибуты</value>
-  </data>
-  <data name="TXT_CREATIONDATE">
-    <value>Дата создания</value>
-  </data>
-  <data name="TXT_EXTENSION">
-    <value>Расширение</value>
-  </data>
-  <data name="TXT_FILESIZE">
-    <value>Размер файла</value>
-  </data>
-  <data name="TXT_FILESYSTEMINFO">
-    <value>Сведения о файле</value>
-  </data>
-  <data name="TXT_LASTACCESSDATE">
-    <value>Последний доступ</value>
-  </data>
-  <data name="TXT_LASTCHANGEDATE">
-    <value>Последнее изменение</value>
-  </data>
-  <data name="TXT_NAME">
-    <value>Имя</value>
-  </data>
-  <data name="TXT_PARENT">
-    <value>Родительская папка</value>
-  </data>
-  <data name="TXT_PATH">
-    <value>Путь</value>
-  </data>
-  <data name="TXT_DESC">
-    <value>Описание</value>
-  </data>
-  <data name="TXT_LOGMESSAGE">
-    <value>Войдите сообщение</value>
-  </data>
-  <data name="TXT_MODULENAME">
-    <value>Имя модуля</value>
-  </data>
-  <data name="TXT_TIMESTAMP">
-    <value>Timestamp</value>
-  </data>
-  <data name="TXT_CONFIRM_CREATE">
-    <value>Файл {0} не существует.
+</data>
+<data name="TXT_LOGFILE_FILTER">
+  <value>Журналы файлам (*.log)|*.log||</value>
+</data>
+<data name="TXT_SAVELOGFILE_PART">
+  <value>Сохранить частичном файл журнала как:</value>
+</data>
+<data name="TXT_DRIVE_DESC_FORMAT">
+  <value>{0}  [{1}]  [{2}]  [{3} МБ свободного]  [{4}]</value>
+</data>
+<data name="TXT_SELECT_FOLDER">
+  <value>Выберите папку:</value>
+</data>
+<data name="TXT_NEW_FOLDER">
+  <value>Создайте новую папку</value>
+</data>
+<data name="TXT_FORMAT_UNKNOWN">
+  <value>Неизвестный формат</value>
+</data>
+<data name="TXT_NOT_READY">
+  <value>Не готов</value>
+</data>
+<data name="TXT_NO_LABEL">
+  <value>Нет этикетки</value>
+</data>
+<data name="TXT_NO_NAME">
+  <value>Без названия</value>
+</data>
+<data name="TXT_READY">
+  <value>Готовый</value>
+</data>
+<data name="TXT_CURRENT_PATH">
+  <value>Текущий путь: {0}</value>
+</data>
+<data name="TXT_DISABLE">
+  <value>Запрещать</value>
+</data>
+<data name="TXT_EDIT">
+  <value>Редактировать</value>
+</data>
+<data name="TXT_ENABLE">
+  <value>Включить</value>
+</data>
+<data name="TXT_ENABLED">
+  <value>Доступно</value>
+</data>
+<data name="TXT_EXPORT">
+  <value>Экспорт</value>
+</data>
+<data name="TXT_EXPORT_FULL">
+  <value>Полный экспорт ...</value>
+</data>
+<data name="TXT_EXPORT_PARTIAL">
+  <value>Частичный экспорт ...</value>
+</data>
+<data name="TXT_IMPORT">
+  <value>Импорт</value>
+</data>
+<data name="TXT_IMPORT_FULL">
+  <value>Полный импорт ...</value>
+</data>
+<data name="TXT_IMPORT_PARTIAL">
+  <value>Частичный импорт (со слиянием) ...</value>
+</data>
+<data name="TXT_INPUT_DATA">
+  <value>Входные данные</value>
+</data>
+<data name="TXT_OUTPUT_DATA">
+  <value>Выходные данные</value>
+</data>
+<data name="TXT_DISK_CDR">
+  <value>Оптических дисков (CD, DVD или BlueRay)</value>
+</data>
+<data name="TXT_DISK_FIL">
+  <value>Файл</value>
+</data>
+<data name="TXT_DISK_FLD">
+  <value>Папка</value>
+</data>
+<data name="TXT_DISK_HDD">
+  <value>Жесткий диск (жесткий диск)</value>
+</data>
+<data name="TXT_DISK_NET">
+  <value>Сетевой диск</value>
+</data>
+<data name="TXT_DISK_NRT">
+  <value>Диск без корневой папке</value>
+</data>
+<data name="TXT_DISK_RAM">
+  <value>Виртуальный RAM диск</value>
+</data>
+<data name="TXT_DISK_REM">
+  <value>Съемный диск (дискету или USB-флэш).</value>
+</data>
+<data name="TXT_DISK_UNK">
+  <value>Неизвестный тип диска</value>
+</data>
+<data name="TXT_NEW_FILENAME">
+  <value>Новое имя файла</value>
+</data>
+<data name="TXT_OLD_FILENAME">
+  <value>Старое имя файла</value>
+</data>
+<data name="TXT_ATTRIBUTES">
+  <value>Атрибуты</value>
+</data>
+<data name="TXT_CREATIONDATE">
+  <value>Дата создания</value>
+</data>
+<data name="TXT_EXTENSION">
+  <value>Расширение</value>
+</data>
+<data name="TXT_FILESIZE">
+  <value>Размер файла</value>
+</data>
+<data name="TXT_FILESYSTEMINFO">
+  <value>Сведения о файле</value>
+</data>
+<data name="TXT_LASTACCESSDATE">
+  <value>Последний доступ</value>
+</data>
+<data name="TXT_LASTCHANGEDATE">
+  <value>Последнее изменение</value>
+</data>
+<data name="TXT_NAME">
+  <value>Имя</value>
+</data>
+<data name="TXT_PARENT">
+  <value>Родительская папка</value>
+</data>
+<data name="TXT_PATH">
+  <value>Путь</value>
+</data>
+<data name="TXT_DESC">
+  <value>Описание</value>
+</data>
+<data name="TXT_LOGMESSAGE">
+  <value>Войдите сообщение</value>
+</data>
+<data name="TXT_MODULENAME">
+  <value>Имя модуля</value>
+</data>
+<data name="TXT_TIMESTAMP">
+  <value>Timestamp</value>
+</data>
+<data name="TXT_CONFIRM_CREATE">
+  <value>Файл {0} не существует.&#xD;
 Вы хотите, чтобы его создать?</value>
-  </data>
-  <data name="TXT_ASSISTANCE">
-    <value>помощь</value>
-  </data>
+</data>
+<data name="TXT_ASSISTANCE">
+  <value>помощь</value>
+</data>
+    
 </root>
