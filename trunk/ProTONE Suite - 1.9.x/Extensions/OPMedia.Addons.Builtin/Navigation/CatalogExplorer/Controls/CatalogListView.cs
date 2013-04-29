@@ -392,7 +392,9 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.Controls
                     this.Items.Add(item);
                 }
 
+                bool selectFirst = (this.Items.Count > 0);
                 int lastVisibleIndex = 0;
+
                 foreach (ListViewItem item in this.Items)
                 {
                     CatalogItem ci = item.Tag as CatalogItem;
@@ -402,12 +404,21 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.Controls
                         item.Focused = true;
 
                         lastVisibleIndex = item.Index;
+                        selectFirst = false;
 
                         break;
                     }
                 }
 
-                EnsureVisible(lastVisibleIndex);
+                if (selectFirst)
+                {
+                    Items[0].Selected = true;
+                    Items[0].Focused = true;
+                }
+                else
+                {
+                    EnsureVisible(lastVisibleIndex);
+                }
 
                 this.Select();
                 this.Focus();
