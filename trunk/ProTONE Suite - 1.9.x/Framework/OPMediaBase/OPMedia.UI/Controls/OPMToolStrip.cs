@@ -732,13 +732,14 @@ namespace OPMedia.UI.Controls
 
                     StringFormat sf = new StringFormat();
                     sf.LineAlignment = StringAlignment.Center;
+                    sf.FormatFlags = StringFormatFlags.NoWrap;
                     sf.Alignment = hAlign;
                     sf.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.Show;
 
                     if (!header)
                     {
-                        rect.X += 30;
-                        rect.Width -= 60;
+                        rect.X += 25;
+                        rect.Width -= 30;
                     }
 
                     using (Brush b = new SolidBrush(clText))
@@ -748,12 +749,12 @@ namespace OPMedia.UI.Controls
                         if (!string.IsNullOrEmpty(ShortcutKeyDisplayString))
                         {
                             sf = new StringFormat();
+                            sf.FormatFlags = StringFormatFlags.NoWrap;
                             sf.LineAlignment = StringAlignment.Center;
                             sf.Alignment = StringAlignment.Far;
                             sf.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.Show;
 
-                            e.Graphics.DrawString(ShortcutKeyDisplayString,
-                                                            this.Font, b, rect, sf);
+                            e.Graphics.DrawString(ShortcutKeyDisplayString, this.Font, b, rect, sf);
                         }
                     }
                 }
