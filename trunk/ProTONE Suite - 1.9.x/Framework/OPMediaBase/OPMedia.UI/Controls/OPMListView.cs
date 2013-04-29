@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using OPMedia.Core.GlobalEvents;
 using System.Drawing.Drawing2D;
 using OPMedia.UI.Generic;
+using System.Threading;
 #endregion
 
 namespace OPMedia.UI.Controls
@@ -802,6 +803,8 @@ namespace OPMedia.UI.Controls
             }
         }
 
+        int endEditingPending = 0;
+
         /// <summary>
         /// End the in-place editing action. It results in "hiding" the
         /// in-place edit control.
@@ -810,6 +813,9 @@ namespace OPMedia.UI.Controls
         /// that is resulting after the editing action.</param>
         public void EndEditing(bool acceptChanges)
         {
+            if (1 == Interlocked.CompareExchange(ref endEditingPending, 1, 0))
+                return;
+
             try
             {
                 if (activeEditControl == null || !activeEditControl.Visible)
@@ -886,6 +892,8 @@ namespace OPMedia.UI.Controls
             }
             finally
             {
+                Interlocked.Exchange(ref endEditingPending, 0);
+
                 Invalidate();
             }
         }
