@@ -79,9 +79,6 @@ namespace OPMedia.UI.Configuration
 
             labelCopyright.Text = AssemblyInfo.GetCopyright(Assembly.GetEntryAssembly());
 
-            chkShowSplitters.Visible = !ApplicationInfo.IsPlayer;
-            chkShowSplitters.Checked = AppSettings.ShowSplitters;
-
             chkAllowAutoUpdates.Checked = SuiteConfiguration.AllowAutomaticUpdates;
         }
 
@@ -127,11 +124,6 @@ namespace OPMedia.UI.Configuration
             if (newID != curLangID)
             {
                 SuiteConfiguration.LanguageID = newID;
-            }
-
-            if (!ApplicationInfo.IsPlayer && chkShowSplitters.Checked != AppSettings.ShowSplitters)
-            {
-                AppSettings.ShowSplitters = chkShowSplitters.Checked;
             }
 
             SuiteConfiguration.AllowAutomaticUpdates = chkAllowAutoUpdates.Checked;

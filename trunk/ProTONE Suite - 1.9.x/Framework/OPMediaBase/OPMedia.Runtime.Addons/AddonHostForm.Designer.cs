@@ -201,7 +201,8 @@ namespace OPMedia.Runtime.Addons
             // 
             this.pnlOpMedia.Panel2.Controls.Add(this.pnlLocalContent);
             this.pnlOpMedia.Size = new System.Drawing.Size(812, 499);
-            this.pnlOpMedia.SplitterDistance = 430;
+            this.pnlOpMedia.SplitterDistance = 562;
+            this.pnlOpMedia.SplitterWidth = 3;
             this.pnlOpMedia.TabIndex = 6;
             // 
             // pnlNavContainer
@@ -211,7 +212,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlNavContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlNavContainer.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNavContainer.Name = "pnlNavContainer";
-            this.pnlNavContainer.Size = new System.Drawing.Size(430, 499);
+            this.pnlNavContainer.Size = new System.Drawing.Size(562, 499);
             this.pnlNavContainer.TabIndex = 0;
             // 
             // lblNoItems
@@ -224,7 +225,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoItems.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoItems.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoItems.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoItems.Size = new System.Drawing.Size(430, 60);
+            this.lblNoItems.Size = new System.Drawing.Size(562, 60);
             this.lblNoItems.TabIndex = 0;
             this.lblNoItems.Text = "aaaa";
             this.lblNoItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,8 +246,9 @@ namespace OPMedia.Runtime.Addons
             // pnlLocalContent.Panel2
             // 
             this.pnlLocalContent.Panel2.Controls.Add(this.pnlPreview);
-            this.pnlLocalContent.Size = new System.Drawing.Size(378, 499);
-            this.pnlLocalContent.SplitterDistance = 159;
+            this.pnlLocalContent.Size = new System.Drawing.Size(247, 499);
+            this.pnlLocalContent.SplitterDistance = 324;
+            this.pnlLocalContent.SplitterWidth = 3;
             this.pnlLocalContent.TabIndex = 3;
             // 
             // pnlProperties
@@ -257,7 +259,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlProperties.Location = new System.Drawing.Point(0, 0);
             this.pnlProperties.Margin = new System.Windows.Forms.Padding(0);
             this.pnlProperties.Name = "pnlProperties";
-            this.pnlProperties.Size = new System.Drawing.Size(378, 159);
+            this.pnlProperties.Size = new System.Drawing.Size(247, 324);
             this.pnlProperties.TabIndex = 0;
             // 
             // lblNoProperties
@@ -270,7 +272,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoProperties.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoProperties.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoProperties.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoProperties.Size = new System.Drawing.Size(378, 60);
+            this.lblNoProperties.Size = new System.Drawing.Size(247, 60);
             this.lblNoProperties.TabIndex = 0;
             this.lblNoProperties.Text = "aaaa";
             this.lblNoProperties.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -283,7 +285,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlPreview.Location = new System.Drawing.Point(0, 0);
             this.pnlPreview.Margin = new System.Windows.Forms.Padding(0);
             this.pnlPreview.Name = "pnlPreview";
-            this.pnlPreview.Size = new System.Drawing.Size(378, 336);
+            this.pnlPreview.Size = new System.Drawing.Size(247, 172);
             this.pnlPreview.TabIndex = 0;
             // 
             // lblNoPreview
@@ -296,7 +298,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoPreview.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoPreview.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoPreview.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoPreview.Size = new System.Drawing.Size(378, 60);
+            this.lblNoPreview.Size = new System.Drawing.Size(247, 60);
             this.lblNoPreview.TabIndex = 0;
             this.lblNoPreview.Text = "abcdef";
             this.lblNoPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

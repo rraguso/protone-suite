@@ -148,9 +148,12 @@ namespace OPMedia.UI.Themes
 
         void ThemeForm_Resize(object sender, EventArgs e)
         {
-            int th = TitleBarVisible ? DefaultTitleBarHeight : 0;
-            pnlContent.SetLocation(new Point(5, th + 2));
-            pnlContent.SetSize(new Size(this.Width - 10, this.Height - th - 7));
+            if (this.WindowState != FormWindowState.Minimized)
+            {
+                int th = TitleBarVisible ? DefaultTitleBarHeight : 0;
+                pnlContent.SetLocation(new Point(5, th + 2));
+                pnlContent.SetSize(new Size(this.Width - 10, this.Height - th - 7));
+            }
         }
 
         private void InitializeComponent()

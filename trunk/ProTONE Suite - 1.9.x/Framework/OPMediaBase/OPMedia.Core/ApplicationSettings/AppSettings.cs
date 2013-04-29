@@ -486,19 +486,6 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool ShowSplitters
-        {
-            get
-            {
-                return _config.GetValue("ShowSplitters", true);
-            }
-
-            set
-            {
-                _config.SetValue("ShowSplitters", value);
-            }
-        }
-
         public static Point DetachedWindowLocation
         {
             get

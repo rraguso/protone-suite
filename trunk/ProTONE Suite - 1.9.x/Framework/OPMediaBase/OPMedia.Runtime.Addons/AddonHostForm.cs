@@ -35,11 +35,6 @@ namespace OPMedia.Runtime.Addons
     public partial class AddonHostForm : MainFrame
     {
         public static bool networkConfig = false;
-        //public static bool enableVSplitter = true;
-        //public static bool enableHSplitter = true;
-        //public static int vSplitterDistance = -1;
-        //public static int hSplitterDistance = -1;
-
         string _launchPath = string.Empty;
 
         public static void RunApplication()
@@ -82,24 +77,6 @@ namespace OPMedia.Runtime.Addons
             _launchPath = launchPath;
         }
 
-        private bool EnableVSplitter
-        {
-            set 
-            {
-                bool enabled = value;
-                pnlOpMedia.IsSplitterFixed = !enabled;
-            }
-        }
-
-        private bool EnableHSplitter
-        {
-            set 
-            {
-                bool enabled = value;
-                pnlLocalContent.IsSplitterFixed = !enabled;
-            }
-        }
-
         private int VSplitterDistance
         {
             get { return pnlOpMedia.SplitterDistance; }
@@ -121,7 +98,6 @@ namespace OPMedia.Runtime.Addons
             //this.Load += new EventHandler(MainForm_Load);
 
             this.HandleDestroyed += new EventHandler(MainForm_HandleDestroyed);
-            this.Resize += new EventHandler(OnResize);
 
             this.ShowInTaskbar = true;
             lblNoItems.Text = Translator.Translate("TXT_THEREARENOITEMS");
@@ -132,18 +108,14 @@ namespace OPMedia.Runtime.Addons
             this.Size = AppSettings.WindowSize;
             this.WindowState = AppSettings.WindowState;
 
-            this.VSplitterDistance = AppSettings.VSplitterDistance;
-            this.HSplitterDistance = AppSettings.HSplitterDistance;
-
             tsmiSettings.ShortcutKeyDisplayString =
                 ShortcutMapper.GetShortcutString(OPMShortcut.CmdOpenSettings);
 
             tsmiSettings.Image = Resources.settings;
 
-            this.EnableHSplitter = AppSettings.ShowSplitters;
-            this.EnableVSplitter = AppSettings.ShowSplitters;
-
             SetColors();
+
+
         }
 
         protected override void  OnThemeUpdatedInternal()
@@ -258,6 +230,10 @@ namespace OPMedia.Runtime.Addons
                     return;
                 }
             }
+
+            this.VSplitterDistance = AppSettings.VSplitterDistance;
+            this.HSplitterDistance = AppSettings.HSplitterDistance;
+
         }
 
         protected override bool IsShortcutAllowed(OPMShortcut cmd)
@@ -280,17 +256,12 @@ namespace OPMedia.Runtime.Addons
                     {
                         AddonAppSettingsForm.Show();
                         args.Handled = true;
-
-                        EnableVSplitter = AppSettings.ShowSplitters;
-                        EnableHSplitter = AppSettings.ShowSplitters;
                     }
                     break;
 
                 case OPMShortcut.CmdCfgKeyboard:
                     AddonAppSettingsForm.Show("TXT_KEYMAP");
                     args.Handled = true;
-                    EnableVSplitter = AppSettings.ShowSplitters;
-                    EnableHSplitter = AppSettings.ShowSplitters;
                     break;
 
                 case OPMShortcut.CmdSwitchWindows:
@@ -781,14 +752,6 @@ namespace OPMedia.Runtime.Addons
             ShortcutMapper.DispatchCommand(OPMShortcut.CmdOpenSettings);
         }
 
-        void OnResize(object sender, EventArgs e)
-        {
-            if (WindowState != FormWindowState.Minimized)
-            {
-                pnlOpMedia.SplitterDistance = pnlOpMedia.Width - _localContentWidth;
-            }
-        }
-
         private void OnExit(object sender, EventArgs e)
         {
             Application.Exit();
@@ -847,14 +810,7 @@ namespace OPMedia.Runtime.Addons
             LogFileConsoleDialog.ShowLogConsole();
         }
 
-        int _localContentWidth = -1;
-        public override void OnWindowStateChanged(FormWindowState oldState, FormWindowState newState)
-        {
-            if (newState != FormWindowState.Normal)
-            {
-                _localContentWidth = pnlLocalContent.Width;
-            }
-        }
+       
 
     }
 }
