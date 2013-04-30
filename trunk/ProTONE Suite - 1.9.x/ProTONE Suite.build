@@ -47,8 +47,8 @@
         <echo message="Old version: ${oldversion}" />
         <echo message="New version: ${newversion}" />
 
-        <loadfile file=".\Framework\OPMediaBase\OPMedia.Core\Version.cs" property="file.contents" />
-        <property name="file.contents" value="${string::replace(file.contents, oldversion, newversion)}" />
+        <loadfile file=".\Framework\OPMediaBase\OPMedia.Core\VersionTemplate.cs" property="file.contents" />
+        <property name="file.contents" value="${string::replace(file.contents, 'VERSION', newversion)}" />
 
         <echo message="${file.contents}" file=".\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
 

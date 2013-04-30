@@ -109,6 +109,7 @@
     <Compile Include="ApplicationInfo.cs" />
     <Compile Include="ApplicationSettings\AppSettings.cs" />
     <Compile Include="ApplicationSettings\ConfigFileManager.cs" />
+    <None Include="VersionTemplate.cs" />
     <Compile Include="MainThread.cs" />
     <Compile Include="NetworkAccess\WebFileRetriever.cs" />
     <Compile Include="Properties\Resources1.Designer.cs">

@@ -47,6 +47,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPMedia.Runtime.ProTONE", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPMedia.UI.ProTONE", "Framework\ProTONE\OPMedia.UI.ProTONE\OPMedia.UI.ProTONE.csproj", "{742E1775-5F08-40E3-97D1-E0EEEB7198F4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4EE48AD0-EB1A-46F0-BF87-2587913815BF}"
+	ProjectSection(SolutionItems) = preProject
+		ProTONE Suite.build = ProTONE Suite.build
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|x86 = Default|x86
