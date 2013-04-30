@@ -13,13 +13,11 @@
 
         <echo message=" BUILD STARTED !!" />
         
-        <!--<call target="cleanup" />
+        <call target="cleanup" />
         <call target="SvnCheckout" />
         <call target="VersionInfoUpdate" />
         <call target="BuildVSSolution" />-->
-        <!--<call target="BuildInstaller" />-->
-
-        <call target="VersionInfoUpdate" />
+        <call target="BuildInstaller" />
         <call target="PostBuildResults" />
 
         <echo message=" BUILD DONE !!" />
