@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<project name="ProTONE Suite - 1.9" default="build" basedir=".">
+    <description>ProTONE Suite Release 1.9</description>
+
+    <property name="debug" value="true" overwrite="false" />
+    <property name="dotnet40.framework.dir" value="c:\windows\microsoft.net\framework\v4.0.30319" />
+    <property name="msbuild40.executable" value="c:\windows\microsoft.net\framework\v4.0.30319\msbuild.exe" />
+    <property name="istool.executable" value="c:\Program Files (x86)\ISTool\istool.exe" />
+    
+    <target name="build" description="Rebuild ProTONE Suite">
+        
+        <loadtasks assembly="e:\Programs\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" /> 
+        
+        <!-- Build cleanup first -->
+
+        <!-- Delete folders -->
+        <echo message="Cleanup folders ..." /> 
+        <delete dir=".\_builds" failonerror="false" />
+        <delete dir=".\Applications" failonerror="false" />
+        <delete dir=".\Extensions" failonerror="false" />
+        <delete dir=".\Framework" failonerror="false" />
+        <delete dir=".\Installers" failonerror="false" />
+        <delete dir=".\IRSerDev" failonerror="false" />
+        <delete dir=".\WinServices" failonerror="false" />
+        <echo message="Cleanup folders done" /> 
+                
+        <!-- ReGet files from SVN -->
+        <echo message="SVN check out ..." /> 
+        <svn-checkout
+            destination="." 
+            uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x" 
+            recursive="true"
+            quiet="true"
+            username="octavian.paraschiv"
+            password="Cx9yE2EX3QH7" 
+            revision="HEAD"
+            cache-auth="false"
+        />
+        <echo message="SVN check out done" />
+
+        <!-- Version info increment -->
+        <iniread property="oldversion" filename=".\_builds\Versions.txt" section="ProTONE Suite" key="Version" default="1" />
+        <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
+        <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
+        <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
+
+        <echo message="Old version: ${oldversion}" />
+        <echo message="New version: ${newversion}" />
+
+        <loadfile file=".\Framework\OPMediaBase\OPMedia.Core\Version.cs" property="file.contents" />
+        <property name="file.contents" value="${string::replace(file.contents, oldversion, newversion)}" />
+
+        <echo message="${file.contents}" file=".\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
+
+        <!-- Build solution -->
+        <echo message="Building ProTONE Suite solution in VS2010 ..." /> 
+        <exec 
+            program="${msbuild40.executable}" 
+            verbose="true" 
+            workingdir="." 
+            commandline="/p:Configuration=Default /t:Rebuild &quot;ProTONE Suite.sln&quot; /v:normal" 
+        />
+        
+        <!-- Build installation -->
+        <echo message="Building ProTONE Suite installer ..." />
+        <exec
+            program="${istool.executable}"
+            verbose="true"
+            workingdir=".\Installers"
+            commandline="-compile .\ProtoneSuite.iss"
+        />
+
+        <!-- Post build results -->
+        <echo message="Upload build results to SVN ..." />
+        <svn 
+            uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
+            username="octavian.paraschiv" 
+            password="Cx9yE2EX3QH7"
+            failonerror="false">
+            <arg value="add" />
+            <arg path="${'.\_builds\ProTONE Suite ' + newversion + '.exe'}" />
+        </svn>
+        <svn 
+            uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
+            username="octavian.paraschiv"
+            password="Cx9yE2EX3QH7"
+            failonerror="false">
+            <arg value="delete" />
+            <arg path="${'.\_builds\ProTONE Suite ' + oldversion + '.exe'}" />
+        </svn>
+        <svn
+            uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
+            username="octavian.paraschiv"
+            password="Cx9yE2EX3QH7">
+            <arg line="commit -m build_${newversion}" />
+        </svn>
+        <echo message=" BUILD DONE !!" />
+
+    </target>
+</project>
