@@ -7,17 +7,21 @@
     <property name="msbuild40.executable" value="c:\windows\microsoft.net\framework\v4.0.30319\msbuild.exe" />
     <property name="istool.executable" value="c:\Program Files (x86)\ISTool\istool.exe" />
     <property name="root" value="." />
-    
+
+    <property name="oldversion" value="1.9.34" />
+    <property name="newversion" value="1.9.37" />
+
     <target name="build" description="Rebuild ProTONE Suite">
         <loadtasks assembly="e:\Programs\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" />
 
         <echo message=" BUILD STARTED !!" />
 
-        <call target="cleanup" />
+        <!--<call target="cleanup" />
         <call target="SvnCheckout" />
         <call target="VersionInfoUpdate" />
         <call target="BuildVSSolution" />
-        <call target="BuildInstaller" />
+        <call target="BuildInstaller" />-->
+
         <call target="PostBuildResults" />
 
         <echo message=" BUILD DONE !!" />
@@ -64,17 +68,6 @@
 
             <echo message="${file.contents}" file="${root}\src\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
 
-            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
-            
-            <svn
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src"
-                quiet="false"
-                verbose="true"
-                username="octavian.paraschiv"
-                password="Cx9yE2EX3QH7">
-                <arg line="commit -m build_${newversion}" />
-            </svn>
-            
         </target>
 
         <target name="BuildVSSolution">
@@ -131,6 +124,18 @@
                 password="Cx9yE2EX3QH7">
                 <arg line="commit -m build_${newversion}" />
             </svn>
+
+            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
+
+            <svn
+                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src"
+                quiet="false"
+                verbose="true"
+                username="octavian.paraschiv"
+                password="Cx9yE2EX3QH7">
+                <arg line="commit -m build_${newversion}" />
+            </svn>
+            
         </target>
        
 </project>
