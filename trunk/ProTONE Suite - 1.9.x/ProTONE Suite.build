@@ -12,13 +12,13 @@
         <loadtasks assembly="e:\Programs\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" />
 
         <echo message=" BUILD STARTED !!" />
-        
-        <call target="cleanup" />
-        <call target="SvnCheckout" />
+
+        <!--<call target="cleanup" />
+        <call target="SvnCheckout" />-->
         <call target="VersionInfoUpdate" />
-        <call target="BuildVSSolution" />-->
+        <!--<call target="BuildVSSolution" />
         <call target="BuildInstaller" />
-        <call target="PostBuildResults" />
+        <call target="PostBuildResults" />-->
 
         <echo message=" BUILD DONE !!" />
 
@@ -27,23 +27,17 @@
 
     <target name="cleanup">
             <!-- Delete folders -->
-            <echo message="Cleanup folders ..." /> 
-            <delete dir="${root}\_builds" failonerror="false" />
-            <delete dir="${root}\Applications" failonerror="false" />
-            <delete dir="${root}\Extensions" failonerror="false" />
-            <delete dir="${root}\Framework" failonerror="false" />
-            <delete dir="${root}\Installers" failonerror="false" />
-            <delete dir="${root}\IRSerDev" failonerror="false" />
-            <delete dir="${root}\WinServices" failonerror="false" />
-            <echo message="Cleanup folders done" />
+            <echo message="Source code cleanup ..." /> 
+            <delete dir="${root}\src" failonerror="false" />
+            <echo message="Source code cleanup done" />
         </target>
 
         <target name="SvnCheckout">
             <!-- ReGet files from SVN -->
-            <echo message="SVN check out ..." /> 
+            <echo message="Source code check out ..." /> 
             <svn-checkout
-                destination="${root}" 
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x" 
+                destination="${root}\src" 
+                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src" 
                 recursive="true"
                 quiet="false"
                 verbose="true"
@@ -52,12 +46,12 @@
                 revision="HEAD"
                 cache-auth="false"
             />
-            <echo message="SVN check out done" />
+            <echo message="Source code check out done" />
         </target>
 
         <target name="VersionInfoUpdate">
             <!-- Version info increment -->
-            <iniread property="oldversion" filename="${root}\_builds\Versions.txt" section="ProTONE Suite" key="Version" default="1" />
+            <iniread property="oldversion" filename="${root}\Versions.txt" section="ProTONE Suite 1.9" key="Version" default="1.9.0" />
             <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
             <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
             <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
@@ -65,10 +59,10 @@
             <echo message="Old version: ${oldversion}" />
             <echo message="New version: ${newversion}" />
 
-            <loadfile file="${root}\Framework\OPMediaBase\OPMedia.Core\VersionTemplate.cs" property="file.contents" />
+            <loadfile file="${root}\src\Framework\OPMediaBase\OPMedia.Core\VersionTemplate.cs" property="file.contents" />
             <property name="file.contents" value="${string::replace(file.contents, 'VERSION', newversion)}" />
 
-            <echo message="${file.contents}" file="${root}\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
+            <echo message="${file.contents}" file="${root}\src\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
         </target>
 
         <target name="BuildVSSolution">
@@ -77,7 +71,7 @@
             <exec 
                 program="${msbuild40.executable}" 
                 verbose="true" 
-                workingdir="${root}" 
+                workingdir="${root}\src" 
                 commandline="/p:Configuration=Default /t:Rebuild &quot;ProTONE Suite.sln&quot; /v:normal" 
             />
         </target>
@@ -87,7 +81,7 @@
             <echo message="Building ProTONE Suite installer ..." />
             <exec
                 program="${istool.executable}"
-                workingdir="${root}\Installers"
+                workingdir="${root}\src\Installers"
                 verbose="true">
                 <arg value="-compile" />
                 <arg value=".\ProtoneSuite.iss" />
@@ -98,27 +92,27 @@
             <!-- Post build results -->
             <echo message="Upload build results to SVN ..." />
             <svn 
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
+                uri="https://protone-suite.googlecode.com/svn/publish"
                 quiet="false"
                 verbose="true"
                 username="octavian.paraschiv" 
                 password="Cx9yE2EX3QH7"
                 failonerror="false">
                 <arg value="add" />
-                <arg path="${'${root}\_builds\ProTONE Suite ' + newversion + '.exe'}" />
+                <arg path="${'${root}\..\..\publish\ProTONE Suite ' + newversion + '.exe'}" />
             </svn>
             <svn 
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
+                uri="https://protone-suite.googlecode.com/svn/publish"
                 quiet="false"
                 verbose="true"
                 username="octavian.paraschiv"
                 password="Cx9yE2EX3QH7"
                 failonerror="false">
                 <arg value="delete" />
-                <arg path="${'${root}\_builds\ProTONE Suite ' + oldversion + '.exe'}" />
+                <arg path="${'${root}\..\..\publish\ProTONE Suite ' + oldversion + '.exe'}" />
             </svn>
             <svn
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
+                uri="https://protone-suite.googlecode.com/svn/publish"
                 quiet="false"
                 verbose="true"
                 username="octavian.paraschiv"
