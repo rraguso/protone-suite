@@ -120,14 +120,16 @@
                 <arg value="delete" />
                 <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + oldversion + '.exe'}" />
             </svn>-->
-            
+
             <svn
                 uri="https://protone-suite.googlecode.com/svn/publish"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}"
                 password="${svnpass}">
+                
                 <arg line="commit -m build_${newversion}" />
+                
             </svn>
 
             <!--<iniwrite filename="${root}\src\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
