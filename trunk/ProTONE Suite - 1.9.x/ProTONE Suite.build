@@ -2,6 +2,9 @@
 <project name="ProTONE Suite - 1.9" default="build" basedir=".">
     <description>ProTONE Suite Release 1.9</description>
 
+    <property name="svnuser" value="octavian.paraschiv" />
+    <property name="svnpass" value="Cx9yE2EX3QH7" />
+
     <property name="debug" value="true" overwrite="false" />
     <property name="dotnet40.framework.dir" value="c:\windows\microsoft.net\framework\v4.0.30319" />
     <property name="msbuild40.executable" value="c:\windows\microsoft.net\framework\v4.0.30319\msbuild.exe" />
@@ -45,8 +48,8 @@
                 recursive="true"
                 quiet="false"
                 verbose="true"
-                username="octavian.paraschiv"
-                password="Cx9yE2EX3QH7" 
+                username="${svnuser}"
+                password="${svnpass}" 
                 revision="HEAD"
                 cache-auth="false"
             />
@@ -100,28 +103,30 @@
                 uri="https://protone-suite.googlecode.com/svn/publish"
                 quiet="false"
                 verbose="true"
-                username="octavian.paraschiv" 
-                password="Cx9yE2EX3QH7"
+                username="${svnuser}" 
+                password="${svnpass}"
                 failonerror="false">
                 <arg value="add" />
                 <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + newversion + '.exe'}" />
             </svn>
+            
             <svn 
                 uri="https://protone-suite.googlecode.com/svn/publish"
                 quiet="false"
                 verbose="true"
-                username="octavian.paraschiv"
-                password="Cx9yE2EX3QH7"
+                username="${svnuser}"
+                password="${svnpass}"
                 failonerror="false">
                 <arg value="delete" />
                 <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + oldversion + '.exe'}" />
             </svn>
+            
             <svn
                 uri="https://protone-suite.googlecode.com/svn/publish"
                 quiet="false"
                 verbose="true"
-                username="octavian.paraschiv"
-                password="Cx9yE2EX3QH7">
+                username="${svnuser}"
+                password="${svnpass}">
                 <arg line="commit -m build_${newversion}" />
             </svn>
 
@@ -131,8 +136,8 @@
                 uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src"
                 quiet="false"
                 verbose="true"
-                username="octavian.paraschiv"
-                password="Cx9yE2EX3QH7">
+                username="${svnuser}"
+                password="${svnpass}">
                 <arg line="commit -m build_${newversion}" />
             </svn>
             
