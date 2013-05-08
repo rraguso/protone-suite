@@ -47,7 +47,7 @@ namespace OPMedia.UI.ApplicationUpdate
         private void StartDownload()
         {
             string file = string.Format("{0} {1}.exe", Constants.SuiteName, _version);
-            string fileUri = SuiteConfiguration.DownloadUriBase + file;
+            string fileUri = SuiteConfiguration.DownloadUriBase + "/" + file;
             string tempFile = Path.Combine(Path.GetTempPath(), file);
 
             Logger.LogInfo("Downloading update file from {0} ...", fileUri);
