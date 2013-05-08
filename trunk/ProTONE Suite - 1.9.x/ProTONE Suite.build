@@ -136,17 +136,17 @@
                 
             </svn>
 
-            <iniwrite filename="${root}\src\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
+            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
 
             <svn
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src"
+                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}"
                 password="${svnpass}">
                 
                 <arg line="commit -m build_${newversion}" />
-                <arg line="${'${root}\src'}" />
+                <arg line="${root}" />
 
             </svn>
             
