@@ -63,6 +63,18 @@
             <property name="file.contents" value="${string::replace(file.contents, 'VERSION', newversion)}" />
 
             <echo message="${file.contents}" file="${root}\src\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
+
+            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
+            
+            <svn
+                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src"
+                quiet="false"
+                verbose="true"
+                username="octavian.paraschiv"
+                password="Cx9yE2EX3QH7">
+                <arg line="commit -m build_${newversion}" />
+            </svn>
+            
         </target>
 
         <target name="BuildVSSolution">
