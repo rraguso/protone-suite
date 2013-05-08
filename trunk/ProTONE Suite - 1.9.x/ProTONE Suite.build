@@ -19,12 +19,11 @@
 
         <echo message=" BUILD STARTED !!" />
 
-        <!--<call target="cleanup" />
+        <call target="cleanup" />
         <call target="SvnCheckout" />
         <call target="VersionInfoUpdate" />
         <call target="BuildVSSolution" />
-        <call target="BuildInstaller" />-->
-
+        <call target="BuildInstaller" />
         <call target="PostBuildResults" />
 
         <echo message=" BUILD DONE !!" />
@@ -99,15 +98,17 @@
         <target name="PostBuildResults">
             <!-- Post build results -->
             <echo message="Upload build results to SVN ..." />
-            <!--<svn 
+            <svn 
                 uri="https://protone-suite.googlecode.com/svn/publish"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}" 
                 password="${svnpass}"
                 failonerror="false">
+                
                 <arg value="add" />
                 <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + newversion + '.exe'}" />
+                
             </svn>
             
             <svn 
@@ -117,9 +118,11 @@
                 username="${svnuser}"
                 password="${svnpass}"
                 failonerror="false">
+                
                 <arg value="delete" />
                 <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + oldversion + '.exe'}" />
-            </svn>-->
+                
+            </svn>
 
             <svn
                 uri="https://protone-suite.googlecode.com/svn/publish"
@@ -129,10 +132,11 @@
                 password="${svnpass}">
                 
                 <arg line="commit -m build_${newversion}" />
+                <arg line="${'${root}\..\..\..\publish'}" />
                 
             </svn>
 
-            <!--<iniwrite filename="${root}\src\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
+            <iniwrite filename="${root}\src\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
 
             <svn
                 uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src"
@@ -140,8 +144,11 @@
                 verbose="true"
                 username="${svnuser}"
                 password="${svnpass}">
+                
                 <arg line="commit -m build_${newversion}" />
-            </svn>-->
+                <arg line="${'${root}\src'}" />
+
+            </svn>
             
         </target>
        
