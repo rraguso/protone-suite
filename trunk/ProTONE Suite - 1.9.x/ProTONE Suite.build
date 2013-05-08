@@ -104,7 +104,7 @@
                 password="Cx9yE2EX3QH7"
                 failonerror="false">
                 <arg value="add" />
-                <arg path="${'${root}\..\..\publish\ProTONE Suite ' + newversion + '.exe'}" />
+                <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + newversion + '.exe'}" />
             </svn>
             <svn 
                 uri="https://protone-suite.googlecode.com/svn/publish"
@@ -114,7 +114,7 @@
                 password="Cx9yE2EX3QH7"
                 failonerror="false">
                 <arg value="delete" />
-                <arg path="${'${root}\..\..\publish\ProTONE Suite ' + oldversion + '.exe'}" />
+                <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + oldversion + '.exe'}" />
             </svn>
             <svn
                 uri="https://protone-suite.googlecode.com/svn/publish"
@@ -125,7 +125,7 @@
                 <arg line="commit -m build_${newversion}" />
             </svn>
 
-            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
+            <iniwrite filename="${root}\src\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
 
             <svn
                 uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src"
