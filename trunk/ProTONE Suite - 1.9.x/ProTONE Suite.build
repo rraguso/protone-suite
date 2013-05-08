@@ -6,7 +6,7 @@
     <property name="dotnet40.framework.dir" value="c:\windows\microsoft.net\framework\v4.0.30319" />
     <property name="msbuild40.executable" value="c:\windows\microsoft.net\framework\v4.0.30319\msbuild.exe" />
     <property name="istool.executable" value="c:\Program Files (x86)\ISTool\istool.exe" />
-    <property name="root" value=".\ProTONE Suite - 1.9.x" />
+    <property name="root" value="." />
     
     <target name="build" description="Rebuild ProTONE Suite">
         <loadtasks assembly="e:\Programs\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" />

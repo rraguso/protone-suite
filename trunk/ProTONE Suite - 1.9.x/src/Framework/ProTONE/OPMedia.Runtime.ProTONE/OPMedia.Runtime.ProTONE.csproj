@@ -91,14 +91,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Externals\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\..\..\..\Externals\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Interop.DexterLib">
-      <HintPath>..\..\..\Externals\Interop.DexterLib.dll</HintPath>
+      <HintPath>..\..\..\..\Externals\Interop.DexterLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Interop.QuartzTypeLib">
-      <HintPath>..\..\..\Externals\Interop.QuartzTypeLib.dll</HintPath>
+      <HintPath>..\..\..\..\Externals\Interop.QuartzTypeLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
@@ -113,11 +113,11 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
     <Reference Include="taglib-sharp">
-      <HintPath>..\..\..\Externals\taglib-sharp.dll</HintPath>
+      <HintPath>..\..\..\..\Externals\taglib-sharp.dll</HintPath>
     </Reference>
     <Reference Include="XmlRpc, Version=2.5.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Externals\XmlRpc.dll</HintPath>
+      <HintPath>..\..\..\..\Externals\XmlRpc.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

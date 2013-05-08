@@ -93,11 +93,11 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="taglib-sharp">
-      <HintPath>..\..\..\Externals\taglib-sharp.dll</HintPath>
+      <HintPath>..\..\..\..\Externals\taglib-sharp.dll</HintPath>
     </Reference>
     <Reference Include="XmlRpc, Version=2.5.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Externals\XmlRpc.dll</HintPath>
+      <HintPath>..\..\..\..\Externals\XmlRpc.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

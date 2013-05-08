@@ -1,8 +1,8 @@
 ;------------------------------
 ; macrodefinitions
 #define BINDIR "..\bin"
-#define OUTDIR "..\_builds"
-#define EXTDIR "..\externals"
+#define OUTDIR "..\..\..\..\publish"
+#define EXTDIR "..\..\externals"
 #define VERSION GetStringFileInfo(BINDIR + "\OPMedia.Core.dll", FILE_VERSION)
 #define COMPANY GetStringFileInfo(BINDIR + "\OPMedia.Core.dll", COMPANY_NAME)
 #define PRODUCT GetStringFileInfo(BINDIR + "\OPMedia.Core.dll", PRODUCT_NAME)
@@ -274,7 +274,7 @@ Filename: {sys}\netsh.exe; Parameters: "firewall delete allowedprogram program="
 
 [Registry]
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: InstallLanguageID; ValueData: {language}; Flags: uninsdeletevalue noerror
-Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: DownloadUriBase; ValueData: http://protone-suite.googlecode.com/svn/trunk/ProTONE Suite - 1.9.x/_builds/; Flags: noerror uninsdeletevalue
+Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: DownloadUriBase; ValueData: https://protone-suite.googlecode.com/svn/publish; Flags: noerror uninsdeletevalue
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: HelpUriBase; ValueData: http://protone-suite.googlecode.com/svn/wiki/ProTONE Suite - 1.9.x/; Flags: noerror uninsdeletevalue
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: dword; ValueName: UseOnlineDocumentation; ValueData: 1; Flags: noerror uninsdeletevalue
 
