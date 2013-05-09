@@ -218,4 +218,54 @@ namespace OPMedia.Core
             return string.Empty;
         }
     }
+
+    public static class WindowHelper
+    {
+        class find_arg
+        {
+            public List<IntPtr> _out_array { get; set; }
+            public string _in_className { get; set; }
+        }
+
+        public static IntPtr FindWindow(string className = null)
+        {
+            find_arg fa = new find_arg();
+            fa._in_className = className;
+            fa._out_array = new List<IntPtr>();
+            GCHandle gch = GCHandle.Alloc(fa);
+
+            int res = User32.EnumWindows(new User32.EnumWindowProc(EnumWindowCallBack), (IntPtr)gch);
+
+            if (res > 0 && fa._out_array != null && fa._out_array.Count > 0)
+            {
+                return fa._out_array[0];
+            }
+
+            return IntPtr.Zero;
+        }
+
+        private static bool EnumWindowCallBack(IntPtr hwnd, IntPtr lParam)
+        {
+            GCHandle gch = (GCHandle)lParam;
+            find_arg fa = gch.Target as find_arg;
+
+            if (fa != null)
+            {
+                StringBuilder sbc = new StringBuilder(256);
+                User32.GetClassName(hwnd, sbc, sbc.Capacity);
+
+                if (sbc.Length > 0)
+                {
+                    if (sbc.ToString().Contains(fa._in_className))
+                        fa._out_array.Add(hwnd);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+   
 }

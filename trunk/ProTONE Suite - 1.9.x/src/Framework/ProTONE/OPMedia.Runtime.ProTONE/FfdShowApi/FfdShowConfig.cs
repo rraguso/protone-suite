@@ -35,14 +35,30 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
             }
         }
 
-        public static void DoConfigureVideo(IntPtr hWnd)
+        public static void DoConfigureVideo(IntPtr hWndParent)
         {
-            AsyncCallUnsafeDelegate("configure", hWnd);
+            IntPtr hWnd = WindowHelper.FindWindow("ffdshow_tray");
+            if (hWnd != IntPtr.Zero)
+            {
+                User32.SendMessage(hWnd, FFDShowConstants.MSG_TRAYICON, 1, (int)Messages.WM_LBUTTONDBLCLK);
+            }
+            else
+            {
+                AsyncCallUnsafeDelegate("configure", hWndParent);
+            }
         }
 
-        public static void DoConfigureAudio(IntPtr hWnd)
+        public static void DoConfigureAudio(IntPtr hWndParent)
         {
-            AsyncCallUnsafeDelegate("configureAudio", hWnd);
+            IntPtr hWnd = WindowHelper.FindWindow("ffdshowaudio_tray");
+            if (hWnd != IntPtr.Zero)
+            {
+                User32.SendMessage(hWnd, FFDShowConstants.MSG_TRAYICON, 1, (int)Messages.WM_LBUTTONDBLCLK);
+            }
+            else
+            {
+                AsyncCallUnsafeDelegate("configureAudio", hWndParent);
+            }
         }
 
         class FfdShowConfigureData
