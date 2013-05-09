@@ -206,6 +206,28 @@ namespace OPMedia.UI.Controls
                 e.AffectedBounds.Width - 1,
                 e.AffectedBounds.Height - 1);
 
+            Rectangle rcLeft = new Rectangle(
+                e.AffectedBounds.Left,
+                e.AffectedBounds.Top,
+                24,
+                e.AffectedBounds.Height - 1);
+
+            Rectangle rcRight = new Rectangle(
+                e.AffectedBounds.Left + 24,
+                e.AffectedBounds.Top,
+                e.AffectedBounds.Width - 25,
+                e.AffectedBounds.Height - 1);
+
+            using (Brush b = new SolidBrush(ThemeManager.WndValidColor))
+            {
+                e.Graphics.FillRectangle(b, rcLeft);
+            }
+
+            using (Brush b = new SolidBrush(Color.White))
+            {
+                e.Graphics.FillRectangle(b, rcRight);
+            }
+            
             using (Pen p = new Pen(ThemeManager.SelectedColor, 1))
             {
                 e.Graphics.DrawRectangle(p, rc);
@@ -524,6 +546,21 @@ namespace OPMedia.UI.Controls
 
     public class OPMToolStripSeparator : ToolStripSeparator
     {
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ThemeManager.PrepareGraphics(e.Graphics);
+
+            using (Pen p = new Pen(ThemeManager.BackColor, 1))
+            {
+                int dy = e.ClipRectangle.Height / 2;
+                int dx = 8;
+
+                Point p1 = new Point(e.ClipRectangle.Left + Owner.ImageScalingSize.Width + dx + 2, e.ClipRectangle.Top + dy);
+                Point p2 = new Point(e.ClipRectangle.Right - dx + 2, e.ClipRectangle.Top + dy);
+
+                e.Graphics.DrawLine(p, p1, p2);
+            }
+        }
     }
 
     #region OPMMenuStrip
@@ -535,24 +572,24 @@ namespace OPMedia.UI.Controls
 
         private bool ShowBorder
         {
-            get { return (Renderer as OPMMenuStripRenderer).ShowBorder; }
-            set { (Renderer as OPMMenuStripRenderer).ShowBorder = value; }
+            get { try { return (Renderer as OPMMenuStripRenderer).ShowBorder; } catch { } return false; }
+            set { try { (Renderer as OPMMenuStripRenderer).ShowBorder = value; } catch { } }
         }
 
         private bool VerticalGradient
         {
-            get { return (Renderer as OPMMenuStripRenderer).VerticalGradient; }
-            set { (Renderer as OPMMenuStripRenderer).VerticalGradient = value; }
+            get { try { return (Renderer as OPMMenuStripRenderer).VerticalGradient; } catch { } return false; }
+            set { try { (Renderer as OPMMenuStripRenderer).VerticalGradient = value; } catch { } }
         }
 
         public OPMMenuStrip()
             : base()
         {
             this.ForeColor = ThemeManager.ForeColor;
-            this.BackColor = ThemeManager.BackColor;
+            this.BackColor = ThemeManager.WndValidColor;
 
             base.Renderer = new OPMMenuStripRenderer();
-            
+
             this.VerticalGradient = true;
             this.ShowBorder = false;
         }
@@ -567,6 +604,51 @@ namespace OPMedia.UI.Controls
                 e.Graphics.FillRectangle(br, ClientRectangle);
             }
         }
+    }
+
+    #endregion
+
+    #region OPMContextMenuStrip
+
+    public class OPMContextMenuStrip : ContextMenuStrip
+    {
+        public new ToolStripRenderMode RenderMode { get { return base.RenderMode; } }
+        public new ToolStripRenderer Renderer { get { return base.Renderer; } }
+
+        private bool ShowBorder
+        {
+            get { try { return (Renderer as OPMMenuStripRenderer).ShowBorder; } catch { } return false; }
+            set { try { (Renderer as OPMMenuStripRenderer).ShowBorder = value; } catch { } }
+        }
+
+        private bool VerticalGradient
+        {
+            get { try { return (Renderer as OPMMenuStripRenderer).VerticalGradient; } catch { } return false; }
+            set { try { (Renderer as OPMMenuStripRenderer).VerticalGradient = value; } catch { } }
+        }
+
+        public OPMContextMenuStrip()
+            : base()
+        {
+            this.ForeColor = ThemeManager.ForeColor;
+            this.BackColor = ThemeManager.BackColor;
+
+            base.Renderer = new OPMMenuStripRenderer();
+
+            this.VerticalGradient = true;
+            this.ShowBorder = false;
+        }
+
+        //protected override void OnPaintBackground(PaintEventArgs e)
+        //{
+        //    float angle = VerticalGradient ? 90f : 0f;
+
+        //    using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
+        //        ThemeManager.BackColor, ThemeManager.GradientLTColor, angle))
+        //    {
+        //        e.Graphics.FillRectangle(br, ClientRectangle);
+        //    }
+        //}
     }
 
     #endregion
@@ -609,7 +691,7 @@ namespace OPMedia.UI.Controls
             bool highlight = (Selected || Checked || Pressed);
             
             Color clText = Color.Black;
-            Color clBack = header ? Color.FromKnownColor(KnownColor.MenuBar) : ThemeManager.BackColor;
+            Color clBack = header ? ThemeManager.WndValidColor : ThemeManager.BackColor;
 
             if (Enabled)
             {
@@ -662,7 +744,7 @@ namespace OPMedia.UI.Controls
                 using (SolidBrush b2 = new SolidBrush(ThemeManager.CheckedMenuColor))
                 {
                     Rectangle rect = clientRectangle;
-
+                    
                     if (Enabled && highlight)
                     {
                         if (Enabled)

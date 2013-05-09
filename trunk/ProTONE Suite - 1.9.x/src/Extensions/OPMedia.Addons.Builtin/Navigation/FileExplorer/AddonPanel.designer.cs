@@ -38,7 +38,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddonPanel));
             this.ilAddon = new System.Windows.Forms.ImageList(this.components);
             this.opmShellList = new OPMedia.UI.Controls.OPMShellListView();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip = new OPMContextMenuStrip();
             this.tsmiBack = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiFwd = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiUp = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -751,7 +751,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         private OPMToolStripMenuItem tsbFavoritesManage;
         private OPMToolStripSeparator toolStripSeparator6;
         private OPMToolStripSeparator tsbSep1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private OPMContextMenuStrip contextMenuStrip;
         private OPMToolStripMenuItem tsmiBack;
         private OPMToolStripMenuItem tsmiFwd;
         private OPMToolStripMenuItem tsmiUp;

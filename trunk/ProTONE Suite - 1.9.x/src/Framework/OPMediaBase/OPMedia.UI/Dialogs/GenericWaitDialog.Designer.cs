@@ -87,6 +87,7 @@ namespace OPMedia.UI.Dialogs
             // 
             this.ClientSize = new System.Drawing.Size(304, 100);
             this.Name = "GenericWaitDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.opmTableLayoutPanel1.ResumeLayout(false);

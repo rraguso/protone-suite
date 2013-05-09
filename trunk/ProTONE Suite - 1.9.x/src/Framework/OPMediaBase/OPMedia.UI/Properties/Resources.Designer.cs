@@ -81,16 +81,6 @@ namespace OPMedia.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon CloseButtonHovered {
-            get {
-                object obj = ResourceManager.GetObject("CloseButtonHovered", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap Delete {
@@ -191,16 +181,6 @@ namespace OPMedia.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon MaximizeButtonHovered {
-            get {
-                object obj = ResourceManager.GetObject("MaximizeButtonHovered", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap menuChildren {
@@ -216,16 +196,6 @@ namespace OPMedia.UI.Properties {
         public static System.Drawing.Icon MinimizeButton {
             get {
                 object obj = ResourceManager.GetObject("MinimizeButton", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon MinimizeButtonHovered {
-            get {
-                object obj = ResourceManager.GetObject("MinimizeButtonHovered", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -256,16 +226,6 @@ namespace OPMedia.UI.Properties {
         public static System.Drawing.Icon RestoreButton {
             get {
                 object obj = ResourceManager.GetObject("RestoreButton", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon RestoreButtonHovered {
-            get {
-                object obj = ResourceManager.GetObject("RestoreButtonHovered", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

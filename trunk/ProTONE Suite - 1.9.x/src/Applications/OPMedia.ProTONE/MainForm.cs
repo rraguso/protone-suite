@@ -295,6 +295,9 @@ namespace OPMedia.ProTONE
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            if (MainThread.AreModalFormsOpen)
+                return;
+
             if (Visible)
             {
                 ConcealWindow();
@@ -349,6 +352,8 @@ namespace OPMedia.ProTONE
 
         void cmsMain_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            e.Cancel = MainThread.AreModalFormsOpen;
+
             cmsMain.SuspendLayout();
 
             while (_cmdMenusCount > 0)
@@ -435,10 +440,14 @@ namespace OPMedia.ProTONE
                     if (ThumbButton.Clicked == User32.HIWORD((long)m.WParam))
                     {
                         int id = User32.LOWORD((long)m.WParam);
-                        ShortcutMapper.DispatchCommand((OPMShortcut)id);
 
-                        // If an application processes this message, it should return zero.
-                        m.Result = IntPtr.Zero;
+                        if (!MainThread.AreModalFormsOpen)
+                        {
+                            ShortcutMapper.DispatchCommand((OPMShortcut)id);
+
+                            // If an application processes this message, it should return zero.
+                            m.Result = IntPtr.Zero;
+                        }
                     }
                 }
             }

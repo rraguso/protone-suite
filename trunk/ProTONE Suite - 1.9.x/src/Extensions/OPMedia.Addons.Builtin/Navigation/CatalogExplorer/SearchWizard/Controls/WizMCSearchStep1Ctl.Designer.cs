@@ -47,7 +47,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.btnSearch = new OPMedia.UI.Controls.StatusStripButton();
             this.ssStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.pbProgress = new System.Windows.Forms.ToolStripProgressBar();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip = new OPMContextMenuStrip();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsmiID3Wizard = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -481,7 +481,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
         private System.Windows.Forms.ToolStripStatusLabel ssStatus;
         private ToolStripProgressBar pbProgress;
         private System.Windows.Forms.ImageList ilImages;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private OPMContextMenuStrip contextMenuStrip;
         private OPMToolStripMenuItem tsmiDelete;
         private OPMToolStripSeparator tsmiSep4;
         private OPMToolStripMenuItem tsmiID3Wizard;

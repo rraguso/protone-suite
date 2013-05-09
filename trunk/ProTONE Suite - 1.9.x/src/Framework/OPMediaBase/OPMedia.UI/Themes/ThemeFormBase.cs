@@ -193,7 +193,21 @@ namespace OPMedia.UI.Themes
 
         FormButtons _hoveredButtons = FormButtons.None;
 
-        public bool IsActive { get; private set; }
+        private bool _isActive =false;
+        public bool IsActive 
+        { 
+            get
+            {
+                return _isActive;
+            }
+
+            private set
+            {
+                _isActive = value;
+                ApplyDrawingValues();
+                Invalidate();
+            }
+        }
         
         public ThemeFormBase()
         {
@@ -261,19 +275,15 @@ namespace OPMedia.UI.Themes
 
             Bitmap bmp = Resources.MinimizeButton.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
             _btnImgList.Images.Add(bmp);
-            bmp = Resources.MinimizeButtonHovered.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
             _btnImgList.Images.Add(bmp);
             bmp = Resources.MaximizeButton.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
             _btnImgList.Images.Add(bmp);
-            bmp = Resources.MaximizeButtonHovered.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
             _btnImgList.Images.Add(bmp);
             bmp = Resources.RestoreButton.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
             _btnImgList.Images.Add(bmp);
-            bmp = Resources.RestoreButtonHovered.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
             _btnImgList.Images.Add(bmp);
             bmp = Resources.CloseButton.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
             _btnImgList.Images.Add(bmp);
-            bmp = Resources.CloseButtonHovered.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
             _btnImgList.Images.Add(bmp);
 
             this.HandleDestroyed += new EventHandler(ThemeFormBase_HandleDestroyed);
@@ -805,7 +815,7 @@ namespace OPMedia.UI.Themes
                 {
                     bool hovered = (_hoveredButtons & FormButtons.Minimize) == FormButtons.Minimize;
                     ButtonIcons index = hovered ? ButtonIcons.MinimizeHovered : ButtonIcons.Minimize;
-                    g.DrawImageUnscaled(_btnImgList.Images[(int)index], _rcMinimize);
+                    DrawButton(g, index, _rcMinimize);
                 }
 
                 if (_rcMaximize.Width > 0)
@@ -822,16 +832,79 @@ namespace OPMedia.UI.Themes
                         index = hovered ? ButtonIcons.RestoreHovered : ButtonIcons.Restore;
                     }
 
-                    g.DrawImageUnscaled(_btnImgList.Images[(int)index], _rcMaximize);
+                    DrawButton(g, index, _rcMaximize);
                 }
 
                 if (_rcClose.Width > 0)
                 {
                     bool hovered = (_hoveredButtons & FormButtons.Close) == FormButtons.Close;
                     ButtonIcons index = hovered ? ButtonIcons.CloseHovered : ButtonIcons.Close;
-                    g.DrawImageUnscaled(_btnImgList.Images[(int)index], _rcClose);
+                    DrawButton(g, index, _rcClose);
                 }
             }
+        }
+
+        private void DrawButton(Graphics g, ButtonIcons index, Rectangle rc)
+        {
+            Color cl1 = ThemeManager.BackColor;
+            Color cl2 = ThemeManager.BorderColor;
+            Color clPen = ThemeManager.BorderColor;
+
+            Color cl1Red = Color.FromArgb(210, 150, 160);
+            Color cl2Red = Color.FromArgb(170, 30, 10);
+
+            float percLight = 0.4f;
+
+            int i = (int)index;
+            switch (index)
+            {
+                case ButtonIcons.Minimize:
+                    break;
+                
+                case ButtonIcons.MinimizeHovered:
+                    cl1 = ControlPaint.Light(cl1, percLight);
+                    cl2 = ThemeManager.WndValidColor;
+                    break;
+
+                case ButtonIcons.Maximize:
+                    break;
+                
+                case ButtonIcons.MaximizeHovered:
+                    cl1 = ControlPaint.Light(cl1, percLight);
+                    cl2 = ThemeManager.WndValidColor;
+                    break;
+                
+                case ButtonIcons.Restore:
+                    break;
+                
+                case ButtonIcons.RestoreHovered:
+                    cl1 = ControlPaint.Light(cl1, percLight);
+                    cl2 = ThemeManager.WndValidColor;
+                    break;
+
+                case ButtonIcons.Close:
+                    cl1 = cl1Red;
+                    cl2 = cl2Red;
+                    break;
+                
+                case ButtonIcons.CloseHovered:
+                    cl1 = ControlPaint.Light(cl1Red, percLight);
+                    cl2 = ControlPaint.Light(cl2Red, percLight);
+                    break;
+            }
+
+            Rectangle rcBorder = new Rectangle(rc.Location, rc.Size);
+            rcBorder.Inflate(1, 0);
+
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcBorder, 3))
+            using (Pen p = new Pen(clPen, 1))
+            using (Brush br = new LinearGradientBrush(rc, cl1, cl2, 90f))
+            {
+                g.DrawPath(p, path);
+                g.FillPath(br, path);
+            }
+
+            g.DrawImageUnscaled(_btnImgList.Images[(int)index], rc);
         }
 
         #endregion
@@ -873,22 +946,45 @@ namespace OPMedia.UI.Themes
 
         private void ApplyDrawingValues()
         {
+            float inactiveLightPercent = 0.6f;
+
             if (_brBackground != null)
                 _brBackground.Dispose();
-            _brBackground = new SolidBrush(ThemeManager.BackColor);
+
+                _brBackground = new SolidBrush(ThemeManager.BackColor);
 
             if (_brTitlebar != null)
                 _brTitlebar.Dispose();
 
             if (_rcTitleBar != Rectangle.Empty)
             {
-                _brTitlebar = new LinearGradientBrush(_rcTitleBar, 
-                    ThemeManager.GradientLTColor, ThemeManager.GradientRBColor, 90f);
+                if (IsActive)
+                {
+                    _brTitlebar = new LinearGradientBrush(_rcTitleBar,
+                        ThemeManager.GradientLTColor, 
+                        ThemeManager.GradientRBColor, 90f);
+                }
+                else
+                {
+                    _brTitlebar = new LinearGradientBrush(_rcTitleBar,
+                        ControlPaint.Light(ThemeManager.GradientLTColor, inactiveLightPercent),
+                        ControlPaint.Light(ThemeManager.GradientRBColor, inactiveLightPercent), 
+                        90f);
+                }
             }
 
             if (_penBorder != null)
                 _penBorder.Dispose();
-            _penBorder = new Pen(ThemeManager.BorderColor, 2);
+
+            if (IsActive)
+            {
+                _penBorder = new Pen(ThemeManager.BorderColor, 2);
+            }
+            else
+            {
+                _penBorder = new Pen(
+                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), 2);
+            }
         }
 
         private void ApplyTitlebarValues()
@@ -922,7 +1018,7 @@ namespace OPMedia.UI.Themes
                 else
                     start = Width;
 
-                _btnMaximizeLeft = start - IconSize;
+                _btnMaximizeLeft = start - IconSize - 1;
             }
             if ((FormButtons & FormButtons.Minimize) == FormButtons.Minimize)
             {
@@ -933,7 +1029,7 @@ namespace OPMedia.UI.Themes
                 else
                     start = Width;
 
-                _btnMinimizeLeft = start - IconSize;
+                _btnMinimizeLeft = start - IconSize - 1;
             }
 
             start = Width;

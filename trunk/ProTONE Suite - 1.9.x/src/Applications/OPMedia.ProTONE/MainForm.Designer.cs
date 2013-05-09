@@ -39,7 +39,7 @@ namespace OPMedia.ProTONE
         {
             this.components = new System.ComponentModel.Container();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsMain = new OPMContextMenuStrip();
             this.toolStripSeparator7 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.mnuPlaylistPlaceholder = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.timeScale = new OPMedia.UI.ProTONE.Controls.MediaPlayer.ToolStripTimeScale();
@@ -179,7 +179,7 @@ namespace OPMedia.ProTONE
         #endregion
 
         private System.Windows.Forms.NotifyIcon notifyIcon;
-        private System.Windows.Forms.ContextMenuStrip cmsMain;
+        private OPMContextMenuStrip cmsMain;
         private OPMToolStripMenuItem mnuTools;
         private ToolStripVolumeScale volumeScale;
         private ToolStripTimeScale timeScale;

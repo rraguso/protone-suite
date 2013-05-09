@@ -35,7 +35,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             this.components = new System.ComponentModel.Container();
             this.ilImages = new System.Windows.Forms.ImageList(this.components);
-            this.cmsPlaylist = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsPlaylist = new OPMContextMenuStrip();
             this.dummyToolStripMenuItem = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.layoutPanel = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.subLayoutPanel = new OPMedia.UI.Controls.OPMTableLayoutPanel();

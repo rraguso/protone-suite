@@ -17,6 +17,31 @@ namespace OPMedia.Core
         private readonly SynchronizationContext _context;
         private readonly Form _mainForm;
         private readonly Thread _mainThread;
+
+        public static Form ModalForm
+        {
+            get
+            {
+                if (Application.OpenForms != null)
+                {
+                    foreach (Form form in Application.OpenForms)
+                    {
+                        if (form.Modal)
+                            return form;
+                    }
+                }
+
+                return null;
+            }
+        }
+
+        public static bool AreModalFormsOpen
+        {
+            get
+            {
+                return (ModalForm != null);
+            }
+        }
       
         private MainThread(Form mainForm)
         {

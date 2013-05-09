@@ -56,7 +56,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             this.tsbDelete = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tssMergeCatalogs = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsbMergeCatalogs = new OPMedia.UI.Controls.OPMToolStripButton();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip = new OPMContextMenuStrip();
             this.tsmiBack = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiFwd = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiUp = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -717,7 +717,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
         private OPMToolStripButton tsbSave;
         private OPMToolStripButton tsbSaveAs;
         private OPMToolStripButton tsbNew;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private OPMContextMenuStrip contextMenuStrip;
         private OPMToolStripMenuItem tsmiBack;
         private OPMToolStripMenuItem tsmiFwd;
         private OPMToolStripMenuItem tsmiUp;

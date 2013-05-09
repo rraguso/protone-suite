@@ -69,13 +69,24 @@ namespace OPMedia.RCCManager
             ilTree.Images.Add(Resources.ButtonsDisabled);
             tvRemotes.ImageList = ilTree;
 
-            btnAddRemote.Image = Resources.Add;
-            btnModifyRemote.Image = Resources.Modify;
-            btnDeleteRemote.Image = Resources.Delete;
-            btnApplyConfig.Image = Resources.Save;
-            
+            Bitmap bmp = Resources.Add;
+            bmp.MakeTransparent(Color.White);
+            btnAddRemote.Image = bmp;
 
-            ttMain.SetSimpleToolTip(this.btnApplyConfig, Translator.Translate("TXT_APPLYTIP"), Resources.Save);
+            bmp = Resources.Modify;
+            bmp.MakeTransparent(Color.White);
+            btnModifyRemote.Image = bmp;
+
+            bmp = Resources.Delete;
+            bmp.MakeTransparent(Color.White);
+            btnDeleteRemote.Image = bmp;
+
+            bmp = Resources.Save;
+            bmp.MakeTransparent(Color.White);
+            btnApplyConfig.Image = bmp;
+
+
+            SetToolTip(btnApplyConfig, "TXT_APPLYTIP");
 
             btnApplyConfig.Enabled = false;
 
@@ -469,32 +480,36 @@ namespace OPMedia.RCCManager
             {
                 if (tvRemotes.SelectedNode.Tag is RCCServiceConfig.RemoteButtonsRow)
                 {
-                    this.ttMain.SetSimpleToolTip(this.btnAddRemote, Translator.Translate("TXT_ADD_BUTTON"), Resources.Add);
-                    this.ttMain.SetSimpleToolTip(this.btnDeleteRemote, Translator.Translate("TXT_DEL_BUTTON"), Resources.Delete);
-                    this.ttMain.SetSimpleToolTip(this.btnModifyRemote, Translator.Translate("TXT_MOD_BUTTON"), Resources.Modify);
+                    SetToolTip(btnAddRemote, "TXT_ADD_BUTTON");
+                    SetToolTip(btnDeleteRemote, "TXT_DEL_BUTTON");
+                    SetToolTip(btnModifyRemote, "TXT_MOD_BUTTON");
                 }
                 else
                 {
                     if (tvRemotes.SelectedNode.ImageIndex == -2)
                     {
-                        this.ttMain.SetSimpleToolTip(this.btnAddRemote, Translator.Translate("TXT_ADD_BUTTON"), Resources.Add);
+                        SetToolTip(btnAddRemote, "TXT_ADD_BUTTON");
                     }
                     else
                     {
-                        this.ttMain.SetSimpleToolTip(this.btnAddRemote, Translator.Translate("TXT_ADD_DEVICE"), Resources.Add);
+                        SetToolTip(btnAddRemote, "TXT_ADD_DEVICE");
                     }
 
-                    this.ttMain.SetSimpleToolTip(this.btnDeleteRemote, Translator.Translate("TXT_DEL_DEVICE"), Resources.Delete);
-                    this.ttMain.SetSimpleToolTip(this.btnModifyRemote, Translator.Translate("TXT_MOD_DEVICE"), Resources.Modify);
+                    SetToolTip(btnDeleteRemote, "TXT_DEL_DEVICE");
+                    SetToolTip(btnModifyRemote, "TXT_MOD_DEVICE");
                 }
             }
             else
             {
-                this.ttMain.SetSimpleToolTip(this.btnAddRemote, Translator.Translate("TXT_ADD_DEVICE"), Resources.Add);
+                SetToolTip(btnAddRemote, "TXT_ADD_DEVICE");
             }
         }
 
-
+        private void SetToolTip(OPMButton btn, string tag)
+        {
+            ttMain.SetSimpleToolTip(btn, Translator.Translate(tag), btn.Image);
+        }
+        
         private void OnMenuAdd(object sender, EventArgs e)
         {
             btnAddRemote_Click(sender, e);

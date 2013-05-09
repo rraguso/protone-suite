@@ -51,7 +51,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
             this.lvResults = new OPMedia.UI.Controls.OPMListView();
             this.colImage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip = new OPMContextMenuStrip();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsmiID3Wizard = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -627,7 +627,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         private System.Windows.Forms.ToolStripStatusLabel ssStatus;
         private ToolStripProgressBar pbProgress;
         private OPMListView lvResults;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private OPMContextMenuStrip contextMenuStrip;
         private OPMToolStripMenuItem tsmiDelete;
         private OPMToolStripSeparator tsmiSep4;
         private OPMToolStripMenuItem tsmiID3Wizard;

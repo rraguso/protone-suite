@@ -58,7 +58,7 @@ namespace OPMedia.RCCManager
             this.colInputData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colOutputData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTargetWnd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cmsList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsList = new OPMContextMenuStrip();
             this.tsmiChange = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
@@ -588,7 +588,7 @@ namespace OPMedia.RCCManager
         private OPMLabel label1;
         private OPMButton btnAdd;
         private OPMTextBox txtRemoteName;
-        private System.Windows.Forms.ContextMenuStrip cmsList;
+        private OPMContextMenuStrip cmsList;
         private OPMToolStripMenuItem tsmiChange;
         private OPMToolStripMenuItem tsmiDelete;
         private OPMToolStripSeparator toolStripSeparator1;

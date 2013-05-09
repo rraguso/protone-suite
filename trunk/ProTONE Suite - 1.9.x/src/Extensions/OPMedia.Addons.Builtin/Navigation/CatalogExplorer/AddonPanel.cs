@@ -818,6 +818,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
             CloseWaitDialog();
             _waitDialog = GenericWaitDialog.Show(message);
+            
         }
 
         private void CloseWaitDialog()

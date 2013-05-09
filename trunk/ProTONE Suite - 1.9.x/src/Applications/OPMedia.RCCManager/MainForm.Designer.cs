@@ -38,7 +38,7 @@ namespace OPMedia.RCCManager
             this.btnModifyRemote = new OPMedia.UI.Controls.OPMButton();
             this.btnDeleteRemote = new OPMedia.UI.Controls.OPMButton();
             this.btnAddRemote = new OPMedia.UI.Controls.OPMButton();
-            this.cmsTree = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsTree = new OPMContextMenuStrip();
             this.tsmiChange = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
@@ -98,7 +98,7 @@ namespace OPMedia.RCCManager
             this.btnApplyConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnApplyConfig.Location = new System.Drawing.Point(65, 6);
             this.btnApplyConfig.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
-            this.btnApplyConfig.MaximumSize = new System.Drawing.Size(50, 50);
+            this.btnApplyConfig.MaximumSize = new System.Drawing.Size(32, 32);
             this.btnApplyConfig.MinimumSize = new System.Drawing.Size(20, 20);
             this.btnApplyConfig.Name = "btnApplyConfig";
             this.btnApplyConfig.OverrideBackColor = System.Drawing.Color.Empty;
@@ -118,7 +118,7 @@ namespace OPMedia.RCCManager
             this.btnModifyRemote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModifyRemote.Location = new System.Drawing.Point(20, 6);
             this.btnModifyRemote.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.btnModifyRemote.MaximumSize = new System.Drawing.Size(50, 50);
+            this.btnModifyRemote.MaximumSize = new System.Drawing.Size(32, 32);
             this.btnModifyRemote.MinimumSize = new System.Drawing.Size(20, 20);
             this.btnModifyRemote.Name = "btnModifyRemote";
             this.btnModifyRemote.OverrideBackColor = System.Drawing.Color.Empty;
@@ -138,7 +138,7 @@ namespace OPMedia.RCCManager
             this.btnDeleteRemote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteRemote.Location = new System.Drawing.Point(40, 6);
             this.btnDeleteRemote.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.btnDeleteRemote.MaximumSize = new System.Drawing.Size(50, 50);
+            this.btnDeleteRemote.MaximumSize = new System.Drawing.Size(32, 32);
             this.btnDeleteRemote.MinimumSize = new System.Drawing.Size(20, 20);
             this.btnDeleteRemote.Name = "btnDeleteRemote";
             this.btnDeleteRemote.OverrideBackColor = System.Drawing.Color.Empty;
@@ -157,7 +157,7 @@ namespace OPMedia.RCCManager
             this.btnAddRemote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRemote.Location = new System.Drawing.Point(0, 6);
             this.btnAddRemote.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.btnAddRemote.MaximumSize = new System.Drawing.Size(50, 50);
+            this.btnAddRemote.MaximumSize = new System.Drawing.Size(32, 32);
             this.btnAddRemote.MinimumSize = new System.Drawing.Size(20, 20);
             this.btnAddRemote.Name = "btnAddRemote";
             this.btnAddRemote.OverrideBackColor = System.Drawing.Color.Empty;
@@ -179,6 +179,8 @@ namespace OPMedia.RCCManager
             // 
             // tsmiChange
             // 
+            this.tsmiChange.Image = global::OPMedia.RCCManager.Properties.Resources.Modify;
+            this.tsmiChange.ImageTransparentColor = System.Drawing.Color.White;
             this.tsmiChange.Name = "tsmiChange";
             this.tsmiChange.Size = new System.Drawing.Size(141, 22);
             this.tsmiChange.Text = "TXT_CHANGE";
@@ -186,6 +188,8 @@ namespace OPMedia.RCCManager
             // 
             // tsmiDelete
             // 
+            this.tsmiDelete.Image = global::OPMedia.RCCManager.Properties.Resources.Delete;
+            this.tsmiDelete.ImageTransparentColor = System.Drawing.Color.White;
             this.tsmiDelete.Name = "tsmiDelete";
             this.tsmiDelete.Size = new System.Drawing.Size(141, 22);
             this.tsmiDelete.Text = "TXT_DELETE";
@@ -301,6 +305,7 @@ namespace OPMedia.RCCManager
             // 
             // toolStripSeparator2
             // 
+            this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(153, 6);
             // 
@@ -327,6 +332,8 @@ namespace OPMedia.RCCManager
             // 
             // tsmiAdd
             // 
+            this.tsmiAdd.Image = global::OPMedia.RCCManager.Properties.Resources.Add;
+            this.tsmiAdd.ImageTransparentColor = System.Drawing.Color.White;
             this.tsmiAdd.Name = "tsmiAdd";
             this.tsmiAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
             this.tsmiAdd.Size = new System.Drawing.Size(199, 22);
@@ -335,6 +342,8 @@ namespace OPMedia.RCCManager
             // 
             // tsmiMainChange
             // 
+            this.tsmiMainChange.Image = global::OPMedia.RCCManager.Properties.Resources.Modify;
+            this.tsmiMainChange.ImageTransparentColor = System.Drawing.Color.White;
             this.tsmiMainChange.Name = "tsmiMainChange";
             this.tsmiMainChange.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Return)));
             this.tsmiMainChange.Size = new System.Drawing.Size(199, 22);
@@ -343,6 +352,8 @@ namespace OPMedia.RCCManager
             // 
             // tsmiMainDelete
             // 
+            this.tsmiMainDelete.Image = global::OPMedia.RCCManager.Properties.Resources.Delete;
+            this.tsmiMainDelete.ImageTransparentColor = System.Drawing.Color.White;
             this.tsmiMainDelete.Name = "tsmiMainDelete";
             this.tsmiMainDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.tsmiMainDelete.Size = new System.Drawing.Size(199, 22);
@@ -476,7 +487,7 @@ namespace OPMedia.RCCManager
         private OPMButton btnDeleteRemote;
         private OPMButton btnAddRemote;
         private OPMLabel label1;
-        private System.Windows.Forms.ContextMenuStrip cmsTree;
+        private OPMContextMenuStrip cmsTree;
         private OPMToolStripMenuItem tsmiChange;
         private OPMToolStripMenuItem tsmiDelete;
         private OPMToolStripSeparator toolStripSeparator1;

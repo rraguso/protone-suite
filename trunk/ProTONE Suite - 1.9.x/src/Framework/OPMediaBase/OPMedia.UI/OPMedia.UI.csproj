@@ -621,8 +621,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Resources\Logging.ICO" />
     <None Include="Resources\Network.ico" />
@@ -675,25 +675,13 @@
     <None Include="Resources\CloseButton.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CloseButtonHovered.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\MaximizeButton.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MaximizeButtonHovered.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MinimizeButton.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MinimizeButtonHovered.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\RestoreButton.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RestoreButtonHovered.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\waitframe0.bmp" />
@@ -742,9 +730,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ilDn.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1460_PaintPaletteFINAL.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
