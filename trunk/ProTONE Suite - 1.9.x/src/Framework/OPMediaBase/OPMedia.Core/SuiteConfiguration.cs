@@ -142,6 +142,11 @@ namespace OPMedia.Core
                             }
 
                             int skinType = (int)key.GetValue("SkinType", (int)Theme.Default.Value);
+                            if (!Theme.IsAllowedValue(skinType))
+                            {
+                                skinType = (int)Theme.Default.Value;
+                            }
+
                             if (skinType != _skinType)
                             {
                                 _skinType = skinType;
