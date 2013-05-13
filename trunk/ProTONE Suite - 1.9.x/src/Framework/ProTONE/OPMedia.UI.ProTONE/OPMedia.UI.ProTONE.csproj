@@ -335,7 +335,6 @@
     <EmbeddedResource Include="Translations\Translation.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Translations\Translation.ru.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OPMediaBase\OPMedia.Core\OPMedia.Core.csproj">
@@ -361,9 +360,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Translations\Translation.de.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Translations\Translation.hu.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.resx">

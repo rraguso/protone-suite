@@ -70,8 +70,6 @@ Name: en; MessagesFile: compiler:Default.isl
 Name: de; MessagesFile: compiler:Languages\German.isl
 Name: fr; MessagesFile: compiler:Languages\French.isl
 Name: ro; MessagesFile: compiler:Languages\Romanian.isl
-Name: ru; MessagesFile: compiler:Languages\Russian.isl
-Name: hu; MessagesFile: compiler:Languages\Hungarian.isl
 
 [Files]
 ; Add the ISSkin DLL used for skinning Inno Setup installations.
@@ -119,18 +117,6 @@ Source: {#BINDIR}\fr\OPMedia.UI.resources.dll; DestDir: {app}\fr\; Flags: replac
 Source: {#BINDIR}\fr\OPMedia.ShellSupport.resources.dll; DestDir: {app}\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\fr\OPMedia.Utility.resources.dll; DestDir: {app}\fr; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 
-Source: {#BINDIR}\ru\OPMedia.ProTONE.resources.dll; DestDir: {app}\ru\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\ru\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\ru\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\ru\OPMedia.UI.resources.dll; DestDir: {app}\ru\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\ru\OPMedia.ShellSupport.resources.dll; DestDir: {app}\ru\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\ru\OPMedia.Utility.resources.dll; DestDir: {app}\ru; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-
-Source: {#BINDIR}\hu\OPMedia.ProTONE.resources.dll; DestDir: {app}\hu\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\hu\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\hu\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\hu\OPMedia.UI.resources.dll; DestDir: {app}\hu\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\hu\OPMedia.ShellSupport.resources.dll; DestDir: {app}\hu\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\hu\OPMedia.Utility.resources.dll; DestDir: {app}\hu; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-
 Source: {#BINDIR}\OPMedia.Addons.Builtin.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 Source: {#BINDIR}\OPMedia.MediaLibrary.exe; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 Source: {#BINDIR}\OPMedia.Runtime.Addons.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
@@ -143,16 +129,10 @@ Source: {#BINDIR}\de\OPMedia.Addons.Builtin.resources.dll; DestDir: {app}\de\; F
 Source: {#BINDIR}\de\OPMedia.MediaLibrary.resources.dll; DestDir: {app}\de\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 Source: {#BINDIR}\fr\OPMedia.Addons.Builtin.resources.dll; DestDir: {app}\fr\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 Source: {#BINDIR}\fr\OPMedia.MediaLibrary.resources.dll; DestDir: {app}\fr\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
-Source: {#BINDIR}\ru\OPMedia.Addons.Builtin.resources.dll; DestDir: {app}\ru\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
-Source: {#BINDIR}\ru\OPMedia.MediaLibrary.resources.dll; DestDir: {app}\ru\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
-Source: {#BINDIR}\hu\OPMedia.Addons.Builtin.resources.dll; DestDir: {app}\hu\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
-Source: {#BINDIR}\hu\OPMedia.MediaLibrary.resources.dll; DestDir: {app}\hu\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 
 Source: {#BINDIR}\ro\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\ro\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 Source: {#BINDIR}\de\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\de\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 Source: {#BINDIR}\fr\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\fr\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
-Source: {#BINDIR}\ru\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\ru\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
-Source: {#BINDIR}\hu\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\hu\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 
 Source: {#BINDIR}\OPMedia.RCCManager.exe; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 Source: {#BINDIR}\IRSerDev.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
@@ -168,10 +148,6 @@ Source: {#BINDIR}\de\OPMedia.RCCManager.resources.dll; DestDir: {app}\de\; Flags
 Source: {#BINDIR}\de\OPMedia.ServiceHelper.RCCService.resources.dll; DestDir: {app}\de\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 Source: {#BINDIR}\fr\OPMedia.RCCManager.resources.dll; DestDir: {app}\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemRemote
 Source: {#BINDIR}\fr\OPMedia.ServiceHelper.RCCService.resources.dll; DestDir: {app}\fr\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
-Source: {#BINDIR}\ru\OPMedia.RCCManager.resources.dll; DestDir: {app}\ru\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemRemote
-Source: {#BINDIR}\ru\OPMedia.ServiceHelper.RCCService.resources.dll; DestDir: {app}\ru\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
-Source: {#BINDIR}\hu\OPMedia.RCCManager.resources.dll; DestDir: {app}\hu\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace; Components: itemPlayer\itemRemote
-Source: {#BINDIR}\hu\OPMedia.ServiceHelper.RCCService.resources.dll; DestDir: {app}\hu\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
 Source: isxdl.dll; DestDir: {tmp}; Flags: dontcopy
 Source: {#EXTDIR}\ffdshow\ff_kernelDeint.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
@@ -244,8 +220,6 @@ Name: itemCodecs\itemHaali; Description: {cm:itemHDSupport}; Flags: checkablealo
 Name: {app}\ro; Flags: uninsalwaysuninstall
 Name: {app}\de; Flags: uninsalwaysuninstall
 Name: {app}\fr; Flags: uninsalwaysuninstall
-Name: {app}\ru; Flags: uninsalwaysuninstall
-Name: {app}\hu; Flags: uninsalwaysuninstall
 Name: {app}\Resources; Flags: uninsalwaysuninstall
 Name: {app}\Codecs; Flags: uninsalwaysuninstall
 Name: {app}\HDSupport; Flags: uninsalwaysuninstall

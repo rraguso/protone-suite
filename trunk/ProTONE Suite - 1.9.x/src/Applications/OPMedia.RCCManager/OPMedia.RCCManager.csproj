@@ -156,7 +156,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.fr.resx" />
-    <EmbeddedResource Include="Translations\Translation.hu.resx" />
     <EmbeddedResource Include="Translations\Translation.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,7 +166,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Translations\Translation.ru.resx" />
     <Compile Include="RemoteControlConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>

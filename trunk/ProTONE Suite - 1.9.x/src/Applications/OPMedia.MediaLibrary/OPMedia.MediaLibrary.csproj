@@ -109,14 +109,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Translations\Translation.de.resx" />
     <EmbeddedResource Include="Translations\Translation.fr.resx" />
-    <EmbeddedResource Include="Translations\Translation.hu.resx" />
     <EmbeddedResource Include="Translations\Translation.ro.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Translations\Translation.ru.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="catalog.ico" />

@@ -498,10 +498,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.fr.resx" />
-    <EmbeddedResource Include="Translations\Translation.hu.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Translations\Translation.ru.resx" />
     <EmbeddedResource Include="Wizards\StepButtonsCtl.resx">
       <DependentUpon>StepButtonsCtl.cs</DependentUpon>
       <SubType>Designer</SubType>

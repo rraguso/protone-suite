@@ -52,8 +52,6 @@ namespace OPMedia.Core
             _cultures.Add("de", new CultureInfo("de"));
             _cultures.Add("fr", new CultureInfo("fr"));
             _cultures.Add("ro", new CultureInfo("ro"));
-            _cultures.Add("hu", new CultureInfo("hu"));
-            _cultures.Add("ru", new CultureInfo("ru"));
 
             lock (_languageSyncRoot)
             {

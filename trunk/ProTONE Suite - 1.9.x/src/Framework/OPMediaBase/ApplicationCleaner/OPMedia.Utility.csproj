@@ -198,7 +198,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.de.resx" />
     <EmbeddedResource Include="Translations\Translation.fr.resx" />
-    <EmbeddedResource Include="Translations\Translation.hu.resx" />
     <EmbeddedResource Include="Translations\Translation.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -209,7 +208,6 @@
       <LastGenOutput>Translation.ro.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Translations\Translation.ru.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Installer.ico" />
