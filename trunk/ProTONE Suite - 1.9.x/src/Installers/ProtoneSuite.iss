@@ -205,7 +205,7 @@ Name: {userappdata}\Microsoft\Internet Explorer\Quick Launch\{cm:namePlayer}; Fi
 Name: {userappdata}\Microsoft\Internet Explorer\Quick Launch\{cm:nameLibrary}; Filename: {app}\OPMedia.MediaLibrary.exe; WorkingDir: {app}; IconFilename: {app}\Resources\catalog.ico; Comment: {cm:startLibrary}
 
 [Types]
-Name: default; Description: default; Flags: iscustom; Languages: en de fr ro ru hu
+Name: default; Description: default; Flags: iscustom; Languages: en de fr ro
 
 [Components]
 Name: itemPlayer; Description: {cm:itemPlayer}; Flags: fixed checkablealone; Types: default
