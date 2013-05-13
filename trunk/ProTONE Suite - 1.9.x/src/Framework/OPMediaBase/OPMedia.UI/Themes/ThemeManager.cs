@@ -397,11 +397,23 @@ namespace OPMedia.UI.Themes
 
         private static void ColorMap(ColorMapElement cme, ThemeEnum te, int r, int g, int b)
         {
-            __colorMap[(int)cme, (int)te] = Color.FromArgb(r, g, b);
+            try
+            {
+                __colorMap[(int)cme, (int)te] = Color.FromArgb(r, g, b);
+            }
+            catch { }
         }
         private static Color ColorMap(ColorMapElement cme)
         {
-            return __colorMap[(int)cme, (int)SuiteConfiguration.SkinType];
+            try
+            {
+                return __colorMap[(int)cme, (int)SuiteConfiguration.SkinType];
+            }
+            catch 
+            { 
+            }
+
+            return Color.Empty;
         }
     }
 }
