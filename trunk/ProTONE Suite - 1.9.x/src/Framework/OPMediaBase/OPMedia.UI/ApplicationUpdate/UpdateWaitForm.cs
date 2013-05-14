@@ -79,7 +79,10 @@ namespace OPMedia.UI.ApplicationUpdate
         private bool LaunchSetup(string path)
         {
             ProcessStartInfo psi = new ProcessStartInfo(path);
-            psi.Arguments = "/SILENT /SUPRESSMSGBOXES";
+            
+            psi.Arguments = string.Format("/SILENT /SUPRESSMSGBOXES /APPRESTART \"{0}\"",
+                ApplicationInfo.ApplicationLaunchPath);
+                
             psi.ErrorDialog = false;
             psi.UseShellExecute = true;
             psi.WorkingDirectory = Path.GetTempPath();
