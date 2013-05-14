@@ -48,10 +48,7 @@ namespace OPMedia.UI.ApplicationUpdate
                 retriever = new WebFileRetriever(AppSettings.ProxySettings, versionFileUri, tempVersionFile, false);
                 StringBuilder sb = new StringBuilder();
 
-                Version ver = GetType().Assembly.GetName().Version;
-                string iniAppName = string.Format("{0} {1}.{2}", Constants.SuiteName, ver.Major, ver.Minor);
-
-                if (Kernel32.GetPrivateProfileString(iniAppName, "Version", "1.0.0.0", sb, 255, tempVersionFile) > 0)
+                if (Kernel32.GetPrivateProfileString(Constants.SuiteName, "Version", "1.0.0.0", sb, 255, tempVersionFile) > 0)
                 {
                     Version current = new Version(SuiteVersion.Version);
                     Version available = new Version(sb.ToString());

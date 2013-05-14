@@ -11,9 +11,6 @@
     <property name="istool.executable" value="c:\Program Files (x86)\ISTool\istool.exe" />
     <property name="root" value="." />
 
-    <property name="oldversion" value="1.9.34" />
-    <property name="newversion" value="1.9.37" />
-
     <target name="build" description="Rebuild ProTONE Suite">
         <loadtasks assembly="e:\Programs\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" />
 
@@ -57,7 +54,7 @@
 
         <target name="VersionInfoUpdate">
             <!-- Version info increment -->
-            <iniread property="oldversion" filename="${root}\Versions.txt" section="ProTONE Suite 1.9" key="Version" default="1.9.0" />
+            <iniread property="oldversion" filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" default="1.9.0" />
             <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
             <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
             <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
@@ -136,7 +133,7 @@
                 
             </svn>
 
-            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite 1.9" key="Version" value="${newversion}" />
+            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" value="${newversion}" />
 
             <svn
                 uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
