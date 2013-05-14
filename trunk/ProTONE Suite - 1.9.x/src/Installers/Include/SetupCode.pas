@@ -434,7 +434,7 @@ begin
    s := GetCommandlineParam('/APPRESTART');
    if (Length(s) > 0) then
    begin
-    MsgBox(s, mbInformation, MB_OK);
+    //MsgBox(s, mbInformation, MB_OK);
     Exec(s, '', '', SW_SHOW, ewNoWait, rc);
    end;
 end;
