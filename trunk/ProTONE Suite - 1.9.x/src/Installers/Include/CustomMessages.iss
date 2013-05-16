@@ -1,4 +1,4 @@
-﻿;-------------------------
+;-------------------------
 ; English
 ;-------------------------
 en.DotNetRequired=ProTONE Suite requires .NET Framework 4.0 in order to run. %nDo you want to continue with installing .NET Framework 4.0 ?
