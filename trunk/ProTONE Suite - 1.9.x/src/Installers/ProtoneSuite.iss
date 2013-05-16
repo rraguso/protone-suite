@@ -241,7 +241,7 @@ Filename: {app}\OPMedia.MediaLibrary.exe; Parameters: ConfigAddons {language}; W
 Filename: {app}\OPMedia.Utility.exe; WorkingDir: {app}; Flags: SkipIfDoesntExist; Parameters: {{9566B126-2205-4E61-8C1C-E6D4D0FC34F0}; RunOnceId: _id0
 Filename: cmd.exe; Parameters: "/c ""sc stop OPMedia.RCCService"""; Flags: runhidden; WorkingDir: {app}; StatusMsg: {cm:stopRCCService}; RunOnceId: _id1; Components: itemPlayer\itemRemote
 Filename: cmd.exe; Parameters: "/c ""sc delete OPMedia.RCCService"""; Flags: runhidden; WorkingDir: {app}; StatusMsg: {cm:uninstRCCService}; RunOnceId: _id2; Components: itemPlayer\itemRemote
-Filename: {dotnet20}\regasm.exe; Parameters: "/u ""{app}\OPMedia.ShellSupport.dll"""; WorkingDir: {app}; Flags: runhidden; StatusMsg: {cm:uninstShellSupport}; RunOnceId: _id3; Components: itemPlayer
+Filename: {dotnet40}\regasm.exe; Parameters: "/u ""{app}\OPMedia.ShellSupport.dll"""; WorkingDir: {app}; Flags: runhidden; StatusMsg: {cm:uninstShellSupport}; RunOnceId: _id3; Components: itemPlayer
 Filename: {sys}\netsh.exe; Parameters: "firewall delete allowedprogram program=""{app}\OPMedia.ProTONE.exe"""; StatusMsg: {cm:delFirewallPlayer}; Flags: runhidden; RunOnceId: _id4; Components: itemPlayer
 Filename: {sys}\netsh.exe; Parameters: "firewall delete allowedprogram program=""{app}\OPMedia.RCCService.exe"""; StatusMsg: {cm:delFirewallRccService}; Flags: runhidden; RunOnceId: _id5; Components: itemPlayer\itemRemote
 Filename: {sys}\netsh.exe; Parameters: "firewall delete allowedprogram program=""{app}\OPMedia.RCCManager.exe"""; StatusMsg: {cm:delFirewallRccManager}; Flags: runhidden; RunOnceId: _id6; Components: itemPlayer\itemRemote
