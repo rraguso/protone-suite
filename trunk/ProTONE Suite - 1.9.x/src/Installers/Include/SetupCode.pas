@@ -20,7 +20,7 @@ const
    // Application Names
    PlayerAppShortName =         'opmedia.protone';
    MediaLibraryAppShortName =   'opmedia.medialibrary';
-   RCCManagerAppShortName = 'opmedia.rccmanager';
+   RCCManagerAppShortName =     'opmedia.rccmanager';
    LogViewerAppShortName =      'opmedia.utility';
    AppCleanerAppShortName =     'opmedia.utility';
 
@@ -28,19 +28,19 @@ const
    PlayerAppName =              'ProTONE Player';
    MediaLibraryAppName =        'ProTONE Media Library';
    RCCManagerAppName =          'ProTONE RCC Manager';
-   LogViewerAppName =       'Log Viewer';
+   LogViewerAppName =           'Log Viewer';
    AppCleanerAppName =          'Application Cleaner';
 
 //--------------------------------------------------------------------------------
 // External functions
 
-// Importing LoadSkin API from ISSkinU.DLL
+// Importing LoadSkin API from ISSkin.DLL
 procedure LoadSkin(lpszPath: String; lpszIniFileName: String);
-external 'LoadSkin@files:ISSkinU.dll stdcall';
+external 'LoadSkin@files:ISSkin.dll stdcall';
 
-// Importing UnloadSkin API from ISSkinU.DLL
+// Importing UnloadSkin API from ISSkin.DLL
 procedure UnloadSkin();
-external 'UnloadSkin@files:ISSkinU.dll stdcall';
+external 'UnloadSkin@files:ISSkin.dll stdcall';
 
 // Importing ShowWindow Windows API from User32.DLL
 function ShowWindow(hWnd: Integer; uType: Integer): Integer;

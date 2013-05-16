@@ -73,7 +73,7 @@ Name: ro; MessagesFile: compiler:Languages\Romanian.isl
 
 [Files]
 ; Add the ISSkin DLL used for skinning Inno Setup installations.
-Source: ISSkinU.dll; DestDir: {app}; Flags: dontcopy
+Source: ISSkin.dll; DestDir: {app}; Flags: dontcopy
 
 ; Add the Visual Style resource contains resources used for skinning,
 ; you can also use Microsoft Visual Styles (*.msstyles) resources.
