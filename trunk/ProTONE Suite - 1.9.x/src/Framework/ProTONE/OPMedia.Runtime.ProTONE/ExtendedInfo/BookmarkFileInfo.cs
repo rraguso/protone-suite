@@ -64,10 +64,10 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
                 return;
             }
                 
-            LoadBookmarks(false);
+            LoadBookmarks(false, throwExceptionOnInvalid);
         }
 
-        internal void LoadBookmarks(bool raiseEvent)
+        internal void LoadBookmarks(bool raiseEvent, bool throwException)
         {
             StreamReader sr = null;
 
@@ -105,7 +105,14 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
             }
             catch (Exception ex)
             {
-                ErrorDispatcher.DispatchError(ex);
+                if (throwException)
+                {
+                    ErrorDispatcher.DispatchError(ex);
+                }
+                else
+                {
+                    Logger.LogException(ex);
+                }
             }
             finally
             {
@@ -158,7 +165,7 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
 
             if (File.Exists(_path))
             {
-                LoadBookmarks(true);
+                LoadBookmarks(true, true);
             }
             else if (BookmarkCollectionChanged != null)
             {
