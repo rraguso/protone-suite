@@ -77,11 +77,36 @@ namespace OPMedia.UI.Controls.Dialogs
             lvExplorer.SelectDirectory += new SelectDirectoryEventHandler(lvExplorer_SelectDirectory);
             lvExplorer.DoubleClickFile += new DoubleClickFileEventHandler(lvExplorer_DoubleClickFile);
 
+            lvExplorer.LaunchMultipleItems += new LaunchMultipleItemsHandler(lvExplorer_LaunchMultipleItems);
+
             ilDrives = new ImageList();
             ilDrives.ImageSize = new Size(16, 16);
             ilDrives.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
 
             this.Load += new EventHandler(OPMFileDialog_Load);
+        }
+
+        bool lvExplorer_LaunchMultipleItems(object sender, EventArgs e)
+        {
+            List<string> paths = new List<string>();
+
+            if (lvExplorer.SelectedPaths != null)
+            {
+                foreach (string path in lvExplorer.SelectedPaths)
+                {
+                    if (File.Exists(path))
+                        paths.Add(path);
+                }
+            }
+
+            if (paths.Count > 0)
+            {
+                FileNames = paths.ToArray();
+                OnOK(this, EventArgs.Empty);
+                return true;
+            }
+
+            return false;
         }
 
         void lvExplorer_SelectDirectory(object sender, SelectDirectoryEventArgs args)
@@ -266,6 +291,9 @@ namespace OPMedia.UI.Controls.Dialogs
             {
                 lvExplorer.Path = fi.Path;
             }
+
+            cmbDiskDrives.Focus();
+            cmbDiskDrives.Select();
         }
 
         private void FillSpecialFolders()

@@ -62,6 +62,8 @@ namespace OPMedia.UI.Controls
 
     public delegate List<string> QueryLinkedFilesHandler(string path);
     public delegate void ItemRenameHandler(string newPath);
+
+    public delegate bool LaunchMultipleItemsHandler(object sender, System.EventArgs e);
     #endregion
 
     #region Main class
@@ -98,6 +100,9 @@ namespace OPMedia.UI.Controls
         #endregion
 
         #region Events
+
+        public event LaunchMultipleItemsHandler LaunchMultipleItems = null;
+
         /// <summary>
         /// Occurs when a directory is double clicked.
         /// Directory path is part of the event data.
@@ -296,7 +301,15 @@ namespace OPMedia.UI.Controls
         void _delayedExplore_Tick(object sender, EventArgs e)
         {
             _delayedExplore.Stop();
-            Explore(true);
+
+            try
+            {
+                Explore(true);
+            }
+            finally
+            {
+                ignoreEvents = false;
+            }
         }
         #endregion
 
@@ -346,7 +359,9 @@ namespace OPMedia.UI.Controls
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
             this.DoubleClick += new EventHandler(this.OnDoubleClick);
-            this.KeyDown += new KeyEventHandler(this.OnKeyDown);
+            
+            //this.KeyDown += new KeyEventHandler(this.OnKeyDown);
+            this.PreviewKeyDown += new PreviewKeyDownEventHandler(OnPreviewKeyDown);
 
             this.SelectedIndexChanged += new EventHandler(this.OnSelectedItemChanged);
 
@@ -522,14 +537,15 @@ namespace OPMedia.UI.Controls
         /// <summary>
         /// Occurs when a key was pressed.
         /// </summary>
-		private void OnKeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+		//private void OnKeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        void OnPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
 		{
             if (e.Modifiers == Keys.None)
             {
 			    if (e.KeyCode == Keys.Back && !IsInDriveRoot)
 			    {
 				    this.Path = PathUtils.ParentDir;
-				    e.Handled = true;
+				    //e.Handled = true;
 			    }
                 else if (e.KeyCode == Keys.Enter)
                 {
@@ -1004,17 +1020,20 @@ namespace OPMedia.UI.Controls
                 this.SelectedItems.Count < 1) 
                 return;
 
-            FileSystemInfo fsi = this.SelectedItems[0].Tag as FileSystemInfo;
-            if (fsi != null)
+            if (LaunchMultipleItems == null || !LaunchMultipleItems(sender, e))
             {
-                if (fsi is DirectoryInfo)
+                FileSystemInfo fsi = this.SelectedItems[0].Tag as FileSystemInfo;
+                if (fsi != null)
                 {
-                    this.Path = fsi.FullName;
-                    OnDoubleClickDirectory(fsi.FullName);
-                }
-                else if (fsi is FileInfo)
-                {
-                    OnDoubleClickFile(fsi.FullName);
+                    if (fsi is DirectoryInfo)
+                    {
+                        this.Path = fsi.FullName;
+                        OnDoubleClickDirectory(fsi.FullName);
+                    }
+                    else if (fsi is FileInfo)
+                    {
+                        OnDoubleClickFile(fsi.FullName);
+                    }
                 }
             }
 		}
