@@ -147,6 +147,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         public Bookmark GetNearestBookmarkInRange(int timeStamp, int range)
         {
+            if (_bookmarkInfo == null ||
+                _bookmarkInfo.Bookmarks == null ||
+                _bookmarkInfo.Bookmarks.Values == null)
+                return null;
+
             // Try to locate the closest bookmark in range
             Bookmark prevBmk = Bookmark.Empty;
 
