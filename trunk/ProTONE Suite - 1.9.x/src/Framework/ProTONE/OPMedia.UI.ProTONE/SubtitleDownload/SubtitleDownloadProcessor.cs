@@ -101,6 +101,12 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
 
         public static bool TestForExistingSubtitle(string movieFileName)
         {
+            // If strFile indicates only a disk root, the movie is actually a DVD
+            // We don't want to look up on Internet for DVD subtitles. Usually DVD's 
+            // come with their builtin subtitles.
+            if (PathUtils.IsRootPath(movieFileName))
+                return false;
+
             if (movieFileName.ToLowerInvariant() ==
                 MediaRenderer.DefaultInstance.GetRenderFile().ToLowerInvariant())
             {

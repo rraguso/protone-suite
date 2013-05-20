@@ -7,6 +7,8 @@ using OPMedia.Runtime.ProTONE.Rendering.Base;
 
 #if HAVE_DSHOW
 using OPMedia.Runtime.ProTONE.Rendering.DS;
+using OPMedia.Core;
+using System.IO;
 #endif
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
@@ -17,6 +19,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         string _dvdPath = string.Empty;
         string _label = string.Empty;
+        string _defaultLabel = string.Empty;
 
         List<int> _chaptersPerTitle = new List<int>();
         List<int> _durationPerTitle = new List<int>();
@@ -24,13 +27,19 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         DvdMenuAttributes _dma;
 
-        public string Label { get { return _label; } }
-
+        public string Label 
+        { 
+            get 
+            { 
+                return string.IsNullOrEmpty(_label) ? _defaultLabel : _label;
+            } 
+        }
+        
         public new string Path
         { get { return _dvdPath; } }
 
         public new string Name
-        { get { return _label; } }
+        { get { return Label; } }
 
 
         public List<int> ChaptersPerTitle
@@ -49,12 +58,12 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             VideoDvdInformation drv = obj as VideoDvdInformation;
             if (drv == null) return false;
 
-            return (_dvdPath == drv._dvdPath && _label == drv._label);
+            return (_dvdPath == drv._dvdPath && Label == drv._label);
         }
 
         public override string ToString()
         {
-            return string.Format("{0} [{1}]", _dvdPath, _label);
+            return string.Format("{0} [{1}]", _dvdPath, Label);
         }
 
         public int GetSubtitle(int lcid)
@@ -74,6 +83,9 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         public VideoDvdInformation(string path)
         {
             _dvdPath = path;
+
+            DriveInfo di = new DriveInfo(System.IO.Path.GetPathRoot(path));
+            _defaultLabel = di.VolumeLabel;
 
             string volumePath = string.Empty;
             if (path.ToUpperInvariant().EndsWith("VIDEO_TS"))

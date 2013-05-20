@@ -16,6 +16,7 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
 using OPMedia.UI.Controls;
+using OPMedia.Core;
 
 namespace OPMedia.Addons.Builtin.VideoProp
 {
@@ -102,7 +103,7 @@ namespace OPMedia.Addons.Builtin.VideoProp
             }
         }
 
-        [EventSink(EventNames.PerformTranslation)]
+        [EventSink(OPMedia.Core.EventNames.PerformTranslation)]
         public new void OnPerformTranslation()
         {
             btnSearchSubtitles.Text = Translator.Translate("TXT_SEARCH_SUBTITLES");
@@ -119,6 +120,12 @@ namespace OPMedia.Addons.Builtin.VideoProp
 
         private void TryFindSubtitle(string strFile, int duration)
         {
+            // If strFile indicates only a disk root, the movie is actually a DVD
+            // We don't want to look up on Internet for DVD subtitles. Usually DVD's 
+            // come with their builtin subtitles.
+            if (PathUtils.IsRootPath(strFile))
+                return;
+
             if (SubtitleDownloadProcessor.TestForExistingSubtitle(strFile))
             {
                 if (MessageDisplay.Query(Translator.Translate("TXT_OVERWRITE_SUBTITLE"),
