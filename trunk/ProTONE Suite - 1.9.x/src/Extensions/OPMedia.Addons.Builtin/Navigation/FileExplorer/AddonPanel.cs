@@ -995,7 +995,17 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
             if (tsm is OPMToolStripMenuItem)
             {
-                tsm.Text = tsm.ToolTipText;
+                string text = tsm.ToolTipText;
+                if (text.Length > 45)
+                {
+                    tsm.Text = text.Substring(0, 45) + "...";
+                }
+                else
+                {
+                    tsm.ToolTipText = string.Empty;
+                    tsm.Text = text;
+                }
+                
                 if (command != OPMShortcut.CmdOutOfRange)
                 {
                     (tsm as OPMToolStripMenuItem).ShortcutKeyDisplayString = 
