@@ -77,6 +77,9 @@ namespace OPMedia.ProTONE
 
             InitializeComponent();
 
+            mnuMediaState.ForeColor = (SuiteConfiguration.SkinType == ThemeEnum.Black) ?
+                ThemeManager.SelectedColor : ThemeManager.ForeColor;
+
             mediaPlayer.MinimumSize = new Size(0, 0);
 
             if (!this.DesignMode)
@@ -161,7 +164,17 @@ namespace OPMedia.ProTONE
             if (BuildMediaStateString(false, ref mediaState))
             {
                 mnuMediaState.Visible = true;
-                mnuMediaState.Text = mediaState;
+
+                if (mediaState.Length > 45)
+                {
+                    mnuMediaState.Text = mediaState.Substring(0, 45) + "...";
+                    mnuMediaState.ToolTipText = mediaState;
+                }
+                else
+                {
+                    mnuMediaState.Text = mediaState;
+                    mnuMediaState.ToolTipText = "";
+                }
             }
             else
             {
@@ -367,6 +380,18 @@ namespace OPMedia.ProTONE
 
             foreach (ToolStripItem tsi in cmsMain.Items)
             {
+                string text = tsi.Text;
+
+                if (text.Length > 45)
+                {
+                    tsi.Text = text.Substring(0, 45) + "...";
+                    tsi.ToolTipText = text;
+                }
+                else
+                {
+                    tsi.ToolTipText = "";
+                }
+                
                 if (tsi is OPMToolStripMenuItem && tsi.Tag != null)
                 {
                     switch((OPMShortcut)tsi.Tag)
@@ -397,16 +422,10 @@ namespace OPMedia.ProTONE
             mnuTools.DropDownItems.Add(string.Empty);
             mnuTools.DropDownOpening += new EventHandler(mnuTools_DropDownOpening);
 
-            if (_menuWidth == 0)
-            {
-                _menuWidth = cmsMain.Width;
-            }
-            volumeScale.Width = timeScale.Width = _menuWidth;
+            volumeScale.Width = timeScale.Width = 250;
 
             cmsMain.ResumeLayout();
         }
-
-        int _menuWidth = 0;
 
         void mnuTools_DropDownOpening(object sender, EventArgs e)
         {
@@ -419,6 +438,22 @@ namespace OPMedia.ProTONE
         {
             mnuPlaylistPlaceholder.DropDownItems.Clear();
             mediaPlayer.BuildPlaylistMenu(mnuPlaylistPlaceholder, new EventHandler(NotifyMenuClick));
+
+            foreach (ToolStripItem tsi in mnuPlaylistPlaceholder.DropDownItems)
+            {
+                string text = tsi.Text;
+
+                if (text.Length > 45)
+                {
+                    tsi.Text = text.Substring(0, 45) + "...";
+                    tsi.ToolTipText = text;
+                }
+                else
+                {
+                    tsi.ToolTipText = "";
+                }
+
+            }
         }
 
         private void OnExit(object sender, EventArgs e)
@@ -454,6 +489,12 @@ namespace OPMedia.ProTONE
             catch { }
 
             base.WndProc(ref m);
+        }
+
+        protected override void OnThemeUpdatedInternal()
+        {
+            mnuMediaState.ForeColor = (SuiteConfiguration.SkinType == ThemeEnum.Black) ? 
+                ThemeManager.SelectedColor : ThemeManager.ForeColor;
         }
     }
 }

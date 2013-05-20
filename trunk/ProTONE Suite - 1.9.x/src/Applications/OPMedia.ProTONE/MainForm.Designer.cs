@@ -79,7 +79,7 @@ namespace OPMedia.ProTONE
             this.mnuExit});
             this.cmsMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(261, 194);
+            this.cmsMain.Size = new System.Drawing.Size(200, 194);
             this.cmsMain.Opening += new System.ComponentModel.CancelEventHandler(this.cmsMain_Opening);
             // 
             // toolStripSeparator7
