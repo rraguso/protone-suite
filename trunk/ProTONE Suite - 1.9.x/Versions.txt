@@ -1,2 +1,2 @@
 [ProTONE Suite]
-Version=1.9.59
+Version=1.9.60
