@@ -22,7 +22,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
     {
         IDvdGraphBuilder dvdGraphBuilder = null;
         IDvdInfo2 dvdInfo = null;
-        IDvdControl2 dvdControl = null;
+        IDvdControl dvdControl = null;
+        IDvdControl2 dvdControl2 = null;
         IDvdCmd _lastCmd = null;
 
         private MenuMode menuMode;
@@ -58,22 +59,23 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             if (hint == DvdRenderingStartHint.MainMenu)
             {
-                dvdControl.ShowMenu(DvdMenuId.Title, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
+                dvdControl2.ShowMenu(DvdMenuId.Title, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
             }
             else if (hint == DvdRenderingStartHint.Beginning)
             {
                 if (AppSettings.DisableDVDMenu)
-                    dvdControl.PlayTitle(1, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
+                    dvdControl2.PlayTitle(1, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
                 else
-                    dvdControl.PlayForwards(1f, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
+                    //dvdControl.PlayForwards(1f, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
+                    dvdControl2.ShowMenu(DvdMenuId.Title, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
             }
             else if (hint.Location.ChapterNum == 0)
             {
-                dvdControl.PlayTitle(hint.Location.TitleNum, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
+                dvdControl2.PlayTitle(hint.Location.TitleNum, DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
             }
             else
             {
-                dvdControl.PlayChapterInTitle(hint.Location.TitleNum, hint.Location.ChapterNum,
+                dvdControl2.PlayChapterInTitle(hint.Location.TitleNum, hint.Location.ChapterNum,
                     DvdCmdFlags.Flush | DvdCmdFlags.Block, out _lastCmd);
             }
 
@@ -114,12 +116,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 throw new COMException(VideoDvdInformation.ErrDvdVolume, -1);
 
             dvdInfo = GetInterface(typeof(IDvdInfo2)) as IDvdInfo2;
-            dvdControl = GetInterface(typeof(IDvdControl2)) as IDvdControl2;
 
-            dvdControl.SetOption(DvdOptionFlag.HMSFTimeCodeEvents, true);	// use new HMSF timecode format
-            dvdControl.SetOption(DvdOptionFlag.ResetOnStop, false);
-            dvdControl.SetOption(DvdOptionFlag.AudioDuringFFwdRew, false);
-            dvdControl.SelectVideoModePreference(DvdPreferredDisplayMode.Display16x9);
+            dvdControl = GetInterface(typeof(IDvdControl)) as IDvdControl;
+            dvdControl2 = GetInterface(typeof(IDvdControl2)) as IDvdControl2;
+
+            dvdControl2.SetOption(DvdOptionFlag.HMSFTimeCodeEvents, true);	// use new HMSF timecode format
+            dvdControl2.SetOption(DvdOptionFlag.ResetOnStop, false);
+            dvdControl2.SetOption(DvdOptionFlag.AudioDuringFFwdRew, false);
+            //dvdControl.SelectVideoModePreference(DvdPreferredDisplayMode.DisplayContentDefault);
 
             dvdGraphBuilder.GetFiltergraph(out mediaControl);
 
@@ -146,16 +150,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         
         void renderRegion_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if ((dvdControl == null) || (menuMode != MenuMode.Buttons))
+            if ((dvdControl2 == null) || (menuMode != MenuMode.Buttons))
                 return;
-            dvdControl.ActivateAtPosition(e.Location);
+            dvdControl2.ActivateAtPosition(e.Location);
         }
 
         void renderRegion_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if ((dvdControl == null) || (menuMode != MenuMode.Buttons))
+            if ((dvdControl2 == null) || (menuMode != MenuMode.Buttons))
                 return;
-            dvdControl.SelectAtPosition(e.Location);
+            
+            dvdControl2.SelectAtPosition(e.Location);
         }
 
         protected override void  DoStopInternal(object state)
@@ -169,7 +174,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     if (mediaControl != null)
                         Marshal.ReleaseComObject(mediaControl);
 
-                    dvdControl = null;
+                    dvdControl2 = null;
                     if (dvdInfo != null)
                         Marshal.ReleaseComObject(dvdInfo); dvdInfo = null;
 
@@ -218,13 +223,40 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             TimeSpan tsNewPos = TimeSpan.FromSeconds(pos);
 
-            DvdHMSFTimeCode timeCode = new DvdHMSFTimeCode();
-            timeCode.bHours = (byte)tsNewPos.TotalHours;
-            timeCode.bMinutes = (byte)tsNewPos.Minutes;
-            timeCode.bSeconds = (byte)tsNewPos.Seconds;
-            timeCode.bFrames = 0;
+////            DvdHMSFTimeCode timeCode = new DvdHMSFTimeCode();
+////            timeCode.bHours = (byte)tsNewPos.TotalHours;
+////            timeCode.bMinutes = (byte)tsNewPos.Minutes;
+////            timeCode.bSeconds = (byte)tsNewPos.Seconds;
+////            timeCode.bFrames = 0;
 
-            dvdControl.PlayAtTime(timeCode, DvdCmdFlags.None, out _lastCmd);
+////            //dvdControl2.PlayAtTime(timeCode, DvdCmdFlags.None, out _lastCmd);
+
+////            //dvdControl.ChapterPlay(1, 5);
+
+//////            typedef struct tagDVD_TIMECODE {
+//////  ULONG Hours1  :4;
+//////  ULONG Hours10  :4;
+//////  ULONG Minutes1  :4;
+//////  ULONG Minutes10  :4;
+//////  ULONG Seconds1  :4;
+//////  ULONG Seconds10  :4;
+//////  ULONG Frames1  :4;
+//////  ULONG Frames10  :2;
+//////  ULONG FrameRateCode  :2;
+//////} DVD_TIMECODE;
+
+            int bcdTime = 1;
+
+            bcdTime |= ((int)tsNewPos.TotalHours % 10) << 28;
+            bcdTime |= (int)tsNewPos.TotalHours / 10 << 24;
+
+            bcdTime |= (int)tsNewPos.Minutes % 10 << 20;
+            bcdTime |= (int)tsNewPos.Minutes / 10 << 16;
+
+            bcdTime |= (int)tsNewPos.Seconds % 10 << 12;
+            bcdTime |= (int)tsNewPos.Seconds / 10 << 8;
+
+            dvdControl.TimeSearch(bcdTime);
         }
 
         protected override bool IsMediaSeekable()
@@ -292,9 +324,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     break;
 
                 case DsEvCode.DvdNoFpPgc:
-                    if (dvdControl != null)
+                    if (dvdControl2 != null)
                     {
-                        dvdControl.PlayTitle(1, DvdCmdFlags.None, out _lastCmd);
+                        dvdControl2.PlayTitle(1, DvdCmdFlags.None, out _lastCmd);
                     }
                     break;
                 }
@@ -320,8 +352,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 try
                 {
-                    dvdControl.SelectSubpictureStream(sid, DvdCmdFlags.None, out _lastCmd);
-                    dvdControl.SetSubpictureState(true, DvdCmdFlags.None, out _lastCmd);
+                    dvdControl2.SelectSubpictureStream(sid, DvdCmdFlags.None, out _lastCmd);
+                    dvdControl2.SetSubpictureState(true, DvdCmdFlags.None, out _lastCmd);
                 }
                 catch (Exception exception)
                 {

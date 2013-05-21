@@ -151,7 +151,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             get
             {
                 return (renderingTechnology.MediaState == MediaState.Stopped) ?
-                    0 : /*renderingTechnology.MediaPosition;*/ _position;
+                    0 : renderingTechnology.MediaPosition;
             }
             
         }

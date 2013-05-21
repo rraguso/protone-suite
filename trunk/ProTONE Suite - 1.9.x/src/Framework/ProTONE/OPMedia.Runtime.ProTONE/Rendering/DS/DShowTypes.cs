@@ -399,6 +399,128 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         void WaitForEnd();
     }
 
+    [ComImport, Guid("A70EFE61-E2A3-11d0-A9BE-00AA0061BE93"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    public interface IDvdControl
+    {
+        [PreserveSig]
+        int TitlePlay([In] int ulTitle);
+
+        [PreserveSig]
+        int ChapterPlay(
+            [In] int ulTitle,
+            [In] int ulChapter
+            );
+
+        [PreserveSig]
+        int TimePlay(
+            [In] int ulTitle,
+            [In] int bcdTime
+            );
+
+        [PreserveSig]
+        int StopForResume();
+
+        [PreserveSig]
+        int GoUp();
+
+        [PreserveSig]
+        int TimeSearch([In] int bcdTime);
+
+        [PreserveSig]
+        int ChapterSearch([In] int ulChapter);
+
+        [PreserveSig]
+        int PrevPGSearch();
+
+        [PreserveSig]
+        int TopPGSearch();
+
+        [PreserveSig]
+        int NextPGSearch();
+
+        [PreserveSig]
+        int ForwardScan([In] double dwSpeed);
+
+        [PreserveSig]
+        int BackwardScan([In] double dwSpeed);
+
+        [PreserveSig]
+        int MenuCall([In] DvdMenuId MenuID);
+
+        [PreserveSig]
+        int Resume();
+
+        [PreserveSig]
+        int UpperButtonSelect();
+
+        [PreserveSig]
+        int LowerButtonSelect();
+
+        [PreserveSig]
+        int LeftButtonSelect();
+
+        [PreserveSig]
+        int RightButtonSelect();
+
+        [PreserveSig]
+        int ButtonActivate();
+
+        [PreserveSig]
+        int ButtonSelectAndActivate([In] int ulButton);
+
+        [PreserveSig]
+        int StillOff();
+
+        [PreserveSig]
+        int PauseOn();
+
+        [PreserveSig]
+        int PauseOff();
+
+        [PreserveSig]
+        int MenuLanguageSelect([In] int Language);
+
+        [PreserveSig]
+        int AudioStreamChange([In] int ulAudio);
+
+        [PreserveSig]
+        int SubpictureStreamChange(
+            [In] int ulSubPicture,
+            [In, MarshalAs(UnmanagedType.Bool)] bool bDisplay
+            );
+
+        [PreserveSig]
+        int AngleChange([In] int ulAngle);
+
+        [PreserveSig]
+        int ParentalLevelSelect([In] int ulParentalLevel);
+
+        [PreserveSig]
+        int ParentalCountrySelect([In] short wCountry);
+
+        [PreserveSig]
+        int KaraokeAudioPresentationModeChange([In] int ulMode);
+
+        [PreserveSig]
+        int VideoModePreferrence([In] int ulPreferredDisplayMode);
+
+        [PreserveSig]
+        int SetRoot([In, MarshalAs(UnmanagedType.LPWStr)] string pszPath);
+
+        [PreserveSig]
+        int MouseActivate([In] Point point);
+
+        [PreserveSig]
+        int MouseSelect([In] Point point);
+
+        [PreserveSig]
+        int ChapterPlayAutoStop(
+            [In] int ulTitle,
+            [In] int ulChapter,
+            [In] int ulChaptersToPlay
+            );
+    }
+
     [ComImport, Guid("33BC7430-EEC0-11D2-8201-00A0C9D74842"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IDvdControl2
     {
