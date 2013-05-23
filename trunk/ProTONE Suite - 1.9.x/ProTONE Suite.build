@@ -76,7 +76,7 @@
                 program="${msbuild40.executable}" 
                 verbose="true" 
                 workingdir="${root}\src" 
-                commandline="/p:Configuration=Default /t:Rebuild &quot;ProTONE Suite.sln&quot; /v:normal" 
+                commandline="/p:Configuration=Debug /t:Rebuild &quot;ProTONE Suite.sln&quot; /v:normal" 
             />
         </target>
 
