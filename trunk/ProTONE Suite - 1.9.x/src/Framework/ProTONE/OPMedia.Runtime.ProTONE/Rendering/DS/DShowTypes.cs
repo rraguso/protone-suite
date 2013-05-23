@@ -387,6 +387,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
     {
         public int X;
         public int Y;
+
+        public static DsPOINT FromPoint(Point pt)
+        {
+            return new DsPOINT { X = pt.X, Y = pt.Y };
+        }
     }
 
 
@@ -521,90 +526,170 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             );
     }
 
-    [ComImport, Guid("33BC7430-EEC0-11D2-8201-00A0C9D74842"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [StructLayout(LayoutKind.Sequential), ComVisible(false)]
+    public class OptIDvdCmd
+    {
+        public IDvdCmd dvdCmd;
+    }
+
+     [ComVisible(true), ComImport,
+        Guid("33BC7430-EEC0-11D2-8201-00A0C9D74842"),
+        InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+
     public interface IDvdControl2
     {
         [PreserveSig]
-        void PlayTitle([In] int ulTitle, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayTitle(int ulTitle, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayChapterInTitle([In] int ulTitle, [In] int ulChapter, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayChapterInTitle(int ulTitle, int ulChapter, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayAtTimeInTitle([In] int ulTitle, [In] DvdHMSFTimeCode pStartTime, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayAtTimeInTitle(int ulTitle, [In] ref DvdHMSFTimeCode pStartTime, DvdCmdFlags dwFlags,
+               [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void Stop();
+        int Stop();
+
         [PreserveSig]
-        void ReturnFromSubmenu([In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int ReturnFromSubmenu(DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayAtTime([In] DvdHMSFTimeCode pTime, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayAtTime([In] ref DvdHMSFTimeCode pTime, DvdCmdFlags dwFlags,
+               [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayChapter([In] int ulChapter, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayChapter(int ulChapter, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayPrevChapter([In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayPrevChapter(DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void ReplayChapter([In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int ReplayChapter(DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayNextChapter([In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayNextChapter(DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayForwards([In] double dSpeed, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayForwards(double dSpeed, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayBackwards([In] double dSpeed, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayBackwards(double dSpeed, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void ShowMenu([In] DvdMenuId MenuID, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int ShowMenu(DvdMenuId MenuID, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void Resume([In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int Resume(DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void SelectRelativeButton(DvdRelativeButton buttonDir);
+        int SelectRelativeButton(DvdRelativeButton buttonDir);
+
         [PreserveSig]
-        void ActivateButton();
+        int ActivateButton();
+
         [PreserveSig]
-        void SelectButton([In] int ulButton);
+        int SelectButton(int ulButton);
+
         [PreserveSig]
-        void SelectAndActivateButton([In] int ulButton);
+        int SelectAndActivateButton(int ulButton);
+
         [PreserveSig]
-        void StillOff();
+        int StillOff();
+
         [PreserveSig]
-        void Pause([In, MarshalAs(UnmanagedType.Bool)] bool bState);
+        int Pause(
+                [In, MarshalAs(UnmanagedType.Bool)]                             bool bState);
+
         [PreserveSig]
-        void SelectAudioStream([In] int ulAudio, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int SelectAudioStream(int ulAudio, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void SelectSubpictureStream([In] int ulSubPicture, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int SelectSubpictureStream(int ulSubPicture, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void SetSubpictureState([In, MarshalAs(UnmanagedType.Bool)] bool bState, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int SetSubpictureState(
+                [In, MarshalAs(UnmanagedType.Bool)]                             bool bState,
+                                                                                                                DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void SelectAngle([In] int ulAngle, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int SelectAngle(int ulAngle, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void SelectParentalLevel([In] int ulParentalLevel);
+        int SelectParentalLevel(int ulParentalLevel);
+
         [PreserveSig]
-        void SelectParentalCountry([In, MarshalAs(UnmanagedType.LPArray)] byte[] bCountry);
+        int SelectParentalCountry(byte[] bCountry);
+
         [PreserveSig]
-        void SelectKaraokeAudioPresentationMode([In] DvdKaraokeDownMix ulMode);
+        int SelectKaraokeAudioPresentationMode(int ulMode);
+
         [PreserveSig]
-        void SelectVideoModePreference([In] DvdPreferredDisplayMode ulPreferredDisplayMode);
+        int SelectVideoModePreference(int ulPreferredDisplayMode);
+
         [PreserveSig]
-        void SetDVDDirectory([In, MarshalAs(UnmanagedType.LPWStr)] string pszwPath);
+        int SetDVDDirectory(
+                [In, MarshalAs(UnmanagedType.LPWStr)]                   string pszwPath);
+
         [PreserveSig]
-        void ActivateAtPosition([In] Point point);
+        int ActivateAtPosition(DsPOINT point);
+
         [PreserveSig]
-        void SelectAtPosition([In] Point point);
+        int SelectAtPosition(DsPOINT point);
+
         [PreserveSig]
-        void PlayChaptersAutoStop([In] int ulTitle, [In] int ulChapter, [In] int ulChaptersToPlay, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayChaptersAutoStop(int ulTitle, int ulChapter, int ulChaptersToPlay, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void AcceptParentalLevelChange([In, MarshalAs(UnmanagedType.Bool)] bool bAccept);
+        int AcceptParentalLevelChange(
+                [In, MarshalAs(UnmanagedType.Bool)]                             bool bAccept);
+
         [PreserveSig]
-        void SetOption([In] DvdOptionFlag flag, [In, MarshalAs(UnmanagedType.Bool)] bool fState);
+        int SetOption(DvdOptionFlag flag,
+                [In, MarshalAs(UnmanagedType.Bool)]                             bool fState);
+
         [PreserveSig]
-        void SetState([In] IDvdState pState, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int SetState(IDvdState pState, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void PlayPeriodInTitleAutoStop([In] int ulTitle, [In, MarshalAs(UnmanagedType.LPStruct)] DvdHMSFTimeCode pStartTime, [In, MarshalAs(UnmanagedType.LPStruct)] DvdHMSFTimeCode pEndTime, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int PlayPeriodInTitleAutoStop(int ulTitle,
+                [In]                                                                            ref DvdHMSFTimeCode pStartTime,
+                [In]                                                                            ref DvdHMSFTimeCode pEndTime,
+                                                                                                                DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void SetGPRM([In] int ulIndex, [In] short wValue, [In] DvdCmdFlags dwFlags, out IDvdCmd ppCmd);
+        int SetGPRM(int ulIndex, short wValue, DvdCmdFlags dwFlags,
+                [Out]                                                                                   OptIDvdCmd ppCmd);
+
         [PreserveSig]
-        void SelectDefaultMenuLanguage([In] int Language);
+        int SelectDefaultMenuLanguage(int Language);
+
         [PreserveSig]
-        void SelectDefaultAudioLanguage([In] int Language, [In] DvdAudioLangExt audioExtension);
+        int SelectDefaultAudioLanguage(int Language, DvdAudioLangExt audioExtension);
+
         [PreserveSig]
-        void SelectDefaultSubpictureLanguage([In] int Language, [In] DvdSubPictureLangExt subpictureExtension);
+        int SelectDefaultSubpictureLanguage(int Language, DvdSubPictureLangExt subpictureExtension);
     }
+
+
 
     [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("FCC152B6-F372-11d0-8E00-00C04FD7C08B")]
     public interface IDvdGraphBuilder
