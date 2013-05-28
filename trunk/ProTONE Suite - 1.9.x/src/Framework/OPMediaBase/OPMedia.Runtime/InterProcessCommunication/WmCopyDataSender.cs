@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OPMedia.Core;
 using System.Runtime.InteropServices;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.Runtime.InterProcessCommunication
 {
@@ -11,12 +12,17 @@ namespace OPMedia.Runtime.InterProcessCommunication
     {
         public static bool SendData(string appName, string data)
         {
+            Logger.LogTrace("WmCopyDataSender.SendData to {0}: {1}", appName, data);
+
             string wndName = appName.Replace(".", "_").Replace(" ", "").Trim().ToUpperInvariant()
                 +"_WMCOPYDATA";
 
             IntPtr hWnd = User32.FindWindow(null, wndName);
             if (hWnd == IntPtr.Zero)
+            {
+                Logger.LogTrace("WmCopyDataSender.SendData to {0}: {1} ... window not found: {3}", appName, data, wndName);
                 return false;
+            }
 
             byte[] sb = Encoding.Unicode.GetBytes(data);
 

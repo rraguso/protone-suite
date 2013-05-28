@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using OPMedia.Core;
 using System.Runtime.InteropServices;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.Runtime.InterProcessCommunication
 {
@@ -46,17 +47,22 @@ namespace OPMedia.Runtime.InterProcessCommunication
     {
         internal event DataReceivedHandler DataReceived = null;
 
+        string _wndName = "";
+
         internal WmCopyDataWindow(string wndName)
         {
+            _wndName = wndName + "_WMCOPYDATA";
+
             CreateParams cp = new CreateParams();
             cp.ClassName = "Message";
-            cp.Caption = wndName + "_WMCOPYDATA";
+            cp.Caption = _wndName;
             cp.Width = cp.Height = 0;
             cp.X = cp.Y = 10000;
 
             try
             {
                 CreateHandle(cp);
+                Logger.LogTrace("WmCopyDataWindow created,  wndName: {0}", cp.Caption);
             }
             catch
             {
@@ -72,6 +78,8 @@ namespace OPMedia.Runtime.InterProcessCommunication
                     {
                         COPYDATASTRUCT cds = (COPYDATASTRUCT)m.GetLParam(typeof(COPYDATASTRUCT));
                         string strData = Marshal.PtrToStringUni(cds.lpData);
+
+                        Logger.LogTrace("WmCopyDataWindow wndName: {0} received data: {1}", _wndName, strData);
 
                         if (DataReceived != null)
                         {
