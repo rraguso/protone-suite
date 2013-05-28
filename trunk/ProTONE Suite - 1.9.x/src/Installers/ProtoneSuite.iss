@@ -138,7 +138,7 @@ Source: {#BINDIR}\OPMedia.RCCManager.exe; DestDir: {app}; Flags: uninsremoveread
 Source: {#BINDIR}\IRSerDev.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 Source: {#BINDIR}\OPMedia.RCCService.exe; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 Source: {#BINDIR}\OPMedia.ServiceHelper.RCCService.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
-Source: {#BINDIR}\RCCService.Config; DestDir: {app}; Flags: uninsremovereadonly promptifolder touch uninsrestartdelete replacesameversion restartreplace confirmoverwrite; Permissions: users-modify; Components: itemPlayer\itemRemote; Languages: 
+Source: {#BINDIR}\RCCService.Config; DestDir: {app}; Flags: uninsremovereadonly promptifolder touch uninsrestartdelete replacesameversion restartreplace onlyifdoesntexist; Permissions: users-modify; Components: itemPlayer\itemRemote; Languages: 
 
 Source: {#BINDIR}\Resources\ir_remote.ico; DestDir: {app}\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
@@ -193,6 +193,8 @@ Source: {#EXTDIR}\haali\ts.x64.dll; DestDir: {app}\HDSupport; Components: "  ite
 Source: {#BINDIR}\Templates\Catalog\Default Catalog; DestDir: {app}\Templates\Catalog; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace; Components: itemPlayer\itemLibrary
 Source: {#BINDIR}\Templates\RemoteControl\ProTONEOnSerial.Config; DestDir: {app}\Templates\RemoteControl; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
+Source: {#EXTDIR}\OPMedia.MediaLibrary.Addons.config; DestDir: {localappdata}\OPMedia.MediaLibrary; Flags: confirmoverwrite onlyifdoesntexist; Permissions: users-modify; Components: itemPlayer\itemLibrary
+
 [Icons]
 Name: {group}\{cm:UninstallProgram,ProTONE Suite}; Filename: {uninstallexe}
 Name: {group}\{cm:namePlayer}; Filename: {app}\OPMedia.ProTONE.exe; WorkingDir: {app}; IconFilename: {app}\Resources\player.ico; Comment: {cm:startPlayer}
@@ -228,15 +230,15 @@ Name: {app}\Templates\Catalog; Languages: ; Components: itemPlayer\itemLibrary
 Name: {app}\Templates\RemoteControl; Components: itemPlayer\itemRemote
 
 [Run]
-Filename: regedit.exe; WorkingDir: {app}; StatusMsg: {cm:cfgFfdShow}; Flags: runhidden runasoriginaluser; Parameters: "/s ""{app}\ffdshow\ffdshow.reg"""; Components: itemCodecs\itemFFDShow
-Filename: {dotnet4032}\regasm.exe; Parameters: "/codebase ""{app}\OPMedia.ShellSupport.dll"""; WorkingDir: {app}; StatusMsg: {cm:cfgShellSupport}; Flags: runhidden runasoriginaluser; Components: itemPlayer
-Filename: {dotnet4064}\regasm.exe; Parameters: "/codebase ""{app}\OPMedia.ShellSupport.dll"""; WorkingDir: {app}; StatusMsg: {cm:cfgShellSupport}; Flags: runhidden runasoriginaluser; Components: itemPlayer; Check: IsWin64
-Filename: {dotnet4032}\installutil.exe; Parameters: "-i ""{app}\OPMedia.RCCService.exe"""; WorkingDir: {app}; StatusMsg: {cm:instRccService}; Flags: runhidden runasoriginaluser; Components: itemPlayer\itemRemote
-Filename: cmd.exe; Parameters: "/c ""sc start OPMedia.RCCService"""; WorkingDir: {app}; StatusMsg: {cm:startRccService}; Flags: runhidden runasoriginaluser; Components: itemPlayer\itemRemote
-Filename: {sys}\netsh.exe; Parameters: "firewall add allowedprogram ""{app}\OPMedia.ProTONE.exe"" ""ProTONE Player"" ENABLE ALL"; StatusMsg: {cm:firewallPlayer}; Flags: runhidden runasoriginaluser; Components: itemPlayer
-Filename: {sys}\netsh.exe; Parameters: "firewall add allowedprogram ""{app}\OPMedia.RCCService.exe"" ""OPMedia RCC Service"" ENABLE ALL"; StatusMsg: {cm:firewallRccService}; Flags: runhidden runasoriginaluser; Components: itemPlayer\itemRemote
-Filename: {sys}\netsh.exe; Parameters: "firewall add allowedprogram ""{app}\OPMedia.RCCManager.exe"" ""OPMedia RCC Manager"" ENABLE ALL"; StatusMsg: {cm:firewallRccManager}; Flags: runhidden runasoriginaluser; Components: itemPlayer\itemRemote
-Filename: {app}\OPMedia.MediaLibrary.exe; Parameters: ConfigAddons {language}; WorkingDir: {app}; StatusMsg: {cm:cfgMediaLibrary}; Flags: hidewizard runascurrentuser; Components: itemPlayer\itemLibrary
+Filename: regedit.exe; WorkingDir: {app}; StatusMsg: {cm:cfgFfdShow}; Flags: runhidden runascurrentuser; Parameters: "/s ""{app}\ffdshow\ffdshow.reg"""; Components: itemCodecs\itemFFDShow
+Filename: {dotnet4032}\regasm.exe; Parameters: "/codebase ""{app}\OPMedia.ShellSupport.dll"""; WorkingDir: {app}; StatusMsg: {cm:cfgShellSupport}; Flags: runhidden runascurrentuser; Components: itemPlayer
+Filename: {dotnet4064}\regasm.exe; Parameters: "/codebase ""{app}\OPMedia.ShellSupport.dll"""; WorkingDir: {app}; StatusMsg: {cm:cfgShellSupport}; Flags: runhidden runascurrentuser; Components: itemPlayer; Check: IsWin64
+Filename: {dotnet4032}\installutil.exe; Parameters: "-i ""{app}\OPMedia.RCCService.exe"""; WorkingDir: {app}; StatusMsg: {cm:instRccService}; Flags: runhidden runascurrentuser; Components: itemPlayer\itemRemote
+Filename: cmd.exe; Parameters: "/c ""sc start OPMedia.RCCService"""; WorkingDir: {app}; StatusMsg: {cm:startRccService}; Flags: runhidden runascurrentuser; Components: itemPlayer\itemRemote
+Filename: {sys}\netsh.exe; Parameters: "firewall add allowedprogram ""{app}\OPMedia.ProTONE.exe"" ""ProTONE Player"" ENABLE ALL"; StatusMsg: {cm:firewallPlayer}; Flags: runhidden runascurrentuser; Components: itemPlayer
+Filename: {sys}\netsh.exe; Parameters: "firewall add allowedprogram ""{app}\OPMedia.RCCService.exe"" ""OPMedia RCC Service"" ENABLE ALL"; StatusMsg: {cm:firewallRccService}; Flags: runhidden runascurrentuser; Components: itemPlayer\itemRemote
+Filename: {sys}\netsh.exe; Parameters: "firewall add allowedprogram ""{app}\OPMedia.RCCManager.exe"" ""OPMedia RCC Manager"" ENABLE ALL"; StatusMsg: {cm:firewallRccManager}; Flags: runhidden runascurrentuser; Components: itemPlayer\itemRemote
+;Filename: {app}\OPMedia.MediaLibrary.exe; Parameters: ConfigAddons {language}; WorkingDir: {app}; StatusMsg: {cm:cfgMediaLibrary}; Flags: hidewizard runascurrentuser; Components: itemPlayer\itemLibrary
 
 [UninstallRun]
 Filename: {app}\OPMedia.Utility.exe; WorkingDir: {app}; Flags: SkipIfDoesntExist; Parameters: {{9566B126-2205-4E61-8C1C-E6D4D0FC34F0}; RunOnceId: _id0

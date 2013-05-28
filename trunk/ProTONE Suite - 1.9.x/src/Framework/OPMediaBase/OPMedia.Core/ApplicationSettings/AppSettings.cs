@@ -336,6 +336,19 @@ namespace OPMedia.Core.ApplicationSettings
             get
             {
                 Point point = new Point(100, 100);
+                if (ApplicationInfo.IsPlayer)
+                {
+                    point = new Point((Screen.PrimaryScreen.Bounds.Width - 440) / 2, (Screen.PrimaryScreen.Bounds.Height - 300) / 2);
+                }
+                else if (ApplicationInfo.IsMediaLibrary)
+                {
+                    point = new Point(Screen.PrimaryScreen.Bounds.Width / 6, Screen.PrimaryScreen.Bounds.Height / 6);
+                }
+                else if (ApplicationInfo.IsRCCManager)
+                {
+                    point = new Point((Screen.PrimaryScreen.Bounds.Width - 510) / 2, (Screen.PrimaryScreen.Bounds.Height - 430) / 2);
+                }
+
                 try
                 {
                     string str = _config.GetValue("WindowLocation");
@@ -365,6 +378,19 @@ namespace OPMedia.Core.ApplicationSettings
             get
             {
                 Size size = new Size(800, 600);
+                if (ApplicationInfo.IsPlayer)
+                {
+                    size = new Size(440, 300);
+                }
+                else if (ApplicationInfo.IsMediaLibrary)
+                {
+                    size = new Size(2 * Screen.PrimaryScreen.Bounds.Width / 3, 2 * Screen.PrimaryScreen.Bounds.Height / 3);
+                }
+                else if (ApplicationInfo.IsRCCManager)
+                {
+                    size = new Size(510, 430);
+                }
+                    
                 try
                 {
                     string str = _config.GetValue("WindowSize");
@@ -651,7 +677,8 @@ namespace OPMedia.Core.ApplicationSettings
         {
             get
             {
-                return _config.GetValue("VSplitterDistance", 200);
+                return _config.GetValue("VSplitterDistance", 
+                    4 * Screen.PrimaryScreen.Bounds.Width / 9);
             }
 
             set
@@ -664,7 +691,8 @@ namespace OPMedia.Core.ApplicationSettings
         {
             get
             {
-                return _config.GetValue("HSplitterDistance", 200);
+                return _config.GetValue("HSplitterDistance",
+                    Screen.PrimaryScreen.Bounds.Height / 3 - 50);
             }
 
             set
@@ -672,7 +700,6 @@ namespace OPMedia.Core.ApplicationSettings
                 _config.SetValue("HSplitterDistance", value);
             }
         }
-
 
 
         public static string ExplorerLaunchType
