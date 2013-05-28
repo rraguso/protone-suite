@@ -168,7 +168,7 @@ namespace OPMedia.ProTONE
                 if (mediaState.Length > 45)
                 {
                     mnuMediaState.Text = mediaState.Substring(0, 45) + "...";
-                    mnuMediaState.ToolTipText = mediaState;
+                    mnuMediaState.ToolTipText = mediaState.Replace(": ", ":\n");
                 }
                 else
                 {
@@ -380,6 +380,9 @@ namespace OPMedia.ProTONE
 
             foreach (ToolStripItem tsi in cmsMain.Items)
             {
+                if (tsi == mnuMediaState)
+                    continue;
+
                 string text = tsi.Text;
 
                 if (text.Length > 45)
