@@ -36,6 +36,8 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageRemote = new OPMedia.UI.ProTONE.Configuration.MiscConfig.RemoteControlPage();
             this.tpDiagnostics = new OPMedia.UI.Controls.OPMTabPage();
             this.pageDiagnostics = new OPMedia.UI.ProTONE.Configuration.MiscConfig.DiagnosticsPage();
+            this.tpFavoriteFolders = new OPMedia.UI.Controls.OPMTabPage();
+            this.pageFavoriteFolders = new OPMedia.UI.ProTONE.Configuration.MiscConfig.FavoriteFoldersPage();
             this.tabMisc.SuspendLayout();
             this.tpPlaylist.SuspendLayout();
             this.tpRemote.SuspendLayout();
@@ -46,6 +48,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             // 
             this.tabMisc.AccessibleName = "tabMisc";
             this.tabMisc.Controls.Add(this.tpPlaylist);
+            this.tabMisc.Controls.Add(this.tpFavoriteFolders);
             this.tabMisc.Controls.Add(this.tpRemote);
             this.tabMisc.Controls.Add(this.tpDiagnostics);
             this.tabMisc.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -133,6 +136,34 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageDiagnostics.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.pageDiagnostics.Size = new System.Drawing.Size(637, 351);
             this.pageDiagnostics.TabIndex = 0;
+
+            // 
+            // tpFavoriteFolders
+            // 
+            this.tpFavoriteFolders.AccessibleName = "TXT_FAVORITES";
+            this.tpFavoriteFolders.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
+            this.tpFavoriteFolders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.tpFavoriteFolders.Controls.Add(this.pageFavoriteFolders);
+            this.tpFavoriteFolders.Location = new System.Drawing.Point(4, 23);
+            this.tpFavoriteFolders.Name = "tpDiagnostics";
+            this.tpFavoriteFolders.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tpFavoriteFolders.Size = new System.Drawing.Size(647, 366);
+            this.tpFavoriteFolders.TabIndex = 3;
+            this.tpFavoriteFolders.Text = "TXT_FAVORITES";
+            // 
+            // pageFavoriteFolders
+            // 
+            this.pageFavoriteFolders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageFavoriteFolders.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.pageFavoriteFolders.Location = new System.Drawing.Point(5, 10);
+            this.pageFavoriteFolders.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pageFavoriteFolders.Modified = false;
+            this.pageFavoriteFolders.Name = "pageDiagnostics";
+            this.pageFavoriteFolders.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pageFavoriteFolders.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.pageFavoriteFolders.Size = new System.Drawing.Size(637, 351);
+            this.pageFavoriteFolders.TabIndex = 0;
+
             // 
             // MiscellaneousSettingsPanel
             // 
@@ -155,8 +186,10 @@ namespace OPMedia.UI.ProTONE.Configuration
         private UI.Controls.OPMTabPage tpRemote;
         private UI.Controls.OPMTabPage tpDiagnostics;
         private UI.Controls.OPMTabPage tpPlaylist;
+        private UI.Controls.OPMTabPage tpFavoriteFolders;
         private MiscConfig.RemoteControlPage pageRemote;
         private MiscConfig.DiagnosticsPage pageDiagnostics;
         private MiscConfig.PlaylistOptionsPage pagePlaylist;
+        private MiscConfig.FavoriteFoldersPage pageFavoriteFolders;    
     }
 }

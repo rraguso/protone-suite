@@ -520,6 +520,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.FilterIndex = AppSettings.LastFilterIndex;
             dlg.InitialDirectory = AppSettings.LastOpenedFolder;
 
+            dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
+
             if (dlg.ShowDialog() == DialogResult.OK && dlg.FileNames.Length > 0)
             {
                 LoadFiles(dlg.FileNames);

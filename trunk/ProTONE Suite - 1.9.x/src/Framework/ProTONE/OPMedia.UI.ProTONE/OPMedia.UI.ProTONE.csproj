@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -59,6 +59,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\MiscConfig\FavoriteFoldersPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\FavoriteFoldersPage.Designer.cs">
+      <DependentUpon>FavoriteFoldersPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MediaPlayer\MenuBuilder.cs" />
     <Compile Include="Controls\OSD\OSDLabel.cs">
       <SubType>Component</SubType>
@@ -224,6 +230,9 @@
     <EmbeddedResource Include="Configuration\FileTypesPanel.resx">
       <DependentUpon>FileTypesPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MiscConfig\FavoriteFoldersPage.resx">
+      <DependentUpon>FavoriteFoldersPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\MiscConfig\DiagnosticsPage.resx">
       <DependentUpon>DiagnosticsPage.cs</DependentUpon>

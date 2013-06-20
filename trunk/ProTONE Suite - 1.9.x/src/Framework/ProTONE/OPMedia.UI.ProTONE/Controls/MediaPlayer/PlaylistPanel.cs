@@ -440,6 +440,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnSavePlaylist.ToIcon((uint)Color.White.ToArgb());
 
+            dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
+
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 AppSettings.PL_LastFilterIndex = dlg.FilterIndex;
@@ -485,6 +487,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnLoadPlaylist.ToIcon((uint)Color.White.ToArgb());
+
+            dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {

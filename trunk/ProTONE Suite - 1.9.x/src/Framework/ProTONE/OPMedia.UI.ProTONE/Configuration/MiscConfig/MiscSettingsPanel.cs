@@ -48,6 +48,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             bmp.MakeTransparent();
             tabMisc.ImageList.Images.Add(bmp);
             //tabMisc.ImageList.Images.Add(Resources.Monitor);
+            tabMisc.ImageList.Images.Add(OPMedia.UI.Properties.Resources.Favorites16);
             tabMisc.ImageList.Images.Add(OPMedia.Core.Properties.Resources.ir_remote);
             tabMisc.ImageList.Images.Add(Resources.Diagnostics);
 
@@ -66,6 +67,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             pagePlaylist.ModifiedActive += new EventHandler(OnModifiedActive);
             pageRemote.ModifiedActive += new EventHandler(OnModifiedActive);
             pageDiagnostics.ModifiedActive += new EventHandler(OnModifiedActive);
+            pageFavoriteFolders.ModifiedActive += new EventHandler(OnModifiedActive);
 
             this.HandleCreated += new EventHandler(MiscellaneousSettingsPanel_HandleCreated);
         }
@@ -93,6 +95,8 @@ namespace OPMedia.UI.ProTONE.Configuration
             // Diagnostics page does not interact with app settings.
             // No need to call Save for it.
             //pageDiagnostics.Save();
+
+            pageFavoriteFolders.Save();
 
             Modified = false;
         }
