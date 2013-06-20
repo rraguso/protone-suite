@@ -661,6 +661,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
+                if (PathUtils.IsRootPath(path))
+                {
+                    DvdMedia dvdMedia = DvdMedia.FromPath(path);
+                    if (dvdMedia != null)
+                        return true; // DVD's are supported media
+                }
+
                 FileInfo info = new FileInfo(path);
 
                 if ((info.Attributes & FileAttributes.Directory) == FileAttributes.Directory)

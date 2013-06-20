@@ -385,6 +385,17 @@ namespace OPMedia.Core.Utilities
                     key.SetValue(null, Constants.CanonicShellIntegrationSuportGuid);
                 }
             }
+
+            // Drive context menu handler
+            keyName = @"Drive\shellex\ContextMenuHandlers\" + Constants.PlayerName;
+            using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyName))
+            {
+                // Set the default value of the key.
+                if (key != null)
+                {
+                    key.SetValue(null, Constants.CanonicShellIntegrationSuportGuid);
+                }
+            }
         }
 
         public static void UnregisterContextMenuHandler()
@@ -400,6 +411,13 @@ namespace OPMedia.Core.Utilities
             try
             {
                 Registry.ClassesRoot.DeleteSubKeyTree(@"Directory\shellex\ContextMenuHandlers\" + Constants.PlayerName);
+            }
+            catch { }
+
+            // Drive context menu handler
+            try
+            {
+                Registry.ClassesRoot.DeleteSubKeyTree(@"Drive\shellex\ContextMenuHandlers\" + Constants.PlayerName);
             }
             catch { }
         }

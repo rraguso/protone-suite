@@ -23,9 +23,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             supportedAudioMediaTypes = new List<string>(new string[] 
             { 
                 // 15 supported audio file types
-                "au",   "aif", "aiff", "flac", "mid", 
+                "au",   "aif", "aiff", 
+                
+                "cda", // Audio CD track
+
+                "flac", "mid", 
                 "midi", "mp1", "mp2",  "mp3", "mpa",  
-                "raw", "rmi",  "snd",  "wav",  "wma"
+                "raw", "rmi",  "snd",  "wav",  "wma",
+                
             });
 
             supportedVideoMediaTypes = new List<string>(new string[] 
@@ -34,7 +39,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
                 "avi", "divx", "qt",  "m1v", "m2v", 
                 "mod", "mov",  "mpg", "mpeg", "vob", 
-                "wm", "wmv", "mkv", "mp4", 
+                "wm", "wmv", 
+                
+                "mkv", "mp4", 
             });
 
             supportedHDVideoMediaTypes = new List<string>(new string[] 
