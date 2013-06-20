@@ -16,6 +16,7 @@ using System.Runtime.InteropServices;
 using OPMedia.Core.Logging;
 using OPMedia.Core.ApplicationSettings;
 using System.Security.Principal;
+using OPMedia.Core.Utilities;
 
 namespace OPMedia.Core
 {
@@ -401,12 +402,7 @@ namespace OPMedia.Core
             }
         }
 
-        internal static void RunProcess(string cmdLine, string args, bool wait)
-        {
-            RunProcess(cmdLine, args, wait, false);
-        }
-
-        internal static bool RunProcess(string cmdLine, string args, bool wait, bool window)
+        internal static bool RunProcess(string cmdLine, string args, bool wait, bool window=false)
         {
             try
             {
@@ -562,6 +558,49 @@ namespace OPMedia.Core
             get
             {
                 return @"BSP_V1;http://api.bsplayer-subtitles.com/v1.php;1\Osdb;http://api.opensubtitles.org/xml-rpc;1\NuSoap;http://api.getsubtitle.com/server.php;0";
+            }
+        }
+
+        private static List<string> __favoriteFolders = null; 
+        
+        public static List<string> GetFavoriteFolders(string favFoldersHiveName)
+        {
+            if (__favoriteFolders == null)
+            {
+                __favoriteFolders = new List<string>();
+
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(ConfigRegPath))
+                {
+                    if (key != null)
+                    {
+                        string str = key.GetValue(favFoldersHiveName, string.Empty) as string;
+                        if (!string.IsNullOrEmpty(str))
+                        {
+                            string[] favFolders = StringUtils.ToStringArray(str, '?');
+                            __favoriteFolders.AddRange(favFolders);
+                        }
+                    }
+                }
+            }
+
+            return __favoriteFolders;
+        }
+
+        public static void SetFavoriteFolders(List<string> folders, string favFoldersHiveName)
+        {
+            __favoriteFolders.Clear();
+            __favoriteFolders.AddRange(folders);
+
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(ConfigRegPath))
+            {
+                if (key != null)
+                {
+                    string favFolders = StringUtils.FromStringArray(__favoriteFolders.ToArray(), '?');
+                    if (favFolders == null)
+                        favFolders = string.Empty;
+
+                    key.SetValue(favFoldersHiveName, favFolders);
+                }
             }
         }
     }

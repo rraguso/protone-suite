@@ -16,6 +16,8 @@ using OPMedia.UI;
 
 namespace OPMedia.UI.Controls.Dialogs
 {
+    public delegate List<string> FillFavoriteFoldersHandler();
+
     public partial class OPMFileDialog : ToolForm
     {
         public string Title { get; set; }
@@ -23,6 +25,8 @@ namespace OPMedia.UI.Controls.Dialogs
         public string InitialDirectory { get; set; }
         public int FilterIndex { get; set; }
         public string[] FileNames { get; protected set; }
+
+        public event FillFavoriteFoldersHandler FillFavoriteFoldersEvt = null;
 
         public string FileName 
         {
@@ -195,6 +199,7 @@ namespace OPMedia.UI.Controls.Dialogs
             FillDriveList();
             FillFilterList();
             FillSpecialFolders();
+            FillFavoriteFolders();
 
             cmbDiskDrives.SelectedIndexChanged += new EventHandler(cmbDiskDrives_SelectedIndexChanged);
             tsSpecialFolders.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsSpecialFolders_ItemClicked);
@@ -294,6 +299,38 @@ namespace OPMedia.UI.Controls.Dialogs
 
             cmbDiskDrives.Focus();
             cmbDiskDrives.Select();
+        }
+
+        private void FillFavoriteFolders()
+        {
+            if (FillFavoriteFoldersEvt != null)
+            {
+                List<string> favorites = FillFavoriteFoldersEvt();
+                if (favorites != null)
+                {
+                    foreach (string fav in favorites)
+                    {
+                        try
+                        {
+                            string title = Path.GetFileName(fav);
+                            OPMToolStripButton btn = new OPMToolStripButton(title);
+                            btn.Name = title;
+                            btn.Image = ImageProvider.GetIcon(fav, true);
+                            btn.ToolTipText = fav;
+
+                            btn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+                            btn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
+                            btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+                            btn.AutoSize = true;
+                            btn.Tag = fav;
+                            btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+
+                            tsSpecialFolders.Items.Add(btn);
+                        }
+                        catch { }
+                    }
+                }
+            }
         }
 
         private void FillSpecialFolders()
@@ -510,20 +547,33 @@ namespace OPMedia.UI.Controls.Dialogs
 
         private void tsSpecialFolders_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            SpecialFolderButton btn = e.ClickedItem as SpecialFolderButton;
-            if (btn != null)
+            OPMToolStripButton tsb = e.ClickedItem as OPMToolStripButton;
+            if (tsb != null)
             {
                 foreach (ToolStripItem tsi in tsSpecialFolders.Items)
                 {
-                    SpecialFolderButton button = tsi as SpecialFolderButton;
+                    OPMToolStripButton button = tsi as OPMToolStripButton;
                     if (button != null)
                     {
-                        button.Checked = (button == btn);
+                        button.Checked = (button == tsb);
                     }
                 }
 
-                SelectDrive(btn.Path);
-                lvExplorer.Path = btn.Path;
+                SpecialFolderButton sfb = tsb as SpecialFolderButton;
+                if (sfb != null)
+                {
+                    SelectDrive(sfb.Path);
+                    lvExplorer.Path = sfb.Path;
+                }
+                else
+                {
+                    string path = tsb.Tag as string;
+                    if (Directory.Exists(path))
+                    {
+                        SelectDrive(path);
+                        lvExplorer.Path = path;
+                    }
+                }
             }
         }
 
@@ -554,15 +604,26 @@ namespace OPMedia.UI.Controls.Dialogs
             return _sf.ToString();
         }
 
+        private static string GetDisplayName(Environment.SpecialFolder sf)
+        {
+            string path = Environment.GetFolderPath(sf, Environment.SpecialFolderOption.Create);
+            if (Directory.Exists(path))
+            {
+                return System.IO.Path.GetFileName(path);
+            }
+
+            return sf.ToString();
+        }
+
         public SpecialFolderButton(Environment.SpecialFolder sf)
-            : base(sf.ToString())
+            : base(GetDisplayName(sf))
         {
             _sf = sf;
             
             if (string.IsNullOrEmpty(Path))
                 throw new ArgumentException();
 
-            base.Name = _sf.ToString();
+            base.Name = GetDisplayName(sf);
 
             base.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             base.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;

@@ -239,7 +239,7 @@
             this.tsSpecialFolders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.tsSpecialFolders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tsSpecialFolders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.tsSpecialFolders.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.tsSpecialFolders.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsSpecialFolders.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.tsSpecialFolders.Location = new System.Drawing.Point(0, 51);
             this.tsSpecialFolders.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);

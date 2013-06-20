@@ -715,19 +715,6 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string FavoriteFolders
-        {
-            get
-            {
-                return _config.GetValue("FavoriteFolders", string.Empty);
-            }
-
-            set
-            {
-                _config.SetValue("FavoriteFolders", value);
-            }
-        }
-
         public static int LastVolume
         {
             get
