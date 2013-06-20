@@ -1017,5 +1017,23 @@ Do you want to create it ?</value>
 <data name="TXT_ASSISTANCE">
   <value>Assistance</value>
 </data>
+<data name="TXT_CHOOSE_FAVORITE">
+  <value>Please select a folder to be added as favorite:</value>
+</data>
+<data name="TXT_CMDFAVMANAGER">
+  <value>Open favorite folder manager</value>
+</data>
+<data name="TXT_FAVORITES">
+  <value>Favorite folders</value>
+</data>
+<data name="TXT_FAVORITES_ADD">
+  <value>Add to Favorite Folders</value>
+</data>
+<data name="TXT_FAVORITES_MANAGE">
+  <value>Manage Favorite Folders ...</value>
+</data>
+<data name="TXT_MANAGE_FAVORITES">
+  <value>Define your Favorite Folders:</value>
+</data>
     
 </root>

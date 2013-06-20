@@ -1017,5 +1017,23 @@ Wollen Sie es schaffen?</value>
 <data name="TXT_ASSISTANCE">
   <value>Assistenz</value>
 </data>
+<data name="TXT_CHOOSE_FAVORITE">
+  <value>Bitte wählen Sie einen Ordner zu den Favoriten hinzugefügt werden:</value>
+</data>
+<data name="TXT_CMDFAVMANAGER">
+  <value>Offene Favorit Ordner-Manager</value>
+</data>
+<data name="TXT_FAVORITES">
+  <value>Favoriten-Ordner</value>
+</data>
+<data name="TXT_FAVORITES_ADD">
+  <value>Als Favorit hinzufügen Folders</value>
+</data>
+<data name="TXT_FAVORITES_MANAGE">
+  <value>Verwalten Favoritenordner ...</value>
+</data>
+<data name="TXT_MANAGE_FAVORITES">
+  <value>Definieren Ihre Favoriten-Ordner:</value>
+</data>
     
 </root>

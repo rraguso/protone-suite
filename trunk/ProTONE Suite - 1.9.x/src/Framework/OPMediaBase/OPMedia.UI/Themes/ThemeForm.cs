@@ -117,32 +117,35 @@ namespace OPMedia.UI.Themes
 
         void ThemeForm_Shown(object sender, EventArgs e)
         {
-            if (!(this is MainFrame))
+            if (!DesignMode)
             {
-                IWin32Window owner = MainThread.MainWindow;
-                if (owner == null ||
-                    !User32.IsWindow(owner.Handle) ||
-                    !User32.IsWindowVisible(owner.Handle))
+                if (!(this is MainFrame))
                 {
-                    owner = NativeWindow.FromHandle(User32.GetDesktopWindow());
-                }
+                    IWin32Window owner = MainThread.MainWindow;
+                    if (owner == null ||
+                        !User32.IsWindow(owner.Handle) ||
+                        !User32.IsWindowVisible(owner.Handle))
+                    {
+                        owner = NativeWindow.FromHandle(User32.GetDesktopWindow());
+                    }
 
-                bool centerParent = (owner != null &&
-                     owner != this &&
-                     User32.IsWindow(owner.Handle) &&
-                     User32.IsWindowVisible(owner.Handle));
+                    bool centerParent = (owner != null &&
+                         owner != this &&
+                         User32.IsWindow(owner.Handle) &&
+                         User32.IsWindowVisible(owner.Handle));
 
-                if (centerParent)
-                {
-                    CenterToParent();
-                }
-                else
-                {
-                    CenterToScreen();
-                }
+                    if (centerParent)
+                    {
+                        CenterToParent();
+                    }
+                    else
+                    {
+                        CenterToScreen();
+                    }
 
-                this.BringToFront();
-                this.Activate();
+                    this.BringToFront();
+                    this.Activate();
+                }
             }
         }
 

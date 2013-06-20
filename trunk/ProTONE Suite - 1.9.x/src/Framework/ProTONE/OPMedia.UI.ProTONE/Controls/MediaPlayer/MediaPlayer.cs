@@ -521,6 +521,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.InitialDirectory = AppSettings.LastOpenedFolder;
 
             dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
+
+            dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK && dlg.FileNames.Length > 0)
             {
@@ -537,6 +540,17 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     AppSettings.LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
+        }
+
+        private bool AddToFavoriteFolders(string path)
+        {
+            List<string> favorites = new List<string>(SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"));
+            if (favorites.Contains(path))
+                return false;
+
+            favorites.Add(path);
+            SuiteConfiguration.SetFavoriteFolders(favorites, "FavoriteFolders");
+            return true;
         }
 
         private void LoadFiles(string[] fileNames)

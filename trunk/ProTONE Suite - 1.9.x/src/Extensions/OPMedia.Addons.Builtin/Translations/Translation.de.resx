@@ -154,9 +154,6 @@
 <data name="TXT_CATALOG_FILTER">
   <value>Media Katalog Dateien (*.ctx)|*.ctx||</value>
 </data>
-<data name="TXT_CHOOSE_FAVORITE">
-  <value>Bitte wählen Sie einen Ordner zu den Favoriten hinzugefügt werden:</value>
-</data>
 <data name="TXT_CMDCATALOGMERGE">
   <value>Zusammenführen von Katalogen</value>
 </data>
@@ -165,9 +162,6 @@
 </data>
 <data name="TXT_CMDCHANGEDISK">
   <value>Ändern logischer Datenträger</value>
-</data>
-<data name="TXT_CMDFAVMANAGER">
-  <value>Offene Favorit Ordner-Manager</value>
 </data>
 <data name="TXT_CMDID3WIZARD">
   <value>Starten Sie ID3-Assistent</value>
@@ -188,28 +182,19 @@
   <value>Geben Sie eine Beschreibung für den Eintrag hinzugefügt werden:</value>
 </data>
 <data name="TXT_ERROR_INVALID_CATALOG">
-  <value>Diese Datei stellt keine gültige Media Catalog:&#xD;&#xD;
-&#xD;&#xD;
+  <value>Diese Datei stellt keine gültige Media Catalog:&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
 {0}</value>
 </data>
 <data name="TXT_ERROR_MERGE_SAME_CATALOG">
-  <value>Sie können nicht zusammengeführt werden einen Katalog in sich:&#xD;&#xD;
-&#xD;&#xD;
+  <value>Sie können nicht zusammengeführt werden einen Katalog in sich:&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
 {0}</value>
 </data>
 <data name="TXT_ERR_MERGE_FAILED">
-  <value>Merge Kataloge sind gescheitert. Details:&#xD;&#xD;
-&#xD;&#xD;
+  <value>Merge Kataloge sind gescheitert. Details:&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
 {0}</value>
-</data>
-<data name="TXT_FAVORITES">
-  <value>Favoriten-Ordner</value>
-</data>
-<data name="TXT_FAVORITES_ADD">
-  <value>Als Favorit hinzufügen Folders</value>
-</data>
-<data name="TXT_FAVORITES_MANAGE">
-  <value>Verwalten Favoritenordner ...</value>
 </data>
 <data name="TXT_FILENAMEPATTERN">
   <value>Dateiname Muster:</value>
@@ -221,18 +206,18 @@
   <value>Füllen Sie ID3-Infos über Datei / Ordner-Namen</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA">
-  <value>Link-Media-Dateien, um Dateien bookmark&#xD;&#xD;
+  <value>Link-Media-Dateien, um Dateien bookmark&#xD;&#xD;&#xD;
 (Halten Sie die Maustaste schwebte auf diesen Text, um einen erklärenden Tooltip zeigen)</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA_DESC">
-  <value>Bookmark-Dateien (BMK) enthalten Informationen über besondere Momente in einer Mediendatei. Es ist sehr wichtig, dass&#xD;&#xD;
-BMK Dateien in der Nähe der erhältlichen Mediendateien (auch als "Stamm-Dateien ') angeordnet sind.&#xD;&#xD;
-&#xD;&#xD;
-Wenn Sie dieses Feld ckeck, die Datei-Browser wird immer überlegen, stellen eine einzelne Entität, die eine Medien-Datei und die zugehörigen Lesezeichen-Datei.&#xD;&#xD;
-Dies bedeutet, dass ein kopieren, umbenennen, verschieben oder löschen Betrieb&#xD;&#xD;
-aus dem Datei-Browser auf eine dieser Dateien automatisch ausgestellt propagiert auf die andere Datei auch.&#xD;&#xD;
-&#xD;&#xD;
-Halten Sie dieses Kontrollkästchen deaktiviert, wenn Sie sie als verschiedene Entitäten zu betrachten und mit ihnen umgehen&#xD;&#xD;
+  <value>Bookmark-Dateien (BMK) enthalten Informationen über besondere Momente in einer Mediendatei. Es ist sehr wichtig, dass&#xD;&#xD;&#xD;
+BMK Dateien in der Nähe der erhältlichen Mediendateien (auch als "Stamm-Dateien ') angeordnet sind.&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
+Wenn Sie dieses Feld ckeck, die Datei-Browser wird immer überlegen, stellen eine einzelne Entität, die eine Medien-Datei und die zugehörigen Lesezeichen-Datei.&#xD;&#xD;&#xD;
+Dies bedeutet, dass ein kopieren, umbenennen, verschieben oder löschen Betrieb&#xD;&#xD;&#xD;
+aus dem Datei-Browser auf eine dieser Dateien automatisch ausgestellt propagiert auf die andere Datei auch.&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
+Halten Sie dieses Kontrollkästchen deaktiviert, wenn Sie sie als verschiedene Entitäten zu betrachten und mit ihnen umgehen&#xD;&#xD;&#xD;
 in den Windows-Explorer-Stil wollen.</value>
 </data>
 <data name="TXT_ID3FILESFILTER">
@@ -261,9 +246,6 @@ in den Windows-Explorer-Stil wollen.</value>
 </data>
 <data name="TXT_MAINTAIN_CATALOG_HISTORY">
   <value>Denken Sie daran, offen Kataloge Geschichte</value>
-</data>
-<data name="TXT_MANAGE_FAVORITES">
-  <value>Bevorzugte Ordner-Manager</value>
 </data>
 <data name="TXT_MAXPROCESSEDFILES">
   <value>Max. Nr. von Dateien, deren Eigenschaften können angezeigt werden:</value>
@@ -359,7 +341,7 @@ in den Windows-Explorer-Stil wollen.</value>
   <value>Vorschau Ergebnisse</value>
 </data>
 <data name="TXT_PREVIEW_TIMER">
-  <value>Automatische Vorschau Timer (Sekunden)&#xD;&#xD;
+  <value>Automatische Vorschau Timer (Sekunden)&#xD;&#xD;&#xD;
 (0 = Deaktivieren Sie die automatische Vorschau):</value>
 </data>
 <data name="TXT_PROPERTYSEARCH">
@@ -393,9 +375,9 @@ in den Windows-Explorer-Stil wollen.</value>
   <value>Scan-Fehler</value>
 </data>
 <data name="TXT_SCAN_ERROR_MSG">
-  <value>Ein nicht-tödlicher Fehler beim Scannen Objekt:. {0}&#xD;&#xD;
-Die Fehlermeldung lautet:. {1}&#xD;&#xD;
-&#xD;&#xD;
+  <value>Ein nicht-tödlicher Fehler beim Scannen Objekt:. {0}&#xD;&#xD;&#xD;
+Die Fehlermeldung lautet:. {1}&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
 Möchten Sie fortfahren Scannen wollen?</value>
 </data>
 <data name="TXT_SEARCHFOLDER">
@@ -432,14 +414,14 @@ Möchten Sie fortfahren Scannen wollen?</value>
   <value>Wählen Sie einen Ordner mit MPEG-Audio-Dateien:</value>
 </data>
 <data name="TXT_SELECTINSERTPOINT">
-  <value>Wählen Sie die Einfügemarke innerhalb des ausgewählten Katalog&#xD;&#xD;
+  <value>Wählen Sie die Einfügemarke innerhalb des ausgewählten Katalog&#xD;&#xD;&#xD;
 (drücken Sie F5, um den Baum neu zu laden):</value>
 </data>
 <data name="TXT_SENTENCECASE">
   <value>Profitieren erste Wort</value>
 </data>
 <data name="TXT_SHORTCUT">
-  <value>&#xD;&#xD;
+  <value>&#xD;&#xD;&#xD;
 Tastenkürzel: {0}</value>
 </data>
 <data name="TXT_SUPPLY_CATALOG_DESC">
@@ -467,11 +449,11 @@ Tastenkürzel: {0}</value>
   <value>Geben Sie den Katalog, um die importierten Dateien hinzu:</value>
 </data>
 <data name="TXT_WIZCATSTEP2_DESC">
-  <value>Wählen Sie den Ordner oder die Diskette mit der zu importierenden Objekte&#xD;&#xD;
+  <value>Wählen Sie den Ordner oder die Diskette mit der zu importierenden Objekte&#xD;&#xD;&#xD;
 (drücken Sie F5, um den Baum neu zu laden):</value>
 </data>
 <data name="TXT_WIZID3STEP1_DESC">
-  <value>Bitte angeben, welche Dateien Sie bearbeiten möchten.&#xD;&#xD;
+  <value>Bitte angeben, welche Dateien Sie bearbeiten möchten.&#xD;&#xD;&#xD;
 Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entfernen "Tasten, um die Dateien zu konfigurieren.</value>
 </data>
 <data name="TXT_WIZID3STEP2_DESC">

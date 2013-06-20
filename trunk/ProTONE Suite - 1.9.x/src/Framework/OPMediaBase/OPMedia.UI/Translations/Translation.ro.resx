@@ -1016,5 +1016,23 @@ Doriţi să fie creat ?</value>
 <data name="TXT_ASSISTANCE">
   <value>Asistenţă</value>
 </data>
+<data name="TXT_CHOOSE_FAVORITE">
+  <value>Selectaţi un director favorit:</value>
+</data>
+<data name="TXT_CMDFAVMANAGER">
+  <value>Gestioneaza Directoarele favorite</value>
+</data>
+<data name="TXT_FAVORITES">
+  <value>Directoare favorite</value>
+</data>
+<data name="TXT_FAVORITES_ADD">
+  <value>Adaugă la Directoare favorite</value>
+</data>
+<data name="TXT_FAVORITES_MANAGE">
+  <value>Gestionează Directoarele favorite ...</value>
+</data>
+<data name="TXT_MANAGE_FAVORITES">
+  <value>Definiți Directoarele Favorite:</value>
+</data>
     
 </root>

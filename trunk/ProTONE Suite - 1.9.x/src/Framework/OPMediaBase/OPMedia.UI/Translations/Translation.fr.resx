@@ -1017,5 +1017,23 @@ Voulez-vous le créer?</value>
 <data name="TXT_ASSISTANCE">
   <value>Assistance</value>
 </data>
+<data name="TXT_CHOOSE_FAVORITE">
+  <value>S'il vous plaît sélectionner un dossier à ajouter en tant que favori:</value>
+</data>
+<data name="TXT_CMDFAVMANAGER">
+  <value>Ouvrez le Gestionnaire de dossier favori</value>
+</data>
+<data name="TXT_FAVORITES">
+  <value>Dossiers favoris</value>
+</data>
+<data name="TXT_FAVORITES_ADD">
+  <value>Ajouter aux dossiers favoris</value>
+</data>
+<data name="TXT_FAVORITES_MANAGE">
+  <value>Gérer les dossiers favoris ...</value>
+</data>
+<data name="TXT_MANAGE_FAVORITES">
+  <value>Favorite Responsable des dossiers</value>
+</data>
     
 </root>

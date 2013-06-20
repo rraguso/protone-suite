@@ -14,6 +14,8 @@ namespace OPMedia.UI.Dialogs
 {
     public partial class FavoriteFoldersControl : UserControl
     {
+        public event EventHandler OnModified = null;
+
         public string FavoriteFoldersHiveName { get; set; }
 
         public List<string> FavoriteFolders
@@ -35,6 +37,15 @@ namespace OPMedia.UI.Dialogs
             InitializeComponent();
 
             this.Load += new EventHandler(FavoriteFoldersControl_Load);
+            btnDelete.Enabled = false;
+
+            lvFavorites.SelectedIndexChanged += new EventHandler(lvFavorites_SelectedIndexChanged);
+            lvFavorites.MultiSelect = true;
+        }
+
+        void lvFavorites_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = (lvFavorites.SelectedItems != null && lvFavorites.SelectedItems.Count > 0) ;
         }
 
         void FavoriteFoldersControl_Load(object sender, EventArgs e)
@@ -50,6 +61,11 @@ namespace OPMedia.UI.Dialogs
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 CreateItem(dlg.SelectedPath);
+
+                if (OnModified != null)
+                {
+                    OnModified(sender, e);
+                }
             }
         }
 
@@ -65,9 +81,14 @@ namespace OPMedia.UI.Dialogs
             {
                 lvFavorites.Items.Remove(item);
             }
+
+            if (OnModified != null)
+            {
+                OnModified(sender, e);
+            }
         }
 
-        private void DisplayFavorites()
+        public void DisplayFavorites()
         {
             lvFavorites.Items.Clear();
             ilFavorites.Images.Clear();

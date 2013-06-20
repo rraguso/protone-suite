@@ -31,7 +31,7 @@ namespace OPMedia.UI.Dialogs
             this.btnDelete = new OPMedia.UI.Controls.OPMButton();
             this.ilFavorites = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.lvFavorites = new OPMedia.UI.Controls.OPMListView();
+            this.lvFavorites = new OPMedia.UI.Controls.OPMListView(ColumnHeaderStyle.None);
             this.colPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();

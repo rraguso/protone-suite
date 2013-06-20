@@ -154,9 +154,6 @@
 <data name="TXT_CATALOG_FILTER">
   <value>Fişiere catalog (*.ctx)|*.ctx||</value>
 </data>
-<data name="TXT_CHOOSE_FAVORITE">
-  <value>Selectaţi un director favorit:</value>
-</data>
 <data name="TXT_CMDCATALOGMERGE">
   <value>Alipire cataloage</value>
 </data>
@@ -165,9 +162,6 @@
 </data>
 <data name="TXT_CMDCHANGEDISK">
   <value>Schimbă discul logic</value>
-</data>
-<data name="TXT_CMDFAVMANAGER">
-  <value>Gestioneaza Directoarele favorite</value>
 </data>
 <data name="TXT_CMDID3WIZARD">
   <value>Lansează utilitarul ID3</value>
@@ -188,27 +182,18 @@
   <value>Daţi o descriere pentru elementul ce va fi adaugat:</value>
 </data>
 <data name="TXT_ERROR_INVALID_CATALOG">
-  <value>Acest fişier nu reprezintă un catalog media valid:&#xD;
-&#xD;
+  <value>Acest fişier nu reprezintă un catalog media valid:&#xD;&#xD;
+&#xD;&#xD;
 {0}</value>
 </data>
 <data name="TXT_ERROR_MERGE_SAME_CATALOG">
-  <value>Nu se poate alipi un catalog cu el insusi:&#xD;
-&#xD;
+  <value>Nu se poate alipi un catalog cu el insusi:&#xD;&#xD;
+&#xD;&#xD;
 {0}</value>
 </data>
 <data name="TXT_ERR_MERGE_FAILED">
-  <value>Alipirea cataloagelor a eşuat. Detalii:&#xD;
+  <value>Alipirea cataloagelor a eşuat. Detalii:&#xD;&#xD;
 {0}</value>
-</data>
-<data name="TXT_FAVORITES">
-  <value>Directoare favorite</value>
-</data>
-<data name="TXT_FAVORITES_ADD">
-  <value>Adaugă la Directoare favorite</value>
-</data>
-<data name="TXT_FAVORITES_MANAGE">
-  <value>Gestionează Directoarele favorite ...</value>
 </data>
 <data name="TXT_FILENAMEPATTERN">
   <value>Şablon nume fişier:</value>
@@ -220,20 +205,20 @@
   <value>Populează câmpurile ID3 folosind numele fişierului/directorului</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA">
-  <value>Leagă fişierele media de fişierele bookmark&#xD;
+  <value>Leagă fişierele media de fişierele bookmark&#xD;&#xD;
 (Stationaţi cu mouse-ul peste acest text pentru a afişa un tooltip explicativ)</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA_DESC">
-  <value>Fişierele bookmark (extensia BMK) conţin informaţii despre anumite momente în cadrul unui fişier &#xD;
-media. Este foarte important ca fişierele BMK să se afle lânga fişierele media asociate (numite şi &#xD;
-'fişiere părinte').&#xD;
-&#xD;
-Dacă bifaţi această casetă, Exploratorul de Fişiere va considera intotdeauna că un fişier media şi &#xD;
-fişierul bookmark asociat reprezintă o singura entitate. Acest lucru inseamna că o operaţiune de &#xD;
-copiere, redenumire, mutare sau ştergere efectuata prin Exploratorul de Fişiere pe oricare din aceste &#xD;
-doua fişiere se va propaga automat şi asupra celuilalt.&#xD;
-&#xD;
-Lăsaţi această casetă nebifată dacă doriţi ca aceste două fişiere să fie tratate ca două fişiere &#xD;
+  <value>Fişierele bookmark (extensia BMK) conţin informaţii despre anumite momente în cadrul unui fişier &#xD;&#xD;
+media. Este foarte important ca fişierele BMK să se afle lânga fişierele media asociate (numite şi &#xD;&#xD;
+'fişiere părinte').&#xD;&#xD;
+&#xD;&#xD;
+Dacă bifaţi această casetă, Exploratorul de Fişiere va considera intotdeauna că un fişier media şi &#xD;&#xD;
+fişierul bookmark asociat reprezintă o singura entitate. Acest lucru inseamna că o operaţiune de &#xD;&#xD;
+copiere, redenumire, mutare sau ştergere efectuata prin Exploratorul de Fişiere pe oricare din aceste &#xD;&#xD;
+doua fişiere se va propaga automat şi asupra celuilalt.&#xD;&#xD;
+&#xD;&#xD;
+Lăsaţi această casetă nebifată dacă doriţi ca aceste două fişiere să fie tratate ca două fişiere &#xD;&#xD;
 distincte, gestionate în stilul Windows Explorer.</value>
 </data>
 <data name="TXT_ID3FILESFILTER">
@@ -262,9 +247,6 @@ distincte, gestionate în stilul Windows Explorer.</value>
 </data>
 <data name="TXT_MAINTAIN_CATALOG_HISTORY">
   <value>Reţine istoricul cataloagelor deschise</value>
-</data>
-<data name="TXT_MANAGE_FAVORITES">
-  <value>Gestionare Directoare favorite</value>
 </data>
 <data name="TXT_MAXPROCESSEDFILES">
   <value>Nr. max. de fişiere ale căror proprietăţi pot fi afişate:</value>
@@ -360,7 +342,7 @@ distincte, gestionate în stilul Windows Explorer.</value>
   <value>Vizualizare rezultate</value>
 </data>
 <data name="TXT_PREVIEW_TIMER">
-  <value>Temporizare vizualizare automată (secunde)&#xD;
+  <value>Temporizare vizualizare automată (secunde)&#xD;&#xD;
 (0 = Dezactivează vizualizarea automată):</value>
 </data>
 <data name="TXT_PROPERTYSEARCH">
@@ -394,9 +376,9 @@ distincte, gestionate în stilul Windows Explorer.</value>
   <value>Eroare la scanare</value>
 </data>
 <data name="TXT_SCAN_ERROR_MSG">
-  <value>O eroare non-fatală s-a produs la scanarea obiectului: {0}.&#xD;
-Mesajul de eroare este: {1}. &#xD;
-&#xD;
+  <value>O eroare non-fatală s-a produs la scanarea obiectului: {0}.&#xD;&#xD;
+Mesajul de eroare este: {1}. &#xD;&#xD;
+&#xD;&#xD;
 Doriţi continuarea scanării ?</value>
 </data>
 <data name="TXT_SEARCHFOLDER">
@@ -433,14 +415,14 @@ Doriţi continuarea scanării ?</value>
   <value>Selectaţi un director ce contine fişiere MPEG audio:</value>
 </data>
 <data name="TXT_SELECTINSERTPOINT">
-  <value>Selectaţi punctul de insertie în cadrul catalogului selectat&#xD;
+  <value>Selectaţi punctul de insertie în cadrul catalogului selectat&#xD;&#xD;
 (apasaţi F5 pentru reîncărcarea listei):</value>
 </data>
 <data name="TXT_SENTENCECASE">
   <value>Primul cuvânt cu majusculă</value>
 </data>
 <data name="TXT_SHORTCUT">
-  <value>&#xD;
+  <value>&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_SUPPLY_CATALOG_DESC">
@@ -468,11 +450,11 @@ Scurtătură: {0}</value>
   <value>Specificaţi catalogul unde se vor adăuga elementele importate:</value>
 </data>
 <data name="TXT_WIZCATSTEP2_DESC">
-  <value>Selectaţi directorul sau discul conţinând fişierele ce trebuiesc importate: &#xD;
+  <value>Selectaţi directorul sau discul conţinând fişierele ce trebuiesc importate: &#xD;&#xD;
 (apasaţi F5 pentru a reîncărca lista):</value>
 </data>
 <data name="TXT_WIZID3STEP1_DESC">
-  <value>Specificaţi fişierele ce trebuiesc editate. Folosiţi butoanele 'Adaugă Fişier', &#xD;
+  <value>Specificaţi fişierele ce trebuiesc editate. Folosiţi butoanele 'Adaugă Fişier', &#xD;&#xD;
 'Adaugă Director', 'Şterge fişiere' pentru a configura lista de fişiere.</value>
 </data>
 <data name="TXT_WIZID3STEP2_DESC">

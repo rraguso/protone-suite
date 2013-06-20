@@ -13,13 +13,17 @@ using OPMedia.Core.Logging;
 using System.IO;
 using OPMedia.UI.Controls;
 using OPMedia.UI;
+using OPMedia.UI.Properties;
 
 namespace OPMedia.UI.Controls.Dialogs
 {
     public delegate List<string> FillFavoriteFoldersHandler();
+    public delegate bool AddToFavoriteFoldersHandler(string path);
 
     public partial class OPMFileDialog : ToolForm
     {
+        OPMToolTipManager _tt = null;
+
         public string Title { get; set; }
         public string Filter { get; set; }
         public string InitialDirectory { get; set; }
@@ -27,6 +31,9 @@ namespace OPMedia.UI.Controls.Dialogs
         public string[] FileNames { get; protected set; }
 
         public event FillFavoriteFoldersHandler FillFavoriteFoldersEvt = null;
+        public event AddToFavoriteFoldersHandler AddToFavoriteFolders = null;
+
+        public bool ShowAddToFavorites { get; set; }
 
         public string FileName 
         {
@@ -88,6 +95,10 @@ namespace OPMedia.UI.Controls.Dialogs
             ilDrives.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
 
             this.Load += new EventHandler(OPMFileDialog_Load);
+
+            btnAddToFavorites.Image = Resources.Favorites16;
+
+            _tt = new OPMToolTipManager(btnAddToFavorites);
         }
 
         bool lvExplorer_LaunchMultipleItems(object sender, EventArgs e)
@@ -218,6 +229,22 @@ namespace OPMedia.UI.Controls.Dialogs
             }
 
             lvExplorer.Path = this.InitialDirectory;
+
+            if (ShowAddToFavorites)
+            {
+                btnAddToFavorites.MouseHover += new EventHandler(btnAddToFavorites_MouseHover);
+            }
+            else
+            {
+                opmTableLayoutPanel1.Controls.Remove(btnAddToFavorites);
+                opmTableLayoutPanel1.SetColumnSpan(lblCurrentPath, 4);
+            }
+            
+        }
+
+        void btnAddToFavorites_MouseHover(object sender, EventArgs e)
+        {
+            _tt.ShowSimpleToolTip(Translator.Translate("TXT_FAVORITES_ADD"), Resources.Favorites);
         }
 
         void _tmrUpdateUi_Tick(object sender, EventArgs e)
@@ -583,6 +610,35 @@ namespace OPMedia.UI.Controls.Dialogs
             if (_enableTextChange)
             {
                 FileNames = null;
+            }
+        }
+
+        private void btnAddToFavorites_Click(object sender, EventArgs e)
+        {
+            if (AddToFavoriteFolders != null)
+            {
+                if (AddToFavoriteFolders(lvExplorer.Path))
+                {
+                    try
+                    {
+                        string title = Path.GetFileName(lvExplorer.Path);
+                        OPMToolStripButton btn = new OPMToolStripButton(title);
+                        btn.Name = title;
+                        btn.Image = ImageProvider.GetIcon(lvExplorer.Path, true);
+                        btn.ToolTipText = lvExplorer.Path;
+
+                        btn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+                        btn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
+                        btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+                        btn.AutoSize = true;
+                        btn.Tag = lvExplorer.Path;
+                        btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+
+                        tsSpecialFolders.Items.Add(btn);
+                    }
+                    catch { }
+                    
+                }
             }
         }
     }

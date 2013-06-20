@@ -441,6 +441,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Icon = Resources.btnSavePlaylist.ToIcon((uint)Color.White.ToArgb());
 
             dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
+
+            dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -489,6 +492,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Icon = Resources.btnLoadPlaylist.ToIcon((uint)Color.White.ToArgb());
 
             dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
+
+            dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -507,6 +513,17 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     AppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
+        }
+
+        private bool AddToFavoriteFolders(string path)
+        {
+            List<string> favorites = new List<string>(SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"));
+            if (favorites.Contains(path))
+                return false;
+
+            favorites.Add(path);
+            SuiteConfiguration.SetFavoriteFolders(favorites, "FavoriteFolders");
+            return true;
         }
 
         void playlist_PlaylistUpdated(int item1, int item2, UpdateType updateType)
