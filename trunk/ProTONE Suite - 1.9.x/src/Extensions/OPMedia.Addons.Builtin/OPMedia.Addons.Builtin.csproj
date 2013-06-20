@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -97,9 +97,6 @@
     </Compile>
     <Compile Include="Preview\__DefaultPreview\AddonPanel.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Navigation\FileExplorer\FavoriteFoldersManager.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Navigation\FileExplorer\FileOperations\Forms\FEFileTaskForm.cs">
       <SubType>Form</SubType>
@@ -321,10 +318,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Navigation\FileExplorer\FavoriteFoldersManager.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FavoriteFoldersManager.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\FileExplorer\SearchWizard\Controls\WizFESearchStep1Ctl.resx">
       <SubType>Designer</SubType>
       <DependentUpon>WizFESearchStep1Ctl.cs</DependentUpon>

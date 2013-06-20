@@ -193,7 +193,6 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiFavoritesManage,
             this.tsmiSep5});
             this.tsmiFavorites.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.tsmiFavorites.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Favorites16;
             this.tsmiFavorites.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiFavorites.Name = "tsmiFavorites";
             this.tsmiFavorites.Size = new System.Drawing.Size(201, 22);
@@ -474,7 +473,6 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbFavoritesManage,
             this.toolStripSeparator6});
             this.tsbFavorites.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.tsbFavorites.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Favorites;
             this.tsbFavorites.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.tsbFavorites.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbFavorites.ImageScalingSize = new System.Drawing.Size(16, 16);

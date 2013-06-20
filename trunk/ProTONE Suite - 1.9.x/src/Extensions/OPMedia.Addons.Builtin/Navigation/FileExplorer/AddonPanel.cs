@@ -86,6 +86,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
             ilAddon.Images.Add(Resources.FileExplorer);
 
+            this.tsbFavorites.Image = OPMedia.UI.Properties.Resources.Favorites;
+            this.tsmiFavorites.Image = OPMedia.UI.Properties.Resources.Favorites16;
+
             this.AddonImage = Resources.FileExplorer;
             this.SmallAddonImage = Resources.FileExplorer16;
 
@@ -655,11 +658,18 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         return;
 
                     case ToolAction.ToolActionFavoritesAdd:
-                        FavoriteFoldersManager.Add(opmShellList.Path);
+                        {
+                            List<string> favorites = new List<string>(SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"));
+                            if (favorites.Contains(opmShellList.Path))
+                                return;
+
+                            favorites.Add(opmShellList.Path);
+                            SuiteConfiguration.SetFavoriteFolders(favorites, "FavoriteFolders");
+                        }
                         return;
 
                     case ToolAction.ToolActionFavoritesManage:
-                        FavoriteFoldersManager.Manage();
+                        new FavoriteFoldersManager("FavoriteFolders").ShowDialog();
                         return;
 
                     case ToolAction.ToolActionProTONEEnqueue:
@@ -1048,7 +1058,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     tsmi.DropDownItems.Remove(itemToClear);
                 }
 
-                List<string> favPaths = FavoriteFoldersManager.GetList();
+                List<string> favPaths = SuiteConfiguration.GetFavoriteFolders("FavoriteFolders");
                 if (favPaths != null && favPaths.Count > 0)
                 {
                     foreach (string path in favPaths)

@@ -137,20 +137,6 @@ namespace OPMedia.Addons.Builtin.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap Favorites {
-            get {
-                object obj = ResourceManager.GetObject("Favorites", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Favorites16 {
-            get {
-                object obj = ResourceManager.GetObject("Favorites16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap FileExplorer {
             get {
                 object obj = ResourceManager.GetObject("FileExplorer", resourceCulture);
