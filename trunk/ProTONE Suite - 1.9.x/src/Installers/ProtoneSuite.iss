@@ -150,6 +150,7 @@ Source: {#BINDIR}\fr\OPMedia.RCCManager.resources.dll; DestDir: {app}\fr\; Flags
 Source: {#BINDIR}\fr\OPMedia.ServiceHelper.RCCService.resources.dll; DestDir: {app}\fr\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
 Source: isxdl.dll; DestDir: {tmp}; Flags: dontcopy
+Source: {#EXTDIR}\cdda\cddareader.ax; DestDir: {app}\cdda; Flags: regserver
 Source: {#EXTDIR}\ffdshow\ff_kernelDeint.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
 Source: {#EXTDIR}\ffdshow\ff_liba52.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
 Source: {#EXTDIR}\ffdshow\ff_libdts.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
