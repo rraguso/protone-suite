@@ -12,7 +12,7 @@
     <property name="root" value="." />
 
     <target name="build" description="Rebuild ProTONE Suite">
-        <loadtasks assembly="e:\Programs\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" />
+        <loadtasks assembly="f:\Programs\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" />
 
         <echo message=" BUILD STARTED !!" />
 
@@ -21,7 +21,7 @@
         <call target="VersionInfoUpdate" />
         <call target="BuildVSSolution" />
         <call target="BuildInstaller" />
-        <call target="PostBuildResults" />
+        <!--<call target="PostBuildResults" />-->
 
         <echo message=" BUILD DONE !!" />
 
