@@ -6,8 +6,9 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 using System.Drawing;
 
 using OPMedia.Core.Logging;
-using QuartzTypeLib;
+
 using OPMedia.Core;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
@@ -18,6 +19,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         private string streamType = string.Empty;
 
         #region Construction
+
+        ~DSTechnology()
+        {
+            streamRenderer = null;
+        }
+
         static DSTechnology()
         {
             supportedAudioMediaTypes = new List<string>(new string[] 
@@ -112,8 +119,15 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 }
                 else
                 {
-                    this.streamType = PathUtils.GetExtension(streamName);
-                    if (streamRenderer as DSFileRenderer == null)
+                    this.streamType = PathUtils.GetExtension(streamName).ToLowerInvariant();
+                    if (streamType == "cda")
+                    {
+                        if (streamRenderer as DSAudioCDRenderer == null)
+                        {
+                            streamRenderer = new DSAudioCDRenderer();
+                        }
+                    }
+                    else if (streamRenderer as DSFileRenderer == null)
                     {
                         streamRenderer = new DSFileRenderer();
                     }
@@ -197,9 +211,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
                         mediaControl.RenderFile(path);
 
-                        vfi.Duration = TimeSpan.FromSeconds(mediaPosition.Duration);
-                        vfi.FrameRate = new FrameRate(1f / basicVideo.AvgTimePerFrame);
-                        vfi.VideoSize = new VSize(basicVideo.VideoWidth, basicVideo.VideoHeight);
+                        double val = 0;
+                        DsError.ThrowExceptionForHR(mediaPosition.get_Duration(out val));
+                        vfi.Duration = TimeSpan.FromSeconds(val);
+
+                        DsError.ThrowExceptionForHR(basicVideo.get_AvgTimePerFrame(out val));
+                        vfi.FrameRate = new FrameRate(1f / val);
+
+                        int h = 0, w = 0;
+                        DsError.ThrowExceptionForHR(basicVideo.get_VideoHeight(out h));
+                        DsError.ThrowExceptionForHR(basicVideo.get_VideoWidth(out w));
+                        vfi.VideoSize = new VSize(w, h);
 
                         mediaControl.Stop();
                         mediaControl = null;

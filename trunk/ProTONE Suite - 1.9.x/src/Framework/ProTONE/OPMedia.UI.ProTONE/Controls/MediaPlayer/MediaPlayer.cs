@@ -41,6 +41,7 @@ using OPMedia.UI.Menus;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.UI.ProTONE.Properties;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -151,7 +152,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (!DesignMode)
             {
-                MediaRenderer.DefaultInstance.MediaStateChanged += new MediaStateChangedHandler(OnMediaStateChanged);
+                MediaRenderer.DefaultInstance.FilterStateChanged += new FilterStateChangedHandler(OnMediaStateChanged);
                 MediaRenderer.DefaultInstance.MediaRendererHeartbeat += new MediaRendererEventHandler(OnMediaRendererHeartbeat);
             }
         }
@@ -268,8 +269,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     AppSettings.RenderPanelWidth = playlistWidth;
                 }
 
-                MediaRenderer.DefaultInstance.MediaStateChanged -= new MediaStateChangedHandler(OnMediaStateChanged);
+                MediaRenderer.DefaultInstance.FilterStateChanged -= new FilterStateChangedHandler(OnMediaStateChanged);
                 MediaRenderer.DefaultInstance.MediaRendererHeartbeat -= new MediaRendererEventHandler(OnMediaRendererHeartbeat);
+
+                MediaRenderer.DefaultInstance.Dispose();
             }
         }
 
@@ -300,9 +303,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         void pnlRendering_PositionChanged(double newVal)
         {
-            if (MediaRenderer.DefaultInstance.MediaState != MediaState.Stopped)
+            if (MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped)
             {
-                if (MediaRenderer.DefaultInstance.MediaState != MediaState.Paused)
+                if (MediaRenderer.DefaultInstance.FilterState != FilterState.Paused)
                 {
                     MediaRenderer.DefaultInstance.PauseRenderer();
                 }
@@ -335,15 +338,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             SetVolume(newVal);
         }
 
-        private void OnMediaStateChanged(MediaState oldState, string oldMedia, 
-            MediaState newState, string newMedia)
+        private void OnMediaStateChanged(FilterState oldState, string oldMedia, 
+            FilterState newState, string newMedia)
         {
             OnMediaRendererHeartbeat();
 
-            pnlRendering.MediaStateChanged(newState, newMedia,
-                MediaRenderer.DefaultInstance.RenderedMediaType);
+            pnlRendering.FilterStateChanged(newState, newMedia, MediaRenderer.DefaultInstance.RenderedMediaType);
 
-            if (newState == MediaState.Ended && Autoplay && pnlPlaylist.GetFileCount() >= 1)
+            if (newState == FilterState.NotOpened && Autoplay && pnlPlaylist.GetFileCount() >= 1)
             {
                 MediaRenderer.DefaultInstance.PlaylistAtEnd = pnlPlaylist.IsPlaylistAtEnd;
                 MoveNext();
@@ -360,8 +362,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             pnlRendering.TotalSeconds = (int)(MediaRenderer.DefaultInstance.MediaLength);
 
             pnlRendering.TimeScaleEnabled = MediaRenderer.DefaultInstance.CanSeekMedia &&
-                (MediaRenderer.DefaultInstance.MediaState == MediaState.Playing || 
-                MediaRenderer.DefaultInstance.MediaState == MediaState.Paused);
+                (MediaRenderer.DefaultInstance.FilterState == FilterState.Running || 
+                MediaRenderer.DefaultInstance.FilterState == FilterState.Paused);
 
             pnlRendering.VolumeScaleEnabled = (MediaRenderer.DefaultInstance.RenderedMediaType != MediaTypes.Video);
             
@@ -372,7 +374,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             try
             {
-                if (MediaRenderer.DefaultInstance.MediaState == MediaState.Playing)
+                if (MediaRenderer.DefaultInstance.FilterState == FilterState.Running)
                 {
                     Bookmark bmk = MediaRenderer.DefaultInstance.RenderedMediaInfo.GetNearestBookmarkInRange(
                         (int)MediaRenderer.DefaultInstance.MediaPosition, 1);
@@ -398,7 +400,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 {
                     title = string.Format("{1} - [{2}] - {0}",
                         Translator.Translate("TXT_APP_NAME"),
-                        playedFileTitle, MediaRenderer.DefaultInstance.TranslatedMediaState);
+                        playedFileTitle, MediaRenderer.DefaultInstance.TranslatedFilterState);
                 }
                 else
                 {
@@ -416,7 +418,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         #region Implementation
         private void Stop(bool isStopFromGui)
         {
-            if (MediaRenderer.DefaultInstance.MediaState != MediaState.Stopped)
+            if (MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped)
             {
                 MediaRenderer.DefaultInstance.StopRenderer();
 
@@ -435,9 +437,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void Pause()
         {
-            switch (MediaRenderer.DefaultInstance.MediaState)
+            switch (MediaRenderer.DefaultInstance.FilterState)
             {
-                case MediaState.Playing:
+                case FilterState.Running:
                     {
                         NotifyGUI("TXT_OSD_PAUSED");
 
@@ -450,7 +452,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     }
                     break;
 
-                case MediaState.Paused:
+                case FilterState.Paused:
                     {
                         MediaRenderer.DefaultInstance.ResumeRenderer(MediaRenderer.DefaultInstance.MediaPosition);
 
@@ -568,7 +570,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             if (!string.IsNullOrEmpty(strFile))
             {
-                if (subItem == null && MediaRenderer.DefaultInstance.MediaState != MediaState.Stopped)
+                if (subItem == null && MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped)
                 {
                     Stop(false);
                 }
@@ -685,7 +687,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             AppSettings.LastVolume = (int)volume;
             if (MediaRenderer.DefaultInstance.RenderedMediaType != MediaTypes.Video &&
-                MediaRenderer.DefaultInstance.MediaState != MediaState.Stopped)
+                MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped)
             {
                 MediaRenderer.DefaultInstance.AudioVolume = (int)volume;
                 MediaRenderer.DefaultInstance.DisplayOsdMessage(Translator.Translate("TXT_OSD_VOL", (int)volume / 100));
@@ -855,7 +857,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void MoveToPosition(double pos)
         {
-            if (MediaRenderer.DefaultInstance.MediaState != MediaState.Stopped && 
+            if (MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped && 
                 MediaRenderer.DefaultInstance.CanSeekMedia)
             {
                 MediaRenderer.DefaultInstance.PauseRenderer();

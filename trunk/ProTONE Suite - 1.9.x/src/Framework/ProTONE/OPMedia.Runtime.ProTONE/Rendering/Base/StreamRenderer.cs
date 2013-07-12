@@ -167,11 +167,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
             }
         }
 
-        internal MediaState MediaState
+        internal OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState FilterState
         { 
             get 
             {
-                return GetMediaState(); 
+                return GetFilterState(); 
             } 
         }
 
@@ -306,7 +306,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
             DoDispose();
         }
 
-        protected abstract void DoDispose();
+        protected virtual void DoDispose()
+        {
+            DoStopRenderer();
+        }
+
         #endregion
 
         protected abstract void DoStartRenderer();
@@ -329,7 +333,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
         protected abstract bool IsVideoMediaAvailable();
         protected abstract bool IsMediaSeekable();
 
-        protected abstract MediaState GetMediaState();
+        protected abstract OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState GetFilterState();
 
         protected abstract bool IsCursorVisible();
         protected abstract void DoShowCursor(bool show);

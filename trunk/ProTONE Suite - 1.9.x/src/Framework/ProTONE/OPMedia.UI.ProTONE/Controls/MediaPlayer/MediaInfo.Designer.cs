@@ -33,12 +33,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             this.pnlImages = new OPMTableLayoutPanel();
             this.pbFileType = new System.Windows.Forms.PictureBox();
-            this.pbMediaState = new System.Windows.Forms.PictureBox();
+            this.pbFilterState = new System.Windows.Forms.PictureBox();
             this.pbAudioOn = new System.Windows.Forms.PictureBox();
             this.pbVideoOn = new System.Windows.Forms.PictureBox();
             this.pnlImages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFileType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMediaState)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilterState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAudioOn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVideoOn)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +55,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlImages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.pnlImages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlImages.Controls.Add(this.pbFileType, 1, 1);
-            this.pnlImages.Controls.Add(this.pbMediaState, 2, 1);
+            this.pnlImages.Controls.Add(this.pbFilterState, 2, 1);
             this.pnlImages.Controls.Add(this.pbAudioOn, 3, 1);
             this.pnlImages.Controls.Add(this.pbVideoOn, 4, 1);
             this.pnlImages.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,16 +80,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pbFileType.TabIndex = 0;
             this.pbFileType.TabStop = false;
             // 
-            // pbMediaState
+            // pbFilterState
             // 
-            this.pbMediaState.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbMediaState.Location = new System.Drawing.Point(20, 0);
-            this.pbMediaState.Margin = new System.Windows.Forms.Padding(0);
-            this.pbMediaState.Name = "pbMediaState";
-            this.pbMediaState.Size = new System.Drawing.Size(20, 20);
-            this.pbMediaState.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbMediaState.TabIndex = 1;
-            this.pbMediaState.TabStop = false;
+            this.pbFilterState.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFilterState.Location = new System.Drawing.Point(20, 0);
+            this.pbFilterState.Margin = new System.Windows.Forms.Padding(0);
+            this.pbFilterState.Name = "pbFilterState";
+            this.pbFilterState.Size = new System.Drawing.Size(20, 20);
+            this.pbFilterState.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbFilterState.TabIndex = 1;
+            this.pbFilterState.TabStop = false;
             // 
             // pbAudioOn
             // 
@@ -123,7 +123,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.Size = new System.Drawing.Size(80, 20);
             this.pnlImages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFileType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMediaState)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilterState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAudioOn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVideoOn)).EndInit();
             this.ResumeLayout(false);
@@ -134,7 +134,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         #endregion
 
         private PictureBox pbFileType;
-        private PictureBox pbMediaState;
+        private PictureBox pbFilterState;
         private PictureBox pbAudioOn;
         private PictureBox pbVideoOn;
         private OPMTableLayoutPanel pnlImages;

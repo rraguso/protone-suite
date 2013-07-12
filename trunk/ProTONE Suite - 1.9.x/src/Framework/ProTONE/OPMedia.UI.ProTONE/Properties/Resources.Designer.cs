@@ -305,13 +305,6 @@ namespace OPMedia.UI.ProTONE.Properties {
             }
         }
         
-        public static System.Drawing.Bitmap ended {
-            get {
-                object obj = ResourceManager.GetObject("ended", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         public static System.Drawing.Bitmap FileTypes {
             get {
                 object obj = ResourceManager.GetObject("FileTypes", resourceCulture);
@@ -347,6 +340,13 @@ namespace OPMedia.UI.ProTONE.Properties {
             }
         }
         
+        public static System.Drawing.Bitmap notopened {
+            get {
+                object obj = ResourceManager.GetObject("notopened", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap paused {
             get {
                 object obj = ResourceManager.GetObject("paused", resourceCulture);
@@ -354,16 +354,16 @@ namespace OPMedia.UI.ProTONE.Properties {
             }
         }
         
-        public static System.Drawing.Bitmap playing {
+        public static System.Drawing.Bitmap Playlist {
             get {
-                object obj = ResourceManager.GetObject("playing", resourceCulture);
+                object obj = ResourceManager.GetObject("Playlist", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        public static System.Drawing.Bitmap Playlist {
+        public static System.Drawing.Bitmap running {
             get {
-                object obj = ResourceManager.GetObject("Playlist", resourceCulture);
+                object obj = ResourceManager.GetObject("running", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

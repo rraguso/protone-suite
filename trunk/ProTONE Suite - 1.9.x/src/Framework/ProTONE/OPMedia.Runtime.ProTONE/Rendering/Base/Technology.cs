@@ -10,7 +10,7 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Base
 {
-    internal abstract class Technology
+    internal abstract class Technology : IDisposable
     {
         protected static List<string> supportedHDVideoMediaTypes = null;
         protected static List<string> supportedVideoMediaTypes = null;
@@ -73,13 +73,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
             set { streamRenderer.FullScreen = value; }
         }
 
-        internal MediaState MediaState
+        internal OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState FilterState
         { 
             get 
             { 
-                return (streamRenderer == null) ? 
-                    MediaState.Stopped : 
-                    streamRenderer.MediaState; 
+                return (streamRenderer == null) ?
+                    OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped : 
+                    streamRenderer.FilterState; 
             } 
         }
 
@@ -93,13 +93,15 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
         {
             get 
             { 
-                return (streamRenderer == null && MediaState != MediaState.Stopped) ? 
+                return (streamRenderer == null &&
+                    FilterState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped) ? 
                     -1 : streamRenderer.GetSubtitleStream(); 
             }
             
             set 
             { 
-                if (streamRenderer != null && MediaState != MediaState.Stopped) 
+                if (streamRenderer != null &&
+                    FilterState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped) 
                 { 
                     streamRenderer.SetSubtitleStream(value); 
                 } 
@@ -194,5 +196,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
          protected abstract bool IsEndOfMedia { get; }
 
         #endregion
+
+         public void Dispose()
+         {
+             if (streamRenderer != null)
+             {
+                 streamRenderer.Dispose();
+                 streamRenderer = null;
+             }
+         }
     }
 }

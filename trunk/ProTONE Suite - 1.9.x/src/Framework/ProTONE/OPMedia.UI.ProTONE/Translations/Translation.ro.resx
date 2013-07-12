@@ -388,7 +388,7 @@ Dublu click pentru a comuta pe timp rămas.</value>
 <data name="TXT_ENABLE_SCHEDULEDEVT">
   <value>Acţiune la un moment de timp programat</value>
 </data>
-<data name="TXT_ENDED">
+<data name="TXT_NOTOPENED">
   <value>Finalizat</value>
 </data>
 <data name="TXT_ENQUEUEFILES">
@@ -449,7 +449,7 @@ Dublu click pentru a comuta pe timp rămas.</value>
 <data name="TXT_MEDIA_TIME">
   <value>Poziţie redare: </value>
 </data>
-<data name="TXT_MEDIASTATENOTIFICATIONSENABLED">
+<data name="TXT_FilterStateNOTIFICATIONSENABLED">
   <value>Afişează mesaje de notifcare atunci când se schimbă starea mediului redat</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
@@ -559,7 +559,7 @@ Sunteţi sigur că vreti să cautati o altă subtitrare ?</value>
 <data name="TXT_PLAYFILES">
   <value>Redă fişierele (înlocuind lista curentă de redare)</value>
 </data>
-<data name="TXT_PLAYING">
+<data name="TXT_RUNNING">
   <value>În Redare</value>
 </data>
 <data name="TXT_PLAYLIST">

@@ -388,7 +388,7 @@ Double click to toggle remaining time</value>
 <data name="TXT_ENABLE_SCHEDULEDEVT">
   <value>Action on scheduled moment</value>
 </data>
-<data name="TXT_ENDED">
+<data name="TXT_NOTOPENED">
   <value>Ended</value>
 </data>
 <data name="TXT_ENQUEUEFILES">
@@ -449,7 +449,7 @@ Double click to toggle remaining time</value>
 <data name="TXT_MEDIA_TIME">
   <value>Time: </value>
 </data>
-<data name="TXT_MEDIASTATENOTIFICATIONSENABLED">
+<data name="TXT_FilterStateNOTIFICATIONSENABLED">
   <value>Display notification tooltips near system tray when media state changes</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
@@ -559,7 +559,7 @@ Are you sure you want to search another subtitle ?</value>
 <data name="TXT_PLAYFILES">
   <value>Play files (replacing current playlist)</value>
 </data>
-<data name="TXT_PLAYING">
+<data name="TXT_RUNNING">
   <value>Playing</value>
 </data>
 <data name="TXT_PLAYLIST">

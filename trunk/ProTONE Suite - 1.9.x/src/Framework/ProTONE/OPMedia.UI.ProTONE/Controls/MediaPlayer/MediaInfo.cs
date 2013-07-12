@@ -3,7 +3,7 @@
 // any form or by any means, electronic, mechanical or otherwise, is prohibited
 // without the prior written permission of the copyright owner.
 
-// File: 	MediaState.cs
+// File: 	FilterState.cs
 #endregion
 
 #region Using directives
@@ -29,6 +29,7 @@ using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.UI.Themes;
 using OPMedia.UI.ProTONE.Properties;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 #endregion
 
@@ -42,7 +43,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         #region Members
         private string _mediaName = string.Empty;
-        private MediaState _mediaState = MediaState.Stopped;
+        private FilterState _FilterState = FilterState.Stopped;
         private MediaTypes _mediaType = MediaTypes.None;
         #endregion
 
@@ -50,8 +51,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public string MediaName
         { get { return _mediaName; } set { _mediaName = value; UpdateFileType(); } }
 
-        public MediaState MediaState
-        { get { return _mediaState; } set { _mediaState = value; UpdateMediaState(); } }
+        public FilterState FilterState
+        { get { return _FilterState; } set { _FilterState = value; UpdateFilterState(); } }
 
         public MediaTypes MediaType
         { get { return _mediaType; } set { _mediaType = value; UpdateMediaType(); } }
@@ -66,7 +67,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         void OnThemeChanged(object sender, EventArgs e)
         {
             UpdateFileType();
-            UpdateMediaState();
+            UpdateFilterState();
             UpdateMediaType();
         }
         #endregion
@@ -123,18 +124,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             pbFileType.Image = imgSmall;
         }
 
-        private void UpdateMediaState()
+        private void UpdateFilterState()
         {
             Image img = null;
             if (!string.IsNullOrEmpty(_mediaName))
             {
-                img = Resources.ResourceManager.GetImage(_mediaState.ToString().ToLowerInvariant());
+                img = Resources.ResourceManager.GetImage(_FilterState.ToString().ToLowerInvariant());
             }
             
-            pbMediaState.Image = img;
-            string tip = Translator.Translate("TXT_MEDIA_STATE", MediaRenderer.DefaultInstance.TranslatedMediaState);
+            pbFilterState.Image = img;
+            string tip = Translator.Translate("TXT_MEDIA_STATE", MediaRenderer.DefaultInstance.TranslatedFilterState);
 
-            _tip.SetSimpleToolTip(pbMediaState, tip, img);
+            _tip.SetSimpleToolTip(pbFilterState, tip, img);
         }
 
         private void UpdateMediaType()

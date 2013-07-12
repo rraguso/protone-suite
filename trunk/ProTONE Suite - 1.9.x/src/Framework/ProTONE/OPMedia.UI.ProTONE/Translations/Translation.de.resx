@@ -388,7 +388,7 @@ Doppelklick verbleibende Zeit zu wechseln</value>
 <data name="TXT_ENABLE_SCHEDULEDEVT">
   <value>Aktion am geplanten Zeitpunkt</value>
 </data>
-<data name="TXT_ENDED">
+<data name="TXT_NOTOPENED">
   <value>Beendet</value>
 </data>
 <data name="TXT_ENQUEUEFILES">
@@ -449,7 +449,7 @@ Doppelklick verbleibende Zeit zu wechseln</value>
 <data name="TXT_MEDIA_TIME">
   <value>Zeit:</value>
 </data>
-<data name="TXT_MEDIASTATENOTIFICATIONSENABLED">
+<data name="TXT_FilterStateNOTIFICATIONSENABLED">
   <value>Anzeigebenachrichtigung Tooltips in der Nähe der Taskleiste, wenn Medien Zustandsänderungen</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
@@ -559,7 +559,7 @@ Sind Sie sicher, dass Sie einen anderen Untertitel zu suchen?</value>
 <data name="TXT_PLAYFILES">
   <value>Spielen Sie Dateien (ersetzt aktuellen Wiedergabeliste)</value>
 </data>
-<data name="TXT_PLAYING">
+<data name="TXT_RUNNING">
   <value>Playing</value>
 </data>
 <data name="TXT_PLAYLIST">

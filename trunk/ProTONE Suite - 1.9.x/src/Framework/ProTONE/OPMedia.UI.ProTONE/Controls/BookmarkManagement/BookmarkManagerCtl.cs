@@ -22,6 +22,7 @@ using OPMedia.UI.Themes;
 using OPMedia.Core.GlobalEvents;
 
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 {
@@ -186,8 +187,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                     _plItem != null &&
                     MediaRenderer.DefaultInstance.RenderedMediaInfo != null &&
                     MediaRenderer.DefaultInstance.RenderedMediaInfo.Equals(_plItem.MediaFileInfo) &&
-                    MediaRenderer.DefaultInstance.MediaState != MediaState.Ended &&
-                    MediaRenderer.DefaultInstance.MediaState != MediaState.Stopped;
+                    MediaRenderer.DefaultInstance.FilterState != FilterState.NotOpened &&
+                    MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped;
             }
             catch
             {

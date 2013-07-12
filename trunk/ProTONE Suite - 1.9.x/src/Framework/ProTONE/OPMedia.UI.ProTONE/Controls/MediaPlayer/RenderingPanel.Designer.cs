@@ -121,7 +121,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.mediaInfo.Location = new System.Drawing.Point(230, 0);
             this.mediaInfo.Margin = new System.Windows.Forms.Padding(0);
             this.mediaInfo.MediaName = "";
-            this.mediaInfo.MediaState = OPMedia.Runtime.ProTONE.Rendering.Base.MediaState.Stopped;
+            this.mediaInfo.FilterState = OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped;
             this.mediaInfo.MediaType = OPMedia.Runtime.ProTONE.Rendering.Base.MediaTypes.None;
             this.mediaInfo.MinimumSize = new System.Drawing.Size(80, 25);
             this.mediaInfo.Name = "mediaInfo";

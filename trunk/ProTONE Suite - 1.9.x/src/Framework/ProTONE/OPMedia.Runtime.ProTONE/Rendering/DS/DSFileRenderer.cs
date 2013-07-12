@@ -15,8 +15,9 @@ using OPMedia.Core;
 using OPMedia.Core.ApplicationSettings;
 
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
-using QuartzTypeLib;
-using DexterLib;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
+
+
 
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
@@ -29,12 +30,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 double newPos = (startHint as BookmarkStartHint).Bookmark.PlaybackTimeInSeconds;
 
-                if (this.MediaState == MediaState.Playing)
+                if (this.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
                 {
                     // Seek "on the fly" to new position.
                     SetMediaPosition(newPos);
                 }
-                else if (this.MediaState == MediaState.Paused)
+                else if (this.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
                 {
                     // Resume renderer from the to new position.
                     ResumeRenderer(newPos);
@@ -64,7 +65,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             InitMedia();
             InitAudioAndVideo();
 
-            mediaPosition.Rate = 1;
+            mediaPosition.put_Rate(1);
 
             // Run the graph to play the media file
             mediaControl.Run();
@@ -128,9 +129,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             mediaEvent = mediaControl as IMediaEventEx;
         }
 
-        protected override void HandleGraphEvent(int code, int p1, int p2)
+        protected override void HandleGraphEvent(EventCode code, int p1, int p2)
         {
-            Logger.LogHeavyTrace("GraphEvent: {0} : {1} : {2}", (DsEvCode)code, p1, p2);
+            Logger.LogHeavyTrace("GraphEvent: {0} : {1} : {2}", code, p1, p2);
         }
 
         protected override int DoGetSubtitleStream()

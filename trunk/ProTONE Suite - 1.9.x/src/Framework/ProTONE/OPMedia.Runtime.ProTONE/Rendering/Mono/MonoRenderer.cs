@@ -7,10 +7,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Mono
 {
     internal class MonoRenderer : StreamRenderer
     {
-        protected override void DoDispose()
-        {
-        }
-
         protected override void DoStartRenderer()
         {
         }
@@ -65,9 +61,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Mono
             return false;
         }
 
-        protected override MediaState GetMediaState()
+        protected override OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState GetFilterState()
         {
-            return MediaState.Stopped;
+            return OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped;
         }
 
         protected override bool IsCursorVisible()

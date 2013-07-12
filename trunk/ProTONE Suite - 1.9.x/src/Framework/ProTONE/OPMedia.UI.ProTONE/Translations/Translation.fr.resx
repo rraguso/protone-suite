@@ -388,7 +388,7 @@ Raccourci:.{0}</value>
 <data name="TXT_ENABLE_SCHEDULEDEVT">
   <value>D'action sur le moment prévu</value>
 </data>
-<data name="TXT_ENDED">
+<data name="TXT_NOTOPENED">
   <value>Terminé</value>
 </data>
 <data name="TXT_ENQUEUEFILES">
@@ -449,7 +449,7 @@ Raccourci:.{0}</value>
 <data name="TXT_MEDIA_TIME">
   <value>Heure:</value>
 </data>
-<data name="TXT_MEDIASTATENOTIFICATIONSENABLED">
+<data name="TXT_FilterStateNOTIFICATIONSENABLED">
   <value>Afficher les info-bulles de notification près de la zone de notification lorsque des médias changements d'état</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
@@ -559,7 +559,7 @@ Etes-vous sûr que vous voulez rechercher une autre sous-titre?</value>
 <data name="TXT_PLAYFILES">
   <value>Lecture de fichiers (remplacement de liste de lecture)</value>
 </data>
-<data name="TXT_PLAYING">
+<data name="TXT_RUNNING">
   <value>Jouer</value>
 </data>
 <data name="TXT_PLAYLIST">

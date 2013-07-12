@@ -9,12 +9,13 @@ using OPMedia.Core.Logging;
 using System.Runtime.InteropServices;
 using OPMedia.Core;
 using System.Windows.Forms;
-using QuartzTypeLib;
-using DexterLib;
+
+
 using System.Diagnostics;
 
 using DS = OPMedia.Runtime.ProTONE.Rendering.DS;
 using System.Threading;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
@@ -40,11 +41,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             get
             {
-                int val = 0;
-                if (isVideoAvailable)
-                    val = basicVideo.VideoWidth;
+                int w = 0;
+                int hr = basicVideo.get_VideoWidth(out w);
+                if (hr < 0)
+                    return w;
 
-                return val;
+                return 0;
             }
         }
 
@@ -52,11 +54,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             get
             {
-                int val = -1;
-                if (isVideoAvailable)
-                    val = basicVideo.VideoHeight;
+                int h = 0;
+                int hr = basicVideo.get_VideoHeight(out h);
+                if (hr < 0)
+                    return h;
 
-                return val;
+                return 0;
             }
         }
 
@@ -79,7 +82,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         private void OnFilterGraphMessage()
         {
             int p1, p2;
-            int code;
+            EventCode code = EventCode.None;
 
             if (mediaEvent == null) 
                 return;
@@ -108,12 +111,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             }
         }
 
-        protected abstract void HandleGraphEvent(int code, int p1, int p2);
-
-        protected override void DoDispose()
-        {
-            // Leave empty; every particular renderer will do its own cleanup.
-        }
+        protected abstract void HandleGraphEvent(EventCode code, int p1, int p2);
 
         protected override void DoStartRenderer()
         {
@@ -190,8 +188,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
                 //int val = 0;
 
-               
-                isVideoAvailable = basicVideo.VideoHeight > 0;
+                int w = 0;
+                int hr = basicVideo.get_VideoWidth(out w);
+                isVideoAvailable = (hr >=0 && w > 0);
 
                 // Setup the video window
                 SetupVideoWindow();
@@ -210,8 +209,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             try
             {
-                basicAudio.Volume = ((int)VolumeRange.Minimum);
-                isAudioAvailable = true;
+                int hr = basicAudio.put_Volume((int)VolumeRange.Minimum);
+                isAudioAvailable = (hr >= 0);
             }
             catch
             {
@@ -221,13 +220,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         private void SetupVideoWindow()
         {
-            videoWindow.Owner = (int)(renderRegion.Handle);
-            videoWindow.MessageDrain = (int)(renderRegion.Handle);
-            videoWindow.WindowStyle = (int)(WindowStyle.Child |
+            videoWindow.put_Owner(renderRegion.Handle);
+            videoWindow.put_MessageDrain(renderRegion.Handle);
+            videoWindow.put_WindowStyle((int)(WindowStyle.Child |
                 WindowStyle.ClipSiblings |
-                WindowStyle.ClipChildren);
+                WindowStyle.ClipChildren));
 
-            mediaEvent.SetNotifyWindow((int)GraphNotifyWnd.Instance.Handle, (int)Messages.WM_GRAPH_EVENT, 0);
+            mediaEvent.SetNotifyWindow(GraphNotifyWnd.Instance.Handle, (int)Messages.WM_GRAPH_EVENT, IntPtr.Zero);
         }
 
 
@@ -284,9 +283,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             double val = 0;
 
             if (mediaPosition != null)
-                val = mediaPosition.Duration;
+            {
+                int hr = mediaPosition.get_Duration(out val);
+                if (hr >= 0)
+                    return (val + double.Epsilon);
+            }
 
-            return val + double.Epsilon;
+            return double.Epsilon;
         }
 
         protected override double GetMediaPosition()
@@ -294,7 +297,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             double val = 0;
 
             if (mediaPosition != null)
-                val = mediaPosition.CurrentPosition;
+            {
+                mediaPosition.get_CurrentPosition(out val);
+            }
 
             return val * durationScaleFactor;
         }
@@ -303,7 +308,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             if (mediaPosition != null)
             {
-                mediaPosition.CurrentPosition = pos / durationScaleFactor;
+                mediaPosition.put_CurrentPosition(pos / durationScaleFactor);
             }
         }
 
@@ -311,14 +316,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             int val = -1;
             if (isAudioAvailable)
-                val = basicAudio.Volume;
+            {
+                basicAudio.get_Volume(out val);
+            }
+
             return val;
         }
 
         protected override void SetAudioVolume(int vol)
         {
             if (isAudioAvailable)
-                basicAudio.Volume = vol;
+            {
+                basicAudio.put_Volume(vol);
+            }
         }
 
         protected override bool IsVideoMediaAvailable()
@@ -333,23 +343,25 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         protected override bool IsMediaSeekable()
         {
-            int seekFwd = DsConstants.DsFalse, seenBwd = DsConstants.DsFalse;
+            OABool seekFwd = OABool.False, seekBwd = OABool.False;
             if (mediaPosition != null)
             {
-                seekFwd = mediaPosition.CanSeekForward();
-                seenBwd = mediaPosition.CanSeekBackward();
+                mediaPosition.CanSeekForward(out seekFwd);
+                mediaPosition.CanSeekBackward(out seekBwd);
             }
 
-            return (seekFwd != DsConstants.DsFalse && seenBwd != DsConstants.DsFalse);
+            return (seekFwd != OABool.False && seekBwd != OABool.False);
         }
 
-        protected override MediaState GetMediaState()
+        protected override BaseClasses.FilterState GetFilterState()
         {
-            int fs = (int)(MediaState.Stopped);
+            BaseClasses.FilterState fs = BaseClasses.FilterState.Stopped;
             if (mediaControl != null)
+            {
                 mediaControl.GetState(0, out fs);
+            }
 
-            return (MediaState)fs;
+            return fs;
         }
 
         protected override bool IsCursorVisible()
@@ -357,9 +369,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             bool retVal = false;
             if (isVideoAvailable && videoWindow != null)
             {
-                int hidden = DsConstants.DsFalse;
+                int hidden = (int)OABool.False;
                 videoWindow.IsCursorHidden(out hidden);
-                retVal = (hidden == DsConstants.DsFalse);
+                retVal = (hidden == (int)OABool.False);
             }
 
             return retVal;
@@ -369,7 +381,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             if (isVideoAvailable && videoWindow != null)
             {
-                int hidden = (show) ? DsConstants.DsFalse : DsConstants.DsTrue;
+                int hidden = (show) ? (int)OABool.False : (int)OABool.True;
                 videoWindow.HideCursor(hidden);
             }
         }
@@ -385,10 +397,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         protected override bool IsFullScreen()
         {
-            if (videoWindow != null)
-            {
-                return videoWindow.FullScreenMode == DsConstants.DsTrue;
-            }
+            //if (videoWindow != null)
+            //{
+            //    return videoWindow.FullScreenMode == DsConstants.DsTrue;
+            //}
 
             return false;
         }
@@ -397,22 +409,22 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         protected override void DoSetFullScreen(bool fullScreen)
         {
-            if (videoWindow != null)
-            {
-                if (fullScreen)
-                {
-                    _bakMessageDrain = videoWindow.MessageDrain;
-                    videoWindow.MessageDrain = (int)(MainThread.MainWindow.Handle);
-                    videoWindow.FullScreenMode = DsConstants.DsTrue;
-                }
-                else
-                {
-                    videoWindow.FullScreenMode = DsConstants.DsFalse;
-                    videoWindow.MessageDrain = (int)(_bakMessageDrain);
-                    videoWindow.SetWindowForeground(DsConstants.DsTrue);
+            //if (videoWindow != null)
+            //{
+            //    if (fullScreen)
+            //    {
+            //        _bakMessageDrain = videoWindow.MessageDrain;
+            //        videoWindow.MessageDrain = (int)(MainThread.MainWindow.Handle);
+            //        videoWindow.FullScreenMode = DsConstants.DsTrue;
+            //    }
+            //    else
+            //    {
+            //        videoWindow.FullScreenMode = OABool.False;
+            //        videoWindow.MessageDrain = (int)(_bakMessageDrain);
+            //        videoWindow.SetWindowForeground(DsConstants.DsTrue);
 
-                }
-            }
+            //    }
+            //}
         }
 
         protected override object DoGetGraphFilter()
@@ -595,10 +607,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             if (samples != null)
             {
-                MediaState ms = GetMediaState();
+                FilterState ms = GetFilterState();
 
                 if (samples.Length <= 0 || 
-                    ms != MediaState.Playing)
+                    ms != FilterState.Running)
                     return;
 
                 try

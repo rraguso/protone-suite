@@ -14,7 +14,8 @@ using OPMedia.Core.ApplicationSettings;
 using System.Threading;
 
 using System.Windows.Forms;
-using QuartzTypeLib;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
+
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
 {
@@ -240,18 +241,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             return false;
         }
 
-        protected override void HandleGraphEvent(int code, int p1, int p2)
+        protected override void HandleGraphEvent(EventCode code, int p1, int p2)
         {
             
 
-            switch ((DsEvCode)code)
+            switch (code)
             {
-                case DsEvCode.DvdCurrentHmsfTime:
+                case EventCode.DvdCurrentHmsfTime:
                     byte[] ati = BitConverter.GetBytes(p1);
                     _currentPosition = new TimeSpan(ati[0], ati[1], ati[2]);
                     break;
 
-                case DsEvCode.DvdDomChange:
+                case EventCode.DvdDomChange:
                     DvdDomain dom = (DvdDomain)p1;
                     Logger.LogHeavyTrace("Currently in domain: {0}", dom);
 
@@ -269,32 +270,32 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     }
                     break;
 
-                case DsEvCode.DvdChaptStart:
-                case DsEvCode.DvdTitleChange:
-                case DsEvCode.DvdCmdStart:
-                case DsEvCode.DvdCmdEnd:
+                case EventCode.DvdChaptStart:
+                case EventCode.DvdTitleChange:
+                case EventCode.DvdCmdStart:
+                case EventCode.DvdCmdEnd:
                     break;
 
-                case DsEvCode.DvdStillOn:
+                case EventCode.DvdStillOn:
                     if (p1 == 0)
                         menuMode = MenuMode.Buttons;
                     else
                         menuMode = MenuMode.Still;
                     break;
 
-                case DsEvCode.DvdStillOff:
+                case EventCode.DvdStillOff:
                     if (menuMode == MenuMode.Still)
                         menuMode = MenuMode.No;
                     break;
 
-                case DsEvCode.DvdButtonChange:
+                case EventCode.DvdButtonChange:
                     if (p1 <= 0)
                         menuMode = MenuMode.No;
                     else
                         menuMode = MenuMode.Buttons;
                     break;
 
-                case DsEvCode.DvdNoFpPgc:
+                case EventCode.DvdNoFpPgc:
                     if (dvdControl2 != null)
                     {
                         dvdControl2.PlayTitle(1, DvdCmdFlags.None, _lastCmd);

@@ -29,7 +29,7 @@ namespace OPMedia.UI.ProTONE.Configuration
         /// </summary>
         private void InitializeComponent()
         {
-            this.chkMediaStateNotificationsEnabled = new OPMedia.UI.Controls.OPMCheckBox();
+            this.chkFilterStateNotificationsEnabled = new OPMedia.UI.Controls.OPMCheckBox();
             this.lblOsdFont = new OPMedia.UI.Controls.OPMLinkLabel();
             this.lblOsdColor = new OPMedia.UI.Controls.OPMLinkLabel();
             this.nudOsdTmr = new OPMedia.UI.Controls.OPMNumericUpDown();
@@ -53,20 +53,20 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // chkMediaStateNotificationsEnabled
+            // chkFilterStateNotificationsEnabled
             // 
-            this.chkMediaStateNotificationsEnabled.AccessibleName = "chkMediaStateNotificationsEnabled";
-            this.chkMediaStateNotificationsEnabled.AutoSize = true;
-            this.chkMediaStateNotificationsEnabled.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkMediaStateNotificationsEnabled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkMediaStateNotificationsEnabled.Location = new System.Drawing.Point(0, 339);
-            this.chkMediaStateNotificationsEnabled.Margin = new System.Windows.Forms.Padding(0);
-            this.chkMediaStateNotificationsEnabled.Name = "chkMediaStateNotificationsEnabled";
-            this.chkMediaStateNotificationsEnabled.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkMediaStateNotificationsEnabled.Size = new System.Drawing.Size(470, 20);
-            this.chkMediaStateNotificationsEnabled.TabIndex = 8;
-            this.chkMediaStateNotificationsEnabled.Text = "TXT_MEDIASTATENOTIFICATIONSENABLED";
-            this.chkMediaStateNotificationsEnabled.CheckedChanged += new System.EventHandler(this.chkMediaStateNotificationsEnabled_CheckedChanged);
+            this.chkFilterStateNotificationsEnabled.AccessibleName = "chkFilterStateNotificationsEnabled";
+            this.chkFilterStateNotificationsEnabled.AutoSize = true;
+            this.chkFilterStateNotificationsEnabled.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkFilterStateNotificationsEnabled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkFilterStateNotificationsEnabled.Location = new System.Drawing.Point(0, 339);
+            this.chkFilterStateNotificationsEnabled.Margin = new System.Windows.Forms.Padding(0);
+            this.chkFilterStateNotificationsEnabled.Name = "chkFilterStateNotificationsEnabled";
+            this.chkFilterStateNotificationsEnabled.OverrideForeColor = System.Drawing.Color.Empty;
+            this.chkFilterStateNotificationsEnabled.Size = new System.Drawing.Size(470, 20);
+            this.chkFilterStateNotificationsEnabled.TabIndex = 8;
+            this.chkFilterStateNotificationsEnabled.Text = "TXT_FilterStateNOTIFICATIONSENABLED";
+            this.chkFilterStateNotificationsEnabled.CheckedChanged += new System.EventHandler(this.chkFilterStateNotificationsEnabled_CheckedChanged);
             // 
             // lblOsdFont
             // 
@@ -131,7 +131,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.chkSubEnabled, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chkMediaStateNotificationsEnabled, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.chkFilterStateNotificationsEnabled, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.lblOsdText, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.lblOsdText2, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.lblSubText2, 0, 2);
@@ -339,7 +339,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         #endregion
 
-        private OPMCheckBox chkMediaStateNotificationsEnabled;
+        private OPMCheckBox chkFilterStateNotificationsEnabled;
         private OPMLinkLabel lblOsdFont;
         private OPMLinkLabel lblOsdColor;
         private OPMNumericUpDown nudOsdTmr;

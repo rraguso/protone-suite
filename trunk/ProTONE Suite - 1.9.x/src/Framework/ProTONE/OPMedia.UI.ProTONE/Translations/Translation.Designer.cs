@@ -889,9 +889,9 @@ namespace OPMedia.UI.ProTONE.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Ended.
         /// </summary>
-        internal static string TXT_ENDED {
+        internal static string TXT_NOTOPENED {
             get {
-                return ResourceManager.GetString("TXT_ENDED", resourceCulture);
+                return ResourceManager.GetString("TXT_NOTOPENED", resourceCulture);
             }
         }
         
@@ -1151,9 +1151,9 @@ namespace OPMedia.UI.ProTONE.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Display notification tooltips near system tray when media state changes.
         /// </summary>
-        internal static string TXT_MEDIASTATENOTIFICATIONSENABLED {
+        internal static string TXT_FilterStateNOTIFICATIONSENABLED {
             get {
-                return ResourceManager.GetString("TXT_MEDIASTATENOTIFICATIONSENABLED", resourceCulture);
+                return ResourceManager.GetString("TXT_FilterStateNOTIFICATIONSENABLED", resourceCulture);
             }
         }
         
@@ -1844,9 +1844,9 @@ namespace OPMedia.UI.ProTONE.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Playing.
         /// </summary>
-        internal static string TXT_PLAYING {
+        internal static string TXT_RUNNING {
             get {
-                return ResourceManager.GetString("TXT_PLAYING", resourceCulture);
+                return ResourceManager.GetString("TXT_RUNNING", resourceCulture);
             }
         }
         

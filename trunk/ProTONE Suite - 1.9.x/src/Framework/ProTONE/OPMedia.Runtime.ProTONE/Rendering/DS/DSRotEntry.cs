@@ -5,7 +5,8 @@ using System.Security;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Diagnostics;
-using DexterLib;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
+
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
 {

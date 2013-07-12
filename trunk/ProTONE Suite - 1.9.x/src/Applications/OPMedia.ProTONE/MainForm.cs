@@ -32,6 +32,7 @@ using OPMedia.UI.Menus;
 using OPMedia.Core.ComTypes;
 using OPMedia.UI.ProTONE;
 using OPMedia.UI.Properties;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 
 namespace OPMedia.ProTONE
@@ -105,7 +106,7 @@ namespace OPMedia.ProTONE
 
                 OnPerformTranslation();
 
-                MediaRenderer.DefaultInstance.MediaStateChanged += new MediaStateChangedHandler(OnMediaStateChanged);
+                MediaRenderer.DefaultInstance.FilterStateChanged += new FilterStateChangedHandler(OnMediaStateChanged);
             }
         }
 
@@ -113,7 +114,7 @@ namespace OPMedia.ProTONE
         {
             if (!DesignMode)
             {
-                MediaRenderer.DefaultInstance.MediaStateChanged -= new MediaStateChangedHandler(OnMediaStateChanged);
+                MediaRenderer.DefaultInstance.FilterStateChanged -= new FilterStateChangedHandler(OnMediaStateChanged);
             }
         }
 
@@ -158,21 +159,21 @@ namespace OPMedia.ProTONE
             mediaPlayer.DoLayout();
         }
 
-        void OnMediaStateChanged(MediaState oldState, string oldMedia, MediaState newState, string newMedia)
+        void OnMediaStateChanged(FilterState oldState, string oldMedia, FilterState newState, string newMedia)
         {
-            string mediaState = string.Empty;
-            if (BuildMediaStateString(false, ref mediaState))
+            string FilterState = string.Empty;
+            if (BuildMediaStateString(false, ref FilterState))
             {
                 mnuMediaState.Visible = true;
 
-                if (mediaState.Length > 45)
+                if (FilterState.Length > 45)
                 {
-                    mnuMediaState.Text = mediaState.Substring(0, 45) + "...";
-                    mnuMediaState.ToolTipText = mediaState.Replace(": ", ":\n");
+                    mnuMediaState.Text = FilterState.Substring(0, 45) + "...";
+                    mnuMediaState.ToolTipText = FilterState.Replace(": ", ":\n");
                 }
                 else
                 {
-                    mnuMediaState.Text = mediaState;
+                    mnuMediaState.Text = FilterState;
                     mnuMediaState.ToolTipText = "";
                 }
             }
@@ -201,7 +202,7 @@ namespace OPMedia.ProTONE
 
         bool BuildMediaStateString(bool addTime, ref string message)
         {
-            message = MediaRenderer.DefaultInstance.TranslatedMediaState;
+            message = MediaRenderer.DefaultInstance.TranslatedFilterState;
 
             try
             {
@@ -212,8 +213,8 @@ namespace OPMedia.ProTONE
 
                 if (addTime)
                 {
-                    bool running = (MediaRenderer.DefaultInstance.MediaState == MediaState.Playing || 
-                        MediaRenderer.DefaultInstance.MediaState == MediaState.Paused);
+                    bool running = (MediaRenderer.DefaultInstance.FilterState == FilterState.Running || 
+                        MediaRenderer.DefaultInstance.FilterState == FilterState.Paused);
 
                     if (running)
                     {

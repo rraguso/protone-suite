@@ -39,7 +39,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             AppSettings.OsdPersistTimer = _osdTimer;
 
-            AppSettings.MediaStateNotificationsEnabled = chkMediaStateNotificationsEnabled.Checked;
+            AppSettings.MediaStateNotificationsEnabled = chkFilterStateNotificationsEnabled.Checked;
 
             // Tell FFDShow to reload subtitle and OSD settings
             MediaRenderer.DefaultInstance.ReloadFfdShowSettings();
@@ -74,12 +74,12 @@ namespace OPMedia.UI.ProTONE.Configuration
             chkOsdEnabled.CheckedChanged += new EventHandler(chkOsdEnabled_CheckedChanged);
             nudOsdTmr.ValueChanged += new EventHandler(nudOsdTmr_ValueChanged);
 
-            chkMediaStateNotificationsEnabled.Checked = AppSettings.MediaStateNotificationsEnabled;
-            chkMediaStateNotificationsEnabled.CheckedChanged += new EventHandler(chkMediaStateNotificationsEnabled_CheckedChanged);
+            chkFilterStateNotificationsEnabled.Checked = AppSettings.MediaStateNotificationsEnabled;
+            chkFilterStateNotificationsEnabled.CheckedChanged += new EventHandler(chkFilterStateNotificationsEnabled_CheckedChanged);
 
         }
         
-        void chkMediaStateNotificationsEnabled_CheckedChanged(object sender, EventArgs e)
+        void chkFilterStateNotificationsEnabled_CheckedChanged(object sender, EventArgs e)
         {
             Modified = true;
         }

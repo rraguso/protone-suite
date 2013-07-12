@@ -17,6 +17,7 @@ using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
 using OPMedia.UI.Controls;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -181,11 +182,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
         }
 
-        internal void MediaStateChanged(MediaState mediaState, string mediaName,
+        internal void FilterStateChanged(FilterState filterState, string mediaName,
             MediaTypes mediaType)
         {
             mediaInfo.MediaName = mediaName;
-            mediaInfo.MediaState = mediaState;
+            mediaInfo.FilterState = filterState;
             mediaInfo.MediaType = mediaType;
         }
 

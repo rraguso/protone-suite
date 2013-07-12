@@ -52,7 +52,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering
     }
 
     public delegate void MediaRendererEventHandler();
-    public delegate void MediaStateChangedHandler(MediaState oldState, string oldMedia, MediaState newState, string newMedia);
+    public delegate void FilterStateChangedHandler(OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState oldState, string oldMedia, 
+        OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState newState, string newMedia);
+
     public delegate void MediaRenderingExceptionHandler(RenderingExceptionEventArgs args);
     
 
@@ -82,7 +84,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         private Technology renderingTechnology = null;
         private Timer timerCheckState = null;
 
-        private MediaState oldState = MediaState.Stopped;
+        private OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState oldState = 
+            OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped;
+
         private string oldMedia = string.Empty;
 
         Control renderPanel = null;
@@ -150,7 +154,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             get
             {
-                return (renderingTechnology.MediaState == MediaState.Stopped) ?
+                return (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped) ?
                     0 : renderingTechnology.MediaPosition;
             }
             
@@ -205,11 +209,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         public MediaTypes RenderedMediaType
         { get { return renderingTechnology.RenderedMediaType; } }
 
-        public MediaState MediaState
-        { get { return renderingTechnology.MediaState; } }
+        public OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState FilterState
+        { get { return renderingTechnology.FilterState; } }
 
-        public string TranslatedMediaState
-        { get { return Translator.Translate("TXT_" + MediaState.ToString().ToUpperInvariant()); } }
+        public string TranslatedFilterState
+        { get { return Translator.Translate("TXT_" + FilterState.ToString().ToUpperInvariant()); } }
 
         public bool ShowCursor
         {
@@ -308,7 +312,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             {
                 renderingTechnology.RenderRegion = renderPanel;
 
-                if (renderingTechnology.MediaState == MediaState.Stopped)
+                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
                     renderingTechnology.SetRenderMedia(file);
             }
             catch (Exception ex)
@@ -323,7 +327,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             {
                 _position = 0;
 
-                if (renderingTechnology.MediaState == MediaState.Paused)
+                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
                 {
                     double position = renderingTechnology.MediaPosition;
                     renderingTechnology.ResumeRenderer(position);
@@ -347,11 +351,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
                 Logger.LogTrace("Media will be rendered using {0}", renderingTechnology.GetType().Name);
 
-                if (renderingTechnology.MediaState == MediaState.Stopped)
+                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
                 {
                     renderingTechnology.StartRenderer();
                 }
-                else if (renderingTechnology.MediaState == MediaState.Paused)
+                else if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
                 {
                     double position = renderingTechnology.MediaPosition;
                     renderingTechnology.ResumeRenderer(position);
@@ -367,7 +371,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
-                if (renderingTechnology.MediaState == MediaState.Playing)
+                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
                 {
                     renderingTechnology.PauseRenderer();
                 }
@@ -382,7 +386,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
-                if (renderingTechnology.MediaState == MediaState.Paused)
+                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
                 {
                     _position = fromPosition;
                     renderingTechnology.ResumeRenderer(fromPosition);
@@ -401,8 +405,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             {
                 _position = 0;
 
-                if (renderingTechnology.MediaState == MediaState.Playing ||
-                    renderingTechnology.MediaState == MediaState.Paused)
+                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running ||
+                    renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
                 {
                     renderingTechnology.StopRenderer();
                 }
@@ -466,7 +470,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
             sb.AppendFormat("[DUR] : {0}\r\n", this.MediaLength);
             sb.AppendFormat("[POS] : {0}\r\n", this.MediaPosition);
-            sb.AppendFormat("[MST] : {0}\r\n", this.MediaState);
+            sb.AppendFormat("[MST] : {0}\r\n", this.FilterState);
             sb.AppendFormat("[FIL] : {0}\r\n", this.GetRenderFile());
 
             return sb.ToString();
@@ -476,7 +480,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             if ((renderingTechnology.RenderedMediaType == MediaTypes.Video ||
                 renderingTechnology.RenderedMediaType == MediaTypes.Both) &&
-                renderingTechnology.MediaState == MediaState.Playing)
+                renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
             {
                 renderingTechnology.AdjustVideoSize(direction, action);
             }
@@ -532,14 +536,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
             FireMediaRendererClock();
 
-            MediaState newState = MediaState.Ended;
+            OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState newState = OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.NotOpened;
 
             try
             {
-                newState = renderingTechnology.MediaState;
+                newState = renderingTechnology.FilterState;
                 string newMedia = renderingTechnology.GetRenderMedia();
 
-                if (newState == MediaState.Playing && oldMediaPosition == renderingTechnology.MediaPosition)
+                if (newState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running && oldMediaPosition == renderingTechnology.MediaPosition)
                 {
                     nofPasses++;
                     Logger.LogHeavyTrace("Media position did not change in the last {0} iterations", nofPasses);
@@ -551,52 +555,53 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
                 if (renderingTechnology.EndOfMedia || nofPasses > 10)
                 {
-                    if (newState != MediaState.Stopped)
+                    if (newState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
                     {
                         renderingTechnology.StopRenderer();
                     }
 
-                    newState = MediaState.Ended;
+                    newState = OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.NotOpened;
                 }
-                else if (oldState == MediaState.Ended && newState == MediaState.Stopped)
+                else if (oldState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.NotOpened && newState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
                 {
-                    newState = MediaState.Ended;
+                    newState = OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.NotOpened;
                 }
 
                 if (newState != oldState || newMedia != oldMedia)
                 {
-                    FireMediaStateChanged(oldState, oldMedia, newState, newMedia);
+                    FireFilterStateChanged(oldState, oldMedia, newState, newMedia);
                 }
 
                 switch (newState)
                 {
-                    case MediaState.Playing:
+                    case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running:
                         switch (oldState)
                         {
-                            case Base.MediaState.Playing:
+                            case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running:
                                 _position += diff;
                                 break;
 
-                            case Base.MediaState.Ended:
-                            case Base.MediaState.Stopped:
+                            case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.NotOpened:
+                            case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped:
                                 //break;
 
-                            case Base.MediaState.Paused:
+                            case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused:
                                 _position = renderingTechnology.MediaPosition;
                                 break;
                         }
                         break;
 
-                    case MediaState.Stopped:
-                    case MediaState.Ended:
+                    case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped:
+                    case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.NotOpened:
                         _position = 0;
                         break;
 
-                    case MediaState.Paused:
+                    case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused:
                         break;
                 }
 
-                if (newState != MediaState.Stopped && newState != MediaState.Ended)
+                if (newState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped &&
+                    newState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.NotOpened)
                 {
                     FireMediaRendererHeartbeat();
                 }
@@ -724,7 +729,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         public void Dispose()
         {
-            //throw new NotImplementedException();
+            if (renderingTechnology != null)
+            {
+                renderingTechnology.Dispose();
+                renderingTechnology = null;
+            }
         }
 
         #endregion
@@ -748,12 +757,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             }
         }
 
-        public event MediaStateChangedHandler MediaStateChanged = null;
-        private void FireMediaStateChanged(MediaState oldState, string oldMedia, MediaState newState, string newMedia)
+        public event FilterStateChangedHandler FilterStateChanged = null;
+        private void FireFilterStateChanged(OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState oldState, string oldMedia,
+            OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState newState, string newMedia)
         {
-            if (MediaStateChanged != null)
+            if (FilterStateChanged != null)
             {
-                MediaStateChanged(oldState, oldMedia, newState, newMedia);
+                FilterStateChanged(oldState, oldMedia, newState, newMedia);
             }
         }
         

@@ -369,9 +369,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Resources\ended.png" />
+    <None Include="Resources\notopened.png" />
     <None Include="Resources\paused.png" />
-    <None Include="Resources\playing.png" />
+    <None Include="Resources\running.png" />
     <None Include="Resources\stopped.png" />
   </ItemGroup>
   <ItemGroup>
