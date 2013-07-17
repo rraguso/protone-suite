@@ -41,6 +41,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
 
         int _track = -1;
 
+        public CDDrive CDDrive { get { return _cdrom; } }
+
+        public int Track { get { return _track; } }
+
         public AudioCdFileParser()
             : base(false)
         {
@@ -87,15 +91,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
         {
             uint size = 0;
             int trackSize = _cdrom.ReadTrack(_track, null, ref size, null);
-
-            _buffer = new byte[size];
-
-            int bytesRead = _cdrom.ReadTrack(_track, _buffer, ref size, null);
-            if (bytesRead > 0)
+            if (size > 0)
             {
-                _cdrom.Close();
-
-                // The following info is STANDARD to all audio CD's according to standard IEC 60908
+				// The following info is STANDARD to all audio CD's according to standard IEC 60908
                 WaveFormatEx _wfex = new WaveFormatEx();
                 _wfex.cbSize = 0;
                 _wfex.wFormatTag = 1; // PCM
@@ -114,12 +112,25 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
                 m_Tracks.Add(new CdTrack(this, mt));
 
                 m_llDataOffset = 0;
-                m_rtDuration = (UNITS * (_buffer.Length - m_llDataOffset)) / _wfex.nAvgBytesPerSec;
-
-                m_Stream = new BitStreamReader(new MemoryStream(_buffer));
+                m_rtDuration = (UNITS * (size - m_llDataOffset)) / _wfex.nAvgBytesPerSec;
 
                 return S_OK;
             }
+
+            _buffer = new byte[size];
+
+            //int bytesRead = _cdrom.ReadTrack(_track, _buffer, ref size, null);
+            //if (bytesRead > 0)
+            //{
+            //    //_cdrom.Close();
+
+            //    // The following info is STANDARD to all audio CD's according to standard IEC 60908
+               
+
+            //    //m_Stream = new BitStreamReader(new MemoryStream(_buffer));
+
+                
+            //}
 
             return S_FALSE;
         }
@@ -138,7 +149,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
         #region Variables
 
         protected AMMediaType m_mt = null;
-        protected long m_ullReadPosition = 0;
+        //protected long m_ullReadPosition = 0;
         protected int m_lSampleSize = 0;
         protected long m_rtMediaPosition = 0;
 
@@ -185,42 +196,69 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
 
         public override HRESULT SeekTrack(long _time)
         {
-            AudioCdFileParser pParser = (AudioCdFileParser)m_pParser;
-            if (_time <= 0 || _time > pParser.Duration)
-            {
-                m_ullReadPosition = pParser.DataOffset;
-            }
-            else
-            {
-                WaveFormatEx _wfx = m_mt;
-                if (pParser.Duration > 0)
-                {
-                    m_ullReadPosition = (pParser.Stream.TotalSize - pParser.DataOffset) * _time / pParser.Duration;
-                    if (_wfx.nBlockAlign != 0)
-                    {
-                        m_ullReadPosition -= m_ullReadPosition % _wfx.nBlockAlign;
-                    }
-                }
-            }
+            //AudioCdFileParser pParser = (AudioCdFileParser)m_pParser;
+            //if (_time <= 0 || _time > pParser.Duration)
+            //{
+            //    m_ullReadPosition = pParser.DataOffset;
+            //}
+            //else
+            //{
+            //    WaveFormatEx _wfx = m_mt;
+            //    if (pParser.Duration > 0)
+            //    {
+            //        m_ullReadPosition = (pParser.Stream.TotalSize - pParser.DataOffset) * _time / pParser.Duration;
+            //        if (_wfx.nBlockAlign != 0)
+            //        {
+            //            m_ullReadPosition -= m_ullReadPosition % _wfx.nBlockAlign;
+            //        }
+            //    }
+            //}
+
             m_rtMediaPosition = _time;
             return base.SeekTrack(_time);
         }
 
         public override PacketData GetNextPacket()
         {
-            if (m_ullReadPosition < m_pParser.Stream.TotalSize)
+            CDDrive cdrom = (m_pParser as AudioCdFileParser).CDDrive;
+            int track = (m_pParser as AudioCdFileParser).Track;
+
+            PacketData _data = new PacketData();
+            _data.Buffer = new byte[m_lSampleSize * 2];
+            uint size = (uint)_data.Buffer.Length;
+
+            int bytesRead = cdrom.ReadTrack(track, _data.Buffer, ref size, (uint)(m_rtMediaPosition / UNITS), 
+                1, 
+                null);
+
+            if (size > 0)
             {
-                PacketData _data = new PacketData();
-                _data.Position = m_ullReadPosition;
-                _data.Size = m_lSampleSize;
+                _data.Position = 0;
+                _data.Size = (int)size;
                 _data.SyncPoint = true;
                 _data.Start = m_rtMediaPosition;
-                _data.Stop = _data.Start + UNITS / 2;
-                m_ullReadPosition += m_lSampleSize;
+                _data.Stop = _data.Start + UNITS;// / 2;
                 m_rtMediaPosition = _data.Stop;
+
                 return _data;
             }
+
             return null;
+
+
+            //if (m_ullReadPosition < m_pParser.Stream.TotalSize)
+            //{
+            //    PacketData _data = new PacketData();
+            //    _data.Position = m_ullReadPosition;
+            //    _data.Size = m_lSampleSize;
+            //    _data.SyncPoint = true;
+            //    _data.Start = m_rtMediaPosition;
+            //    _data.Stop = _data.Start + UNITS / 2;
+            //    m_ullReadPosition += m_lSampleSize;
+            //    m_rtMediaPosition = _data.Stop;
+            //    return _data;
+            //}
+            //return null;
         }
 
         #endregion
