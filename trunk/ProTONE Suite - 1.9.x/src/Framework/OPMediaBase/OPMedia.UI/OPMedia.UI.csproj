@@ -564,7 +564,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.ro.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.ro.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>

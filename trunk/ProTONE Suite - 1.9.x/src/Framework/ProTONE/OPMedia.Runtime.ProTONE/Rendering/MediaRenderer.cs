@@ -119,6 +119,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         public int VolumePeakR { get { return renderingTechnology.VolumePeakR; } }
         public int VolumePeakL { get { return renderingTechnology.VolumePeakL; } }
 
+        
+
         public Control RenderPanel
         {
             get { return renderPanel; }
@@ -553,7 +555,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
                     nofPasses = 0;
                 }
 
-                if (renderingTechnology.EndOfMedia || nofPasses > 10)
+                if (renderingTechnology.EndOfMedia || (!renderingTechnology.IsStreamedMedia && nofPasses > 10))
                 {
                     if (newState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
                     {

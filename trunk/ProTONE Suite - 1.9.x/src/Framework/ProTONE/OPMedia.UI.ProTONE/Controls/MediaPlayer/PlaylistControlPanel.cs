@@ -52,8 +52,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
     public partial class PlaylistControlPanel : OPMBaseControl
     {
-        public event MouseEventHandler MouseUp;
-
         OPMToolTip _tip = new OPMToolTip();
 
         public new Color OverrideBackColor
@@ -160,10 +158,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
         }
 
-        private void OnMouseUp(object sender, MouseEventArgs e)
+        private void HandleMouseUp(object sender, MouseEventArgs e)
         {
-            if (MouseUp != null)
-                MouseUp(sender, e);
+            base.OnMouseUp(e);
         }
     }
 }

@@ -176,7 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\repair.ico" />
     <EmbeddedResource Include="Translations\Translation.ro.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Translation.ro.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>

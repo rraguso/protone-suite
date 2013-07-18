@@ -31,6 +31,8 @@ using OPMedia.UI.ProTONE.Dialogs;
 using OPMedia.UI.ProTONE.SubtitleDownload;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.UI.ProTONE.Properties;
+using OPMedia.Runtime.Processors;
+using System.Net;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -463,14 +465,37 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
         }
 
-        public void LoadPlaylist(string fileName, bool enqueue)
+        public void LoadPlaylist(string file, bool enqueue)
         {
             if (!enqueue)
             {
                 Clear();
             }
 
-            playlist.LoadPlaylist(fileName);
+            Uri uri = new Uri(file);
+            if (uri.Scheme == "file")
+            {
+                playlist.LoadPlaylist(file);
+            }
+            else
+            {
+                string fileName = Path.GetFileName(file);
+                string tempFile = Path.Combine(Path.GetTempPath(), fileName);
+
+                using (WebClient wc = new WebClient())
+                {
+                    try
+                    {
+                        wc.Proxy = AppSettings.GetWebProxy();
+                        wc.DownloadFile(file, tempFile);
+                        playlist.LoadPlaylist(tempFile);
+                    }
+                    catch(Exception ex)
+                    {
+                        ErrorDispatcher.DispatchException(ex);
+                    }
+                }
+            }
         }
 
         internal void LoadPlaylist()

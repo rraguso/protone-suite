@@ -1213,6 +1213,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         public ushort cbSize;
     }
 
+    [StructLayout(LayoutKind.Sequential, Pack = 2)]
+    [ComVisible(false)]
+    public class Mp3WaveFormat : WaveFormatEx
+    {
+        public ushort wID;
+        public int fdwFlags;
+        public ushort nBlockSize;
+        public ushort nFramesPerBlock;
+        public ushort nCodecDelay;
+    }
+
     [Flags]
     [ComVisible(false)]
     public enum SPEAKER : uint

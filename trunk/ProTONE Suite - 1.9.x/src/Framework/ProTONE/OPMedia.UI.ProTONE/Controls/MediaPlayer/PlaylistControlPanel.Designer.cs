@@ -62,7 +62,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.btnSavePlaylist.TabStop = false;
             this.btnSavePlaylist.Tag = "btnSavePlaylist";
             this.btnSavePlaylist.Click += new System.EventHandler(this.OnButtonPressed);
-            this.btnSavePlaylist.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
+            this.btnSavePlaylist.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HandleMouseUp);
             // 
             // btnLoadPlaylist
             // 
@@ -79,7 +79,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.btnLoadPlaylist.TabStop = false;
             this.btnLoadPlaylist.Tag = "btnLoadPlaylist";
             this.btnLoadPlaylist.Click += new System.EventHandler(this.OnButtonPressed);
-            this.btnLoadPlaylist.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
+            this.btnLoadPlaylist.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HandleMouseUp);
             // 
             // btnClear
             // 
@@ -96,7 +96,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.btnClear.TabStop = false;
             this.btnClear.Tag = "btnClear";
             this.btnClear.Click += new System.EventHandler(this.OnButtonPressed);
-            this.btnClear.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
+            this.btnClear.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HandleMouseUp);
             // 
             // btnDelete
             // 
@@ -113,7 +113,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.btnDelete.TabStop = false;
             this.btnDelete.Tag = "btnDelete";
             this.btnDelete.Click += new System.EventHandler(this.OnButtonPressed);
-            this.btnDelete.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
+            this.btnDelete.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HandleMouseUp);
             // 
             // btnMoveDown
             // 
@@ -131,7 +131,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.btnMoveDown.TabStop = false;
             this.btnMoveDown.Tag = "btnMoveDown";
             this.btnMoveDown.Click += new System.EventHandler(this.OnButtonPressed);
-            this.btnMoveDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
+            this.btnMoveDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HandleMouseUp);
             // 
             // btnMoveUp
             // 
@@ -148,7 +148,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.btnMoveUp.TabStop = false;
             this.btnMoveUp.Tag = "btnMoveUp";
             this.btnMoveUp.Click += new System.EventHandler(this.OnButtonPressed);
-            this.btnMoveUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
+            this.btnMoveUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HandleMouseUp);
             // 
             // pnlButtons
             // 

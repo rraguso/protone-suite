@@ -11567,33 +11567,24 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             UnloadFile();
             m_bLoading = true;
             m_sFileName = pszFileName;
-            try
+            
+            if (S_OK == DecideFileParser(m_sFileName))
             {
-                if (S_OK == DecideFileParser(m_sFileName))
-                {
-                    m_bLoading = false;
-                    return NOERROR;
-                }
+                m_bLoading = false;
+                return NOERROR;
             }
-            catch(Exception ex)
-            {
-            }
+
             UnloadFile();
             m_sFileName = pszFileName;
 
             BitStreamReader _stream = null;
-            try
+            _stream = new BitStreamReader(new FileStream(m_sFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
+            if (S_OK == DecideFileParser(_stream))
             {
-                _stream = new BitStreamReader(new FileStream(m_sFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
-                if (S_OK == DecideFileParser(_stream))
-                {
-                    m_bLoading = false;
-                    return NOERROR;
-                }
+                m_bLoading = false;
+                return NOERROR;
             }
-            catch 
-            {   
-            }
+
             m_bLoading = false;
             UnloadFile();
             if (_stream != null)

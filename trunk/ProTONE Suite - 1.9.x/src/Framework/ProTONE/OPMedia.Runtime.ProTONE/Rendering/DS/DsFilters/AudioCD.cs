@@ -37,7 +37,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
         private const uint WAVE_FORMAT_PCM = 0x01;
 
         CDDrive _cdrom = new CDDrive();
-        WaveFormatEx _wfex = null;
 
         int _track = -1;
 
@@ -119,28 +118,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
 
             _buffer = new byte[size];
 
-            //int bytesRead = _cdrom.ReadTrack(_track, _buffer, ref size, null);
-            //if (bytesRead > 0)
-            //{
-            //    //_cdrom.Close();
-
-            //    // The following info is STANDARD to all audio CD's according to standard IEC 60908
-               
-
-            //    //m_Stream = new BitStreamReader(new MemoryStream(_buffer));
-
-                
-            //}
-
             return S_FALSE;
-        }
-    }
-
-    public class AudioCdSourceFilter : BaseSourceFilterTemplate<AudioCdFileParser>
-    {
-        public AudioCdSourceFilter()
-            : base("OPM Audio CD Source Filter")
-        {
         }
     }
 
@@ -196,24 +174,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
 
         public override HRESULT SeekTrack(long _time)
         {
-            //AudioCdFileParser pParser = (AudioCdFileParser)m_pParser;
-            //if (_time <= 0 || _time > pParser.Duration)
-            //{
-            //    m_ullReadPosition = pParser.DataOffset;
-            //}
-            //else
-            //{
-            //    WaveFormatEx _wfx = m_mt;
-            //    if (pParser.Duration > 0)
-            //    {
-            //        m_ullReadPosition = (pParser.Stream.TotalSize - pParser.DataOffset) * _time / pParser.Duration;
-            //        if (_wfx.nBlockAlign != 0)
-            //        {
-            //            m_ullReadPosition -= m_ullReadPosition % _wfx.nBlockAlign;
-            //        }
-            //    }
-            //}
-
             m_rtMediaPosition = _time;
             return base.SeekTrack(_time);
         }
@@ -237,45 +197,23 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
                 _data.Size = (int)size;
                 _data.SyncPoint = true;
                 _data.Start = m_rtMediaPosition;
-                _data.Stop = _data.Start + UNITS;// / 2;
+                _data.Stop = _data.Start + UNITS;
                 m_rtMediaPosition = _data.Stop;
 
                 return _data;
             }
 
             return null;
-
-
-            //if (m_ullReadPosition < m_pParser.Stream.TotalSize)
-            //{
-            //    PacketData _data = new PacketData();
-            //    _data.Position = m_ullReadPosition;
-            //    _data.Size = m_lSampleSize;
-            //    _data.SyncPoint = true;
-            //    _data.Start = m_rtMediaPosition;
-            //    _data.Stop = _data.Start + UNITS / 2;
-            //    m_ullReadPosition += m_lSampleSize;
-            //    m_rtMediaPosition = _data.Stop;
-            //    return _data;
-            //}
-            //return null;
         }
 
         #endregion
     }
 
-    public class AudioCdPlayback : DSFilePlayback
+    public class AudioCdSourceFilter : BaseSourceFilterTemplate<AudioCdFileParser>
     {
-        protected override HRESULT OnInitInterfaces()
+        public AudioCdSourceFilter()
+            : base("OPM Audio CD Source Filter")
         {
-            // Create Filter
-            DSBaseSourceFilter _source = new DSBaseSourceFilter(new AudioCdSourceFilter());
-            // load the file
-            _source.FileName = m_sFileName;
-            // Add to the filter Graph
-            _source.FilterGraph = m_GraphBuilder;
-            // Render the output pin
-            return _source.OutputPin.Render();
         }
     }
 }

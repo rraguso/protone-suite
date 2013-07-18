@@ -405,8 +405,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             return false;
         }
 
-        int _bakMessageDrain = -1;
-
         protected override void DoSetFullScreen(bool fullScreen)
         {
             //if (videoWindow != null)

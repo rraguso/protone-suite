@@ -106,8 +106,10 @@
     </Compile>
     <Compile Include="Rendering\DS\BaseClasses\DirectShow.cs" />
     <Compile Include="Rendering\DS\BaseClasses\DSHelper.cs" />
+    <Compile Include="Rendering\DS\DSShoutcastRenderer.cs" />
     <Compile Include="Rendering\DS\DSAudioCDRenderer.cs" />
     <Compile Include="Rendering\DS\DSDvdRenderer.cs" />
+    <Compile Include="Rendering\DS\DsFilters\ShoutCast.cs" />
     <Compile Include="Rendering\DS\DShowTypes.cs">
       <SubType>Code</SubType>
     </Compile>

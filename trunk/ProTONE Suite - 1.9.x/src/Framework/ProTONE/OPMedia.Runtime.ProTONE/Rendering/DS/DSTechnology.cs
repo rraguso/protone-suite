@@ -96,14 +96,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (uri != null && !uri.IsFile)
             {
                 this.streamType = "URL";
-                //if (streamRenderer as DSShoutcastRenderer == null)
-                //{
-                //    streamRenderer = new DSShoutcastRenderer();
-                //}
-
-                if (streamRenderer as DSFileRenderer == null)
+                if (streamRenderer as DSShoutcastRenderer == null)
                 {
-                    streamRenderer = new DSFileRenderer();
+                    streamRenderer = new DSShoutcastRenderer();
                 }
             }
             else

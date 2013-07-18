@@ -50,7 +50,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             MethodBase _method = (new StackTrace(1,false)).GetFrame(0).GetMethod();
             TRACE(string.Format("{0}::{1}", _method.ReflectedType.Name, _method.Name)); 
         }
-        public static void ASSERT(object _object) { if (_object is BOOL) Debug.Assert((bool)_object); if (_object is HRESULT) Debug.Assert((bool)_object); else if (_object is bool) Debug.Assert((bool)_object); else Debug.Assert(_object != null); }
+        
+        //public static void ASSERT(object _object) { if (_object is BOOL) Debug.Assert((bool)_object); if (_object is HRESULT) Debug.Assert((bool)_object); else if (_object is bool) Debug.Assert((bool)_object); else Debug.Assert(_object != null); }
+        public static void ASSERT(object _object) { }
 #else
         public static void _TRACE(string _message) { }
         public static void TRACE(string _message) { }

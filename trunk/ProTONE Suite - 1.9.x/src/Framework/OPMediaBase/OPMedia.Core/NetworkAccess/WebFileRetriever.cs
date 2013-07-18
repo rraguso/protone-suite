@@ -62,20 +62,8 @@ namespace OPMedia.Core.NetworkAccess
                 Directory.CreateDirectory(destFolder);
             }
 
-            IWebProxy wp = null;
-            if (_ns.ProxyType == ProxyType.NoProxy)
-            {
-                wp = new WebProxy();
-            }
-            else if (_ns.ProxyType != ProxyType.InternetExplorerProxy)
-            {
-                wp = new WebProxy(_ns.ProxyAddress, _ns.ProxyPort);
-                wp.Credentials = new NetworkCredential(_ns.ProxyUser, _ns.ProxyPassword);
-                (wp as WebProxy).BypassProxyOnLocal = true;
-            }
-
             _retriever = new WebClient();
-            _retriever.Proxy = wp;
+            _retriever.Proxy = AppSettings.GetWebProxy();
             _retriever.DownloadFile(new Uri(_downloadUrl), _destinationPath);
 
             if (NewFileRetrieved != null)

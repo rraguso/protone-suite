@@ -42,6 +42,8 @@ using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.UI.ProTONE.Properties;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
+using System.Net;
+using OPMedia.Core.Utilities;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -810,7 +812,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                         if (dlg.ShowDialog() == DialogResult.OK)
                         {
-                            string[] urls = new string[] { dlg.Uri };
+                            string url = dlg.Uri.ToLowerInvariant();
+                            Uri uri = new Uri(url);
+                            if (!string.IsNullOrEmpty(uri.Query))
+                            {
+                                url = url.Replace(uri.Query.ToLowerInvariant(), string.Empty);
+                            }
+
+                            string[] urls = new string[] { url };
                             LoadFiles(urls);
                         }
                     }

@@ -95,7 +95,6 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             Display();
         }
 
-        bool enableEvents = false;
         private void Display()
         {
             Wizard.CanFinish = false;
@@ -106,14 +105,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             Wizard.ShowRepeatWizard = false;
             Wizard.AcceptButton = btnSearch.Button;
 
-            enableEvents = false;
-
             PopulateSearchPattern();
             PopulateSearchText();
             FillSearchPath(theTask.SearchPath);
 
             chkRecursive.Checked = theTask.IsRecursive;
-            enableEvents = true;
         }
 
         private void PopulateSearchText()

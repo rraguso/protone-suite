@@ -37,20 +37,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.BSP_V1
         protected override void DoInitializeSession()
         {
             _wsdl = new BSPSubtitlesService(_serverUrl);
-
-            IWebProxy wp = null;
-            if (AppSettings.ProxySettings == null || AppSettings.ProxySettings.ProxyType == ProxyType.NoProxy)
-            {
-                wp = new WebProxy();
-            }
-            else if (AppSettings.ProxySettings.ProxyType != ProxyType.InternetExplorerProxy)
-            {
-                wp = new WebProxy(AppSettings.ProxySettings.ProxyAddress, AppSettings.ProxySettings.ProxyPort);
-                wp.Credentials = new NetworkCredential(AppSettings.ProxySettings.ProxyUser, AppSettings.ProxySettings.ProxyPassword);
-                (wp as WebProxy).BypassProxyOnLocal = true;
-            }
-
-            _wsdl.Proxy = wp;
+            _wsdl.Proxy = AppSettings.GetWebProxy();
             _wsdl.UserAgent = string.Format("{0} v{1}", Constants.PlayerName, SuiteVersion.Version);
         }
 

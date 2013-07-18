@@ -72,6 +72,16 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             basicVideo = null;
             basicAudio = mediaControl as IBasicAudio;
             mediaEvent = mediaControl as IMediaEventEx;
+
+            try
+            {
+                int hr = basicAudio.put_Volume((int)VolumeRange.Minimum);
+                isAudioAvailable = (hr >= 0);
+            }
+            catch
+            {
+                isAudioAvailable = false;
+            }
         }
 
         protected override void HandleGraphEvent(EventCode code, int p1, int p2)

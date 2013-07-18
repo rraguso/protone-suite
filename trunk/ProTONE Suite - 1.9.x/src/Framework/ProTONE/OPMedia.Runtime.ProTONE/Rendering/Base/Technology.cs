@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.FileInformation;
+using OPMedia.Runtime.ProTONE.Rendering.DS;
 #endregion
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Base
@@ -22,6 +23,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
         #endregion
 
         #region Properties
+
+        public bool IsStreamedMedia { get { return (streamRenderer is DSShoutcastRenderer); } } 
 
         internal object GraphFilter
         { get { return (streamRenderer == null) ? null : streamRenderer.GraphFilter; } }

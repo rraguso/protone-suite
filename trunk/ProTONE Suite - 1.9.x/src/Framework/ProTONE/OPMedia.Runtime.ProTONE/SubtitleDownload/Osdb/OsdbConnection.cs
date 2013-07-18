@@ -83,21 +83,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
         {
             _proxy = XmlRpcProxyGen.Create<IOsdbProtocol>();
             _proxy.Url = osdbServerUrl;
-
-            IWebProxy wp = null;
-
-            if (ps == null || ps.ProxyType == ProxyType.NoProxy)
-            {
-                wp = new WebProxy();
-            }
-            else if (ps.ProxyType != ProxyType.InternetExplorerProxy)
-            {
-                wp = new WebProxy(ps.ProxyAddress, ps.ProxyPort);
-                wp.Credentials = new NetworkCredential(ps.ProxyUser, ps.ProxyPassword);
-                (wp as WebProxy).BypassProxyOnLocal = true;
-            }
-
-            _proxy.Proxy = wp;
+            _proxy.Proxy = AppSettings.GetWebProxy();
         }
 
         #region IDisposable Members

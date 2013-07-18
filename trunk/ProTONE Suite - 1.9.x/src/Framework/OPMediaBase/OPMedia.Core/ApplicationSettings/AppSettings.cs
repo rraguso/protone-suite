@@ -12,6 +12,7 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.Core.Utilities;
 using System.Text.RegularExpressions;
+using System.Net;
 
 namespace OPMedia.Core.ApplicationSettings
 {
@@ -106,7 +107,25 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        
+        public static IWebProxy GetWebProxy()
+        {
+            IWebProxy wp = null;
+            ProxySettings ps = AppSettings.ProxySettings;
+
+            if (ps == null || ps.ProxyType == ProxyType.NoProxy)
+            {
+                wp = new WebProxy();
+            }
+            else if (ps.ProxyType != ProxyType.InternetExplorerProxy)
+            {
+                wp = new WebProxy(ps.ProxyAddress, ps.ProxyPort);
+                wp.Credentials = new NetworkCredential(ps.ProxyUser, ps.ProxyPassword);
+                (wp as WebProxy).BypassProxyOnLocal = true;
+            }
+
+            return wp;
+        }
+                
         public static ProxySettings ProxySettings
         {
             get

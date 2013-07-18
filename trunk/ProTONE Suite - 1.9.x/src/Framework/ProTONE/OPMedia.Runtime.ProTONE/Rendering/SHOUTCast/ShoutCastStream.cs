@@ -8,6 +8,9 @@ using System.IO;
 using OPMedia.Core;
 using System.Text.RegularExpressions;
 using OPMedia.Core.Logging;
+using System.Reflection;
+using System.Net.Configuration;
+using System.Collections.Specialized;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
 {
@@ -16,7 +19,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
     /// </summary>
     public class ShoutcastStream : Stream
     {
-        private int metaInt;
+        private int bitrate = 128;
+        private int metaInt = 8192;
         private int receivedBytes;
         private Stream netStream;
         private bool connected = false;
@@ -28,54 +32,94 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
         /// </summary>
         public event EventHandler StreamTitleChanged;
 
+        public bool Connected { get { return connected; } }
+
+        public int Bitrate { get { return bitrate; } }
+
         /// <summary>
         /// Creates a new ShoutcastStream and connects to the specified Url
         /// </summary>
         /// <param name="url">Url of the Shoutcast stream</param>
         public ShoutcastStream(string url)
         {
-            IWebProxy wp = null;
-            ProxySettings ps = AppSettings.ProxySettings;
-
-            if (ps == null || ps.ProxyType == ProxyType.NoProxy)
-            {
-                wp = new WebProxy();
-            }
-            else if (ps.ProxyType != ProxyType.InternetExplorerProxy)
-            {
-                wp = new WebProxy(ps.ProxyAddress, ps.ProxyPort);
-                wp.Credentials = new NetworkCredential(ps.ProxyUser, ps.ProxyPassword);
-                (wp as WebProxy).BypassProxyOnLocal = true;
-            }
-
-
-
             HttpWebResponse response = null;
 
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
             request.Headers.Clear();
             request.Headers.Add("Icy-MetaData", "1");
 
-            request.Proxy = wp;
+            request.Proxy = AppSettings.GetWebProxy();
             request.KeepAlive = false;
             request.UserAgent = Constants.PlayerUserAgent;
             request.ServicePoint.Expect100Continue = false;
 
             try
             {
+                ToggleAllowUnsafeHeaderParsing(true);
                 response = (HttpWebResponse)request.GetResponse();
+
+                Dictionary<string, string> nvc = new Dictionary<string, string>();
+                foreach (string key in response.Headers.AllKeys)
+                {
+                    nvc.Add(key, response.Headers[key]);
+                }
+
+                try
+                {
+                    metaInt = int.Parse(response.Headers["Icy-MetaInt"]);
+                }
+                catch { }
+
+                try
+                {
+                    bitrate = int.Parse(response.Headers["Icy-BR"]);
+                }
+                catch { }
+                
+                receivedBytes = 0;
+
+                netStream = response.GetResponseStream();
+                connected = true;
             }
-            catch (Exception ex)
+            catch
             {
-                Logger.LogException(ex);
+                connected = false;
+                throw;
             }
+            finally
+            {
+                ToggleAllowUnsafeHeaderParsing(false);
+            }
+        }
 
-            metaInt = int.Parse(response.Headers["Icy-MetaInt"]);
-            receivedBytes = 0;
+        static bool ToggleAllowUnsafeHeaderParsing(bool enable)
+        {
+            //Get the assembly that contains the internal class
+            Assembly assembly = Assembly.GetAssembly(typeof(SettingsSection));
+            if (assembly != null)
+            {
+                //Use the assembly in order to get the internal type for the internal class
+                Type settingsSectionType = assembly.GetType("System.Net.Configuration.SettingsSectionInternal");
+                if (settingsSectionType != null)
+                {
+                    //Use the internal static property to get an instance of the internal settings class.
+                    //If the static instance isn't created already invoking the property will create it for us.
+                    object anInstance = settingsSectionType.InvokeMember("Section",
+                    BindingFlags.Static | BindingFlags.GetProperty | BindingFlags.NonPublic, null, null, new object[] { });
+                    if (anInstance != null)
+                    {
+                        //Locate the private bool field that tells the framework if unsafe header parsing is allowed
+                        FieldInfo aUseUnsafeHeaderParsing = settingsSectionType.GetField("useUnsafeHeaderParsing", BindingFlags.NonPublic | BindingFlags.Instance);
+                        if (aUseUnsafeHeaderParsing != null)
+                        {
+                            aUseUnsafeHeaderParsing.SetValue(anInstance, enable);
+                            return true;
+                        }
 
-            netStream = response.GetResponseStream();
-
-            connected = true;
+                    }
+                }
+            }
+            return false;
         }
 
         /// <summary>
