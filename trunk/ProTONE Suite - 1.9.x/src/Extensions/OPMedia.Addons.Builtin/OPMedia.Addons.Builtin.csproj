@@ -267,9 +267,6 @@
     <EmbeddedResource Include="Preview\Player\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\CDAProp\AddonPanel.resx">
-      <DependentUpon>AddonPanel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Property\ID3Prop\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </EmbeddedResource>
