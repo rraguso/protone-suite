@@ -86,7 +86,7 @@ namespace OPMedia.Addons.Builtin.VideoProp
                 }
             }
 
-            FileAttributesBrowser.SuppressSingleSelectionBrowsableAttributes(lvi);
+            FileAttributesBrowser.SuppressNonBrowsableAttributes(lvi);
 
             pgProperties.SelectedObjects = lvi.ToArray();
 

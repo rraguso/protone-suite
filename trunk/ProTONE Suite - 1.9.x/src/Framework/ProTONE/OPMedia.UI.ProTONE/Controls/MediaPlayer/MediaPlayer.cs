@@ -812,14 +812,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                         if (dlg.ShowDialog() == DialogResult.OK)
                         {
-                            string url = dlg.Uri.ToLowerInvariant();
-                            Uri uri = new Uri(url);
-                            if (!string.IsNullOrEmpty(uri.Query))
-                            {
-                                url = url.Replace(uri.Query.ToLowerInvariant(), string.Empty);
-                            }
-
-                            string[] urls = new string[] { url };
+                            string[] urls = new string[] { dlg.Uri };
                             LoadFiles(urls);
                         }
                     }

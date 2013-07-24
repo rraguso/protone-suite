@@ -126,6 +126,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             dvdGraphBuilder.GetFiltergraph(out mediaControl);
 
+            if (mediaControl == null)
+                throw new RenderingException("Unable to render the file: " + renderMediaName);
+
             mediaEvent = mediaControl as IMediaEventEx;
             mediaPosition = mediaControl as IMediaPosition;
             videoWindow = mediaControl as IVideoWindow;

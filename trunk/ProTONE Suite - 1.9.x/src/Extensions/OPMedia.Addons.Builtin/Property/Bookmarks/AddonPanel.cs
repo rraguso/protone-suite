@@ -74,7 +74,7 @@ namespace OPMedia.Addons.Builtin.Bookmarks
                 }
             }
 
-            FileAttributesBrowser.SuppressSingleSelectionBrowsableAttributes(lbfi);
+            FileAttributesBrowser.SuppressNonBrowsableAttributes(lbfi);
 
             pgProperties.SelectedObjects = lbfi.ToArray();
             base.Modified = false;

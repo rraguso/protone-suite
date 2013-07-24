@@ -44,7 +44,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
 
         [Browsable(false)]
-        public BookmarkFileInfo BookmarkFileInfo
+        public virtual BookmarkFileInfo BookmarkFileInfo
         { get { return _bookmarkInfo; } }
 
         [Browsable(false)]
@@ -284,6 +284,9 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 // audio file or playlist
                 switch (mi.MediaType)
                 {
+                    case "cda":
+                        return new CDAFileInfo(path, deepLoad);
+
                     case "mp1":
                     case "mp2":
                     case "mp3":

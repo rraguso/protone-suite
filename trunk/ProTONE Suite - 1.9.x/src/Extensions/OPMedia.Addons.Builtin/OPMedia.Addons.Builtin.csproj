@@ -83,6 +83,12 @@
     <Compile Include="Property\Bookmarks\AddonPanel.Designer.cs">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Property\CDAProp\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\CDAProp\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Property\ID3Prop\ID3Wizard\Controls\PreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
       <DependentUpon>FileExplorerCfgPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Preview\Player\AddonPanel.resx">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\CDAProp\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Property\ID3Prop\AddonPanel.resx">

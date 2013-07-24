@@ -52,6 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
@@ -78,6 +79,7 @@
     <Compile Include="FfdShowApi\FFDShowReceiver.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FileInformation\CDAFileInfo.cs" />
     <Compile Include="FileInformation\ID3FileInfo.cs" />
     <Compile Include="FileInformation\DvdMedia.cs" />
     <Compile Include="FileInformation\MediaFileInfo.cs" />
@@ -100,6 +102,23 @@
     <Compile Include="Rendering\Base\Types.cs" />
     <Compile Include="Rendering\Cdda\CDDrive.cs" />
     <Compile Include="Rendering\Cdda\CDDriveEvents.cs" />
+    <Compile Include="Rendering\Cdda\FreeDb\CDEntry.cs" />
+    <Compile Include="Rendering\Cdda\FreeDb\CDEntryDataSet.cs">
+      <DependentUpon>CDEntryDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rendering\Cdda\FreeDb\CDEntryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDEntryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Rendering\Cdda\FreeDb\FreedbHelper.cs" />
+    <Compile Include="Rendering\Cdda\FreeDb\QueryResult.cs" />
+    <Compile Include="Rendering\Cdda\FreeDb\QueryResultCollection.cs" />
+    <Compile Include="Rendering\Cdda\FreeDb\Site.cs" />
+    <Compile Include="Rendering\Cdda\FreeDb\SiteCollection.cs" />
+    <Compile Include="Rendering\Cdda\FreeDb\Track.cs" />
+    <Compile Include="Rendering\Cdda\FreeDb\TrackCollection.cs" />
     <Compile Include="Rendering\Cdda\Win32Functions.cs" />
     <Compile Include="Rendering\DS\BaseClasses\BaseClasses.cs">
       <SubType>Form</SubType>
@@ -191,6 +210,19 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rendering\Cdda\FreeDb\CDEntryDataSet.xsc">
+      <DependentUpon>CDEntryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Rendering\Cdda\FreeDb\CDEntryDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CDEntryDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Rendering\Cdda\FreeDb\CDEntryDataSet.xss">
+      <DependentUpon>CDEntryDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

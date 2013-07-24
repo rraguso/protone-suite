@@ -537,5 +537,175 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
         }
       }
     }
+
+    #region CDDB Enhancements
+	  
+	  /// <summary>
+	  /// Retrieve a CDDB DiskID 
+	  /// </summary>
+	  /// <returns></returns>
+	  public string GetCDDBDiskID()
+	  {
+		  int numTracks = GetNumTracks();
+		  if (numTracks == -1)
+			  throw new Exception("Unable to retrieve the number of tracks, Cannot calculate DiskID.");
+
+		  string postfix  = numTracks.ToString();
+
+		  int   i,t = 0,n=0;
+
+		  double ofs=0;
+
+		  int secs = 0;
+
+		  /* For backward compatibility this algorithm must not change */
+		  i = 0; 
+		  
+		  while (i < numTracks) 
+		  {
+			  Console.WriteLine("Track {0}: {1}:{2}", i, GetSeconds(i) / 60, GetSeconds(i) % 60);
+
+			  ofs = (((Toc.TrackData[ i].Address_1 * 60)+ Toc.TrackData[ i].Address_2)*75)+ Toc.TrackData[ i].Address_3;
+			  n = n + cddb_sum((Toc.TrackData[ i].Address_1 * 60) + Toc.TrackData[ i].Address_2 );
+			  secs += GetSeconds(i);
+			  postfix += "+" + string.Format("{0}",ofs);
+
+			  i++;
+		  }
+          
+
+		  int numSecs = Toc.TrackData[ i].Address_1 * 60 + Toc.TrackData[ i].Address_2;
+          
+		  Console.WriteLine("n = {0}, numSecs = {1}, secs = {2}", n, numSecs, secs);
+
+		  postfix += "+" + numSecs;
+		  Win32Functions.TRACK_DATA last    = Toc.TrackData[ numTracks ];
+		  Win32Functions.TRACK_DATA first    = Toc.TrackData[ 0 ];
+
+		  t = ((last.Address_1 * 60) + last.Address_2) -
+			  ( (first.Address_1 * 60) + first.Address_2 );
+
+		  ulong lDiscId = (((uint)n % 0xff) << 24 | (uint)t << 8 | (uint)numTracks);
+
+		  string sDiscId = String.Format("{0:x8}",lDiscId);
+
+		  return sDiscId;
+	  }
+	  
+	  
+	  /// <summary>
+	  /// Retrieve the data required to perform a CDDB Query
+	  /// </summary>
+	  /// <returns></returns>
+	  public string GetCDDBQuery()
+	  {   
+          
+		  int numTracks = GetNumTracks();
+		  if (numTracks == -1)
+			  throw new Exception("Unable to retrieve the number of tracks, Cannot calculate DiskID.");
+
+		  string postfix  = numTracks.ToString();
+
+		  int   i,t = 0,n=0;
+
+		  double ofs=0;
+
+		  int secs = 0;
+
+		  /* For backward compatibility this algorithm must not change */
+		  i = 0; 
+		  
+		  while (i < numTracks) 
+		  {
+			  Console.WriteLine("Track {0}: {1}:{2}", i, GetSeconds(i) / 60, GetSeconds(i) % 60);
+
+			  ofs = (((Toc.TrackData[ i].Address_1 * 60)+ Toc.TrackData[ i].Address_2)*75)+ Toc.TrackData[ i].Address_3;
+			  n = n + cddb_sum((Toc.TrackData[ i].Address_1 * 60) + Toc.TrackData[ i].Address_2 );
+			  secs += GetSeconds(i);
+			  postfix += "+" + string.Format("{0}",ofs);
+
+			  i++;
+		  }
+          
+
+		  int numSecs = Toc.TrackData[ i].Address_1 * 60 + Toc.TrackData[ i].Address_2;
+          
+		  Console.WriteLine("n = {0}, numSecs = {1}, secs = {2}", n, numSecs, secs);
+
+		  postfix += "+" + numSecs;
+		  Win32Functions.TRACK_DATA last    = Toc.TrackData[ numTracks ];
+		  Win32Functions.TRACK_DATA first    = Toc.TrackData[ 0 ];
+
+		  t = ((last.Address_1 * 60) + last.Address_2) -
+			  ( (first.Address_1 * 60) + first.Address_2 );
+
+		  ulong lDiscId = (((uint)n % 0xff) << 24 | (uint)t << 8 | (uint)numTracks);
+
+		  string sDiscId = String.Format("{0:x8}",lDiscId);
+
+		  string qs = sDiscId + "+" + postfix;
+
+		  return qs;
+	  }
+
+
+	  public int GetSeconds(int track)
+	  {
+		  if ( TocValid && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) )
+		  {
+			  int start = (GetStartSector(track)+150) / 75;
+			  int end = (GetEndSector(track)+150) / 75;
+
+			  int begin = 2;
+			  if (track > Toc.FirstTrack)
+				  begin = (GetEndSector2(track -1)+150)/75;
+
+			  //return (end - begin);
+
+			  return end - start;
+
+
+		  }
+		  else 
+		  {
+			  return -1; 
+		  }
+	  }
+
+	  private int  cddb_sum(int n)
+	  {
+		  int	ret;
+
+		  //Console.WriteLine("n={0}",n);
+
+		  /* For backward compatibility this algorithm must not change */
+
+		  ret = 0;
+
+		  while (n > 0) 
+		  {
+			  ret = ret + (n % 10);
+			  n = n / 10;
+		  }
+
+		  return (ret);
+	  }
+
+
+	  protected int GetEndSector2(int track)
+	  {
+		  if ( TocValid && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) )
+		  {
+			  Win32Functions.TRACK_DATA td = Toc.TrackData[track];
+			  return (td.Address_1*60*75 + td.Address_2*75)-151;
+		  }
+		  else 
+		  {
+			  return -1;
+		  }
+	  }
+
+
+	  #endregion
   }
 }

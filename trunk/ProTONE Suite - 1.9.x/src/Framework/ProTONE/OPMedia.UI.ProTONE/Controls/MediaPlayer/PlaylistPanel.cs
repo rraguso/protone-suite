@@ -273,7 +273,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             try
             {
-                string ext = PathUtils.GetExtension(file);
+                Uri uri = new Uri(file);
+                string ext = PathUtils.GetExtension(uri.LocalPath);
                 return MediaRenderer.SupportedPlaylists.Contains(ext);
             }
             catch
@@ -479,22 +480,32 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
             else
             {
-                string fileName = Path.GetFileName(file);
+                string fileName = Path.GetFileName(uri.LocalPath);
                 string tempFile = Path.Combine(Path.GetTempPath(), fileName);
 
                 using (WebClient wc = new WebClient())
                 {
-                    try
-                    {
-                        wc.Proxy = AppSettings.GetWebProxy();
-                        wc.DownloadFile(file, tempFile);
-                        playlist.LoadPlaylist(tempFile);
-                    }
-                    catch(Exception ex)
-                    {
-                        ErrorDispatcher.DispatchException(ex);
-                    }
+                    wc.Proxy = AppSettings.GetWebProxy();
+                    wc.DownloadFile(uri, tempFile);
+                    playlist.LoadPlaylist(tempFile);
                 }
+
+                //HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
+                //request.Headers.Clear();
+                //request.Proxy = AppSettings.GetWebProxy();
+
+                //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                //if (response.StatusCode == HttpStatusCode.OK)
+                //{
+                //    using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+                //    using (StreamWriter sw = new StreamWriter(tempFile))
+                //    {
+                //        string s = sr.ReadToEnd();
+                //        sw.Write(s);
+                //    }
+
+                //    playlist.LoadPlaylist(tempFile);
+                //}
             }
         }
 
@@ -611,7 +622,15 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 if (duration.TotalMilliseconds == 0 && isActive)
                 {
-                    duration = TimeSpan.FromSeconds(MediaRenderer.DefaultInstance.MediaLength);
+                    try
+                    {
+                        duration = TimeSpan.FromSeconds((int)MediaRenderer.DefaultInstance.MediaLength);
+                    }
+                    catch
+                    {
+                        duration = TimeSpan.FromMilliseconds(0);
+                    }
+
                     plItem.Duration = duration;
                 }
 

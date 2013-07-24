@@ -63,7 +63,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             
             // Add to the filter Graph
             _source.FilterGraph = (mediaControl) as IGraphBuilder;
-            
+
+            if (_source.OutputPin == null)
+                throw new RenderingException("Unable to render the file: " + renderMediaName);
+
             // Render the output pin
             _source.OutputPin.Render();
 

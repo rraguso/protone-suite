@@ -100,7 +100,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.CatalogItemPropMC
 
             if (lci != null && lci.Count > 0)
             {
-                FileAttributesBrowser.SuppressSingleSelectionBrowsableAttributes(lci);
+                FileAttributesBrowser.SuppressNonBrowsableAttributes(lci);
 
                 pgProperties.SelectedObjects = lci.ToArray();
             }

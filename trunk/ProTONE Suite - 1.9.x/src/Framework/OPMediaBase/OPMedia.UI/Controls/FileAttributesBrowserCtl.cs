@@ -102,7 +102,7 @@ namespace OPMedia.UI.Controls
             return value;
         }
 
-        public static void SuppressSingleSelectionBrowsableAttributes(List<object> lObjects)
+        public static void SuppressNonBrowsableAttributes(List<object> lObjects)
         {
             if (lObjects.Count > 0)
             {
@@ -116,6 +116,8 @@ namespace OPMedia.UI.Controls
                         {
                             UIExtensions.SetAttribute(pd.Name, "browsable", typeof(NativeFileInfo), singleSelection);
                         }
+                       
+
                     }
                 }
             }

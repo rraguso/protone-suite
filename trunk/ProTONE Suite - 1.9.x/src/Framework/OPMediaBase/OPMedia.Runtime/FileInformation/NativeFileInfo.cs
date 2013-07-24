@@ -216,4 +216,12 @@ namespace OPMedia.Runtime.FileInformation
         {
         }
     }
+
+    public class NotBrowsableAttribute : Attribute
+    {
+        public NotBrowsableAttribute()
+            : base()
+        {
+        }
+    }
 }

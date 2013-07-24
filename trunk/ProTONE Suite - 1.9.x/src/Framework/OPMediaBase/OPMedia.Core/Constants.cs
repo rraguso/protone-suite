@@ -12,6 +12,7 @@ namespace OPMedia.Core
         public const string CopyrightNotice =       "Copyright © " + CompanyName + ", 2005-2013";
 
         public const string PlayerUserAgent =       "ProTONE Player";
+        public const string AnonymousUser =         "anonymous";
 
         public const string LibraryName =           "OPMedia.MediaLibrary";
         public const string PlayerName =            "OPMedia.ProTONE";

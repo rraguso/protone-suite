@@ -120,6 +120,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 #if HAVE_SAMPLES
             //SetupAudioSampleGrabber();
 #endif
+            
+            if ((mediaControl as IGraphBuilder) == null)
+                throw new RenderingException("Unable to render the file: " + renderMediaName);
 
             (mediaControl as IGraphBuilder).RenderFile(renderMediaName, string.Empty);
             mediaPosition = mediaControl as IMediaPosition;

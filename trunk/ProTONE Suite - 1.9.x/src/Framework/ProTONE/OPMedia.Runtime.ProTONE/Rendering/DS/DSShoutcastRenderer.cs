@@ -67,6 +67,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             // Render the output pin
             _source.OutputPin.Render();
 
+            if (_source.OutputPin == null)
+                throw new RenderingException("Unable to stream media from URL: " + renderMediaName);
+
             mediaPosition = mediaControl as IMediaPosition;
             videoWindow = null;
             basicVideo = null;
