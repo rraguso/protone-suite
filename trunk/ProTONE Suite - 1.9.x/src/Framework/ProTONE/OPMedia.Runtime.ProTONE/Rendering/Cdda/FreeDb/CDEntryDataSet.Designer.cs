@@ -447,10 +447,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CDRow FindByTrackIndexDiscid(string TrackIndex, string Discid) {
+            public CDRow FindByDiscidTrackIndex(string Discid, string TrackIndex) {
                 return ((CDRow)(this.Rows.Find(new object[] {
-                            TrackIndex,
-                            Discid})));
+                            Discid,
+                            TrackIndex})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -500,11 +500,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
                 this.columnExtendedData = new global::System.Data.DataColumn("ExtendedData", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExtendedData);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnTrackIndex,
-                                this.columnDiscid}, true));
+                                this.columnDiscid,
+                                this.columnTrackIndex}, true));
                 this.columnDiscid.AllowDBNull = false;
                 this.columnTrackIndex.AllowDBNull = false;
-                this.columnTitle.AllowDBNull = false;
+                this.columnArtist.Caption = "DataColumn1";
+                this.columnAlbum.Caption = "DataColumn2";
+                this.columnTitle.Caption = "DataColumn1";
+                this.columnYear.Caption = "DataColumn2";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -671,11 +674,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Artist {
                 get {
-                    try {
-                        return ((string)(this[this.tableCD.ArtistColumn]));
+                    if (this.IsArtistNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Artist\' in table \'CD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableCD.ArtistColumn]));
                     }
                 }
                 set {
@@ -687,11 +690,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Album {
                 get {
-                    try {
-                        return ((string)(this[this.tableCD.AlbumColumn]));
+                    if (this.IsAlbumNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Album\' in table \'CD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableCD.AlbumColumn]));
                     }
                 }
                 set {
@@ -703,7 +706,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Title {
                 get {
-                    return ((string)(this[this.tableCD.TitleColumn]));
+                    if (this.IsTitleNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableCD.TitleColumn]));
+                    }
                 }
                 set {
                     this[this.tableCD.TitleColumn] = value;
@@ -714,11 +722,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Year {
                 get {
-                    try {
-                        return ((string)(this[this.tableCD.YearColumn]));
+                    if (this.IsYearNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'CD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableCD.YearColumn]));
                     }
                 }
                 set {
@@ -730,11 +738,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Genre {
                 get {
-                    try {
-                        return ((string)(this[this.tableCD.GenreColumn]));
+                    if (this.IsGenreNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Genre\' in table \'CD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableCD.GenreColumn]));
                     }
                 }
                 set {
@@ -746,11 +754,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ExtendedData {
                 get {
-                    try {
-                        return ((string)(this[this.tableCD.ExtendedDataColumn]));
+                    if (this.IsExtendedDataNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ExtendedData\' in table \'CD\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableCD.ExtendedDataColumn]));
                     }
                 }
                 set {
@@ -780,6 +788,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAlbumNull() {
                 this[this.tableCD.AlbumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitleNull() {
+                return this.IsNull(this.tableCD.TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitleNull() {
+                this[this.tableCD.TitleColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
