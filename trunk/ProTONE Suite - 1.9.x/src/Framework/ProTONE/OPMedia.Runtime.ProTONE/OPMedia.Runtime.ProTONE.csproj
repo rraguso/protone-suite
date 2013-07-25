@@ -103,10 +103,6 @@
     <Compile Include="Rendering\Cdda\CDDrive.cs" />
     <Compile Include="Rendering\Cdda\CDDriveEvents.cs" />
     <Compile Include="Rendering\Cdda\FreeDb\CDEntry.cs" />
-    <Compile Include="Rendering\Cdda\FreeDb\CDEntryDataSet.cs">
-      <DependentUpon>CDEntryDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Rendering\Cdda\FreeDb\CDEntryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
