@@ -220,10 +220,7 @@ namespace OPMedia.UI.Dialogs
 
             try
             {
-                MainThread.Post(delegate(object x)
-                {
-                    UpdateLogLines(logLines);
-                });
+                MainThread.Post(c => UpdateLogLines(logLines) );
             }
             catch{}
             finally
@@ -243,28 +240,52 @@ namespace OPMedia.UI.Dialogs
             bool lastItemSelected = (lvLogLines.SelectedItems.Count == 1 &&
                 lvLogLines.SelectedItems[0].Index == lvLogLines.Items.Count - 1);
 
+            List<String> extraLines = new List<string>();
             foreach (string line in logLines)
             {
-                if (string.IsNullOrEmpty(line) || !line.StartsWith("~~"))
+                if (string.IsNullOrEmpty(line))
                     continue;
 
-                string[] fields = line.Split(new char[] { '|', '~' }, StringSplitOptions.RemoveEmptyEntries);
-                if (fields.Length >= (int)LogLineFields.FieldCount)
+                if (line.StartsWith("~~"))
                 {
-                    SeverityLevels entryType = (SeverityLevels)Enum.Parse(typeof(SeverityLevels), fields[(int)LogLineFields.EntryType]);
+                    string[] fields = line.Split(new char[] { '|', '~' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (fields.Length >= (int)LogLineFields.FieldCount)
+                    {
+                        SeverityLevels entryType = (SeverityLevels)Enum.Parse(typeof(SeverityLevels), fields[(int)LogLineFields.EntryType]);
 
-                    ListViewItem item = new ListViewItem(new string[]{"", "", "", "", "", ""});
-                    item.Text = entryType.ToString();
-                    item.SubItems[hdrEntryType.Index].Tag = new ExtendedSubItemDetail(GetImage(entryType), string.Empty);
+                        ListViewItem item = new ListViewItem(new string[] { "", "", "", "", "", "" });
+                        item.Text = entryType.ToString();
+                        item.SubItems[hdrEntryType.Index].Tag = new ExtendedSubItemDetail(GetImage(entryType), string.Empty);
 
-                    item.SubItems[hdrModule.Index].Text = fields[(int)LogLineFields.ModuleName];
-                    item.SubItems[hdrPID.Index].Text = fields[(int)LogLineFields.PID];
-                    item.SubItems[hdrTID.Index].Text = fields[(int)LogLineFields.TID];
-                    item.SubItems[hdrTimeStamp.Index].Text = fields[(int)LogLineFields.Timestamp];
-                    item.SubItems[hdrText.Index].Text = fields[(int)LogLineFields.LogText];
-                    item.Tag = line;
-                    
-                    items.Add(item);
+                        item.SubItems[hdrModule.Index].Text = fields[(int)LogLineFields.ModuleName];
+                        item.SubItems[hdrPID.Index].Text = fields[(int)LogLineFields.PID];
+                        item.SubItems[hdrTID.Index].Text = fields[(int)LogLineFields.TID];
+                        item.SubItems[hdrTimeStamp.Index].Text = fields[(int)LogLineFields.Timestamp];
+                        item.SubItems[hdrText.Index].Text = fields[(int)LogLineFields.LogText];
+                        item.Tag = line;
+
+                        if (extraLines.Count > 0)
+                        {
+                            int oldItemIndex = items.Count - 1;
+                            if (0 <= oldItemIndex && oldItemIndex < items.Count)
+                            {
+                                string oldTag = items[oldItemIndex].Tag as string;
+                                if (!string.IsNullOrEmpty(oldTag))
+                                {
+                                    extraLines.Insert(0, oldTag);
+                                }
+                            }
+
+                            items[oldItemIndex].Tag = new List<string>(extraLines);
+                            extraLines.Clear();
+                        }
+
+                        items.Add(item);
+                    }
+                }
+                else if (items.Count > 0)
+                {
+                    extraLines.Add(line);
                 }
             }
 
@@ -431,6 +452,21 @@ namespace OPMedia.UI.Dialogs
         void OnLogFileChanged(object sender, FileSystemEventArgs e)
         {
             ReadLogFile();
+        }
+
+        private void lvLogLines_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (lvLogLines.SelectedItems != null && lvLogLines.SelectedItems.Count > 0)
+            {
+                ListViewItem selItem = lvLogLines.SelectedItems[0];
+                List<string> extraLines = selItem.Tag as List<string>;
+                if (extraLines != null && extraLines.Count > 0)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    extraLines.ForEach(s => sb.AppendLine(s) );
+                    new LogFileConsoleDetail(sb.ToString()).ShowDialog(this);
+                }
+            }
         }
 
     }

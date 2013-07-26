@@ -89,6 +89,7 @@ namespace OPMedia.UI.Dialogs
             this.lvLogLines.TabIndex = 0;
             this.lvLogLines.UseCompatibleStateImageBehavior = false;
             this.lvLogLines.View = System.Windows.Forms.View.Details;
+            this.lvLogLines.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvLogLines_MouseDoubleClick);
             this.lvLogLines.Resize += new System.EventHandler(this.lvLogLines_Resize);
             // 
             // hdrEntryType
@@ -154,7 +155,7 @@ namespace OPMedia.UI.Dialogs
             // 
             this.lblLogFileName.BackColor = System.Drawing.Color.Transparent;
             this.lblLogFileName.Name = "lblLogFileName";
-            this.lblLogFileName.Size = new System.Drawing.Size(103, 36);
+            this.lblLogFileName.Size = new System.Drawing.Size(111, 36);
             this.lblLogFileName.Text = "TXT_LOGFILENAME";
             // 
             // cmbLogFileNames
@@ -168,7 +169,7 @@ namespace OPMedia.UI.Dialogs
             // 
             this.lblLogLineCount.BackColor = System.Drawing.Color.Transparent;
             this.lblLogLineCount.Name = "lblLogLineCount";
-            this.lblLogLineCount.Size = new System.Drawing.Size(112, 36);
+            this.lblLogLineCount.Size = new System.Drawing.Size(121, 36);
             this.lblLogLineCount.Text = "TXT_LOGLINECOUNT";
             // 
             // cmbLogLineCount
@@ -183,7 +184,7 @@ namespace OPMedia.UI.Dialogs
             "200",
             "> 200"});
             this.cmbLogLineCount.Name = "cmbLogLineCount";
-            this.cmbLogLineCount.Size = new System.Drawing.Size(60, 24);
+            this.cmbLogLineCount.Size = new System.Drawing.Size(60, 23);
             // 
             // toolStripSeparator1
             // 
@@ -262,14 +263,14 @@ namespace OPMedia.UI.Dialogs
             // tsmiSaveWindow
             // 
             this.tsmiSaveWindow.Name = "tsmiSaveWindow";
-            this.tsmiSaveWindow.Size = new System.Drawing.Size(141, 22);
+            this.tsmiSaveWindow.Size = new System.Drawing.Size(145, 22);
             this.tsmiSaveWindow.Text = "Save Window";
             this.tsmiSaveWindow.Click += new System.EventHandler(this.OnSaveWindow);
             // 
             // tsmiSaveLogFile
             // 
             this.tsmiSaveLogFile.Name = "tsmiSaveLogFile";
-            this.tsmiSaveLogFile.Size = new System.Drawing.Size(141, 22);
+            this.tsmiSaveLogFile.Size = new System.Drawing.Size(145, 22);
             this.tsmiSaveLogFile.Text = "Save Log File";
             this.tsmiSaveLogFile.Click += new System.EventHandler(this.OnSaveLogFile);
             // 
