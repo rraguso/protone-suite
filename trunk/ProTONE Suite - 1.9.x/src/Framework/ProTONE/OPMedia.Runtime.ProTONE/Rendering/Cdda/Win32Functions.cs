@@ -13,6 +13,7 @@
 
 using System;
 using System.Runtime.InteropServices;
+using System.Text;
 
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
@@ -86,6 +87,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
     public const uint IOCTL_STORAGE_EJECT_MEDIA    = 0x002D4808;
     public const uint IOCTL_STORAGE_LOAD_MEDIA     = 0x002D480C;
 
+    public const uint IOCTL_CDROM_READ_TOC_EX = 0x00024054;
+
+    //[DllImport("Kernel32.dll", SetLastError = true)]
+    //public static extern int DeviceIoControl(IntPtr hDevice, uint IoControlCode, IntPtr InBuffer, uint InBufferSize, [Out] IntPtr OutBuffer, uint OutBufferSize, out uint BytesReturned, IntPtr Overlapped);
+ 
     /// <summary>
     /// Most general form of DeviceIoControl Win32 function
     /// </summary>
@@ -209,6 +215,164 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       public uint  SectorCount = 0;
       public TRACK_MODE_TYPE  TrackMode = TRACK_MODE_TYPE.CDDA;
     }
+
+    public const int MINIMUM_CDROM_READ_TOC_EX_SIZE = 2;
+
+    public enum CDROM_READ_TOC_EX_FORMAT
+    {
+        TOC,
+        SESSION,
+        FULL_TOC,
+        PMA,
+        ATIP,
+        CDTEXT
+    };
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public struct CDROM_READ_TOC_EX
+    {
+        public uint bitVector;
+
+        public CDROM_READ_TOC_EX_FORMAT Format
+        {
+            get { return ((CDROM_READ_TOC_EX_FORMAT)((this.bitVector & 15u))); }
+            set { this.bitVector = (uint)((byte)value | this.bitVector); }
+        }
+
+        public uint Reserved1
+        {
+            get { return ((uint)(((this.bitVector & 112u) / 16))); }
+            set { this.bitVector = ((uint)(((value * 16) | this.bitVector))); }
+        }
+
+        public uint Msf
+        {
+            get { return ((uint)(((this.bitVector & 128u) / 128))); }
+            set { this.bitVector = ((uint)(((value * 128) | this.bitVector))); }
+        }
+
+        public byte SessionTrack;
+        public byte Reserved2;
+        public byte Reserved3;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public class CDROM_TOC_CD_TEXT_DATA
+    {
+        public ushort Length;
+        public byte Reserved1;
+        public byte Reserved2;
+        public CDROM_TOC_CD_TEXT_DATA_BLOCK_ARRAY Descriptors;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    internal sealed class CDROM_TOC_CD_TEXT_DATA_BLOCK_ARRAY
+    {
+        internal CDROM_TOC_CD_TEXT_DATA_BLOCK_ARRAY() { data = new byte[MaxIndex * Marshal.SizeOf(typeof(CDROM_TOC_CD_TEXT_DATA_BLOCK))]; }
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = MINIMUM_CDROM_READ_TOC_EX_SIZE * MAXIMUM_NUMBER_TRACKS * 18)]
+        private byte[] data;
+
+        public int MaxIndex
+        {
+            get { return MINIMUM_CDROM_READ_TOC_EX_SIZE * MAXIMUM_NUMBER_TRACKS; }
+        }
+
+        public CDROM_TOC_CD_TEXT_DATA_BLOCK this[int idx]
+        {
+            get
+            {
+                if ((idx < 0) || (idx >= MaxIndex)) throw new IndexOutOfRangeException();
+
+                CDROM_TOC_CD_TEXT_DATA_BLOCK res;
+
+                GCHandle hData = GCHandle.Alloc(data, GCHandleType.Pinned);
+
+                try
+                {
+                    IntPtr buffer = hData.AddrOfPinnedObject();
+
+                    buffer = (IntPtr)(buffer.ToInt32() + (idx * Marshal.SizeOf(typeof(CDROM_TOC_CD_TEXT_DATA_BLOCK))));
+
+                    res = (CDROM_TOC_CD_TEXT_DATA_BLOCK)Marshal.PtrToStructure(buffer, typeof(CDROM_TOC_CD_TEXT_DATA_BLOCK));
+                }
+                finally
+                {
+                    hData.Free();
+                }
+
+                return res;
+            }
+        }
+    }
+
+    public enum CDROM_CD_TEXT_PACK : byte
+    {
+        ALBUM_NAME = 0x80,
+        PERFORMER = 0x81,
+        SONGWRITER = 0x82,
+        COMPOSER = 0x83,
+        ARRANGER = 0x84,
+        MESSAGES = 0x85,
+        DISC_ID = 0x86,
+        GENRE = 0x87,
+        TOC_INFO = 0x88,
+        TOC_INFO2 = 0x89,
+        UPC_EAN = 0x8e,
+        SIZE_INFO = 0x8f
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public struct CDROM_TOC_CD_TEXT_DATA_BLOCK
+    {
+        public CDROM_CD_TEXT_PACK PackType;
+
+        public byte bitVector1;
+
+        public byte TrackNumber
+        {
+            get { return ((byte)((this.bitVector1 & 127u))); }
+            set { this.bitVector1 = ((byte)((value | this.bitVector1))); }
+        }
+
+        public byte ExtensionFlag
+        {
+            get { return ((byte)(((this.bitVector1 & 128u) / 128))); }
+            set { this.bitVector1 = ((byte)(((value * 128) | this.bitVector1))); }
+        }
+
+        public byte SequenceNumber;
+
+        public byte bitVector2;
+
+        public byte CharacterPosition
+        {
+            get { return ((byte)((this.bitVector2 & 15u))); }
+            set { this.bitVector2 = ((byte)((value | this.bitVector2))); }
+        }
+
+        public byte BlockNumber
+        {
+            get { return ((byte)(((this.bitVector2 & 112u) / 16))); }
+            set { this.bitVector2 = ((byte)(((value * 16) | this.bitVector2))); }
+        }
+
+        public byte Unicode
+        {
+            get { return ((byte)(((this.bitVector2 & 128u) / 128))); }
+            set { this.bitVector2 = ((byte)(((value * 128) | this.bitVector2))); }
+        }
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12, ArraySubType = UnmanagedType.I1)]
+        public byte[] TextBuffer;
+
+        public string Text
+        {
+            get { return (Unicode == 1) ? ASCIIEncoding.ASCII.GetString(TextBuffer) : UTF32Encoding.UTF8.GetString(TextBuffer); }
+        }
+
+        public ushort CRC;
+    }
     
     /// <summary>
     /// Overload version of DeviceIOControl to read the TOC (Table of contents)
@@ -228,6 +392,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       [Out] CDROM_TOC OutTOC, uint OutBufferSize,
       ref uint BytesReturned,
       IntPtr Overlapped);
+
 
     /// <summary>
     /// Overload version of DeviceIOControl to lock/unlock the CD

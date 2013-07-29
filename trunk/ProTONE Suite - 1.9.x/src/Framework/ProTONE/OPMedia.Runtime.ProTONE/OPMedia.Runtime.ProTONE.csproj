@@ -111,8 +111,6 @@
     <Compile Include="Rendering\Cdda\FreeDb\FreedbHelper.cs" />
     <Compile Include="Rendering\Cdda\FreeDb\QueryResult.cs" />
     <Compile Include="Rendering\Cdda\FreeDb\QueryResultCollection.cs" />
-    <Compile Include="Rendering\Cdda\FreeDb\Site.cs" />
-    <Compile Include="Rendering\Cdda\FreeDb\SiteCollection.cs" />
     <Compile Include="Rendering\Cdda\FreeDb\Track.cs" />
     <Compile Include="Rendering\Cdda\FreeDb\TrackCollection.cs" />
     <Compile Include="Rendering\Cdda\Win32Functions.cs" />

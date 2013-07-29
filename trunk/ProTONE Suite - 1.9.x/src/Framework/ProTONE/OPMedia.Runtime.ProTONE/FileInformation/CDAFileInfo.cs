@@ -314,9 +314,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                             {
                                 if (cd.IsAudioTrack(_track))
                                 {
+                                    // CD-Text not available, try to get info from CDDB
                                     _duration = cd.GetSeconds(_track);
                                     
                                     string diskId = cd.GetCDDBDiskID();
+
                                     if (_cdEntries.ContainsKey(diskId))
                                     {
                                         _cdEntry = _cdEntries[diskId];
@@ -324,41 +326,45 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                                     }
                                     else
                                     {
-                                        FreedbHelper fdb = new FreedbHelper();
-                                        fdb.UserName = Constants.AnonymousUser;
-                                        fdb.Hostname = Dns.GetHostName();
-                                        fdb.ClientName = Constants.PlayerUserAgent.Replace(" ", ""); // eat up spaces, FreeDb does not like them.
-                                        fdb.Version = SuiteVersion.Version;
-
-                                        string query = cd.GetCDDBQuery();
-                                        QueryResult qr;
-                                        QueryResultCollection coll;
-                                        string s = fdb.Query(query, out qr, out coll);
-
-                                        if (qr == null && coll != null && coll.Count > 0)
+                                        TrackCollection tracks = null;
+                                        if (cd.ReadCDText(out tracks))
                                         {
-                                            qr = coll[0];
+                                            _cdEntry = new CDEntry();
+                                            _cdEntry.Tracks = tracks;
                                         }
-
-                                        if (qr != null)
+                                        else
                                         {
-                                            s = fdb.Read(qr, out _cdEntry);
-                                            if (_cdEntry != null)
+                                            using (FreedbHelper fdb = new FreedbHelper("freedb.freedb.org", 8880))
                                             {
-                                                if (_cdEntries.ContainsKey(diskId))
+                                                string query = cd.GetCDDBQuery();
+                                                QueryResult qr;
+                                                QueryResultCollection coll;
+                                                string s = fdb.Query(query, out qr, out coll);
+
+                                                if (qr == null && coll != null && coll.Count > 0)
                                                 {
-                                                    _cdEntries[diskId] = _cdEntry;
+                                                    qr = coll[0];
                                                 }
-                                                else
+
+                                                if (qr != null)
                                                 {
-                                                    _cdEntries.Add(diskId, _cdEntry);
-                                                    SaveCdEntries();
+                                                    s = fdb.Read(qr, out _cdEntry);
                                                 }
                                             }
-
-                                            return;
                                         }
 
+                                        if (_cdEntry != null)
+                                        {
+                                            if (_cdEntries.ContainsKey(diskId))
+                                            {
+                                                _cdEntries[diskId] = _cdEntry;
+                                            }
+                                            else
+                                            {
+                                                _cdEntries.Add(diskId, _cdEntry);
+                                                SaveCdEntries();
+                                            }
+                                        }
                                     }
                                 }
                             }

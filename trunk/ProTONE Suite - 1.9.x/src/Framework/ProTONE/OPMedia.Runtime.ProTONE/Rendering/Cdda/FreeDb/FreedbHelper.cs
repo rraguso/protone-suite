@@ -23,35 +23,38 @@ using System.IO;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core;
+using System.Net.Sockets;
+using System.Collections.Generic;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 {
 	/// <summary>
 	/// Summary description for FreedbHelper.
 	/// </summary>
-	public class FreedbHelper
+	public class FreedbHelper : IDisposable
 	{
-		public const string MAIN_FREEDB_ADDRESS = "freedb.freedb.org";
-		public const string DEFAULT_ADDITIONAL_URL_INFO = "/~cddb/cddb.cgi";
-		private Site m_mainSite = new Site(MAIN_FREEDB_ADDRESS,"http",DEFAULT_ADDITIONAL_URL_INFO);
 		private string m_UserName;
 		private string m_Hostname;
 		private string m_ClientName;
 		private string m_Version;
 		private string m_ProtocolLevel = "6"; // default to level 6 support
-		private Site m_CurrentSite = null;
-		
+
+        private TcpClient _tcpClient = new TcpClient();
+        NetworkStream _ns = null;
+        StreamWriter _writer = null;
+        StreamReader _reader = null;
 
 		#region Constants for Freedb commands
 		public class Commands
 		{
-			public const string CMD_HELLO	= "hello";
-			public const string CMD_READ	= "cddb+read";
-			public const string CMD_QUERY	= "cddb+query";
+			public const string CMD_HELLO	= "cddb hello";
+			public const string CMD_READ	= "cddb read";
+			public const string CMD_QUERY	= "cddb query";
 			public const string CMD_SITES	= "sites";
 			public const string CMD_PROTO	= "proto";
-			public const string CMD_CATEGORIES	= "cddb+lscat";
-			public const string CMD	= "cmd="; // will never use without the equals so put it here
+			public const string CMD_CATEGORIES	= "cddb lscat";
 			public const string CMD_TERMINATOR	= "."; 
 		}
 		#endregion
@@ -64,8 +67,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 			public const string CODE_402 = "402"; // Server Error
 			
 			public const string CODE_500 = "500"; // Invalid command, invalid parameters, etc.
-			//query codes
-			public const string CODE_200 = "200"; // Exact match 
+			
+            //query codes
+            public const string CODE_200 = "200"; // Exact match 
+            public const string CODE_201 = "201"; // Partial match 
+
 			public const string CODE_211 = "211"; // InExact matches found - list follows
 			public const string CODE_202 = "202"; // No match 
 			public const string CODE_403 = "403"; // Database entry is corrupt
@@ -77,212 +83,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		#endregion
 
 		
-		#region Public Properties
-		/// <summary>
-		/// Property Version (string)
-		/// </summary>
-		public string Version
-		{
-			get
-			{
-				return this.m_Version;
-			}
-			set
-			{
-				this.m_Version = value;
-			}
-		}
-
-		
-
-
-
-
-		/// <summary>
-		/// Property MainSite(string)
-		/// </summary>
-		public Site MainSite
-		{
-			get
-			{
-				return this.m_mainSite 		;
-			}
-		}
-
-		/// <summary>
-		/// Property ClientName (string)
-		/// </summary>
-		public string ClientName
-		{
-			get
-			{
-				return this.m_ClientName;
-			}
-			set
-			{
-				this.m_ClientName = value;
-			}
-		}
-		
-		/// <summary>
-		/// Property Hostname (string)
-		/// </summary>
-		public string Hostname
-		{
-			get
-			{
-				return this.m_Hostname;
-			}
-			set
-			{
-				this.m_Hostname = value;
-			}
-		}
-		
-		/// <summary>
-		/// Property UserName (string)
-		/// </summary>
-		public string UserName
-		{
-			get
-			{
-				return this.m_UserName;
-			}
-			set
-			{
-				this.m_UserName = value;
-			}
-		}
-
-		/// <summary>
-		/// Property ProtocolLevel (string)
-		/// </summary>
-		public string ProtocolLevel
-		{
-			get
-			{
-				return this.m_ProtocolLevel;
-			}
-			set
-			{
-				this.m_ProtocolLevel = value;
-			}
-		}
-
-		/// <summary>
-		/// Property CurrentSite (Site)
-		/// </summary>
-		public Site CurrentSite
-		{
-			get
-			{
-				return this.m_CurrentSite;
-			}
-			set
-			{
-				this.m_CurrentSite = value;
-			}
-		}
-
-
-		
-		
-		public FreedbHelper()
-		{
-			m_ProtocolLevel = "6"; // default it
-		}
-
-
-
-		/// <summary>
-		/// Retrieve all Freedb servers from the main server site
-		/// </summary>
-		/// <param name="sites">SiteCollection that is populated with the site information</param>
-		/// <returns>Response Code</returns>
-		public string GetSites(out SiteCollection sites)
-		{
-			return GetSites(Site.PROTOCOLS.ALL, out sites);
-		}
-		
-		#endregion
-
-
-		/// <summary>
-		/// Get the Freedb sites
-		/// </summary>
-		/// <param name="protocol"></param>
-		/// <param name="sites">SiteCollection that is populated with the site information</param>
-		/// <returns>Response Code</returns>
-		/// 
-		public string GetSites(string protocol, out SiteCollection sites)
-		{
-			if (protocol != Site.PROTOCOLS.CDDBP  && protocol != Site.PROTOCOLS.HTTP)
-				protocol = Site.PROTOCOLS.ALL;
-
-			StringCollection coll;
-
-			try
-			{
-				coll= Call(Commands.CMD_SITES,m_mainSite.GetUrl());
-			}
-			
-			catch (Exception ex)
-			{
-				Debug.WriteLine("Error retrieving Sites." + ex.Message);
-				Exception newEx = new Exception("FreedbHelper.GetSites: Error retrieving Sites.",ex);
-				throw newEx;
-			}
-			
-			sites = null;
-
-			// check if results came back
-			if (coll.Count < 0)
-			{
-				string msg = "No results returned from sites request.";
-				Exception ex = new Exception(msg,null);
-				throw ex;
-			}
-
-			string code = GetCode(coll[0]);
-			if (code == ResponseCodes.CODE_INVALID)
-			{
-				string msg = "Unable to process results Sites Request. Returned Data: " + coll[0];
-				Exception ex = new Exception(msg,null);
-				throw ex;
-			}
-
-			switch (code)
-			{
-				case ResponseCodes.CODE_500:
-					return ResponseCodes.CODE_500;
-
-				case ResponseCodes.CODE_401:
-					return ResponseCodes.CODE_401;
-
-				case ResponseCodes.CODE_210:
-				{
-					coll.RemoveAt(0);
-					sites = new SiteCollection();
-					foreach (String line in coll)
-					{
-						Debug.WriteLine("line: " + line);
-						Site site = new Site(line);
-						if (protocol == Site.PROTOCOLS.ALL)
-							sites.Add(new Site(line));
-						else if (site.Protocol == protocol)
-							sites.Add(new Site(line));
-					}
-
-					return ResponseCodes.CODE_210;
-				}
-
-				default: 
-					return ResponseCodes.CODE_500;
-			}
-
-		}
-	
-
 		/// <summary>
 		/// Read Entry from the database. 
 		/// </summary>
@@ -291,6 +91,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		/// <returns></returns>
 		public string Read(QueryResult qr, out CDEntry cdEntry)
 		{
+            cdEntry = null;
+            return "";
+            /*
 			Debug.Assert(qr != null);
 			cdEntry = null;
 			
@@ -304,7 +107,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 			//make call
 			try
 			{
-				coll = Call(builder.ToString());
+				//coll = Call(builder.ToString());
 			}
 			
 			catch (Exception ex)
@@ -351,7 +154,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 				}
 				default:
 					return ResponseCodes.CODE_500;
-			}
+			}*/
 		}
 
 
@@ -364,27 +167,27 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		/// <returns></returns>
 		public string Query(string querystring, out QueryResult queryResult, out QueryResultCollection queryResultsColl)
 		{
-			queryResult = null;
-			queryResultsColl = null;
-			StringCollection coll = null;
+            StringBuilder builder = new StringBuilder(FreedbHelper.Commands.CMD_QUERY);
+            builder.Append(" ");
+            builder.Append(querystring);
 
-			StringBuilder builder = new StringBuilder(FreedbHelper.Commands.CMD_QUERY);
-			builder.Append("+");
-			builder.Append(querystring);
-			
+            queryResult = null;
+            queryResultsColl = null;
+           
 			//make call
 			try
 			{
-				coll = Call(builder.ToString());
+                List<string> reply = SendRequest(builder.ToString());
+				//coll = Call(builder.ToString());
 			}
-			
 			catch (Exception ex)
 			{
 				string msg = "Unable to perform cddb query.";
 				Exception newex = new Exception(msg,ex);
 				throw newex ;
 			}
-			
+
+			/*
 			// check if results came back
 			if (coll.Count < 0)
 			{
@@ -450,10 +253,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 			
 			} // end of switch
 
+            */
 
+            return "";
 		}
 
-
+        /*
 		/// <summary>
 		/// Retrieve the categories
 		/// </summary>
@@ -517,7 +322,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
 		}
 
-
+        
 		/// <summary>
 		/// Call the Freedb server using the specified command and the current site
 		/// If the current site is null use the default server
@@ -550,6 +355,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 			
 			try
 			{
+
+
 				//create our HttpWebRequest which we use to call the freedb server
 				HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
                 req.Proxy = AppSettings.GetWebProxy();
@@ -595,95 +402,162 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 			
 			return coll;
 		}
+        */
 
+        ///// <summary>
+        ///// Given a specific command add on the hello and proto which are requied for an http call
+        ///// </summary>
+        ///// <param name="command"></param>
+        ///// <returns></returns>
+        //private string BuildCommand(string command)
+        //{
+        //    StringBuilder builder = new StringBuilder(command);
+        //    builder.Append("&");
+        //    builder.Append(Hello());
+        //    builder.Append("&");
+        //    builder.Append(Proto());
+        //    return builder.ToString();
+        //}
 
+        /// <summary>
+        /// Build the hello part of the command 
+        /// </summary>
+        /// <returns></returns>
+        public string BuildHello()
+        {
+            StringBuilder builder = new StringBuilder(Commands.CMD_HELLO);
+            builder.Append(" ");
+            builder.Append(m_UserName);
+            builder.Append(" ");
+            builder.Append(m_Hostname);
+            builder.Append(" ");
+            builder.Append(m_ClientName);
+            builder.Append(" ");
+            builder.Append(m_Version);
+            return builder.ToString();
+        }
 
+        ///// <summary>
+        ///// Build the Proto part of the command
+        ///// </summary>
+        ///// <returns></returns>
+        //public string Proto()
+        //{
+        //    StringBuilder builder = new StringBuilder(Commands.CMD_PROTO);
+        //    builder.Append("=");
+        //    builder.Append(m_ProtocolLevel );
+        //    return builder.ToString();
+        //}
 
+        public FreedbHelper(string server, int port)
+        {
+            m_UserName = Constants.AnonymousUser;
+            m_Hostname = Dns.GetHostName();
+            m_ClientName = Constants.PlayerUserAgent.Replace(" ", ""); // eat up spaces, FreeDb does not like them.
+            m_Version = SuiteVersion.Version;
+            m_ProtocolLevel = "6"; // default it
 
-		/// <summary>
-		/// Given a specific command add on the hello and proto which are requied for an http call
-		/// </summary>
-		/// <param name="command"></param>
-		/// <returns></returns>
-		private string BuildCommand(string command)
-		{
-			StringBuilder builder = new StringBuilder(command);
-			builder.Append("&");
-			builder.Append(Hello());
-			builder.Append("&");
-			builder.Append(Proto());
-			return builder.ToString();
-		}
+            _tcpClient.Connect(server, port);
+            if (_tcpClient.Connected)
+            {
+                _ns = _tcpClient.GetStream();
+                _writer = new StreamWriter(_ns);
+                _reader = new StreamReader(_ns);
 
-		/// <summary>
-		/// Build the hello part of the command 
-		/// </summary>
-		/// <returns></returns>
-		public string Hello()
-		{
-			StringBuilder builder = new StringBuilder(Commands.CMD_HELLO);
-			builder.Append("=");
-			builder.Append(m_UserName);
-			builder.Append("+");
-			builder.Append(this.m_Hostname);
-			builder.Append("+");
-			builder.Append(this.ClientName);
-			builder.Append("+");
-			builder.Append(this.m_Version);
-			return builder.ToString();
-		}
+                string line = _reader.ReadLine();
+                string code = GetReplyCode(line);
+                switch (code)
+                {
+                    case ResponseCodes.CODE_200:
+                    case ResponseCodes.CODE_201:
+                        Handshake();
+                        break;
 
-		/// <summary>
-		/// Build the Proto part of the command
-		/// </summary>
-		/// <returns></returns>
-		public string Proto()
-		{
-			StringBuilder builder = new StringBuilder(Commands.CMD_PROTO);
-			builder.Append("=");
-			builder.Append(m_ProtocolLevel );
-			return builder.ToString();
-		}
+                    default:
+                        throw new Exception(string.Format("Handshake init Error: {0}", MapCode(code)));
+                }
+            }
+        }
 
+        private void Handshake()
+        {
+            string hello = BuildHello();
+            List<string> reply = SendRequest(hello);
+            string code = GetReplyCode(reply, hello);
+            switch (code)
+            {
+                case ResponseCodes.CODE_200:
+                    break;
 
-		/// <summary>
-		/// given the first line of a result set return the CDDB code
-		/// </summary>
-		/// <param name="firstLine"></param>
-		/// <returns></returns>
-		private string GetCode(string firstLine)
-		{
-			firstLine = firstLine.Trim();
-			
-			//find first white space after start
-			int index = firstLine.IndexOf(' ');
-			if (index != -1)
-				firstLine = firstLine.Substring(0,index);
-			else
-			{
-				return ResponseCodes.CODE_INVALID;
-			}
+                default:
+                    throw new Exception(string.Format("Handshake Error: {0}", MapCode(code)));
+            }
+        }
 
-			return firstLine;
-		}
+        public List<string> SendRequest(string request)
+        {
+            _writer.WriteLine(request);
+            _writer.Flush();
 
+            List<string> replyLines = new List<string>();
+            while(true)
+            {
+                try
+                {
+                    string line = _reader.ReadLine();
+                    if (String.IsNullOrEmpty(line))
+                        break;
 
+                    replyLines.Add(line);
+                    if (line.EndsWith("."))
+                        break;
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogException(ex);
+                    break;
+                }
+            }
 
-		/// <summary>
-		/// If a different default site address is preferred over "freedb.freedb.org"
-		/// set it here
-		/// NOTE: Only set the ip address
-		/// </summary>
-		/// <param name="ipAddress"></param>
-		public void SetDefaultSiteAddress(string siteAddress)
-		{
-			//sanity check on the url
-			if (siteAddress.IndexOf("http") != -1 ||
-				siteAddress.IndexOf("cgi") != -1)
-				throw new Exception("Invalid Site Address specified");
+            return replyLines;
+        }
 
-			this.m_mainSite.SiteAddress = siteAddress;
-		}
+        private string MapCode(string code)
+        {
+            return code;
+        }
 
-	}
+        private string GetReplyCode(List<string> reply, string request)
+        {
+            if (reply == null || reply.Count < 1)
+                throw new Exception("Empty response for command: " + request);
+
+            return GetReplyCode(reply[0]);
+        }
+
+        private string GetReplyCode(string line)
+        {
+            string code = line.Trim();
+
+            //find first white space after start
+            int index = code.IndexOf(' ');
+            if (index != -1)
+                code = code.Substring(0, index);
+            else
+            {
+                return ResponseCodes.CODE_INVALID;
+            }
+
+            return code;
+        }
+
+        public void Dispose()
+        {
+            //if (_tcpClient != null)
+            //{
+            //    _tcpClient.Close();
+            //    _tcpClient = null;
+            //}
+        }
+    }
 }

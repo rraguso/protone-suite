@@ -13,6 +13,8 @@
 
 using System;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
 {
@@ -32,680 +34,651 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
     }
 
   }
-  
-  /// <summary>
-	/// 
-	/// </summary>
-  public class CDDrive: IDisposable
-	{
-    private IntPtr cdHandle;
-    private bool TocValid = false;
-    private Win32Functions.CDROM_TOC Toc = null;
-    private char m_Drive = '\0';
-    private DeviceChangeNotificationWindow NotWnd = null;
 
-    public event EventHandler CDInserted;
-    public event EventHandler CDRemoved;
-    
-    public CDDrive()
-    {
-      Toc = new Win32Functions.CDROM_TOC();
-      cdHandle = IntPtr.Zero;
-    }
-    
-    public bool Open(char Drive)
-    {
-      Close();
-      if ( Win32Functions.GetDriveType(Drive+":\\") == Win32Functions.DriveTypes.DRIVE_CDROM )
-      {
-        cdHandle = Win32Functions.CreateFile("\\\\.\\"+Drive+':', Win32Functions.GENERIC_READ, Win32Functions.FILE_SHARE_READ, IntPtr.Zero, Win32Functions.OPEN_EXISTING, 0, IntPtr.Zero);
-        if ( ((int)cdHandle != -1) && ((int)cdHandle != 0) )
-        {
-          m_Drive = Drive;
-          NotWnd = new DeviceChangeNotificationWindow();
-          NotWnd.DeviceChange +=new DeviceChangeEventHandler(NotWnd_DeviceChange);
-          return true;
-        }          
-        else
-        {
-          return true;
-        }
-      }
-      else
-      {
-        return false;
-      }
-    }
+  public class CDDrive : IDisposable
+  {
+      // Fields
+      protected const int CB_AUDIO = 0x930;
+      protected const int CB_CDDASECTOR = 0x940;
+      protected const int CB_CDROMSECTOR = 0x800;
+      protected const int CB_QSUBCHANNEL = 0x10;
+      private IntPtr cdHandle;
+      private char m_Drive = '\0';
+      private DeviceChangeNotificationWindow NotWnd = null;
+      protected const int NSECTORS = 13;
+      private Win32Functions.CDROM_TOC Toc = null;
+      private bool TocValid = false;
+      protected const int UNDERSAMPLING = 1;
 
-    public void Close()
-    {
-      UnLockCD();
-      if ( NotWnd != null )
-      {
-        NotWnd.DestroyHandle();
-        NotWnd = null;
-      }
-      if ( ((int)cdHandle != -1) && ((int)cdHandle != 0) )
-      {
-        Win32Functions.CloseHandle(cdHandle);
-      }
-      cdHandle = IntPtr.Zero;
-      m_Drive = '\0';
-      TocValid = false;
-    }
+      // Events
+      public event EventHandler CDInserted;
 
-    public bool IsOpened
-    {
-      get
-      {
-        return ((int)cdHandle != -1) && ((int)cdHandle != 0);
-      }
-    }
+      public event EventHandler CDRemoved;
 
-    public void Dispose()
-    {
-      Close();
-      GC.SuppressFinalize(this);
-    }
+      // Methods
+      public CDDrive()
+      {
+          this.Toc = new Win32Functions.CDROM_TOC();
+          this.cdHandle = IntPtr.Zero;
+      }
 
-    ~CDDrive()      
-    {
-      Dispose();
-    }
+      private int cddb_sum(int n)
+      {
+          int num = 0;
+          while (n > 0)
+          {
+              num += n % 10;
+              n /= 10;
+          }
+          return num;
+      }
 
-    protected bool ReadTOC()
-    {
-      if ( ((int)cdHandle != -1) && ((int)cdHandle != 0) )
+      public void Close()
       {
-        uint BytesRead = 0; 
-        TocValid = Win32Functions.DeviceIoControl(cdHandle, Win32Functions.IOCTL_CDROM_READ_TOC, IntPtr.Zero, 0, Toc, (uint)Marshal.SizeOf(Toc), ref BytesRead, IntPtr.Zero) != 0;
+          this.UnLockCD();
+          if (this.NotWnd != null)
+          {
+              this.NotWnd.DestroyHandle();
+              this.NotWnd = null;
+          }
+          if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
+          {
+              Win32Functions.CloseHandle(this.cdHandle);
+          }
+          this.cdHandle = IntPtr.Zero;
+          this.m_Drive = '\0';
+          this.TocValid = false;
       }
-      else
-      {
-        TocValid = false;
-      }
-      return TocValid;
-    }
-    protected int GetStartSector(int track)
-    {
-      if ( TocValid && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) )
-      {
-        Win32Functions.TRACK_DATA td = Toc.TrackData[track-1];
-        return (td.Address_1*60*75 + td.Address_2*75 + td.Address_3)-150;
-      }
-      else 
-      {
-        return -1; 
-      }
-    }
-    protected int GetEndSector(int track)
-    {
-      if ( TocValid && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) )
-      {
-        Win32Functions.TRACK_DATA td = Toc.TrackData[track];
-        return (td.Address_1*60*75 + td.Address_2*75 + td.Address_3)-151;
-      }
-      else 
-      {
-        return -1;
-      }
-    }
 
-    protected const int NSECTORS = 13;
-    protected const int UNDERSAMPLING = 1;
-    protected const int CB_CDDASECTOR = 2368;
-    protected const int CB_QSUBCHANNEL = 16;
-    protected const int CB_CDROMSECTOR = 2048;
-    protected const int CB_AUDIO = (CB_CDDASECTOR-CB_QSUBCHANNEL);
-    /// <summary>
-    /// Read Audio Sectors
-    /// </summary>
-    /// <param name="sector">The sector where to start to read</param>
-    /// <param name="Buffer">The length must be at least CB_CDDASECTOR*Sectors bytes</param>
-    /// <param name="NumSectors">Number of sectors to read</param>
-    /// <returns>True on success</returns>
-    protected bool ReadSector(int sector, byte[] Buffer, int NumSectors) 
-    {
-      if ( TocValid && ((sector+NumSectors) <= GetEndSector(Toc.LastTrack)) && (Buffer.Length >= CB_AUDIO*NumSectors))
+      public void Dispose()
       {
-        Win32Functions.RAW_READ_INFO rri = new Win32Functions.RAW_READ_INFO();
-        rri.TrackMode = Win32Functions.TRACK_MODE_TYPE.CDDA;
-        rri.SectorCount = (uint)NumSectors;
-        rri.DiskOffset = sector*CB_CDROMSECTOR;
+          this.Close();
+          GC.SuppressFinalize(this);
+      }
 
-        uint BytesRead = 0;
-        if ( Win32Functions.DeviceIoControl(cdHandle, Win32Functions.IOCTL_CDROM_RAW_READ, rri, (uint)Marshal.SizeOf(rri), Buffer, (uint)NumSectors*CB_AUDIO, ref BytesRead, IntPtr.Zero) != 0)
-        {
-          return true;
-        }
-        else
-        {
+      public bool EjectCD()
+      {
+          this.TocValid = false;
+          if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
+          {
+              uint lpBytesReturned = 0;
+              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d4808, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0);
+          }
           return false;
-        }
-      }
-      else 
-      { 
-        return false;
-      }
-    }
-    /// <summary>
-    /// Lock the CD drive 
-    /// </summary>
-    /// <returns>True on success</returns>
-    public bool LockCD()
-    {
-      if (((int)cdHandle != -1) && ((int)cdHandle != 0))
-      {
-        uint Dummy = 0;
-        Win32Functions.PREVENT_MEDIA_REMOVAL pmr = new Win32Functions.PREVENT_MEDIA_REMOVAL();
-        pmr.PreventMediaRemoval = 1;
-        return Win32Functions.DeviceIoControl(cdHandle, Win32Functions.IOCTL_STORAGE_MEDIA_REMOVAL, pmr, (uint)Marshal.SizeOf(pmr), IntPtr.Zero, 0, ref Dummy, IntPtr.Zero) != 0;
-      }
-      else 
-      {
-        return false;
-      }
-    }
-    /// <summary>
-    /// Unlock CD drive
-    /// </summary>
-    /// <returns>True on success</returns>
-    public bool UnLockCD()
-    {
-      if (((int)cdHandle != -1) && ((int)cdHandle != 0))
-      {
-        uint Dummy = 0;
-        Win32Functions.PREVENT_MEDIA_REMOVAL pmr = new Win32Functions.PREVENT_MEDIA_REMOVAL();
-        pmr.PreventMediaRemoval = 0;
-        return Win32Functions.DeviceIoControl(cdHandle, Win32Functions.IOCTL_STORAGE_MEDIA_REMOVAL, pmr, (uint)Marshal.SizeOf(pmr), IntPtr.Zero, 0, ref Dummy, IntPtr.Zero) != 0;
-      }
-      else 
-      {
-        return false;
-      }
-    }
-    /// <summary>
-    /// Close the CD drive door
-    /// </summary>
-    /// <returns>True on success</returns>
-    public bool LoadCD()
-    {
-      TocValid = false;
-      if (((int)cdHandle != -1) && ((int)cdHandle != 0))
-      {
-        uint Dummy = 0;
-        return Win32Functions.DeviceIoControl(cdHandle, Win32Functions.IOCTL_STORAGE_LOAD_MEDIA, IntPtr.Zero, 0, IntPtr.Zero, 0, ref Dummy, IntPtr.Zero) != 0;
-      }
-      else 
-      {
-        return false;
-      }
-    }
-    /// <summary>
-    /// Open the CD drive door
-    /// </summary>
-    /// <returns>True on success</returns>
-    public bool EjectCD()
-    {
-      TocValid = false;
-      if (((int)cdHandle != -1) && ((int)cdHandle != 0))
-      {
-        uint Dummy = 0;
-        return Win32Functions.DeviceIoControl(cdHandle, Win32Functions.IOCTL_STORAGE_EJECT_MEDIA, IntPtr.Zero, 0, IntPtr.Zero, 0, ref Dummy, IntPtr.Zero) != 0;
-      }
-      else 
-      {
-        return false;
-      }
-    }
-    /// <summary>
-    /// Check if there is CD in the drive
-    /// </summary>
-    /// <returns>True on success</returns>
-    public bool IsCDReady()
-    {
-      if (((int)cdHandle != -1) && ((int)cdHandle != 0))
-      {
-        uint Dummy = 0;
-        if (Win32Functions.DeviceIoControl(cdHandle, Win32Functions.IOCTL_STORAGE_CHECK_VERIFY, IntPtr.Zero, 0, IntPtr.Zero, 0, ref Dummy, IntPtr.Zero) != 0)
-        {
-          return true;
-        }
-        else
-        {
-          TocValid = false;
-          return false;
-        }
-      }
-      else 
-      {
-        TocValid = false;
-        return false;
-      }
-    }
-    /// <summary>
-    /// If there is a CD in the drive read its TOC
-    /// </summary>
-    /// <returns>True on success</returns>
-    public bool Refresh()
-    {
-      if ( IsCDReady() )
-      {
-        return ReadTOC();
-      }
-      else 
-      {
-        return false;
-      }
-    }
-    /// <summary>
-    /// Return the number of tracks on the CD
-    /// </summary>
-    /// <returns>-1 on error</returns>
-    public int GetNumTracks()
-    {
-      if ( TocValid )
-      {
-        return Toc.LastTrack - Toc.FirstTrack + 1;
-      }
-      else return -1;
-    }
-    /// <summary>
-    /// Return the number of audio tracks on the CD
-    /// </summary>
-    /// <returns>-1 on error</returns>
-    public int GetNumAudioTracks()
-    {
-      if ( TocValid )
-      {
-        int tracks = 0;
-        for (int i = Toc.FirstTrack - 1; i < Toc.LastTrack; i++)
-        {
-          if (Toc.TrackData[i].Control == 0 ) 
-            tracks++;
-        }
-        return tracks;
-      }
-      else 
-      {
-        return -1;
       }
 
-    }
-    /// <summary>
-    /// Read the digital data of the track
-    /// </summary>
-    /// <param name="track">Track to read</param>
-    /// <param name="Data">Buffer that will receive the data</param>
-    /// <param name="DataSize">On return the size needed to read the track</param>
-    /// <param name="StartSecond">First second of the track to read, 0 means to start at beginning of the track</param>
-    /// <param name="Seconds2Read">Number of seconds to read, 0 means to read until the end of the track</param>
-    /// <param name="OnProgress">Delegate to indicate the reading progress</param>
-    /// <returns>Negative value means an error. On success returns the number of bytes read</returns>
-    public int ReadTrack(int track, byte[] Data, ref uint DataSize, uint StartSecond, uint Seconds2Read, CdReadProgressEventHandler ProgressEvent)
-    {
-      if ( TocValid && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) )
+      ~CDDrive()
       {
-        int StartSect = GetStartSector(track);
-        int EndSect = GetEndSector(track);
-        if ( (StartSect += (int)StartSecond*75) >= EndSect )
-        {
-          StartSect -= (int)StartSecond*75;
-        }
-        if ( (Seconds2Read > 0) && ( (int)(StartSect + Seconds2Read*75) < EndSect ) )
-        {
-          EndSect = StartSect + (int)Seconds2Read*75;
-        }
-        DataSize = (uint)(EndSect - StartSect)*CB_AUDIO;
-        if ( Data != null)
-        {
-          if ( Data.Length >= DataSize )
-          {
-            CDBufferFiller BufferFiller = new CDBufferFiller(Data);
-            return ReadTrack(track, new CdDataReadEventHandler(BufferFiller.OnCdDataRead), StartSecond, Seconds2Read, ProgressEvent);
-          }
-          else 
-          {
-            return 0;
-          }
-        }
-        else
-        {
-          return 0;
-        }
+          this.Dispose();
       }
-      else
+
+      public string GetCDDBQuery()
       {
-        return -1;
-      }
-    }
-    /// <summary>
-    /// Read the digital data of the track
-    /// </summary>
-    /// <param name="track">Track to read</param>
-    /// <param name="Data">Buffer that will receive the data</param>
-    /// <param name="DataSize">On return the size needed to read the track</param>
-    /// <param name="OnProgress">Delegate to indicate the reading progress</param>
-    /// <returns>Negative value means an error. On success returns the number of bytes read</returns>
-    public int ReadTrack(int track, byte[] Data, ref uint DataSize, CdReadProgressEventHandler ProgressEvent)
-    {
-      return ReadTrack(track, Data, ref DataSize, 0, 0, ProgressEvent);
-    }
-    /// <summary>
-    /// Read the digital data of the track
-    /// </summary>
-    /// <param name="track">Track to read</param>
-    /// <param name="OnDataRead">Call each time data is read</param>
-    /// <param name="StartSecond">First second of the track to read, 0 means to start at beginning of the track</param>
-    /// <param name="Seconds2Read">Number of seconds to read, 0 means to read until the end of the track</param>
-    /// <param name="OnProgress">Delegate to indicate the reading progress</param>
-    /// <returns>Negative value means an error. On success returns the number of bytes read</returns>
-    public int ReadTrack(int track, CdDataReadEventHandler DataReadEvent, uint StartSecond, uint Seconds2Read, CdReadProgressEventHandler ProgressEvent)
-    {
-      if ( TocValid && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) && (DataReadEvent != null) )
-      {
-        int StartSect = GetStartSector(track);
-        int EndSect = GetEndSector(track);
-        if ( (StartSect += (int)StartSecond*75) >= EndSect )
-        {
-          StartSect -= (int)StartSecond*75;
-        }
-        if ( (Seconds2Read > 0) && ( (int)(StartSect + Seconds2Read*75) < EndSect ) )
-        {
-          EndSect = StartSect + (int)Seconds2Read*75;
-        }
-        uint Bytes2Read = (uint)(EndSect - StartSect)*CB_AUDIO;
-        uint BytesRead = 0;
-        byte[] Data = new byte[CB_AUDIO*NSECTORS];
-        bool Cont = true;
-        bool ReadOk = true;
-        if ( ProgressEvent != null )
-        {
-          ReadProgressEventArgs rpa = new ReadProgressEventArgs(Bytes2Read, 0);
-          ProgressEvent(this, rpa);
-          Cont = !rpa.CancelRead;
-        }
-        for (int sector = StartSect; (sector < EndSect) && (Cont) && (ReadOk); sector+=NSECTORS)
-        {
-          int Sectors2Read = ( (sector + NSECTORS) < EndSect )?NSECTORS:(EndSect-sector);
-          ReadOk = ReadSector(sector, Data, Sectors2Read);
-          if ( ReadOk )
+          int numTracks = this.GetNumTracks();
+          if (numTracks == -1)
           {
-            DataReadEventArgs dra = new DataReadEventArgs(Data, (uint)(CB_AUDIO*Sectors2Read));
-            DataReadEvent(this, dra);
-            BytesRead += (uint)(CB_AUDIO*Sectors2Read);
-            if ( ProgressEvent != null )
-            {
-              ReadProgressEventArgs rpa = new ReadProgressEventArgs(Bytes2Read, BytesRead);
-              ProgressEvent(this, rpa);
-              Cont = !rpa.CancelRead;
-            }
+              throw new Exception("Unable to retrieve the number of tracks, Cannot calculate DiskID.");
           }
-        }
-        if ( ReadOk )
-        {
-          return (int)BytesRead;
-        }
-        else
-        {
+          string str = numTracks.ToString();
+          int num3 = 0;
+          int num4 = 0;
+          double num5 = 0.0;
+          int num6 = 0;
+          int track = 0;
+          while (track < numTracks)
+          {
+              num5 = (((this.Toc.TrackData[track].Address_1 * 60) + this.Toc.TrackData[track].Address_2) * 0x4b) + this.Toc.TrackData[track].Address_3;
+              num4 += this.cddb_sum((this.Toc.TrackData[track].Address_1 * 60) + this.Toc.TrackData[track].Address_2);
+              num6 += this.GetSeconds(track);
+              str = str + "+" + string.Format("{0}", num5);
+              track++;
+          }
+          int num7 = (this.Toc.TrackData[track].Address_1 * 60) + this.Toc.TrackData[track].Address_2;
+          str = str + "+" + num7;
+          Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[numTracks];
+          Win32Functions.TRACK_DATA track_data2 = this.Toc.TrackData[0];
+          num3 = ((track_data.Address_1 * 60) + track_data.Address_2) - ((track_data2.Address_1 * 60) + track_data2.Address_2);
+          ulong num8 = (ulong)((((num4 % 0xff) << 0x18) | (num3 << 8)) | numTracks);
+          return (string.Format("{0:x8}", num8) + "+" + str);
+      }
+
+      public static char[] GetCDDriveLetters()
+      {
+          string str = "";
+          for (char ch = 'C'; ch <= 'Z'; ch = (char)(ch + '\x0001'))
+          {
+              if (Win32Functions.GetDriveType(ch + ":") == Win32Functions.DriveTypes.DRIVE_CDROM)
+              {
+                  str = str + ch;
+              }
+          }
+          return str.ToCharArray();
+      }
+
+      protected int GetEndSector(int track)
+      {
+          if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
+          {
+              Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[track];
+              return (((((track_data.Address_1 * 60) * 0x4b) + (track_data.Address_2 * 0x4b)) + track_data.Address_3) - 0x97);
+          }
           return -1;
-        }
-
       }
-      else
+
+      protected int GetEndSector2(int track)
       {
-        return -1;
+          if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
+          {
+              Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[track];
+              return ((((track_data.Address_1 * 60) * 0x4b) + (track_data.Address_2 * 0x4b)) - 0x97);
+          }
+          return -1;
       }
-    }
-    /// <summary>
-    /// Read the digital data of the track
-    /// </summary>
-    /// <param name="track">Track to read</param>
-    /// <param name="OnDataRead">Call each time data is read</param>
-    /// <param name="OnProgress">Delegate to indicate the reading progress</param>
-    /// <returns>Negative value means an error. On success returns the number of bytes read</returns>
-    public int ReadTrack(int track, CdDataReadEventHandler DataReadEvent, CdReadProgressEventHandler ProgressEvent)
-    {
-      return ReadTrack(track, DataReadEvent, 0, 0, ProgressEvent);
-    }
-    /// <summary>
-    /// Get track size
-    /// </summary>
-    /// <param name="track">Track</param>
-    /// <returns>Size in bytes of track data</returns>
-    public uint TrackSize(int track)
-    {
-      uint Size = 0;
-      ReadTrack(track, null, ref Size, null);
-      return Size;
-    }
 
-    public bool IsAudioTrack(int track)
-    {
-      if ( (TocValid) && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) )
+      public int GetNumAudioTracks()
       {
-        return (Toc.TrackData[track-1].Control & 4) == 0; 
+          if (this.TocValid)
+          {
+              int num = 0;
+              for (int i = this.Toc.FirstTrack - 1; i < this.Toc.LastTrack; i++)
+              {
+                  Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[i];
+                  if (track_data.Control == 0)
+                  {
+                      num++;
+                  }
+              }
+              return num;
+          }
+          return -1;
       }
-      else 
+
+      public int GetNumTracks()
       {
-        return false;
+          if (this.TocValid)
+          {
+              return ((this.Toc.LastTrack - this.Toc.FirstTrack) + 1);
+          }
+          return -1;
       }
-    }
 
-    public static char[] GetCDDriveLetters()
-    {
-      string res = "";
-      for ( char c = 'C'; c <= 'Z'; c++)
+      public int GetSeconds(int track)
       {
-        if ( Win32Functions.GetDriveType(c+":") == Win32Functions.DriveTypes.DRIVE_CDROM )
-        {
-          res += c;
-        }
+          if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
+          {
+              int num = (this.GetStartSector(track) + 150) / 0x4b;
+              int num2 = (this.GetEndSector(track) + 150) / 0x4b;
+              return (num2 - num);
+          }
+          return -1;
       }
-      return res.ToCharArray();
-    }
-    
-    private void OnCDInserted()
-    {
-      if ( CDInserted != null )
+
+      protected int GetStartSector(int track)
       {
-        CDInserted(this, EventArgs.Empty);
+          if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
+          {
+              Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[track - 1];
+              return (((((track_data.Address_1 * 60) * 0x4b) + (track_data.Address_2 * 0x4b)) + track_data.Address_3) - 150);
+          }
+          return -1;
       }
-    }
-    
-    private void OnCDRemoved()
-    {
-      if ( CDRemoved != null )
+
+      public bool IsAudioTrack(int track)
       {
-        CDRemoved(this, EventArgs.Empty);
+          if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
+          {
+              Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[track - 1];
+              return ((track_data.Control & 4) == 0);
+          }
+          return false;
       }
-    }
 
-    private void NotWnd_DeviceChange(object sender, DeviceChangeEventArgs ea)
-    {
-      if ( ea.Drive == m_Drive )
+      public bool IsCDReady()
       {
-        TocValid = false;
-        switch ( ea.ChangeType )
-        {
-          case DeviceChangeEventType.DeviceInserted :
-            OnCDInserted();
-            break;
-          case DeviceChangeEventType.DeviceRemoved :
-            OnCDRemoved();
-            break;
-        }
+          if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
+          {
+              uint lpBytesReturned = 0;
+              if (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d4800, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0)
+              {
+                  return true;
+              }
+              this.TocValid = false;
+              return false;
+          }
+          this.TocValid = false;
+          return false;
       }
-    }
 
-    #region CDDB Enhancements
-	  
-	  /// <summary>
-	  /// Retrieve a CDDB DiskID 
-	  /// </summary>
-	  /// <returns></returns>
-	  public string GetCDDBDiskID()
-	  {
-		  int numTracks = GetNumTracks();
-		  if (numTracks == -1)
-			  throw new Exception("Unable to retrieve the number of tracks, Cannot calculate DiskID.");
+      public bool LoadCD()
+      {
+          this.TocValid = false;
+          if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
+          {
+              uint lpBytesReturned = 0;
+              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d480c, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0);
+          }
+          return false;
+      }
 
-		  string postfix  = numTracks.ToString();
+      public bool LockCD()
+      {
+          if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
+          {
+              uint bytesReturned = 0;
+              Win32Functions.PREVENT_MEDIA_REMOVAL inMediaRemoval = new Win32Functions.PREVENT_MEDIA_REMOVAL
+              {
+                  PreventMediaRemoval = 1
+              };
+              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d4804, inMediaRemoval, (uint)Marshal.SizeOf(inMediaRemoval), IntPtr.Zero, 0, ref bytesReturned, IntPtr.Zero) != 0);
+          }
+          return false;
+      }
 
-		  int   i,t = 0,n=0;
+      private void NotWnd_DeviceChange(object sender, DeviceChangeEventArgs ea)
+      {
+          if (ea.Drive == this.m_Drive)
+          {
+              switch (ea.ChangeType)
+              {
+                  case DeviceChangeEventType.DeviceInserted:
+                      this.OnCDInserted();
+                      break;
 
-		  double ofs=0;
+                  case DeviceChangeEventType.DeviceRemoved:
+                      this.TocValid = false;
+                      this.OnCDRemoved();
+                      break;
+              }
+          }
+      }
 
-		  int secs = 0;
+      private void OnCDInserted()
+      {
+          if (this.CDInserted != null)
+          {
+              this.CDInserted(this, EventArgs.Empty);
+          }
+      }
 
-		  /* For backward compatibility this algorithm must not change */
-		  i = 0; 
-		  
-		  while (i < numTracks) 
-		  {
-			  Console.WriteLine("Track {0}: {1}:{2}", i, GetSeconds(i) / 60, GetSeconds(i) % 60);
+      private void OnCDRemoved()
+      {
+          if (this.CDRemoved != null)
+          {
+              this.CDRemoved(this, EventArgs.Empty);
+          }
+      }
 
-			  ofs = (((Toc.TrackData[ i].Address_1 * 60)+ Toc.TrackData[ i].Address_2)*75)+ Toc.TrackData[ i].Address_3;
-			  n = n + cddb_sum((Toc.TrackData[ i].Address_1 * 60) + Toc.TrackData[ i].Address_2 );
-			  secs += GetSeconds(i);
-			  postfix += "+" + string.Format("{0}",ofs);
+      public bool Open(char Drive)
+      {
+          this.Close();
+          if (Win32Functions.GetDriveType(Drive + @":\") == Win32Functions.DriveTypes.DRIVE_CDROM)
+          {
+              this.cdHandle = Win32Functions.CreateFile(@"\\.\" + Drive + ':', 0x80000000, 1, IntPtr.Zero, 3, 0, IntPtr.Zero);
+              if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
+              {
+                  this.m_Drive = Drive;
+                  this.NotWnd = new DeviceChangeNotificationWindow();
+                  this.NotWnd.DeviceChange += new DeviceChangeEventHandler(this.NotWnd_DeviceChange);
+                  return true;
+              }
+              return true;
+          }
+          return false;
+      }
 
-			  i++;
-		  }
-          
+      protected bool ReadSector(int sector, byte[] Buffer, int NumSectors)
+      {
+          if ((this.TocValid && ((sector + NumSectors) <= this.GetEndSector(this.Toc.LastTrack))) && (Buffer.Length >= (0x930 * NumSectors)))
+          {
+              Win32Functions.RAW_READ_INFO rri = new Win32Functions.RAW_READ_INFO
+              {
+                  TrackMode = Win32Functions.TRACK_MODE_TYPE.CDDA,
+                  SectorCount = (uint)NumSectors,
+                  DiskOffset = (long)(sector * 0x800)
+              };
+              uint bytesReturned = 0;
+              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2403e, rri, (uint)Marshal.SizeOf(rri), Buffer, (uint)(NumSectors * 0x930), ref bytesReturned, IntPtr.Zero) != 0);
+          }
+          return false;
+      }
 
-		  int numSecs = Toc.TrackData[ i].Address_1 * 60 + Toc.TrackData[ i].Address_2;
-          
-		  Console.WriteLine("n = {0}, numSecs = {1}, secs = {2}", n, numSecs, secs);
+      protected bool ReadTOC()
+      {
+          if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
+          {
+              uint bytesReturned = 0;
+              this.TocValid = Win32Functions.DeviceIoControl(this.cdHandle, 0x24000, IntPtr.Zero, 0, this.Toc, (uint)Marshal.SizeOf(this.Toc), ref bytesReturned, IntPtr.Zero) != 0;
+          }
+          else
+          {
+              this.TocValid = false;
+          }
+          return this.TocValid;
+      }
 
-		  postfix += "+" + numSecs;
-		  Win32Functions.TRACK_DATA last    = Toc.TrackData[ numTracks ];
-		  Win32Functions.TRACK_DATA first    = Toc.TrackData[ 0 ];
+      public int ReadTrack(int track, CdDataReadEventHandler DataReadEvent, CdReadProgressEventHandler ProgressEvent)
+      {
+          return this.ReadTrack(track, DataReadEvent, 0, 0, ProgressEvent);
+      }
 
-		  t = ((last.Address_1 * 60) + last.Address_2) -
-			  ( (first.Address_1 * 60) + first.Address_2 );
+      public int ReadTrack(int track, byte[] Data, ref uint DataSize, CdReadProgressEventHandler ProgressEvent)
+      {
+          return this.ReadTrack(track, Data, ref DataSize, 0, 0, ProgressEvent);
+      }
 
-		  ulong lDiscId = (((uint)n % 0xff) << 24 | (uint)t << 8 | (uint)numTracks);
+      public int ReadTrack(int track, CdDataReadEventHandler DataReadEvent, uint StartSecond, uint Seconds2Read, CdReadProgressEventHandler ProgressEvent)
+      {
+          if (((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack)) && (DataReadEvent != null))
+          {
+              ReadProgressEventArgs args;
+              int startSector = this.GetStartSector(track);
+              int endSector = this.GetEndSector(track);
+              if ((startSector += ((int)(StartSecond * 0x4b))) >= endSector)
+              {
+                  startSector -= (int)(StartSecond * 0x4b);
+              }
+              if ((Seconds2Read > 0) && ((startSector + ((int)(Seconds2Read * 0x4b))) < endSector))
+              {
+                  endSector = startSector + ((int)(Seconds2Read * 0x4b));
+              }
+              uint num3 = (uint)((endSector - startSector) * 0x930);
+              uint bytesread = 0;
+              byte[] buffer = new byte[0x7770];
+              bool flag = true;
+              bool flag2 = true;
+              if (ProgressEvent != null)
+              {
+                  args = new ReadProgressEventArgs(num3, 0);
+                  ProgressEvent(this, args);
+                  flag = !args.CancelRead;
+              }
+              for (int i = startSector; ((i < endSector) && flag) && flag2; i += 13)
+              {
+                  int numSectors = ((i + 13) < endSector) ? 13 : (endSector - i);
+                  flag2 = this.ReadSector(i, buffer, numSectors);
+                  if (flag2)
+                  {
+                      DataReadEventArgs ea = new DataReadEventArgs(buffer, (uint)(0x930 * numSectors));
+                      DataReadEvent(this, ea);
+                      bytesread += (uint)(0x930 * numSectors);
+                      if (ProgressEvent != null)
+                      {
+                          args = new ReadProgressEventArgs(num3, bytesread);
+                          ProgressEvent(this, args);
+                          flag = !args.CancelRead;
+                      }
+                  }
+              }
+              if (flag2)
+              {
+                  return (int)bytesread;
+              }
+              return -1;
+          }
+          return -1;
+      }
 
-		  string sDiscId = String.Format("{0:x8}",lDiscId);
+      public int ReadTrack(int track, byte[] Data, ref uint DataSize, uint StartSecond, uint Seconds2Read, CdReadProgressEventHandler ProgressEvent)
+      {
+          if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
+          {
+              int startSector = this.GetStartSector(track);
+              int endSector = this.GetEndSector(track);
+              if ((startSector += ((int)(StartSecond * 0x4b))) >= endSector)
+              {
+                  startSector -= (int)(StartSecond * 0x4b);
+              }
+              if ((Seconds2Read > 0) && ((startSector + ((int)(Seconds2Read * 0x4b))) < endSector))
+              {
+                  endSector = startSector + ((int)(Seconds2Read * 0x4b));
+              }
+              DataSize = (uint)((endSector - startSector) * 0x930);
+              if (Data != null)
+              {
+                  if (Data.Length >= ((int)DataSize))
+                  {
+                      CDBufferFiller filler = new CDBufferFiller(Data);
+                      return this.ReadTrack(track, new CdDataReadEventHandler(filler.OnCdDataRead), StartSecond, Seconds2Read, ProgressEvent);
+                  }
+                  return 0;
+              }
+              return 0;
+          }
+          return -1;
+      }
 
-		  return sDiscId;
-	  }
-	  
-	  
-	  /// <summary>
-	  /// Retrieve the data required to perform a CDDB Query
-	  /// </summary>
-	  /// <returns></returns>
-	  public string GetCDDBQuery()
-	  {   
-          
-		  int numTracks = GetNumTracks();
-		  if (numTracks == -1)
-			  throw new Exception("Unable to retrieve the number of tracks, Cannot calculate DiskID.");
+      public bool Refresh()
+      {
+          return (this.IsCDReady() && this.ReadTOC());
+      }
 
-		  string postfix  = numTracks.ToString();
+      public uint TrackSize(int track)
+      {
+          uint dataSize = 0;
+          this.ReadTrack(track, null, ref dataSize, null);
+          return dataSize;
+      }
 
-		  int   i,t = 0,n=0;
+      public bool UnLockCD()
+      {
+          if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
+          {
+              uint bytesReturned = 0;
+              Win32Functions.PREVENT_MEDIA_REMOVAL inMediaRemoval = new Win32Functions.PREVENT_MEDIA_REMOVAL
+              {
+                  PreventMediaRemoval = 0
+              };
+              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d4804, inMediaRemoval, (uint)Marshal.SizeOf(inMediaRemoval), IntPtr.Zero, 0, ref bytesReturned, IntPtr.Zero) != 0);
+          }
+          return false;
+      }
 
-		  double ofs=0;
+      // Properties
+      public IntPtr CDHandle
+      {
+          get
+          {
+              return this.cdHandle;
+          }
+      }
 
-		  int secs = 0;
+      public char Drive
+      {
+          get
+          {
+              return this.m_Drive;
+          }
+      }
 
-		  /* For backward compatibility this algorithm must not change */
-		  i = 0; 
-		  
-		  while (i < numTracks) 
-		  {
-			  Console.WriteLine("Track {0}: {1}:{2}", i, GetSeconds(i) / 60, GetSeconds(i) % 60);
+      public bool IsOpened
+      {
+          get
+          {
+              return ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0));
+          }
+      }
 
-			  ofs = (((Toc.TrackData[ i].Address_1 * 60)+ Toc.TrackData[ i].Address_2)*75)+ Toc.TrackData[ i].Address_3;
-			  n = n + cddb_sum((Toc.TrackData[ i].Address_1 * 60) + Toc.TrackData[ i].Address_2 );
-			  secs += GetSeconds(i);
-			  postfix += "+" + string.Format("{0}",ofs);
+      public string GetCDDBDiskID()
+      {
+          int numTracks = GetNumTracks();
+          if (numTracks == -1)
+              throw new Exception("Unable to retrieve the number of tracks, Cannot calculate DiskID.");
 
-			  i++;
-		  }
-          
+          string postfix = numTracks.ToString();
 
-		  int numSecs = Toc.TrackData[ i].Address_1 * 60 + Toc.TrackData[ i].Address_2;
-          
-		  Console.WriteLine("n = {0}, numSecs = {1}, secs = {2}", n, numSecs, secs);
+          int i, t = 0, n = 0;
 
-		  postfix += "+" + numSecs;
-		  Win32Functions.TRACK_DATA last    = Toc.TrackData[ numTracks ];
-		  Win32Functions.TRACK_DATA first    = Toc.TrackData[ 0 ];
+          double ofs = 0;
 
-		  t = ((last.Address_1 * 60) + last.Address_2) -
-			  ( (first.Address_1 * 60) + first.Address_2 );
+          int secs = 0;
 
-		  ulong lDiscId = (((uint)n % 0xff) << 24 | (uint)t << 8 | (uint)numTracks);
+          /* For backward compatibility this algorithm must not change */
+          i = 0;
 
-		  string sDiscId = String.Format("{0:x8}",lDiscId);
+          while (i < numTracks)
+          {
+              Console.WriteLine("Track {0}: {1}:{2}", i, GetSeconds(i) / 60, GetSeconds(i) % 60);
 
-		  string qs = sDiscId + "+" + postfix;
+              ofs = (((Toc.TrackData[i].Address_1 * 60) + Toc.TrackData[i].Address_2) * 75) + Toc.TrackData[i].Address_3;
+              n = n + cddb_sum((Toc.TrackData[i].Address_1 * 60) + Toc.TrackData[i].Address_2);
+              secs += GetSeconds(i);
+              postfix += " " + string.Format("{0}", ofs);
 
-		  return qs;
-	  }
-
-
-	  public int GetSeconds(int track)
-	  {
-		  if ( TocValid && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) )
-		  {
-			  int start = (GetStartSector(track)+150) / 75;
-			  int end = (GetEndSector(track)+150) / 75;
-
-			  int begin = 2;
-			  if (track > Toc.FirstTrack)
-				  begin = (GetEndSector2(track -1)+150)/75;
-
-			  //return (end - begin);
-
-			  return end - start;
-
-
-		  }
-		  else 
-		  {
-			  return -1; 
-		  }
-	  }
-
-	  private int  cddb_sum(int n)
-	  {
-		  int	ret;
-
-		  //Console.WriteLine("n={0}",n);
-
-		  /* For backward compatibility this algorithm must not change */
-
-		  ret = 0;
-
-		  while (n > 0) 
-		  {
-			  ret = ret + (n % 10);
-			  n = n / 10;
-		  }
-
-		  return (ret);
-	  }
-
-
-	  protected int GetEndSector2(int track)
-	  {
-		  if ( TocValid && (track >= Toc.FirstTrack) && (track <= Toc.LastTrack) )
-		  {
-			  Win32Functions.TRACK_DATA td = Toc.TrackData[track];
-			  return (td.Address_1*60*75 + td.Address_2*75)-151;
-		  }
-		  else 
-		  {
-			  return -1;
-		  }
-	  }
+              i++;
+          }
 
 
-	  #endregion
+          int numSecs = Toc.TrackData[i].Address_1 * 60 + Toc.TrackData[i].Address_2;
+
+          Console.WriteLine("n = {0}, numSecs = {1}, secs = {2}", n, numSecs, secs);
+
+          postfix += " " + numSecs;
+          Win32Functions.TRACK_DATA last = Toc.TrackData[numTracks];
+          Win32Functions.TRACK_DATA first = Toc.TrackData[0];
+
+          t = ((last.Address_1 * 60) + last.Address_2) -
+              ((first.Address_1 * 60) + first.Address_2);
+
+          ulong lDiscId = (((uint)n % 0xff) << 24 | (uint)t << 8 | (uint)numTracks);
+
+          string sDiscId = String.Format("{0:x8}", lDiscId);
+
+          return sDiscId;
+      }
+
+      public bool ReadCDText(out TrackCollection cdTracks)
+      {
+          cdTracks = null;
+
+          Version version = Environment.OSVersion.Version;
+          if (((Environment.OSVersion.Platform != PlatformID.Win32NT) || (version.Major < 5)) || ((version.Major == 5) && (version.Minor < 1)))
+              return false;
+
+          Win32Functions.CDROM_READ_TOC_EX structure = new Win32Functions.CDROM_READ_TOC_EX
+          {
+              Format = Win32Functions.CDROM_READ_TOC_EX_FORMAT.CDTEXT
+          };
+          int cb = Marshal.SizeOf(structure);
+          IntPtr ptr = Marshal.AllocHGlobal(cb);
+          Marshal.StructureToPtr(structure, ptr, true);
+
+          Win32Functions.CDROM_TOC_CD_TEXT_DATA cdrom_toc_cd_text_data = new Win32Functions.CDROM_TOC_CD_TEXT_DATA
+          {
+            Length = (ushort)Marshal.SizeOf(typeof(Win32Functions.CDROM_TOC_CD_TEXT_DATA))
+          };
+
+          IntPtr ptr2 = Marshal.AllocHGlobal(cdrom_toc_cd_text_data.Length);
+          Marshal.StructureToPtr(cdrom_toc_cd_text_data, ptr2, true);
+          uint bytesReturned = 0;
+          bool flag = Win32Functions.DeviceIoControl(this.CDHandle, Win32Functions.IOCTL_CDROM_READ_TOC_EX, ptr, (uint)cb, ptr2, cdrom_toc_cd_text_data.Length, ref bytesReturned, IntPtr.Zero) != 0;
+          if (flag)
+          {
+              Marshal.PtrToStructure(ptr2, cdrom_toc_cd_text_data);
+              cdTracks = this.BuildCDTracks(cdrom_toc_cd_text_data);
+          }
+
+          Marshal.FreeHGlobal(ptr2);
+          Marshal.FreeHGlobal(ptr);
+          return flag;
+      }
+
+      private TrackCollection BuildCDTracks(Win32Functions.CDROM_TOC_CD_TEXT_DATA Data)
+      {
+          TrackCollection tracks = new TrackCollection();
+
+          List<string> titles = new List<string>();
+          List<string> artists = new List<string>();
+          List<string> genres = new List<string>();
+
+          string item = string.Empty;
+
+          try
+          {
+              Console.WriteLine("++++");
+              for (int i = 0; i < Data.Descriptors.MaxIndex; i++)
+              {
+                  Console.WriteLine("");
+                  foreach (char c in Data.Descriptors[i].Text)
+                  {
+                      if (c != '\0')
+                          Console.Write(c);
+                      else
+                          Console.Write(".");
+
+                  }
+              }
+              Console.WriteLine("++++");
+
+              for (int i = 0; i < Data.Descriptors.MaxIndex; i++)
+              {
+                  Win32Functions.CDROM_TOC_CD_TEXT_DATA_BLOCK cdrom_toc_cd_text_data_block = Data.Descriptors[i];
+                  foreach (char ch in cdrom_toc_cd_text_data_block.Text)
+                  {
+                      if (ch != '\0')
+                      {
+                          item = item + ch;
+                      }
+                      else
+                      {
+                          switch (cdrom_toc_cd_text_data_block.PackType)
+                          {
+                              case Win32Functions.CDROM_CD_TEXT_PACK.ALBUM_NAME:
+                                  titles.Add(item);
+                                  item = string.Empty;
+                                  break;
+
+                              case Win32Functions.CDROM_CD_TEXT_PACK.GENRE:
+                                  genres.Add(item);
+                                  item = string.Empty;
+                                  break;
+
+                              case Win32Functions.CDROM_CD_TEXT_PACK.PERFORMER:
+                                  artists.Add(item);
+                                  item = string.Empty;
+                                  break;
+
+                              default:
+                                  item = string.Empty;
+                                  break;
+                          }
+                      }
+                  }
+              }
+
+          }
+          catch (IndexOutOfRangeException)
+          {
+          }
+          finally
+          {
+              
+          }
+
+          int max = titles.Count;
+          if (artists.Count != 0 && max > artists.Count)
+              max = artists.Count;
+          if (genres.Count != 0 && max > genres.Count)
+              max = genres.Count;
+              
+          for(int i = 1; i < max; i++)
+          {
+              try
+              {
+                  Track track = new Track(titles[i]);
+                  tracks.Add(track);
+              }
+              catch { }
+          }
+
+          return tracks;
+      }
+
+ 
+
+
+ 
+
   }
 }
+
+
