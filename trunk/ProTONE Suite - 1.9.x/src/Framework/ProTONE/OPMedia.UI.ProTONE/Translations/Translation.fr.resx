@@ -173,95 +173,95 @@
   <value>Bookmark temps:</value>
 </data>
 <data name="TXT_BTNCLEAR">
-  <value>Effacer toute la liste de lecture&#xD;
+  <value>Effacer toute la liste de lecture&#xD;&#xD;
 Raccourci:. {0}</value>
 </data>
 <data name="TXT_BTNDELETE">
-  <value>Supprimer les éléments sélectionnés&#xD;
+  <value>Supprimer les éléments sélectionnés&#xD;&#xD;
 Raccourci:. {0}</value>
 </data>
 <data name="TXT_BTNFULLSCREEN">
-  <value>Basculer plein écran&#xD;
+  <value>Basculer plein écran&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNFWD">
-  <value>Avance rapide. Avec 5 secondes&#xD;
+  <value>Avance rapide. Avec 5 secondes&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNJUMPTOITEM">
-  <value>Ouvrez le 'Saut au playlist article' dialogue&#xD;
+  <value>Ouvrez le 'Saut au playlist article' dialogue&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNLOAD">
-  <value>Chargez nouveau fichier (s)&#xD;
+  <value>Chargez nouveau fichier (s)&#xD;&#xD;
 Raccourci:. {0}</value>
 </data>
 <data name="TXT_BTNLOADPLAYLIST">
-  <value>Chargez une nouvelle playlist&#xD;
+  <value>Chargez une nouvelle playlist&#xD;&#xD;
 Raccourci:. {0}</value>
 </data>
 <data name="TXT_BTNLOOPPLAY">
-  <value>Active / désactive la lecture en boucle&#xD;
+  <value>Active / désactive la lecture en boucle&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNMOVEDOWN">
-  <value>Déplacez les éléments sélectionnés avec une position basse dans la playlist&#xD;
+  <value>Déplacez les éléments sélectionnés avec une position basse dans la playlist&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNMOVEUP">
-  <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la playlist&#xD;
+  <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la playlist&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNNEXT">
-  <value>Aller à l'image suivante dans la playlist&#xD;
+  <value>Aller à l'image suivante dans la playlist&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNOPENDISK">
-  <value>Ouvre la boîte de dialogue Charger un support DVD&#xD;
+  <value>Ouvre la boîte de dialogue Charger un support DVD&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNOPENSETTINGS">
-  <value>Affiche la boîte de dialogue Paramètres de&#xD;
+  <value>Affiche la boîte de dialogue Paramètres de&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNPAUSE">
-  <value>Pause de la lecture&#xD;
+  <value>Pause de la lecture&#xD;&#xD;
 Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNPLAY">
-  <value>Lire le fichier&#xD;
+  <value>Lire le fichier&#xD;&#xD;
 Raccourci:.{0}</value>
 </data>
 <data name="TXT_BTNPLAYLISTEND">
-  <value>Active l''action playlist fin »&#xD;
+  <value>Active l''action playlist fin »&#xD;&#xD;
  Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNPREV">
-  <value>Aller à l'image précédente dans la playlist&#xD;
+  <value>Aller à l'image précédente dans la playlist&#xD;&#xD;
  Raccourci:. {0}</value>
 </data>
 <data name="TXT_BTNREW">
-  <value>. Rembobinez de 5 secondes&#xD;
+  <value>. Rembobinez de 5 secondes&#xD;&#xD;
  Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNSAVEPLAYLIST">
-  <value>Enregistrer la liste de lecture&#xD;
+  <value>Enregistrer la liste de lecture&#xD;&#xD;
  Raccourci:. {0}</value>
 </data>
 <data name="TXT_BTNSTOP">
-  <value>Arrêt de la lecture&#xD;
+  <value>Arrêt de la lecture&#xD;&#xD;
  Raccourci:. {0}</value>
 </data>
 <data name="TXT_BTNTOGGLESHUFFLE">
-  <value>. Active le mode aléatoire playlist&#xD;
+  <value>. Active le mode aléatoire playlist&#xD;&#xD;
  Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNVOLDN">
-  <value>. Réduction de volume de 5%&#xD;
+  <value>. Réduction de volume de 5%&#xD;&#xD;
  Raccourci: {0}</value>
 </data>
 <data name="TXT_BTNVOLUP">
-  <value>. Volume en hausse de 5%&#xD;
+  <value>. Volume en hausse de 5%&#xD;&#xD;
  Raccourci: {0}</value>
 </data>
 <data name="TXT_CMDADDBOOKMARK">
@@ -376,7 +376,7 @@ Raccourci:.{0}</value>
   <value>ID3 Editor Création</value>
 </data>
 <data name="TXT_ELAPSED_TIME">
-  <value>Temps écoulé.&#xD;
+  <value>Temps écoulé.&#xD;&#xD;
  Double click to toggle temps restant</value>
 </data>
 <data name="TXT_ENABLEREMOTECONTROL">
@@ -434,7 +434,7 @@ Raccourci:.{0}</value>
   <value>Chargez une liste de lecture ...</value>
 </data>
 <data name="TXT_LOAD_DVD_FOLDER">
-  <value>S'il vous plaît sélectionner un dossier de contenu DVD vidéo&#xD;
+  <value>S'il vous plaît sélectionner un dossier de contenu DVD vidéo&#xD;&#xD;
  (Soit un dossier VIDEO_TS, ou son parent):</value>
 </data>
 <data name="TXT_MATCHING_ITEMS">
@@ -453,7 +453,7 @@ Raccourci:.{0}</value>
   <value>Afficher les info-bulles de notification près de la zone de notification lorsque des médias changements d'état</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
-  <value>Ne pas télécharger les sous-titres si le clip est plus courte que&#xD;
+  <value>Ne pas télécharger les sous-titres si le clip est plus courte que&#xD;&#xD;
  (0 = toujours télécharger)</value>
 </data>
 <data name="TXT_MNUAUDIO">
@@ -499,7 +499,7 @@ Raccourci:.{0}</value>
   <value>Cette option n'est pas disponible en ce moment.</value>
 </data>
 <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
-  <value>Cette option n'est pas disponible en ce moment.&#xD;
+  <value>Cette option n'est pas disponible en ce moment.&#xD;&#xD;
  Vous devez installer l'ensemble des codecs FFDShow afin d'avoir des actions à cette option.</value>
 </data>
 <data name="TXT_NO_LANG">
@@ -548,9 +548,9 @@ Raccourci:.{0}</value>
   <value>Volume: {0}%</value>
 </data>
 <data name="TXT_OVERWRITE_SUBTITLE">
-  <value>Le clip sélectionné possède déjà un sous-titre.&#xD;
- Si un autre sous-titres est disponible sur Internet, il remplacera celui existant.&#xD;
-&#xD;
+  <value>Le clip sélectionné possède déjà un sous-titre.&#xD;&#xD;
+ Si un autre sous-titres est disponible sur Internet, il remplacera celui existant.&#xD;&#xD;
+&#xD;&#xD;
 Etes-vous sûr que vous voulez rechercher une autre sous-titre?</value>
 </data>
 <data name="TXT_PAUSED">
@@ -569,7 +569,7 @@ Etes-vous sûr que vous voulez rechercher une autre sous-titre?</value>
   <value>Lorsque la playlist se termine ...</value>
 </data>
 <data name="TXT_PLAYLISTEVT_DESC">
-  <value>Attention: ce paramètre n'est pas persistant entre les sessions du programme&#xD;
+  <value>Attention: ce paramètre n'est pas persistant entre les sessions du programme&#xD;&#xD;
  Lorsque les listes de lecture se termine:</value>
 </data>
 <data name="TXT_PLAYLISTS">
@@ -585,8 +585,8 @@ Etes-vous sûr que vous voulez rechercher une autre sous-titre?</value>
   <value>Langue de sous-favorite:</value>
 </data>
 <data name="TXT_PROCEED_SCHEDULED_ACTION">
-  <value>ProTone joueur tente de {0}. Ce qui se passe parce que vous avez configuré le joueur à le faire lorsque {1}. Voulez-vous continuer?&#xD;
-&#xD;
+  <value>ProTone joueur tente de {0}. Ce qui se passe parce que vous avez configuré le joueur à le faire lorsque {1}. Voulez-vous continuer?&#xD;&#xD;
+&#xD;&#xD;
 Vous pouvez annuler cette opération si vous cliquez sur Annuler dans le délai restant (voir ci-dessous contre). Si ce temps s'écoule et que vous n'avez pas choisi une action, il sera considéré que vous avez choisi de procéder.</value>
 </data>
 <data name="TXT_PROTONE_ENQUEUE">
@@ -596,14 +596,14 @@ Vous pouvez annuler cette opération si vous cliquez sur Annuler dans le délai 
   <value>Jouer dans ProTone joueur</value>
 </data>
 <data name="TXT_REMAINING_TIME">
-  <value>Le temps restant.&#xD;
+  <value>Le temps restant.&#xD;&#xD;
 Double click to toggle temps écoulé</value>
 </data>
 <data name="TXT_REMOTECONTROLCFG">
   <value>Télécommande</value>
 </data>
 <data name="TXT_REMOTECONTROLDEFINITION">
-  <value>Pour définir les programmes et les dispositifs qui sont autorisés à contrôler Lecteur ProTone, vous devez utiliser le programme Gestionnaire ProTone RCC.&#xD;
+  <value>Pour définir les programmes et les dispositifs qui sont autorisés à contrôler Lecteur ProTone, vous devez utiliser le programme Gestionnaire ProTone RCC.&#xD;&#xD;
  Cliquez sur le bouton ci-dessous pour lancer ProTone RCC Manager ...</value>
 </data>
 <data name="TXT_RIGHTVOL">
@@ -628,7 +628,7 @@ Double click to toggle temps écoulé</value>
   <value>Minuteur</value>
 </data>
 <data name="TXT_SCHEDULERWAITTIMERPROCEED">
-  <value>Combien de minutes à attendre confirmation avant de procéder&#xD;
+  <value>Combien de minutes à attendre confirmation avant de procéder&#xD;&#xD;
  (0 = ne demande pas de confirmation, passez directement):</value>
 </data>
 <data name="TXT_SEARCH_SUBTITLES">
@@ -692,7 +692,7 @@ Double click to toggle temps écoulé</value>
   <value>Recherche sous-titre a été abandonnée en raison d'une erreur s'est produite.</value>
 </data>
 <data name="TXT_SUB_HINTS">
-  <value>Remarque: Les résultats sont triés en utilisant ces critères (dans cet ordre): la colonne sélectionnée, la langue (langue préférée en haut),&#xD;
+  <value>Remarque: Les résultats sont triés en utilisant ces critères (dans cet ordre): la colonne sélectionnée, la langue (langue préférée en haut),&#xD;&#xD;
  prio (serveur order = ordre de serveurs de sous-titres Sous-titres en / page Paramètres OSD). Cliquez sur un en-tête de colonne pour sélectionner une autre citeria sorte.</value>
 </data>
 <data name="TXT_SUB_LOAD">
@@ -711,12 +711,12 @@ Double click to toggle temps écoulé</value>
   <value>Codecs multimédias sont installés et configurés sur OK.</value>
 </data>
 <data name="TXT_TIMESCALE">
-  <value>Échelle de temps&#xD;
+  <value>Échelle de temps&#xD;&#xD;
 Cliquez pour jouer à partir de la position: {0}</value>
 </data>
 <data name="TXT_TIMESCALE_BOOKMARK">
-  <value>Échelle de temps&#xD;
-Cliquez pour jouer à partir de signet: "{1}"&#xD;
+  <value>Échelle de temps&#xD;&#xD;
+Cliquez pour jouer à partir de signet: "{1}"&#xD;&#xD;
 temps Marque page: {0}</value>
 </data>
 <data name="TXT_TOTAL_TIME">
@@ -744,7 +744,7 @@ temps Marque page: {0}</value>
   <value>Des fichiers vidéo haute définition</value>
 </data>
 <data name="TXT_VOLSCALE">
-  <value>. Échelle de volume&#xD;
+  <value>. Échelle de volume&#xD;&#xD;
  Cliquez pour régler le volume d': {0}%</value>
 </data>
 <data name="TXT_INSTALLCOMPONENT">
@@ -760,18 +760,18 @@ temps Marque page: {0}</value>
   <value>Options diverses</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
-  <value>Les modèles disponibles pour le formatage élément de la playlist sont basées sur des combinaisons de ces mots-clés:&#xD;
-&#xD;
-&lt;A&gt; = nom de l'artiste que dans les métadonnées;&#xD;
-&lt;B&gt; = nom de l'album comme dans les métadonnées; &#xD;
-&lt;T&gt; = titre comme dans les métadonnées;&#xD;
-&lt;C&gt; = commentaires que dans les métadonnées;&#xD;
-&lt;G&gt; = genre comme dans les métadonnées;&#xD;
-&lt;#&gt; = track # comme dans les métadonnées;&#xD;
+  <value>Les modèles disponibles pour le formatage élément de la playlist sont basées sur des combinaisons de ces mots-clés:&#xD;&#xD;
+&#xD;&#xD;
+&lt;A&gt; = nom de l'artiste que dans les métadonnées;&#xD;&#xD;
+&lt;B&gt; = nom de l'album comme dans les métadonnées; &#xD;&#xD;
+&lt;T&gt; = titre comme dans les métadonnées;&#xD;&#xD;
+&lt;C&gt; = commentaires que dans les métadonnées;&#xD;&#xD;
+&lt;G&gt; = genre comme dans les métadonnées;&#xD;&#xD;
+&lt;#&gt; = track # comme dans les métadonnées;&#xD;&#xD;
 &lt;Y&gt; = année comme dans les métadonnées.</value>
 </data>
 <data name="TXT_DISPLAY_FILENAME">
-  <value>Pas options de formatage sont spécifiées.&#xD;
+  <value>Pas options de formatage sont spécifiées.&#xD;&#xD;
  Le programme affiche le nom du fichier en entrée playlist.</value>
 </data>
 <data name="TXT_FILENAME_FORMAT">
@@ -811,8 +811,8 @@ temps Marque page: {0}</value>
   <value>Vous avez spécifié un volume DVD invalide. S'il vous plaît sélectionnez de nouveau.</value>
 </data>
 <data name="TXT_PANELSHIDDEN_NOADMIN">
-  <value>Parce que votre compte d'utilisateur ne dispose pas des droits d'administrateur, vous ne serez pas en mesure d'afficher les fichiers pris en charge et les paramètres de contrôle à distance.&#xD;
-&#xD;
+  <value>Parce que votre compte d'utilisateur ne dispose pas des droits d'administrateur, vous ne serez pas en mesure d'afficher les fichiers pris en charge et les paramètres de contrôle à distance.&#xD;&#xD;
+&#xD;&#xD;
 Pour accéder à ces paramètres, vous devez lancer ProTone Joueur sous un compte d'utilisateur qui a des privilèges d'administrateur</value>
 </data>
 <data name="TXT_MNUCLEAR">
@@ -972,22 +972,22 @@ Pour accéder à ces paramètres, vous devez lancer ProTone Joueur sous un compt
   <value>ID3 type d'image</value>
 </data>
 <data name="TXT_ID3PATTERNS">
-  <value>Les ID3 modèles sont basés sur des combinaisons de ces mots-clés:&#xD;
-&#xD;
-&lt;N&gt; = nom de fichier&#xD;
-&lt;F&gt; = nom de dossier&#xD;
-&lt;A&gt; = nom de l'artiste comme dans ID3 Info;&#xD;
-&lt;B&gt; nom de l'album = comme dans ID3 Info;&#xD;
-&lt;T&gt; = titre comme dans ID3 Info;&#xD;
-&lt;C&gt; = commentaires à la manière ID3 Info;&#xD;
-&lt;G&gt; = genre comme dans ID3 Info;&#xD;
-&lt;#&gt; = track # comme dans ID3 Info;.&#xD;
-&lt;Y&gt; = année ID3 Infos&#xD;
-&#xD;
+  <value>Les ID3 modèles sont basés sur des combinaisons de ces mots-clés:&#xD;&#xD;
+&#xD;&#xD;
+&lt;N&gt; = nom de fichier&#xD;&#xD;
+&lt;F&gt; = nom de dossier&#xD;&#xD;
+&lt;A&gt; = nom de l'artiste comme dans ID3 Info;&#xD;&#xD;
+&lt;B&gt; nom de l'album = comme dans ID3 Info;&#xD;&#xD;
+&lt;T&gt; = titre comme dans ID3 Info;&#xD;&#xD;
+&lt;C&gt; = commentaires à la manière ID3 Info;&#xD;&#xD;
+&lt;G&gt; = genre comme dans ID3 Info;&#xD;&#xD;
+&lt;#&gt; = track # comme dans ID3 Info;.&#xD;&#xD;
+&lt;Y&gt; = année ID3 Infos&#xD;&#xD;
+&#xD;&#xD;
 Plages de caractères tels que &lt;N2-12,14-20&gt; sont également autorisés.</value>
 </data>
 <data name="TXT_RESETVIDEOPOSITION">
-  <value>Réinitialiser position &#xD;
+  <value>Réinitialiser position &#xD;&#xD;
 de la fenêtre vidéo</value>
 </data>
 <data name="TXT_RESETVIDEOPOSITION_HINT">
@@ -998,6 +998,33 @@ de la fenêtre vidéo</value>
 </data>
 <data name="TXT_SUBTITLE_DOWNLOADING">
   <value>Téléchargement sous-titres, s'il vous plaît patienter ...</value>
+</data>
+<data name="TXT_DISKS_OPTIONS">
+  <value>CD/DVD</value>
+</data>
+<data name="TXT_OPT_NONE">
+  <value>Ne pas lire Audio CD info</value>
+</data>
+<data name="TXT_OPT_CDTEXT">
+  <value>CD-Text seulement</value>
+</data>
+<data name="TXT_OPT_CDDB">
+  <value>Serveur CDDB seulement</value>
+</data>
+<data name="TXT_OPT_CDTEXT_CDDB">
+  <value>Premier sur CD-Text, puis sur serveur CDDB</value>
+</data>
+<data name="TXT_OPT_CDDB_CDTEXT">
+  <value>Premier sur CDDB serveur, puis sur CD-Text</value>
+</data>
+<data name="TXT_AUDIOCDINFO_SOURCE">
+  <value>Lire Audio CD info sur:</value>
+</data>
+<data name="TXT_CDDB_SERVERNAME">
+  <value>Nom ou Adresse IP du serveur CDDB:</value>
+</data>
+<data name="TXT_CDDB_SERVERPORT">
+  <value>Port du serveur CDDB:</value>
 </data>
     
 </root>

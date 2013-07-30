@@ -1362,5 +1362,37 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
         #endregion
+
+        public enum CddaInfoSource
+        {
+            // Don't read audio cd info
+            None = 0,
+            // Read CD-text only
+            CdText,
+            // Read CDDB only
+            Cddb,
+            // Try CD-text first then CDDB [Default]
+            CdText_Cddb,
+            // Try CDDB first then CD-text
+            Cddb_CdText
+        }
+
+        public static CddaInfoSource AudioCdInfoSource
+        {
+            get { return (CddaInfoSource)_config.GetValue("AudioCdInfoSource", (int)CddaInfoSource.CdText_Cddb); }
+            set { _config.SetValue("AudioCdInfoSource", (int)value); }
+        }
+
+        public static string CddbServerName
+        {
+            get { return _config.GetValue("CddbServerName", "freedb.freedb.org"); }
+            set { _config.SetValue("CddbServerName", value); }
+        }
+
+        public static int CddbServerPort
+        {
+            get { return _config.GetValue("CddbServerPort", 8880); }
+            set { _config.SetValue("CddbServerPort", value); }
+        }
     }
 }

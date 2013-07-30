@@ -25,46 +25,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 	/// </summary>
 	public class Track
 	{
+        public string Artist { get; set; }
+        public string Title { get; set; }
+        public string Album { get; set; }
+        public string Year { get; set; }
+        public string Genre { get; set; }
 
-		private string m_Title;
-		private string m_ExtendedData;
+		public string ExtendedData { get; set; }
 		
-		#region Public Properties
-		/// <summary>
-		/// Property ExtendedData (string)
-		/// </summary>
-		public string ExtendedData
-		{
-			get
-			{
-				return this.m_ExtendedData;
-			}
-			set
-			{
-				this.m_ExtendedData = value;
-			}
-		}
-		
-		/// <summary>
-		/// Property Title (string)
-		/// </summary>
-		public string Title
-		{
-			get
-			{
-				return this.m_Title;
-			}
-			set
-			{
-				this.m_Title = value;
-			}
-		}
-		#endregion
-
-
-
-
-
 		/// <summary>
 		/// Create an instance of a Track 
 		/// </summary>
@@ -72,28 +40,5 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		public Track()
 		{
 		}
-
-
-		/// <summary>
-		/// Create an instance of a Track passing in a title
-		/// </summary>
-		/// <param name="title"></param>
-		public Track(string title)
-		{
-			m_Title = title;
-		}
-
-		/// <summary>
-		/// Create an instance of a Track passing in a title and extended data
-		/// </summary>
-		/// <param name="title"></param>
-		public Track(string title, string extendedData)
-		{
-			m_Title = title;
-			m_ExtendedData = extendedData;
-		}
-	
-	
-	
 	}
 }

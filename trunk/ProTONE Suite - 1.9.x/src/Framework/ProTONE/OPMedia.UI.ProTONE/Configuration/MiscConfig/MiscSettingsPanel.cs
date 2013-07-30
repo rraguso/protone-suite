@@ -44,9 +44,14 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             Translator.TranslateControl(this, DesignMode);
 
-            Bitmap bmp = Resources.Playlist;
+            Bitmap bmp = Resources.btnOpenDisk;
             bmp.MakeTransparent();
             tabMisc.ImageList.Images.Add(bmp);
+
+            bmp = Resources.Playlist;
+            bmp.MakeTransparent();
+            tabMisc.ImageList.Images.Add(bmp);
+
             //tabMisc.ImageList.Images.Add(Resources.Monitor);
             tabMisc.ImageList.Images.Add(OPMedia.UI.Properties.Resources.Favorites16);
             tabMisc.ImageList.Images.Add(OPMedia.Core.Properties.Resources.ir_remote);
@@ -68,6 +73,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             pageRemote.ModifiedActive += new EventHandler(OnModifiedActive);
             pageDiagnostics.ModifiedActive += new EventHandler(OnModifiedActive);
             pageFavoriteFolders.ModifiedActive += new EventHandler(OnModifiedActive);
+            pageDisksOptions.ModifiedActive += new EventHandler(OnModifiedActive);
 
             this.HandleCreated += new EventHandler(MiscellaneousSettingsPanel_HandleCreated);
         }
@@ -84,6 +90,8 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         protected override void SaveInternal()
         {
+            pageDisksOptions.Save();
+
             pagePlaylist.Save();
 
             if (SuiteConfiguration.CurrentUserIsAdministrator &&

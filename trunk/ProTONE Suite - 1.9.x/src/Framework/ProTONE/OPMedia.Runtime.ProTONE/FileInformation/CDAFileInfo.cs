@@ -16,6 +16,7 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.FileInformation;
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.Runtime.ProTONE.Playlists;
+using OPMedia.Core.ApplicationSettings;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -76,17 +77,19 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                         else
                         {
                             cdEntry = new CDEntry();
-                            cdEntry.Artist = cdRow.Artist;
                             cdEntry.Discid = cdRow.Discid;
-                            cdEntry.Genre = cdRow.Genre;
-                            //cdEntry.PlayOrder = cdRow.Pl
-                            cdEntry.Title = cdRow.Album;
-                            cdEntry.Year = cdRow.Year;
-
                             _cdEntries.Add(cdRow.Discid, cdEntry);
                         }
 
-                        cdEntry.Tracks.Add(new Track(cdRow.Title, cdRow.ExtendedData));
+                        cdEntry.Tracks.Add(new Track 
+                        { 
+                            Album = cdRow.Album,
+                            Artist = cdRow.Artist,
+                            ExtendedData = cdRow.ExtendedData,
+                            Genre = cdRow.Genre,
+                            Title = cdRow.Title,
+                            Year = cdRow.Year
+                        } );
                     }
                 }
             }
@@ -102,8 +105,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     int trackNumber = 1;
                     foreach (Track t in cdEntry.Value.Tracks)
                     {
-                        ds.CD.AddCDRow(cdEntry.Key, trackNumber.ToString(), cdEntry.Value.Artist,
-                            cdEntry.Value.Title, t.Title, cdEntry.Value.Year, cdEntry.Value.Genre, t.ExtendedData);
+                        ds.CD.AddCDRow(cdEntry.Key, trackNumber.ToString(), t.Artist,
+                            cdEntry.Value.Title, t.Title, t.Year, t.Genre, t.ExtendedData);
 
                         trackNumber++;
                     }
@@ -146,11 +149,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     Track tr = _cdEntry.Tracks[_track - 1];
                     return tr.Title;
                 }
-
                 return null;
             }
-            
-            
         }
 
         [TranslatableDisplayName("TXT_ARTIST")]
@@ -159,7 +159,15 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [ReadOnly(true)]
         public override string Artist
         {
-            get { return _cdEntry != null ? _cdEntry.Artist : string.Empty; }
+            get
+            {
+                if (_cdEntry != null)
+                {
+                    Track tr = _cdEntry.Tracks[_track - 1];
+                    return tr.Artist;
+                }
+                return null;
+            }
             
         }
 
@@ -168,8 +176,15 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [Browsable(true)]
         public override string Album
         {
-            get { return _cdEntry != null ? _cdEntry.Title : string.Empty; }
-            
+            get
+            {
+                if (_cdEntry != null)
+                {
+                    Track tr = _cdEntry.Tracks[_track - 1];
+                    return tr.Album;
+                }
+                return null;
+            }
         }
 
         [TranslatableDisplayName("TXT_GENRE")]
@@ -178,8 +193,15 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [ReadOnly(true)]
         public override string Genre
         {
-            get { return _cdEntry != null ? _cdEntry.Genre : string.Empty; }
-            
+            get
+            {
+                if (_cdEntry != null)
+                {
+                    Track tr = _cdEntry.Tracks[_track - 1];
+                    return tr.Genre;
+                }
+                return null;
+            }
         }
 
         [Browsable(false)]
@@ -206,8 +228,19 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [ReadOnly(true)]
         public override short? Year
         {
-            get { return _cdEntry != null ? short.Parse(_cdEntry.Year) : new Nullable<short>(); }
-            
+            get
+            {
+                try
+                {
+                    if (_cdEntry != null)
+                    {
+                        Track tr = _cdEntry.Tracks[_track - 1];
+                        return short.Parse(tr.Year);
+                    }
+                }
+                catch { }
+                return new Nullable<short>();
+            }
         }
 
         [Browsable(false)]
@@ -218,10 +251,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 Dictionary<string, string> info = new Dictionary<string, string>();
 
                 info.Add("TXT_DURATION:", Duration.GetValueOrDefault().ToString());
-                //info.Add("TXT_BITRATE:", Bitrate.GetValueOrDefault().ToString());
-                //info.Add("TXT_CHANNELS:", Channels.GetValueOrDefault().ToString());
-                //info.Add("TXT_FREQUENCY:", Frequency.GetValueOrDefault().ToString());
-
+              
                 if (_cdEntry != null)
                 {
                     info.Add(string.Empty, null); // separator
@@ -247,11 +277,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                         removeSep = false;
                         info.Add("TXT_GENRE:", Genre);
                     }
-                    //if (!string.IsNullOrEmpty(Comments))
-                    //{
-                    //    removeSep = false;
-                    //    info.Add("TXT_COMMENTS:", Comments);
-                    //}
+                    
                     if (Track.HasValue)
                     {
                         removeSep = false;
@@ -314,45 +340,51 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                             {
                                 if (cd.IsAudioTrack(_track))
                                 {
-                                    // CD-Text not available, try to get info from CDDB
                                     _duration = cd.GetSeconds(_track);
                                     
                                     string diskId = cd.GetCDDBDiskID();
 
+                                    // Check whether the disc is already added to our FreeDb lite database
                                     if (_cdEntries.ContainsKey(diskId))
                                     {
+                                        // Already added, return it directly
                                         _cdEntry = _cdEntries[diskId];
                                         return;
                                     }
                                     else
                                     {
-                                        TrackCollection tracks = null;
-                                        if (cd.ReadCDText(out tracks))
+                                        switch(AppSettings.AudioCdInfoSource)
                                         {
-                                            _cdEntry = new CDEntry();
-                                            _cdEntry.Tracks = tracks;
-                                        }
-                                        else
-                                        {
-                                            using (FreedbHelper fdb = new FreedbHelper("freedb.freedb.org", 8880))
-                                            {
-                                                string query = cd.GetCDDBQuery();
-                                                QueryResult qr;
-                                                QueryResultCollection coll;
-                                                string s = fdb.Query(query, out qr, out coll);
+                                            case AppSettings.CddaInfoSource.CdText:
+                                                _cdEntry = BuildCdEntryByCdText(cd, diskId);
+                                                break;
 
-                                                if (qr == null && coll != null && coll.Count > 0)
+                                            case AppSettings.CddaInfoSource.Cddb:
+                                                _cdEntry = BuildCdEntryByCddb(cd, diskId);
+                                                break;
+
+                                            case AppSettings.CddaInfoSource.CdText_Cddb:
                                                 {
-                                                    qr = coll[0];
+                                                    _cdEntry = BuildCdEntryByCdText(cd, diskId);
+                                                    if (_cdEntry == null)
+                                                        _cdEntry = BuildCdEntryByCddb(cd, diskId);
                                                 }
+                                                break;
 
-                                                if (qr != null)
+                                            case AppSettings.CddaInfoSource.Cddb_CdText:
                                                 {
-                                                    s = fdb.Read(qr, out _cdEntry);
+                                                    _cdEntry = BuildCdEntryByCddb(cd, diskId);
+                                                    if (_cdEntry == null)
+                                                        _cdEntry = BuildCdEntryByCdText(cd, diskId);
                                                 }
-                                            }
+                                                break;
+
+                                            default:
+                                                _cdEntry = null;
+                                                break;
                                         }
 
+                                        // Update our internal FreeDb lite database with the CD info
                                         if (_cdEntry != null)
                                         {
                                             if (_cdEntries.ContainsKey(diskId))
@@ -362,9 +394,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                                             else
                                             {
                                                 _cdEntries.Add(diskId, _cdEntry);
-                                                SaveCdEntries();
+                                                SaveCdEntries(); // This serializes the database as a compressed XML file
                                             }
                                         }
+
+                                        return;
                                     }
                                 }
                             }
@@ -379,6 +413,47 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 Logger.LogException(ex);
                 _cdEntry = null;
             }
+        }
+
+        private CDEntry BuildCdEntryByCdText(CDDrive cd, string diskId)
+        {
+            List<Track> tracks = null;
+            if (cd.ReadCDText(out tracks))
+            {
+                CDEntry cdEntry = new CDEntry();
+                cdEntry.Tracks.AddRange(tracks);
+
+                return cdEntry;
+            }
+
+            return null;
+        }
+
+        private CDEntry BuildCdEntryByCddb(CDDrive cd, string diskId)
+        {
+            // Check the online FreeDB database.
+            using (FreedbHelper fdb = new FreedbHelper(AppSettings.CddbServerName, AppSettings.CddbServerPort))
+            {
+                string querySegment = cd.GetCDDBQuerySegment();
+                QueryResult qr;
+                List<QueryResult> coll;
+                string s = fdb.Query(diskId + " " + querySegment, out qr, out coll);
+
+                if (qr == null && coll != null && coll.Count > 0)
+                {
+                    qr = coll[0];
+                }
+
+                if (qr != null)
+                {
+                    CDEntry cdEntry = null;
+                    s = fdb.Read(qr, out cdEntry);
+
+                    return cdEntry;
+                }
+            }
+
+            return null;
         }
     }
 }

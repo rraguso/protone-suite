@@ -38,6 +38,8 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageDiagnostics = new OPMedia.UI.ProTONE.Configuration.MiscConfig.DiagnosticsPage();
             this.tpFavoriteFolders = new OPMedia.UI.Controls.OPMTabPage();
             this.pageFavoriteFolders = new OPMedia.UI.ProTONE.Configuration.MiscConfig.FavoriteFoldersPage();
+            this.tpDisksOptions = new OPMedia.UI.Controls.OPMTabPage();
+            this.pageDisksOptions = new OPMedia.UI.ProTONE.Configuration.MiscConfig.DisksOptionsPage();
             this.tabMisc.SuspendLayout();
             this.tpPlaylist.SuspendLayout();
             this.tpRemote.SuspendLayout();
@@ -47,6 +49,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             // tabMisc
             // 
             this.tabMisc.AccessibleName = "tabMisc";
+            this.tabMisc.Controls.Add(this.tpDisksOptions);
             this.tabMisc.Controls.Add(this.tpPlaylist);
             this.tabMisc.Controls.Add(this.tpFavoriteFolders);
             this.tabMisc.Controls.Add(this.tpRemote);
@@ -165,6 +168,33 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageFavoriteFolders.TabIndex = 0;
 
             // 
+            // tpDisksOptions
+            // 
+            this.tpDisksOptions.AccessibleName = "TXT_DISKS_OPTIONS";
+            this.tpDisksOptions.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
+            this.tpDisksOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.tpDisksOptions.Controls.Add(this.pageDisksOptions);
+            this.tpDisksOptions.Location = new System.Drawing.Point(4, 23);
+            this.tpDisksOptions.Name = "tpDisksOptions";
+            this.tpDisksOptions.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tpDisksOptions.Size = new System.Drawing.Size(647, 366);
+            this.tpDisksOptions.TabIndex = 3;
+            this.tpDisksOptions.Text = "TXT_DISKS_OPTIONS";
+            // 
+            // pageDisksOptions
+            // 
+            this.pageDisksOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageDisksOptions.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.pageDisksOptions.Location = new System.Drawing.Point(5, 10);
+            this.pageDisksOptions.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pageDisksOptions.Modified = false;
+            this.pageDisksOptions.Name = "pageDisksOptions";
+            this.pageDisksOptions.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pageDisksOptions.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.pageDisksOptions.Size = new System.Drawing.Size(637, 351);
+            this.pageDisksOptions.TabIndex = 0;
+
+            // 
             // MiscellaneousSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,9 +217,11 @@ namespace OPMedia.UI.ProTONE.Configuration
         private UI.Controls.OPMTabPage tpDiagnostics;
         private UI.Controls.OPMTabPage tpPlaylist;
         private UI.Controls.OPMTabPage tpFavoriteFolders;
+        private UI.Controls.OPMTabPage tpDisksOptions;
         private MiscConfig.RemoteControlPage pageRemote;
         private MiscConfig.DiagnosticsPage pageDiagnostics;
         private MiscConfig.PlaylistOptionsPage pagePlaylist;
-        private MiscConfig.FavoriteFoldersPage pageFavoriteFolders;    
+        private MiscConfig.FavoriteFoldersPage pageFavoriteFolders;
+        private MiscConfig.DisksOptionsPage pageDisksOptions;    
     }
 }

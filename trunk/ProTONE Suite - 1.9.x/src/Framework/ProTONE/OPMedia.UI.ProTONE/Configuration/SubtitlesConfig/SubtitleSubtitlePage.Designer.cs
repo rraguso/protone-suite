@@ -39,23 +39,22 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.colPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new OPMedia.UI.Controls.OPMLabel();
             this.cmbLanguages = new OPMedia.UI.Controls.OPMComboBox();
-            this.cbDisableDVDMenu = new OPMedia.UI.Controls.OPMCheckBox();
             this.chkSubtitleDownload = new OPMedia.UI.Controls.OPMCheckBox();
             this.pnlOnlineSubtitles = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.chkNotifySubDownloaded = new OPMedia.UI.Controls.OPMCheckBox();
             this.flowLayoutPanel2 = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
             this.kryptonLabel1 = new OPMedia.UI.Controls.OPMLabel();
             this.btnAdd = new System.Windows.Forms.PictureBox();
             this.btnDelete = new System.Windows.Forms.PictureBox();
             this.btnMoveUp = new System.Windows.Forms.PictureBox();
             this.btnMoveDown = new System.Windows.Forms.PictureBox();
+            this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.lblClickHint = new OPMedia.UI.Controls.OPMLabel();
+            this.btnRestoreDefaults = new OPMedia.UI.Controls.OPMButton();
             this.flowLayoutPanel3 = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
             this.lblMinDuration = new OPMedia.UI.Controls.OPMLabel();
             this.nudMinMovieDuration = new OPMedia.UI.Controls.OPMNumericUpDown();
             this.kryptonLabel2 = new OPMedia.UI.Controls.OPMLabel();
-            this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.lblClickHint = new OPMedia.UI.Controls.OPMLabel();
-            this.btnRestoreDefaults = new OPMedia.UI.Controls.OPMButton();
+            this.chkNotifySubDownloaded = new OPMedia.UI.Controls.OPMCheckBox();
             this.tableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.tableLayoutPanel2 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.pnlOnlineSubtitles.SuspendLayout();
@@ -64,9 +63,9 @@ namespace OPMedia.UI.ProTONE.Configuration
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMoveUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMoveDown)).BeginInit();
+            this.opmTableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinMovieDuration)).BeginInit();
-            this.opmTableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -156,21 +155,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.cmbLanguages.TabIndex = 1;
             this.cmbLanguages.SelectedIndexChanged += new System.EventHandler(this.cmbLanguages_SelectedIndexChanged);
             // 
-            // cbDisableDVDMenu
-            // 
-            this.cbDisableDVDMenu.AccessibleName = "cbDisableDVDMenu";
-            this.cbDisableDVDMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbDisableDVDMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbDisableDVDMenu.Location = new System.Drawing.Point(0, 263);
-            this.cbDisableDVDMenu.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.cbDisableDVDMenu.Name = "cbDisableDVDMenu";
-            this.cbDisableDVDMenu.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cbDisableDVDMenu.Size = new System.Drawing.Size(468, 19);
-            this.cbDisableDVDMenu.TabIndex = 2;
-            this.cbDisableDVDMenu.Text = "TXT_SKIP_DVD_MENU";
-            this.cbDisableDVDMenu.CheckedChanged += new System.EventHandler(this.cbDisableDVDMenu_CheckedChanged);
-            // 
             // chkSubtitleDownload
             // 
             this.chkSubtitleDownload.AccessibleName = "chkSubtitleDownload";
@@ -210,22 +194,8 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pnlOnlineSubtitles.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlOnlineSubtitles.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlOnlineSubtitles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlOnlineSubtitles.Size = new System.Drawing.Size(468, 208);
+            this.pnlOnlineSubtitles.Size = new System.Drawing.Size(468, 237);
             this.pnlOnlineSubtitles.TabIndex = 2;
-            // 
-            // chkNotifySubDownloaded
-            // 
-            this.pnlOnlineSubtitles.SetColumnSpan(this.chkNotifySubDownloaded, 2);
-            this.chkNotifySubDownloaded.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkNotifySubDownloaded.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkNotifySubDownloaded.Location = new System.Drawing.Point(0, 165);
-            this.chkNotifySubDownloaded.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.chkNotifySubDownloaded.Name = "chkNotifySubDownloaded";
-            this.chkNotifySubDownloaded.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkNotifySubDownloaded.Size = new System.Drawing.Size(468, 15);
-            this.chkNotifySubDownloaded.TabIndex = 2;
-            this.chkNotifySubDownloaded.Text = "TXT_NOTIFYSUBDOWNLOADED";
-            this.chkNotifySubDownloaded.CheckedChanged += new System.EventHandler(this.chkNotifySubDownloaded_CheckedChanged);
             // 
             // flowLayoutPanel2
             // 
@@ -302,6 +272,62 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.btnMoveDown.TabStop = false;
             this.btnMoveDown.Click += new System.EventHandler(this.OnMoveDown);
             // 
+            // opmTableLayoutPanel1
+            // 
+            this.opmTableLayoutPanel1.AutoSize = true;
+            this.opmTableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.opmTableLayoutPanel1.ColumnCount = 2;
+            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.opmTableLayoutPanel1.Controls.Add(this.lblClickHint, 0, 0);
+            this.opmTableLayoutPanel1.Controls.Add(this.btnRestoreDefaults, 1, 0);
+            this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 98);
+            this.opmTableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
+            this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
+            this.opmTableLayoutPanel1.RowCount = 1;
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(446, 24);
+            this.opmTableLayoutPanel1.TabIndex = 30;
+            // 
+            // lblClickHint
+            // 
+            this.lblClickHint.AccessibleName = "lblClickHint";
+            this.lblClickHint.AutoSize = true;
+            this.lblClickHint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblClickHint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblClickHint.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.lblClickHint.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblClickHint.Location = new System.Drawing.Point(0, 0);
+            this.lblClickHint.Margin = new System.Windows.Forms.Padding(0);
+            this.lblClickHint.Name = "lblClickHint";
+            this.lblClickHint.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblClickHint.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblClickHint.Size = new System.Drawing.Size(297, 24);
+            this.lblClickHint.TabIndex = 0;
+            this.lblClickHint.Text = "TXT_CLICK_LIST_TO_EDIT";
+            this.lblClickHint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnRestoreDefaults
+            // 
+            this.btnRestoreDefaults.AutoSize = true;
+            this.btnRestoreDefaults.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRestoreDefaults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRestoreDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestoreDefaults.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.btnRestoreDefaults.Location = new System.Drawing.Point(297, 0);
+            this.btnRestoreDefaults.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRestoreDefaults.Name = "btnRestoreDefaults";
+            this.btnRestoreDefaults.OverrideBackColor = System.Drawing.Color.Empty;
+            this.btnRestoreDefaults.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnRestoreDefaults.Size = new System.Drawing.Size(149, 24);
+            this.btnRestoreDefaults.TabIndex = 1;
+            this.btnRestoreDefaults.Text = "TXT_RESTORE_DEFAULTSERVERS";
+            this.btnRestoreDefaults.UseVisualStyleBackColor = true;
+            this.btnRestoreDefaults.Click += new System.EventHandler(this.btnRestoreDefaults_Click);
+            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.AccessibleName = "flowLayoutPanel3";
@@ -370,61 +396,19 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.kryptonLabel2.Text = "TXT_MINUTES";
             this.kryptonLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // opmTableLayoutPanel1
+            // chkNotifySubDownloaded
             // 
-            this.opmTableLayoutPanel1.AutoSize = true;
-            this.opmTableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.opmTableLayoutPanel1.ColumnCount = 2;
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.opmTableLayoutPanel1.Controls.Add(this.lblClickHint, 0, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.btnRestoreDefaults, 1, 0);
-            this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 98);
-            this.opmTableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
-            this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.RowCount = 1;
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(446, 24);
-            this.opmTableLayoutPanel1.TabIndex = 30;
-            // 
-            // lblClickHint
-            // 
-            this.lblClickHint.AccessibleName = "lblClickHint";
-            this.lblClickHint.AutoSize = true;
-            this.lblClickHint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblClickHint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblClickHint.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
-            this.lblClickHint.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblClickHint.Location = new System.Drawing.Point(0, 0);
-            this.lblClickHint.Margin = new System.Windows.Forms.Padding(0);
-            this.lblClickHint.Name = "lblClickHint";
-            this.lblClickHint.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lblClickHint.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblClickHint.Size = new System.Drawing.Size(297, 24);
-            this.lblClickHint.TabIndex = 0;
-            this.lblClickHint.Text = "TXT_CLICK_LIST_TO_EDIT";
-            this.lblClickHint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnRestoreDefaults
-            // 
-            this.btnRestoreDefaults.AutoSize = true;
-            this.btnRestoreDefaults.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRestoreDefaults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRestoreDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestoreDefaults.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
-            this.btnRestoreDefaults.Location = new System.Drawing.Point(297, 0);
-            this.btnRestoreDefaults.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRestoreDefaults.Name = "btnRestoreDefaults";
-            this.btnRestoreDefaults.OverrideBackColor = System.Drawing.Color.Empty;
-            this.btnRestoreDefaults.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnRestoreDefaults.Size = new System.Drawing.Size(149, 24);
-            this.btnRestoreDefaults.TabIndex = 1;
-            this.btnRestoreDefaults.Text = "TXT_RESTORE_DEFAULTSERVERS";
-            this.btnRestoreDefaults.UseVisualStyleBackColor = true;
-            this.btnRestoreDefaults.Click += new System.EventHandler(this.btnRestoreDefaults_Click);
+            this.pnlOnlineSubtitles.SetColumnSpan(this.chkNotifySubDownloaded, 2);
+            this.chkNotifySubDownloaded.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkNotifySubDownloaded.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkNotifySubDownloaded.Location = new System.Drawing.Point(0, 165);
+            this.chkNotifySubDownloaded.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.chkNotifySubDownloaded.Name = "chkNotifySubDownloaded";
+            this.chkNotifySubDownloaded.OverrideForeColor = System.Drawing.Color.Empty;
+            this.chkNotifySubDownloaded.Size = new System.Drawing.Size(468, 15);
+            this.chkNotifySubDownloaded.TabIndex = 2;
+            this.chkNotifySubDownloaded.Text = "TXT_NOTIFYSUBDOWNLOADED";
+            this.chkNotifySubDownloaded.CheckedChanged += new System.EventHandler(this.chkNotifySubDownloaded_CheckedChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -433,7 +417,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.chkSubtitleDownload, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pnlOnlineSubtitles, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbDisableDVDMenu, 0, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -484,11 +467,11 @@ namespace OPMedia.UI.ProTONE.Configuration
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMoveUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMoveDown)).EndInit();
+            this.opmTableLayoutPanel1.ResumeLayout(false);
+            this.opmTableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinMovieDuration)).EndInit();
-            this.opmTableLayoutPanel1.ResumeLayout(false);
-            this.opmTableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -514,7 +497,6 @@ namespace OPMedia.UI.ProTONE.Configuration
         private OPMFlowLayoutPanel flowLayoutPanel2;
         private OPMLabel kryptonLabel1;
         private OPMCheckBox chkSubtitleDownload;
-        private OPMCheckBox cbDisableDVDMenu;
         private OPMLabel label3;
         private OPMComboBox cmbLanguages;
         private OPMTableLayoutPanel tableLayoutPanel2;

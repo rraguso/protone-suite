@@ -1024,7 +1024,7 @@ Voulez-vous le créer?</value>
   <value>Ouvrez le Gestionnaire de dossier favori</value>
 </data>
 <data name="TXT_FAVORITES">
-  <value>Dossiers favoris</value>
+  <value>Favoris</value>
 </data>
 <data name="TXT_FAVORITES_ADD">
   <value>Ajouter aux dossiers favoris</value>

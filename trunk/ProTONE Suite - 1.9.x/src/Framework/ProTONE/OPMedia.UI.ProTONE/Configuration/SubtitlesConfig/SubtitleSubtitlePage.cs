@@ -42,7 +42,6 @@ namespace OPMedia.UI.ProTONE.Configuration
         {
             AppSettings.SubtitleDownloadEnabled = _subtitleDownloadEnabled;
             AppSettings.SubtitleDownloadURIs = _subtitleDownloadURIs;
-            AppSettings.DisableDVDMenu = cbDisableDVDMenu.Checked;
 
             if (cmbLanguages.SelectedItem is SubtitleLanguage)
             {
@@ -72,7 +71,6 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             PopulateLanguages();
 
-            cbDisableDVDMenu.Checked = AppSettings.DisableDVDMenu;
             ThemeManager.SetFont(lvDownloadAddresses, FontSizes.Small);
             lblMinDuration.Text = Translator.Translate("TXT_MINMOVIEDURATION");
 
@@ -160,8 +158,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             BuildListFromSubtitleDownloadURIs();
 
             nudMinMovieDuration.ValueChanged += new EventHandler(nudMinMovieDuration_ValueChanged);
-
-            cbDisableDVDMenu.CheckedChanged += new EventHandler(cbDisableDVDMenu_CheckedChanged);
 
             ThemeManager.SetFont(lblClickHint, FontSizes.Small);
 
@@ -264,11 +260,6 @@ namespace OPMedia.UI.ProTONE.Configuration
                     }
                 }
             }
-        }
-
-        private void cbDisableDVDMenu_CheckedChanged(object sender, EventArgs e)
-        {
-            Modified = true;
         }
 
         private void cmbLanguages_SelectedIndexChanged(object sender, EventArgs e)

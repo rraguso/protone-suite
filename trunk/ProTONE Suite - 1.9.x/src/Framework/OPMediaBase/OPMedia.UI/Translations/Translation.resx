@@ -1024,7 +1024,7 @@ Do you want to create it ?</value>
   <value>Open favorite folder manager</value>
 </data>
 <data name="TXT_FAVORITES">
-  <value>Favorite folders</value>
+  <value>Favorites</value>
 </data>
 <data name="TXT_FAVORITES_ADD">
   <value>Add to Favorite Folders</value>

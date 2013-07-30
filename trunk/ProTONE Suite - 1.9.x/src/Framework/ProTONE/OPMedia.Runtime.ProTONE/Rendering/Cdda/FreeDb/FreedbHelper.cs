@@ -39,7 +39,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		private string m_Hostname;
 		private string m_ClientName;
 		private string m_Version;
-		private string m_ProtocolLevel = "6"; // default to level 6 support
 
         private TcpClient _tcpClient = new TcpClient();
         NetworkStream _ns = null;
@@ -52,9 +51,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 			public const string CMD_HELLO	= "cddb hello";
 			public const string CMD_READ	= "cddb read";
 			public const string CMD_QUERY	= "cddb query";
-			public const string CMD_SITES	= "sites";
-			public const string CMD_PROTO	= "proto";
-			public const string CMD_CATEGORIES	= "cddb lscat";
 			public const string CMD_TERMINATOR	= "."; 
 		}
 		#endregion
@@ -62,26 +58,73 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		#region Constants for Freedb ResponseCodes
 		public class ResponseCodes
 		{
-			public const string CODE_210 = "210"; // Okay // or in a query multiple exact matches
-			public const string CODE_401 = "401"; // sites: no site information available
-			public const string CODE_402 = "402"; // Server Error
-			
-			public const string CODE_500 = "500"; // Invalid command, invalid parameters, etc.
-			
             //query codes
             public const string CODE_200 = "200"; // Exact match 
             public const string CODE_201 = "201"; // Partial match 
-
+            public const string CODE_202 = "202"; // No match 
+            public const string CODE_210 = "210"; // Okay // or in a query multiple exact matches
 			public const string CODE_211 = "211"; // InExact matches found - list follows
-			public const string CODE_202 = "202"; // No match 
-			public const string CODE_403 = "403"; // Database entry is corrupt
+
+            public const string CODE_401 = "401"; // sites: no site information available
+            public const string CODE_402 = "402"; // Server Error
+            public const string CODE_403 = "403"; // Database entry is corrupt
 			public const string CODE_409 = "409"; // No Handshake
+
+            public const string CODE_500 = "500"; // Invalid command, invalid parameters, etc.
 
 			// our own code
 			public const string CODE_INVALID = "-1"; // Invalid code 
 		}
 		#endregion
 
+        static Dictionary<string, string> _codeMap = new Dictionary<string, string>();
+
+        static FreedbHelper()
+        {
+            _codeMap.Add("200", "OK");
+            _codeMap.Add("201", "OK/Partial match");
+            _codeMap.Add("202", "Fail - No mathches found");
+            _codeMap.Add("210", "OK - multiline response follows (end with .)");
+            _codeMap.Add("211", "OK/Partial match - multiline response follows (end with .)");
+            _codeMap.Add("401", "CDDB Entry not found");
+            _codeMap.Add("402", "Server error");
+            _codeMap.Add("403", "Database corrupted");
+            _codeMap.Add("409", "Handshake was not yet done");
+            _codeMap.Add("431", "Handshake failed");
+            _codeMap.Add("432", "Permisssion denied");
+            _codeMap.Add("433", "Too many logged on users");
+            _codeMap.Add("434", "System load too high");
+            _codeMap.Add("500", "Invalid command or parameter");
+            _codeMap.Add("-1", "Invalid response");
+        }
+
+        private static string MapCode(string code)
+        {
+            string detail = string.Empty;
+            int nCode = 100;
+            if (int.TryParse(code, out nCode))
+            {
+                int d = nCode % 100;
+                switch (d)
+                {
+                    case 0:
+                        break;
+
+                    case 1:
+                        detail = "Informative message";
+                        break;
+
+                    default:
+                        detail = _codeMap[code];
+                        break;
+                }
+            }
+
+            if (String.IsNullOrEmpty(detail))
+                return code;
+
+            return string.Format("{0} [{1}]", code, detail);
+        }
 		
 		/// <summary>
 		/// Read Entry from the database. 
@@ -91,70 +134,48 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		/// <returns></returns>
 		public string Read(QueryResult qr, out CDEntry cdEntry)
 		{
+            StringBuilder builder = new StringBuilder(FreedbHelper.Commands.CMD_READ);
+            builder.Append(" ");
+            builder.Append(qr.Category);
+            builder.Append(" ");
+            builder.Append(qr.Discid);
+
             cdEntry = null;
-            return "";
-            /*
-			Debug.Assert(qr != null);
-			cdEntry = null;
-			
-			StringCollection coll = null;
-			StringBuilder builder = new StringBuilder(FreedbHelper.Commands.CMD_READ);
-			builder.Append("+");
-			builder.Append(qr.Category);
-			builder.Append("+");
-			builder.Append(qr.Discid);
 
-			//make call
-			try
-			{
-				//coll = Call(builder.ToString());
-			}
-			
-			catch (Exception ex)
-			{
-				string msg = "Error performing cddb read.";
-				Exception newex = new Exception(msg,ex);
-				throw newex ;
-			}
+            try
+            {
+                string request = builder.ToString();
+                List<string> reply = SendRequest(request);
 
-			// check if results came back
-			if (coll.Count < 0)
-			{
-				string msg = "No results returned from cddb read.";
-				Exception ex = new Exception(msg,null);
-				throw ex;
-			}
+                if (reply.Count <= 0)
+                {
+                    string msg = "No results returned from cddb query.";
+                    Exception ex = new Exception(msg, null);
+                    throw ex;
+                }
 
+                string code = GetReplyCode(reply, request);
+                
+                switch (code)
+                {
+                    case ResponseCodes.CODE_210:
+                    case ResponseCodes.CODE_211:
+                        {
+                            //remove first line, this one has code 210 or 211
+                            reply.RemoveAt(0);
+                            cdEntry = new CDEntry(reply);
+                        }
+                        break;
+                }
 
-			string code = GetCode(coll[0]);
-			if (code == ResponseCodes.CODE_INVALID)
-			{
-				string msg = "Unable to process results for cddb read. Returned Data: " + coll[0];
-				Exception ex = new Exception(msg,null);
-				throw ex;
-			}
-
-
-			switch (code)
-			{
-				case ResponseCodes.CODE_500:
-					return ResponseCodes.CODE_500;
-
-				case ResponseCodes.CODE_401: // entry not found
-				case ResponseCodes.CODE_402: // server error
-				case ResponseCodes.CODE_403: // Database entry is corrupt
-				case ResponseCodes.CODE_409: // No handshake
-					return code;
-
-				case ResponseCodes.CODE_210: // good 
-				{
-					coll.RemoveAt(0); // remove the 210
-					cdEntry = new CDEntry(coll);
-					return ResponseCodes.CODE_210;
-				}
-				default:
-					return ResponseCodes.CODE_500;
-			}*/
+                return code;
+            }
+            catch (Exception ex)
+            {
+                string msg = "Unable to perform cddb query.";
+                Exception newex = new Exception(msg, ex);
+                throw newex;
+            }
 		}
 
 
@@ -165,7 +186,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		/// <param name="queryResult"></param>
 		/// <param name="queryResultsColl"></param>
 		/// <returns></returns>
-		public string Query(string querystring, out QueryResult queryResult, out QueryResultCollection queryResultsColl)
+		public string Query(string querystring, out QueryResult queryResult, out List<QueryResult> queryResultsColl)
 		{
             StringBuilder builder = new StringBuilder(FreedbHelper.Commands.CMD_QUERY);
             builder.Append(" ");
@@ -177,8 +198,39 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 			//make call
 			try
 			{
-                List<string> reply = SendRequest(builder.ToString());
-				//coll = Call(builder.ToString());
+                string request = builder.ToString();
+                List<string> reply = SendRequest(request);
+
+                if (reply.Count <= 0)
+                {
+                    string msg = "No results returned from cddb query.";
+                    Exception ex = new Exception(msg, null);
+                    throw ex;
+                }
+
+                string code = GetReplyCode(reply, request);
+                switch (code)
+                {
+                    case ResponseCodes.CODE_200:
+                        queryResult = new QueryResult(reply[0]);
+                        break;
+
+                    case ResponseCodes.CODE_210:
+                    case ResponseCodes.CODE_211:
+                        {
+                            queryResultsColl = new List<QueryResult>();
+                            //remove first line, this one has code 210 or 211
+                            reply.RemoveAt(0);
+                            foreach (string line in reply)
+                            {
+                                QueryResult result = new QueryResult(line, true);
+                                queryResultsColl.Add(result);
+                            }
+                        }
+                        break;
+                }
+
+                return code;
 			}
 			catch (Exception ex)
 			{
@@ -186,238 +238,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 				Exception newex = new Exception(msg,ex);
 				throw newex ;
 			}
-
-			/*
-			// check if results came back
-			if (coll.Count < 0)
-			{
-				string msg = "No results returned from cddb query.";
-				Exception ex = new Exception(msg,null);
-				throw ex;
-			}
-
-			string code = GetCode(coll[0]);
-			if (code == ResponseCodes.CODE_INVALID)
-			{
-				string msg = "Unable to process results returned for query: Data returned: " + coll[0];
-				Exception ex = new Exception (msg,null);
-				throw ex;
-			}
-
-
-			switch (code)
-			{
-				case ResponseCodes.CODE_500:
-					return ResponseCodes.CODE_500;
-			
-				// Multiple results were returned
-				// Put them into a queryResultCollection object
-				case ResponseCodes.CODE_211:
-				case ResponseCodes.CODE_210:
-				{
-					queryResultsColl = new QueryResultCollection();
-					//remove the 210 or 211
-					coll.RemoveAt(0);
-					foreach (string line in coll)
-					{
-						QueryResult result = new QueryResult(line,true);
-						queryResultsColl.Add(result);
-					}
-				
-					return ResponseCodes.CODE_211;
-				}
-			
-			
-				// exact match 
-				case ResponseCodes.CODE_200:
-				{
-					queryResult = new QueryResult(coll[0]);
-					return ResponseCodes.CODE_200;
-				}
-			
-
-				//not found
-				case ResponseCodes.CODE_202:
-					return ResponseCodes.CODE_202;
-
-				//Database entry is corrupt
-				case ResponseCodes.CODE_403:
-					return ResponseCodes.CODE_403;
-
-					//no handshake
-				case ResponseCodes.CODE_409:
-					return ResponseCodes.CODE_409;
-					
-				default:
-					return ResponseCodes.CODE_500;
-			
-			} // end of switch
-
-            */
-
-            return "";
 		}
-
-        /*
-		/// <summary>
-		/// Retrieve the categories
-		/// </summary>
-		/// <param name="strings"></param>
-		/// <returns></returns>
-		public string GetCategories(out StringCollection strings)
-		{
-
-			StringCollection coll;
-			strings = null;
-
-			try
-			{
-				coll = Call(FreedbHelper.Commands.CMD_CATEGORIES);
-			}
-			
-			catch (Exception ex)
-			{
-				string msg = "Unable to retrieve Categories.";
-				Exception newex = new Exception(msg,ex);
-				throw newex;
-			}
-			
-			// check if results came back
-			if (coll.Count < 0)
-			{
-				string msg = "No results returned from categories request.";
-				Exception ex = new Exception(msg,null);
-				throw ex;
-			}
-
-			string code = GetCode(coll[0]);
-			if (code == ResponseCodes.CODE_INVALID)
-			{
-				string msg = "Unable to retrieve Categories. Data Returned: " + coll[0];
-				Exception ex = new Exception(msg,null);
-				throw ex;
-			}
-
-			switch (code)
-			{
-				case ResponseCodes.CODE_500:
-					return ResponseCodes.CODE_500;
-
-				case ResponseCodes.CODE_210:
-				{
-					strings = coll;
-					coll.RemoveAt(0);
-					return ResponseCodes.CODE_210;
-				}
-
-				default:
-				{
-					string msg = "Unknown code returned from GetCategories: " + coll[0];
-					Exception ex = new Exception(msg,null);
-					throw ex;
-				}
-					
-					
-			}
-
-		}
-
-        
-		/// <summary>
-		/// Call the Freedb server using the specified command and the current site
-		/// If the current site is null use the default server
-		/// </summary>
-		/// <param name="command">The command to be exectued</param>
-		/// <returns>StringCollection</returns>
-		private StringCollection Call(string command)
-		{
-			if (m_CurrentSite != null)
-				return Call(command,m_CurrentSite.GetUrl());
-			else
-				return Call(command,m_mainSite.GetUrl());
-		}
-
-		/// <summary>
-		/// Call the Freedb server using the specified command and the specified url
-		/// The command should not include the cmd= and hello and proto parameters.
-		/// They will be added automatically
-		/// </summary>
-		/// <param name="command">The command to be exectued</param>
-		/// <param name="url">The Freedb server to use</param>
-		/// <returns>StringCollection</returns>
-		private StringCollection Call(string commandIn, string url)
-		{
-            //commandIn = "cddb+read+newage+9b0b310c";
-
-			StreamReader reader = null;
-			HttpWebResponse response = null;
-			StringCollection coll = new StringCollection();
-			
-			try
-			{
-
-
-				//create our HttpWebRequest which we use to call the freedb server
-				HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-                req.Proxy = AppSettings.GetWebProxy();
-				req.ContentType = "text/plain";
-				// we are using th POST method of calling the http server. We could have also used the GET method
-				req.Method="POST";
-				//add the hello and proto commands to the request
-				string command = BuildCommand(Commands.CMD + commandIn);
-				//using Unicode
-				byte[] byteArray = Encoding.UTF8.GetBytes(command);
-				//get our request stream
-				Stream newStream= req.GetRequestStream();
-				//write our command data to it
-				newStream.Write(byteArray,0,byteArray.Length);
-				newStream.Close();
-				//Make the call. Note this is a synchronous call
-				response = (HttpWebResponse) req.GetResponse();
-				//put the results into a StreamReader
-				reader = new StreamReader(response.GetResponseStream(),System.Text.Encoding.UTF8);
-				// add each line to the StringCollection until we get the terminator
-				string line;
-				while ((line = reader.ReadLine()) != null) 
-				{
-					if (line.StartsWith(Commands.CMD_TERMINATOR))
-						break;
-					else
-						coll.Add(line);
-				}
-			}
-			
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-
-			finally
-			{
-				if (response != null)
-					response.Close();
-				if (reader != null)
-					reader.Close();
-			}
-			
-			return coll;
-		}
-        */
-
-        ///// <summary>
-        ///// Given a specific command add on the hello and proto which are requied for an http call
-        ///// </summary>
-        ///// <param name="command"></param>
-        ///// <returns></returns>
-        //private string BuildCommand(string command)
-        //{
-        //    StringBuilder builder = new StringBuilder(command);
-        //    builder.Append("&");
-        //    builder.Append(Hello());
-        //    builder.Append("&");
-        //    builder.Append(Proto());
-        //    return builder.ToString();
-        //}
 
         /// <summary>
         /// Build the hello part of the command 
@@ -437,25 +258,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
             return builder.ToString();
         }
 
-        ///// <summary>
-        ///// Build the Proto part of the command
-        ///// </summary>
-        ///// <returns></returns>
-        //public string Proto()
-        //{
-        //    StringBuilder builder = new StringBuilder(Commands.CMD_PROTO);
-        //    builder.Append("=");
-        //    builder.Append(m_ProtocolLevel );
-        //    return builder.ToString();
-        //}
-
         public FreedbHelper(string server, int port)
         {
             m_UserName = Constants.AnonymousUser;
             m_Hostname = Dns.GetHostName();
             m_ClientName = Constants.PlayerUserAgent.Replace(" ", ""); // eat up spaces, FreeDb does not like them.
             m_Version = SuiteVersion.Version;
-            m_ProtocolLevel = "6"; // default it
 
             _tcpClient.Connect(server, port);
             if (_tcpClient.Connected)
@@ -499,6 +307,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
             _writer.WriteLine(request);
             _writer.Flush();
 
+            bool expectMultiLineReply = false;
+
             List<string> replyLines = new List<string>();
             while(true)
             {
@@ -508,8 +318,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
                     if (String.IsNullOrEmpty(line))
                         break;
 
+                    if (!expectMultiLineReply)
+                    {
+                        string code = GetReplyCode(line);
+                        Logger.LogTrace("CDDB Request: {0} -> Reply Code: {1}", request, MapCode(code));
+
+                        expectMultiLineReply = (code == ResponseCodes.CODE_210 || code == ResponseCodes.CODE_211);
+                    }
+
+                    Logger.LogTrace("CDDB Reply line: {0}", line);
                     replyLines.Add(line);
-                    if (line.EndsWith("."))
+
+                    if (!expectMultiLineReply || line.Equals(Commands.CMD_TERMINATOR))
                         break;
                 }
                 catch (Exception ex)
@@ -522,10 +342,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
             return replyLines;
         }
 
-        private string MapCode(string code)
-        {
-            return code;
-        }
+       
 
         private string GetReplyCode(List<string> reply, string request)
         {
@@ -553,11 +370,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
         public void Dispose()
         {
-            //if (_tcpClient != null)
-            //{
-            //    _tcpClient.Close();
-            //    _tcpClient = null;
-            //}
+            if (_tcpClient != null)
+            {
+                _tcpClient.Close();
+                _tcpClient = null;
+            }
         }
     }
 }

@@ -15,6 +15,8 @@ using System;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb;
+using OPMedia.Core.Logging;
+using System.Diagnostics;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
 {
@@ -112,12 +114,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           this.Dispose();
       }
 
-      public string GetCDDBQuery()
+      public string GetCDDBQuerySegment()
       {
           int numTracks = this.GetNumTracks();
           if (numTracks == -1)
           {
-              throw new Exception("Unable to retrieve the number of tracks, Cannot calculate DiskID.");
+              throw new Exception("Unable to retrieve the number of tracks");
           }
           string str = numTracks.ToString();
           int num3 = 0;
@@ -130,29 +132,16 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
               num5 = (((this.Toc.TrackData[track].Address_1 * 60) + this.Toc.TrackData[track].Address_2) * 0x4b) + this.Toc.TrackData[track].Address_3;
               num4 += this.cddb_sum((this.Toc.TrackData[track].Address_1 * 60) + this.Toc.TrackData[track].Address_2);
               num6 += this.GetSeconds(track);
-              str = str + "+" + string.Format("{0}", num5);
+              str = str + " " + string.Format("{0}", num5);
               track++;
           }
           int num7 = (this.Toc.TrackData[track].Address_1 * 60) + this.Toc.TrackData[track].Address_2;
-          str = str + "+" + num7;
+          str = str + " " + num7;
           Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[numTracks];
           Win32Functions.TRACK_DATA track_data2 = this.Toc.TrackData[0];
           num3 = ((track_data.Address_1 * 60) + track_data.Address_2) - ((track_data2.Address_1 * 60) + track_data2.Address_2);
           ulong num8 = (ulong)((((num4 % 0xff) << 0x18) | (num3 << 8)) | numTracks);
-          return (string.Format("{0:x8}", num8) + "+" + str);
-      }
-
-      public static char[] GetCDDriveLetters()
-      {
-          string str = "";
-          for (char ch = 'C'; ch <= 'Z'; ch = (char)(ch + '\x0001'))
-          {
-              if (Win32Functions.GetDriveType(ch + ":") == Win32Functions.DriveTypes.DRIVE_CDROM)
-              {
-                  str = str + ch;
-              }
-          }
-          return str.ToCharArray();
+          return str;
       }
 
       protected int GetEndSector(int track)
@@ -546,7 +535,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           return sDiscId;
       }
 
-      public bool ReadCDText(out TrackCollection cdTracks)
+      public bool ReadCDText(out List<Track> cdTracks)
       {
           cdTracks = null;
 
@@ -582,9 +571,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           return flag;
       }
 
-      private TrackCollection BuildCDTracks(Win32Functions.CDROM_TOC_CD_TEXT_DATA Data)
+      private List<Track> BuildCDTracks(Win32Functions.CDROM_TOC_CD_TEXT_DATA Data)
       {
-          TrackCollection tracks = new TrackCollection();
+          List<Track> tracks = new List<Track>();
 
           List<string> titles = new List<string>();
           List<string> artists = new List<string>();
@@ -594,20 +583,21 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
 
           try
           {
-              Console.WriteLine("++++");
+              Debug.Write("CD_TEXT info dump BEGIN:");
               for (int i = 0; i < Data.Descriptors.MaxIndex; i++)
               {
-                  Console.WriteLine("");
+                  string line = "";
                   foreach (char c in Data.Descriptors[i].Text)
                   {
                       if (c != '\0')
-                          Console.Write(c);
+                          line += c;
                       else
-                          Console.Write(".");
-
+                          line += ".";
                   }
+
+                  Debug.Write(line);
               }
-              Console.WriteLine("++++");
+              Debug.Write("CD_TEXT info dump END");
 
               for (int i = 0; i < Data.Descriptors.MaxIndex; i++)
               {
@@ -618,7 +608,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
                       {
                           item = item + ch;
                       }
-                      else
+                      else if (!string.IsNullOrEmpty(item))
                       {
                           switch (cdrom_toc_cd_text_data_block.PackType)
                           {
@@ -659,26 +649,49 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
               max = artists.Count;
           if (genres.Count != 0 && max > genres.Count)
               max = genres.Count;
-              
-          for(int i = 1; i < max; i++)
+
+          if (max > 0)
           {
-              try
+              string mainTitle = (titles.Count > 0) ? titles[0] : null;
+              string mainArtist = (artists.Count > 0) ? artists[0] : null;
+              string mainGenre = (genres.Count > 0) ? genres[0] : null;
+
+              for (int i = 1; i < max; i++)
               {
-                  Track track = new Track(titles[i]);
-                  tracks.Add(track);
+                  try
+                  {
+                      if (titles.Count > i ||
+                          titles.Count > i ||
+                          titles.Count > i)
+                      {
+                          Track track = new Track();
+                          if (titles.Count > i)
+                              track.Title = titles[i];
+                          if (artists.Count > i)
+                              track.Artist = artists[i];
+                          if (genres.Count > i)
+                              track.Genre = genres[i];
+
+                          if (!string.IsNullOrEmpty(mainTitle))
+                          {
+                              track.Album = mainTitle;
+                          }
+                          if (string.IsNullOrEmpty(track.Artist) &&
+                              !string.IsNullOrEmpty(mainArtist))
+                          {
+                              track.Artist = mainArtist;
+                          }
+
+                          tracks.Add(track);
+                      }
+                  }
+                  catch { }
               }
-              catch { }
           }
 
           return tracks;
       }
-
- 
-
-
- 
-
-  }
+   }
 }
 
 

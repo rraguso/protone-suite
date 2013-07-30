@@ -21,6 +21,7 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Text;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 {
@@ -35,7 +36,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		private string m_Title;
 		private string m_Year;
 		private string m_Genre;
-		private TrackCollection m_Tracks = new TrackCollection(); // 0 based - first track is at 0 last track is at numtracks - 1
+        private List<Track> m_Tracks = new List<Track>(); // 0 based - first track is at 0 last track is at numtracks - 1
 		private string m_ExtendedData;
 		private string m_PlayOrder;
 		
@@ -128,7 +129,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		/// <summary>
 		/// Property Tracks (StringCollection)
 		/// </summary>
-		public TrackCollection Tracks
+        public List<Track> Tracks
 		{
 			get
 			{
@@ -188,16 +189,41 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
         {
         }
 
-		public CDEntry(StringCollection data)
+		public CDEntry(List<string> data)
 		{
 			if (!Parse(data))
 			{
 				throw new Exception("Unable to Parse CDEntry.");
 			}
+
+            SyncTrackFields();
 		}
 
+        private void SyncTrackFields()
+        {
+            foreach (Track track in m_Tracks)
+            {
+                if (string.IsNullOrEmpty(track.Artist))
+                {
+                    track.Artist = this.Artist;
+                }
+                if (string.IsNullOrEmpty(track.Album))
+                {
+                    track.Album = this.Title;
+                }
+                if (string.IsNullOrEmpty(track.Genre))
+                {
+                    track.Genre = this.Genre;
+                }
+                if (string.IsNullOrEmpty(track.Year))
+                {
+                    track.Year = this.Year;
+                }
+            }
+        }
 
-		private bool Parse(StringCollection data)
+
+        private bool Parse(List<string> data)
 		{
 			foreach (string line in data)
 			{
@@ -276,7 +302,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 								m_Tracks[trackNumber].Title += line.Substring(index);
 							else
 							{
-								Track track = new Track(line.Substring(index));
+								Track track = new Track { Title = line.Substring(index) };
 								this.m_Tracks.Add(track);
 							}
 							continue;
