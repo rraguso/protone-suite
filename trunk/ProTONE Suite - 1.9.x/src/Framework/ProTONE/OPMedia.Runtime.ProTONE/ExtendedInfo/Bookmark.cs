@@ -106,6 +106,17 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
         }
     }
 
+    public class AudioCdSubItem : PlaylistSubItem
+    {
+        public string Action { get; private set; }
+
+        public AudioCdSubItem(PlaylistItem parent, string name, string action)
+            : base(name, parent)
+        {
+            this.Action = action;
+        }
+    }
+
     public class BookmarkStartHint : RenderingStartHint
     {
         public Bookmark Bookmark = Bookmark.Empty;

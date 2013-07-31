@@ -455,5 +455,59 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
             return null;
         }
+
+        public void RefreshDisk(string source)
+        {
+            string rootPath = System.IO.Path.GetPathRoot(this.Path);
+            if (!string.IsNullOrEmpty(rootPath))
+            {
+                char letter = rootPath.ToUpperInvariant()[0];
+                {
+                    using (CDDrive cd = new CDDrive())
+                    {
+                        if (cd.Open(letter) && cd.Refresh())
+                        {
+                            string diskId = cd.GetCDDBDiskID();
+                            CDEntry cde = null;
+
+                            switch (source)
+                            {
+                                case "CDDB":
+                                    cde = BuildCdEntryByCddb(cd, diskId);
+                                    break;
+
+                                case "CDTEXT":
+                                    cde = BuildCdEntryByCdText(cd, diskId);
+                                    break;
+                            }
+
+                            if (cde != null)
+                            {
+                                MergeEntries(_cdEntry, cde);
+
+                                if (_cdEntry != null)
+                                {
+                                    if (_cdEntries.ContainsKey(diskId))
+                                    {
+                                        _cdEntries[diskId] = _cdEntry;
+                                    }
+                                    else
+                                    {
+                                        _cdEntries.Add(diskId, _cdEntry);
+                                    }
+
+                                    SaveCdEntries(); // This serializes the database as a compressed XML file
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public void MergeEntries(CDEntry master, CDEntry slave)
+        {
+            // TODO implement
+        }
     }
 }

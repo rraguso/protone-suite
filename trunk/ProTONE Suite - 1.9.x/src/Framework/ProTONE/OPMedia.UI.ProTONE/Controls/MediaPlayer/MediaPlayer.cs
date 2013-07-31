@@ -1011,7 +1011,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                                 }
                             }
 
-                            JumpToPlaylistSubItem(senderMenu.Tag as PlaylistSubItem);
+                            if (senderMenu.Tag is AudioCdSubItem)
+                            {
+                                CDAFileInfo cdfi = (senderMenu.Tag as AudioCdSubItem).Parent.MediaFileInfo as CDAFileInfo;
+                                if (cdfi != null)
+                                {
+                                    cdfi.RefreshDisk((senderMenu.Tag as AudioCdSubItem).Action);
+                                }
+                            }
+                            else
+                            {
+                                JumpToPlaylistSubItem(senderMenu.Tag as PlaylistSubItem);
+                            }
                         }
                         else if (senderMenu.Tag is PlaylistItem)
                         {

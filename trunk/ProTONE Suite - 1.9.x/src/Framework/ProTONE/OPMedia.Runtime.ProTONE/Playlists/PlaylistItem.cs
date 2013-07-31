@@ -199,10 +199,26 @@ namespace OPMedia.Runtime.ProTONE.Playlists
             }
             else
             {
+                if (mi is CDAFileInfo)
+                {
+                    return CreateAudioCdSubmenu();
+                }
+
                 // Don't insert anything.
                 // This is a regular file item.
                 return null;
             }
+        }
+
+        private Dictionary<PlaylistSubItem, List<PlaylistSubItem>> CreateAudioCdSubmenu()
+        {
+            Dictionary<PlaylistSubItem, List<PlaylistSubItem>> submenu =
+                            new Dictionary<PlaylistSubItem, List<PlaylistSubItem>>();
+
+            submenu.Add(new AudioCdSubItem(this, "Read CDDB", "CDDB"), null);
+            submenu.Add(new AudioCdSubItem(this, "Read CD-Text", "CDTEXT"), null);
+
+            return submenu;
         }
 
         private Dictionary<PlaylistSubItem, List<PlaylistSubItem>> CreateBookmarksSubmenu()
