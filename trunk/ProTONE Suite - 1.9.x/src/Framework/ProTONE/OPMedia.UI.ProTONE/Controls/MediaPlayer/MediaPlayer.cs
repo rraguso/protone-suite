@@ -1016,7 +1016,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                                 CDAFileInfo cdfi = (senderMenu.Tag as AudioCdSubItem).Parent.MediaFileInfo as CDAFileInfo;
                                 if (cdfi != null)
                                 {
-                                    cdfi.RefreshDisk((senderMenu.Tag as AudioCdSubItem).Action);
+                                    cdfi.RefreshDisk();
+                                    EventDispatch.DispatchEvent(LocalEventNames.UpdatePlaylistNames, true);
                                 }
                             }
                             else

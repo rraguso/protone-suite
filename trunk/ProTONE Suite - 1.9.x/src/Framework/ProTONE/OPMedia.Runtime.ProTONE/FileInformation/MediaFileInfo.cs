@@ -313,7 +313,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             }
         }
 
-        
+
+
+        public virtual void Rebuild()
+        {
+        }
     }
 
 }

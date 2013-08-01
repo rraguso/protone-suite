@@ -1022,10 +1022,13 @@ Videofenster Position</value>
   <value>Lesen Audio CD info ab:</value>
 </data>
 <data name="TXT_CDDB_SERVERNAME">
-  <value>CDDB Server Name oder IP-Adresse:</value>
+  <value>CDDB-Server-Adresse:</value>
 </data>
 <data name="TXT_CDDB_SERVERPORT">
   <value>CDDB-Server-Port:</value>
+</data>
+<data name="TXT_OPT_RELOAD_CDINFO">
+  <value>Seite neu laden CD Informationen</value>
 </data>
     
 </root>

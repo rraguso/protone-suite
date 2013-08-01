@@ -22,6 +22,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
+using OPMedia.Core.Utilities;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 {
@@ -391,21 +392,34 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
 		}
 
+        internal void Merge(CDEntry slave)
+        {
+            if (slave != null)
+            {
+                Artist = StringUtils.TakeValid(Artist, slave.Artist);
+                ExtendedData = StringUtils.TakeValid(ExtendedData, slave.ExtendedData);
+                Genre = StringUtils.TakeValid(Genre, slave.Genre);
+                PlayOrder = StringUtils.TakeValid(PlayOrder, slave.PlayOrder);
+                Title = StringUtils.TakeValid(Title, slave.Title);
+                Year = StringUtils.TakeValid(Year, slave.Year);
+                Tracks = MergeTracks(Tracks, slave.Tracks);
+            }
+        }
 
+        private List<Track> MergeTracks(List<Track> master, List<Track> slave)
+        {
+            if (master != null && slave != null)
+            {
+                int max = Math.Min(master.Count, slave.Count);
+                for (int i = 0; i < max; i++)
+                {
+                    Track tMaster = master[i];
+                    Track tSlave = slave[i];
+                    tMaster.Merge(tSlave);
+                }
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	}
+            return master;
+        }
+    }
 }

@@ -129,17 +129,23 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             catch { }
             finally
             {
-                UpdatePlaylistNames();
+                UpdatePlaylistNames(false);
             }
         }
 
         [EventSink(LocalEventNames.PerformTranslation)]
         [EventSink(LocalEventNames.UpdatePlaylistNames)]
-        public void UpdatePlaylistNames()
+        public void UpdatePlaylistNames(bool rebuildFileInfos)
         {
             foreach (ListViewItem lvi in lvPlaylist.Items)
             {
                 PlaylistItem plItem = lvi.Tag as PlaylistItem;
+
+                if (rebuildFileInfos)
+                {
+                    plItem.MediaFileInfo.Rebuild();
+                }
+
                 bool isActive = (plItem != null && IsActiveItem(plItem));
                 if (plItem != null)
                 {

@@ -1023,10 +1023,13 @@ window position</value>
   <value>Read Audio CD info from:</value>
 </data>
 <data name="TXT_CDDB_SERVERNAME">
-  <value>CDDB Server Name or IP Address:</value>
+  <value>CDDB Server Address:</value>
 </data>
 <data name="TXT_CDDB_SERVERPORT">
   <value>CDDB Server Port:</value>
+</data>
+<data name="TXT_OPT_RELOAD_CDINFO">
+  <value>Reload CD Information</value>
 </data>
     
 </root>

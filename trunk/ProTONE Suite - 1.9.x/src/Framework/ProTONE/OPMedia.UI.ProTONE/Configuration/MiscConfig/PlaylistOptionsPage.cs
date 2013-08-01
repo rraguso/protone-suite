@@ -164,7 +164,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             AppSettings.CustomFileNameFormats =
                 StringUtils.FromStringArray(customFileNameFormats, '?');
 
-            EventDispatch.DispatchEvent(LocalEventNames.UpdatePlaylistNames);
+            EventDispatch.DispatchEvent(LocalEventNames.UpdatePlaylistNames, false);
 
             AppSettings.Save();
         }

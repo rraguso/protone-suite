@@ -24,6 +24,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
     {
         static Dictionary<string, CDEntry> _cdEntries = new Dictionary<string, CDEntry>();
 
+        string _discId = string.Empty;
         CDEntry _cdEntry = null;
         int _track = -1;
         int _duration = 0;
@@ -321,6 +322,22 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             get { return "CDA"; }
         }
 
+        public override void Rebuild()
+        {
+            if (!string.IsNullOrEmpty(_discId))
+            {
+                // Check whether the disc is already added to our FreeDb lite database
+                if (_cdEntries.ContainsKey(_discId))
+                {
+                    // Already added, return it directly
+                    _cdEntry = _cdEntries[_discId];
+                    return;
+                }
+            }
+
+            RefreshDisk();
+        }
+
         public CDAFileInfo(string path, bool deepLoad)
             : base(path, false)
         {
@@ -341,65 +358,21 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                                 if (cd.IsAudioTrack(_track))
                                 {
                                     _duration = cd.GetSeconds(_track);
-                                    
-                                    string diskId = cd.GetCDDBDiskID();
+
+                                    _discId = cd.GetCDDBDiskID();
 
                                     // Check whether the disc is already added to our FreeDb lite database
-                                    if (_cdEntries.ContainsKey(diskId))
+                                    if (_cdEntries.ContainsKey(_discId))
                                     {
                                         // Already added, return it directly
-                                        _cdEntry = _cdEntries[diskId];
-                                        return;
+                                        _cdEntry = _cdEntries[_discId];
                                     }
                                     else
                                     {
-                                        switch(AppSettings.AudioCdInfoSource)
-                                        {
-                                            case AppSettings.CddaInfoSource.CdText:
-                                                _cdEntry = BuildCdEntryByCdText(cd, diskId);
-                                                break;
-
-                                            case AppSettings.CddaInfoSource.Cddb:
-                                                _cdEntry = BuildCdEntryByCddb(cd, diskId);
-                                                break;
-
-                                            case AppSettings.CddaInfoSource.CdText_Cddb:
-                                                {
-                                                    _cdEntry = BuildCdEntryByCdText(cd, diskId);
-                                                    if (_cdEntry == null)
-                                                        _cdEntry = BuildCdEntryByCddb(cd, diskId);
-                                                }
-                                                break;
-
-                                            case AppSettings.CddaInfoSource.Cddb_CdText:
-                                                {
-                                                    _cdEntry = BuildCdEntryByCddb(cd, diskId);
-                                                    if (_cdEntry == null)
-                                                        _cdEntry = BuildCdEntryByCdText(cd, diskId);
-                                                }
-                                                break;
-
-                                            default:
-                                                _cdEntry = null;
-                                                break;
-                                        }
-
-                                        // Update our internal FreeDb lite database with the CD info
-                                        if (_cdEntry != null)
-                                        {
-                                            if (_cdEntries.ContainsKey(diskId))
-                                            {
-                                                _cdEntries[diskId] = _cdEntry;
-                                            }
-                                            else
-                                            {
-                                                _cdEntries.Add(diskId, _cdEntry);
-                                                SaveCdEntries(); // This serializes the database as a compressed XML file
-                                            }
-                                        }
-
-                                        return;
+                                        RefreshDisk();
                                     }
+
+                                    return;
                                 }
                             }
                         }
@@ -456,7 +429,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             return null;
         }
 
-        public void RefreshDisk(string source)
+        public void RefreshDisk()
         {
             string rootPath = System.IO.Path.GetPathRoot(this.Path);
             if (!string.IsNullOrEmpty(rootPath))
@@ -467,37 +440,48 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     {
                         if (cd.Open(letter) && cd.Refresh())
                         {
-                            string diskId = cd.GetCDDBDiskID();
-                            CDEntry cde = null;
-
-                            switch (source)
+                            switch (AppSettings.AudioCdInfoSource)
                             {
-                                case "CDDB":
-                                    cde = BuildCdEntryByCddb(cd, diskId);
+                                case AppSettings.CddaInfoSource.CdText:
+                                    _cdEntry = BuildCdEntryByCdText(cd, _discId);
                                     break;
 
-                                case "CDTEXT":
-                                    cde = BuildCdEntryByCdText(cd, diskId);
+                                case AppSettings.CddaInfoSource.Cddb:
+                                    _cdEntry = BuildCdEntryByCddb(cd, _discId);
+                                    break;
+
+                                case AppSettings.CddaInfoSource.CdText_Cddb:
+                                    {
+                                        _cdEntry = BuildCdEntryByCdText(cd, _discId);
+                                        CDEntry cde = BuildCdEntryByCddb(cd, _discId);
+                                        _cdEntry = Merge(_cdEntry, cde);
+                                    }
+                                    break;
+
+                                case AppSettings.CddaInfoSource.Cddb_CdText:
+                                    {
+                                        _cdEntry = BuildCdEntryByCddb(cd, _discId);
+                                        CDEntry cde = BuildCdEntryByCdText(cd, _discId);
+                                        _cdEntry = Merge(_cdEntry, cde);
+                                    }
+                                    break;
+
+                                default:
                                     break;
                             }
 
-                            if (cde != null)
+                            if (_cdEntry != null)
                             {
-                                MergeEntries(_cdEntry, cde);
-
-                                if (_cdEntry != null)
+                                if (_cdEntries.ContainsKey(_discId))
                                 {
-                                    if (_cdEntries.ContainsKey(diskId))
-                                    {
-                                        _cdEntries[diskId] = _cdEntry;
-                                    }
-                                    else
-                                    {
-                                        _cdEntries.Add(diskId, _cdEntry);
-                                    }
-
-                                    SaveCdEntries(); // This serializes the database as a compressed XML file
+                                    _cdEntries[_discId] = _cdEntry;
                                 }
+                                else
+                                {
+                                    _cdEntries.Add(_discId, _cdEntry);
+                                }
+
+                                SaveCdEntries(); // This serializes the database as a compressed XML file
                             }
                         }
                     }
@@ -505,9 +489,14 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             }
         }
 
-        public void MergeEntries(CDEntry master, CDEntry slave)
+        private CDEntry Merge(CDEntry master, CDEntry slave)
         {
-            // TODO implement
+            if (master == null)
+                return slave;
+
+            master.Merge(slave);
+
+            return master;
         }
     }
 }

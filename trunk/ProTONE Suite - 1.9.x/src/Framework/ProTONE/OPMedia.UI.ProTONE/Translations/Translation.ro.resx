@@ -1022,10 +1022,13 @@ fereastră video</value>
   <value>Citeşte info CD audio:</value>
 </data>
 <data name="TXT_CDDB_SERVERNAME">
-  <value>Nume sau Adresă IP server CDDB:</value>
+  <value>Adresă server CDDB:</value>
 </data>
 <data name="TXT_CDDB_SERVERPORT">
   <value>Port server CDDB:</value>
+</data>
+<data name="TXT_OPT_RELOAD_CDINFO">
+  <value>Reîncarcă informațiile despre CD</value>
 </data>
     
 </root>

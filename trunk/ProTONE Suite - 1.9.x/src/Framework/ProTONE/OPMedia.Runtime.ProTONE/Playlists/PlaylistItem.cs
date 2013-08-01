@@ -212,12 +212,15 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
         private Dictionary<PlaylistSubItem, List<PlaylistSubItem>> CreateAudioCdSubmenu()
         {
+            AppSettings.CddaInfoSource src = AppSettings.AudioCdInfoSource;
+            if (src == AppSettings.CddaInfoSource.None)
+                return null;
+
             Dictionary<PlaylistSubItem, List<PlaylistSubItem>> submenu =
                             new Dictionary<PlaylistSubItem, List<PlaylistSubItem>>();
 
-            submenu.Add(new AudioCdSubItem(this, "Read CDDB", "CDDB"), null);
-            submenu.Add(new AudioCdSubItem(this, "Read CD-Text", "CDTEXT"), null);
-
+            submenu.Add(new AudioCdSubItem(this, Translator.Translate("TXT_OPT_RELOAD_CDINFO")), null);
+            
             return submenu;
         }
 

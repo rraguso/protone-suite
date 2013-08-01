@@ -1021,10 +1021,13 @@ de la fenêtre vidéo</value>
   <value>Lire Audio CD info sur:</value>
 </data>
 <data name="TXT_CDDB_SERVERNAME">
-  <value>Nom ou Adresse IP du serveur CDDB:</value>
+  <value>Adresse du serveur CDDB:</value>
 </data>
 <data name="TXT_CDDB_SERVERPORT">
   <value>Port du serveur CDDB:</value>
+</data>
+<data name="TXT_OPT_RELOAD_CDINFO">
+  <value>Recharger informations sur le CD</value>
 </data>
     
 </root>

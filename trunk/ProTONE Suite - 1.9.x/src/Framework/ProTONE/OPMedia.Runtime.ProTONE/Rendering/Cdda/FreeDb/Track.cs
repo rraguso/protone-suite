@@ -17,6 +17,7 @@
  */
 #endregion
 using System;
+using OPMedia.Core.Utilities;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 {
@@ -40,5 +41,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		public Track()
 		{
 		}
-	}
+
+        internal void Merge(Track slave)
+        {
+            if (slave != null)
+            {
+                Artist = StringUtils.TakeValid(Artist, slave.Artist);
+                Title = StringUtils.TakeValid(Title, slave.Title);
+                Album = StringUtils.TakeValid(Title, slave.Album);
+                Year = StringUtils.TakeValid(Year, slave.Year);
+                Genre = StringUtils.TakeValid(Genre, slave.Genre);
+                ExtendedData = StringUtils.TakeValid(ExtendedData, slave.ExtendedData);
+            }
+        }
+    }
 }
