@@ -390,7 +390,7 @@ namespace TranslationEditor
 
         private void OnNewEntry(object sender, EventArgs e)
         {
-            EntryNameDialog dlg = new EntryNameDialog("TXT_ENTRY_NAME", "", "", chkReadOnly.Checked);
+            EntryNameDialog dlg = new EntryNameDialog("TXT_ENTRY_NAME", "", "", chkReadOnly.Checked, cmbLanguage.Text);
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 TranslationItem ti = new TranslationItem(string.Empty);
@@ -424,7 +424,7 @@ namespace TranslationEditor
                 {
                     string oldName = ti.StringName;
 
-                    EntryNameDialog dlg = new EntryNameDialog(oldName, ti.BaseString, ti.TranslatedString, chkReadOnly.Checked);
+                    EntryNameDialog dlg = new EntryNameDialog(oldName, ti.BaseString, ti.TranslatedString, chkReadOnly.Checked, cmbLanguage.Text);
                     if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         ti.StringName = dlg.EntryName;

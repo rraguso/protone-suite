@@ -55,7 +55,7 @@ namespace TranslationEditor
     {
         public static readonly string[] SupportedLanguages = new string[]
         {
-            "ro", "de", "hu", "ru", "fr"
+            "ro", "de", "fr"
         };
 
         public const string TranslationFileEnglishName = "translation.resx";
