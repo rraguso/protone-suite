@@ -1202,7 +1202,14 @@ namespace OPMedia.UI.Controls
 
         private string BuildLastAccessTime(FileSystemInfo fsi)
         {
-            return StringUtils.BuildTimeString(fsi.LastWriteTime);
+            try
+            {
+                return StringUtils.BuildTimeString(fsi.LastWriteTime);
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
 
         private string BuildAttributes(FileSystemInfo fsi)

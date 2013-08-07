@@ -23,174 +23,117 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using OPMedia.Core.Utilities;
+using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
+using OPMedia.Core;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 {
 	/// <summary>
 	/// Summary description for CDEntry.
 	/// </summary>
+    [DataContract]
     public class CDEntry
 	{
-		#region Private Member Variables
-		private string m_Discid;
-		private string m_Artist;
-		private string m_Title;
-		private string m_Year;
-		private string m_Genre;
-        private List<Track> m_Tracks = new List<Track>(); // 0 based - first track is at 0 last track is at numtracks - 1
-		private string m_ExtendedData;
-		private string m_PlayOrder;
-		
-		/// <summary>
-		/// Property NumberOfTracks (int)
-		/// </summary>
-		
-
-
-		
-		#endregion
-
 		#region Public Member Variables
 		/// <summary>
 		/// Property Discid (string)
 		/// </summary>
-        public string Discid
-		{
-			get
-			{
-				return this.m_Discid;
-			}
-			set
-			{
-				this.m_Discid = value;
-			}
-		}
+        [DataMember(Order = 0)]
+        public string Discid { get; set; }
 
 		/// <summary>
 		/// Property Artist (string)
 		/// </summary>
-        public string Artist
-		{
-			get
-			{
-				return this.m_Artist;
-			}
-			set
-			{
-				this.m_Artist = value;
-			}
-		}
+        [DataMember(Order = 1)]
+        public string Artist { get; set; }
 		
 		/// <summary>
 		/// Property Title (string)
 		/// </summary>
-        public string Title
-		{
-			get
-			{
-				return this.m_Title;
-			}
-			set
-			{
-				this.m_Title = value;
-			}
-		}
+        [DataMember(Order = 2)]
+        public string Title { get; set; }
 		
 		/// <summary>
 		/// Property Year (string)
 		/// </summary>
-        public string Year
-		{
-			get
-			{
-				return this.m_Year;
-			}
-			set
-			{
-				this.m_Year = value;
-			}
-		}
+        [DataMember(Order = 3)]
+        public string Year { get; set; }
 
 		/// <summary>
 		/// Property Genre (string)
 		/// </summary>
-        public string Genre
-		{
-			get
-			{
-				return this.m_Genre;
-			}
-			set
-			{
-				this.m_Genre = value;
-			}
-		}
-
+        [DataMember(Order = 4)]
+        public string Genre { get; set; }
 
 		/// <summary>
 		/// Property Tracks (StringCollection)
 		/// </summary>
-        public List<Track> Tracks
-		{
-			get
-			{
-				return this.m_Tracks;
-			}
-			set
-			{
-				this.m_Tracks = value;
-			}
-		}
-
+        [DataMember(Order = 5)]
+        public List<Track> Tracks { get; set; }
 		
 		/// <summary>
 		/// Property ExtendedData (string)
 		/// </summary>
-		public string ExtendedData
-		{
-			get
-			{
-				return this.m_ExtendedData;
-			}
-			set
-			{
-				this.m_ExtendedData = value;
-			}
-		}
-
-		
-
+        [DataMember(Order = 6)]
+        public string ExtendedData { get; set; }
 		
 		/// <summary>
 		/// Property PlayOrder (string)
 		/// </summary>
-		public string PlayOrder
-		{
-			get
-			{
-				return this.m_PlayOrder;
-			}
-			set
-			{
-				this.m_PlayOrder = value;
-			}
-		}
+        [DataMember(Order = 7)]
+        public string PlayOrder { get; set; }
 
 		public int NumberOfTracks
 		{
 			get
 			{
-				return m_Tracks.Count;
+				return (Tracks != null) ? Tracks.Count : 0;
 			}
 		}
 
 		#endregion
 
-        public CDEntry()
+        public static CDEntry LoadPersistentDisc(string discId)
         {
+            string xml = PersistenceProxy.ReadObject(discId, string.Empty);
+            if (!string.IsNullOrEmpty(xml))
+            {
+                using (StringReader sr = new StringReader(xml))                
+                using (XmlReader xr = XmlReader.Create(sr))
+                {
+                    XmlSerializer xs = new XmlSerializer(typeof(CDEntry));
+                    return xs.Deserialize(xr) as CDEntry;
+                }
+            }
+
+            return null;
         }
 
-		public CDEntry(List<string> data)
+        public void PersistDisc()
+        {
+            StringBuilder xml = new StringBuilder();
+            using (XmlWriter xw = XmlWriter.Create(xml))
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(CDEntry));
+                xs.Serialize(xw, this);
+            }
+
+            PersistenceProxy.SaveObject(this.Discid, xml.ToString());
+        }
+
+        public CDEntry(string discId) : this()
+        {
+            Discid = discId;
+        }
+
+        protected CDEntry()
+        {
+            Tracks = new List<Track>();
+        }
+
+		public CDEntry(List<string> data) : this()
 		{
 			if (!Parse(data))
 			{
@@ -202,7 +145,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
         private void SyncTrackFields()
         {
-            foreach (Track track in m_Tracks)
+            foreach (Track track in Tracks)
             {
                 if (string.IsNullOrEmpty(track.Artist))
                 {
@@ -244,38 +187,38 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 				{
 					case "DISCID":
 					{
-						this.m_Discid = line.Substring(index);
+						this.Discid = line.Substring(index);
 						continue;
 					}
 
 					case "DTITLE": // artist / title
 					{
-						this.m_Artist += line.Substring(index);
+						this.Artist += line.Substring(index);
 						continue;
 					}
 
 					case "DYEAR":
 					{
-						this.m_Year = line.Substring(index);
+						this.Year = line.Substring(index);
 						continue;
 					}
 
 					case "DGENRE":
 					{
-						this.m_Genre += line.Substring(index);
+						this.Genre += line.Substring(index);
 						continue;
 					}
 
 					case "EXTD":
 					{
 						// may be more than one - just concatenate them
-						this.m_ExtendedData += line.Substring(index);
+						this.ExtendedData += line.Substring(index);
 						continue;
 					}
 
 					case "PLAYORDER":
 					{
-						this.m_PlayOrder += line.Substring(index);
+						this.PlayOrder += line.Substring(index);
 						continue;
 					}
 
@@ -299,12 +242,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 							}
 
 							//may need to concatenate track info
-							if (trackNumber < m_Tracks.Count )
-								m_Tracks[trackNumber].Title += line.Substring(index);
+							if (trackNumber < Tracks.Count )
+								Tracks[trackNumber].Title += line.Substring(index);
 							else
 							{
 								Track track = new Track { Title = line.Substring(index) };
-								this.m_Tracks.Add(track);
+								this.Tracks.Add(track);
 							}
 							continue;
 						}
@@ -323,10 +266,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 								continue;
 							}
 							
-							if (trackNumber < 0 || trackNumber >  m_Tracks.Count -1)
+							if (trackNumber < 0 || trackNumber >  Tracks.Count -1)
 								continue;
 
-							m_Tracks[trackNumber].ExtendedData += line.Substring(index);
+							Tracks[trackNumber].ExtendedData += line.Substring(index);
 
 
 
@@ -344,17 +287,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
 			//split the title and artist from DTITLE;
 			// see if we have a slash
-			int slash = this.m_Artist.IndexOf(" / ");
+			int slash = this.Artist.IndexOf(" / ");
 			if (slash == -1)
 			{
-				this.m_Title= m_Artist;
+				this.Title= Artist;
 			}
 			else
 			{
-				string titleArtist = m_Artist;
-				this.m_Artist = titleArtist.Substring(0,slash);
+				string titleArtist = Artist;
+				this.Artist = titleArtist.Substring(0,slash);
 				slash +=3; // move past " / "
-				this.m_Title  = titleArtist.Substring(slash );
+				this.Title  = titleArtist.Substring(slash );
 			}
 
 
@@ -367,22 +310,22 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 		{
 			StringBuilder builder = new StringBuilder();
 			builder.Append("Title: ");
-			builder.Append(this.m_Title);
+			builder.Append(this.Title);
 			builder.Append("\n");
 			builder.Append("Artist: ");
-			builder.Append(this.m_Artist);
+			builder.Append(this.Artist);
 			builder.Append("\n");
 			builder.Append("Discid: ");
-			builder.Append(this.m_Discid);
+			builder.Append(this.Discid);
 			builder.Append("\n");
 			builder.Append("Genre: ");
-			builder.Append(this.m_Genre);
+			builder.Append(this.Genre);
 			builder.Append("\n");
 			builder.Append("Year: ");
-			builder.Append(this.m_Year);
+			builder.Append(this.Year);
 			builder.Append("\n");
 			builder.Append("Tracks:");
-			foreach (Track track in this.m_Tracks)
+			foreach (Track track in this.Tracks)
 			{
 				builder.Append("\n");
 				builder.Append(track.Title);

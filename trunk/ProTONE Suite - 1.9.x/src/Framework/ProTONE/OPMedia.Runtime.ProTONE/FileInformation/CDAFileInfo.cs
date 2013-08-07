@@ -22,113 +22,10 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 {
     public class CDAFileInfo : MediaFileInfo
     {
-        static Dictionary<string, CDEntry> _cdEntries = new Dictionary<string, CDEntry>();
-
         string _discId = string.Empty;
         CDEntry _cdEntry = null;
         int _track = -1;
         int _duration = 0;
-
-        static string _fileName = string.Empty;
-
-        static CDAFileInfo()
-        {
-            _fileName = System.IO.Path.Combine(ApplicationInfo.SettingsFolder, "FreeDbLite.dat");
-            LoadCdEntries();
-        }
-
-        private static void LoadCdEntries()
-        {
-            CDEntryDataSet ds = new CDEntryDataSet();
-
-            if (System.IO.File.Exists(_fileName))
-            {
-                try
-                {
-                    using (FileStream inputStream = new FileStream(_fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                    using (GZipStream zipStream = new GZipStream(inputStream, CompressionMode.Decompress))
-                    {
-                        if (zipStream != null)
-                        {
-                            ds.ReadXml(zipStream);
-                            zipStream.Close();
-                            inputStream.Close();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogException(ex);
-                }
-            }
-
-            if (ds.CD != null && ds.CD.Rows != null && ds.CD.Rows.Count > 0)
-            {
-                foreach (DataRow row in ds.CD.Rows)
-                {
-                    CDEntryDataSet.CDRow cdRow = row as CDEntryDataSet.CDRow;
-                    if (cdRow != null)
-                    {
-                        CDEntry cdEntry = null;
-
-                        if (_cdEntries.ContainsKey(cdRow.Discid))
-                        {
-                            cdEntry = _cdEntries[cdRow.Discid];
-                        }
-                        else
-                        {
-                            cdEntry = new CDEntry();
-                            cdEntry.Discid = cdRow.Discid;
-                            _cdEntries.Add(cdRow.Discid, cdEntry);
-                        }
-
-                        cdEntry.Tracks.Add(new Track 
-                        { 
-                            Album = cdRow.Album,
-                            Artist = cdRow.Artist,
-                            ExtendedData = cdRow.ExtendedData,
-                            Genre = cdRow.Genre,
-                            Title = cdRow.Title,
-                            Year = cdRow.Year
-                        } );
-                    }
-                }
-            }
-        }
-
-        private static void SaveCdEntries()
-        {
-            CDEntryDataSet ds = new CDEntryDataSet();
-            foreach (KeyValuePair<string, CDEntry> cdEntry in _cdEntries)
-            {
-                if (cdEntry.Value.Tracks != null)
-                {
-                    int trackNumber = 1;
-                    foreach (Track t in cdEntry.Value.Tracks)
-                    {
-                        ds.CD.AddCDRow(cdEntry.Key, trackNumber.ToString(), t.Artist,
-                            cdEntry.Value.Title, t.Title, t.Year, t.Genre, t.ExtendedData);
-
-                        trackNumber++;
-                    }
-                }
-            }
-            ds.AcceptChanges();
-
-            if (ds.CD != null && ds.CD.Rows != null && ds.CD.Rows.Count > 0)
-            {
-                using (FileStream outputStream = new FileStream(_fileName, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None))
-                using (GZipStream zipStream = new GZipStream(outputStream, CompressionMode.Compress))
-                {
-                    if (zipStream != null)
-                    {
-                        ds.WriteXml(zipStream);
-                        zipStream.Close();
-                        outputStream.Close();
-                    }
-                }
-            }
-        }
 
         [Browsable(false)]
         [ReadOnly(true)]
@@ -326,11 +223,10 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         {
             if (!string.IsNullOrEmpty(_discId))
             {
-                // Check whether the disc is already added to our FreeDb lite database
-                if (_cdEntries.ContainsKey(_discId))
+                CDEntry cde = CDEntry.LoadPersistentDisc(_discId);
+                if (cde != null)
                 {
-                    // Already added, return it directly
-                    _cdEntry = _cdEntries[_discId];
+                    _cdEntry = cde;
                     return;
                 }
             }
@@ -362,12 +258,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                                     _discId = cd.GetCDDBDiskID();
 
                                     // Check whether the disc is already added to our FreeDb lite database
-                                    if (_cdEntries.ContainsKey(_discId))
-                                    {
-                                        // Already added, return it directly
-                                        _cdEntry = _cdEntries[_discId];
-                                    }
-                                    else
+                                    _cdEntry = CDEntry.LoadPersistentDisc(_discId);
+                                    if (_cdEntry == null)
                                     {
                                         RefreshDisk();
                                     }
@@ -393,7 +285,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             List<Track> tracks = null;
             if (cd.ReadCDText(out tracks))
             {
-                CDEntry cdEntry = new CDEntry();
+                CDEntry cdEntry = new CDEntry(diskId);
                 cdEntry.Tracks.AddRange(tracks);
 
                 return cdEntry;
@@ -472,16 +364,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
                             if (_cdEntry != null)
                             {
-                                if (_cdEntries.ContainsKey(_discId))
-                                {
-                                    _cdEntries[_discId] = _cdEntry;
-                                }
-                                else
-                                {
-                                    _cdEntries.Add(_discId, _cdEntry);
-                                }
-
-                                SaveCdEntries(); // This serializes the database as a compressed XML file
+                                _cdEntry.PersistDisc();
                             }
                         }
                     }

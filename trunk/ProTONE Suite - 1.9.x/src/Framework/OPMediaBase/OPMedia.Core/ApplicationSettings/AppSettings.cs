@@ -1319,22 +1319,6 @@ namespace OPMedia.Core.ApplicationSettings
 
         #endregion
 
-        #region Monitor Affinity
-
-        public static string PreferredMonitorName
-        {
-            get { return _config.GetValue("PreferredMonitorName", "DISPLAY1"); }
-            set { _config.SetValue("PreferredMonitorName", value); }
-        }
-
-        public static string FallbackMonitorName
-        {
-            get { return _config.GetValue("FallbackMonitorName", "DISPLAY1"); }
-            set { _config.SetValue("FallbackMonitorName", value); }
-        }
-
-        #endregion
-
         #region Non-Suite settings
         public static string LanguageID
         {
@@ -1379,20 +1363,20 @@ namespace OPMedia.Core.ApplicationSettings
 
         public static CddaInfoSource AudioCdInfoSource
         {
-            get { return (CddaInfoSource)_config.GetValue("AudioCdInfoSource", (int)CddaInfoSource.CdText_Cddb); }
-            set { _config.SetValue("AudioCdInfoSource", (int)value); }
+            get { return PersistenceProxy.ReadObject("AudioCdInfoSource", CddaInfoSource.CdText_Cddb); }
+            set { PersistenceProxy.SaveObject("AudioCdInfoSource", value); }
         }
 
         public static string CddbServerName
         {
-            get { return _config.GetValue("CddbServerName", "freedb.freedb.org"); }
-            set { _config.SetValue("CddbServerName", value); }
+            get { return PersistenceProxy.ReadObject("CddbServerName", "freedb.freedb.org"); }
+            set { PersistenceProxy.SaveObject("CddbServerName", value); }
         }
 
         public static int CddbServerPort
         {
-            get { return _config.GetValue("CddbServerPort", 8880); }
-            set { _config.SetValue("CddbServerPort", value); }
+            get { return PersistenceProxy.ReadObject("CddbServerPort", 8880); }
+            set { PersistenceProxy.SaveObject("CddbServerPort", value); }
         }
     }
 }

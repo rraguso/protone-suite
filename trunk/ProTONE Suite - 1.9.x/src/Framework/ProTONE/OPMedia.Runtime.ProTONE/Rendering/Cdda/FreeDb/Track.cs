@@ -18,21 +18,33 @@
 #endregion
 using System;
 using OPMedia.Core.Utilities;
+using System.Runtime.Serialization;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 {
 	/// <summary>
 	/// Summary description for Track.
 	/// </summary>
-	public class Track
+    [DataContract]
+    public class Track
 	{
+        [DataMember(Order = 0)]
         public string Artist { get; set; }
+
+        [DataMember(Order = 1)]
         public string Title { get; set; }
+
+        [DataMember(Order = 2)]
         public string Album { get; set; }
+
+        [DataMember(Order = 3)]
         public string Year { get; set; }
+
+        [DataMember(Order = 4)]
         public string Genre { get; set; }
 
-		public string ExtendedData { get; set; }
+        [DataMember(Order = 5)]
+        public string ExtendedData { get; set; }
 		
 		/// <summary>
 		/// Create an instance of a Track 

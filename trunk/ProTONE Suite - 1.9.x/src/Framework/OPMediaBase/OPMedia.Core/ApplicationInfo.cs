@@ -73,6 +73,34 @@ namespace OPMedia.Core
             }
         }
 
+        public static string CommonDataFolder
+        {
+            get
+            {
+                try
+                {
+                    string path = Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        "OPMedia.CommonDataFolder");
+
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    if (Directory.Exists(path))
+                    {
+                        return path;
+                    }
+                }
+                catch
+                {
+                }
+
+                return PathUtils.CurrentDir;
+            }
+        }
+
         public static string SettingsFolder
         {
             get

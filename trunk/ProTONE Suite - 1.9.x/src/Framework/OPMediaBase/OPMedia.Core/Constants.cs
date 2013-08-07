@@ -22,6 +22,7 @@ namespace OPMedia.Core
         public const string RCCServiceShortName =   "OPMedia.RCCService";
         public const string ShellSupportName =      "OPMedia.ShellSupport";
         public const string UtilityName =           "OPMedia.Utility";
+        public const string PersistenceServiceShortName = "OPMedia.PersistenceService";
 
         public const string ShellSupportBinary =    ShellSupportName + ".dll";
         public const string LibraryBinary =         LibraryName + ".exe";
@@ -31,10 +32,13 @@ namespace OPMedia.Core
         public const string SyncPlayerBinary =      SyncPlayerName + ".exe";
         public const string RCCServiceBinary =      RCCServiceShortName + ".exe";
         public const string UtilityBinary =         UtilityName + ".exe";
+        public const string PersistenceServiceBinary = PersistenceServiceShortName + ".exe";
 
-        public const string RCCServiceLongName =    "OPMedia Remote Control and Communication Service";
+        public const string PersistenceServiceLongName = "OPMedia Persistence Service";
+        public const string PersistenceServiceDescription = "Provides long-time persistence support ProTONE Suite applications.";
+
+        public const string RCCServiceLongName = "OPMedia Remote Control and Communication Service";
         public const string RCCServiceDescription = "Manages communication amongst ProTONE Player and external applications.";
-
 
         public const string SubtitleFileTypeDesc =  "Video Subtitle File";
         public const string CatalogFileTypeDesc =   "OPMedia Catalog File (.CTX)";
@@ -43,7 +47,9 @@ namespace OPMedia.Core
         // These are Unregistered ports according to IANA
         public const int PlayerUdpListeningPort = 10201;
         public const int RCCServiceRemotingPort = 10203;
-        public const int MediaHostUdpListeningPort = 10203;
+        public const int MediaHostUdpListeningPort = 10202;
+
+        public const int PersistenceServicePort = 10204;
 
         public const bool SecureRemotingChannels = false;
 

@@ -1,24 +1,25 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
+using System.Linq;
 using System.ServiceProcess;
-using OPMedia.ServiceHelper.RCCService;
-using OPMedia.Core.Logging;
+using System.Text;
 using OPMedia.Core;
+using OPMedia.Core.Logging;
 using OPMedia.Runtime.ServiceHelpers;
-using OPMedia.Runtime;
 
-namespace OPMedia.Services.RCCService
+namespace OPMedia.PersistenceService
 {
-    partial class RemoteControlWinService : ServiceBase
+    public partial class PersistenceService : ServiceBase
     {
-        RemoteControlServiceHelper _rcsh = null;
-
-        public RemoteControlWinService()
+        ServiceHelper _sh = null;
+        
+        public PersistenceService()
         {
             InitializeComponent();
-            this.ServiceName = Constants.RCCServiceShortName;
+            this.ServiceName = Constants.PersistenceServiceShortName;
         }
 
         [STAThread]
@@ -29,12 +30,12 @@ namespace OPMedia.Services.RCCService
                 Debug.Listeners.Add(new ConsoleTraceListener(false));
 
                 // Start as stand-alone app
-                new RemoteControlWinService().RunStandAlone(Environment.GetCommandLineArgs());
+                new PersistenceService().RunStandAlone(Environment.GetCommandLineArgs());
             }
             else
             {
                 // Start Windows Service
-                Run(new RemoteControlWinService());
+                Run(new PersistenceService());
             }
         }
 
@@ -58,7 +59,7 @@ namespace OPMedia.Services.RCCService
                 StartServiceHelper();
                 Logger.LogInfo("Service started with success.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.LogInfo("Service failed to start correctly. {0}", ex.Message);
                 Stop();
@@ -111,7 +112,7 @@ namespace OPMedia.Services.RCCService
 
                 StopServiceHelper();
                 StartServiceHelper();
-                
+
                 Logger.LogInfo("Service reconfigured with success ...");
             }
             catch (Exception ex)
@@ -124,8 +125,8 @@ namespace OPMedia.Services.RCCService
         {
             Logger.LogInfo("Service helper preparing to start ...");
 
-            _rcsh = new RemoteControlServiceHelper();
-            _rcsh.Start();
+            _sh = new ServiceHelper();
+            _sh.Start();
 
             Logger.LogInfo("Service helper started succesfully !");
         }
@@ -134,10 +135,10 @@ namespace OPMedia.Services.RCCService
         {
             Logger.LogInfo("Service helper preparing to stop ...");
 
-            if (_rcsh != null)
+            if (_sh != null)
             {
-                _rcsh.Stop();
-                _rcsh = null;
+                _sh.Stop();
+                _sh = null;
             }
 
             Logger.LogInfo("Service helper stopped succesfully !");
@@ -146,5 +147,6 @@ namespace OPMedia.Services.RCCService
         private void QueryStatus()
         {
         }
+       
     }
 }
