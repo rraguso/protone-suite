@@ -37,7 +37,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
         public override string Type
         { get { return "DVD"; } }
 
-        public override Dictionary<string, string> MediaInfo
+        protected override Dictionary<string, string> MediaInfoInternal
         {
             get
             {

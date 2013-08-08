@@ -30,6 +30,7 @@ using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.UI.Themes;
 using OPMedia.UI.ProTONE.Properties;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
+using OPMedia.Core.Utilities;
 
 #endregion
 
@@ -103,7 +104,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 if (pli != null)
                 {
-                    _tip.SetToolTip(pbFileType, pli.DisplayName, pli.MediaInfo, img, pli.MediaFileInfo.CustomImage);
+                    _tip.SetToolTip(pbFileType, StringUtils.Limit(pli.DisplayName, 60), pli.MediaInfo, img, pli.MediaFileInfo.CustomImage);
                 }
                 else
                 {

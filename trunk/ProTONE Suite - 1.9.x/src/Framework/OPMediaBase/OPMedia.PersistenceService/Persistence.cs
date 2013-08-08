@@ -91,7 +91,7 @@ public partial class PersistedObjects : INotifyPropertyChanging, INotifyProperty
 		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersistenceID", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersistenceID", DbType="NVarChar(4000) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 	public string PersistenceID
 	{
 		get
@@ -111,7 +111,7 @@ public partial class PersistedObjects : INotifyPropertyChanging, INotifyProperty
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NVarChar(4000)")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NText")]
 	public string Content
 	{
 		get

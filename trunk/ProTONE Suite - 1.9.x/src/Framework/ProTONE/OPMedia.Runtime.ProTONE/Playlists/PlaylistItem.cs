@@ -183,7 +183,35 @@ namespace OPMedia.Runtime.ProTONE.Playlists
             }
         }
 
-        public virtual Dictionary<string, string> MediaInfo
+        public Dictionary<string, string> MediaInfo
+        {
+            get
+            {
+                Dictionary<string, string> info = new Dictionary<string,string>();
+
+                const int maxLen = 90;
+
+                info.Add("TXT_FILENAME:", StringUtils.Limit(mi.Name, maxLen));
+                info.Add("TXT_FILE_TYPE:", mi.MediaType.ToUpperInvariant());
+
+                if (mi.ExtendedInfo != null && mi.ExtendedInfo.Count > 0)
+                {
+                    info.Add(" ", null); // separator
+                    foreach (KeyValuePair<string, string> kvp in mi.ExtendedInfo)
+                    {
+                        try
+                        {
+                            info.Add(kvp.Key, StringUtils.Limit(kvp.Value, maxLen));
+                        }
+                        catch { }
+                    }
+                }
+
+                return info;
+            }
+        }
+
+        protected virtual Dictionary<string, string> MediaInfoInternal
         {
             get
             {

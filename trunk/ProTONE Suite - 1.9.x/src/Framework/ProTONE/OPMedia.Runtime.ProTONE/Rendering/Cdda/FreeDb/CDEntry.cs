@@ -97,10 +97,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
         public static CDEntry LoadPersistentDisc(string discId)
         {
-            string xml = PersistenceProxy.ReadObject(discId, string.Empty);
+            string xml = PersistenceProxy.ReadObject("CDA:" + discId, string.Empty);
             if (!string.IsNullOrEmpty(xml))
             {
-                using (StringReader sr = new StringReader(xml))                
+                XmlReaderSettings settings = new XmlReaderSettings();
+                using (StringReader sr = new StringReader(xml))  
                 using (XmlReader xr = XmlReader.Create(sr))
                 {
                     XmlSerializer xs = new XmlSerializer(typeof(CDEntry));
@@ -114,13 +115,26 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
         public void PersistDisc()
         {
             StringBuilder xml = new StringBuilder();
-            using (XmlWriter xw = XmlWriter.Create(xml))
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.NewLineHandling = NewLineHandling.Entitize;
+            settings.OmitXmlDeclaration = true;
+            settings.NewLineChars = "\r\n";
+            settings.Indent = true;
+            settings.IndentChars = " ";
+            settings.ConformanceLevel = ConformanceLevel.Document;
+            settings.CloseOutput = true;
+            settings.NamespaceHandling = NamespaceHandling.OmitDuplicates;
+
+            using (XmlWriter xw = XmlWriter.Create(xml, settings))
             {
+                XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+                ns.Add("", "");
+                
                 XmlSerializer xs = new XmlSerializer(typeof(CDEntry));
-                xs.Serialize(xw, this);
+                xs.Serialize(xw, this, ns);
             }
 
-            PersistenceProxy.SaveObject(this.Discid, xml.ToString());
+            PersistenceProxy.SaveObject("CDA:" + this.Discid, xml.ToString());
         }
 
         public CDEntry(string discId) : this()

@@ -33,6 +33,7 @@ using OPMedia.UI.Controls.Dialogs;
 using OPMedia.UI.ProTONE.Properties;
 using OPMedia.Runtime.Processors;
 using System.Net;
+using OPMedia.Core.Utilities;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -871,7 +872,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                                 Image customImage = pli.MediaFileInfo.CustomImage;
 
-                                _ttm.ShowToolTip(pli.DisplayName, pli.MediaInfo, img, customImage);
+                                _ttm.ShowToolTip(StringUtils.Limit(pli.DisplayName, 60), pli.MediaInfo, img, customImage);
                                 set = true;
                             }
                         }
