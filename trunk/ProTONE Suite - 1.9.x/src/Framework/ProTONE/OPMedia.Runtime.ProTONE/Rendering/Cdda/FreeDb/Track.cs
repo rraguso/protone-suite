@@ -60,7 +60,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
             {
                 Artist = StringUtils.TakeValid(Artist, slave.Artist);
                 Title = StringUtils.TakeValid(Title, slave.Title);
-                Album = StringUtils.TakeValid(Title, slave.Album);
+                Album = StringUtils.TakeValid(Album, slave.Album);
                 Year = StringUtils.TakeValid(Year, slave.Year);
                 Genre = StringUtils.TakeValid(Genre, slave.Genre);
                 ExtendedData = StringUtils.TakeValid(ExtendedData, slave.ExtendedData);

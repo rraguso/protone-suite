@@ -133,11 +133,16 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     if (_cdEntry != null)
                     {
                         Track tr = _cdEntry.Tracks[_track - 1];
-                        return short.Parse(tr.Year);
+                        if (!string.IsNullOrEmpty(tr.Year))
+                        {
+                            return short.Parse(tr.Year);
+                        }
                     }
                 }
-                catch { }
-                return new Nullable<short>();
+                catch 
+                { 
+                }
+                return default(short?);
             }
         }
 

@@ -111,7 +111,7 @@ public partial class PersistedObjects : INotifyPropertyChanging, INotifyProperty
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NText")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NText", UpdateCheck=UpdateCheck.Never)]
 	public string Content
 	{
 		get
