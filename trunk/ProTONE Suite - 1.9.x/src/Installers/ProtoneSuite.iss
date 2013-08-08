@@ -93,7 +93,7 @@ Source: {#BINDIR}\OPMedia.UI.dll; DestDir: {app}; Flags: replacesameversion unin
 Source: {#BINDIR}\OPMedia.UI.ProTONE.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 
 Source: {#BINDIR}\OPMedia.PersistenceService.exe; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Persistence.sdf; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\Persistence.sdf; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace onlyifdoesntexist uninsneveruninstall
 
 Source: {#BINDIR}\Resources\player.ico; DestDir: {app}\Resources; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\Resources\bookmark.ico; DestDir: {app}\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
@@ -141,7 +141,7 @@ Source: {#BINDIR}\OPMedia.RCCManager.exe; DestDir: {app}; Flags: uninsremoveread
 Source: {#BINDIR}\IRSerDev.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 Source: {#BINDIR}\OPMedia.RCCService.exe; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 Source: {#BINDIR}\OPMedia.ServiceHelper.RCCService.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
-Source: {#BINDIR}\RCCService.Config; DestDir: {app}; Flags: uninsremovereadonly promptifolder touch uninsrestartdelete replacesameversion restartreplace onlyifdoesntexist; Permissions: users-modify; Components: itemPlayer\itemRemote; Languages: 
+Source: {#BINDIR}\RCCService.Config; DestDir: {app}; Flags: uninsremovereadonly promptifolder touch uninsrestartdelete replacesameversion restartreplace onlyifdoesntexist uninsneveruninstall; Permissions: users-modify; Components: itemPlayer\itemRemote; Languages: 
 
 Source: {#BINDIR}\Resources\ir_remote.ico; DestDir: {app}\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
