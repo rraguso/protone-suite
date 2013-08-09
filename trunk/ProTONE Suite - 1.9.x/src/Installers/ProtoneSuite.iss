@@ -198,6 +198,15 @@ Source: {#BINDIR}\Templates\RemoteControl\ProTONEOnSerial.Config; DestDir: {app}
 
 Source: {#EXTDIR}\OPMedia.MediaLibrary.Addons.config; DestDir: {localappdata}\OPMedia.MediaLibrary; Flags: confirmoverwrite onlyifdoesntexist; Permissions: users-modify; Components: itemPlayer\itemLibrary
 
+Source: {#EXTDIR}\SQLCE\sqlceca35.dll; DestDir: {app}
+Source: {#EXTDIR}\SQLCE\sqlcecompact35.dll; DestDir: {app}
+Source: {#EXTDIR}\SQLCE\sqlceer35EN.dll; DestDir: {app}
+Source: {#EXTDIR}\SQLCE\sqlceme35.dll; DestDir: {app}
+Source: {#EXTDIR}\SQLCE\sqlceoledb35.dll; DestDir: {app}
+Source: {#EXTDIR}\SQLCE\sqlceqp35.dll; DestDir: {app}
+Source: {#EXTDIR}\SQLCE\sqlcese35.dll; DestDir: {app}
+Source: {#EXTDIR}\SQLCE\System.Data.SqlServerCe.dll; DestDir: {app}
+
 [Icons]
 Name: {group}\{cm:UninstallProgram,ProTONE Suite}; Filename: {uninstallexe}
 Name: {group}\{cm:namePlayer}; Filename: {app}\OPMedia.ProTONE.exe; WorkingDir: {app}; IconFilename: {app}\Resources\player.ico; Comment: {cm:startPlayer}
