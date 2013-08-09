@@ -4,30 +4,51 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using OPMedia.Core.Logging;
-using OPMedia.Runtime.InterProcessCommunication;
 
-namespace OPMedia.Runtime.ProTONE.RemoteControl
+namespace OPMedia.Runtime.InterProcessCommunication
 {
-    public class RemoteControlProxy : IDisposable, IRemoteControl
+    [ServiceContract]
+    public interface IRemoteControl
+    {
+        [OperationContract]
+        string SendRequest(string request);
+    }
+
+    public delegate string OnSendRequestHandler(string request);
+
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
+    public class RemoteControlImpl : IRemoteControl
+    {
+        public event OnSendRequestHandler OnSendRequest = null;
+
+        [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.AfterCall)]
+        public string SendRequest(string request)
+        {
+            if (OnSendRequest != null)
+            {
+                return OnSendRequest(request);
+            }
+
+            return null;
+        }
+    }
+
+    public class IPCRemoteControlProxy : IDisposable, IRemoteControl
     {
         static IRemoteControl _proxy = null;
-        string _server, _appName;
-        int _port = 8080;
+        string _appName;
 
-        public RemoteControlProxy(string server, string appName, int port = 8080)
+        public IPCRemoteControlProxy(string appName)
         {
-            _server = server;
             _appName = appName;
-            _port = port;
-
             Open();
         }
 
         protected virtual void Open()
         {
-            string uri = string.Format("http://{0}:{1}/{2}/RemoteControl.svc", _server, _port, _appName);
+            string uri = string.Format("net.pipe://localhost/{0}/RemoteControl.svc", _appName);
 
-            var myBinding = new BasicHttpBinding();
+            var myBinding = new NetNamedPipeBinding();
             var myEndpoint = new EndpointAddress(uri);
             var myChannelFactory = new ChannelFactory<IRemoteControl>(myBinding, myEndpoint);
             _proxy = myChannelFactory.CreateChannel();
@@ -61,11 +82,11 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             return null;
         }
 
-        public static string SendRequest(string request, string server, string appName, int port = 8080)
+        public static string SendRequest(string appName, string request)
         {
             try
             {
-                using (RemoteControlProxy rcp = new RemoteControlProxy(server, appName, port))
+                using (IPCRemoteControlProxy rcp = new IPCRemoteControlProxy(appName))
                 {
                     return (rcp as IRemoteControl).SendRequest(request);
                 }
@@ -79,7 +100,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
         }
     }
 
-    public class RemoteControlHost
+    public class IPCRemoteControlHost : IDisposable
     {
         public event OnSendRequestHandler OnSendRequest = null;
 
@@ -87,19 +108,18 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
         RemoteControlImpl _remoteControl = null;
 
         string _appName;
-        int _port = 8080;
 
-        public RemoteControlHost(string appName, int port = 8080)
+        public IPCRemoteControlHost(string appName)
         {
             _appName = appName;
-            _port = port;
+            StartInternal();
         }
 
         public void StartInternal()
         {
-            string uri = string.Format("http://{0}:{1}/{2}/RemoteControl.svc", Environment.MachineName, _port, _appName);
+            string uri = string.Format("net.pipe://localhost/{0}/RemoteControl.svc", _appName);
 
-            BasicHttpBinding binding = new BasicHttpBinding();
+            NetNamedPipeBinding binding = new NetNamedPipeBinding();
 
             _remoteControl = new RemoteControlImpl();
             _remoteControl.OnSendRequest += new OnSendRequestHandler(_remoteControl_OnSendRequest);
@@ -127,6 +147,11 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             }
 
             return null;
+        }
+
+        public void Dispose()
+        {
+            StopInternal();
         }
     }
 }

@@ -10,6 +10,7 @@ using OPMedia.Runtime;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.Runtime.ProTONE;
 using OPMedia.Runtime.ProTONE.RemoteControl;
+using OPMedia.Runtime.InterProcessCommunication;
 
 namespace OPMedia.ServiceHelper.RCCService.InputPins
 {

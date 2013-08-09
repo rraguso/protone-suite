@@ -28,7 +28,7 @@ namespace OPMedia.Runtime.ProTONE
         const int MaxStartupAttempts = 20;
 
         #region Player commands
-        public static void SendPlayerCommand(BasicCommand command)
+        public static void SendPlayerCommand(BasicCommand command, bool useIpc = false)
         {
             ThreadPool.QueueUserWorkItem(c =>
                 {
@@ -53,14 +53,22 @@ namespace OPMedia.Runtime.ProTONE
 
                     //// If we came to this poin the player is running. 
                     //// Send the command (it should arrive to player).
-                    WmCopyDataSender.SendData(Constants.PlayerName, command.ToString());
+
+                    if (useIpc)
+                    {
+                        IPCRemoteControlProxy.SendRequest(Constants.PlayerName, command.ToString());
+                    }
+                    else
+                    {
+                        WmCopyDataSender.SendData(Constants.PlayerName, command.ToString());
+                    }
                 }
             );
         }
 
-        public static void SendPlayerCommand(CommandType cmdType, string[] args)
+        public static void SendPlayerCommand(CommandType cmdType, string[] args, bool useIpc = false)
         {
-            SendPlayerCommand(BasicCommand.Create(cmdType, args));
+            SendPlayerCommand(BasicCommand.Create(cmdType, args), useIpc);
         }
         #endregion
 

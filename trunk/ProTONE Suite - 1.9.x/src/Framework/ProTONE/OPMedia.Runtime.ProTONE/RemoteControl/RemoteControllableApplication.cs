@@ -16,7 +16,9 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
     public sealed class RemoteControllableApplication : SingleInstanceApplication
     {
         #region Members
-        private WmCopyDataReceiver _receiver = null;
+        private WmCopyDataReceiver _wcdReceiver = null;
+        private IPCRemoteControlHost _ipcReceiver = null;
+
         #endregion
 
         #region Methods
@@ -40,7 +42,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
 
         protected override void DoTerminate()
         {
-            _receiver = null;
+            _ipcReceiver = null;
             base.DoTerminate();
         }
         #endregion
@@ -48,14 +50,23 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
         #region Construction
         private RemoteControllableApplication(string appName)
         {
-            _receiver = new WmCopyDataReceiver(appName);
-            _receiver.DataReceived += new DataReceivedHandler(_receiver_DataReceived);
+            _wcdReceiver = new WmCopyDataReceiver(appName);
+            _wcdReceiver.DataReceived += new DataReceivedHandler(_wcdReceiver_DataReceived);
+
+            _ipcReceiver = new IPCRemoteControlHost(appName);
+            _ipcReceiver.OnSendRequest += new OnSendRequestHandler(_receiver_OnSendRequest);
         }
 
-        void _receiver_DataReceived(string data)
+        void _wcdReceiver_DataReceived(string data)
         {
             BasicCommand cmd = BasicCommand.Create(data);
             EventDispatch.DispatchEvent(BasicCommand.EventName, cmd);
+        }
+
+        string _receiver_OnSendRequest(string data)
+        {
+            _wcdReceiver_DataReceived(data);
+            return "ACK\r\n";
         }
         #endregion
     }

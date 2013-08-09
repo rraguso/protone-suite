@@ -49,7 +49,7 @@ namespace OPMedia.ServiceHelper.RCCService.OutputPins
                 BasicCommand cmd = BasicCommand.Create(request);
                 if (cmd != null)
                 {
-                    RemoteControlHelper.SendPlayerCommand(cmd);
+                    RemoteControlHelper.SendPlayerCommand(cmd, true);
                 }
             }
             catch (Exception ex)

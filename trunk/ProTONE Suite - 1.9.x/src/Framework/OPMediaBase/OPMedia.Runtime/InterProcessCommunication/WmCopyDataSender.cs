@@ -20,7 +20,7 @@ namespace OPMedia.Runtime.InterProcessCommunication
             IntPtr hWnd = User32.FindWindow(null, wndName);
             if (hWnd == IntPtr.Zero)
             {
-                Logger.LogTrace("WmCopyDataSender.SendData to {0}: {1} ... window not found: {3}", appName, data, wndName);
+                Logger.LogTrace("WmCopyDataSender.SendData to {0}: {1} ... window not found: {2}", appName, data, wndName);
                 return false;
             }
 
