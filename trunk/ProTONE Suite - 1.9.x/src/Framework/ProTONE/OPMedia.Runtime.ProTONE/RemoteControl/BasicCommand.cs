@@ -178,6 +178,29 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             return Create(type, null);
         }
 
+        public static bool RequiresArguments(CommandType type)
+        {
+            switch (type)
+            {
+                case CommandType.PlayFiles:
+                case CommandType.EnqueueFiles:
+                case CommandType.Playback:
+                case CommandType.BrowseRemoteFiles:
+                case CommandType.KeyPress:
+                    return true;
+
+                case CommandType.Activate:
+                case CommandType.Terminate:
+                case CommandType.GetDriveList:
+                case CommandType.QueryMediaRenderer:
+                    return false;
+
+              
+            }
+
+            return false;
+        }
+
         public static BasicCommand Create(CommandType type, params string[] args)
         {
             try
@@ -198,10 +221,10 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
                     case CommandType.BrowseRemoteFiles:
                         return new BrowseRemoteFilesCommand(args);
                     case CommandType.GetDriveList:
-                        return new GetDriveListCommand(args);
+                        return new GetDriveListCommand();
 
                     case CommandType.QueryMediaRenderer:
-                        return new QueryMediaRendererCommand(args);
+                        return new QueryMediaRendererCommand();
 
                     case CommandType.KeyPress:
                         return new KeyPressCommand(args);

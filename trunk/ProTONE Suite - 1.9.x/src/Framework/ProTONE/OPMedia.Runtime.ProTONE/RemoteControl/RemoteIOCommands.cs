@@ -44,8 +44,8 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
     [Serializable]
     public class GetDriveListCommand : BasicCommand
     {
-        public GetDriveListCommand(string[] args)
-            : base(CommandType.GetDriveList, args)
+        public GetDriveListCommand()
+            : base(CommandType.GetDriveList, null)
         {
             this.requiresAnswer = true;
         }
@@ -65,8 +65,8 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
     [Serializable]
     public class QueryMediaRendererCommand : BasicCommand
     {
-        public QueryMediaRendererCommand(string[] args)
-            : base(CommandType.QueryMediaRenderer, args)
+        public QueryMediaRendererCommand()
+            : base(CommandType.QueryMediaRenderer, null)
         {
             this.requiresAnswer = true;
         }

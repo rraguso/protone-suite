@@ -64,30 +64,42 @@ namespace OPMedia.Runtime.ProTONE
         #endregion
 
         #region Service Commands
-        public static void SendServiceCommand(string serverMachineName,
+        public static string SendServiceCommand(string serverMachineName,
             CommandType cmdType, string[] args)
         {
             try
             {
                 BasicCommand command = BasicCommand.Create(cmdType, args);
-                SendServiceData(serverMachineName, command.ToString());
+                return SendServiceData(serverMachineName, command.ToString());
             }
             catch (Exception ex)
             {
                 Logger.LogException(ex);
             }
+
+            return "NAK\r\n";
         }
 
-        public static void SendServiceData(string serverMachineName, string data)
+        public static string SendServiceData(string serverMachineName, string data)
         {
             try
             {
-                RemoteControlProxy.SendRequest(data, serverMachineName, Constants.RCCServiceShortName, CommandTargetPort.RccService);
+                string res = RemoteControlProxy.SendRequest(data, serverMachineName, Constants.RCCServiceShortName, 
+                    CommandTargetPort.RccService);
+
+                if (string.IsNullOrEmpty(res))
+                {
+                    return "NAK\r\n";
+                }
+
+                return res;
             }
             catch (Exception ex)
             {
                 Logger.LogException(ex);
             }
+
+            return "NAK\r\n";
         }
         #endregion
 
