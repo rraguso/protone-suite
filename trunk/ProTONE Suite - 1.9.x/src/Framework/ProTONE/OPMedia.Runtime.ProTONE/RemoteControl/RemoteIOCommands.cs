@@ -4,7 +4,6 @@ using System.Text;
 using System.IO;
 using OPMedia.Runtime.ProTONE.RemoteControl;
 using OPMedia.Runtime.ProTONE.Rendering;
-using OPMedia.Runtime.Remoting;
 using System.Windows.Forms;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
@@ -26,7 +25,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             this.requiresAnswer = true;
         }
 
-        public SerializableObject Execute()
+        public string Execute()
         {
             StringBuilder ans = new StringBuilder();
             ans.AppendLine("ACK");
@@ -38,7 +37,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             {
                 ans.AppendLine(string.Format("[FIL] {0}", file));
             }
-            return new RemoteString(ans.ToString());
+            return ans.ToString();
         }
     }
 
@@ -51,7 +50,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             this.requiresAnswer = true;
         }
 
-        public SerializableObject Execute()
+        public string Execute()
         {
             StringBuilder ans = new StringBuilder();
             ans.AppendLine("ACK");
@@ -59,7 +58,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             {
                 ans.AppendLine(string.Format("[DRV] {0}", drive));
             }
-            return new RemoteString(ans.ToString());
+            return ans.ToString();
         }
     }
 
@@ -72,9 +71,9 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             this.requiresAnswer = true;
         }
 
-        public SerializableObject Execute()
+        public string Execute()
         {
-            return new RemoteString("ACK\r\n" + MediaRenderer.DefaultInstance.GetStateDescription());
+            return "ACK\r\n" + MediaRenderer.DefaultInstance.GetStateDescription();
         }
     }
 
@@ -92,17 +91,17 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             }
         }
 
-        public SerializableObject Execute()
+        public string Execute()
         {
             try
             {
                 SendKeys.SendWait(key);
-            return new RemoteString("ACK\r\n");
+                return "ACK\r\n";
             }
             catch (Exception ex)
             {
                 Logger.LogException(ex);
-                return new RemoteString("NAK\r\n");
+                return "NAK\r\n";
             }
         }
     }

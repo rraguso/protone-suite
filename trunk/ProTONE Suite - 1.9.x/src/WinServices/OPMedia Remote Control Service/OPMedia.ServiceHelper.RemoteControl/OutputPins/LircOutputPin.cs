@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using OPMedia.Runtime.Remoting;
+
 using OPMedia.UI;
 using System.Windows.Forms;
 using OPMedia.UI.ProTONE;
@@ -405,28 +405,21 @@ namespace OPMedia.ServiceHelper.RCCService.OutputPins
             }
         }
 
-        protected override void SendRequestInternal(SerializableObject request)
+        protected override void SendRequestInternal(string request)
         {
-            if (request is RemoteString)
+            if (!_acceptThreadStopEvt.WaitOne(50))
             {
-                // Send message to all connected clients
-
-                string data = (request as RemoteString).Value;
-
-                if (!_acceptThreadStopEvt.WaitOne(50))
+                foreach(LircClient client in _clients)
                 {
-                    foreach(LircClient client in _clients)
+                    if (_acceptThreadStopEvt.WaitOne(50))
+                        break;
+
+                    if (client != null && !client.Inactive)
                     {
-                        if (_acceptThreadStopEvt.WaitOne(50))
-                            break;
+                        Logger.LogInfo("LircOutputPin: Sending to address {0}, message: {1}",
+                            client.RemoteEPAddress, request);
 
-                        if (client != null && !client.Inactive)
-                        {
-                            Logger.LogInfo("LircOutputPin: Sending to address {0}, message: {1}",
-                                client.RemoteEPAddress, (request as RemoteString));
-
-                            client.SendMessage(data);
-                        }
+                        client.SendMessage(request);
                     }
                 }
             }

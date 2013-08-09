@@ -5,7 +5,6 @@ using System.Text;
 using System.ServiceModel;
 using System.Transactions;
 using OPMedia.Core;
-using OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb;
 using OPMedia.Core.Logging;
 
 namespace OPMedia.PersistenceService

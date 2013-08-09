@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.ServiceHelper.RCCService;
-using OPMedia.Runtime.Remoting;
+
 using OPMedia.UI.Themes;
 using OPMedia.UI.Dialogs;
 
@@ -15,10 +15,8 @@ namespace OPMedia.RCCManager.InputData
     public partial class InputDataDetector : GenericWaitDialog
     {
         InputPinProbe _inputPinWatcher = null;
-        SerializableObject _detectedData = null;
 
-        public SerializableObject DetectedData
-        { get { return _detectedData; } }
+        public string DetectedData { get; private set; }
         
         public InputDataDetector(string inputPinName, string inputPinCfgData) : base()
         {
@@ -41,12 +39,11 @@ namespace OPMedia.RCCManager.InputData
             _inputPinWatcher = null;
         }
 
-        void _inputPinWatcher_InputPinData(InputPin origin, SerializableObject request)
+        void _inputPinWatcher_InputPinData(InputPin origin, string request)
         {
-            RemoteString str = request as RemoteString;
-            if (str != null)
+            if (request != null)
             {
-                _detectedData = request;
+                this.DetectedData = request;
                 DialogResult = DialogResult.OK;
                 Close();
             }

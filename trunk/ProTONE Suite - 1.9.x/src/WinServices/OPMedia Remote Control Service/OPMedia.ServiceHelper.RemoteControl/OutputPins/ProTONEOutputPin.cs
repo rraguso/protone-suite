@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using OPMedia.Runtime.Remoting;
+
 using OPMedia.Core;
 using System.Security.Principal;
 using OPMedia.Core.Logging;
@@ -42,21 +42,11 @@ namespace OPMedia.ServiceHelper.RCCService.OutputPins
         {
         }
 
-        protected override void SendRequestInternal(SerializableObject request)
+        protected override void SendRequestInternal(string request)
         {
             try
             {
-                BasicCommand cmd = null;
-
-                if (request is BasicCommand)
-                {
-                    cmd = request as BasicCommand;
-                }
-                else if (request is RemoteString)
-                {
-                    cmd = BasicCommand.Create((request as RemoteString).Value);
-                }
-
+                BasicCommand cmd = BasicCommand.Create(request);
                 if (cmd != null)
                 {
                     RemoteControlHelper.SendPlayerCommand(cmd);

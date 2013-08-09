@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using OPMedia.Core.ApplicationSettings;
-using OPMedia.Runtime.Remoting;
 using OPMedia.Core.Logging;
 using OPMedia.Core.Utilities;
 using OPMedia.Core.GlobalEvents;
@@ -92,7 +91,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
     }
 
     [Serializable]
-    public abstract class BasicCommand : SerializableObject
+    public abstract class BasicCommand
     {
         public const string EventName = "BasicCommand";
         public const char FieldSeparator = '?';

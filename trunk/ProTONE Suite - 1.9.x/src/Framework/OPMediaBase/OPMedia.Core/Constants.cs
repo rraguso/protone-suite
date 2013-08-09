@@ -44,12 +44,6 @@ namespace OPMedia.Core
         public const string CatalogFileTypeDesc =   "OPMedia Catalog File (.CTX)";
         public const string BookmarkFileTypeDesc =  "OPMedia Bookmark File (.BMK)";
 
-        // These are Unregistered ports according to IANA
-        public const int PlayerUdpListeningPort = 10201;
-        public const int RCCServiceRemotingPort = 10203;
-        public const int MediaHostUdpListeningPort = 10202;
-
-        public const int PersistenceServicePort = 10204;
 
         public const bool SecureRemotingChannels = false;
 

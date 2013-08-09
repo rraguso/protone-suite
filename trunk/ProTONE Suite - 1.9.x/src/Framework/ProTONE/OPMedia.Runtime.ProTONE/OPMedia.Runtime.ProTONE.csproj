@@ -97,6 +97,7 @@
     <Compile Include="RemoteControl\MediaCommands.cs" />
     <Compile Include="RemoteControl\RemoteIOCommands.cs" />
     <Compile Include="RemoteControl\ShutdownCommand.cs" />
+    <Compile Include="RemoteControl\WcfCommunication.cs" />
     <Compile Include="Rendering\Base\BaseTypes.cs" />
     <Compile Include="Rendering\Base\RenderingException.cs" />
     <Compile Include="Rendering\Base\Types.cs" />

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using OPMedia.ServiceHelper.RCCService.OutputPins;
 using OPMedia.ServiceHelper.RCCService.InputPins;
-using OPMedia.Runtime.Remoting;
+
 using System.Configuration;
 
 namespace OPMedia.ServiceHelper.RCCService
@@ -131,11 +131,11 @@ namespace OPMedia.ServiceHelper.RCCService
             return data;
         }
 
-        public void SendRequest(SerializableObject request)
+        public void SendRequest(string request)
         {
             SendRequestInternal(request);
         }
 
-        protected abstract void SendRequestInternal(SerializableObject request);
+        protected abstract void SendRequestInternal(string request);
     }
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -51,7 +51,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -63,23 +63,6 @@
     <Compile Include="InterProcessCommunication\WmCopyDataReceiver.cs" />
     <Compile Include="ListWithEvents.cs" />
     <Compile Include="Processors\BackgroundRetriever.cs" />
-    <Compile Include="Remoting\Http\RemoteClientHttp.cs" />
-    <Compile Include="Remoting\Http\RemoteServiceHttp.cs" />
-    <Compile Include="Remoting\RemoteClient.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Remoting\RemoteObject.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Remoting\RemoteService.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Remoting\Tcp\RemoteClientTcp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Remoting\Tcp\RemoteServiceTcp.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Shortcuts\ShortcutMapper.cs" />
     <Compile Include="Processors\QueuedProcessor.cs" />
     <Compile Include="ProgramStartupInfo.cs" />
@@ -126,6 +109,7 @@
       <Name>OPMedia.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Threading;
 using OPMedia.Core.Logging;
 using OPMedia.Core;
-using OPMedia.Runtime.Remoting;
+
 using OPMedia.Runtime.ServiceHelpers;
 using System.Windows.Forms;
 using OPMedia.UI;
@@ -144,7 +144,7 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
         {
             if (counter != long.MaxValue)
             {
-                RemoteControlServiceMux.Instance.ProcessRequest(this, new RemoteString(counter.ToString("x")));
+                RemoteControlServiceMux.Instance.ProcessRequest(this, counter.ToString("x"));
             }
         }
     }

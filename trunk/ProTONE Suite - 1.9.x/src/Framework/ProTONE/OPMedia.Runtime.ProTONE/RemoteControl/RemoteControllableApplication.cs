@@ -5,8 +5,6 @@ using System.Threading;
 using OPMedia.Core.Logging;
 using System.Reflection;
 using OPMedia.Runtime.ProTONE.RemoteControl;
-using OPMedia.Runtime.Remoting;
-using System.Runtime.Remoting;
 using OPMedia.Core.InstanceManagement;
 //using OPMedia.Runtime.UdpCommunication;
 using OPMedia.Core;

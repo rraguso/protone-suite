@@ -6,7 +6,7 @@ using OPMedia.Core.Logging;
 using OPMedia.ServiceHelper.RCCService.InputPins;
 using OPMedia.ServiceHelper.RCCService.OutputPins;
 using System.Diagnostics;
-using OPMedia.Runtime.Remoting;
+
 using System.IO;
 using OPMedia.Runtime.ServiceHelpers;
 using OPMedia.Runtime.ProTONE.ServiceHelpers;
@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace OPMedia.ServiceHelper.RCCService
 {
-    public delegate void InputPinProbeHandler(InputPin origin, SerializableObject request);
+    public delegate void InputPinProbeHandler(InputPin origin, string request);
 
     public class RemoteControlServiceMux
     {
@@ -199,10 +199,10 @@ namespace OPMedia.ServiceHelper.RCCService
             _outputPins.Clear();
         }
 
-        public void ProcessRequest(InputPin origin, SerializableObject request)
+        public void ProcessRequest(InputPin origin, string request)
         {
             string originName = origin.GetType().Name;
-            Logger.LogInfo("Received a remote control command from {0} ... message = {1}", originName, request.ToString());
+            Logger.LogInfo("Received a remote control command from {0} ... message = {1}", originName, request);
 
             if (_trainMode)
             {
@@ -242,9 +242,9 @@ namespace OPMedia.ServiceHelper.RCCService
                             if (destination != null)
                             {
                                 string destName = destination.GetType().Name;
-                                SerializableObject translatedRequest = TranslateToOutputPinFormat(row.RemoteName, request);
+                                string translatedRequest = TranslateToOutputPinFormat(row.RemoteName, request);
 
-                                if (translatedRequest != null)
+                                if (!string.IsNullOrEmpty(translatedRequest))
                                 {
                                     Logger.LogInfo("Sending message {0} to {1} as result of message {2} from {3}",
                                         translatedRequest.ToString(), row.OutputPinName,
@@ -272,14 +272,14 @@ namespace OPMedia.ServiceHelper.RCCService
             Logger.LogInfo("There is no valid output pin connected to input pin {0}. Check the service configuration ...", originName);
         }
 
-        private SerializableObject TranslateFromOutputPinFormat(string remoteName, SerializableObject response)
+        private string TranslateFromOutputPinFormat(string remoteName, string response)
         {
             return response;
         }
 
-        private SerializableObject TranslateToOutputPinFormat(string remoteName, SerializableObject request)
+        private string TranslateToOutputPinFormat(string remoteName, string request)
         {
-            SerializableObject trans = null;
+            string trans = string.Empty;
 
             RCCServiceConfig.RemoteControlRow remote = _config.RemoteControl.FindByRemoteName(remoteName);
 
@@ -304,8 +304,7 @@ namespace OPMedia.ServiceHelper.RCCService
                         Pin p = Pin.FindPinByName(remote.OutputPinName);
                         if (p != null && p is OutputPin)
                         {
-                            string data = (p as OutputPin).TranslateToOutputPinFormat(request.ToString(), btn);
-                            trans = new RemoteString(data);
+                            trans = (p as OutputPin).TranslateToOutputPinFormat(request.ToString(), btn);
                         }
                     }
                     else
@@ -337,7 +336,7 @@ namespace OPMedia.ServiceHelper.RCCService
             return trans;
         }
 
-        private void RaiseInputPinDataEvent(InputPin origin, SerializableObject request)
+        private void RaiseInputPinDataEvent(InputPin origin, string request)
         {
             if (InputPinProbeData != null)
             {

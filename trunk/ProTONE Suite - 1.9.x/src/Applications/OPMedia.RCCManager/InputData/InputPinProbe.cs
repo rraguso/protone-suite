@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using OPMedia.ServiceHelper.RCCService;
-using OPMedia.Runtime.Remoting;
+
 
 namespace OPMedia.RCCManager.InputData
 {
@@ -29,7 +29,7 @@ namespace OPMedia.RCCManager.InputData
             RemoteControlServiceMux.Instance.Stop();
         }
 
-        void OnInputPinProbeData(InputPin origin, SerializableObject request)
+        void OnInputPinProbeData(InputPin origin, string request)
         {
             if (origin.GetType().Name == _inputPinName && InputPinData != null)
             {
