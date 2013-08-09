@@ -219,8 +219,8 @@ namespace OPMedia.Core.Utilities
                 catch { }
             }
 
-            _knownFileTypes.Add("BMK", KnownFileType.Bookmark);
-            _knownFileTypes.Add("CTX", KnownFileType.Catalog);
+            _knownFileTypes.Add("bmk", KnownFileType.Bookmark);
+            _knownFileTypes.Add("ctx", KnownFileType.Catalog);
         }
 
         #region File registration API
@@ -232,8 +232,8 @@ namespace OPMedia.Core.Utilities
                 RegisterFileType(s, true);
             }
 
-            RegisterFileType("BMK", true);
-            RegisterFileType("CTX", true);
+            RegisterFileType("bmk", true);
+            RegisterFileType("ctx", true);
         }
 
         public static void UnregisterKnownFileTypes()
@@ -243,8 +243,8 @@ namespace OPMedia.Core.Utilities
                 UnregisterFileType(s, true);
             }
 
-            UnregisterFileType("BMK", true);
-            UnregisterFileType("CTX", true);
+            UnregisterFileType("bmk", true);
+            UnregisterFileType("ctx", true);
         }
 
         public static void RegisterFileType(string fileType, bool regMediaType)
@@ -260,7 +260,7 @@ namespace OPMedia.Core.Utilities
                     {
                         if (mediaTypeKey != null)
                         {
-                            mediaTypeKey.SetValue("", info.Description);
+                            mediaTypeKey.SetValue("", info.MediaType);
                         }
 
                         // ==== Register icon ====

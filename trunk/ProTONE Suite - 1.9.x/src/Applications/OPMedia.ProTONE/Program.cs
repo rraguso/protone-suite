@@ -41,9 +41,6 @@ namespace OPMedia.ProTONE
         [STAThread]
         static void Main()
         {
-            Color c = System.Drawing.Color.Empty;
-            Color c1 = Color.FromArgb(0, 0, 0, 0);
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
