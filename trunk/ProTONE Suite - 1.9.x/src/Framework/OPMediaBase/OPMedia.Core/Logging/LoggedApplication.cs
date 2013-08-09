@@ -84,7 +84,7 @@ namespace OPMedia.Core.Logging
         protected virtual void RegisterAppMutex(string appName)
         {
             bool isNew = false;
-            _appMutex = new Mutex(false, _appMutexName, out isNew);
+            _appMutex = new Mutex(false, "GLOBAL\\" + _appMutexName, out isNew);
         }
 
         private void InstallApplicationEventHandlers()

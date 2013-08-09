@@ -54,7 +54,8 @@ namespace OPMedia.Runtime.ProTONE
                     //// If we came to this poin the player is running. 
                     //// Send the command (it should arrive to player).
                     WmCopyDataSender.SendData(Constants.PlayerName, command.ToString());
-                });
+                }
+            );
         }
 
         public static void SendPlayerCommand(CommandType cmdType, string[] args)
@@ -139,7 +140,7 @@ namespace OPMedia.Runtime.ProTONE
             string mutexName = Constants.PlayerName.Replace(" ", "").ToLowerInvariant() + @".mutex"; 
             try
             {
-                using (Mutex m = Mutex.OpenExisting(mutexName, MutexRights.ReadPermissions))
+                using (Mutex m = Mutex.OpenExisting("GLOBAL\\" + mutexName, MutexRights.ReadPermissions))
                 {
                 }
                 return true;
@@ -155,7 +156,7 @@ namespace OPMedia.Runtime.ProTONE
         //    string mutexName = Constants.MediaHostName.Replace(" ", "").ToLowerInvariant() + @".mutex";
         //    try
         //    {
-        //        using (Mutex m = Mutex.OpenExisting(mutexName, MutexRights.ReadPermissions))
+        //        using (Mutex m = Mutex.OpenExisting("GLOBAL\\" + mutexName, MutexRights.ReadPermissions))
         //        {
         //        }
         //        return true;
