@@ -26,7 +26,7 @@ namespace OPMedia.Services.RCCService
         {
             if (Environment.UserInteractive)
             {
-                //Debug.Listeners.Add(new ConsoleTraceListener(false));
+                Debug.Listeners.Add(new ConsoleTraceListener(false));
 
                 // Start as stand-alone app
                 new RemoteControlWinService().RunStandAlone(Environment.GetCommandLineArgs());

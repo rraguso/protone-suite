@@ -32,35 +32,45 @@ namespace OPMedia.Runtime.ProTONE
         {
             ThreadPool.QueueUserWorkItem(c =>
                 {
-                    // See if player is started; if not - start it
                     int i = 0;
-                    while ((!IsPlayerRunning() && i < MaxStartupAttempts))
-                    {
-                        Process.Start(SuiteConfiguration.PlayerInstallationPath);
-                        i++;
 
-                        Thread.Sleep(1000);
+                    if (!useIpc)
+                    {
+                        // See if player is started; if not - start it
+                        while ((!IsPlayerRunning() && i < MaxStartupAttempts))
+                        {
+                            Process.Start(SuiteConfiguration.PlayerInstallationPath);
+                            i++;
+                            Thread.Sleep(1000);
+                        }
                     }
 
-                    if (i >= MaxStartupAttempts && !IsPlayerRunning())
+                    if (IsPlayerRunning())
                     {
-                        Logger.LogError("Could not send command because the player could not be launched from path: {0}",
-                            SuiteConfiguration.PlayerInstallationPath);
-                        return;
-                    }
+                        Thread.Sleep(400);
 
-                    Thread.Sleep(400);
-
-                    //// If we came to this poin the player is running. 
-                    //// Send the command (it should arrive to player).
-
-                    if (useIpc)
-                    {
-                        IPCRemoteControlProxy.SendRequest(Constants.PlayerName, command.ToString());
+                        //// If we came to this poin the player is running. 
+                        //// Send the command (it should arrive to player).
+                        if (useIpc)
+                        {
+                            IPCRemoteControlProxy.SendRequest(Constants.PlayerName, command.ToString());
+                        }
+                        else
+                        {
+                            WmCopyDataSender.SendData(Constants.PlayerName, command.ToString());
+                        }
                     }
                     else
                     {
-                        WmCopyDataSender.SendData(Constants.PlayerName, command.ToString());
+                        if (useIpc)
+                        {
+                            Logger.LogError("Could not send command because the player is not running.");
+                        }
+                        else
+                        {
+                            Logger.LogError("Could not send command because the player could not be launched from path: {0}",
+                                SuiteConfiguration.PlayerInstallationPath);
+                        }
                     }
                 }
             );

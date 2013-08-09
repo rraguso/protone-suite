@@ -43,6 +43,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
         protected override void DoTerminate()
         {
             _ipcReceiver = null;
+            _wcdReceiver = null;
             base.DoTerminate();
         }
         #endregion
