@@ -56,7 +56,7 @@ namespace OPMedia.Core.InstanceManagement
 
             try
             {
-                using (Mutex m = Mutex.OpenExisting("GLOBAL\\" + _appMutexName, MutexRights.ReadPermissions))
+                using (Mutex m = Mutex.OpenExisting("Global\\" + _appMutexName, MutexRights.ReadPermissions))
                 {
                 }
 
@@ -78,7 +78,7 @@ namespace OPMedia.Core.InstanceManagement
 
             if (isPrimaryInstance)
             {
-                _appMutex = new Mutex(true, "GLOBAL\\" + _appMutexName);
+                _appMutex = new Mutex(true, "Global\\" + _appMutexName);
             }
             else
             {

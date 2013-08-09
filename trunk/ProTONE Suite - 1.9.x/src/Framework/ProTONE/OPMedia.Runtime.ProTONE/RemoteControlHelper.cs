@@ -140,7 +140,7 @@ namespace OPMedia.Runtime.ProTONE
             string mutexName = Constants.PlayerName.Replace(" ", "").ToLowerInvariant() + @".mutex"; 
             try
             {
-                using (Mutex m = Mutex.OpenExisting("GLOBAL\\" + mutexName, MutexRights.ReadPermissions))
+                using (Mutex m = Mutex.OpenExisting("Global\\" + mutexName, MutexRights.ReadPermissions))
                 {
                 }
                 return true;
@@ -156,7 +156,7 @@ namespace OPMedia.Runtime.ProTONE
         //    string mutexName = Constants.MediaHostName.Replace(" ", "").ToLowerInvariant() + @".mutex";
         //    try
         //    {
-        //        using (Mutex m = Mutex.OpenExisting("GLOBAL\\" + mutexName, MutexRights.ReadPermissions))
+        //        using (Mutex m = Mutex.OpenExisting("Global\\" + mutexName, MutexRights.ReadPermissions))
         //        {
         //        }
         //        return true;
