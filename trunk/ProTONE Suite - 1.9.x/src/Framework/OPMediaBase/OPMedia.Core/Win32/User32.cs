@@ -354,7 +354,7 @@ namespace OPMedia.Core
         
         WM_REFLECT = WM_USER + 0x1c00,
 
-        WM_GRAPH_EVENT = WM_APP + 1,	// message from filter graph
+        WM_GRAPH_EVENT = 0x0400 + 13,	// message from filter graph
 
         SC_CLOSE = 0xF060,
  

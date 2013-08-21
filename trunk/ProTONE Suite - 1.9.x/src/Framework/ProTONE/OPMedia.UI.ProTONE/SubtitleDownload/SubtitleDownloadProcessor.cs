@@ -65,7 +65,7 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
             finally
             {
                 // This is for enforcing playlist refresh
-                EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames);
+                EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames, false);
             }
         }
 
@@ -186,7 +186,7 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
                         __filesInProgress.Add(movieFilePath.ToLowerInvariant());
 
                         // This is for enforcing playlist refresh
-                        EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames);
+                        EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames, false);
                     }
 
                     Logger.LogTrace("A subtitle was not found for this movie. Attempting to download one ...");
@@ -270,7 +270,7 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
                             __filesInProgress.Remove(movieFilePath.ToLowerInvariant());
 
                             // This is for enforcing playlist refresh
-                            EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames);
+                            EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames, false);
                         }
                     }
                 }
@@ -278,14 +278,14 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
             finally
             {
                 // This is for enforcing playlist refresh
-                EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames);
+                EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames, false);
             }
         }
 
         static void dlg_SubtitleDownloadNotify(string movieFile, string subtitleFile)
         {
             // This is for enforcing playlist refresh
-            EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames);
+            EventDispatch.DispatchEvent(LocalEvents.UpdatePlaylistNames, false);
 
             SetCurrentSubtitle(movieFile, string.Empty);
             SetCurrentSubtitle(movieFile, subtitleFile);

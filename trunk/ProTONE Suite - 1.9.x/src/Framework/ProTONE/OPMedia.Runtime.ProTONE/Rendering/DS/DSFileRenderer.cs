@@ -124,7 +124,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if ((mediaControl as IGraphBuilder) == null)
                 throw new RenderingException("Unable to render the file: " + renderMediaName);
 
-            (mediaControl as IGraphBuilder).RenderFile(renderMediaName, string.Empty);
+            (mediaControl as IGraphBuilder).RenderFile(renderMediaName, null);
             mediaPosition = mediaControl as IMediaPosition;
             videoWindow = mediaControl as IVideoWindow;
             basicVideo = mediaControl as IBasicVideo;
