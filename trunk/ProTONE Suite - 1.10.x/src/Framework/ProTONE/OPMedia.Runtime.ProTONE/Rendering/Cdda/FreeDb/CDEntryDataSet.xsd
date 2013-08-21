@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CDEntryDataSet" targetNamespace="http://tempuri.org/CDEntryDataSet.xsd" xmlns:mstns="http://tempuri.org/CDEntryDataSet.xsd" xmlns="http://tempuri.org/CDEntryDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CDEntryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CDEntryDataSet" msprop:Generator_UserDSName="CDEntryDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CD" msprop:Generator_TableClassName="CDDataTable" msprop:Generator_TableVarName="tableCD" msprop:Generator_TablePropName="CD" msprop:Generator_RowDeletingName="CDRowDeleting" msprop:Generator_UserTableName="CD" msprop:Generator_RowChangingName="CDRowChanging" msprop:Generator_RowEvHandlerName="CDRowChangeEventHandler" msprop:Generator_RowDeletedName="CDRowDeleted" msprop:Generator_RowEvArgName="CDRowChangeEvent" msprop:Generator_RowChangedName="CDRowChanged" msprop:Generator_RowClassName="CDRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Discid" msprop:Generator_ColumnVarNameInTable="columnDiscid" msprop:Generator_ColumnPropNameInRow="Discid" msprop:Generator_ColumnPropNameInTable="DiscidColumn" msprop:Generator_UserColumnName="Discid" type="xs:string" />
+              <xs:element name="TrackIndex" msprop:Generator_ColumnVarNameInTable="columnTrackIndex" msprop:Generator_ColumnPropNameInRow="TrackIndex" msprop:Generator_ColumnPropNameInTable="TrackIndexColumn" msprop:Generator_UserColumnName="TrackIndex" type="xs:string" />
+              <xs:element name="Artist" msdata:Caption="DataColumn1" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Artist" msprop:Generator_ColumnVarNameInTable="columnArtist" msprop:Generator_ColumnPropNameInTable="ArtistColumn" msprop:Generator_UserColumnName="Artist" type="xs:string" minOccurs="0" />
+              <xs:element name="Album" msdata:Caption="DataColumn2" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Album" msprop:Generator_ColumnVarNameInTable="columnAlbum" msprop:Generator_ColumnPropNameInTable="AlbumColumn" msprop:Generator_UserColumnName="Album" type="xs:string" minOccurs="0" />
+              <xs:element name="Title" msdata:Caption="DataColumn1" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" type="xs:string" minOccurs="0" />
+              <xs:element name="Year" msdata:Caption="DataColumn2" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:string" minOccurs="0" />
+              <xs:element name="Genre" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Genre" msprop:Generator_ColumnVarNameInTable="columnGenre" msprop:Generator_ColumnPropNameInTable="GenreColumn" msprop:Generator_UserColumnName="Genre" type="xs:string" minOccurs="0" />
+              <xs:element name="ExtendedData" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ExtendedData" msprop:Generator_ColumnVarNameInTable="columnExtendedData" msprop:Generator_ColumnPropNameInTable="ExtendedDataColumn" msprop:Generator_UserColumnName="ExtendedData" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CD" />
+      <xs:field xpath="mstns:Discid" />
+      <xs:field xpath="mstns:TrackIndex" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

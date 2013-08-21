@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ABORTED">
+  <value>Scan aborted.</value>
+</data>
+<data name="TXT_ADDON_FE_SETTINGS">
+  <value>File Browser</value>
+</data>
+<data name="TXT_ADDON_MC_SETTINGS">
+  <value>Catalog Browser</value>
+</data>
+<data name="TXT_ARTWORK_COUNT">
+  <value>{0} artwork image(s) (click to edit).</value>
+</data>
+<data name="TXT_ATTRIBUTESEARCH">
+  <value>Filter results by file attributes</value>
+</data>
+<data name="TXT_BOOKMARK_COUNT">
+  <value>{0} bookmark(s) (click to edit).</value>
+</data>
+<data name="TXT_CAPITALIZEWORDS">
+  <value>Capitalize All Words</value>
+</data>
+<data name="TXT_CASEINSENSITIVESEARCH">
+  <value>Ignore Case</value>
+</data>
+<data name="TXT_CATALOG">
+  <value>Catalog Wizard</value>
+</data>
+<data name="TXT_CATALOGPATH">
+  <value>Imported items will be added to the catalog file under path: {0}</value>
+</data>
+<data name="TXT_CATALOGSCHEMAVERSION">
+  <value>Catalog schema version</value>
+</data>
+<data name="TXT_CATALOG_FILTER">
+  <value>Media catalog files (*.ctx)|*.ctx||</value>
+</data>
+<data name="TXT_CMDCATALOGMERGE">
+  <value>Merge catalogs</value>
+</data>
+<data name="TXT_CMDCATALOGWIZARD">
+  <value>Launch Catalog Import wizard</value>
+</data>
+<data name="TXT_CMDCHANGEDISK">
+  <value>Change logical disk</value>
+</data>
+<data name="TXT_CMDID3WIZARD">
+  <value>Launch ID3 Wizard</value>
+</data>
+<data name="TXT_CMDNAVIGATEBACK">
+  <value>Navigate back</value>
+</data>
+<data name="TXT_CMDNAVIGATEFORWARD">
+  <value>Navigate forward</value>
+</data>
+<data name="TXT_CMDNAVIGATEUP">
+  <value>Go to parent folder</value>
+</data>
+<data name="TXT_DRIVES">
+  <value>Change disk drive</value>
+</data>
+<data name="TXT_ENTRY_DESC">
+  <value>Specify a description for the entry to be added:</value>
+</data>
+<data name="TXT_ERROR_INVALID_CATALOG">
+  <value>This file does not represent a valid Media Catalog:&#xD;&#xD;&#xD;
+{0}</value>
+</data>
+<data name="TXT_ERROR_MERGE_SAME_CATALOG">
+  <value>You cannot merge a catalog into itself: &#xD;&#xD;&#xD;
+{0}</value>
+</data>
+<data name="TXT_ERR_MERGE_FAILED">
+  <value>Merge catalogs have failed. Details:&#xD;&#xD;&#xD;
+{0}</value>
+</data>
+<data name="TXT_FILENAMEPATTERN">
+  <value>File name pattern:</value>
+</data>
+<data name="TXT_FOLDERNAMEPATTERN">
+  <value>Folder name pattern:</value>
+</data>
+<data name="TXT_FSTAGEDITOR">
+  <value>Fill ID3 Infos using file/folder name</value>
+</data>
+<data name="TXT_GROUP_BMKWITHMEDIA">
+  <value>Link media files to bookmark files&#xD;(Hover with the mouse upon this text to show an explanatory tooltip)</value>
+</data>
+<data name="TXT_GROUP_BMKWITHMEDIA_DESC">
+  <value>Bookmark files (BMK) contain information about particular moments in a media file. It is very &#xD;&#xD;
+important that BMK files are located near the related media files (also called 'parent files').  &#xD;&#xD;
+&#xD;&#xD;
+If you ckeck this box, the File Browser will always consider that a media file and its related &#xD;&#xD;
+bookmark file represent a single entity. This means that a copy, rename, move or delete operation &#xD;&#xD;
+issued from the File Browser on one of these files automatically propagates to the other file too.  &#xD;&#xD;
+&#xD;&#xD;
+Keep this box unchecked if you want to consider them as different entities and handle them in &#xD;&#xD;
+the Windows Explorer style.</value>
+</data>
+<data name="TXT_ID3FILESFILTER">
+  <value>MPEG Audio files (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
+</data>
+<data name="TXT_ID3WIZARD">
+  <value>ID3 Wizard </value>
+</data>
+<data name="TXT_IMPORTWIZARD">
+  <value>Import Wizard </value>
+</data>
+<data name="TXT_INIT_SEARCH">
+  <value>The search process is initializing, please wait ...</value>
+</data>
+<data name="TXT_ITEMNAME">
+  <value>Item name</value>
+</data>
+<data name="TXT_JUMPTOITEM">
+  <value>Jump to item</value>
+</data>
+<data name="TXT_KEEPCASE">
+  <value>Keep original word casing</value>
+</data>
+<data name="TXT_LAUNCH_WIZARD">
+  <value>Launch ID3 Wizard ...</value>
+</data>
+<data name="TXT_MAINTAIN_CATALOG_HISTORY">
+  <value>Remember open catalogs history</value>
+</data>
+<data name="TXT_MAXPROCESSEDFILES">
+  <value>Max. no. of files whose properties can be displayed:</value>
+</data>
+<data name="TXT_MEDIALABEL">
+  <value>Original media label</value>
+</data>
+<data name="TXT_MEDIAPATH">
+  <value>Original path within media - '$' stands for 'removable media root'</value>
+</data>
+<data name="TXT_MEDIA_WITHOUT_BOOKMARKS">
+  <value>Media Files without bookmarks</value>
+</data>
+<data name="TXT_MEDIA_WITH_BOOKMARKS">
+  <value>Media Files with bookmarks</value>
+</data>
+<data name="TXT_MERGECATALOG">
+  <value>Please select a catalog to be merged:</value>
+</data>
+<data name="TXT_MERGECATALOGS">
+  <value>Merge Catalogs</value>
+</data>
+<data name="TXT_MULTIRENAME">
+  <value>Rename Files</value>
+</data>
+<data name="TXT_NON_ORPHAN_BOOKMARKS">
+  <value>Non-orphan bookmark files</value>
+</data>
+<data name="TXT_NO_CATALOG">
+  <value>No catalog is yet defined, please click Browse to select one.</value>
+</data>
+<data name="TXT_NO_ITEMS_FOUND">
+  <value>No items were found. Please change the search parameters and try again.</value>
+</data>
+<data name="TXT_OPENCATALOG">
+  <value>Open catalog file ...</value>
+</data>
+<data name="TXT_OPENCATALOGS">
+  <value>open catalogs.</value>
+</data>
+<data name="TXT_OPENRECENTFILEDROPDOWN">
+  <value>Press the down arrow button to open the recent files list.</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINBOOKMARKSADDONPANEL">
+  <value>Show Properties of Bookmark Files (.BMK) in File Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL">
+  <value>File Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINID3PROPADDONPANEL">
+  <value>Edit ID3 on MP1/MP2/MP3 files in File Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL">
+  <value>View Image Files (JPG, GIF, BMP, PNG, etc.)</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERADDONPANEL">
+  <value>Catalog Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL">
+  <value>Show Catalog Items Properties in Catalog Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL">
+  <value>Show Properties of Catalog Files in File Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL">
+  <value>Play media files with the embedded ProTONE Player extension</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINVIDEOPROPADDONPANEL">
+  <value>Show Properties of Video Files in File Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPREVIEWADDONPANEL">
+  <value>Open files with associated Windows program</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL">
+  <value>Show File System Information in File Browser</value>
+</data>
+<data name="TXT_ORPHAN_BOOKMARKS">
+  <value>Orphan bookmark files</value>
+</data>
+<data name="TXT_PREVIEW">
+  <value>Preview results ...</value>
+</data>
+<data name="TXT_PREVIEW_DESC_EDITID3">
+  <value>Preview results of 'Edit ID3 Infos' task:</value>
+</data>
+<data name="TXT_PREVIEW_DESC_FILLID3BYFS">
+  <value>Preview results of 'Fill ID3 Infos' task:</value>
+</data>
+<data name="TXT_PREVIEW_DESC_MULTIRENAME">
+  <value>Preview results of 'Rename Files' task:</value>
+</data>
+<data name="TXT_PREVIEW_FORM">
+  <value>Preview Results</value>
+</data>
+<data name="TXT_PREVIEW_TIMER">
+  <value>Automatic preview timer (seconds)&#xD;&#xD;
+(0 = Disable automatic preview):</value>
+</data>
+<data name="TXT_PROPERTYSEARCH">
+  <value>Search Metadata (e.g. ID3)</value>
+</data>
+<data name="TXT_RECURSIVESEARCH">
+  <value>Search in subfolders</value>
+</data>
+<data name="TXT_REMOVE_FILES">
+  <value>Remove Files</value>
+</data>
+<data name="TXT_RENAME">
+  <value>Rename</value>
+</data>
+<data name="TXT_RENAMEPATTERN">
+  <value>Rename Pattern:</value>
+</data>
+<data name="TXT_REOPEN_LAST_CATALOG">
+  <value>At program startup, open last loaded catalog</value>
+</data>
+<data name="TXT_RETAIN_LAST">
+  <value>Remember last</value>
+</data>
+<data name="TXT_ROOT">
+  <value>Catalog Root Folder</value>
+</data>
+<data name="TXT_SAVECATALOG">
+  <value>Save catalog as ...</value>
+</data>
+<data name="TXT_SCAN_ERROR">
+  <value>Scan error</value>
+</data>
+<data name="TXT_SCAN_ERROR_MSG">
+  <value>A non-fatal error occured while scanning object: {0}.&#xD;&#xD;
+The error message is: {1}.&#xD;&#xD;
+&#xD;&#xD;
+Do you want to continue scanning ?</value>
+</data>
+<data name="TXT_SEARCHFOLDER">
+  <value>Search in folder:</value>
+</data>
+<data name="TXT_SEARCHPATTERN_FE">
+  <value>Specify the search name (allowed wildcards: *, ?)  or choose one of the predefined patterns:</value>
+</data>
+<data name="TXT_SEARCHPATTERN_MC">
+  <value>Specify the search name, without wildcards:</value>
+</data>
+<data name="TXT_SEARCHVALUE">
+  <value>Text to be searched:</value>
+</data>
+<data name="TXT_SEARCHWIZARD_FE">
+  <value>Search Files and Folders</value>
+</data>
+<data name="TXT_SEARCHWIZARD_MC">
+  <value>Search items in catalog</value>
+</data>
+<data name="TXT_SEARCH_BOOKMARKS">
+  <value>Search Bookmark Files (*.BMK)</value>
+</data>
+<data name="TXT_SEARCH_MEDIAFILES">
+  <value>Search Media Files</value>
+</data>
+<data name="TXT_SELECTCATALOG">
+  <value>Specify the catalog to add the imported files to:</value>
+</data>
+<data name="TXT_SELECTID3FILES">
+  <value>Select audio files to be edited ...</value>
+</data>
+<data name="TXT_SELECTID3FOLDER">
+  <value>Select a folder containing MPEG audio files:</value>
+</data>
+<data name="TXT_SELECTINSERTPOINT">
+  <value>Select the insertion point within the selected catalog &#xD;&#xD;
+(press F5 to reload the tree):</value>
+</data>
+<data name="TXT_SENTENCECASE">
+  <value>Capitalize first word</value>
+</data>
+<data name="TXT_SHORTCUT">
+  <value>&#xD;&#xD;
+Shortcut: {0}</value>
+</data>
+<data name="TXT_SUPPLY_CATALOG_DESC">
+  <value>Specify a description for your catalog...</value>
+</data>
+<data name="TXT_TAGEDITOR">
+  <value>Edit ID3 Infos</value>
+</data>
+<data name="TXT_TOTAL_ITEMS_FOUND">
+  <value>Total: {0} item(s) found. Use the right click menu to further process these items.</value>
+</data>
+<data name="TXT_UNHANDLED">
+  <value>Cannot handle the specified task type.</value>
+</data>
+<data name="TXT_VER_NA">
+  <value>Version info not present (legacy catalog)</value>
+</data>
+<data name="TXT_WAIT_LOADING_CATALOG">
+  <value>Please wait while loading catalog ...</value>
+</data>
+<data name="TXT_WAIT_MERGING_CATALOG">
+  <value>Please wait while merging catalogs ...</value>
+</data>
+<data name="TXT_WIZCATSTEP1_DESC">
+  <value>Specify the catalog to add the imported files to:</value>
+</data>
+<data name="TXT_WIZCATSTEP2_DESC">
+  <value>Select the folder or disk containing the items to be imported&#xD;&#xD;
+(press F5 to reload the tree):</value>
+</data>
+<data name="TXT_WIZID3STEP1_DESC">
+  <value>Please specify which files you want to edit. &#xD;&#xD;
+Use the 'Add Files', 'Add Folder',  'Remove Files' buttons to configure the files list.</value>
+</data>
+<data name="TXT_WIZID3STEP2_DESC">
+  <value>Please specify how should these files be processed:</value>
+</data>
+<data name="TXT_WORDHANDLING">
+  <value>Change words case:</value>
+</data>
+<data name="TXT_BOOKMARKINFO">
+  <value>Bookmark Information</value>
+</data>
+<data name="TXT_BOOKMARKLIST">
+  <value>Bookmark List</value>
+</data>
+<data name="TXT_CATALOG_DESC">
+  <value>Catalog description</value>
+</data>
+<data name="TXT_CATALOGINFO">
+  <value>Catalog file information</value>
+</data>
+<data name="TXT_ID3INFO_PATTERNS">
+  <value>ID3 Info Patterns</value>
+</data>
+<data name="TXT_INTERNALLABEL">
+  <value>Internal media label</value>
+</data>
+<data name="TXT_ISORPHAN">
+  <value>Is Orphan</value>
+</data>
+<data name="TXT_ITEMDATA">
+  <value>Additional data</value>
+</data>
+<data name="TXT_ITEMTYPE_DESC">
+  <value> Original item type</value>
+</data>
+<data name="TXT_MEDIAINFO">
+  <value>Media Information</value>
+</data>
+<data name="TXT_MEDIAPATH_SHORT">
+  <value>Original path within media</value>
+</data>
+<data name="TXT_PARENTMEDIAFILE">
+  <value>Parent Media File</value>
+</data>
+<data name="TXT_ROOTSERIALNUMBER">
+  <value>Media serial number</value>
+</data>
+<data name="TXT_TOTALCHILDRENCOUNT">
+  <value> Total items</value>
+</data>
+<data name="TXT_TOTALFILECOUNT">
+  <value> Total files</value>
+</data>
+<data name="TXT_TOTALSUBFOLDERCOUNT">
+  <value> Total subfolders</value>
+</data>
+<data name="TXT_CATALOGITEMINFO">
+  <value>Editable information</value>
+</data>
+<data name="TXT_CATALOGITEMINFO_RO">
+  <value>Non-editable information</value>
+</data>
+    
+</root>

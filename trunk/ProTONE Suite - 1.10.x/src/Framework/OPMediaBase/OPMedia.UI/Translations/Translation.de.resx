@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ABORT">
+  <value>Abbruch</value>
+</data>
+<data name="TXT_ABOUT">
+  <value>Über {0}</value>
+</data>
+<data name="TXT_ADD">
+  <value>Hinzufügen ...</value>
+</data>
+<data name="TXT_ADD_FILES">
+  <value>Dateien hinzufügen ...</value>
+</data>
+<data name="TXT_ADD_FOLDER">
+  <value>Ordner hinzufügen ...</value>
+</data>
+<data name="TXT_ALL_FILES_FILTER">
+  <value>Alle Dateien (*.*) |*.*||</value>
+</data>
+<data name="TXT_ALTKEY">
+  <value>Wechseln</value>
+</data>
+<data name="TXT_APPHELP">
+  <value>Inhalt ...</value>
+</data>
+<data name="TXT_APPLY">
+  <value>Anwenden</value>
+</data>
+<data name="TXT_APP_RESTART">
+  <value>Neustart des Programms erforderlich</value>
+</data>
+<data name="TXT_ARGUMENTS">
+  <value>Geben Sie das Programm der Kommandozeilen-Parameter:</value>
+</data>
+<data name="TXT_BACK">
+  <value>Zurück</value>
+</data>
+<data name="TXT_BROWSE">
+  <value>Durchsuchen ...</value>
+</data>
+<data name="TXT_BTNCLOSE">
+  <value>Schließen.</value>
+</data>
+<data name="TXT_BTNMAXIMIZE">
+  <value>Maximieren.</value>
+</data>
+<data name="TXT_BTNMINIMIZE">
+  <value>Minimieren.</value>
+</data>
+<data name="TXT_BTNRESTOREDOWN">
+  <value>Wiederherstellen nach unten.</value>
+</data>
+<data name="TXT_BUILDING_OBJECT_LIST">
+  <value>Erstellen Objektliste ...</value>
+</data>
+<data name="TXT_CANCEL">
+  <value>Abbrechen</value>
+</data>
+<data name="TXT_CAUTION">
+  <value>Vorsicht</value>
+</data>
+<data name="TXT_CHANGE">
+  <value>Ändern ...</value>
+</data>
+<data name="TXT_CHOOSELOGPATH">
+  <value>Wählen Sie den Ordner, um die Log-Dateien zu speichern:</value>
+</data>
+<data name="TXT_CHOOSEPROGRAM">
+  <value>Wählen Sie das Programm ausgeführt werden soll:</value>
+</data>
+<data name="TXT_CHOOSEWORKDIR">
+  <value>Wählen Sie das Programm Arbeitsordner:</value>
+</data>
+<data name="TXT_CLEARLOG">
+  <value>Clear Log Datei</value>
+</data>
+<data name="TXT_CLEARWINDOW">
+  <value>Fenster leeren</value>
+</data>
+<data name="TXT_CLICK_LIST_TO_EDIT">
+  <value>Klicken Sie auf Liste Zellen, um sie zu bearbeiten.</value>
+</data>
+<data name="TXT_CMDCFGKEYBOARD">
+  <value>Zeigt die Tastenkombinationen.</value>
+</data>
+<data name="TXT_CMDGENERICAPPLY">
+  <value>Änderungen übernehmen.</value>
+</data>
+<data name="TXT_CMDGENERICCOPY">
+  <value>Daten kopieren (oder Dateien)</value>
+</data>
+<data name="TXT_CMDGENERICCUT">
+  <value>Schneiden Sie Daten (oder Dateien)</value>
+</data>
+<data name="TXT_CMDGENERICDELETE">
+  <value>Löschen von Daten (oder Dateien)</value>
+</data>
+<data name="TXT_CMDGENERICNEW">
+  <value>Neues Dokument.</value>
+</data>
+<data name="TXT_CMDGENERICOPEN">
+  <value>Geöffnete Dokument.</value>
+</data>
+<data name="TXT_CMDGENERICPASTE">
+  <value>Einfügen von Daten (oder Dateien)</value>
+</data>
+<data name="TXT_CMDGENERICREFRESH">
+  <value>Daten aktualisieren</value>
+</data>
+<data name="TXT_CMDGENERICRENAME">
+  <value>Umbenennen von Dateien</value>
+</data>
+<data name="TXT_CMDGENERICSAVE">
+  <value>Dokument speichern.</value>
+</data>
+<data name="TXT_CMDGENERICSEARCH">
+  <value>Suche Daten (oder Dateien)</value>
+</data>
+<data name="TXT_CMDGENERICUNDO">
+  <value>Änderungen rückgängig machen.</value>
+</data>
+<data name="TXT_CMDOPENHELP">
+  <value>Öffnen Sie Hilfe-Datei</value>
+</data>
+<data name="TXT_CMDOPENSETTINGS">
+  <value>Zeigt den Dialog Einstellungen.</value>
+</data>
+<data name="TXT_CMDSHOWLOGCONSOLE">
+  <value>Zeigt die Log-Datei-Konsole</value>
+</data>
+<data name="TXT_CMDSWITCHWINDOWS">
+  <value>Wechseln Sie zwischen Addon Fenster.</value>
+</data>
+<data name="TXT_COMMAND">
+  <value>Befehlsname</value>
+</data>
+<data name="TXT_CONFIRM">
+  <value>Bestätigen</value>
+</data>
+<data name="TXT_CONFIRM_ABORT">
+  <value>Sind Sie sicher, dass Sie den Vorgang abbrechen?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE">
+  <value>Sind Sie sicher, dass Sie die Datei zu löschen:&#xD;
+{0}?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE_DIR">
+  <value>Der Ordner: {0} ist nicht leer.&#xD;
+Wollen Sie es (samt Inhalt) löschen?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE_EMPTYDIR">
+  <value>Sind Sie sicher, dass Sie den Ordner zu löschen:&#xD;
+{0}?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE_ROHS">
+  <value>Die Datei {0} ist eine oder mehrere dieser Attribute: Read-Only/Hidden/System.&#xD;
+Glauben Sie immer noch wollen, um es zu löschen?</value>
+</data>
+<data name="TXT_CONFIRM_OVERWRITE">
+  <value>Die Zieldatei {0} existiert bereits.&#xD;
+Wollen Sie es überschreiben?</value>
+</data>
+<data name="TXT_CONFIRM_OVERWRITE_RO">
+  <value>Die Zieldatei {0} existiert bereits und es ist eine Nur-Lese-Datei.&#xD;
+Wollen Sie es überschreiben?</value>
+</data>
+<data name="TXT_COPY">
+  <value>Kopieren Sie</value>
+</data>
+<data name="TXT_CUR_PROGRESS">
+  <value>{0}: {1} Elemente aus {2} ({3}% fertig)</value>
+</data>
+<data name="TXT_CUT">
+  <value>Ausschneiden</value>
+</data>
+<data name="TXT_DEFINE_PROGRAM">
+  <value>[Bitte definieren Sie das Programm ausgeführt werden soll]</value>
+</data>
+<data name="TXT_DELETE">
+  <value>Löschen</value>
+</data>
+<data name="TXT_DESCRIPTION">
+  <value>Befehl Beschreibung</value>
+</data>
+<data name="TXT_DESC_COPY_TASK">
+  <value>Kopieren</value>
+</data>
+<data name="TXT_DESC_DELETE_TASK">
+  <value>Löschen</value>
+</data>
+<data name="TXT_DESC_MOVE_TASK">
+  <value>Verschieben</value>
+</data>
+<data name="TXT_DOUBLE_CLICK_TO_EDIT">
+  <value>Doppelklick bearbeiten</value>
+</data>
+<data name="TXT_DOWNLOAD">
+  <value>Laden Sie</value>
+</data>
+<data name="TXT_DRAWBORDERS">
+  <value>Zeichnen Sie skinned Grenzen und Titelleiste (empfohlen)</value>
+</data>
+<data name="TXT_EDITKEYDESC">
+  <value>Drücken Sie die neue Tastenkombination für: {0}.&#xD;
+Aktuelle Verknüpfung ist: {1}.</value>
+</data>
+<data name="TXT_ENABLESKINNEDBORDERS">
+  <value>Aktivieren Hautfarbe Grenzen</value>
+</data>
+<data name="TXT_ENABLE_LOG">
+  <value>Aktivieren Sie die Protokollierung Programm</value>
+</data>
+<data name="TXT_ERROR">
+  <value>Fehler</value>
+</data>
+<data name="TXT_ERRORS">
+  <value>Melden Sie sich Fehlermeldungen</value>
+</data>
+<data name="TXT_ERRORS_COPY_TASK">
+  <value>Einige Fehler trat beim Kopieren der entsprechenden Dateien auf.&#xD;
+Weitere Details in der Liste unten.</value>
+</data>
+<data name="TXT_ERRORS_DELETE_TASK">
+  <value>Einige Fehler trat beim Löschen der angegebenen Dateien.&#xD;
+Weitere Details in der Liste unten.</value>
+</data>
+<data name="TXT_ERRORS_ENCOUNTERED">
+  <value>Einige Fehler trat während der Operation.</value>
+</data>
+<data name="TXT_ERRORS_MOVE_TASK">
+  <value>Einige Fehler trat während der Bewegung die angegebenen Dateien.&#xD;
+Weitere Details in der Liste unten.</value>
+</data>
+<data name="TXT_EVERYDAY">
+  <value>Täglich</value>
+</data>
+<data name="TXT_EXIT">
+  <value>Beenden</value>
+</data>
+<data name="TXT_FILE">
+  <value>Datei</value>
+</data>
+<data name="TXT_FILENAME">
+  <value>Dateiname</value>
+</data>
+<data name="TXT_FOLDERNOTACCESSIBLE">
+  <value>Dieser Ordner ist nicht mehr zugänglich. Es wurde möglicherweise verschoben, entfernt oder seine Festplatte konnte aus dem Computer entfernt wurden.</value>
+</data>
+<data name="TXT_FORWARD">
+  <value>Nach vorn</value>
+</data>
+<data name="TXT_FREEZEWINDOW">
+  <value>Schleusenfenster</value>
+</data>
+<data name="TXT_FRIDAY">
+  <value>Freitag</value>
+</data>
+<data name="TXT_GENERALSETTINGS">
+  <value>Allgemein</value>
+</data>
+<data name="TXT_HEAVY_TRACE">
+  <value>Aktivieren Sie ausführliche Debugprotokollierung</value>
+</data>
+<data name="TXT_HELP">
+  <value>Hilfe</value>
+</data>
+<data name="TXT_INFO">
+  <value>Melden Sie sich Info-Nachrichten</value>
+</data>
+<data name="TXT_INSERT_DISK">
+  <value>Legen Sie Diskette</value>
+</data>
+<data name="TXT_INSERT_MEDIA">
+  <value>Bitte legen Sie die Diskette mit der Aufschrift {0} (desc: {1}) in die {2}-Laufwerk.</value>
+</data>
+<data name="TXT_KEY">
+  <value>Tastenkürzel</value>
+</data>
+<data name="TXT_KEYCOMMANDEDITOR">
+  <value>Definieren Sie Schlüssel für {0}</value>
+</data>
+<data name="TXT_KEYMAP">
+  <value>Tastenkürzel</value>
+</data>
+<data name="TXT_KEYMAP_DESC">
+  <value>Um einen Schnellzugriff zu bearbeiten, auf die damit verbundenen Links in der Tabelle unten klicken. Die Verknüpfungen mit behinderten Links nicht ändern können vom Anwender sein (z.B.: OpenHelp = F1, etc).</value>
+</data>
+<data name="TXT_LANGUAGE">
+  <value>Sprache</value>
+</data>
+<data name="TXT_LOGFILENAME">
+  <value>Log-Datei-Name:</value>
+</data>
+<data name="TXT_LOGGINGSETTINGS">
+  <value>Logging</value>
+</data>
+<data name="TXT_LOGLINECONSOLE">
+  <value>Log-Datei-Konsole</value>
+</data>
+<data name="TXT_LOGLINECOUNT">
+  <value>Log-Einträge insgesamt:</value>
+</data>
+<data name="TXT_LOG_DESC">
+  <value>Dieses Programm wird mit Version durchgesetzt Protokollierung gebaut.&#xD;
+Alle Log-Level sind standardmäßig aktiviert.</value>
+</data>
+<data name="TXT_LOG_KEEPDAYS">
+  <value>Wie viele Tage zu halten, die alten Log-Dateien &#xD;
+(min = 2, max = 10):</value>
+</data>
+<data name="TXT_LOG_PATH">
+  <value>Log-Dateien Pfad:</value>
+</data>
+<data name="TXT_MODIFY">
+  <value>Ändern</value>
+</data>
+<data name="TXT_MONDAY">
+  <value>Montag</value>
+</data>
+<data name="TXT_MULTIRENAME">
+  <value>Umbenennen mehrerer Dateien</value>
+</data>
+<data name="TXT_NA">
+  <value>N/A</value>
+</data>
+<data name="TXT_NETWORK_SETTINGS">
+  <value>Netzwerk</value>
+</data>
+<data name="TXT_NEW">
+  <value>Neu</value>
+</data>
+<data name="TXT_NO">
+  <value>Nein</value>
+</data>
+<data name="TXT_NO_NETWORK">
+  <value>Warnung: Es gibt keine operativen Netzwerkverbindung.</value>
+</data>
+<data name="TXT_OFF">
+  <value>AUS</value>
+</data>
+<data name="TXT_OK">
+  <value>OK</value>
+</data>
+<data name="TXT_ON">
+  <value>EIN</value>
+</data>
+<data name="TXT_OPEN">
+  <value>Geöffnet</value>
+</data>
+<data name="TXT_OR">
+  <value>oder</value>
+</data>
+<data name="TXT_PASSWORD">
+  <value>Passwort</value>
+</data>
+<data name="TXT_PASTE">
+  <value>Einfügen</value>
+</data>
+<data name="TXT_PORT_NAME">
+  <value>Seriellen Port Name</value>
+</data>
+<data name="TXT_PORT_SETTINGS">
+  <value>Seriellen Port Einstellungen:</value>
+</data>
+<data name="TXT_PROCEED">
+  <value>Vorgehen</value>
+</data>
+<data name="TXT_PROGRAMSTARTUPINFO">
+  <value>Programmstart Informationen</value>
+</data>
+<data name="TXT_PROGRAMS_FILTER">
+  <value>Ausführbare Dateien (* exe) |*.exe|Alle Dateien (*.*)|*.*||</value>
+</data>
+<data name="TXT_PROGRAM_DEF">
+  <value>Auszuführenden Programms (klicken Sie auf den Link unten, um zu ändern) werden:</value>
+</data>
+<data name="TXT_READONLY">
+  <value>Nur Lesen (Read-Only)</value>
+</data>
+<data name="TXT_ARCHIVE">
+  <value>Archivieren</value>
+</data>
+<data name="TXT_HIDDEN">
+  <value>Versteckt</value>
+</data>
+<data name="TXT_SYSTEM">
+  <value>System</value>
+</data>
+<data name="TXT_REFRESH">
+  <value>Erfrischen</value>
+</data>
+<data name="TXT_SATURDAY">
+  <value>Samstag</value>
+</data>
+<data name="TXT_SAVE">
+  <value>Sparen</value>
+</data>
+<data name="TXT_SAVE_AS">
+  <value>Speichern unter ...</value>
+</data>
+<data name="TXT_SEARCH">
+  <value>Suche</value>
+</data>
+<data name="TXT_SERIALPORTLCFG">
+  <value>Konfigurieren Sie Serielle Schnittstelle</value>
+</data>
+<data name="TXT_SERIAL_PORT_NAME">
+  <value>Einstellungen für den seriellen Port:</value>
+</data>
+<data name="TXT_SERVER">
+  <value>Server</value>
+</data>
+<data name="TXT_SETSKIN">
+  <value>Legen Sie die User Interface Design (pro gesamte ProTONE Suite):</value>
+</data>
+<data name="TXT_SETTINGS">
+  <value>Programm-Einstellungen</value>
+</data>
+<data name="TXT_SETUILANGUAGE">
+  <value>Stellen Sie die Sprache der Benutzeroberfläche (pro gesamte ProTONE Suite):</value>
+</data>
+<data name="TXT_SHOWLOG">
+  <value>Log-Datei anzeigen ...</value>
+</data>
+<data name="TXT_SHOWSPLITTERS">
+  <value>Zeige Panel Splitter im Hauptfenster</value>
+</data>
+<data name="TXT_SIZE">
+  <value>Größe</value>
+</data>
+<data name="TXT_SUCCESS">
+  <value>Aufgabe erfolgreich.</value>
+</data>
+<data name="TXT_SUCCESS_COPY_TASK">
+  <value>Kopieren von Dateien wurde erfolgreich abgeschlossen.</value>
+</data>
+<data name="TXT_SUCCESS_DELETE_TASK">
+  <value>Löschen von Dateien erfolgreich abgeschlossen hat.</value>
+</data>
+<data name="TXT_SUCCESS_MOVE_TASK">
+  <value>Verschieben von Dateien wurde erfolgreich abgeschlossen.</value>
+</data>
+<data name="TXT_SUNDAY">
+  <value>Sonntag</value>
+</data>
+<data name="TXT_TASK_CANCEL">
+  <value>Abbruch Aufgaben?</value>
+</data>
+<data name="TXT_TASK_CANCEL_MSG">
+  <value>Sind Sie sicher, abbrechen wollen die Ausführung von Aufgaben?</value>
+</data>
+<data name="TXT_SPECIFYURL">
+  <value>URL angeben:</value>
+</data>
+<data name="TXT_TCPIPINVALIDFORMAT">
+  <value>Der eingegebene Zeichenfolge stellt keine gültige URL.</value>
+</data>
+<data name="TXT_TCPIPURI">
+  <value>Geben Sie die URL:</value>
+</data>
+<data name="TXT_THEREARENOITEMS">
+  <value>Es sind keine Objekte in diesem Panel zeigen.</value>
+</data>
+<data name="TXT_THURSDAY">
+  <value>Donnerstag</value>
+</data>
+<data name="TXT_TRACE">
+  <value>Debug-Spuren anzeigen</value>
+</data>
+<data name="TXT_TUESDAY">
+  <value>Dienstag</value>
+</data>
+<data name="TXT_UNDO">
+  <value>Rückgängig</value>
+</data>
+<data name="TXT_UP">
+  <value>Oben</value>
+</data>
+<data name="TXT_USERNAME">
+  <value>Benutzer</value>
+</data>
+<data name="TXT_VERSION">
+  <value>Version: {0}</value>
+</data>
+<data name="TXT_WAIT_COPY">
+  <value>Bitte warten Sie, während das Kopieren von Dateien ...</value>
+</data>
+<data name="TXT_WAIT_DELETE">
+  <value>Bitte warten Sie, während das Löschen von Dateien ...</value>
+</data>
+<data name="TXT_WAIT_MOVE">
+  <value>Bitte warten Sie, während das Verschieben von Dateien ...</value>
+</data>
+<data name="TXT_WARNING">
+  <value>Melden Sie Warnmeldungen</value>
+</data>
+<data name="TXT_WEDNESDAY">
+  <value>Mittwoch</value>
+</data>
+<data name="TXT_WIZARDBACK">
+  <value>&lt; Zurück</value>
+</data>
+<data name="TXT_WIZARDCANCEL">
+  <value>Abbrechen</value>
+</data>
+<data name="TXT_WIZARDFINISH">
+  <value>Abschließen</value>
+</data>
+<data name="TXT_WIZARDNEXT">
+  <value>Weiter &gt;</value>
+</data>
+<data name="TXT_WIZARDOK">
+  <value>OK</value>
+</data>
+<data name="TXT_WIZARDREPEAT">
+  <value>Wiederholen Sie die Assistenten</value>
+</data>
+<data name="TXT_WIZARDSTEPDELIMITER">
+  <value> von </value>
+</data>
+<data name="TXT_WIZARDSTEPTEXT">
+  <value>Schritt </value>
+</data>
+<data name="TXT_WIZFINISHED">
+  <value>beendet die Task-Ausführung.</value>
+</data>
+<data name="TXT_WIZFINISHING">
+  <value>läuft, bitte warten ...</value>
+</data>
+<data name="TXT_WIZSTEPRESULTS">
+  <value>Resultat</value>
+</data>
+<data name="TXT_WIZTASKSFINISHED">
+  <value>Alle Aufgaben-Assistenten haben erfolgreich beendet!</value>
+</data>
+<data name="TXT_WIZTASKSFINISHED_ERRORS">
+  <value>Alle Aufgaben-Assistenten abgeschlossen haben, aber einige Fehler aufgetreten sind. Details in der Liste unten.</value>
+</data>
+<data name="TXT_WIZTASKSRUNNING">
+  <value>Bitte warten Sie, während Assistent Tasks ausgeführt werden ...</value>
+</data>
+<data name="TXT_WORKDIR">
+  <value>Programm Arbeitsordner:</value>
+</data>
+<data name="TXT_YES">
+  <value>Ja</value>
+</data>
+<data name="TXT_YESALL">
+  <value>Ja für alle</value>
+</data>
+<data name="TXT_DEFINE_PROXYSERVERADDRESS">
+  <value>[Definieren Sie den Proxy-Server-Adresse]</value>
+</data>
+<data name="TXT_DEFINE_PROXYSERVERUSERNAME">
+  <value>[Definieren Sie den Proxy-Server-Benutzername]</value>
+</data>
+<data name="TXT_PROXYTYPE">
+  <value>Proxy-Server-Typus:</value>
+</data>
+<data name="TXT_PROXYADDRESS">
+  <value>Proxyserver-Adresse:</value>
+</data>
+<data name="TXT_PROXYPORT">
+  <value>Proxy-Server-Port:</value>
+</data>
+<data name="TXT_PROXYUSERNAME">
+  <value>Benutzername:</value>
+</data>
+<data name="TXT_PROXYPASSWORD">
+  <value>Passwort:</value>
+</data>
+<data name="TXT_LEVEL_AUTOMATIC">
+  <value>Automatisch</value>
+</data>
+<data name="TXT_LEVEL_ERROR">
+  <value>Fehler</value>
+</data>
+<data name="TXT_LEVEL_EXCEPTION">
+  <value>Ausnahme</value>
+</data>
+<data name="TXT_LEVEL_HEAVYTRACE">
+  <value>Detaillierte Debug-Trace</value>
+</data>
+<data name="TXT_LEVEL_INFO">
+  <value>Information</value>
+</data>
+<data name="TXT_LEVEL_TRACE">
+  <value>Spur</value>
+</data>
+<data name="TXT_LEVEL_WARNING">
+  <value>Warnung</value>
+</data>
+<data name="TXT_RESULTS">
+  <value>Ergebnisse:</value>
+</data>
+<data name="TXT_PRIMARY_MONITOR">
+  <value>[PRIMÄREN MONITOR]</value>
+</data>
+<data name="TXT_CONFIRM_PROPERTYSAVE">
+  <value>Die Item-Eigenschaften geändert wurden. Wollen Sie die Änderungen speichern?</value>
+</data>
+<data name="TXT_CONFIRMSAVECHANGES">
+  <value>Änderungen speichern?</value>
+</data>
+<data name="TXT_DUPPLICATE_SHORTCUT">
+  <value>Abkürzung ist bereits im Einsatz</value>
+</data>
+<data name="TXT_DUP_SHORTCUT_FIXED">
+  <value>Die Tastenkombination '{0}' ist bereits zu "{1} 'zugewiesen und kann nicht geändert werden.&#xD;
+Bitte geben Sie eine andere Kombination.</value>
+</data>
+<data name="TXT_DUP_SHORTCUT_CONFIRM">
+  <value>Die Tastenkombination '{0}' ist bereits zu "{1} 'zugewiesen.&#xD;
+Wollen Sie neu zuweisen es auf '{2}'?</value>
+</data>
+<data name="TXT_CONFIRM_RESTORE">
+  <value>Sind Sie sicher, dass Sie die Standardeinstellungen zu laden?</value>
+</data>
+<data name="TXT_RESTORESHORTCUTSDESC">
+  <value>Verwenden Sie "Standardeinstellungen", um das Standard-Tastatur laden Abkürzung-Konfiguration.</value>
+</data>
+<data name="TXT_RESTOREDEFAULTS">
+  <value>Standardeinstellungen</value>
+</data>
+<data name="TXT_PID">
+  <value>Prozess-ID</value>
+</data>
+<data name="TXT_TID">
+  <value>Thread-ID</value>
+</data>
+<data name="TXT_KEEPONTOP">
+  <value>Halten Sie Fenster über andere</value>
+</data>
+<data name="TXT_SAVEWINDOW">
+  <value>Speichern unter ...-Fenster anmelden</value>
+</data>
+<data name="TXT_SAVELOGFILE">
+  <value>Log-datei speichern unter ...</value>
+</data>
+<data name="TXT_SHOWTRACE">
+  <value>Spuren anzeigen</value>
+</data>
+<data name="TXT_SHOWINFO">
+  <value>Infos anzeigen</value>
+</data>
+<data name="TXT_SHOWWARNING">
+  <value>Warnungen anzeigen</value>
+</data>
+<data name="TXT_SHOWERROR">
+  <value>Fehler anzeigen</value>
+</data>
+<data name="TXT_SAVELOGORWINDOW">
+  <value>Save Log-Datei oder Fenster</value>
+</data>
+<data name="TXT_NOTIFYUPDATE">
+  <value>Eine neue Programm-Version steht zur Verfügung: {0}.&#xD;
+Wollen Sie auf diese Version aktualisieren?</value>
+</data>
+<data name="TXT_CONFIRMUPDATE">
+  <value>Bestätigen Sie Programm-Update</value>
+</data>
+<data name="TXT_WAITDOWNLOADUPDATE">
+  <value>Bitte warten Sie, während des Herunterladens Anwendung Update-Dateien. Können Sie ESC, um den Download abbrechen drücken und halten Sie die bestehende Version der Anwendung.</value>
+</data>
+<data name="TXT_ALLOWAUTOUPDATES">
+  <value>Lassen Sie die automatische Programm-Updates</value>
+</data>
+<data name="TXT_CHECKUPDATE">
+  <value>Überprüfen Sie Programm-Updates</value>
+</data>
+<data name="TXT_DISABLEAUTODOWNLOADS">
+  <value>Deaktivieren Sie die automatische Updates</value>
+</data>
+<data name="TXT_NOUPDATEREQUIRED">
+  <value>Dieses Programm verfügt über die neueste verfügbare Version.&#xD;
+&#xD;
+ Für den Moment ist es nicht erforderlich, um das Programm zu aktualisieren.</value>
+</data>
+<data name="TXT_CONFIRM_MOVE">
+  <value>Sind Sie sicher, dass Sie die Datei verschieben:&#xD;
+{0}?</value>
+</data>
+<data name="TXT_CONFIRM_MOVE_DIR">
+  <value>Der Ordner: {0} ist nicht leer.&#xD;
+Sie wollen es und alle Inhalte zu bewegen?</value>
+</data>
+<data name="TXT_CONFIRM_MOVE_EMPTYDIR">
+  <value>Sind Sie sicher, dass Sie den Ordner zu verschieben:&#xD;
+{0}?</value>
+</data>
+<data name="TXT_CONFIRM_MOVE_ROHS">
+  <value>Die Datei {0} ist eine oder mehrere dieser Attribute: Read-Only/Hidden/System.&#xD;
+Wollen Sie immer noch, ihn zu bewegen?</value>
+</data>
+<data name="TXT_NOPROXY">
+  <value>Kein Proxy</value>
+</data>
+<data name="TXT_HTTPPROXY">
+  <value>HTTP-Proxy</value>
+</data>
+<data name="TXT_SOCKS4PROXY">
+  <value>SOCKS4-Proxy</value>
+</data>
+<data name="TXT_SOCKS5PROXY">
+  <value>SOCKS5-Proxy</value>
+</data>
+<data name="TXT_IEPROXY">
+  <value>Verwenden die Internet Explorer Proxy Einstellungen</value>
+</data>
+<data name="TXT_FILE_TYPE">
+  <value>Dateityp</value>
+</data>
+<data name="TXT_LOOK_IN">
+  <value>Suche in:</value>
+</data>
+<data name="TXT_SAMPLE">
+  <value>Exempel:</value>
+</data>
+<data name="TXT_FONT">
+  <value>Schrift:</value>
+</data>
+<data name="TXT_FONT_STYLE">
+  <value>Schriftstil:</value>
+</data>
+<data name="TXT_SCRIPT">
+  <value>Charakter set:</value>
+</data>
+<data name="TXT_CHOOSE_COLOR">
+  <value>Wählen Sie eine Farbe:</value>
+</data>
+<data name="TXT_ACTIVE">
+  <value>Aktiv</value>
+</data>
+<data name="TXT_FLAG_ERRORS">
+  <value>Fehler&#xD;
+Anzeigen</value>
+</data>
+<data name="TXT_FLAG_WARNINGS">
+  <value>Warnungen&#xD;
+Anzeigen</value>
+</data>
+<data name="TXT_FLAG_INFOS">
+  <value>Informationen&#xD;
+Anzeigen</value>
+</data>
+<data name="TXT_FLAG_TRACES">
+  <value>Debug Traces&#xD;
+Anzeigen</value>
+</data>
+<data name="TXT_LOGFILE_FILTER">
+  <value>Log-Dateien (*.log)|*.log||</value>
+</data>
+<data name="TXT_SAVELOGFILE_PART">
+  <value>Teilweisen Log-datei speichern unter:</value>
+</data>
+<data name="TXT_DRIVE_DESC_FORMAT">
+  <value>{0}  [{1}]  [{2}]  [{3} MB frei]  [{4}]</value>
+</data>
+<data name="TXT_SELECT_FOLDER">
+  <value>Wählen Sie einen Ordner:</value>
+</data>
+<data name="TXT_NEW_FOLDER">
+  <value>Neuen Ordner erstellen</value>
+</data>
+<data name="TXT_FORMAT_UNKNOWN">
+  <value>Unbekanntes Format</value>
+</data>
+<data name="TXT_NOT_READY">
+  <value>Nicht bereit</value>
+</data>
+<data name="TXT_NO_LABEL">
+  <value>Kein Etikett</value>
+</data>
+<data name="TXT_NO_NAME">
+  <value>Kein Name</value>
+</data>
+<data name="TXT_READY">
+  <value>Bereit</value>
+</data>
+<data name="TXT_CURRENT_PATH">
+  <value>Aktueller Pfad: {0}</value>
+</data>
+<data name="TXT_DISABLE">
+  <value>Deaktivieren</value>
+</data>
+<data name="TXT_EDIT">
+  <value>Bearbeiten</value>
+</data>
+<data name="TXT_ENABLE">
+  <value>Aktivieren</value>
+</data>
+<data name="TXT_ENABLED">
+  <value>Aktiviert</value>
+</data>
+<data name="TXT_EXPORT">
+  <value>Exportieren</value>
+</data>
+<data name="TXT_EXPORT_FULL">
+  <value>Vollständige Export ...</value>
+</data>
+<data name="TXT_EXPORT_PARTIAL">
+  <value>Teilweisen Export ...</value>
+</data>
+<data name="TXT_IMPORT">
+  <value>Importieren</value>
+</data>
+<data name="TXT_IMPORT_FULL">
+  <value>Vollständiger Import ...</value>
+</data>
+<data name="TXT_IMPORT_PARTIAL">
+  <value>Teilweiser Import (mit Merge) ...</value>
+</data>
+<data name="TXT_INPUT_DATA">
+  <value>Input-Daten</value>
+</data>
+<data name="TXT_OUTPUT_DATA">
+  <value>Ausgangsdaten</value>
+</data>
+<data name="TXT_DISK_CDR">
+  <value>Optischplatte (CD, DVD oder BlueRay)</value>
+</data>
+<data name="TXT_DISK_FIL">
+  <value>Datei</value>
+</data>
+<data name="TXT_DISK_FLD">
+  <value>Ordner</value>
+</data>
+<data name="TXT_DISK_HDD">
+  <value>Festplatte (Harddisk)</value>
+</data>
+<data name="TXT_DISK_NET">
+  <value>Netzwerk-Laufwerk</value>
+</data>
+<data name="TXT_DISK_NRT">
+  <value>Platte ohne Root-Ordner</value>
+</data>
+<data name="TXT_DISK_RAM">
+  <value>Virtuelle RAM-Platte</value>
+</data>
+<data name="TXT_DISK_REM">
+  <value>Wechseldatenträger (Diskette oder einem USB-Flash).</value>
+</data>
+<data name="TXT_DISK_UNK">
+  <value>Unbekannt Plattentypus</value>
+</data>
+<data name="TXT_NEW_FILENAME">
+  <value>Neuer Dateiname</value>
+</data>
+<data name="TXT_OLD_FILENAME">
+  <value>Alte Dateinamen</value>
+</data>
+<data name="TXT_ATTRIBUTES">
+  <value>Attribute</value>
+</data>
+<data name="TXT_CREATIONDATE">
+  <value>Erstellungsdatum</value>
+</data>
+<data name="TXT_EXTENSION">
+  <value>Extension</value>
+</data>
+<data name="TXT_FILESIZE">
+  <value>Dateigröße</value>
+</data>
+<data name="TXT_FILESYSTEMINFO">
+  <value>Datei-Informationen</value>
+</data>
+<data name="TXT_LASTACCESSDATE">
+  <value>Neueste Zugang</value>
+</data>
+<data name="TXT_LASTCHANGEDATE">
+  <value>Neueste Änderung</value>
+</data>
+<data name="TXT_NAME">
+  <value>Name</value>
+</data>
+<data name="TXT_PARENT">
+  <value>Übergeordneten Ordner</value>
+</data>
+<data name="TXT_PATH">
+  <value>Pfad</value>
+</data>
+<data name="TXT_DESC">
+  <value>Beschreibung</value>
+</data>
+<data name="TXT_LOGMESSAGE">
+  <value>Melden Nachricht</value>
+</data>
+<data name="TXT_MODULENAME">
+  <value>Modulname</value>
+</data>
+<data name="TXT_TIMESTAMP">
+  <value>Zeitstempel</value>
+</data>
+<data name="TXT_CONFIRM_CREATE">
+  <value>Die Datei {0} ist nicht vorhanden.&#xD;
+Wollen Sie es schaffen?</value>
+</data>
+<data name="TXT_ASSISTANCE">
+  <value>Assistenz</value>
+</data>
+<data name="TXT_CHOOSE_FAVORITE">
+  <value>Bitte wählen Sie einen Ordner zu den Favoriten hinzugefügt werden:</value>
+</data>
+<data name="TXT_CMDFAVMANAGER">
+  <value>Offene Favorit Ordner-Manager</value>
+</data>
+<data name="TXT_FAVORITES">
+  <value>Favoriten</value>
+</data>
+<data name="TXT_FAVORITES_ADD">
+  <value>Als Favorit hinzufügen Folders</value>
+</data>
+<data name="TXT_FAVORITES_MANAGE">
+  <value>Verwalten Favoritenordner ...</value>
+</data>
+<data name="TXT_MANAGE_FAVORITES">
+  <value>Definieren Ihre Favoriten-Ordner:</value>
+</data>
+    
+</root>
