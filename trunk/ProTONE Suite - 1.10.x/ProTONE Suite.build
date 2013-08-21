@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<project name="ProTONE Suite - 1.9" default="build" basedir=".">
-    <description>ProTONE Suite Release 1.9</description>
+<project name="ProTONE Suite - 1.10" default="build" basedir=".">
+    <description>ProTONE Suite Release 1.10</description>
 
     <property name="svnuser" value="octavian.paraschiv" />
     <property name="svnpass" value="Cx9yE2EX3QH7" />
@@ -40,7 +40,7 @@
             <echo message="Source code check out ..." /> 
             <svn-checkout
                 destination="${root}\src" 
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x/src" 
+                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.10.x/src" 
                 recursive="true"
                 quiet="false"
                 verbose="true"
@@ -54,7 +54,7 @@
 
         <target name="VersionInfoUpdate">
             <!-- Version info increment -->
-            <iniread property="oldversion" filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" default="1.9.0" />
+            <iniread property="oldversion" filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" default="1.10.0" />
             <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
             <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
             <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
@@ -96,7 +96,7 @@
             <!-- Post build results -->
             <echo message="Upload build results to SVN ..." />
             <svn 
-                uri="https://protone-suite.googlecode.com/svn/publish"
+                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}" 
@@ -104,12 +104,12 @@
                 failonerror="false">
                 
                 <arg value="add" />
-                <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + newversion + '.exe'}" />
+                <arg path="${'${root}\..\..\..\publish\1.10\ProTONE Suite ' + newversion + '.exe'}" />
                 
             </svn>
             
             <svn 
-                uri="https://protone-suite.googlecode.com/svn/publish"
+                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}"
@@ -117,26 +117,26 @@
                 failonerror="false">
                 
                 <arg value="delete" />
-                <arg path="${'${root}\..\..\..\publish\ProTONE Suite ' + oldversion + '.exe'}" />
+                <arg path="${'${root}\..\..\..\publish\1.10\ProTONE Suite ' + oldversion + '.exe'}" />
                 
             </svn>
 
             <svn
-                uri="https://protone-suite.googlecode.com/svn/publish"
+                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}"
                 password="${svnpass}">
                 
                 <arg line="commit -m build_${newversion}" />
-                <arg line="${'${root}\..\..\..\publish'}" />
+                <arg line="${'${root}\..\..\..\publish\1.10'}" />
                 
             </svn>
 
             <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" value="${newversion}" />
 
             <svn
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.9.x"
+                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.10.x"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}"
