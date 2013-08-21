@@ -21,7 +21,7 @@
         <call target="VersionInfoUpdate" />
         <call target="BuildVSSolution" />
         <call target="BuildInstaller" />
-        <call target="PostBuildResults" />
+        <!--<call target="PostBuildResults" />-->
 
         <echo message=" BUILD DONE !!" />
 
