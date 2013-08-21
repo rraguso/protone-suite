@@ -1,5 +1,0 @@
-LIBRARY IRSerDev.dll
-EXPORTS
-	PortInit
-	PortClose
-	RegisterCallback
