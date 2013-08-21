@@ -1,7 +1,7 @@
 ;------------------------------
 ; macrodefinitions
 #define BINDIR "..\bin"
-#define OUTDIR "..\..\..\..\publish"
+#define OUTDIR "..\..\..\..\publish\1.10"
 #define EXTDIR "..\..\externals"
 #define VERSION GetStringFileInfo(BINDIR + "\OPMedia.Core.dll", FILE_VERSION)
 #define COMPANY GetStringFileInfo(BINDIR + "\OPMedia.Core.dll", COMPANY_NAME)
@@ -268,8 +268,8 @@ Filename: cmd.exe; Parameters: "/c ""sc delete OPMedia.PersistenceService"""; Fl
 
 [Registry]
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: InstallLanguageID; ValueData: {language}; Flags: uninsdeletevalue noerror
-Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: DownloadUriBase; ValueData: https://protone-suite.googlecode.com/svn/publish; Flags: noerror uninsdeletevalue
-Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: HelpUriBase; ValueData: http://protone-suite.googlecode.com/svn/wiki/ProTONE Suite - 1.9.x/; Flags: noerror uninsdeletevalue
+Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: DownloadUriBase; ValueData: https://protone-suite.googlecode.com/svn/publish/1.10; Flags: noerror uninsdeletevalue
+Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: HelpUriBase; ValueData: http://protone-suite.googlecode.com/svn/wiki/ProTONE Suite - 1.10.x/; Flags: noerror uninsdeletevalue
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: dword; ValueName: UseOnlineDocumentation; ValueData: 1; Flags: noerror uninsdeletevalue
 
 [UninstallDelete]

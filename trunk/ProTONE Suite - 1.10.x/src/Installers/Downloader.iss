@@ -1,7 +1,7 @@
 ;------------------------------
 ; macrodefinitions
 #define BINDIR "..\bin"
-#define OUTDIR "..\..\..\..\publish"
+#define OUTDIR "..\..\..\..\publish\1.10"
 
 
 [Setup]

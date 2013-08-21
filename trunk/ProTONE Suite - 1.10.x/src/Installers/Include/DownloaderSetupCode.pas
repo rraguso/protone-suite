@@ -120,7 +120,7 @@ begin
    LoadSkin(ExpandConstant('{tmp}\OPMedia.cjstyles'), 'NormalBlack.ini');
    
    res := DownloadFile('Checking latest version ...', 'Please wait while retrieving last version to download ...', 
-      'http://protone-suite.googlecode.com/svn/publish/Versions.txt',
+      'http://protone-suite.googlecode.com/svn/publish/1.10/Versions.txt',
       ExpandConstant('{tmp}\versions.txt'));   
       
    if (res = 1) then
@@ -129,7 +129,7 @@ begin
     s := GetIniString('ProTONE Suite', 'Version', '0', ExpandConstant('{tmp}\versions.txt'));
     
     res := DownloadFile('Downloading ProTONE Suite ...', 'Please wait for the ProTONE Suite download to finish ...', 
-          'http://protone-suite.googlecode.com/svn/publish/ProTONE Suite ' + s + '.exe',
+          'http://protone-suite.googlecode.com/svn/publish/1.10/ProTONE Suite ' + s + '.exe',
            ExpandConstant('{tmp}') + 'ProTONE Suite '  + s + '.exe');
            
     if (res = 1) then
