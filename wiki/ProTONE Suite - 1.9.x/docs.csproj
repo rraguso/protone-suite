@@ -64,11 +64,15 @@
     <Content Include="images\dvd_b.png" />
     <Content Include="images\dvd_cm.png" />
     <Content Include="images\ffwd_cm.png" />
+    <Content Include="images\file_dialog.png" />
+    <Content Include="images\folder_dialog.png" />
     <Content Include="images\fs_b.png" />
     <Content Include="images\fs_cm.png" />
     <Content Include="images\jump_playlist.png" />
     <Content Include="images\load_b.png" />
     <Content Include="images\load_cm.png" />
+    <Content Include="images\log_file_console.png" />
+    <Content Include="images\log_stack_dump.png" />
     <Content Include="images\loop_b.png" />
     <Content Include="images\loop_cm.png" />
     <Content Include="images\MainForm_1.png" />
@@ -99,6 +103,7 @@
     <Content Include="images\prev_cm.png" />
     <Content Include="images\rew_cm.png" />
     <Content Include="images\saveas.png" />
+    <Content Include="images\select_dvd_dialog.png" />
     <Content Include="images\settings_b.png" />
     <Content Include="images\settings_cm.png" />
     <Content Include="images\shuffle_b.png" />
@@ -110,6 +115,8 @@
     <Content Include="images\voldown_cm.png" />
     <Content Include="images\volup_cm.png" />
     <Content Include="OPMedia.ProTONE\AllShortcuts.htm" />
+    <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpDisksOptions.htm" />
+    <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpFavoriteFolders.htm" />
     <Content Include="template.htm" />
     <Content Include="OPMedia.MediaLibrary\FavoriteFoldersManager.htm" />
     <Content Include="OPMedia.MediaLibrary\id3wizard\WizFinishPageCtl.htm" />
