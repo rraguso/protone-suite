@@ -96,6 +96,8 @@ namespace OPMedia.UI.Configuration
 
                 shortcuts.Sort(ShortcutsSorter);
 
+                StringBuilder sb = new StringBuilder();
+
                 foreach(OPMShortcut cmd in shortcuts)
                 {
                     string cmdName = cmd.ToString();
@@ -128,6 +130,30 @@ namespace OPMedia.UI.Configuration
 
                     item.Tag = cmd;
                     lvShortcuts.Items.Add(item);
+
+                    sb.AppendLine("<tr>");
+
+                    sb.AppendLine("<td>");
+                    sb.AppendLine(item.Text);
+                    sb.AppendLine("</td>");
+
+                    sb.AppendLine("<td>");
+                    sb.AppendLine(subItemDesc.Text);
+                    sb.AppendLine("</td>");
+
+                    sb.AppendLine("<td>");
+                    sb.AppendLine(subItemKey.Text);
+                    sb.AppendLine("</td>");
+
+                    sb.AppendLine("<td>");
+                    sb.AppendLine(subItemAltKey.Text);
+                    sb.AppendLine("</td>");
+
+                    sb.AppendLine("<td>");
+                    sb.AppendLine("Yes");
+                    sb.AppendLine("</td>");
+
+                    sb.AppendLine("</tr>");
                 }
 
                 this.ResumeLayout();
