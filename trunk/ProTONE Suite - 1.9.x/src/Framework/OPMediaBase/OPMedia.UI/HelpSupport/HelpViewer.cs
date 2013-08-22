@@ -10,6 +10,7 @@ using OPMedia.Core;
 using System.Windows.Forms;
 using OPMedia.Core.GlobalEvents;
 using System.Net;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.UI.HelpSupport
 {

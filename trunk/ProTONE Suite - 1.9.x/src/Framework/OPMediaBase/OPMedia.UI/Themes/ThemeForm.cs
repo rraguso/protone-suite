@@ -202,7 +202,7 @@ namespace OPMedia.UI.Themes
                 switch (args.cmd)
                 {
                     case OPMShortcut.CmdOpenHelp:
-                        if (IsActive)
+                        if (IsActive || (this is LogFileConsoleDialog))
                         {
                             FireHelpRequest();
                             args.Handled = true;
