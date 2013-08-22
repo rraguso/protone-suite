@@ -41,7 +41,7 @@ namespace OPMedia.UI.HelpSupport
                 _helpViewer.FormClosed += new FormClosedEventHandler(_helpViewer_FormClosed);
             }
             
-            _helpViewer.OpenURL(helpUri);
+            _helpViewer.OpenURL(helpUri.Replace("\\", "/"));
         }
 
         static void _helpViewer_FormClosed(object sender, FormClosedEventArgs e)

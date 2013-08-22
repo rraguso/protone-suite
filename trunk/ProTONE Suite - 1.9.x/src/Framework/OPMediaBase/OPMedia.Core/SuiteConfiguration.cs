@@ -281,7 +281,7 @@ namespace OPMedia.Core
                     }
                 }
 
-                return string.Format("file://{0}/docs", SuiteConfiguration.InstallationPath);
+                return string.Format("file:///{0}/docs", SuiteConfiguration.InstallationPath);
             }
         }
 
