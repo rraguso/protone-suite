@@ -1,1 +1,81 @@
-<html><body>LogFileConsoleDialog</body></html>
+<html>
+<!-- INSERT STYLESHEET HERE -->
+<head>
+    <title>Log file console</title>
+    </head>
+    <body>
+        <p>
+            This dialog is displayed whenever the user presses the &quot;Show log file&quot; 
+            shortcut key (F12). Typically, this window is brought up in the process of troubleshooting the application.
+            This window contains a list of entries that is updated in real time.<br />
+        </p>
+        <p>
+            <img src="images/log_file_console.png" style="height: 300px; width: 540px"/></p>
+        <p>
+            <table style="width:100%;">
+                <tr>
+                    <td>The toolbar has the following fields:</td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>* The first toolbar field is disabled and it displays the name of the current log file.</td>
+                </tr>
+                <tr>
+                    <td>* The second toolbar field defines how many log entries are displayed in the list.</td>
+                </tr>
+                <tr>
+                    <td>* The next four toolbar fields defines which log entry types are displayed in the list: Trace, Info, Warning, Error.</td>
+                </tr>
+                <tr>
+                    <td>* The 7th toolbar field is used to save the contents of the log list or the entire log file to a custom file on the disk.</td>
+                </tr>
+                <tr>
+                    <td>* The 8th toolbar field is used to freeze the contents of the log list (that is, stop updating the list in real time).</td>
+                </tr>
+                 <tr>
+                    <td>* The 9th toolbar field is used to purge the contents of the log file.</td>
+                </tr>
+            </table>
+        </p>
+            <table style="width:100%;">
+                <tr>
+                    <td>The log entry list has the following columns:</td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>* The first column identifies the entry type: Trace, Info, Warning, Error.</td>
+                </tr>
+                <tr>
+                    <td>* The second column represents the timestamp (when did the respective event occur).</td>
+                </tr>
+                <tr>
+                    <td>* The 3rd and the 4th columns are the Process ID and the Thread ID.</td>
+                </tr>
+                <tr>
+                    <td>* The 5th column identifies in which application module did the event occur.</td>
+                </tr>
+                <tr>
+                    <td>* The 6th column describes the message associated with the event.</td>
+                </tr>
+                 <tr>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>Double-clicking an entry in the list will display additional event information (if available).</td>
+                </tr>
+                 <tr>
+                    <td>For example, if the event is an exception, double-clicking it will bring up a stack dump window:</td>
+                </tr>
+                 <tr>
+                    <td><img src="images/log_stack_dump.png" style="height: 205px; width: 530px"/></td>
+                </tr>
+            </table>
+        <p>
+            See also: <a href="./AllShortcuts.htm">Shortcut list</a> 
+            </p>
+        </body>
+</html>

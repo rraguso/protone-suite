@@ -1,1 +1,68 @@
-<html><body>OPMFileDialog</body></html>
+<html>
+<!-- INSERT STYLESHEET HERE -->
+<head>
+    <title>Open/save file dialog</title>
+    </head>
+    <body>
+        <p>
+            This dialog is displayed whenever the user requests to open/save files from/to the disk.
+            As seen in the following image, this window is divided into several areas:<br />
+        </p>
+        <p>
+            <img src="images/file_dialog.png" style="height: 520px; width: 650px"/></p>
+        <p>
+            <table style="width:100%;" border="1" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>"Look in" combo box:</td>
+                    <td>Select the logical disk where the files should be located.</td>
+                </tr>
+                <tr>
+                    <td>"Current path" field:</td>
+                    <td>Displays the full path of the folder whose contents is currently displayed in the list.</td>
+                </tr>
+                <tr>
+                    <td>"Add to favorites" button:</td>
+                    <td>This is used to add the current folder to the list of favorite folders. Each favorite folder is also displayed in the left sidebar (see below).</td>
+                </tr>
+                 <tr>
+                    <td valign="top">Left sidebar:</td>
+                    <td>Displays several special Windows folders such as: 
+                        <ul>
+                            <li>Desktop</li><li>Favorites (Windows favorites, not application favorites)</li><li>CD Burning folder</li><li>My Documents</li><li>Recent files</li>
+                        </ul>
+                        It also lists all application defined favorite folders.
+                        </td>
+                </tr>
+                <tr>
+                    <td>File list:</td>
+                    <td>Displays the files in the current folder that have the extension matching with 
+                        one of the types selected in the &quot;File type&quot;combo box.</td>
+                </tr>
+                <tr>
+                    <td>"File name" text box:</td>
+                    <td>This displays the name of the target file. The user can also type the name of the target file here.</td>
+                </tr>
+                <tr>
+                    <td>"File type" combo box:</td>
+                    <td>This field defines the extensions of the files that are displayed in the list.
+                        <br />
+                        The contents of this combo box differs depending on the extension of the file(s) 
+                        need to be opened/saved.</td>
+                </tr>
+            </table>
+        </p>
+            <table cellpadding="2" cellspacing="5" width="auto">
+                <tr>
+                    <td align="justify" valign="middle" width="auto" height="auto">
+            <img alt="" src="images/caution.png" height="20" width="20" /></td>
+                    <td align="justify" valign="middle" width="auto" colspan="1" height="auto">
+                        <strong>CAUTION:</strong> Not all the file dialogs have the feature of adding 
+                        favorite folders; thus, not all file dialogs will display the &quot;Add to favorites&quot; 
+                        button.</td>
+                </tr>
+                </table>
+        <p>
+            See also: <a href="SettingsForm/MiscellaneousSettingsPanel/tpFavorites.htm">Manage favorite folders</a> 
+            </p>
+        </body>
+</html>
