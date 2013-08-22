@@ -90,6 +90,7 @@
     <Content Include="images\tip.png" />
     <Content Include="images\voldown_cm.png" />
     <Content Include="images\volup_cm.png" />
+    <Content Include="OPMedia.ProTONE\AllShortcuts.htm" />
     <Content Include="template.htm" />
     <Content Include="OPMedia.MediaLibrary\FavoriteFoldersManager.htm" />
     <Content Include="OPMedia.MediaLibrary\id3wizard\WizFinishPageCtl.htm" />
