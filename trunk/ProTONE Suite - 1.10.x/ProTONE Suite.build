@@ -21,7 +21,7 @@
         <call target="VersionInfoUpdate" />
         <call target="BuildVSSolution" />
         <call target="BuildInstaller" />
-        <!--<call target="PostBuildResults" />-->
+        <call target="PostBuildResults" />
 
         <echo message=" BUILD DONE !!" />
 
@@ -55,9 +55,9 @@
         <target name="VersionInfoUpdate">
             <!-- Version info increment -->
             <iniread property="oldversion" filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" default="1.10.0" />
-            <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
+            <property name="oldversion.build" value="${string::substring(oldversion, 5, string::get-length(oldversion) - 5)}" />
             <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
-            <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
+            <property name="newversion" value="${string::substring(oldversion, 0, 5) + newversion.build}" />
 
             <echo message="Old version: ${oldversion}" />
             <echo message="New version: ${newversion}" />
