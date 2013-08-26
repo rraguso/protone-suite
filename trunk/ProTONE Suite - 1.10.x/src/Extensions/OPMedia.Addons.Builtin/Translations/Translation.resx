@@ -512,5 +512,8 @@ Use the 'Add Files', 'Add Folder',  'Remove Files' buttons to configure the file
 <data name="TXT_CATALOGITEMINFO_RO">
   <value>Non-editable information</value>
 </data>
+<data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
+  <value>Show properties of Audio CD Files (CDA) in File Browser</value>
+</data>
     
 </root>
