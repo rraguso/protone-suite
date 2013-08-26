@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_APP_NAME">
+    <value>Remote Manager Control Device</value>
+  </data>
+  <data name="TXT_REMOTELIST">
+    <value>Télécommande liste des périphériques de contrôle:</value>
+  </data>
+  <data name="TXT_REMOTENAME">
+    <value>Télécommande nom de l'appareil de contrôle:</value>
+  </data>
+  <data name="TXT_BUTTONS">
+    <value>Touches de la télécommande</value>
+  </data>
+  <data name="TXT_INPUTPINDATA">
+    <value>Configuration des broches d'entrée</value>
+  </data>
+  <data name="TXT_CFGDATA">
+    <value>Pin données de configuration:</value>
+  </data>
+  <data name="TXT_PINTYPE">
+    <value>Pin Type:</value>
+  </data>
+  <data name="TXT_OUTPUTPINDATA">
+    <value>Configuration des broches de sortie</value>
+  </data>
+  <data name="TXT_ADDREMOTECONFIG">
+    <value>Ajout d'un périphérique de contrôle à distance</value>
+  </data>
+  <data name="TXT_CHANGEEMOTECONFIG">
+    <value>Configurer le périphérique de contrôle à distance</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEREMOTE">
+    <value>Êtes-vous sûr de vouloir supprimer le dispositif de commande à distance sélectionné?
+Vous ne serez pas en mesure d'annuler cette suppression!</value>
+  </data>
+  <data name="TXT_ENTERDATA">
+    <value>Pas de données de configuration définies.</value>
+  </data>
+  <data name="TXT_CFG">
+    <value>Ce type broche doit être configuré à partir Lecteur ProTone.</value>
+  </data>
+  <data name="TXT_NOTCFG">
+    <value>Ce type goupille ne nécessite aucune configuration.</value>
+  </data>
+  <data name="TXT_BUTTON_NAME">
+    <value>Nom</value>
+  </data>
+  <data name="TXT_TARGET_WNDNAME">
+    <value>Fenêtre cible</value>
+  </data>
+  <data name="TXT_NODATA">
+    <value>Aucune donnée de configuration n'est encore défini.</value>
+  </data>
+  <data name="TXT_BUTTONNAME">
+    <value>Nom du bouton:</value>
+  </data>
+  <data name="TXT_INPUTDATA">
+    <value>Les données d'entrée (presse Détecter pour recevoir des données):</value>
+  </data>
+  <data name="TXT_OUTPUTDATA">
+    <value>Les données de la broche de sortie:</value>
+  </data>
+  <data name="TXT_DETECT">
+    <value>Détecter</value>
+  </data>
+  <data name="TXT_ADDBUTTON">
+    <value>Ajouter un bouton sur '{0}'</value>
+  </data>
+  <data name="TXT_CHANGEBUTTON">
+    <value>Configurer le bouton de '{0}'</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEBUTTON">
+    <value>Êtes-vous sûr de vouloir supprimer le bouton de commande à distance sélectionné?
+Vous ne serez pas en mesure d'annuler cette suppression!</value>
+  </data>
+  <data name="TXT_PRESSBUTTON">
+    <value>Appuyez sur une touche de la télécommande. Pour ignorer la détection, appuyez sur Entrée ou Echap.</value>
+  </data>
+  <data name="TXT_ADD_REPEAT">
+    <value>Sur le bouton Ajouter, puis répétez</value>
+  </data>
+  <data name="TXT_ADD_ONCE">
+    <value>Sur le bouton Ajouter</value>
+  </data>
+  <data name="TXT_TARGETWNDNAME">
+    <value>Titre de l'application cible / fenêtre:</value>
+  </data>
+  <data name="TXT_WINDOWBASED">
+    <value>Envoyer des commandes de la fenêtre du programme actif</value>
+  </data>
+  <data name="TXT_SAVE_BEFORE_EXIT">
+    <value>Vous avez apporté des modifications aux dispositifs de commande à distance.
+Voulez-vous enregistrer les modifications avant de quitter?</value>
+  </data>
+  <data name="TXT_APPLY_CFG">
+    <value>Enregistrer la configuration?</value>
+  </data>
+  <data name="TXT_SECONDS">
+    <value>secondes.</value>
+  </data>
+  <data name="TXT_TIMEDREPEATRATE">
+    <value>Intervalle de répétition de commande:
+ (0 = pas de répétition)</value>
+  </data>
+  <data name="TXT_PROTONE_REMOTE_COMMAND">
+    <value>Commande ProTone Télécommande:</value>
+  </data>
+  <data name="TXT_PRESS_KEY">
+    <value>Appuyez sur la combinaison de touches que vous souhaitez attribuer.</value>
+  </data>
+  <data name="TXT_DEFAULTWINDOWNAME">
+    <value>Default_window_name</value>
+  </data>
+  <data name="TXT_NOBUTTONSREQUIRED">
+    <value>Cet appareil ne nécessite pas de configuration des boutons.</value>
+  </data>
+  <data name="TXT_APPLYTIP">
+    <value>Enregistrement de la configuration de la télécommande</value>
+  </data>
+  <data name="TXT_DEVICENAME">
+    <value>Nom de l'appareil: {0}</value>
+  </data>
+  <data name="TXT_INPUTPIN">
+    <value>Broche d'entrée: {0} {1}</value>
+  </data>
+  <data name="TXT_OUTPUTPIN">
+    <value>Broche de sortie: {0} {1}</value>
+  </data>
+  <data name="TXT_BUTTONNAME_FULL">
+    <value>Nom du bouton: {0} ['{1}' -&gt; '{2}']</value>
+  </data>
+  <data name="TXT_NO_BUTTONS_YET">
+    <value>Boutons ne sont pas encore définies pour cet appareil.</value>
+  </data>
+  <data name="TXT_ADD_BUTTON">
+    <value>Ajouter le nouveau bouton ...</value>
+  </data>
+  <data name="TXT_DEL_BUTTON">
+    <value>Supprimer bouton existant</value>
+  </data>
+  <data name="TXT_MOD_BUTTON">
+    <value>Modifier bouton existant ...</value>
+  </data>
+  <data name="TXT_ADD_DEVICE">
+    <value>Ajouter nouvel appareil ...</value>
+  </data>
+  <data name="TXT_DEL_DEVICE">
+    <value>Supprimer dispositif existant</value>
+  </data>
+  <data name="TXT_MOD_DEVICE">
+    <value>Modifiez dispositif existant ...</value>
+  </data>
+  <data name="TXT_CONFIG_FILES_FILTER">
+    <value>Les fichiers de configuration de contrôle à distance (*.config)|*.config||</value>
+  </data>
+  <data name="TXT_ADMIN_RIGHTS_REQUIRED">
+    <value>Le gestionnaire de périphériques de contrôle à distance nécessite des droits d'administrateur pour exécuter.
+ Vous devez lancer cette application sous un compte utilisateur disposant de droits d'administrateur.</value>
+  </data>
+</root>
