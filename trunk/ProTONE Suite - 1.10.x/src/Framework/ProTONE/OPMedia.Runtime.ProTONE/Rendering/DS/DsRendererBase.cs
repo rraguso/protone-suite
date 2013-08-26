@@ -43,7 +43,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 int w = 0;
                 int hr = basicVideo.get_VideoWidth(out w);
-                if (hr < 0)
+                if (hr >= 0)
                     return w;
 
                 return 0;
@@ -56,7 +56,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 int h = 0;
                 int hr = basicVideo.get_VideoHeight(out h);
-                if (hr < 0)
+                if (hr >= 0)
                     return h;
 
                 return 0;
@@ -87,11 +87,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (mediaEvent == null) 
                 return;
 
-            for (; ; )
+            while (mediaEvent.GetEvent(out code, out p1, out p2, 0) == 0)
             {
                 try
                 {
-                    mediaEvent.GetEvent(out code, out p1, out p2, 10);
                     mediaEvent.FreeEventParams(code, p1, p2);
 
                     Logger.LogHeavyTrace("HandleGraphEvent: code={0} p1={1} p2={2}", code, p1, p2);

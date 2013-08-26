@@ -1031,5 +1031,8 @@ window position</value>
 <data name="TXT_OPT_RELOAD_CDINFO">
   <value>Reload CD Information</value>
 </data>
+<data name="TXT_CDTRACKINFO">
+  <value>CD Track Info:</value>
+</data>
     
 </root>

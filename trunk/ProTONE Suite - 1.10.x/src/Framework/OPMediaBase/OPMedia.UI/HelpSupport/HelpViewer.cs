@@ -10,6 +10,7 @@ using OPMedia.Core;
 using System.Windows.Forms;
 using OPMedia.Core.GlobalEvents;
 using System.Net;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.UI.HelpSupport
 {
@@ -46,6 +47,7 @@ namespace OPMedia.UI.HelpSupport
             this.wbHelpDisplay.AllowWebBrowserDrop = false;
             this.wbHelpDisplay.CausesValidation = false;
             this.wbHelpDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wbHelpDisplay.IsWebBrowserContextMenuEnabled = false;
             this.wbHelpDisplay.Location = new System.Drawing.Point(0, 0);
             this.wbHelpDisplay.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbHelpDisplay.Name = "wbHelpDisplay";
@@ -61,9 +63,10 @@ namespace OPMedia.UI.HelpSupport
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "HelpViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Shown += new EventHandler(HelpViewer_Shown);
+            this.Shown += new System.EventHandler(this.HelpViewer_Shown);
             this.pnlContent.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         void HelpViewer_Shown(object sender, EventArgs e)
@@ -87,6 +90,8 @@ namespace OPMedia.UI.HelpSupport
 
         internal void OpenURL(string helpUri)
         {
+            wbHelpDisplay.Navigating -= new WebBrowserNavigatingEventHandler(wbHelpDisplay_Navigating);
+
             _uri = helpUri;
             StringBuilder sb = new StringBuilder();
 
@@ -112,7 +117,10 @@ namespace OPMedia.UI.HelpSupport
                         sb.AppendLine(docLines[i]);
                     }
                 }
-                catch { }
+                catch(Exception ex)
+                { 
+					Logger.LogException(ex);
+                }
 
                 wbHelpDisplay.DocumentText = sb.ToString();
             }
@@ -137,7 +145,7 @@ namespace OPMedia.UI.HelpSupport
                             else if (docLines[i].ToLowerInvariant().Contains("<img"))
                             {
                                 docLines[i] = docLines[i].ToLowerInvariant().Replace("src=\"images", string.Format("src=\"{0}/images",
-                                    "http://protone-suite.googlecode.com/svn/wiki/ProTONE Suite - 1.9.x"));
+                                    SuiteConfiguration.HelpUriBase));
                             }
 
                             sb.AppendLine(docLines[i]);
@@ -161,6 +169,8 @@ namespace OPMedia.UI.HelpSupport
                 ColorHelper.GetColorCode(ThemeManager.ForeColor), ColorHelper.GetColorCode(ThemeManager.BackColor)));
             sb.AppendLine(string.Format("td {{ color:{0}; background-color:{1}; font-family:Arial; font-size:10px; }}",
                 ColorHelper.GetColorCode(ThemeManager.ForeColor), ColorHelper.GetColorCode(ThemeManager.BackColor)));
+            sb.AppendLine(string.Format("a {{ color:{0}; background-color:{1}; font-family:Arial; font-size:10px; font-weight:bold; }}",
+                ColorHelper.GetColorCode(ThemeManager.LinkColor), ColorHelper.GetColorCode(ThemeManager.BackColor)));
             
             sb.AppendLine("</style>");
 
@@ -170,13 +180,36 @@ namespace OPMedia.UI.HelpSupport
         void wbHelpDisplay_DocumentCompleted(object sender, System.Windows.Forms.WebBrowserDocumentCompletedEventArgs e)
         {
             base.SetTitle(wbHelpDisplay.DocumentTitle);
+
+            wbHelpDisplay.Navigating += new WebBrowserNavigatingEventHandler(wbHelpDisplay_Navigating);
+        }
+
+        void wbHelpDisplay_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            e.Cancel = true;
+            string url = CombineURIs(new Uri(_uri), e.Url);
+            if (!string.IsNullOrEmpty(url))
+            {
+                OpenURL(url.Replace("\\", "/"));
+            }
+        }
+
+        private string CombineURIs(Uri baseUri, Uri relativeUri)
+        {
+            if (relativeUri.Scheme == "about")
+            {
+                string baseUrl = baseUri.AbsoluteUri;
+                string url = baseUrl.Replace(Path.GetFileName(baseUrl), relativeUri.AbsolutePath);
+                return url;
+            }
+
+            return relativeUri.AbsolutePath;
         }
 
         private void wbHelpDisplay_PreviewKeyDown(object sender, System.Windows.Forms.PreviewKeyDownEventArgs e)
         {
+            // TODO identify which keys should be allowed and which not
             base.ProcessKeyDown(e.KeyCode, e.Modifiers);
         }
-
-        
     }
 }

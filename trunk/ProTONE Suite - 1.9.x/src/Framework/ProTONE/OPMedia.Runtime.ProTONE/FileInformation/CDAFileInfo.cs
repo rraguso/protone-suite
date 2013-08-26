@@ -8,7 +8,6 @@ using System.ComponentModel;
 using OPMedia.Core;
 using System.Net;
 using OPMedia.Core.Logging;
-using OPMedia.Runtime.ProTONE.Rendering.Cdda.FreeDb;
 using System.IO;
 using System.IO.Compression;
 using System.Data;

@@ -1029,5 +1029,8 @@ de la fenêtre vidéo</value>
 <data name="TXT_OPT_RELOAD_CDINFO">
   <value>Recharger informations sur le CD</value>
 </data>
+<data name="TXT_CDTRACKINFO">
+  <value>CD Piste Info:</value>
+</data>
     
 </root>

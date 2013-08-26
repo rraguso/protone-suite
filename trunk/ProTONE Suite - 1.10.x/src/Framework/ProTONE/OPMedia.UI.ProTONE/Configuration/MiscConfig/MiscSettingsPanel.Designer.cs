@@ -148,7 +148,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tpFavoriteFolders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.tpFavoriteFolders.Controls.Add(this.pageFavoriteFolders);
             this.tpFavoriteFolders.Location = new System.Drawing.Point(4, 23);
-            this.tpFavoriteFolders.Name = "tpDiagnostics";
+            this.tpFavoriteFolders.Name = "tpFavoriteFolders";
             this.tpFavoriteFolders.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.tpFavoriteFolders.Size = new System.Drawing.Size(647, 366);
             this.tpFavoriteFolders.TabIndex = 3;

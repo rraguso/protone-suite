@@ -1030,5 +1030,8 @@ fereastră video</value>
 <data name="TXT_OPT_RELOAD_CDINFO">
   <value>Reîncarcă informațiile despre CD</value>
 </data>
+<data name="TXT_CDTRACKINFO">
+  <value>Info piesă de pe CD:</value>
+</data>
     
 </root>
