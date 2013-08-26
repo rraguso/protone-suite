@@ -509,5 +509,8 @@
 <data name="TXT_CATALOGITEMINFO_RO">
   <value>Non modifiable informations</value>
 </data>
+<data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
+  <value>Afficher les propriétés des fichiers de CD audio (CDA) dans l'explorateur de fichiers</value>
+</data>
     
 </root>

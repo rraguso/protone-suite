@@ -517,5 +517,8 @@ Scurtătură: {0}</value>
 <data name="TXT_CATALOGITEMINFO_RO">
   <value>Informaţii needitabile</value>
 </data>
+<data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
+  <value>Arată proprietățile fișierelor CD Audio (CDA) în Explorator Fișiere</value>
+</data>
     
 </root>

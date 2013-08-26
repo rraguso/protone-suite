@@ -305,10 +305,10 @@ in den Windows-Explorer-Stil wollen.</value>
   <value>Katalog-Browser</value>
 </data>
 <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL">
-  <value>Zeige Katalogelemente Immobilien in Katalog-Browser</value>
+  <value>Zeige Katalogelemente Informationen in Katalog-Browser</value>
 </data>
 <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL">
-  <value>Anzeige der Eigenschaften des Catalog Dateien im Datei-Browser</value>
+  <value>Zeige Eigenschaften des Catalog Dateien im Datei-Browser</value>
 </data>
 <data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL">
   <value>Wiedergeben von Mediendateien mit dem eingebetteten Player-Erweiterung ProTONE</value>
@@ -515,6 +515,9 @@ Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entferne
 </data>
 <data name="TXT_CATALOGITEMINFO_RO">
   <value>Nicht Veränderbaren Informationen</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
+  <value>Zeige Eigenschaften von Audio-CD-Dateien (CDA) in Datei-Browser</value>
 </data>
     
 </root>
