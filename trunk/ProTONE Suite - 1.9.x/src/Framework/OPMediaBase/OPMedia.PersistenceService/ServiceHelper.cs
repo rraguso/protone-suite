@@ -24,6 +24,8 @@ namespace OPMedia.PersistenceService
             string address = "net.pipe://localhost/PersistenceService.svc";
 
             NetNamedPipeBinding binding = new NetNamedPipeBinding();
+            binding.MaxReceivedMessageSize = int.MaxValue;
+            binding.ReaderQuotas.MaxStringContentLength = int.MaxValue;
 
             _host = new ServiceHost(typeof(PersistenceServiceImpl));
             _host.AddServiceEndpoint(typeof(IPersistenceService), binding, address);

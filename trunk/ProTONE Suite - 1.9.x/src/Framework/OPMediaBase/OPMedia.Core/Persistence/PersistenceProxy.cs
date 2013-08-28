@@ -23,6 +23,9 @@ namespace OPMedia.Core
         protected virtual void Open()
         {
             var myBinding = new NetNamedPipeBinding();
+            myBinding.MaxReceivedMessageSize = int.MaxValue;
+            myBinding.ReaderQuotas.MaxStringContentLength = int.MaxValue;
+
             var myEndpoint = new EndpointAddress("net.pipe://localhost/PersistenceService.svc");
             var myChannelFactory = new ChannelFactory<IPersistenceService>(myBinding, myEndpoint);
             _proxy = myChannelFactory.CreateChannel();
