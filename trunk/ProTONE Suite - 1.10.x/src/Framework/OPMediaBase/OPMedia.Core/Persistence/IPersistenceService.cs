@@ -14,5 +14,9 @@ namespace OPMedia.Core
 
         [OperationContract]
         void SaveObject(string persistenceId, string objectContent);
+
+        [OperationContract]
+        void DeleteObject(string persistenceId);
+
     }
 }

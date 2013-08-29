@@ -5,6 +5,7 @@ using System.Text;
 using OPMedia.Runtime.ServiceHelpers;
 using System.ServiceModel;
 using OPMedia.Core;
+using System.Data.SqlServerCe;
 
 namespace OPMedia.PersistenceService
 {
@@ -20,6 +21,11 @@ namespace OPMedia.PersistenceService
         protected override void StartInternal()
         {
             Environment.CurrentDirectory = SuiteConfiguration.InstallationPath;
+
+            using (SqlCeEngine eng = new SqlCeEngine("Data Source = Persistence.sdf"))
+            {
+                eng.Shrink();
+            }
 
             string address = "net.pipe://localhost/PersistenceService.svc";
 

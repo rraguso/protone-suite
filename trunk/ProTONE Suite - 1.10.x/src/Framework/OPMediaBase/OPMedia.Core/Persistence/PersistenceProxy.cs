@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.Core
 {
@@ -50,6 +51,7 @@ namespace OPMedia.Core
             }
             catch(Exception ex)
             {
+                Logger.LogException(ex);
                 Abort();
                 Open();
             }
@@ -65,6 +67,21 @@ namespace OPMedia.Core
             }
             catch(Exception ex)
             {
+                Logger.LogException(ex);
+                Abort();
+                Open();
+            }
+        }
+
+        void IPersistenceService.DeleteObject(string persistenceId)
+        {
+            try
+            {
+                _proxy.DeleteObject(persistenceId);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
                 Abort();
                 Open();
             }
@@ -94,6 +111,7 @@ namespace OPMedia.Core
                         }
                         catch (Exception ex)
                         {
+                            Logger.LogException(ex);
                             retVal = defaultValue;
                         }
                     }
@@ -101,6 +119,7 @@ namespace OPMedia.Core
             }
             catch(Exception ex)
             {
+                Logger.LogException(ex);
                 retVal = defaultValue;
             }
 
@@ -116,8 +135,24 @@ namespace OPMedia.Core
                     (pp as IPersistenceService).SaveObject(persistenceId, objectContent.ToString());
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                Logger.LogException(ex);
+            }
+        }
+
+        public static void DeleteObject<T>(string persistenceId)
+        {
+            try
+            {
+                using (PersistenceProxy pp = new PersistenceProxy())
+                {
+                    (pp as IPersistenceService).DeleteObject(persistenceId);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
             }
         }
     }
