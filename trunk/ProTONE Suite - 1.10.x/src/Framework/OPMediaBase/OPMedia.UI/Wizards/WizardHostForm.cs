@@ -15,6 +15,7 @@ using OPMedia.Core.ApplicationSettings;
 using OPMedia.Core;
 using OPMedia.UI.Properties;
 using OPMedia.UI.HelpSupport;
+using System.Diagnostics;
 
 
 #endregion
@@ -54,6 +55,8 @@ namespace OPMedia.UI.Wizards
             WizardDirection.Initializing;
 
         private WizardBaseCtl wizardPage = null;
+
+        private WizFinishPageCtl _finishPage = new WizFinishPageCtl();
 
         #endregion
 
@@ -630,7 +633,7 @@ namespace OPMedia.UI.Wizards
                 pnlContent.Controls.Remove(wizardPage);
             }
 
-            wizardPage = new WizFinishPageCtl();
+            wizardPage = _finishPage;
 
             // Subscribe for wizard events.
             (wizardPage as WizFinishPageCtl).FinishPageExit += 

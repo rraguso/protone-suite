@@ -70,8 +70,11 @@ namespace OPMedia.UI.Wizards
 
         void hostForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool mustClose = true;
+            if (Wizard == null)
+                // not the active page
+                return;
 
+            bool mustClose = true;
             if (_runner != null && BkgTask != null)
             {
                 if (BkgTask != null)
@@ -102,6 +105,12 @@ namespace OPMedia.UI.Wizards
 
         protected override void OnWizardFinishing()
         {
+            // OK button does Cancel until processing finished.
+            Wizard.OKButtonText = Translator.Translate("TXT_CANCEL");
+            Wizard.ShowRepeatWizard = false;
+            Wizard.ShowMovementButtons = false;
+            Wizard.ShowOKButton = true;
+
             lblWizardResults.Text = Translator.Translate("TXT_WIZTASKSRUNNING");
 
             _errorsFound = false;
@@ -228,19 +237,7 @@ namespace OPMedia.UI.Wizards
         #endregion
 
         #region Event Handlers
-        /// <summary>
-        /// Occurs when the wizard finish page is loaded.
-        /// </summary>
-        private void OnLoad(object sender, EventArgs e)
-        {
-            Wizard.FormClosing += new FormClosingEventHandler(hostForm_FormClosing);
 
-            // OK button does Cancel until processing finished.
-            Wizard.OKButtonText = Translator.Translate("TXT_CANCEL");
-            Wizard.ShowRepeatWizard = false;
-            Wizard.ShowMovementButtons = false;
-            Wizard.ShowOKButton = true;
-        }
 
         /// <summary>
         /// Occurs when the user presses the OK button on the 
