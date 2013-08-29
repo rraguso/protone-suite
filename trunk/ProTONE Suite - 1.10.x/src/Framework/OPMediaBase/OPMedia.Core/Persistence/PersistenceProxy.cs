@@ -23,6 +23,9 @@ namespace OPMedia.Core
         protected virtual void Open()
         {
             var myBinding = new NetNamedPipeBinding();
+            myBinding.MaxReceivedMessageSize = int.MaxValue;
+            myBinding.ReaderQuotas.MaxStringContentLength = int.MaxValue;
+
             var myEndpoint = new EndpointAddress("net.pipe://localhost/PersistenceService.svc");
             var myChannelFactory = new ChannelFactory<IPersistenceService>(myBinding, myEndpoint);
             _proxy = myChannelFactory.CreateChannel();
@@ -45,7 +48,7 @@ namespace OPMedia.Core
             {
                 return _proxy.ReadObject(persistenceId);
             }
-            catch
+            catch(Exception ex)
             {
                 Abort();
                 Open();
@@ -60,7 +63,7 @@ namespace OPMedia.Core
             {
                 _proxy.SaveObject(persistenceId, objectContent);
             }
-            catch
+            catch(Exception ex)
             {
                 Abort();
                 Open();
@@ -96,7 +99,7 @@ namespace OPMedia.Core
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 retVal = defaultValue;
             }

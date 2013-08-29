@@ -47,6 +47,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
@@ -58,6 +59,9 @@
     <Compile Include="ApplicationSettings\ConfigFileManager.cs" />
     <None Include="VersionTemplate.cs" />
     <Compile Include="MainThread.cs" />
+    <Compile Include="NetworkAccess\WebClientWithTimeout.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NetworkAccess\WebFileRetriever.cs" />
     <Compile Include="Persistence\IPersistenceService.cs" />
     <Compile Include="Persistence\PersistenceProxy.cs" />
