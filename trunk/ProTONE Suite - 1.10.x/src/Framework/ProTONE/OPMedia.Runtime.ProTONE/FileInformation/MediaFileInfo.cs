@@ -199,7 +199,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         private void BuildFields()
         {
-            if (!IsURI && !string.IsNullOrEmpty(base.Path))
+            if (IsURI)
+            {
+                mediaType = "URL";
+            }
+            else if (!string.IsNullOrEmpty(base.Path))
             {
                 try
                 {
