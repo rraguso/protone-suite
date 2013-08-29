@@ -40,7 +40,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
         /// Creates a new ShoutcastStream and connects to the specified Url
         /// </summary>
         /// <param name="url">Url of the Shoutcast stream</param>
-        public ShoutcastStream(string url)
+        public ShoutcastStream(string url, int timeout)
         {
             HttpWebResponse response = null;
 
@@ -52,6 +52,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
             request.KeepAlive = false;
             request.UserAgent = Constants.PlayerUserAgent;
             request.ServicePoint.Expect100Continue = false;
+
+            request.Timeout = timeout;
 
             try
             {

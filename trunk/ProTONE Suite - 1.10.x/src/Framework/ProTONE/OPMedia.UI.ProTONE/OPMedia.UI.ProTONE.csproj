@@ -75,6 +75,12 @@
     <Compile Include="Controls\OSD\OSDLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Dialogs\StreamingServerChooserDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\StreamingServerChooserDlg.Designer.cs">
+      <DependentUpon>StreamingServerChooserDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrayNotificationTarget.cs" />
     <Compile Include="Configuration\FileTypesPanel.cs">
       <SubType>UserControl</SubType>
@@ -307,6 +313,9 @@
     <EmbeddedResource Include="Controls\MediaPlayer\VolumeScale.resx">
       <DependentUpon>VolumeScale.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\StreamingServerChooserDlg.resx">
+      <DependentUpon>StreamingServerChooserDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.fr.resx">
       <SubType>Designer</SubType>

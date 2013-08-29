@@ -807,8 +807,19 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     {
                         args.Handled = true;
 
-                        UrlCfgDlg dlg = new UrlCfgDlg();
+                        UrlCfgDlg dlg = new UrlCfgDlg(true);
+                        dlg.ShowChooserButton = true;
                         dlg.RequiredUriParts = UriComponents.SchemeAndServer;
+                        dlg.OpenChooser += new EventHandler((s, e) =>
+                        {
+                            StreamingServerChooserDlg dlg2 = new StreamingServerChooserDlg();
+                            if (dlg2.ShowDialog() == DialogResult.OK)
+                            {
+                                dlg.Uri = dlg2.Uri;
+                                dlg.DialogResult = DialogResult.OK;
+                                dlg.Close();
+                            }
+                        });
 
                         if (dlg.ShowDialog() == DialogResult.OK)
                         {

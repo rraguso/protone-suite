@@ -24,7 +24,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
 
         protected override HRESULT CheckFile()
         {
-            _stream = new ShoutcastStream(m_sFileName);
+            _stream = new ShoutcastStream(m_sFileName, 4000);
             if (_stream != null && _stream.Connected)
                 return S_OK;
 

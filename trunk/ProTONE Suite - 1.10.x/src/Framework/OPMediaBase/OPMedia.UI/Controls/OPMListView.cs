@@ -126,6 +126,9 @@ namespace OPMedia.UI.Controls
 	/// </summary>
 	public class OPMListView : ListView
     {
+        int _sortColumn = -1;
+        SortOrder _sortorder = SortOrder.Ascending;
+
         //
         // TODO:
         //
@@ -410,7 +413,10 @@ namespace OPMedia.UI.Controls
 
                 rc.Offset(2, 0);
 
-                e.Graphics.DrawString(e.Header.Text, this.Font, bText, rc, sf);
+                string append = (e.ColumnIndex == _sortColumn) ? 
+                    (_sortorder == SortOrder.Ascending ? " A" : "D") : "";
+
+                e.Graphics.DrawString(e.Header.Text + append, this.Font, bText, rc, sf);
             }
         }
         #endregion
@@ -656,40 +662,11 @@ namespace OPMedia.UI.Controls
         #endregion
 
         #region Methods
-        public void ShowSortGlyph(int lastSortedColumn, int columnToSort, SortOrder order)
+        public void ShowSortGlyph(int column, SortOrder order)
         {
-            if (this.HeaderStyle == ColumnHeaderStyle.Clickable)
-            {
-                IntPtr hHeader = User32.SendMessage(this.Handle,
-                    (int)HeaderItemFlags.LVM_GETHEADER, IntPtr.Zero, IntPtr.Zero); //Get the handle of the ListView header
-
-                IntPtr newColumn = new IntPtr(columnToSort);
-                IntPtr prevColumn = new IntPtr(lastSortedColumn);
-                HDITEM hdItem;
-
-                IntPtr rtn;
-
-                if (lastSortedColumn != -1 && lastSortedColumn != columnToSort) //If the last sorted column exists
-                {
-                    hdItem = new HDITEM();
-                    hdItem.mask = (int)HeaderItemFlags.HDI_FORMAT;
-                    rtn = User32.SendMessage(hHeader, (int)HeaderItemFlags.HDM_GETITEM, prevColumn, ref hdItem);
-                    hdItem.fmt &= ~(int)HeaderItemFlags.HDF_SORTDOWN & ~(int)HeaderItemFlags.HDF_SORTUP;
-                    rtn = User32.SendMessage(hHeader, (int)HeaderItemFlags.HDM_SETITEM, prevColumn, ref hdItem);//Clear the sort glyph
-                }
-
-                hdItem = new HDITEM();
-                hdItem.mask = (int)HeaderItemFlags.HDI_FORMAT;
-                rtn = User32.SendMessage(hHeader, (int)HeaderItemFlags.HDM_GETITEM, newColumn, ref hdItem);
-
-                hdItem.fmt &= ~(int)HeaderItemFlags.HDF_SORTDOWN & ~(int)HeaderItemFlags.HDF_SORTUP;
-
-                int sortFmt = (order == SortOrder.Ascending ? (int)HeaderItemFlags.HDF_SORTUP : (int)HeaderItemFlags.HDF_SORTDOWN);
-
-                hdItem.fmt |= sortFmt;
-
-                rtn = User32.SendMessage(hHeader, (int)HeaderItemFlags.HDM_SETITEM, newColumn, ref hdItem); //Send message to the column header to show the sort glyph
-            }
+            _sortColumn = column;
+            _sortorder = order;
+            Invalidate();
         }
 
         /// <summary>

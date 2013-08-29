@@ -17,14 +17,43 @@ namespace OPMedia.UI.Configuration
 {
     public partial class UrlCfgDlg : ToolForm
     {
-        public string Uri { get; set; }
+        private string _uri = "";
+        public string Uri 
+        {
+            get { return txtUri.Text; }
+            set 
+            { 
+                _uri = value; 
+                DisplayURI();
+            }
+        }
+
+        public event EventHandler OpenChooser = null;
+
+        public bool ShowChooserButton 
+        {
+            get { return btnOpenChooser.Visible = true; }
+            set { btnOpenChooser.Visible = value; }
+        }
 
         public UriComponents RequiredUriParts { get; set; }
 
-        public UrlCfgDlg()
+        private bool _jumpToChooser = false;
+
+        public UrlCfgDlg(bool jumpToChooser = false)
             : base("TXT_SPECIFYURL")
         {
             InitializeComponent();
+
+            _jumpToChooser = jumpToChooser;
+            if (jumpToChooser)
+            {
+                this.ShowChooserButton = true;
+            }
+            else
+            {
+                this.ShowChooserButton = false;
+            }
 
             this.RequiredUriParts = UriComponents.HostAndPort;
 
@@ -33,17 +62,27 @@ namespace OPMedia.UI.Configuration
 
         void TcpIpCfgDlg_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.Uri))
+            DisplayURI();
+
+            if (_jumpToChooser)
+            {
+                btnOpenChooser_Click(sender, e);
+            }
+        }
+
+        private void DisplayURI()
+        {
+            if (string.IsNullOrEmpty(_uri))
             {
                 if (MatchFlag(RequiredUriParts, UriComponents.Scheme))
-                    this.Uri += "http://";
+                    _uri += "http://";
                 if (MatchFlag(RequiredUriParts, UriComponents.Host))
-                    this.Uri += "server";
+                    _uri += "server";
                 if (MatchFlag(RequiredUriParts, UriComponents.Port))
-                    this.Uri += ":8080";
+                    _uri += ":8080";
             }
 
-            txtUri.Text = this.Uri;
+            txtUri.Text = _uri;
         }
 
         private bool MatchFlag(UriComponents flags, UriComponents flag)
@@ -64,8 +103,7 @@ namespace OPMedia.UI.Configuration
                     uri = new Uri(txtUri.Text);
                 }
 
-                UriBuilder builder = 
-                    new UriBuilder(txtUri.Text);
+                UriBuilder builder = new UriBuilder(txtUri.Text);
             }
             catch
             {
@@ -82,6 +120,14 @@ namespace OPMedia.UI.Configuration
             {
                 this.Uri = txtUri.Text;
                 DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void btnOpenChooser_Click(object sender, EventArgs e)
+        {
+            if (OpenChooser != null)
+            {
+                OpenChooser(sender, e);
             }
         }
     }

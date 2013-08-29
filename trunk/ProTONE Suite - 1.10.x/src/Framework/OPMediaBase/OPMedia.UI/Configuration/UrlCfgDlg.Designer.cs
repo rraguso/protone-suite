@@ -35,8 +35,11 @@ namespace OPMedia.UI.Configuration
             this.btnCancel = new OPMedia.UI.Controls.OPMButton();
             this.btnOk = new OPMedia.UI.Controls.OPMButton();
             this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnOpenChooser = new OPMedia.UI.Controls.OPMButton();
             this.pnlContent.SuspendLayout();
             this.opmTableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContent
@@ -47,12 +50,12 @@ namespace OPMedia.UI.Configuration
             // txtUri
             // 
             this.txtUri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.opmTableLayoutPanel1.SetColumnSpan(this.txtUri, 3);
             this.txtUri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUri.Location = new System.Drawing.Point(3, 16);
+            this.txtUri.Location = new System.Drawing.Point(2, 0);
+            this.txtUri.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtUri.Name = "txtUri";
             this.txtUri.OverrideForeColor = System.Drawing.Color.Empty;
-            this.txtUri.Size = new System.Drawing.Size(297, 22);
+            this.txtUri.Size = new System.Drawing.Size(271, 22);
             this.txtUri.TabIndex = 1;
             this.txtUri.Text = "localhost:54321";
             // 
@@ -107,8 +110,8 @@ namespace OPMedia.UI.Configuration
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmTableLayoutPanel1.Controls.Add(this.btnCancel, 2, 3);
             this.opmTableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.txtUri, 0, 1);
             this.opmTableLayoutPanel1.Controls.Add(this.btnOk, 1, 3);
+            this.opmTableLayoutPanel1.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
@@ -118,8 +121,41 @@ namespace OPMedia.UI.Configuration
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.opmTableLayoutPanel1.Size = new System.Drawing.Size(303, 74);
             this.opmTableLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.opmTableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel1, 3);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.btnOpenChooser, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtUri, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 16);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(303, 23);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // btnOpenChooser
+            // 
+            this.btnOpenChooser.AutoSize = true;
+            this.btnOpenChooser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnOpenChooser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenChooser.Location = new System.Drawing.Point(275, 0);
+            this.btnOpenChooser.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOpenChooser.Name = "btnOpenChooser";
+            this.btnOpenChooser.OverrideBackColor = System.Drawing.Color.Empty;
+            this.btnOpenChooser.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnOpenChooser.Size = new System.Drawing.Size(28, 23);
+            this.btnOpenChooser.TabIndex = 5;
+            this.btnOpenChooser.Text = "...";
+            this.btnOpenChooser.Click += new System.EventHandler(this.btnOpenChooser_Click);
             // 
             // UrlCfgDlg
             // 
@@ -128,6 +164,8 @@ namespace OPMedia.UI.Configuration
             this.pnlContent.ResumeLayout(false);
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmTableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -139,6 +177,8 @@ namespace OPMedia.UI.Configuration
         private OPMButton btnCancel;
         private OPMButton btnOk;
         private OPMTableLayoutPanel opmTableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private OPMButton btnOpenChooser;
 
     }
 }
