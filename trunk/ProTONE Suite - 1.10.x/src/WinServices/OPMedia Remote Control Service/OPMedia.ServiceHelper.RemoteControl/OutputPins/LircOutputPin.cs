@@ -53,7 +53,7 @@ namespace OPMedia.ServiceHelper.RCCService.OutputPins
                 if (_client != null && _client.Connected)
                 {
                     msg += "\n";
-                    byte[] data = Encoding.Unicode.GetBytes(msg);
+                    byte[] data = Encoding.ASCII.GetBytes(msg);
                     _client.Client.Send(data);
                 }
             }
