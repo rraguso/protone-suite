@@ -141,7 +141,7 @@ namespace OPMedia.Core
             }
         }
 
-        public static void DeleteObject<T>(string persistenceId)
+        public static void DeleteObject(string persistenceId)
         {
             try
             {

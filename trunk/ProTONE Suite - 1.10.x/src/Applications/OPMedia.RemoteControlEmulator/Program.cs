@@ -38,43 +38,5 @@ namespace OPMedia.RemoteControlEmulator
 
             LoggedApplication.Stop();
         }
-
-        private delegate IPAddress[] GetHostAddressesHandler(string name);
-
-        public static bool ValidateServerName(string name, int timeout)
-        {
-            IPAddress[] addr = null;
-
-            try
-            {
-                GetHostAddressesHandler callback = new GetHostAddressesHandler(Dns.GetHostAddresses);
-                IAsyncResult result = callback.BeginInvoke(name, null, null);
-                if (result.AsyncWaitHandle.WaitOne(timeout, false))
-                {
-                    addr = callback.EndInvoke(result);
-                }
-
-                //addr = Dns.GetHostAddresses(name);
-            }
-            catch (Exception ex)
-            {
-            }
-
-            return (addr != null && addr.Length > 0);
-        }
-
-        private static bool IsPlaylist(string file)
-        {
-            try
-            {
-                Uri uri = new Uri(file);
-                string ext = PathUtils.GetExtension(uri.LocalPath);
-                return MediaRenderer.SupportedPlaylists.Contains(ext);
-            }
-            catch
-            {
-                return false;
-            }
-        }
     }
 }
