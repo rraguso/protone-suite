@@ -92,7 +92,6 @@ namespace OPMedia.UI.Wizards
             this.Controls.Add(this.lblWizardResults);
             this.Name = "WizFinishPageCtl";
             this.Size = new System.Drawing.Size(309, 212);
-            this.HandleCreated += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
 
         }
