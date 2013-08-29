@@ -56,12 +56,18 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
 
             _ipcReceiver = new IPCRemoteControlHost(appName);
             _ipcReceiver.OnSendRequest += new OnSendRequestHandler(_receiver_OnSendRequest);
+            _ipcReceiver.OnPostRequest += new OnPostRequestHandler(_receiver_OnPostRequest);
         }
 
         void _wcdReceiver_DataReceived(string data)
         {
             BasicCommand cmd = BasicCommand.Create(data);
             EventDispatch.DispatchEvent(BasicCommand.EventName, cmd);
+        }
+
+        void _receiver_OnPostRequest(string data)
+        {
+            _wcdReceiver_DataReceived(data);
         }
 
         string _receiver_OnSendRequest(string data)

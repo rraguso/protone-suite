@@ -95,14 +95,26 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
         {
             try
             {
-                SendKeys.SendWait(key);
-                return "ACK\r\n";
+                IntPtr hWnd = IntPtr.Zero;
+
+                if (MainThread.ModalForm != null)
+                    hWnd = MainThread.ModalForm.Handle;
+                else
+                    hWnd = MainThread.MainWindow.Handle;
+
+                if (User32.SetWindowOnTop(hWnd, true))
+                {
+                    SendKeys.SendWait(key);
+                    return "ACK\r\n";
+                }
+
             }
             catch (Exception ex)
             {
                 Logger.LogException(ex);
-                return "NAK\r\n";
             }
+
+            return "NAK\r\n";
         }
     }
 }

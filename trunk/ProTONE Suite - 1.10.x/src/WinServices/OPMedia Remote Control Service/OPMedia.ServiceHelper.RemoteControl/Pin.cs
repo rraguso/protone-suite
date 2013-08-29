@@ -16,6 +16,13 @@ namespace OPMedia.ServiceHelper.RCCService
         protected string _cfgData = string.Empty;
 
         public abstract bool IsConfigurable { get; }
+        public virtual bool IsEmulatorPin 
+        {
+            get
+            {
+                return false;
+            }
+        }
 
         public string CfgData
         { get  { return _cfgData; } }
@@ -29,13 +36,30 @@ namespace OPMedia.ServiceHelper.RCCService
         static Pin()
         {
             _inputPinsTable = new Dictionary<string, Type>();
-            _inputPinsTable.Add(typeof(SerialDeviceInputPin).Name, typeof(SerialDeviceInputPin));
             _inputPinsTable.Add(typeof(RemotingInputPin).Name, typeof(RemotingInputPin));
+            _inputPinsTable.Add(typeof(EmulatorInputPin).Name, typeof(EmulatorInputPin));
+            _inputPinsTable.Add(typeof(SerialDeviceInputPin).Name, typeof(SerialDeviceInputPin));
 
             _outputPinsTable = new Dictionary<string, Type>();
             _outputPinsTable.Add(typeof(ProTONEOutputPin).Name, typeof(ProTONEOutputPin));
             _outputPinsTable.Add(typeof(LircOutputPin).Name, typeof(LircOutputPin));
             _outputPinsTable.Add(typeof(HotkeyOutputPin).Name, typeof(HotkeyOutputPin));
+        }
+
+        public static bool IsEmulator(string name)
+        {
+            bool retVal = false;
+
+            Pin pin = FindPinByName(name);
+            if (pin != null)
+            {
+                retVal = pin.IsEmulatorPin;
+
+                pin = null;
+                GC.Collect();
+            }
+
+            return retVal;
         }
 
         public static bool IsPinConfigurable(string name)

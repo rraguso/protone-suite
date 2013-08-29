@@ -12,14 +12,19 @@ namespace OPMedia.Runtime.InterProcessCommunication
     {
         [OperationContract]
         string SendRequest(string request);
+
+        [OperationContract(IsOneWay=true)]
+        void PostRequest(string request);
     }
 
     public delegate string OnSendRequestHandler(string request);
+    public delegate void OnPostRequestHandler(string request);
 
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
     public class RemoteControlImpl : IRemoteControl
     {
         public event OnSendRequestHandler OnSendRequest = null;
+        public event OnPostRequestHandler OnPostRequest = null;
 
         [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.AfterCall)]
         public string SendRequest(string request)
@@ -30,6 +35,15 @@ namespace OPMedia.Runtime.InterProcessCommunication
             }
 
             return null;
+        }
+
+        [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.AfterCall)]
+        public void PostRequest(string request)
+        {
+            if (OnPostRequest != null)
+            {
+                OnPostRequest(request);
+            }
         }
     }
 
@@ -82,6 +96,21 @@ namespace OPMedia.Runtime.InterProcessCommunication
             return null;
         }
 
+        void IRemoteControl.PostRequest(string request)
+        {
+            try
+            {
+                _proxy.PostRequest(request);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+
+                Abort();
+                Open();
+            }
+        }
+
         public static string SendRequest(string appName, string request)
         {
             try
@@ -98,11 +127,27 @@ namespace OPMedia.Runtime.InterProcessCommunication
 
             return null;
         }
+
+        public static void PostRequest(string appName, string request)
+        {
+            try
+            {
+                using (IPCRemoteControlProxy rcp = new IPCRemoteControlProxy(appName))
+                {
+                    (rcp as IRemoteControl).PostRequest(request);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+            }
+        }
     }
 
     public class IPCRemoteControlHost : IDisposable
     {
         public event OnSendRequestHandler OnSendRequest = null;
+        public event OnPostRequestHandler OnPostRequest = null;
 
         ServiceHost _host = null;
         RemoteControlImpl _remoteControl = null;
@@ -123,6 +168,7 @@ namespace OPMedia.Runtime.InterProcessCommunication
 
             _remoteControl = new RemoteControlImpl();
             _remoteControl.OnSendRequest += new OnSendRequestHandler(_remoteControl_OnSendRequest);
+            _remoteControl.OnPostRequest += new OnPostRequestHandler(_remoteControl_OnPostRequest);
 
             _host = new ServiceHost(_remoteControl);
             _host.AddServiceEndpoint(typeof(IRemoteControl), binding, uri);
@@ -132,7 +178,7 @@ namespace OPMedia.Runtime.InterProcessCommunication
 
         public void StopInternal()
         {
-            _host.Close();
+            _host.Close(TimeSpan.FromSeconds(2));
             _host = null;
 
             _remoteControl.OnSendRequest -= new OnSendRequestHandler(_remoteControl_OnSendRequest);
@@ -148,6 +194,15 @@ namespace OPMedia.Runtime.InterProcessCommunication
 
             return null;
         }
+
+        void _remoteControl_OnPostRequest(string request)
+        {
+            if (OnPostRequest != null)
+            {
+                OnPostRequest(request);
+            }
+        }
+
 
         public void Dispose()
         {

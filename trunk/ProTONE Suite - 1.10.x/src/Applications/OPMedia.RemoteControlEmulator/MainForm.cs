@@ -12,6 +12,8 @@ using OPMedia.Runtime.ProTONE.RemoteControl;
 using OPMedia.Runtime.Shortcuts;
 using OPMedia.Runtime.ProTONE;
 using OPMedia.Core.Logging;
+using OPMedia.UI.Controls;
+using OPMedia.Runtime.InterProcessCommunication;
 
 namespace OPMedia.RemoteControlEmulator
 {
@@ -20,6 +22,8 @@ namespace OPMedia.RemoteControlEmulator
         public MainForm() : base("Remote Control Emulator")
         {
             InitializeComponent();
+
+            this.ShowInTaskbar = true;
 
             ThemeManager.SetFont(opmGroupBox1, FontSizes.NormalBold);
 
@@ -68,6 +72,20 @@ namespace OPMedia.RemoteControlEmulator
             txtDestinationName.Text = Environment.MachineName;
 
             #endregion API tester tab
+
+            #region Simulator tab
+            int i = 1000;
+            foreach (Control ctl in pnlSimulator.Controls)
+            {
+                OPMButton btn = (ctl as OPMButton);
+                if (btn != null)
+                {
+                    btn.Click += new EventHandler(OnSimulatorClick);
+                    btn.Tag = (i++).ToString();
+                }
+
+            }
+            #endregion
         }
 
         #region API tester tab
@@ -133,6 +151,21 @@ namespace OPMedia.RemoteControlEmulator
             }
         }
 
+        #endregion
+
+        #region Simulator tab 
+        void OnSimulatorClick(object sender, EventArgs e)
+        {
+            OPMButton btn = (sender as OPMButton);
+            if (btn != null)
+            {
+                //WmCopyDataSender.SendData("EmulatorInputPin", btn.Tag as string);
+                IPCRemoteControlProxy.PostRequest("EmulatorInputPin", btn.Tag as string);
+            }
+
+            pnlContent.Select();
+            pnlContent.Focus();
+        }
         #endregion
     }
 }

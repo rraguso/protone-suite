@@ -14,13 +14,18 @@ using OPMedia.Runtime.InterProcessCommunication;
 
 namespace OPMedia.ServiceHelper.RCCService.InputPins
 {
-    public class RemotingInputPin : InputPin
+    public class EmulatorInputPin : InputPin
     {
-        RemoteControlHost _service = null;
+        IPCRemoteControlHost _service = null;
 
         public override bool IsConfigurable
         {
-            get { return false; }
+            get { return true; }
+        }
+
+        public override bool IsEmulatorPin
+        {
+            get { return true; }
         }
 
         protected override string GetConfigDataInternal(string initialCfgData)
@@ -28,24 +33,19 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
             return null;
         }
 
-        public RemotingInputPin()
+        public EmulatorInputPin()
         {
-            _service = new RemoteControlHost(Constants.RCCServiceShortName, CommandTargetPort.RccService);
-            _service.OnSendRequest += new OnSendRequestHandler(_service_OnSendRequest);
-
-            Logger.LogInfo("RemotingInputPin was created ...");
+            Logger.LogInfo("EmulatorInputPin was created ...");
         }
 
-        string _service_OnSendRequest(string request)
+        void _service_OnPostRequest(string request)
         {
             try
             {
                 RemoteControlServiceMux.Instance.ProcessRequest(this, request);
-                return "ACK";
             }
             catch
             {
-                return null;
             }
         }
 
@@ -57,14 +57,23 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 
         protected override void StartInternal()
         {
-            _service.StartInternal();
-            Logger.LogInfo("RemotingInputPin was started succesfully ...");
+            Logger.LogInfo("EmulatorInputPin is starting ...");
+
+            _service = new IPCRemoteControlHost("EmulatorInputPin");
+            _service.OnPostRequest += new OnPostRequestHandler(_service_OnPostRequest);
+            
+            Logger.LogInfo("EmulatorInputPin has started succesfully ...");
         }
 
         protected override void StopInternal()
         {
+            Logger.LogInfo("EmulatorInputPin is stopping ...");
+
             _service.StopInternal();
-            Logger.LogInfo("RemotingInputPin was stopped succesfully ...");
+            _service.OnPostRequest -= new OnPostRequestHandler(_service_OnPostRequest);
+            _service = null;
+
+            Logger.LogInfo("EmulatorInputPin has stopped succesfully ...");
         }
     }
 }

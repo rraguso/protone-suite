@@ -9,6 +9,8 @@ using OPMedia.ServiceHelper.RCCService;
 
 using OPMedia.UI.Themes;
 using OPMedia.UI.Dialogs;
+using OPMedia.Core;
+using System.Threading;
 
 namespace OPMedia.RCCManager.InputData
 {
@@ -35,18 +37,18 @@ namespace OPMedia.RCCManager.InputData
 
         void InputDataDetector_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _inputPinWatcher.Stop();
-            _inputPinWatcher = null;
+            ThreadPool.QueueUserWorkItem((c) =>
+                {
+                    _inputPinWatcher.Stop();
+                    _inputPinWatcher = null;
+                });
         }
 
         void _inputPinWatcher_InputPinData(InputPin origin, string request)
         {
-            if (request != null)
-            {
-                this.DetectedData = request;
-                DialogResult = DialogResult.OK;
-                Close();
-            }
+            this.DetectedData = request;
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

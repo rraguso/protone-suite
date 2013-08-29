@@ -61,6 +61,21 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             return null;
         }
 
+        void IRemoteControl.PostRequest(string request)
+        {
+            try
+            {
+                _proxy.PostRequest(request);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+
+                Abort();
+                Open();
+            }
+        }
+
         public static string SendRequest(string request, string server, string appName, int port = 8080)
         {
             try
@@ -77,11 +92,27 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
 
             return null;
         }
+
+        public static void PostRequest(string request, string server, string appName, int port = 8080)
+        {
+            try
+            {
+                using (RemoteControlProxy rcp = new RemoteControlProxy(server, appName, port))
+                {
+                    (rcp as IRemoteControl).PostRequest(request);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+            }
+        }
     }
 
     public class RemoteControlHost
     {
         public event OnSendRequestHandler OnSendRequest = null;
+        public event OnPostRequestHandler OnPostRequest = null;
 
         ServiceHost _host = null;
         RemoteControlImpl _remoteControl = null;
@@ -103,6 +134,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
 
             _remoteControl = new RemoteControlImpl();
             _remoteControl.OnSendRequest += new OnSendRequestHandler(_remoteControl_OnSendRequest);
+            _remoteControl.OnPostRequest += new OnPostRequestHandler(_remoteControl_OnPostRequest);
 
             _host = new ServiceHost(_remoteControl);
             _host.AddServiceEndpoint(typeof(IRemoteControl), binding, uri);
@@ -116,7 +148,16 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
             _host = null;
 
             _remoteControl.OnSendRequest -= new OnSendRequestHandler(_remoteControl_OnSendRequest);
+            _remoteControl.OnPostRequest -= new OnPostRequestHandler(_remoteControl_OnPostRequest);
             _remoteControl = null;
+        }
+
+        void _remoteControl_OnPostRequest(string request)
+        {
+            if (OnPostRequest != null)
+            {
+                OnPostRequest(request);
+            }
         }
 
         string _remoteControl_OnSendRequest(string request)

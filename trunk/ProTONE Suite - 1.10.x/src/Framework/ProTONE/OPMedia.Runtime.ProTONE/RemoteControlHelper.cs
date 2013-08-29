@@ -21,6 +21,7 @@ namespace OPMedia.Runtime.ProTONE
     public class CommandTargetPort
     {
         public const int RccService = 10202;
+        public const int EmulatorInputPin = 10203;
     }
   
     public static class RemoteControlHelper
@@ -53,7 +54,7 @@ namespace OPMedia.Runtime.ProTONE
                         //// Send the command (it should arrive to player).
                         if (useIpc)
                         {
-                            IPCRemoteControlProxy.SendRequest(Constants.PlayerName, command.ToString());
+                            IPCRemoteControlProxy.PostRequest(Constants.PlayerName, command.ToString());
                         }
                         else
                         {

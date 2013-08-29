@@ -202,13 +202,15 @@ namespace OPMedia.RCCManager
         private void DisplayConfigData(OPMLinkLabel llCfgData, string pinName, string cfgData)
         {
             bool isConfigurable = Pin.IsPinConfigurable(pinName);
+            bool isEmulator = Pin.IsEmulator(pinName);
+
             llCfgData.Text = 
-                isConfigurable ?
+                (isConfigurable && !isEmulator) ?
                 string.IsNullOrEmpty(cfgData) ? Translator.Translate("TXT_NODATA") : cfgData : 
                 Translator.Translate("TXT_NOTCFG");
             llCfgData.Tag = isConfigurable ? pinName : string.Empty;
-            
-            if (isConfigurable)
+
+            if (isConfigurable && !isEmulator)
             {
                 llCfgData.Links[0].Enabled = true;
                 llCfgData.LinkBehavior = LinkBehavior.AlwaysUnderline;
