@@ -650,6 +650,13 @@ namespace OPMedia.Core
         public static extern IntPtr GetForegroundWindow();
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
+        public static extern Boolean SetForegroundWindow(IntPtr hWnd);
+        [DllImport(USER32, CharSet = CharSet.Auto)]
+        public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, IntPtr ProcessId);
+        [DllImport(USER32, CharSet = CharSet.Auto)]
+        public static extern IntPtr AttachThreadInput(IntPtr idAttach, IntPtr idAttachTo, int fAttach);
+        
+        [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern bool ShowWindow(IntPtr hWnd, ShowWindowStyles nCmdShow);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
@@ -731,7 +738,40 @@ namespace OPMedia.Core
         }
 
 
- 
+        public static bool SetWindowOnTop(IntPtr fgWnd, bool bSetFocusToWindow)
+		{
+			IntPtr bkWnd = GetForegroundWindow();
+			if (fgWnd == bkWnd)
+				return true;
+
+			IntPtr ThreadID1 = GetWindowThreadProcessId(bkWnd, IntPtr.Zero);
+			IntPtr ThreadID2 = GetWindowThreadProcessId(fgWnd, IntPtr.Zero);
+
+            bool retVal = false;
+
+			if (ThreadID1 != ThreadID2)
+			{
+				AttachThreadInput(ThreadID1, ThreadID2, 1);
+                retVal = MoveToForeground(fgWnd, bSetFocusToWindow);
+				AttachThreadInput(ThreadID1, ThreadID2, 0);
+			}
+			else
+                retVal = MoveToForeground(fgWnd, bSetFocusToWindow);
+
+            return retVal;
+		}
+
+        private static bool MoveToForeground(IntPtr fgWnd, bool bSetFocusToWindow)
+	    {
+            SetWindowPosFlags uFlags = SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_SHOWWINDOW;
+            if (!bSetFocusToWindow)
+                uFlags |= SetWindowPosFlags.SWP_NOACTIVATE;
+
+            return SetWindowPos(fgWnd, 
+			    (IntPtr)(-1),
+			    0, 0, 0, 0,
+                uFlags);
+	    }
 
     }
 }
