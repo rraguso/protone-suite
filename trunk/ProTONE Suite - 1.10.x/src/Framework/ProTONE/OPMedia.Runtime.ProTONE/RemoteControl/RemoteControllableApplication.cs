@@ -38,12 +38,28 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
         protected override void DoInitialize(string appName)
         {
             base.DoInitialize(appName);
+
+            _wcdReceiver = new WmCopyDataReceiver(appName);
+            _wcdReceiver.DataReceived += new DataReceivedHandler(_wcdReceiver_DataReceived);
+
+            _ipcReceiver = new IPCRemoteControlHost(appName);
+            _ipcReceiver.OnSendRequest += new OnSendRequestHandler(_receiver_OnSendRequest);
         }
 
         protected override void DoTerminate()
         {
-            _ipcReceiver = null;
-            _wcdReceiver = null;
+            if (_ipcReceiver != null)
+            {
+                _ipcReceiver.OnSendRequest -= new OnSendRequestHandler(_receiver_OnSendRequest);
+            	_ipcReceiver = null;
+            }
+
+            if (_wcdReceiver != null)
+            {
+                _wcdReceiver.DataReceived -= new DataReceivedHandler(_wcdReceiver_DataReceived);
+            	_wcdReceiver = null;
+            }
+            
             base.DoTerminate();
         }
         #endregion
@@ -51,12 +67,6 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
         #region Construction
         private RemoteControllableApplication(string appName)
         {
-            _wcdReceiver = new WmCopyDataReceiver(appName);
-            _wcdReceiver.DataReceived += new DataReceivedHandler(_wcdReceiver_DataReceived);
-
-            _ipcReceiver = new IPCRemoteControlHost(appName);
-            _ipcReceiver.OnSendRequest += new OnSendRequestHandler(_receiver_OnSendRequest);
-            _ipcReceiver.OnPostRequest += new OnPostRequestHandler(_receiver_OnPostRequest);
         }
 
         void _wcdReceiver_DataReceived(string data)

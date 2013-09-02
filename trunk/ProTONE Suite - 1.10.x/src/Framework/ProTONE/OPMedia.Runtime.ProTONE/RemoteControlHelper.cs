@@ -35,6 +35,7 @@ namespace OPMedia.Runtime.ProTONE
                 {
                     int i = 0;
 
+                    bool playerWasAlreadyRunning = IsPlayerRunning();
                     if (!useIpc)
                     {
                         // See if player is started; if not - start it
@@ -48,7 +49,10 @@ namespace OPMedia.Runtime.ProTONE
 
                     if (IsPlayerRunning())
                     {
-                        Thread.Sleep(400);
+                        if (!playerWasAlreadyRunning)
+                        {
+                        	Thread.Sleep(400);
+                        }
 
                         //// If we came to this poin the player is running. 
                         //// Send the command (it should arrive to player).
