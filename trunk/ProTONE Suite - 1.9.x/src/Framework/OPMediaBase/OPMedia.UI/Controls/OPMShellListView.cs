@@ -540,25 +540,28 @@ namespace OPMedia.UI.Controls
 		//private void OnKeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         void OnPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
 		{
-            if (e.Modifiers == Keys.None)
+            if (!this.IsInEditMode)
             {
-			    if (e.KeyCode == Keys.Back && !IsInDriveRoot)
-			    {
-				    this.Path = PathUtils.ParentDir;
-				    //e.Handled = true;
-			    }
-                else if (e.KeyCode == Keys.Enter)
+                if (e.Modifiers == Keys.None)
                 {
-                    OnDoubleClick(sender, e);
+                    if (e.KeyCode == Keys.Back && !IsInDriveRoot)
+                    {
+                        this.Path = PathUtils.ParentDir;
+                        //e.Handled = true;
+                    }
+                    else if (e.KeyCode == Keys.Enter)
+                    {
+                        OnDoubleClick(sender, e);
+                    }
+                    else if (e.KeyCode == Keys.F2)
+                    {
+                        Rename();
+                    }
+                    //else if (e.KeyCode == Keys.Escape)
+                    //{
+                    //    CancelRename();
+                    //}
                 }
-                else if (e.KeyCode == Keys.F2)
-                {
-                    Rename();
-                }
-                //else if (e.KeyCode == Keys.Escape)
-                //{
-                //    CancelRename();
-                //}
             }
 		}
 
