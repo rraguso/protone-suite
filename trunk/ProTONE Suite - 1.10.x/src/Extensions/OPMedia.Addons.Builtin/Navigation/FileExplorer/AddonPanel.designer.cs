@@ -35,10 +35,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddonPanel));
             this.ilAddon = new System.Windows.Forms.ImageList(this.components);
             this.opmShellList = new OPMedia.UI.Controls.OPMShellListView();
-            this.contextMenuStrip = new OPMContextMenuStrip();
+            this.contextMenuStrip = new OPMedia.UI.Controls.OPMContextMenuStrip();
             this.tsmiBack = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiFwd = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiUp = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -84,6 +83,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbDelete = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbSep5 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsbID3Wizard = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.tsbCdRipperWizard = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.tableLayoutPanel2 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.pnlHeader = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
@@ -112,7 +112,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.opmShellList.MultiSelect = false;
             this.opmShellList.Name = "opmShellList";
             this.opmShellList.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmShellList.Size = new System.Drawing.Size(960, 322);
+            this.opmShellList.Size = new System.Drawing.Size(1141, 322);
             this.opmShellList.TabIndex = 1;
             this.opmShellList.UseCompatibleStateImageBehavior = false;
             this.opmShellList.View = System.Windows.Forms.View.Details;
@@ -124,6 +124,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.contextMenuStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiBack,
             this.tsmiFwd,
@@ -146,7 +148,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiProTONEPlay,
             this.tsmiProTONEEnqueue});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(202, 370);
+            this.contextMenuStrip.Size = new System.Drawing.Size(212, 348);
             // 
             // tsmiBack
             // 
@@ -154,7 +156,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiBack.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Back16;
             this.tsmiBack.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiBack.Name = "tsmiBack";
-            this.tsmiBack.Size = new System.Drawing.Size(201, 22);
+            this.tsmiBack.Size = new System.Drawing.Size(211, 22);
             this.tsmiBack.Tag = "ToolActionBack";
             this.tsmiBack.Text = "TXT_BACK";
             this.tsmiBack.Click += new System.EventHandler(this.OnToolAction);
@@ -165,7 +167,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiFwd.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Forward16;
             this.tsmiFwd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiFwd.Name = "tsmiFwd";
-            this.tsmiFwd.Size = new System.Drawing.Size(201, 22);
+            this.tsmiFwd.Size = new System.Drawing.Size(211, 22);
             this.tsmiFwd.Tag = "ToolActionFwd";
             this.tsmiFwd.Text = "TXT_FORWARD";
             this.tsmiFwd.Click += new System.EventHandler(this.OnToolAction);
@@ -176,7 +178,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiUp.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Up16;
             this.tsmiUp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiUp.Name = "tsmiUp";
-            this.tsmiUp.Size = new System.Drawing.Size(201, 22);
+            this.tsmiUp.Size = new System.Drawing.Size(211, 22);
             this.tsmiUp.Tag = "ToolActionUp";
             this.tsmiUp.Text = "TXT_UP";
             this.tsmiUp.Click += new System.EventHandler(this.OnToolAction);
@@ -184,7 +186,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // tsmiSep1
             // 
             this.tsmiSep1.Name = "tsmiSep1";
-            this.tsmiSep1.Size = new System.Drawing.Size(198, 6);
+            this.tsmiSep1.Size = new System.Drawing.Size(208, 6);
             // 
             // tsmiFavorites
             // 
@@ -195,7 +197,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiFavorites.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.tsmiFavorites.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiFavorites.Name = "tsmiFavorites";
-            this.tsmiFavorites.Size = new System.Drawing.Size(201, 22);
+            this.tsmiFavorites.Size = new System.Drawing.Size(211, 22);
             this.tsmiFavorites.Tag = "ToolActionFavoriteFolders";
             this.tsmiFavorites.Text = "TXT_FAVORITES";
             this.tsmiFavorites.DropDownOpening += new System.EventHandler(this.OnBuildFavoritesMenu);
@@ -204,7 +206,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // 
             this.tsmiFavoritesAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.tsmiFavoritesAdd.Name = "tsmiFavoritesAdd";
-            this.tsmiFavoritesAdd.Size = new System.Drawing.Size(201, 22);
+            this.tsmiFavoritesAdd.Size = new System.Drawing.Size(214, 22);
             this.tsmiFavoritesAdd.Tag = "ToolActionFavoritesAdd";
             this.tsmiFavoritesAdd.Text = "TXT_FAVORITES_ADD";
             this.tsmiFavoritesAdd.Click += new System.EventHandler(this.OnToolAction);
@@ -213,7 +215,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // 
             this.tsmiFavoritesManage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.tsmiFavoritesManage.Name = "tsmiFavoritesManage";
-            this.tsmiFavoritesManage.Size = new System.Drawing.Size(201, 22);
+            this.tsmiFavoritesManage.Size = new System.Drawing.Size(214, 22);
             this.tsmiFavoritesManage.Tag = "ToolActionFavoritesManage";
             this.tsmiFavoritesManage.Text = "TXT_FAVORITES_MANAGE";
             this.tsmiFavoritesManage.Click += new System.EventHandler(this.OnToolAction);
@@ -221,12 +223,12 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // tsmiSep5
             // 
             this.tsmiSep5.Name = "tsmiSep5";
-            this.tsmiSep5.Size = new System.Drawing.Size(198, 6);
+            this.tsmiSep5.Size = new System.Drawing.Size(211, 6);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(198, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(208, 6);
             // 
             // tsmiSearch
             // 
@@ -234,7 +236,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiSearch.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Search16;
             this.tsmiSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiSearch.Name = "tsmiSearch";
-            this.tsmiSearch.Size = new System.Drawing.Size(201, 22);
+            this.tsmiSearch.Size = new System.Drawing.Size(211, 22);
             this.tsmiSearch.Tag = "ToolActionSearch";
             this.tsmiSearch.Text = "TXT_SEARCH";
             this.tsmiSearch.Click += new System.EventHandler(this.OnToolAction);
@@ -245,7 +247,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiReload.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Reload16;
             this.tsmiReload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiReload.Name = "tsmiReload";
-            this.tsmiReload.Size = new System.Drawing.Size(201, 22);
+            this.tsmiReload.Size = new System.Drawing.Size(211, 22);
             this.tsmiReload.Tag = "ToolActionReload";
             this.tsmiReload.Text = "TXT_REFRESH";
             this.tsmiReload.Click += new System.EventHandler(this.OnToolAction);
@@ -253,7 +255,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // tsmiSep2
             // 
             this.tsmiSep2.Name = "tsmiSep2";
-            this.tsmiSep2.Size = new System.Drawing.Size(198, 6);
+            this.tsmiSep2.Size = new System.Drawing.Size(208, 6);
             // 
             // tsmiCopy
             // 
@@ -261,7 +263,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiCopy.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Copy16;
             this.tsmiCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiCopy.Name = "tsmiCopy";
-            this.tsmiCopy.Size = new System.Drawing.Size(201, 22);
+            this.tsmiCopy.Size = new System.Drawing.Size(211, 22);
             this.tsmiCopy.Tag = "ToolActionCopy";
             this.tsmiCopy.Text = "TXT_COPY";
             this.tsmiCopy.Click += new System.EventHandler(this.OnToolAction);
@@ -272,7 +274,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiCut.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Cut16;
             this.tsmiCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiCut.Name = "tsmiCut";
-            this.tsmiCut.Size = new System.Drawing.Size(201, 22);
+            this.tsmiCut.Size = new System.Drawing.Size(211, 22);
             this.tsmiCut.Tag = "ToolActionCut";
             this.tsmiCut.Text = "TXT_CUT";
             this.tsmiCut.Click += new System.EventHandler(this.OnToolAction);
@@ -283,7 +285,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiPaste.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Paste16;
             this.tsmiPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiPaste.Name = "tsmiPaste";
-            this.tsmiPaste.Size = new System.Drawing.Size(201, 22);
+            this.tsmiPaste.Size = new System.Drawing.Size(211, 22);
             this.tsmiPaste.Tag = "ToolActionPaste";
             this.tsmiPaste.Text = "TXT_PASTE";
             this.tsmiPaste.Click += new System.EventHandler(this.OnToolAction);
@@ -291,7 +293,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // tsmiSep3
             // 
             this.tsmiSep3.Name = "tsmiSep3";
-            this.tsmiSep3.Size = new System.Drawing.Size(198, 6);
+            this.tsmiSep3.Size = new System.Drawing.Size(208, 6);
             // 
             // tsmiRename
             // 
@@ -299,7 +301,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiRename.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Rename16;
             this.tsmiRename.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiRename.Name = "tsmiRename";
-            this.tsmiRename.Size = new System.Drawing.Size(201, 22);
+            this.tsmiRename.Size = new System.Drawing.Size(211, 22);
             this.tsmiRename.Tag = "ToolActionRename";
             this.tsmiRename.Text = "TXT_RENAME";
             this.tsmiRename.Click += new System.EventHandler(this.OnToolAction);
@@ -310,7 +312,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiDelete.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Delete16;
             this.tsmiDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiDelete.Name = "tsmiDelete";
-            this.tsmiDelete.Size = new System.Drawing.Size(201, 22);
+            this.tsmiDelete.Size = new System.Drawing.Size(211, 22);
             this.tsmiDelete.Tag = "ToolActionDelete";
             this.tsmiDelete.Text = "TXT_DELETE";
             this.tsmiDelete.Click += new System.EventHandler(this.OnToolAction);
@@ -318,14 +320,14 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // tsmiSep4
             // 
             this.tsmiSep4.Name = "tsmiSep4";
-            this.tsmiSep4.Size = new System.Drawing.Size(198, 6);
+            this.tsmiSep4.Size = new System.Drawing.Size(208, 6);
             // 
             // tsmiID3Wizard
             // 
             this.tsmiID3Wizard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.tsmiID3Wizard.Image = global::OPMedia.Addons.Builtin.Properties.Resources.ID316;
             this.tsmiID3Wizard.Name = "tsmiID3Wizard";
-            this.tsmiID3Wizard.Size = new System.Drawing.Size(201, 22);
+            this.tsmiID3Wizard.Size = new System.Drawing.Size(211, 22);
             this.tsmiID3Wizard.Tag = "ToolActionID3Wizard";
             this.tsmiID3Wizard.Text = "TXT_ID3WIZARD";
             this.tsmiID3Wizard.Click += new System.EventHandler(this.OnToolAction);
@@ -333,14 +335,14 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // tsmiSepProTONE
             // 
             this.tsmiSepProTONE.Name = "tsmiSepProTONE";
-            this.tsmiSepProTONE.Size = new System.Drawing.Size(198, 6);
+            this.tsmiSepProTONE.Size = new System.Drawing.Size(208, 6);
             // 
             // tsmiProTONEPlay
             // 
             this.tsmiProTONEPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.tsmiProTONEPlay.Image = global::OPMedia.Addons.Builtin.Properties.Resources.player16;
             this.tsmiProTONEPlay.Name = "tsmiProTONEPlay";
-            this.tsmiProTONEPlay.Size = new System.Drawing.Size(201, 22);
+            this.tsmiProTONEPlay.Size = new System.Drawing.Size(211, 22);
             this.tsmiProTONEPlay.Tag = "ToolActionProTONEPlay";
             this.tsmiProTONEPlay.Text = "TXT_PROTONE_PLAY";
             this.tsmiProTONEPlay.Click += new System.EventHandler(this.OnToolAction);
@@ -350,7 +352,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiProTONEEnqueue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.tsmiProTONEEnqueue.Image = global::OPMedia.Addons.Builtin.Properties.Resources.player16;
             this.tsmiProTONEEnqueue.Name = "tsmiProTONEEnqueue";
-            this.tsmiProTONEEnqueue.Size = new System.Drawing.Size(201, 22);
+            this.tsmiProTONEEnqueue.Size = new System.Drawing.Size(211, 22);
             this.tsmiProTONEEnqueue.Tag = "ToolActionProTONEEnqueue";
             this.tsmiProTONEEnqueue.Text = "TXT_PROTONE_ENQUEUE";
             this.tsmiProTONEEnqueue.Click += new System.EventHandler(this.OnToolAction);
@@ -385,13 +387,14 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbRename,
             this.tsbDelete,
             this.tsbSep5,
-            this.tsbID3Wizard});
+            this.tsbID3Wizard,
+            this.tsbCdRipperWizard});
             this.toolStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Padding = new System.Windows.Forms.Padding(0);
             this.toolStripMain.ShowBorder = true;
-            this.toolStripMain.Size = new System.Drawing.Size(960, 46);
+            this.toolStripMain.Size = new System.Drawing.Size(1141, 46);
             this.toolStripMain.TabIndex = 0;
             this.toolStripMain.VerticalGradient = true;
             // 
@@ -661,6 +664,18 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbID3Wizard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbID3Wizard.Click += new System.EventHandler(this.OnToolAction);
             // 
+            // tsbCdRipperWizard
+            // 
+            this.tsbCdRipperWizard.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbCdRipperWizard.Image = global::OPMedia.Addons.Builtin.Properties.Resources.blank_cd;
+            this.tsbCdRipperWizard.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tsbCdRipperWizard.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCdRipperWizard.Name = "tsbCdRipperWizard";
+            this.tsbCdRipperWizard.Size = new System.Drawing.Size(183, 43);
+            this.tsbCdRipperWizard.Tag = "ToolActionCdRipper";
+            this.tsbCdRipperWizard.Text = "TXT_CDRIPPERWIZARD";
+            this.tsbCdRipperWizard.Click += new System.EventHandler(this.OnToolAction);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -675,7 +690,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(960, 368);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1141, 368);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -693,7 +708,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(960, 322);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1141, 322);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // pnlHeader
@@ -705,15 +720,16 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pnlHeader.Size = new System.Drawing.Size(960, 1);
+            this.pnlHeader.Size = new System.Drawing.Size(1141, 1);
             this.pnlHeader.TabIndex = 2;
             // 
             // AddonPanel
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "AddonPanel";
-            this.Size = new System.Drawing.Size(960, 368);
+            this.Size = new System.Drawing.Size(1141, 368);
             this.HandleCreated += new System.EventHandler(this.OnLoad);
             this.contextMenuStrip.ResumeLayout(false);
             this.toolStripMain.ResumeLayout(false);
@@ -778,6 +794,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         private OPMTableLayoutPanel tableLayoutPanel1;
         private OPMTableLayoutPanel tableLayoutPanel2;
         private OPMFlowLayoutPanel pnlHeader;
+        private OPMToolStripButton tsbCdRipperWizard;
        
        
         

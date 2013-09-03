@@ -32,8 +32,6 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WizFESearchStep1Ctl));
             this.cmbSearchText = new OPMedia.UI.Controls.OPMEditableComboBox();
             this.cmbSearchPattern = new OPMedia.UI.Controls.OPMEditableComboBox();
             this.label3 = new OPMedia.UI.Controls.OPMLabel();
@@ -51,7 +49,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
             this.lvResults = new OPMedia.UI.Controls.OPMListView();
             this.colImage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip = new OPMContextMenuStrip();
+            this.contextMenuStrip = new OPMedia.UI.Controls.OPMContextMenuStrip();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsmiID3Wizard = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -199,7 +197,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
             // 
             // txtSearchPath
             // 
-            this.txtSearchPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.txtSearchPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.txtSearchPath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSearchPath.Location = new System.Drawing.Point(0, 0);
             this.txtSearchPath.Margin = new System.Windows.Forms.Padding(0);
@@ -309,7 +307,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.contextMenuStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.contextMenuStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiDelete,
             this.toolStripSeparator1,

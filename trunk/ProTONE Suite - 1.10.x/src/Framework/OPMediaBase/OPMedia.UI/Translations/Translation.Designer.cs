@@ -115,71 +115,6 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Addon Name.
-        /// </summary>
-        internal static string TXT_ADDON_NAME {
-            get {
-                return ResourceManager.GetString("TXT_ADDON_NAME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Addon Settings.
-        /// </summary>
-        internal static string TXT_ADDON_SETTINGS {
-            get {
-                return ResourceManager.GetString("TXT_ADDON_SETTINGS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In order to modify the new addons configuration, the program needs to be restarted.        ///
-        ///        ///
-        ///Is it OK to restart now ?.
-        /// </summary>
-        internal static string TXT_ADDONS_CHANGED_RESTART {
-            get {
-                return ResourceManager.GetString("TXT_ADDONS_CHANGED_RESTART", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Since you have canceled the restart,  your add-on configuration will not be changed..
-        /// </summary>
-        internal static string TXT_ADDONS_NOT_CHANGED {
-            get {
-                return ResourceManager.GetString("TXT_ADDONS_NOT_CHANGED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enabled Addons.
-        /// </summary>
-        internal static string TXT_ADDONSETTINGS {
-            get {
-                return ResourceManager.GetString("TXT_ADDONSETTINGS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Checked addons are currently enabled. Use the checkboxes to enable/disable addons. Addons marked with * are required and cannot be disabled. A program restart will be needed to apply the new addons configuration..
-        /// </summary>
-        internal static string TXT_ADDONSLIST {
-            get {
-                return ResourceManager.GetString("TXT_ADDONSLIST", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Checked addons are currently enabled. Use the checkboxes to enable/disable addons. Addons marked with * are required and cannot be disabled..
-        /// </summary>
-        internal static string TXT_ADDONSLIST_NORESTART {
-            get {
-                return ResourceManager.GetString("TXT_ADDONSLIST_NORESTART", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to All files (*.*)|*.*||.
         /// </summary>
         internal static string TXT_ALL_FILES_FILTER {
@@ -342,36 +277,6 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The addon library you have selected cannot be installed, because it is a built-in library.        ///
-        ///        ///
-        ///        ///
-        ///            ///
-        ///        ///
-        ///        ///
-        ///If you intend to enable/disable the addons from the built-in library, please use the addons checkboxes..
-        /// </summary>
-        internal static string TXT_CANT_INSTALL_BUILTIN {
-            get {
-                return ResourceManager.GetString("TXT_CANT_INSTALL_BUILTIN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The addon library you have specified cannot be uninstalled, because it is a built-in library.        ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///If you intend to enable/disable the addons from the built-in library, please use the addons checkboxes..
-        /// </summary>
-        internal static string TXT_CANT_UNINSTALL_BUILTIN {
-            get {
-                return ResourceManager.GetString("TXT_CANT_UNINSTALL_BUILTIN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Caution.
         /// </summary>
         internal static string TXT_CAUTION {
@@ -404,6 +309,15 @@ namespace OPMedia.UI.Translations {
         internal static string TXT_CHOOSE_COLOR {
             get {
                 return ResourceManager.GetString("TXT_CHOOSE_COLOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a folder to be added as favorite:.
+        /// </summary>
+        internal static string TXT_CHOOSE_FAVORITE {
+            get {
+                return ResourceManager.GetString("TXT_CHOOSE_FAVORITE", resourceCulture);
             }
         }
         
@@ -467,6 +381,15 @@ namespace OPMedia.UI.Translations {
         internal static string TXT_CMDCFGKEYBOARD {
             get {
                 return ResourceManager.GetString("TXT_CMDCFGKEYBOARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open favorite folder manager.
+        /// </summary>
+        internal static string TXT_CMDFAVMANAGER {
+            get {
+                return ResourceManager.GetString("TXT_CMDFAVMANAGER", resourceCulture);
             }
         }
         
@@ -642,7 +565,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The file {0} does not exist yet.        ///
+        ///   Looks up a localized string similar to The file {0} does not exist yet.
         ///Do you want to create it ?.
         /// </summary>
         internal static string TXT_CONFIRM_CREATE {
@@ -652,8 +575,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to delete the file:        ///
-        ///        ///
+        ///   Looks up a localized string similar to Are you sure you want to delete the file:
         ///{0} ?.
         /// </summary>
         internal static string TXT_CONFIRM_DELETE {
@@ -663,8 +585,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The folder: {0} is not empty.         ///
-        ///        ///
+        ///   Looks up a localized string similar to The folder: {0} is not empty. 
         ///Do you want to delete it (including its contents) ?.
         /// </summary>
         internal static string TXT_CONFIRM_DELETE_DIR {
@@ -674,8 +595,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to delete the folder:        ///
-        ///        ///
+        ///   Looks up a localized string similar to Are you sure you want to delete the folder:
         ///{0} ?.
         /// </summary>
         internal static string TXT_CONFIRM_DELETE_EMPTYDIR {
@@ -685,8 +605,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The file {0} is has one or more of these attributes: Read-Only/Hidden/System.        ///
-        ///        ///
+        ///   Looks up a localized string similar to The file {0} is has one or more of these attributes: Read-Only/Hidden/System.
         ///Do you still want to delete it ?.
         /// </summary>
         internal static string TXT_CONFIRM_DELETE_ROHS {
@@ -696,8 +615,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to move the file:        ///
-        ///        ///
+        ///   Looks up a localized string similar to Are you sure you want to move the file:
         ///{0} ?.
         /// </summary>
         internal static string TXT_CONFIRM_MOVE {
@@ -707,8 +625,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The folder: {0} is not empty.         ///
-        ///        ///
+        ///   Looks up a localized string similar to The folder: {0} is not empty. 
         ///Do you want to move it and all its contents ?.
         /// </summary>
         internal static string TXT_CONFIRM_MOVE_DIR {
@@ -718,8 +635,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to move the folder:        ///
-        ///        ///
+        ///   Looks up a localized string similar to Are you sure you want to move the folder:
         ///{0} ?.
         /// </summary>
         internal static string TXT_CONFIRM_MOVE_EMPTYDIR {
@@ -729,8 +645,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The file {0} is has one or more of these attributes: Read-Only/Hidden/System.        ///
-        ///        ///
+        ///   Looks up a localized string similar to The file {0} is has one or more of these attributes: Read-Only/Hidden/System.
         ///Do you still want to move it ?.
         /// </summary>
         internal static string TXT_CONFIRM_MOVE_ROHS {
@@ -740,8 +655,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The destination file {0} already exists.         ///
-        ///        ///
+        ///   Looks up a localized string similar to The destination file {0} already exists. 
         ///Do you want to overwrite it ?.
         /// </summary>
         internal static string TXT_CONFIRM_OVERWRITE {
@@ -751,8 +665,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The destination file {0} already exists and it is a Read-Only file.         ///
-        ///        ///
+        ///   Looks up a localized string similar to The destination file {0} already exists and it is a Read-Only file. 
         ///Do you want to overwrite it ?.
         /// </summary>
         internal static string TXT_CONFIRM_OVERWRITE_RO {
@@ -1059,8 +972,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The key combination &apos;{0}&apos; is already assigned to &apos;{1}&apos;.        ///
-        ///        ///
+        ///   Looks up a localized string similar to The key combination &apos;{0}&apos; is already assigned to &apos;{1}&apos;.
         ///Do you want to re-assign it to &apos;{2}&apos;?.
         /// </summary>
         internal static string TXT_DUP_SHORTCUT_CONFIRM {
@@ -1070,8 +982,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The key combination &apos;{0}&apos; is already assigned to &apos;{1}&apos; and cannot be modified.        ///
-        ///        ///
+        ///   Looks up a localized string similar to The key combination &apos;{0}&apos; is already assigned to &apos;{1}&apos; and cannot be modified.
         ///Please enter a different combination..
         /// </summary>
         internal static string TXT_DUP_SHORTCUT_FIXED {
@@ -1099,8 +1010,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Press the new key combination for: {0}.        ///
-        ///        ///
+        ///   Looks up a localized string similar to Press the new key combination for: {0}.
         ///Current shortcut is: {1}..
         /// </summary>
         internal static string TXT_EDITKEYDESC {
@@ -1164,8 +1074,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Some errors appeared while copying the specified files.        ///
-        ///        ///
+        ///   Looks up a localized string similar to Some errors appeared while copying the specified files.
         ///More details in the list below..
         /// </summary>
         internal static string TXT_ERRORS_COPY_TASK {
@@ -1175,8 +1084,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Some errors appeared while deleting the specified files.        ///
-        ///        ///
+        ///   Looks up a localized string similar to Some errors appeared while deleting the specified files.
         ///More details in the list below..
         /// </summary>
         internal static string TXT_ERRORS_DELETE_TASK {
@@ -1195,8 +1103,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Some errors appeared while moving the specified files.        ///
-        ///        ///
+        ///   Looks up a localized string similar to Some errors appeared while moving the specified files.
         ///More details in the list below..
         /// </summary>
         internal static string TXT_ERRORS_MOVE_TASK {
@@ -1260,6 +1167,33 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Favorites.
+        /// </summary>
+        internal static string TXT_FAVORITES {
+            get {
+                return ResourceManager.GetString("TXT_FAVORITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add to Favorite Folders.
+        /// </summary>
+        internal static string TXT_FAVORITES_ADD {
+            get {
+                return ResourceManager.GetString("TXT_FAVORITES_ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Favorite Folders ....
+        /// </summary>
+        internal static string TXT_FAVORITES_MANAGE {
+            get {
+                return ResourceManager.GetString("TXT_FAVORITES_MANAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File.
         /// </summary>
         internal static string TXT_FILE {
@@ -1305,7 +1239,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show        ///
+        ///   Looks up a localized string similar to Show
         ///Errors.
         /// </summary>
         internal static string TXT_FLAG_ERRORS {
@@ -1315,7 +1249,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show        ///
+        ///   Looks up a localized string similar to Show
         ///Information.
         /// </summary>
         internal static string TXT_FLAG_INFOS {
@@ -1325,7 +1259,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show        ///
+        ///   Looks up a localized string similar to Show
         ///Debug Traces.
         /// </summary>
         internal static string TXT_FLAG_TRACES {
@@ -1335,7 +1269,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show        ///
+        ///   Looks up a localized string similar to Show
         ///Warnings.
         /// </summary>
         internal static string TXT_FLAG_WARNINGS {
@@ -1525,61 +1459,6 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Install new addon(s) ....
-        /// </summary>
-        internal static string TXT_INSTALL_ADDONLIB {
-            get {
-                return ResourceManager.GetString("TXT_INSTALL_ADDONLIB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to OPMedia Addon Libraries (*.dll)|*.dll||.
-        /// </summary>
-        internal static string TXT_INSTALLADDONFILTER {
-            get {
-                return ResourceManager.GetString("TXT_INSTALLADDONFILTER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select an OPMedia addon library to install:.
-        /// </summary>
-        internal static string TXT_INSTALLADDONS {
-            get {
-                return ResourceManager.GetString("TXT_INSTALLADDONS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The DLL file you have selected is not a valid OPMedia extension library.          ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///Note: If you believe, however, that the respective file should have been a valid extension,         ///
-        ///        ///
-        ///you are advised to contact the producer or the supplier of this DLL..
-        /// </summary>
-        internal static string TXT_INVALID_ADDON {
-            get {
-                return ResourceManager.GetString("TXT_INVALID_ADDON", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The DLL file you have selected is not a valid OPMedia extension library.        ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///A valid OPMedia extension library file name should follow the convention: &lt;Addon-Name&gt;Extension.dll..
-        /// </summary>
-        internal static string TXT_INVALID_NAME {
-            get {
-                return ResourceManager.GetString("TXT_INVALID_NAME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Keep window on top of others.
         /// </summary>
         internal static string TXT_KEEPONTOP {
@@ -1616,11 +1495,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To edit a shortcut, click on its associated links in the table below.          ///
-        ///        ///
-        ///The shortcuts with disabled links cannot be change by the user        ///
-        ///        ///
-        ///(e.g: OpenHelp = F1, etc)..
+        ///   Looks up a localized string similar to To edit a shortcut, click on its associated links in the table below. The shortcuts with disabled links cannot be changed by the user (e.g: OpenHelp = F1, etc)..
         /// </summary>
         internal static string TXT_KEYMAP_DESC {
             get {
@@ -1719,8 +1594,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This program version is built with enforced logging.        ///
-        ///        ///
+        ///   Looks up a localized string similar to This program version is built with enforced logging.
         ///All log level are enabled by default..
         /// </summary>
         internal static string TXT_LOG_DESC {
@@ -1730,7 +1604,8 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to How many days to keep the old log files (min=2, max=10):.
+        ///   Looks up a localized string similar to How many days to keep the old log files 
+        ///(min=2, max=10):.
         /// </summary>
         internal static string TXT_LOG_KEEPDAYS {
             get {
@@ -1811,6 +1686,15 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Define your Favorite Folders:.
+        /// </summary>
+        internal static string TXT_MANAGE_FAVORITES {
+            get {
+                return ResourceManager.GetString("TXT_MANAGE_FAVORITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modify.
         /// </summary>
         internal static string TXT_MODIFY {
@@ -1861,15 +1745,6 @@ namespace OPMedia.UI.Translations {
         internal static string TXT_NAME {
             get {
                 return ResourceManager.GetString("TXT_NAME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Navigation.
-        /// </summary>
-        internal static string TXT_NAV_ADDONS {
-            get {
-                return ResourceManager.GetString("TXT_NAV_ADDONS", resourceCulture);
             }
         }
         
@@ -1964,10 +1839,8 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A new program version is available: {0}.        ///
-        ///        ///
-        ///Do you want to update to this version?        ///
-        ///.
+        ///   Looks up a localized string similar to A new program version is available: {0}.
+        ///Do you want to update to this version?.
         /// </summary>
         internal static string TXT_NOTIFYUPDATE {
             get {
@@ -1976,7 +1849,8 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This program has the latest available version.        ///
+        ///   Looks up a localized string similar to This program has the latest available version.
+        ///
         ///For the moment, you do not need to update the program..
         /// </summary>
         internal static string TXT_NOUPDATEREQUIRED {
@@ -2112,15 +1986,6 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Preview / Visualization.
-        /// </summary>
-        internal static string TXT_PREVIEW_ADDONS {
-            get {
-                return ResourceManager.GetString("TXT_PREVIEW_ADDONS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to  [PRIMARY MONITOR].
         /// </summary>
         internal static string TXT_PRIMARY_MONITOR {
@@ -2162,15 +2027,6 @@ namespace OPMedia.UI.Translations {
         internal static string TXT_PROGRAMSTARTUPINFO {
             get {
                 return ResourceManager.GetString("TXT_PROGRAMSTARTUPINFO", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to File Property Interaction.
-        /// </summary>
-        internal static string TXT_PROP_ADDONS {
-            get {
-                return ResourceManager.GetString("TXT_PROP_ADDONS", resourceCulture);
             }
         }
         
@@ -2256,9 +2112,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use &apos;Restore Defaults&apos; to load the default keyboard        ///
-        ///        ///
-        ///shortcut configuration..
+        ///   Looks up a localized string similar to Use &apos;Restore Defaults&apos; to load the default keyboard shortcut configuration..
         /// </summary>
         internal static string TXT_RESTORESHORTCUTSDESC {
             get {
@@ -2375,15 +2229,6 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select all addons.
-        /// </summary>
-        internal static string TXT_SELECTALL {
-            get {
-                return ResourceManager.GetString("TXT_SELECTALL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Settings for Serial Port: .
         /// </summary>
         internal static string TXT_SERIAL_PORT_NAME {
@@ -2434,20 +2279,6 @@ namespace OPMedia.UI.Translations {
         internal static string TXT_SETUILANGUAGE {
             get {
                 return ResourceManager.GetString("TXT_SETUILANGUAGE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The addon library you are trying to uninstall provides multiple features:        ///
-        ///        ///
-        ///        ///
-        ///{0}        ///
-        ///        ///
-        ///If you continue, all these features will no longer be available. Is it OK to proceed ?.
-        /// </summary>
-        internal static string TXT_SHAREDADDONS {
-            get {
-                return ResourceManager.GetString("TXT_SHAREDADDONS", resourceCulture);
             }
         }
         
@@ -2605,10 +2436,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to abort the executing tasks ?        ///
-        ///        ///
-        ///        ///
-        ///    .
+        ///   Looks up a localized string similar to Are you sure you want to abort the executing tasks ?.
         /// </summary>
         internal static string TXT_TASK_CANCEL_MSG {
             get {
@@ -2698,15 +2526,6 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uninstall addon(s) ....
-        /// </summary>
-        internal static string TXT_UNINSTALL {
-            get {
-                return ResourceManager.GetString("TXT_UNINSTALL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Up.
         /// </summary>
         internal static string TXT_UP {
@@ -2761,9 +2580,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please wait while downloading application update files.        ///
-        ///        ///
-        ///You can press ESC to abort the download and keep the existing application version..
+        ///   Looks up a localized string similar to Please wait while downloading application update files. You can press ESC to abort the download and keep the existing application version..
         /// </summary>
         internal static string TXT_WAITDOWNLOADUPDATE {
             get {
@@ -2844,7 +2661,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  of .
+        ///   Looks up a localized string similar to of.
         /// </summary>
         internal static string TXT_WIZARDSTEPDELIMITER {
             get {
@@ -2853,7 +2670,7 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Step .
+        ///   Looks up a localized string similar to Step.
         /// </summary>
         internal static string TXT_WIZARDSTEPTEXT {
             get {

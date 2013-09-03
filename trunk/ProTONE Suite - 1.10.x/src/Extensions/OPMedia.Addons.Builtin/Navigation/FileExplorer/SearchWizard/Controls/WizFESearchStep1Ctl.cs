@@ -37,12 +37,21 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
             }
         }
 
+        public override Size DesiredSize
+        {
+            get
+            {
+                return new Size(700, 600);
+            }
+        }
+
+
         public WizFESearchStep1Ctl()
         {
             InitializeComponent();
 
-            this.ResizeParent = true;
-            this.DecorationsVisible = false;
+            this.ShowImage = false;
+            this.ShowSeparator = false;
 
             lbAttributes.Height = 0;
             lbAttributes.Visible = false;
@@ -139,6 +148,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         protected override void OnWizardInitializing()
         {
             base.OnWizardInitializing();
+
+            Wizard.AllowResize = true;
 
             pbProgress.BackColor = ThemeManager.BackColor;
 

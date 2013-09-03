@@ -470,7 +470,9 @@
     <EmbeddedResource Include="Translations\Translation.de.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Translations\Translation.fr.resx" />
+    <EmbeddedResource Include="Translations\Translation.fr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wizards\StepButtonsCtl.resx">
       <DependentUpon>StepButtonsCtl.cs</DependentUpon>
       <SubType>Designer</SubType>

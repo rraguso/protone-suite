@@ -224,10 +224,10 @@ in den Windows-Explorer-Stil wollen.</value>
   <value>MPEG Audio-Dateien (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
 </data>
 <data name="TXT_ID3WIZARD">
-  <value>ID3-Assistent </value>
+  <value>ID3-Assistent</value>
 </data>
 <data name="TXT_IMPORTWIZARD">
-  <value>Import-Assistent </value>
+  <value>Import-Assistent</value>
 </data>
 <data name="TXT_INIT_SEARCH">
   <value>Der Suchvorgang wird initialisiert, bitte warten ...</value>
@@ -518,6 +518,13 @@ Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entferne
 </data>
 <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
   <value>Zeige Eigenschaften von Audio-CD-Dateien (CDA) in Datei-Browser</value>
+</data>
+<data name="TXT_CDRIPPERWIZARD">
+  <value>CD Ripper</value>
+</data>
+<data name="TXT_GRABBERHINT_STEP1">
+  <value>Klicken Sie auf Zellen der Liste, um sie zu bearbeiten.&#xD;
+Beim Check Bildern zu entscheiden, ob eine Spur oder nicht greifen Doppelklick.</value>
 </data>
     
 </root>

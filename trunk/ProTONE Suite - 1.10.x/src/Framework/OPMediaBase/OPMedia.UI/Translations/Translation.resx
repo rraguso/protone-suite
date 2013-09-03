@@ -635,10 +635,10 @@ All log level are enabled by default.</value>
   <value>Repeat wizard</value>
 </data>
 <data name="TXT_WIZARDSTEPDELIMITER">
-  <value> of </value>
+  <value>of</value>
 </data>
 <data name="TXT_WIZARDSTEPTEXT">
-  <value>Step </value>
+  <value>Step</value>
 </data>
 <data name="TXT_WIZFINISHED">
   <value>has finished task execution.</value>

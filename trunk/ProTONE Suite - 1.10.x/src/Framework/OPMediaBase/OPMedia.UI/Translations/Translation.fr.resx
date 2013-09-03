@@ -635,10 +635,10 @@ Toutes niveaux de journalisation sont activées par défaut.</value>
   <value>Répétez l'assistant</value>
 </data>
 <data name="TXT_WIZARDSTEPDELIMITER">
-  <value> de </value>
+  <value>de</value>
 </data>
 <data name="TXT_WIZARDSTEPTEXT">
-  <value>Étape </value>
+  <value>Étape</value>
 </data>
 <data name="TXT_WIZFINISHED">
   <value>a terminé l'exécution des tâches.</value>

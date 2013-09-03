@@ -218,10 +218,10 @@
   <value>Les fichiers audio MPEG (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
 </data>
 <data name="TXT_ID3WIZARD">
-  <value>ID3 Assistant </value>
+  <value>ID3 Assistant</value>
 </data>
 <data name="TXT_IMPORTWIZARD">
-  <value>Assistant d'importation </value>
+  <value>Assistant d'importation</value>
 </data>
 <data name="TXT_INIT_SEARCH">
   <value>Le processus de recherche est l'initialisation, s'il vous plaît patienter ...</value>
@@ -511,6 +511,13 @@
 </data>
 <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
   <value>Afficher les propriétés des fichiers de CD audio (CDA) dans l'explorateur de fichiers</value>
+</data>
+<data name="TXT_CDRIPPERWIZARD">
+  <value>CD Ripper</value>
+</data>
+<data name="TXT_GRABBERHINT_STEP1">
+  <value>Cliquez sur les cellules de la liste à modifier.&#xD;
+Double-cliquez sur les images de chèques de choisir de saisir une piste ou pas.</value>
 </data>
     
 </root>

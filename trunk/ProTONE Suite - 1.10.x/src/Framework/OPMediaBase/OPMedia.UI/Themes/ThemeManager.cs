@@ -347,7 +347,7 @@ namespace OPMedia.UI.Themes
             ColorMap(ColorMapElement.GradientRBColor,   te, 145, 171, 201);
             ColorMap(ColorMapElement.GradientMColor,    te, 179, 196, 216);
             ColorMap(ColorMapElement.BorderColor,       te, 092, 119, 150);
-            ColorMap(ColorMapElement.HighlightColor,    te, 195, 150, 120);
+            ColorMap(ColorMapElement.HighlightColor,    te, 135, 110, 080);
             ColorMap(ColorMapElement.WndTextColor,      te, 030, 057, 091);
 
             ColorMap(ColorMapElement.LinkColor,         te, 018, 097, 226);
@@ -366,7 +366,7 @@ namespace OPMedia.UI.Themes
             ColorMap(ColorMapElement.GradientRBColor,   te, 191, 191, 191);
             ColorMap(ColorMapElement.GradientMColor,    te, 206, 206, 206);
             ColorMap(ColorMapElement.BorderColor,       te, 150, 150, 150);
-            ColorMap(ColorMapElement.HighlightColor,    te, 195, 150, 120);
+            ColorMap(ColorMapElement.HighlightColor,    te, 175, 150, 120);
             ColorMap(ColorMapElement.WndTextColor,      te, 091, 091, 091);
 
             ColorMap(ColorMapElement.LinkColor,         te, 018, 097, 225);
@@ -385,7 +385,7 @@ namespace OPMedia.UI.Themes
             ColorMap(ColorMapElement.GradientRBColor,   te, 075, 075, 075);
             ColorMap(ColorMapElement.GradientMColor,    te, 092, 092, 092);
             ColorMap(ColorMapElement.BorderColor,       te, 036, 036, 036);
-            ColorMap(ColorMapElement.HighlightColor,    te, 180, 150, 110);
+            ColorMap(ColorMapElement.HighlightColor,    te, 200, 170, 150);
             ColorMap(ColorMapElement.WndTextColor,      te, 036, 036, 036);
 
             ColorMap(ColorMapElement.LinkColor,         te, 114, 211, 255);

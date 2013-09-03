@@ -635,7 +635,7 @@ Toate nivelele de jurnalizare sunt implicit active.</value>
   <value>Reluare utilitar</value>
 </data>
 <data name="TXT_WIZARDSTEPDELIMITER">
-  <value> din </value>
+  <value>din</value>
 </data>
 <data name="TXT_WIZARDSTEPTEXT">
   <value>Pasul </value>

@@ -61,6 +61,8 @@ namespace OPMedia.UI.Wizards
         #endregion
 
         #region Properties
+        public int RepeatCount { get; private set; }
+
         public bool ShowMovementButtons
         {
             get
@@ -208,16 +210,29 @@ namespace OPMedia.UI.Wizards
 
             set
             {
-                pnlWizardLayout.SuspendLayout();
                 stepButtons.Visible = value;
-                pnlWizardLayout.ResumeLayout();
-
             }
         }
 
         /// <summary>
         /// 
-        public bool DecorationsVisible
+        public bool ShowImage
+        {
+            get
+            {
+                return pbWizImage.Visible;
+            }
+
+            set
+            {
+                pbWizImage.Visible = value;
+                lblSeparator2.Visible = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        public bool ShowSeparator
         {
             get
             {
@@ -226,14 +241,7 @@ namespace OPMedia.UI.Wizards
 
             set
             {
-                pnlWizardLayout.SuspendLayout();
                 lblSeparator.Visible = value;
-                pbWizImage.Visible = value;
-
-                pnlWizardStep.Margin = new Padding(value ? 3 : 0);
-                lblSeparator.Height = value ? 3 : 0;
-
-                pnlWizardLayout.ResumeLayout();
             }
         }
 
@@ -380,6 +388,8 @@ namespace OPMedia.UI.Wizards
         {
             InitializeComponent();
 
+            RepeatCount = 0;
+
             stepButtons.StepBack += new StepButtonsCtl.StepButtonEventHandler(OnWizardBack);
             stepButtons.StepNext += new StepButtonsCtl.StepButtonEventHandler(OnWizardNext);
             stepButtons.StepFinish += new StepButtonsCtl.StepButtonEventHandler(OnWizardFinish);
@@ -388,10 +398,7 @@ namespace OPMedia.UI.Wizards
 
             wizardPages = new List<WizardBaseCtl>();
 
-            pbWizImage.Image = Resources.Wizard;
-            pbWizImage.SizeMode = PictureBoxSizeMode.CenterImage;
-
-            lblSeparator.BackColor = ThemeManager.BorderColor;
+            lblSeparator.BackColor = lblSeparator2.BackColor = ThemeManager.BorderColor;
         }
 
         #endregion
@@ -470,6 +477,8 @@ namespace OPMedia.UI.Wizards
             // Check if the wizard must be repeated.
             if (RepeatWizard)
             {
+                RepeatCount++;
+
                 // If must be repeated, jump back to first step.
                 OnShown(null, null);
             }
@@ -487,15 +496,6 @@ namespace OPMedia.UI.Wizards
         /// </summary>
         private void OnShown(object sender, EventArgs e)
         {
-            bool val = true;
-
-            foreach (WizardBaseCtl page in wizardPages)
-            {
-                val &= page.DecorationsVisible;
-            }
-
-            DecorationsVisible = val;
-
             ShowMovementButtons = true;
             ShowRepeatWizard = false;
             ShowOKButton = false;
@@ -548,7 +548,7 @@ namespace OPMedia.UI.Wizards
                 // If the wizard has only one step show .
                 if (wizardPages.Count > 1)
                 {
-                   SetTitle(string.Format("{0}{1}{2}{3}{4}",
+                   SetTitle(string.Format("{0} - {1} {2} {3} {4}",
                         Translator.Translate(wizardName),
                         Translator.Translate("TXT_WIZARDSTEPTEXT"),
                         wizardStep + 1,
@@ -567,6 +567,9 @@ namespace OPMedia.UI.Wizards
                 // Set the wizard direction
                 wizardPage.Direction = wizardDirection;
                 wizardPage.Focus();
+
+                this.ShowImage = wizardPage.ShowImage;
+                this.ShowSeparator = wizardPage.ShowSeparator;
             }
 
             this.ResumeLayout();
@@ -586,9 +589,6 @@ namespace OPMedia.UI.Wizards
             pnlWizardLayout.SuspendLayout();
             pnlWizardStep.SuspendLayout();
 
-            int deltaW = wizardPage.Width - pnlWizardStep.Width;
-            int deltaH = wizardPage.Height - pnlWizardStep.Height;
-
             wizardPage.Dock = DockStyle.Fill;
             wizardPage.Visible = true;
 
@@ -600,14 +600,22 @@ namespace OPMedia.UI.Wizards
             wizardPage.Margin = new Padding(0);
             wizardPage.Padding = new Padding(0);
 
+            pnlWizardStep.Dock = DockStyle.Fill;
+
             pnlWizardStep.Controls.Clear();
             pnlWizardStep.Controls.Add(wizardPage);
 
-            this.AllowResize = wizardPage.ResizeParent;
-            if (wizardPage.ResizeParent)
+            if (wizardPage.DesiredSize.IsEmpty)
             {
-                this.Width += deltaW;
-                this.Height += deltaH;
+                // Standard size
+                this.Width = 535;
+                this.Height = 400;
+            }
+            else
+            {
+                // Custom size
+                this.Width = wizardPage.DesiredSize.Width;
+                this.Height = wizardPage.DesiredSize.Height;
             }
 
             ThemeManager.SetDoubleBuffer(wizardPage);

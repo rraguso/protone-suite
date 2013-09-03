@@ -45,7 +45,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
         [DataMember(Order = 5)]
         public string ExtendedData { get; set; }
-		
+
+        [DataMember(Order = 6, IsRequired=false)]
+        public int Index { get; set; }
+
 		/// <summary>
 		/// Create an instance of a Track 
 		/// </summary>

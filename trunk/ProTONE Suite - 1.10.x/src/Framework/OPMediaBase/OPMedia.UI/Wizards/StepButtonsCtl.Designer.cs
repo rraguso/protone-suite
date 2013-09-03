@@ -164,13 +164,13 @@ namespace OPMedia.UI.Wizards
             // 
             // chkRepeatWizard
             // 
-            this.chkRepeatWizard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkRepeatWizard.AutoSize = true;
+            this.chkRepeatWizard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkRepeatWizard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkRepeatWizard.Location = new System.Drawing.Point(3, 9);
+            this.chkRepeatWizard.Location = new System.Drawing.Point(3, 3);
             this.chkRepeatWizard.Name = "chkRepeatWizard";
             this.chkRepeatWizard.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkRepeatWizard.Size = new System.Drawing.Size(126, 19);
+            this.chkRepeatWizard.Size = new System.Drawing.Size(123, 25);
             this.chkRepeatWizard.TabIndex = 0;
             this.chkRepeatWizard.Text = "TXT_WIZARDREPEAT";
             // 

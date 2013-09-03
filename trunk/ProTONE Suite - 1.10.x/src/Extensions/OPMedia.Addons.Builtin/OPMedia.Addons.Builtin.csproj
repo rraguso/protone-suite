@@ -56,6 +56,10 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="taglib-sharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Externals\taglib-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Navigation\CatalogExplorer\DataLayer\Catalog.cs" />
@@ -73,6 +77,54 @@
     <Compile Include="Navigation\CatalogExplorer\Dialogs\CatalogFolderBrowserDialog.Designer.cs">
       <DependentUpon>CatalogFolderBrowserDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\EncoderConfiguratorCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\EncoderConfiguratorCtl.Designer.cs">
+      <DependentUpon>EncoderConfiguratorCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.Designer.cs">
+      <DependentUpon>Mp3EncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.Designer.cs">
+      <DependentUpon>OggEncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.Designer.cs">
+      <DependentUpon>WavEncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep2.Designer.cs">
+      <DependentUpon>WizCdRipperStep2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep1.Designer.cs">
+      <DependentUpon>WizCdRipperStep1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.Designer.cs">
+      <DependentUpon>WmaEncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\AudioGrabber.cs" />
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToMP3.cs" />
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToOGG.cs" />
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToWave.cs" />
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToWMA.cs" />
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Tasks\Task.cs" />
     <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FECopyFilesTask.cs" />
     <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEDeleteFilesTask.cs" />
     <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEFileTaskSupport.cs" />
@@ -261,6 +313,24 @@
     <EmbeddedResource Include="Navigation\FileExplorer\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.resx">
+      <DependentUpon>Mp3EncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.resx">
+      <DependentUpon>OggEncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.resx">
+      <DependentUpon>WavEncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep1.resx">
+      <DependentUpon>WizCdRipperStep1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep2.resx">
+      <DependentUpon>WizCdRipperStep2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.resx">
+      <DependentUpon>WmaEncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Navigation\FileExplorer\FileExplorerCfgPanel.resx">
       <DependentUpon>FileExplorerCfgPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,7 +375,9 @@
     <EmbeddedResource Include="Property\VideoProp\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Translations\Translation.fr.resx" />
+    <EmbeddedResource Include="Translations\Translation.fr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Navigation\CatalogExplorer\DataLayer\CatalogDataset.xsc">
@@ -476,7 +548,12 @@
     <None Include="Resources\Catalog.png" />
     <None Include="Resources\Catalog16.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\blank_cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnOpenDisk.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

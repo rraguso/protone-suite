@@ -284,7 +284,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             }
         }
 
-        private CDEntry BuildCdEntryByCdText(CDDrive cd, string diskId)
+        public static CDEntry BuildCdEntryByCdText(CDDrive cd, string diskId)
         {
             List<Track> tracks = null;
             if (cd.ReadCDText(out tracks))
@@ -298,7 +298,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             return null;
         }
 
-        private CDEntry BuildCdEntryByCddb(CDDrive cd, string diskId)
+        public static CDEntry BuildCdEntryByCddb(CDDrive cd, string diskId)
         {
             // Check the online FreeDB database.
             using (FreedbHelper fdb = new FreedbHelper(AppSettings.CddbServerName, AppSettings.CddbServerPort))
@@ -376,7 +376,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             }
         }
 
-        private CDEntry Merge(CDEntry master, CDEntry slave)
+        public static CDEntry Merge(CDEntry master, CDEntry slave)
         {
             if (master == null)
                 return slave;

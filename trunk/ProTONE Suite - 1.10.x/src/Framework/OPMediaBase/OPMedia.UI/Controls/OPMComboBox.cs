@@ -282,6 +282,7 @@ namespace OPMedia.UI.Controls
                 if (Focused)
                 {
                     cBorder = ThemeManager.HighlightColor;
+                    c2 = ThemeManager.HighlightColor;
                 }
                 else
                 {

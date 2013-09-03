@@ -220,10 +220,10 @@ the Windows Explorer style.</value>
   <value>MPEG Audio files (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
 </data>
 <data name="TXT_ID3WIZARD">
-  <value>ID3 Wizard </value>
+  <value>ID3 Wizard</value>
 </data>
 <data name="TXT_IMPORTWIZARD">
-  <value>Import Wizard </value>
+  <value>Import Wizard</value>
 </data>
 <data name="TXT_INIT_SEARCH">
   <value>The search process is initializing, please wait ...</value>
@@ -514,6 +514,13 @@ Use the 'Add Files', 'Add Folder',  'Remove Files' buttons to configure the file
 </data>
 <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
   <value>Show properties of Audio CD Files (CDA) in File Browser</value>
+</data>
+<data name="TXT_CDRIPPERWIZARD">
+  <value>CD Ripper</value>
+</data>
+<data name="TXT_GRABBERHINT_STEP1">
+  <value>Click on list cells to edit them. &#xD;
+Double-click on check images to choose whether to grab a track or not.</value>
 </data>
     
 </root>

@@ -584,10 +584,13 @@ namespace OPMedia.UI.Controls
             int d = 0;
             bool drawImage = false;
 
-            if (e.ColumnIndex == 0 && this.SmallImageList != null)
+            if (e.ColumnIndex == 0)
             {
-                d = this.SmallImageList.ImageSize.Width + 2;
-                drawImage = true;
+                if (this.SmallImageList != null)
+                {
+                    d += this.SmallImageList.ImageSize.Width + 2;
+                    drawImage = true;
+                }
             }
 
             Rectangle rc1 = new Rectangle(e.Bounds.Left + d, e.Bounds.Top, e.Bounds.Width - d, e.Bounds.Height);

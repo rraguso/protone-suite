@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb;
 using OPMedia.Core.Logging;
 using System.Diagnostics;
+using System.IO;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
 {
@@ -56,6 +57,31 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       public event EventHandler CDInserted;
 
       public event EventHandler CDRemoved;
+
+      public static DriveInfo[] GetAllAudioCDDrives()
+      {
+          List<DriveInfo> drives = new List<DriveInfo>();
+
+          foreach (DriveInfo di in DriveInfo.GetDrives())
+          {
+              if (di.DriveType != DriveType.CDRom)
+                  continue;
+
+              if (!string.IsNullOrEmpty(di.RootDirectory.FullName))
+              {
+                  char letter = di.RootDirectory.FullName.ToUpperInvariant()[0];
+                  using (CDDrive cd = new CDDrive())
+                  {
+                      if (cd.Open(letter) && cd.Refresh() && cd.HasAudioTracks())
+                      {
+                        drives.Add(di);
+                      }
+                  }
+              }
+          }
+
+          return drives.ToArray();
+      }
 
       // Methods
       public CDDrive()
@@ -436,6 +462,20 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           return -1;
       }
 
+      public bool HasAudioTracks()
+      {
+          int tracks = GetNumTracks();
+          for (int i = 1; i <= tracks; i++)
+          {
+              if (IsAudioTrack(i))
+              {
+                  return true;
+              }
+          }
+
+          return false;
+      }
+
       public bool Refresh()
       {
           return (this.IsCDReady() && this.ReadTOC());
@@ -665,6 +705,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
                           titles.Count > i)
                       {
                           Track track = new Track();
+                          track.Index = i;
+
                           if (titles.Count > i)
                               track.Title = titles[i];
                           if (artists.Count > i)

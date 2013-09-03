@@ -315,26 +315,29 @@ namespace OPMedia.UI.Controls
 
             Rectangle clientRectangle = new Rectangle(ContentRectangle.X - 2,
                 ContentRectangle.Y - 2,
-                ContentRectangle.Width + 4,
+                ContentRectangle.Width + 2,
                 ContentRectangle.Height + 4);
 
-            using (SolidBrush b1 = new SolidBrush(ThemeManager.SelectedColor))
+            using (Brush bSelect = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
             {
-                using (Brush b2 = new SolidBrush(ThemeManager.HighlightColor))
+                using (Brush bHighlight = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.HighlightColor, 90f))
                 using (Pen p2 = new Pen(ThemeManager.ForeColor))
                 {
                     Rectangle rect = clientRectangle;
 
-                    if (isHighlight)
+                    using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
                     {
-                        if (Checked && !Selected)
-                            e.Graphics.FillRectangle(b2, rect);
-                        else
-                            e.Graphics.FillRectangle(b1, rect);
+                        if (isHighlight)
+                        {
+                            if (Checked && !Selected)
+                                e.Graphics.FillPath(bHighlight, gp);
+                            else
+                                e.Graphics.FillPath(bSelect, gp);
 
-                        rect.Width -= 1;
-                        rect.Height -= 1;
-                        e.Graphics.DrawRectangle(p2, rect);
+                            rect.Width -= 1;
+                            rect.Height -= 1;
+                            e.Graphics.DrawPath(p2, gp);
+                        }
                     }
 
                     int xpos = this.Width / 2 - this.Owner.ImageScalingSize.Width / 2;

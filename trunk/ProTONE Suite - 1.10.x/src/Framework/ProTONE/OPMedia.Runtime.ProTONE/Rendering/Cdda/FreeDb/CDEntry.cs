@@ -260,7 +260,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 								Tracks[trackNumber].Title += line.Substring(index);
 							else
 							{
-								Track track = new Track { Title = line.Substring(index) };
+								Track track = new Track { Index = trackNumber + 1, Title = line.Substring(index) };
 								this.Tracks.Add(track);
 							}
 							continue;

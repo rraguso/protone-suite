@@ -32,12 +32,20 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             }
         }
 
+        public override Size DesiredSize
+        {
+            get
+            {
+                return new Size(700, 600);
+            }
+        }
+
         public WizMCSearchStep1Ctl()
         {
             InitializeComponent();
 
-            this.ResizeParent = true;
-            this.DecorationsVisible = false;
+            this.ShowImage = false;
+            this.ShowSeparator = false;
 
             ilImages = new ImageList();
             ilImages.ImageSize = new Size(16, 16);
@@ -87,6 +95,8 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
         protected override void OnWizardInitializing()
         {
             base.OnWizardInitializing();
+
+            Wizard.AllowResize = true;
 
             ssStatus.BackColor = ThemeManager.BackColor;
             pbProgress.BackColor = ThemeManager.BackColor;

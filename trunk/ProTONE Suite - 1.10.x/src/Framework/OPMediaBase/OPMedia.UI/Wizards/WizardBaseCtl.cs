@@ -100,13 +100,12 @@ namespace OPMedia.UI.Wizards
         #endregion
 
         #region Properties
-        /// <summary>
-        /// Gets/sets if the parent form (the WizardHostform) can be resized or not
-        /// when this control is displayed.
-        /// </summary>
-        public bool ResizeParent { get; set; }
 
-        public bool DecorationsVisible { get; set; }
+        public virtual Size DesiredSize { get { return Size.Empty; } }
+
+        public bool ShowImage { get; set; }
+
+        public bool ShowSeparator { get; set; }
 
         /// <summary>
         /// Gets/sets the wizard direction.
@@ -164,7 +163,8 @@ namespace OPMedia.UI.Wizards
         public WizardBaseCtl()
         {
             InitializeComponent();
-            DecorationsVisible = true;
+            ShowImage = true;
+            ShowSeparator = true;
         }
         #endregion
 

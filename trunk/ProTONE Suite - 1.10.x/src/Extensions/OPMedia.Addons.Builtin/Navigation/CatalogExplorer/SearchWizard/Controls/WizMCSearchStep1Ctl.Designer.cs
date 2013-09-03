@@ -47,7 +47,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.btnSearch = new OPMedia.UI.Controls.StatusStripButton();
             this.ssStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.pbProgress = new System.Windows.Forms.ToolStripProgressBar();
-            this.contextMenuStrip = new OPMContextMenuStrip();
+            this.contextMenuStrip = new OPMedia.UI.Controls.OPMContextMenuStrip();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsmiID3Wizard = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -86,6 +86,13 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.cmbSearchText.Size = new System.Drawing.Size(345, 21);
             this.cmbSearchText.TabIndex = 3;
             // 
+            // btnClearSearchValues
+            // 
+            this.btnClearSearchValues.Location = new System.Drawing.Point(0, 0);
+            this.btnClearSearchValues.Name = "btnClearSearchValues";
+            this.btnClearSearchValues.Size = new System.Drawing.Size(75, 23);
+            this.btnClearSearchValues.TabIndex = 0;
+            // 
             // cmbSearchPattern
             // 
             this.cmbSearchPattern.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -97,6 +104,13 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.cmbSearchPattern.Name = "cmbSearchPattern";
             this.cmbSearchPattern.Size = new System.Drawing.Size(345, 21);
             this.cmbSearchPattern.TabIndex = 2;
+            // 
+            // btnClearSearchPatterns
+            // 
+            this.btnClearSearchPatterns.Location = new System.Drawing.Point(0, 0);
+            this.btnClearSearchPatterns.Name = "btnClearSearchPatterns";
+            this.btnClearSearchPatterns.Size = new System.Drawing.Size(75, 23);
+            this.btnClearSearchPatterns.TabIndex = 0;
             // 
             // label3
             // 
@@ -134,7 +148,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.chkRecursive.AutoSize = true;
             this.chkRecursive.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkRecursive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkRecursive.Location = new System.Drawing.Point(0, 82);
+            this.chkRecursive.Location = new System.Drawing.Point(0, 81);
             this.chkRecursive.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.chkRecursive.Name = "chkRecursive";
             this.chkRecursive.OverrideForeColor = System.Drawing.Color.Empty;
@@ -144,15 +158,22 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             // 
             // txtSearchPath
             // 
-            this.txtSearchPath.Enabled = true;
-            this.txtSearchPath.ReadOnly = true;
+            this.txtSearchPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.txtSearchPath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSearchPath.Location = new System.Drawing.Point(0, 0);
             this.txtSearchPath.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.txtSearchPath.Name = "txtSearchPath";
             this.txtSearchPath.OverrideForeColor = System.Drawing.Color.Empty;
-            this.txtSearchPath.Size = new System.Drawing.Size(321, 23);
+            this.txtSearchPath.ReadOnly = true;
+            this.txtSearchPath.Size = new System.Drawing.Size(321, 22);
             this.txtSearchPath.TabIndex = 5;
+            // 
+            // btnClearSearchFolders
+            // 
+            this.btnClearSearchFolders.Location = new System.Drawing.Point(0, 0);
+            this.btnClearSearchFolders.Name = "btnClearSearchFolders";
+            this.btnClearSearchFolders.Size = new System.Drawing.Size(75, 23);
+            this.btnClearSearchFolders.TabIndex = 0;
             // 
             // label2
             // 
@@ -218,6 +239,8 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.contextMenuStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiDelete,
             this.toolStripSeparator1,
@@ -313,11 +336,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.tableLayoutPanel1.SetColumnSpan(this.lvResults, 3);
             this.lvResults.ContextMenuStrip = this.contextMenuStrip;
             this.lvResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvResults.Location = new System.Drawing.Point(3, 121);
+            this.lvResults.Location = new System.Drawing.Point(3, 120);
             this.lvResults.MultiSelect = false;
             this.lvResults.Name = "lvResults";
             this.lvResults.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvResults.Size = new System.Drawing.Size(694, 395);
+            this.lvResults.Size = new System.Drawing.Size(694, 396);
             this.lvResults.TabIndex = 10;
             this.lvResults.UseCompatibleStateImageBehavior = false;
             this.lvResults.View = System.Windows.Forms.View.Details;
@@ -383,7 +406,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.kryptonLabel1.AutoSize = true;
             this.kryptonLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.kryptonLabel1.Location = new System.Drawing.Point(0, 105);
+            this.kryptonLabel1.Location = new System.Drawing.Point(0, 104);
             this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.OverrideBackColor = System.Drawing.Color.Empty;
@@ -428,7 +451,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmTableLayoutPanel1.RowCount = 1;
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(345, 26);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(345, 25);
             this.opmTableLayoutPanel1.TabIndex = 24;
             // 
             // btnBrowse

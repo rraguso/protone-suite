@@ -74,6 +74,13 @@ namespace OPMedia.Addons.Builtin.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap blank_cd {
+            get {
+                object obj = ResourceManager.GetObject("blank_cd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Catalog {
             get {
                 object obj = ResourceManager.GetObject("Catalog", resourceCulture);

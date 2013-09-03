@@ -635,10 +635,10 @@ Alle Log-Level sind standardmäßig aktiviert.</value>
   <value>Wiederholen Sie die Assistenten</value>
 </data>
 <data name="TXT_WIZARDSTEPDELIMITER">
-  <value> von </value>
+  <value>von</value>
 </data>
 <data name="TXT_WIZARDSTEPTEXT">
-  <value>Schritt </value>
+  <value>Schritt</value>
 </data>
 <data name="TXT_WIZFINISHED">
   <value>beendet die Task-Ausführung.</value>

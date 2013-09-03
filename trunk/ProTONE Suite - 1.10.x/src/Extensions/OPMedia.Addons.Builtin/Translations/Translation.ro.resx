@@ -225,10 +225,10 @@ distincte, gestionate în stilul Windows Explorer.</value>
   <value>Fişiere MPEG Audio (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
 </data>
 <data name="TXT_ID3WIZARD">
-  <value>Utilitar ID3 </value>
+  <value>Utilitar ID3</value>
 </data>
 <data name="TXT_IMPORTWIZARD">
-  <value>Utilitar import catalog </value>
+  <value>Utilitar import catalog</value>
 </data>
 <data name="TXT_INIT_SEARCH">
   <value>Iniţializare căutare - vă rugăm aşteptaţi ...</value>
@@ -519,6 +519,13 @@ Scurtătură: {0}</value>
 </data>
 <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
   <value>Arată proprietățile fișierelor CD Audio (CDA) în Explorator Fișiere</value>
+</data>
+<data name="TXT_CDRIPPERWIZARD">
+  <value>CD Ripper</value>
+</data>
+<data name="TXT_GRABBERHINT_STEP1">
+  <value>Daţi clic pe celulele listei pentru a le edita.&#xD;
+Daţi dublu-clic pe imagini pentru a alege dacă importaţi o pistă sau nu.</value>
 </data>
     
 </root>

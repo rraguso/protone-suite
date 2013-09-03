@@ -182,6 +182,9 @@ namespace OPMedia.UI.Controls
                 if (Focused)
                 {
                     cb = ThemeManager.HighlightColor;
+                    c2 = ThemeManager.HighlightColor;
+                    c1 = ThemeManager.WndValidColor;
+                    cText = ThemeManager.WndTextColor;
                 }
                 else
                 {

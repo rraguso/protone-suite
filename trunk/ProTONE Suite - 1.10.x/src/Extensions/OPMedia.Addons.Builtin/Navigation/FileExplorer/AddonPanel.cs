@@ -46,6 +46,8 @@ using OPMedia.UI.Configuration;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.Addons.Builtin.FileExplorer.FileOperations.Forms;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
+using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms;
+using OPMedia.Runtime.ProTONE.Rendering.Cdda;
 
 #endregion
 
@@ -228,6 +230,11 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
                     case OPMShortcut.CmdID3Wizard:
                         HandleAction(ToolAction.ToolActionID3Wizard);
+                        args.Handled = true;
+                        break;
+
+                    case OPMShortcut.CmdCdRipperWizard:
+                        HandleAction(ToolAction.ToolActionCdRipper);
                         args.Handled = true;
                         break;
                 }
@@ -631,6 +638,28 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         }
                         return;
 
+                    case ToolAction.ToolActionCdRipper:
+                        {
+                            OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks.Task task =
+                                new Navigation.FileExplorer.CdRipperWizard.Tasks.Task();
+
+                            string rootPath = System.IO.Path.GetPathRoot(opmShellList.Path);
+                            if (!string.IsNullOrEmpty(rootPath))
+                            {
+                                char letter = rootPath.ToUpperInvariant()[0];
+                                using (CDDrive cd = new CDDrive())
+                                {
+                                    if (cd.Open(letter) && cd.Refresh() && cd.HasAudioTracks())
+                                    {
+                                        task.Drive = new DriveInfo(cd.Drive.ToString());
+                                    }
+                                }
+                            }
+
+                            CdRipperWizardMain.Execute(task);
+                        }
+                        break;
+
                     case ToolAction.ToolActionCopy:
                         _fileTask = new FEFileTaskForm(FileTaskType.Copy, opmShellList.SelectedPaths, opmShellList.Path);
                         return;
@@ -854,6 +883,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
                     case ToolAction.ToolActionID3Wizard:
                         BuildMenuText(btn, "TXT_ID3WIZARD", string.Empty, OPMShortcut.CmdID3Wizard);
+                        break;
+
+                    case ToolAction.ToolActionCdRipper:
+                        BuildMenuText(btn, "TXT_CDRIPPERWIZARD", string.Empty, OPMShortcut.CmdCdRipperWizard);
                         break;
 
                     case ToolAction.ToolActionListDrives:
@@ -1124,6 +1157,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         ToolActionDelete,
 
         ToolActionID3Wizard,
+        ToolActionCdRipper,
 
         ToolActionJumpToItem,
 
@@ -1147,6 +1181,26 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                 };
 
             return WizardHostForm.CreateWizard("TXT_SEARCHWIZARD_FE", pages, true, initTask, Resources.Search16.ToIcon());
+        }
+
+        public static DialogResult Execute()
+        {
+            return Execute(null);
+        }
+    }
+
+    public static class CdRipperWizardMain
+    {
+        public static DialogResult Execute(BackgroundTask initTask)
+        {
+            Type[] pages = new Type[]
+                {
+                    typeof(WizCdRipperStep1),
+                    typeof(WizCdRipperStep2),
+                };
+
+            return WizardHostForm.CreateWizard("TXT_CDRIPPERWIZARD", pages, true, initTask, 
+                Resources.blank_cd.ToIcon());
         }
 
         public static DialogResult Execute()
