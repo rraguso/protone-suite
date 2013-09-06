@@ -49,6 +49,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
         [DataMember(Order = 6, IsRequired=false)]
         public int Index { get; set; }
 
+        public override string ToString()
+        {
+            return string.Format("{0}", Index);
+        }
+
 		/// <summary>
 		/// Create an instance of a Track 
 		/// </summary>

@@ -11,12 +11,14 @@ using OPMedia.Core.ComTypes;
 
 namespace OPMedia.UI
 {
+    public delegate void TaskStepInitHandler(StepDetail currentStep);
     public delegate void TaskProgressHandler(StepDetail currentStep, int stepsDone);
     public delegate void TaskCancelledHandler();
     public delegate void TaskFinishedHandler();
 
     public abstract class BackgroundTask
     {
+        public event TaskStepInitHandler TaskStepInit = null;
         public event TaskProgressHandler TaskProgress = null;
         public event TaskCancelledHandler TaskCancelled = null;
         public event TaskFinishedHandler TaskFinished = null;
@@ -48,8 +50,12 @@ namespace OPMedia.UI
             return _pauseEvent.WaitOne(timeout);
         }
 
-        public virtual void ForciblyCancel()
+        public void RaiseTaskStepInitEvent(StepDetail currentStepDetail)
         {
+            if (TaskStepInit != null)
+            {
+                TaskStepInit(currentStepDetail);
+            }
         }
         
         public void RaiseTaskProgressEvent(StepDetail currentStepDetail, int stepsDone)
@@ -81,6 +87,25 @@ namespace OPMedia.UI
                 TaskFinished();
             }
         }
+
+        internal void StartRequested()
+        {
+            OnTaskStarted();
+        }
+
+        internal void CancelRequested()
+        {
+            OnTaskCancelled();
+        }
+
+        internal void FinishRequested()
+        {
+            OnTaskFinished();
+        }
+
+        protected virtual void OnTaskStarted() { }
+        protected virtual void OnTaskCancelled() { }
+        protected virtual void OnTaskFinished() { }
     }
 
     public class StepDetail
@@ -131,6 +156,8 @@ namespace OPMedia.UI
 
         void _worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            _task.StartRequested();
+
             while (!_task.IsFinished)
             {
                 if (_worker.CancellationPending)
@@ -157,6 +184,8 @@ namespace OPMedia.UI
 
                 _task.RaiseTaskProgressEvent(_task.RunNextStep(), _task.CurrentStep);
             }
+
+            _task.FinishRequested();
         }
 
         public void Run()
@@ -181,6 +210,8 @@ namespace OPMedia.UI
 
                 if (MessageDisplay.Query(message, "TXT_TASK_CANCEL", MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    _task.CancelRequested();
+
                     Logger.LogInfo("Requesting to cancel the task ...");
                     _worker.CancelAsync();
 

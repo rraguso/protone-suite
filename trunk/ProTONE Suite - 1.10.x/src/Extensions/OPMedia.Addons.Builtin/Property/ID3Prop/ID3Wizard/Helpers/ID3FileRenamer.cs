@@ -14,6 +14,8 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
         ID3FileInfo ifi = null;
         string renamePattern;
 
+        internal ID3FileInfo ID3 { get { return ifi; } }
+
         public ID3FileRenamer(string path, string renamePattern)
         {
             this.ifi = new ID3FileInfo(path, false);
@@ -50,7 +52,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
 
                 if (doRename)
                 {
-                    newName = StripInvalidPathChars(newName);
+                    newName = StringUtils.StripInvalidPathChars(newName);
                     retVal = Path.Combine(fi.DirectoryName, StringUtils.Capitalize(newName, wordCasing) + fi.Extension);
                 }
                 
@@ -59,16 +61,6 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             return retVal;
         }
 
-        private string StripInvalidPathChars(string newName)
-        {
-            string retVal = newName.Replace("<", string.Empty).Replace(">", string.Empty);
-
-            foreach (char cInvalid in Path.GetInvalidFileNameChars())
-            {
-                retVal = retVal.Replace(cInvalid, '_');
-            }
-
-            return retVal;
-        }
+        
     }
 }

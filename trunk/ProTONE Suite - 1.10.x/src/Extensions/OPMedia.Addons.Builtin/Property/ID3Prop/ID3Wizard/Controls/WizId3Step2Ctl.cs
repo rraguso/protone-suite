@@ -81,6 +81,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             EditPanelBase panel = panels[index];
             if (panel != null)
             {
+                Translator.TranslateControl(panel, false);
                 panel.Visible = true;
                 panel.SetTask(BkgTask as Task);
             }

@@ -55,6 +55,13 @@ namespace OPMedia.UI.Wizards
             ilStatus.Images.Add(Resources.blank);
 
             tvResults.ImageList = ilStatus;
+
+            this.HandleCreated += new EventHandler(WizFinishPageCtl_HandleCreated);
+        }
+
+        void WizFinishPageCtl_HandleCreated(object sender, EventArgs e)
+        {
+            Wizard.FormClosing += new FormClosingEventHandler(hostForm_FormClosing);
         }
 
 		protected override bool ProcessDialogKey(Keys keyData)
@@ -124,9 +131,11 @@ namespace OPMedia.UI.Wizards
                 // Resubscribe for task events
                 BkgTask.TaskProgress -= new TaskProgressHandler(task_TaskProgress);
                 BkgTask.TaskFinished -= new TaskFinishedHandler(task_TaskFinished);
+                BkgTask.TaskStepInit -= new TaskStepInitHandler(task_TaskStepInit);
 
                 BkgTask.TaskProgress += new TaskProgressHandler(task_TaskProgress);
                 BkgTask.TaskFinished += new TaskFinishedHandler(task_TaskFinished);
+                BkgTask.TaskStepInit += new TaskStepInitHandler(task_TaskStepInit);
 
                 tvResults.Nodes.Clear();
 
@@ -149,6 +158,19 @@ namespace OPMedia.UI.Wizards
             }
         }
 
+        void task_TaskStepInit(StepDetail currentStep)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new TaskStepInitHandler(task_TaskStepInit),
+                   new object[] { currentStep });
+                return;
+            }
+
+            lblStepDetails.Text = Translator.TranslateTaggedString(currentStep.Description);
+            lblStepDetails.Visible = true;
+        }
+
         void task_TaskFinished()
         {
             if (InvokeRequired)
@@ -159,6 +181,7 @@ namespace OPMedia.UI.Wizards
 
             pbProgress.Visible = false;
             tvResults.Visible = _errorsFound;
+            lblStepDetails.Visible = false;
 
             if (_errorsFound)
             {

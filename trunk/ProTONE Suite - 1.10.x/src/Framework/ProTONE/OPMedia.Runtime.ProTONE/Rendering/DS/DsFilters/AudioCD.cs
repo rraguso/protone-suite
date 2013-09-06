@@ -29,12 +29,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
             public uint dwFormatLength = 0;
         }
 
-        private const uint RIFF_TAG = 0x46464952;
-        private const uint CDDA_TAG = 0x41444443;
-        private const uint WAVE_TAG = 0x45564157;
-        private const uint FMT__TAG = 0x20746D66;
-        private const uint DATA_TAG = 0x61746164;
-        private const uint WAVE_FORMAT_PCM = 0x01;
+        public const uint RIFF_TAG = 0x46464952;
+        public const uint CDDA_TAG = 0x41444443;
+        public const uint WAVE_TAG = 0x45564157;
+        public const uint FMT__TAG = 0x20746D66;
+        public const uint DATA_TAG = 0x61746164;
+        public const uint WAVE_FORMAT_PCM = 0x01;
 
         CDDrive _cdrom = new CDDrive();
 
@@ -92,26 +92,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters
             int trackSize = _cdrom.ReadTrack(_track, null, ref size, null);
             if (size > 0)
             {
-				// The following info is STANDARD to all audio CD's according to standard IEC 60908
-                WaveFormatEx _wfex = new WaveFormatEx();
-                _wfex.cbSize = 0;
-                _wfex.wFormatTag = 1; // PCM
-                _wfex.nChannels = 2; // stereo
-                _wfex.wBitsPerSample = 16; // 16-bit samples
-                _wfex.nSamplesPerSec = 44100; // sampling rate 44.1 khz
-                _wfex.nBlockAlign = (ushort)(_wfex.nChannels * _wfex.wBitsPerSample / 8);
-                _wfex.nAvgBytesPerSec = _wfex.nSamplesPerSec * _wfex.nBlockAlign;
-
+                WaveFormatEx wfex = WaveFormatEx.Cdda;
                 AMMediaType mt = new AMMediaType();
+
                 mt.majorType = MediaType.Audio;
                 mt.subType = MediaSubType.PCM;
-                mt.sampleSize = _wfex.nBlockAlign;
+                mt.sampleSize = wfex.nBlockAlign;
                 mt.fixedSizeSamples = true;
-                mt.SetFormat(_wfex);
+                mt.SetFormat(wfex);
                 m_Tracks.Add(new CdTrack(this, mt));
 
                 m_llDataOffset = 0;
-                m_rtDuration = (UNITS * (size - m_llDataOffset)) / _wfex.nAvgBytesPerSec;
+                m_rtDuration = (UNITS * (size - m_llDataOffset)) / wfex.nAvgBytesPerSec;
 
                 return S_OK;
             }

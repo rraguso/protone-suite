@@ -119,7 +119,7 @@ namespace OPMedia.Core.Logging
             }
         }
 
-        [Conditional("HAVE_TRACE_UNTRANSLATED")]
+        //[Conditional("HAVE_TRACE_UNTRANSLATED")]
         public static void LogTranslationTrace(string format, params object[] args)
         {
             string message = string.Format(format, args);

@@ -7,13 +7,14 @@ using OPMedia.UI.Themes;
 using System.Drawing;
 using OPMedia.UI.Properties;
 using System.ComponentModel;
+using OPMedia.Core;
 
 namespace OPMedia.UI.Controls
 {
     public class WaitingPictureBox : PictureBox
     {
         private int _i = 1;
-        private Timer _timer = null;
+        private System.Timers.Timer _timer = null;
 
         [ReadOnly(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -57,9 +58,9 @@ namespace OPMedia.UI.Controls
         {
             if (_timer == null)
             {
-                _timer = new Timer();
+                _timer = new System.Timers.Timer();
                 _timer.Interval = _period;
-                _timer.Tick += new EventHandler(_timer_Tick);
+                _timer.Elapsed += new System.Timers.ElapsedEventHandler(_timer_Elapsed);
                 _timer.Enabled = true;
             }
             else
@@ -70,7 +71,8 @@ namespace OPMedia.UI.Controls
             }
         }
 
-        void _timer_Tick(object sender, EventArgs e)
+        //void _timer_Tick(object sender, EventArgs e)
+        void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             try
             {
@@ -84,7 +86,8 @@ namespace OPMedia.UI.Controls
                 {
                     image.MakeTransparent(Color.Magenta);
                 }
-                base.Image = image;
+
+                MainThread.Post((d) => { base.Image = image; Application.DoEvents(); });
             }
             catch { }
             finally 

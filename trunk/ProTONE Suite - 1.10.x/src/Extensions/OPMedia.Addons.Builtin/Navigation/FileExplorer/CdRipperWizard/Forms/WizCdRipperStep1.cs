@@ -35,7 +35,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
         {
             get
             {
-                return new Size(660, 400);
+                return new Size(660, 455);
             }
         }
 
@@ -126,37 +126,55 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
         private void PopulateAudioCDDrives()
         {
             cmbAudioCDDrives.Items.Clear();
+            lvTracks.Items.Clear();
 
             DriveInfoItem selected = null;
 
+            btnRefresh.Enabled = false;
+            pbWaiting.Visible = true;
+            Application.DoEvents();
+
             ThreadPool.QueueUserWorkItem((c) =>
                 {
-                    DriveInfo[] audioCDs = CDDrive.GetAllAudioCDDrives();
-                    foreach (DriveInfo di in audioCDs)
+                    try
                     {
-                        DriveInfoItem item = new DriveInfoItem(di);
-
-                        MainThread.Post((d) => { cmbAudioCDDrives.Items.Add(item); });
-
-                        if ((BkgTask as Task).Drive == null)
+                        DriveInfo[] audioCDs = CDDrive.GetAllAudioCDDrives();
+                        foreach (DriveInfo di in audioCDs)
                         {
-                            (BkgTask as Task).Drive = di;
+                            DriveInfoItem item = new DriveInfoItem(di);
+
+                            MainThread.Post((d) => { cmbAudioCDDrives.Items.Add(item); });
+
+                            if ((BkgTask as Task).Drive == null)
+                            {
+                                (BkgTask as Task).Drive = di;
+                            }
+
+                            if (Path.Equals(di.RootDirectory.FullName, (BkgTask as Task).Drive.RootDirectory.FullName))
+                            {
+                                selected = item;
+                            }
                         }
 
-                        if (Path.Equals(di.RootDirectory.FullName, (BkgTask as Task).Drive.RootDirectory.FullName))
+                        MainThread.Post((d) => 
                         {
-                            selected = item;
-                        }
+                            cmbAudioCDDrives.SelectedItem = selected;
+                        });
                     }
-
-                    MainThread.Post((d) => { cmbAudioCDDrives.SelectedItem = selected; });
+                    finally
+                    {
+                        MainThread.Post((d) => 
+                        { 
+                            pbWaiting.Visible = false;
+                            btnRefresh.Enabled = true;
+                        });
+                    }
                 });
         }
 
         private void OnDriveSelected(object sender, EventArgs e)
         {
             Wizard.CanMoveNext = false;
-
             lvTracks.Items.Clear();
 
             DriveInfoItem item = cmbAudioCDDrives.SelectedItem as DriveInfoItem;
@@ -171,34 +189,44 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
                     {
                         if (cd.Open(letter) && cd.Refresh())
                         {
-                            switch (AppSettings.AudioCdInfoSource)
+                            // Check whether the disc is already added to our persistent storage
+                            string discId = cd.GetCDDBDiskID();
+                            cdEntry = CDEntry.LoadPersistentDisc(discId);
+
+                            if (cdEntry == null)
                             {
-                                case AppSettings.CddaInfoSource.CdText:
-                                    cdEntry = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());
-                                    break;
-
-                                case AppSettings.CddaInfoSource.Cddb:
-                                    cdEntry = CDAFileInfo.BuildCdEntryByCddb(cd, cd.GetCDDBDiskID());
-                                    break;
-
-                                case AppSettings.CddaInfoSource.CdText_Cddb:
-                                    {
+                                switch (AppSettings.AudioCdInfoSource)
+                                {
+                                    case AppSettings.CddaInfoSource.CdText:
                                         cdEntry = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());
-                                        CDEntry cde = CDAFileInfo.BuildCdEntryByCddb(cd, cd.GetCDDBDiskID());
-                                        cdEntry = CDAFileInfo.Merge(cdEntry, cde);
-                                    }
-                                    break;
+                                        break;
 
-                                case AppSettings.CddaInfoSource.Cddb_CdText:
-                                    {
+                                    case AppSettings.CddaInfoSource.Cddb:
                                         cdEntry = CDAFileInfo.BuildCdEntryByCddb(cd, cd.GetCDDBDiskID());
-                                        CDEntry cde = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());
-                                        cdEntry = CDAFileInfo.Merge(cdEntry, cde);
-                                    }
-                                    break;
+                                        break;
 
-                                default:
-                                    break;
+                                    case AppSettings.CddaInfoSource.CdText_Cddb:
+                                        {
+                                            cdEntry = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());
+                                            CDEntry cde = CDAFileInfo.BuildCdEntryByCddb(cd, cd.GetCDDBDiskID());
+                                            cdEntry = CDAFileInfo.Merge(cdEntry, cde);
+                                        }
+                                        break;
+
+                                    case AppSettings.CddaInfoSource.Cddb_CdText:
+                                        {
+                                            cdEntry = CDAFileInfo.BuildCdEntryByCddb(cd, cd.GetCDDBDiskID());
+                                            CDEntry cde = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());
+                                            cdEntry = CDAFileInfo.Merge(cdEntry, cde);
+                                        }
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+
+                                // Cache the disk to persistent storage for retrieving it faster later on
+                                cdEntry.PersistDisc();
                             }
                         }
 

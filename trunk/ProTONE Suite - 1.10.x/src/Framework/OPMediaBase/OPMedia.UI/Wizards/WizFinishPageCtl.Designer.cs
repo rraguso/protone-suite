@@ -36,6 +36,7 @@ namespace OPMedia.UI.Wizards
             this.pbProgress = new OPMedia.UI.Controls.OPMProgressBar();
             this.tvResults = new OPMedia.UI.Controls.OPMTreeView();
             this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.lblStepDetails = new OPMedia.UI.Controls.OPMLabel();
             this.opmTableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@ namespace OPMedia.UI.Wizards
             this.pbProgress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbProgress.Enabled = false;
             this.pbProgress.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pbProgress.Location = new System.Drawing.Point(3, 22);
+            this.pbProgress.Location = new System.Drawing.Point(3, 35);
             this.pbProgress.Maximum = 10000D;
             this.pbProgress.Name = "pbProgress";
             this.pbProgress.NrTicks = 20;
@@ -77,10 +78,10 @@ namespace OPMedia.UI.Wizards
             this.tvResults.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
             this.tvResults.FullRowSelect = true;
             this.tvResults.HideSelection = false;
-            this.tvResults.Location = new System.Drawing.Point(3, 38);
+            this.tvResults.Location = new System.Drawing.Point(3, 51);
             this.tvResults.Name = "tvResults";
             this.tvResults.ShowNodeToolTips = true;
-            this.tvResults.Size = new System.Drawing.Size(212, 171);
+            this.tvResults.Size = new System.Drawing.Size(212, 158);
             this.tvResults.TabIndex = 2;
             // 
             // opmTableLayoutPanel1
@@ -88,18 +89,33 @@ namespace OPMedia.UI.Wizards
             this.opmTableLayoutPanel1.ColumnCount = 1;
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmTableLayoutPanel1.Controls.Add(this.lblWizardResults, 0, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.tvResults, 0, 2);
-            this.opmTableLayoutPanel1.Controls.Add(this.pbProgress, 0, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.tvResults, 0, 3);
+            this.opmTableLayoutPanel1.Controls.Add(this.pbProgress, 0, 2);
+            this.opmTableLayoutPanel1.Controls.Add(this.lblStepDetails, 0, 1);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
             this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.RowCount = 3;
+            this.opmTableLayoutPanel1.RowCount = 4;
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmTableLayoutPanel1.Size = new System.Drawing.Size(218, 212);
             this.opmTableLayoutPanel1.TabIndex = 3;
+            // 
+            // lblStepDetails
+            // 
+            this.lblStepDetails.AutoSize = true;
+            this.lblStepDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblStepDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblStepDetails.Location = new System.Drawing.Point(3, 19);
+            this.lblStepDetails.Name = "lblStepDetails";
+            this.lblStepDetails.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblStepDetails.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblStepDetails.Size = new System.Drawing.Size(212, 13);
+            this.lblStepDetails.TabIndex = 3;
+            this.lblStepDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // WizFinishPageCtl
             // 
@@ -107,6 +123,7 @@ namespace OPMedia.UI.Wizards
             this.Name = "WizFinishPageCtl";
             this.Size = new System.Drawing.Size(218, 212);
             this.opmTableLayoutPanel1.ResumeLayout(false);
+            this.opmTableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -117,5 +134,6 @@ namespace OPMedia.UI.Wizards
         private OPMProgressBar pbProgress;
         private OPMTreeView tvResults;
         private OPMTableLayoutPanel opmTableLayoutPanel1;
+        private OPMLabel lblStepDetails;
     }
 }

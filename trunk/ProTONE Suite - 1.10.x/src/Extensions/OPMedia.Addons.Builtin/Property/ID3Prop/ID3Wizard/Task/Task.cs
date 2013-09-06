@@ -145,8 +145,11 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
         private StepDetail ProcessFile(string file)
         {
             StepDetail detail = new StepDetail();
-            detail.Description = file;
+            detail.Description = "TXT_PROCESSING_FILE: " + file;
+            RaiseTaskStepInitEvent(detail);
+
             detail.Results = Translator.Translate("TXT_UNHANDLED");
+            detail.IsSuccess = false;
 
             try
             {

@@ -1034,5 +1034,11 @@ Doriţi să fie creat ?</value>
 <data name="TXT_MANAGE_FAVORITES">
   <value>Definiți Directoarele Favorite:</value>
 </data>
+<data name="TXT_PROCESSING_FILE">
+  <value>Se procesează fișierul</value>
+</data>
+<data name="TXT_SCANNING">
+  <value>Se scanează</value>
+</data>
     
 </root>

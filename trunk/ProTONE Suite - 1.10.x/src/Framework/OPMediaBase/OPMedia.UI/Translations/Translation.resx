@@ -1035,5 +1035,11 @@ Do you want to create it ?</value>
 <data name="TXT_MANAGE_FAVORITES">
   <value>Define your Favorite Folders:</value>
 </data>
+<data name="TXT_PROCESSING_FILE">
+  <value>Processing file</value>
+</data>
+<data name="TXT_SCANNING">
+  <value>Scanning</value>
+</data>
     
 </root>

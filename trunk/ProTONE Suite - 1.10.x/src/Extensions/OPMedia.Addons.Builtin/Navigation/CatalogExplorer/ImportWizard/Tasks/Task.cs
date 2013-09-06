@@ -124,6 +124,8 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Tasks
             if (!CanContinue()) 
                 return;
 
+            ReportPseudoStepInit("TXT_SCANNING: "  + dir.FullName);
+
             try
             {
                 DriveInfo di = new DriveInfo(dir.Root.FullName);
@@ -213,6 +215,8 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Tasks
             if (!CanContinue()) 
                 return;
 
+            ReportPseudoStepInit("TXT_SCANNING: " + file.FullName);
+
             try
             {
                 CatalogItem ci = new CatalogItem(cat);
@@ -292,6 +296,14 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Tasks
             while (IsExecutionPaused(50));
 
             return true;
+        }
+
+        private void ReportPseudoStepInit(string desc)
+        {
+            StepDetail detail = new StepDetail();
+            detail.Description = desc;
+
+            RaiseTaskStepInitEvent(detail);
         }
     }
 }

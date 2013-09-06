@@ -106,11 +106,47 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CD Ripper.
+        ///   Looks up a localized string similar to Copyright.
         /// </summary>
-        internal static string TXT_CDRIPPERWIZARD {
+        internal static string TXT_BITCOPYRIGHT {
             get {
-                return ResourceManager.GetString("TXT_CDRIPPERWIZARD", resourceCulture);
+                return ResourceManager.GetString("TXT_BITCOPYRIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CRC Bit.
+        /// </summary>
+        internal static string TXT_BITCRC {
+            get {
+                return ResourceManager.GetString("TXT_BITCRC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Original.
+        /// </summary>
+        internal static string TXT_BITORIGINAL {
+            get {
+                return ResourceManager.GetString("TXT_BITORIGINAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Private.
+        /// </summary>
+        internal static string TXT_BITPRIVATE {
+            get {
+                return ResourceManager.GetString("TXT_BITPRIVATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bitrate Mode:.
+        /// </summary>
+        internal static string TXT_BITRATE_MODE {
+            get {
+                return ResourceManager.GetString("TXT_BITRATE_MODE", resourceCulture);
             }
         }
         
@@ -232,6 +268,24 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CD Ripper.
+        /// </summary>
+        internal static string TXT_CDRIPPERWIZARD {
+            get {
+                return ResourceManager.GetString("TXT_CDRIPPERWIZARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio Mode:.
+        /// </summary>
+        internal static string TXT_CHANNEL_MODE {
+            get {
+                return ResourceManager.GetString("TXT_CHANNEL_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Merge catalogs.
         /// </summary>
         internal static string TXT_CMDCATALOGMERGE {
@@ -304,6 +358,15 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Encoder Options: .
+        /// </summary>
+        internal static string TXT_ENCODEROPTIONS {
+            get {
+                return ResourceManager.GetString("TXT_ENCODEROPTIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specify a description for the entry to be added:.
         /// </summary>
         internal static string TXT_ENTRY_DESC {
@@ -313,9 +376,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Merge catalogs have failed. Details:
-        ///
-        ///
+        ///   Looks up a localized string similar to Merge catalogs have failed. Details:        ///        ///        ///
         ///{0}.
         /// </summary>
         internal static string TXT_ERR_MERGE_FAILED {
@@ -325,9 +386,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This file does not represent a valid Media Catalog:
-        ///
-        ///
+        ///   Looks up a localized string similar to This file does not represent a valid Media Catalog:        ///        ///        ///
         ///{0}.
         /// </summary>
         internal static string TXT_ERROR_INVALID_CATALOG {
@@ -337,9 +396,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You cannot merge a catalog into itself: 
-        ///
-        ///
+        ///   Looks up a localized string similar to You cannot merge a catalog into itself:         ///        ///        ///
         ///{0}.
         /// </summary>
         internal static string TXT_ERROR_MERGE_SAME_CATALOG {
@@ -376,7 +433,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click on list cells to edit them. 
+        ///   Looks up a localized string similar to Click on list cells to edit them.         ///
         ///Double-click on check images to choose whether to grab a track or not..
         /// </summary>
         internal static string TXT_GRABBERHINT_STEP1 {
@@ -386,8 +443,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Link media files to bookmark files
-        ///(Hover with the mouse upon this text to show an explanatory tooltip).
+        ///   Looks up a localized string similar to Link media files to bookmark files        ///(Hover with the mouse upon this text to show an explanatory tooltip).
         /// </summary>
         internal static string TXT_GROUP_BMKWITHMEDIA {
             get {
@@ -396,21 +452,14 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bookmark files (BMK) contain information about particular moments in a media file. It is very 
-        ///
-        ///important that BMK files are located near the related media files (also called &apos;parent files&apos;).  
-        ///
-        ///
-        ///
-        ///If you ckeck this box, the File Browser will always consider that a media file and its related 
-        ///
-        ///bookmark file represent a single entity. This means that a copy, rename, move or delete operation 
-        ///
-        ///issued from the File Browser on one of these files automatically propagates to the other file too.  
-        ///
-        ///
-        ///
-        ///Keep th [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Bookmark files (BMK) contain information about particular moments in a media file. It is very         ///        ///
+        ///important that BMK files are located near the related media files (also called &apos;parent files&apos;).          ///        ///
+        ///        ///        ///
+        ///If you ckeck this box, the File Browser will always consider that a media file and its related         ///        ///
+        ///bookmark file represent a single entity. This means that a copy, rename, move or delete operation         ///        ///
+        ///issued from the File Browser on one of these files automatically propagates to the other file too.          ///        ///
+        ///        ///        ///
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TXT_GROUP_BMKWITHMEDIA_DESC {
             get {
@@ -527,6 +576,15 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ProTONE Suite uses L.A.M.E. for MP3 Encoding..
+        /// </summary>
+        internal static string TXT_LAME_DISCLAIMER {
+            get {
+                return ResourceManager.GetString("TXT_LAME_DISCLAIMER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Launch ID3 Wizard ....
         /// </summary>
         internal static string TXT_LAUNCH_WIZARD {
@@ -626,6 +684,15 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MP3 Flags: .
+        /// </summary>
+        internal static string TXT_MP3FLAGS {
+            get {
+                return ResourceManager.GetString("TXT_MP3FLAGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rename Files.
         /// </summary>
         internal static string TXT_MULTIRENAME {
@@ -658,6 +725,15 @@ namespace OPMedia.Addons.Builtin.Translations {
         internal static string TXT_NON_ORPHAN_BOOKMARKS {
             get {
                 return ResourceManager.GetString("TXT_NON_ORPHAN_BOOKMARKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No configuration options are available for this format..
+        /// </summary>
+        internal static string TXT_NOT_CONFIGURABLE {
+            get {
+                return ResourceManager.GetString("TXT_NOT_CONFIGURABLE", resourceCulture);
             }
         }
         
@@ -797,11 +873,38 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additional Options.
+        /// </summary>
+        internal static string TXT_OPTIONS_ADDITIONAL {
+            get {
+                return ResourceManager.GetString("TXT_OPTIONS_ADDITIONAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VBR Options.
+        /// </summary>
+        internal static string TXT_OPTIONS_VBR {
+            get {
+                return ResourceManager.GetString("TXT_OPTIONS_VBR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Orphan bookmark files.
         /// </summary>
         internal static string TXT_ORPHAN_BOOKMARKS {
             get {
                 return ResourceManager.GetString("TXT_ORPHAN_BOOKMARKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Output Format:.
+        /// </summary>
+        internal static string TXT_OUTPUT_FORMAT {
+            get {
+                return ResourceManager.GetString("TXT_OUTPUT_FORMAT", resourceCulture);
             }
         }
         
@@ -860,8 +963,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Automatic preview timer (seconds)
-        ///
+        ///   Looks up a localized string similar to Automatic preview timer (seconds)        ///        ///
         ///(0 = Disable automatic preview):.
         /// </summary>
         internal static string TXT_PREVIEW_TIMER {
@@ -961,6 +1063,15 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save output files to:.
+        /// </summary>
+        internal static string TXT_SAVETOFOLDER {
+            get {
+                return ResourceManager.GetString("TXT_SAVETOFOLDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scan error.
         /// </summary>
         internal static string TXT_SCAN_ERROR {
@@ -970,12 +1081,9 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A non-fatal error occured while scanning object: {0}.
-        ///
-        ///The error message is: {1}.
-        ///
-        ///
-        ///
+        ///   Looks up a localized string similar to A non-fatal error occured while scanning object: {0}.        ///        ///
+        ///The error message is: {1}.        ///        ///
+        ///        ///        ///
         ///Do you want to continue scanning ?.
         /// </summary>
         internal static string TXT_SCAN_ERROR_MSG {
@@ -1066,6 +1174,15 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select an Audio CD drive:.
+        /// </summary>
+        internal static string TXT_SELECTDRIVE {
+            get {
+                return ResourceManager.GetString("TXT_SELECTDRIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select audio files to be edited ....
         /// </summary>
         internal static string TXT_SELECTID3FILES {
@@ -1084,13 +1201,21 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select the insertion point within the selected catalog 
-        ///
+        ///   Looks up a localized string similar to Select the insertion point within the selected catalog         ///        ///
         ///(press F5 to reload the tree):.
         /// </summary>
         internal static string TXT_SELECTINSERTPOINT {
             get {
                 return ResourceManager.GetString("TXT_SELECTINSERTPOINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the tracks to be ripped from the CD:.
+        /// </summary>
+        internal static string TXT_SELECTTRACKS {
+            get {
+                return ResourceManager.GetString("TXT_SELECTTRACKS", resourceCulture);
             }
         }
         
@@ -1104,8 +1229,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 
-        ///
+        ///   Looks up a localized string similar to         ///        ///
         ///Shortcut: {0}.
         /// </summary>
         internal static string TXT_SHORTCUT {
@@ -1178,6 +1302,42 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max. VBR (kbps):.
+        /// </summary>
+        internal static string TXT_VBRMAX {
+            get {
+                return ResourceManager.GetString("TXT_VBRMAX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min. VBR (kbps):.
+        /// </summary>
+        internal static string TXT_VBRMIN_ {
+            get {
+                return ResourceManager.GetString("TXT_VBRMIN:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VBR Mode:.
+        /// </summary>
+        internal static string TXT_VBRMODE {
+            get {
+                return ResourceManager.GetString("TXT_VBRMODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VBR Quality:.
+        /// </summary>
+        internal static string TXT_VBRQUALITY {
+            get {
+                return ResourceManager.GetString("TXT_VBRQUALITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version info not present (legacy catalog).
         /// </summary>
         internal static string TXT_VER_NA {
@@ -1214,8 +1374,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select the folder or disk containing the items to be imported
-        ///
+        ///   Looks up a localized string similar to Select the folder or disk containing the items to be imported        ///        ///
         ///(press F5 to reload the tree):.
         /// </summary>
         internal static string TXT_WIZCATSTEP2_DESC {
@@ -1225,8 +1384,7 @@ namespace OPMedia.Addons.Builtin.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please specify which files you want to edit. 
-        ///
+        ///   Looks up a localized string similar to Please specify which files you want to edit.         ///        ///
         ///Use the &apos;Add Files&apos;, &apos;Add Folder&apos;,  &apos;Remove Files&apos; buttons to configure the files list..
         /// </summary>
         internal static string TXT_WIZID3STEP1_DESC {

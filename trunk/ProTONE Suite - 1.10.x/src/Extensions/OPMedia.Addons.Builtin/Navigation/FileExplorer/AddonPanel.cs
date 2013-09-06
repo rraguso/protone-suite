@@ -643,20 +643,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                             OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks.Task task =
                                 new Navigation.FileExplorer.CdRipperWizard.Tasks.Task();
 
-                            string rootPath = System.IO.Path.GetPathRoot(opmShellList.Path);
-                            if (!string.IsNullOrEmpty(rootPath))
-                            {
-                                char letter = rootPath.ToUpperInvariant()[0];
-                                using (CDDrive cd = new CDDrive())
-                                {
-                                    if (cd.Open(letter) && cd.Refresh() && cd.HasAudioTracks())
-                                    {
-                                        task.Drive = new DriveInfo(cd.Drive.ToString());
-                                    }
-                                }
-                            }
+                            task.OutputFolder = opmShellList.Path;
 
                             CdRipperWizardMain.Execute(task);
+                            ReloadNavigation();
                         }
                         break;
 

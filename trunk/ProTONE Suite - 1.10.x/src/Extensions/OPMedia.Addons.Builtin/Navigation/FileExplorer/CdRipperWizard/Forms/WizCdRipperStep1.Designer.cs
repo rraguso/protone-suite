@@ -42,21 +42,24 @@
             this.colTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colGenre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRefresh = new OPMedia.UI.Controls.OPMButton();
+            this.pbWaiting = new OPMedia.UI.Controls.WaitingPictureBox();
             this.opmTableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWaiting)).BeginInit();
             this.SuspendLayout();
             // 
             // opmTableLayoutPanel1
             // 
             this.opmTableLayoutPanel1.ColumnCount = 3;
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.opmTableLayoutPanel1.Controls.Add(this.opmLabel3, 0, 4);
             this.opmTableLayoutPanel1.Controls.Add(this.opmLabel1, 0, 0);
             this.opmTableLayoutPanel1.Controls.Add(this.cmbAudioCDDrives, 0, 1);
             this.opmTableLayoutPanel1.Controls.Add(this.opmLabel2, 0, 2);
             this.opmTableLayoutPanel1.Controls.Add(this.lvTracks, 0, 3);
-            this.opmTableLayoutPanel1.Controls.Add(this.btnRefresh, 2, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.btnRefresh, 1, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.pbWaiting, 2, 1);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -106,7 +109,6 @@
             // 
             // cmbAudioCDDrives
             // 
-            this.opmTableLayoutPanel1.SetColumnSpan(this.cmbAudioCDDrives, 2);
             this.cmbAudioCDDrives.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbAudioCDDrives.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbAudioCDDrives.FormattingEnabled = true;
@@ -114,7 +116,7 @@
             this.cmbAudioCDDrives.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.cmbAudioCDDrives.Name = "cmbAudioCDDrives";
             this.cmbAudioCDDrives.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cmbAudioCDDrives.Size = new System.Drawing.Size(400, 23);
+            this.cmbAudioCDDrives.Size = new System.Drawing.Size(381, 23);
             this.cmbAudioCDDrives.TabIndex = 1;
             this.cmbAudioCDDrives.SelectedIndexChanged += new System.EventHandler(this.OnDriveSelected);
             // 
@@ -189,7 +191,7 @@
             // 
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Reload16;
-            this.btnRefresh.Location = new System.Drawing.Point(401, 22);
+            this.btnRefresh.Location = new System.Drawing.Point(382, 22);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(1, 3, 3, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.OverrideBackColor = System.Drawing.Color.Empty;
@@ -198,6 +200,17 @@
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // pbWaiting
+            // 
+            this.pbWaiting.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbWaiting.Location = new System.Drawing.Point(418, 19);
+            this.pbWaiting.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pbWaiting.Name = "pbWaiting";
+            this.pbWaiting.Size = new System.Drawing.Size(29, 29);
+            this.pbWaiting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbWaiting.TabIndex = 6;
+            this.pbWaiting.TabStop = false;
             // 
             // WizCdRipperStep1
             // 
@@ -208,6 +221,7 @@
             this.Size = new System.Drawing.Size(600, 400);
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmTableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWaiting)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +242,6 @@
         private UI.Controls.OPMButton btnRefresh;
         private System.Windows.Forms.ColumnHeader colAlbum;
         private UI.Controls.OPMLabel opmLabel3;
+        private UI.Controls.WaitingPictureBox pbWaiting;
     }
 }

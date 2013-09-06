@@ -186,6 +186,13 @@ namespace OPMedia.Addons.Builtin.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap lame_logo {
+            get {
+                object obj = ResourceManager.GetObject("lame-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Merge {
             get {
                 object obj = ResourceManager.GetObject("Merge", resourceCulture);

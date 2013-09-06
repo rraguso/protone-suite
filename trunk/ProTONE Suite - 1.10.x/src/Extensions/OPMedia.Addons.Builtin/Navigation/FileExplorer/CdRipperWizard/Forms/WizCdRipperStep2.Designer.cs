@@ -58,14 +58,14 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 3F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(431, 400);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -146,21 +146,24 @@
             // 
             // opmGroupBox1
             // 
+            this.opmGroupBox1.AutoSize = true;
+            this.opmGroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.SetColumnSpan(this.opmGroupBox1, 2);
             this.opmGroupBox1.Controls.Add(this.opmTableLayoutPanel1);
             this.opmGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmGroupBox1.Location = new System.Drawing.Point(3, 90);
             this.opmGroupBox1.Name = "opmGroupBox1";
-            this.opmGroupBox1.Size = new System.Drawing.Size(425, 194);
+            this.opmGroupBox1.Size = new System.Drawing.Size(425, 307);
             this.opmGroupBox1.TabIndex = 5;
             this.opmGroupBox1.TabStop = false;
             this.opmGroupBox1.Text = "TXT_ENCODEROPTIONS";
             // 
             // opmTableLayoutPanel1
             // 
-            this.opmTableLayoutPanel1.ColumnCount = 2;
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.opmTableLayoutPanel1.ColumnCount = 3;
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmTableLayoutPanel1.Controls.Add(this.opmLabel3, 0, 0);
             this.opmTableLayoutPanel1.Controls.Add(this.cmbOutputFormat, 1, 0);
             this.opmTableLayoutPanel1.Controls.Add(this.pnlEncoderOptions, 0, 1);
@@ -171,7 +174,7 @@
             this.opmTableLayoutPanel1.RowCount = 2;
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(419, 173);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(419, 286);
             this.opmTableLayoutPanel1.TabIndex = 0;
             // 
             // opmLabel3
@@ -183,7 +186,7 @@
             this.opmLabel3.Name = "opmLabel3";
             this.opmLabel3.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel3.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel3.Size = new System.Drawing.Size(287, 29);
+            this.opmLabel3.Size = new System.Drawing.Size(118, 29);
             this.opmLabel3.TabIndex = 1;
             this.opmLabel3.Text = "TXT_OUTPUT_FORMAT";
             this.opmLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -193,20 +196,20 @@
             this.cmbOutputFormat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbOutputFormat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbOutputFormat.FormattingEnabled = true;
-            this.cmbOutputFormat.Location = new System.Drawing.Point(296, 3);
+            this.cmbOutputFormat.Location = new System.Drawing.Point(127, 3);
             this.cmbOutputFormat.Name = "cmbOutputFormat";
             this.cmbOutputFormat.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cmbOutputFormat.Size = new System.Drawing.Size(120, 23);
+            this.cmbOutputFormat.Size = new System.Drawing.Size(114, 23);
             this.cmbOutputFormat.TabIndex = 0;
             this.cmbOutputFormat.SelectedIndexChanged += new System.EventHandler(this.OnSelectOutputFormat);
             // 
             // pnlEncoderOptions
             // 
-            this.opmTableLayoutPanel1.SetColumnSpan(this.pnlEncoderOptions, 2);
+            this.opmTableLayoutPanel1.SetColumnSpan(this.pnlEncoderOptions, 3);
             this.pnlEncoderOptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEncoderOptions.Location = new System.Drawing.Point(3, 32);
             this.pnlEncoderOptions.Name = "pnlEncoderOptions";
-            this.pnlEncoderOptions.Size = new System.Drawing.Size(413, 138);
+            this.pnlEncoderOptions.Size = new System.Drawing.Size(413, 251);
             this.pnlEncoderOptions.TabIndex = 2;
             // 
             // WizCdRipperStep2

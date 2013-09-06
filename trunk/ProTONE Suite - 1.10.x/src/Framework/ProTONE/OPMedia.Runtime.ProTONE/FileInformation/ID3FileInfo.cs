@@ -32,9 +32,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         { 
             get 
             { 
-                return (af != null && 
-                    ((af.TagTypesOnDisk & TagTypes.Id3v1) == TagTypes.Id3v1 ||
-                    (af.TagTypesOnDisk & TagTypes.Id3v2) == TagTypes.Id3v2));
+                //return (af != null && 
+                //    ((af.TagTypesOnDisk & TagTypes.Id3v1) == TagTypes.Id3v1 ||
+                //    (af.TagTypesOnDisk & TagTypes.Id3v2) == TagTypes.Id3v2));
+
+                return (af != null && _tag != null);
             } 
         }
 

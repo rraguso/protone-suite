@@ -1035,5 +1035,11 @@ Voulez-vous le créer?</value>
 <data name="TXT_MANAGE_FAVORITES">
   <value>Favorite Responsable des dossiers</value>
 </data>
+<data name="TXT_PROCESSING_FILE">
+  <value>Traitement du fichier</value>
+</data>
+<data name="TXT_SCANNING">
+  <value>Numérisation</value>
+</data>
     
 </root>

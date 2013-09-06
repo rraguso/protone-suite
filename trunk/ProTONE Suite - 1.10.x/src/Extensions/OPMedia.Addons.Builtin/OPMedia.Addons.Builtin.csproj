@@ -121,9 +121,7 @@
     </Compile>
     <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\AudioGrabber.cs" />
     <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToMP3.cs" />
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToOGG.cs" />
     <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToWave.cs" />
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToWMA.cs" />
     <Compile Include="Navigation\FileExplorer\CdRipperWizard\Tasks\Task.cs" />
     <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FECopyFilesTask.cs" />
     <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEDeleteFilesTask.cs" />
@@ -553,6 +551,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnOpenDisk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lame-logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

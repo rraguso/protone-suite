@@ -10,6 +10,7 @@ using OPMedia.UI.Wizards;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks;
 using OPMedia.UI.Dialogs;
 using System.IO;
+using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
 {
@@ -18,6 +19,14 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
         private int selectedPanel = -1;
 
         List<EncoderConfiguratorCtl> panels = new List<EncoderConfiguratorCtl>();
+
+        public override Size DesiredSize
+        {
+            get
+            {
+                return new Size(660, 455);
+            }
+        }
 
         public WizCdRipperStep2()
         {
@@ -29,9 +38,13 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             cmbOutputFormat.Items.Clear();
 
             AddPanel(new WavEncoderOptionsCtl());
-            AddPanel(new Mp3EncoderOptionsCtl());
-            AddPanel(new WmaEncoderOptionsCtl());
-            AddPanel(new OggEncoderOptionsCtl());
+
+            Mp3EncoderOptionsCtl ctl = new Mp3EncoderOptionsCtl 
+            { 
+                Task = (BkgTask as Task)
+            };
+
+            AddPanel(ctl);
 
             cmbOutputFormat.SelectedIndex = 0;
 
@@ -88,6 +101,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
         private void OnSelectOutputFormat(object sender, EventArgs e)
         {
             ShowPanel(cmbOutputFormat.SelectedIndex);
+            (BkgTask as Task).OutputFormatType = (CdRipperOutputFormatType)cmbOutputFormat.SelectedIndex;
         }
 
         private void ShowPanel(int index)
@@ -100,6 +114,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             EncoderConfiguratorCtl panel = panels[index];
             if (panel != null)
             {
+                Translator.TranslateControl(panel, false);
                 panel.Visible = true;
                 //panel.SetTask(BkgTask as Task);
             }

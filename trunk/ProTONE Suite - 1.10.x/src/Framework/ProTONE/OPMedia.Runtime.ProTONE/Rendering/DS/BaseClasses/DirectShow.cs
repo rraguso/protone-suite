@@ -1211,6 +1211,24 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         public ushort nBlockAlign;
         public ushort wBitsPerSample;
         public ushort cbSize;
+
+        public static WaveFormatEx Cdda
+        {
+            get
+            {
+                // The following info is STANDARD to all audio CD's according to standard IEC 60908
+                WaveFormatEx wfex = new WaveFormatEx();
+                wfex.cbSize = 0;
+                wfex.wFormatTag = 1; // PCM
+                wfex.nChannels = 2; // stereo
+                wfex.wBitsPerSample = 16; // 16-bit samples
+                wfex.nSamplesPerSec = 44100; // sampling rate 44.1 khz
+                wfex.nBlockAlign = (ushort)(wfex.nChannels * wfex.wBitsPerSample / 8);
+                wfex.nAvgBytesPerSec = wfex.nSamplesPerSec * wfex.nBlockAlign;
+
+                return wfex;
+            }
+        }
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 2)]
