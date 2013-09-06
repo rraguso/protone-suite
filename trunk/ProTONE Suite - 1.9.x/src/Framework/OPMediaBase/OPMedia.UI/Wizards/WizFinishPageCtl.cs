@@ -55,6 +55,12 @@ namespace OPMedia.UI.Wizards
             ilStatus.Images.Add(Resources.blank);
 
             tvResults.ImageList = ilStatus;
+            this.HandleCreated += new EventHandler(WizFinishPageCtl_HandleCreated);
+        }
+
+        void WizFinishPageCtl_HandleCreated(object sender, EventArgs e)
+        {
+            Wizard.FormClosing += new FormClosingEventHandler(hostForm_FormClosing);
         }
 
 		protected override bool ProcessDialogKey(Keys keyData)
