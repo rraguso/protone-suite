@@ -19,7 +19,7 @@ namespace OPMedia.RemoteControlEmulator
 {
     public partial class MainForm : ToolForm
     {
-        public MainForm() : base("Remote Control Emulator")
+        public MainForm() : base("RCC Emulator")
         {
             InitializeComponent();
 
@@ -94,8 +94,7 @@ namespace OPMedia.RemoteControlEmulator
         {
             lblPlaybackCmd.Visible = false;
             cmbPlaybackCmd.Visible = false;
-            lblSelectFiles.Visible = false;
-            pnlSelectFiles.Visible = false;
+          
 
             RC.CommandType cmdType = (RC.CommandType)cmbCommandType.SelectedIndex;
             if (BasicCommand.RequiresArguments(cmdType))
