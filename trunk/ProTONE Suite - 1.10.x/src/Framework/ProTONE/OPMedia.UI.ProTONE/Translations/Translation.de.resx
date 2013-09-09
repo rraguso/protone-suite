@@ -400,10 +400,11 @@ Doppelklick verbleibende Zeit zu wechseln</value>
 <data name="TXT_FFDSHOW_SUBTITLES">
   <value>Offene FFDShow Untertitel-Einstellungen ...</value>
 </data>
-<data name="TXT_FILETYPES">
-  <value>Dateitypen</value>
+<data name="TXT_S_FILETYPES">
+  <value>Datei&#xD;
+Typen</value>
 </data>
-<data name="TXT_FILETYPES_ASSOCIATIONS">
+<data name="TXT_S_FILETYPES_ASSOCIATIONS">
   <value>Assoziierte ProTONE Spieler mit diesen Dateitypen:</value>
 </data>
 <data name="TXT_HANDLEEXPLORERLAUNCH">
@@ -625,7 +626,7 @@ Klicken Sie auf die Taste unten, um ProTONE RCC Manager zu starten ...</value>
 <data name="TXT_SCHEDULED_EVENT_MSG">
   <value>der geplante Zeitpunkt ist aufgetreten</value>
 </data>
-<data name="TXT_SCHEDULERSETTINGS">
+<data name="TXT_S_SCHEDULERSETTINGS">
   <value>Timer</value>
 </data>
 <data name="TXT_SCHEDULERWAITTIMERPROCEED">
@@ -683,8 +684,9 @@ Klicken Sie auf die Taste unten, um ProTONE RCC Manager zu starten ...</value>
 <data name="TXT_SUBTITLESCFG">
   <value>Untertitel Einstellungen</value>
 </data>
-<data name="TXT_SUBTITLESETTINGS">
-  <value>Untertitel/OSD</value>
+<data name="TXT_S_SUBTITLESETTINGS">
+  <value>Untertitel&#xD;
+und O.S.D.</value>
 </data>
 <data name="TXT_SUBTITLE_DOWNLOAD">
   <value>Zulassen des Downloads Untertitel aus dem Internet</value>
@@ -757,8 +759,9 @@ Klicken Sie auf das Volumen eingestellt werden: {0}%</value>
 <data name="TXT_MINUTES">
   <value>Minute(n).</value>
 </data>
-<data name="TXT_MISC_SETTINGS">
-  <value>Diverse Optionen</value>
+<data name="TXT_S_MISC_SETTINGS">
+  <value>Diverse &#xD;
+Optionen</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
   <value>Die Muster für Wiedergabelistenobjekt Formatierung werden auf Kombinationen aus diesen Schlüsselwörtern:&#xD;&#xD;

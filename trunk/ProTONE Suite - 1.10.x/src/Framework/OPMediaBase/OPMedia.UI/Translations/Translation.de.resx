@@ -374,7 +374,7 @@ Weitere Details in der Liste unten.</value>
 <data name="TXT_FRIDAY">
   <value>Freitag</value>
 </data>
-<data name="TXT_GENERALSETTINGS">
+<data name="TXT_S_GENERALSETTINGS">
   <value>Allgemein</value>
 </data>
 <data name="TXT_HEAVY_TRACE">
@@ -398,10 +398,11 @@ Weitere Details in der Liste unten.</value>
 <data name="TXT_KEYCOMMANDEDITOR">
   <value>Definieren Sie Schlüssel für {0}</value>
 </data>
-<data name="TXT_KEYMAP">
-  <value>Tastenkürzel</value>
+<data name="TXT_S_KEYMAP">
+  <value>Tastatur &#xD;
+Karte</value>
 </data>
-<data name="TXT_KEYMAP_DESC">
+<data name="TXT_S_KEYMAP_DESC">
   <value>Um einen Schnellzugriff zu bearbeiten, auf die damit verbundenen Links in der Tabelle unten klicken. Die Verknüpfungen mit behinderten Links nicht ändern können vom Anwender sein (z.B.: OpenHelp = F1, etc).</value>
 </data>
 <data name="TXT_LANGUAGE">
@@ -410,8 +411,9 @@ Weitere Details in der Liste unten.</value>
 <data name="TXT_LOGFILENAME">
   <value>Log-Datei-Name:</value>
 </data>
-<data name="TXT_LOGGINGSETTINGS">
-  <value>Logging</value>
+<data name="TXT_S_LOGGINGSETTINGS">
+  <value>Log&#xD;
+Datei</value>
 </data>
 <data name="TXT_LOGLINECONSOLE">
   <value>Log-Datei-Konsole</value>
@@ -442,7 +444,7 @@ Alle Log-Level sind standardmäßig aktiviert.</value>
 <data name="TXT_NA">
   <value>N/A</value>
 </data>
-<data name="TXT_NETWORK_SETTINGS">
+<data name="TXT_S_NETWORK_SETTINGS">
   <value>Netzwerk</value>
 </data>
 <data name="TXT_NEW">

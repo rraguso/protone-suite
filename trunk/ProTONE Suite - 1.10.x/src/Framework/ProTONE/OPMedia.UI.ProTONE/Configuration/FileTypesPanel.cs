@@ -66,7 +66,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         public FileTypesPanel() : base()
         {
-            this.Title = "TXT_FILETYPES";
+            this.Title = "TXT_S_FILETYPES";
             
             InitializeComponent();
 
@@ -468,7 +468,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.lblFileTypes.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblFileTypes.Size = new System.Drawing.Size(573, 13);
             this.lblFileTypes.TabIndex = 4;
-            this.lblFileTypes.Text = "TXT_FILETYPES_ASSOCIATIONS";
+            this.lblFileTypes.Text = "TXT_S_FILETYPES_ASSOCIATIONS";
             this.lblFileTypes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // opmLayoutPanel1

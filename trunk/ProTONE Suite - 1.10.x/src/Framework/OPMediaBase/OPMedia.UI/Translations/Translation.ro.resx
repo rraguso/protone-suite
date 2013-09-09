@@ -374,7 +374,7 @@ Examinaţi lista de mai jos pentru mai multe detalii</value>
 <data name="TXT_FRIDAY">
   <value>Vineri</value>
 </data>
-<data name="TXT_GENERALSETTINGS">
+<data name="TXT_S_GENERALSETTINGS">
   <value>General</value>
 </data>
 <data name="TXT_HEAVY_TRACE">
@@ -398,10 +398,10 @@ Examinaţi lista de mai jos pentru mai multe detalii</value>
 <data name="TXT_KEYCOMMANDEDITOR">
   <value>Definire taste pentru {0}</value>
 </data>
-<data name="TXT_KEYMAP">
+<data name="TXT_S_KEYMAP">
   <value>Scurtături</value>
 </data>
-<data name="TXT_KEYMAP_DESC">
+<data name="TXT_S_KEYMAP_DESC">
   <value>Pentru a modifica o scurtătură, daţi click pe linkurile asociate acesteia în tabelul de mai jos. Scurtăturile cu linkuri inactive nu pot fi modificate de către utilizator (Ex: OpenHelp = F1, etc).</value>
 </data>
 <data name="TXT_LANGUAGE">
@@ -410,8 +410,9 @@ Examinaţi lista de mai jos pentru mai multe detalii</value>
 <data name="TXT_LOGFILENAME">
   <value>Nume fişier jurnal:</value>
 </data>
-<data name="TXT_LOGGINGSETTINGS">
-  <value>Jurnalizare</value>
+<data name="TXT_S_LOGGINGSETTINGS">
+  <value>Fişier&#xD;
+Jurnal</value>
 </data>
 <data name="TXT_LOGLINECONSOLE">
   <value>Consolă fişier jurnal</value>
@@ -442,7 +443,7 @@ Toate nivelele de jurnalizare sunt implicit active.</value>
 <data name="TXT_NA">
   <value>Nedisponibil</value>
 </data>
-<data name="TXT_NETWORK_SETTINGS">
+<data name="TXT_S_NETWORK_SETTINGS">
   <value>Reţea</value>
 </data>
 <data name="TXT_NEW">

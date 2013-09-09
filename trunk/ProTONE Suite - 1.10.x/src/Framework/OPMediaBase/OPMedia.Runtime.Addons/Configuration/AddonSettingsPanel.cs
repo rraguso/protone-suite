@@ -45,7 +45,7 @@ namespace OPMedia.Runtime.Addons.Configuration
 
         public AddonSettingsPanel() : base()
         {
-            this.Title = "TXT_ADDON_SETTINGS";
+            this.Title = "TXT_S_ADDON_SETTINGS";
 
             InitializeComponent();
 

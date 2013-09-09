@@ -32,7 +32,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         public SchedulerSettingsPanel(): base()
         {
-            this.Title = "TXT_SCHEDULERSETTINGS";
+            this.Title = "TXT_S_SCHEDULERSETTINGS";
             InitializeComponent();
 
             ApplyColors();

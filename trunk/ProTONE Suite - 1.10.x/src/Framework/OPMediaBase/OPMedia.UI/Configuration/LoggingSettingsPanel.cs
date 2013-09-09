@@ -31,7 +31,7 @@ namespace OPMedia.UI.Configuration
         public LoggingSettingsPanel()
             : base()
         {
-            this.Title = "TXT_LOGGINGSETTINGS";
+            this.Title = "TXT_S_LOGGINGSETTINGS";
             InitializeComponent();
             this.HandleCreated += new EventHandler(LoggingSettingsPanel_Load);
         }

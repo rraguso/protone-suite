@@ -40,7 +40,7 @@ namespace OPMedia.UI.ProTONE.Configuration
         public SubtitleSettingsPanel()
             : base()
         {
-            this.Title = "TXT_SUBTITLESETTINGS";
+            this.Title = "TXT_S_SUBTITLESETTINGS";
             InitializeComponent();
 
             pageSubtitles.ModifiedActive += new EventHandler(OnModifiedActive);

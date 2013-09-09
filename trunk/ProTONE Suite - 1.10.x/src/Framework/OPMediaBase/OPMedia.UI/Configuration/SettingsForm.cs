@@ -26,10 +26,6 @@ namespace OPMedia.UI
 
         protected BaseCfgPanel selectedPanel = null;
 
-        protected List<BaseCfgPanel> cfgPanels =
-            new List<BaseCfgPanel>();
-
-
         public new static DialogResult Show()
         {
             SettingsForm _instance = new SettingsForm();
@@ -41,41 +37,43 @@ namespace OPMedia.UI
             _restart = true;
         }
 
-        protected SettingsForm(string titleToOpen) : this()
+        protected SettingsForm(string titleToOpen)
+            : this()
         {
             if (!string.IsNullOrEmpty(titleToOpen))
             {
-                for (int i = 0; i < tsOptionList.Items.Count; i++)
+                foreach (TabPage tp in tabOptions.TabPages)
                 {
-                    if (cfgPanels[i].Title == titleToOpen)
+                    if (tp.Text == titleToOpen)
                     {
-                        ToolStripItemClickedEventArgs args =
-                            new ToolStripItemClickedEventArgs(tsOptionList.Items[i]);
-                        OnItemClicked(this, args);
-
+                        ShowPanel(tp.Controls[0] as BaseCfgPanel);
                         break;
                     }
                 }
+
             }
         }
 
         public SettingsForm() : base("TXT_CONFIGUREAPP")
         {
             InitializeComponent();
-            this.AllowResize = false;
+
+            tabOptions.ImageList = new ImageList();
+            tabOptions.ImageList.ColorDepth = ColorDepth.Depth32Bit;
+            tabOptions.ImageList.ImageSize = new Size(32, 32);
+            tabOptions.ImageList.TransparentColor = Color.Magenta;
+
+            this.AllowResize = true;
             this.InheritAppIcon = false;
             this.Icon = Resources.settings.ToIcon();
             this.FormClosing += new FormClosingEventHandler(SettingsForm_FormClosing);
             this.HandleDestroyed += new EventHandler(SettingsForm_HandleDestroyed);
             this.Load += new EventHandler(SettingsForm_Load);
-            tsOptionList.ItemClicked +=
-                new ToolStripItemClickedEventHandler(OnItemClicked);
-
         }
 
         void SettingsForm_Load(object sender, EventArgs e)
         {
-            tsOptionList.Items.Clear();
+            tabOptions.TabPages.Clear();
 
             bool logFullyDisabled = SuiteConfiguration.LogFullyDisabled;
 
@@ -85,11 +83,6 @@ namespace OPMedia.UI
             AddPanel(typeof(LoggingSettingsPanel), !logFullyDisabled);
             
             RemoveUnneededPanels();
-
-            ToolStripItemClickedEventArgs args =
-                new ToolStripItemClickedEventArgs(tsOptionList.Items[0]);
-
-            OnItemClicked(this, args);
         }
 
         public virtual void RemoveUnneededPanels()
@@ -125,15 +118,19 @@ namespace OPMedia.UI
             {
                 if (!_closedOnce)
                 {
-                    foreach (BaseCfgPanel panel in cfgPanels)
+                    foreach (TabPage tp in tabOptions.TabPages)
                     {
-                        if (DialogResult == DialogResult.OK)
+                        BaseCfgPanel panel = tp.Controls[0] as BaseCfgPanel;
+                        if (panel != null)
                         {
-                            panel.Save();
-                        }
-                        else
-                        {
-                            panel.Discard();
+                            if (DialogResult == DialogResult.OK)
+                            {
+                                panel.Save();
+                            }
+                            else
+                            {
+                                panel.Discard();
+                            }
                         }
                     }
 
@@ -151,37 +148,39 @@ namespace OPMedia.UI
 
         protected void RemovePanel(Type panelType)
         {
-            List<OPMToolStripButton> panelsToRemove = new List<OPMToolStripButton>();
+            List<TabPage> pagesToRemove = new List<TabPage>();
 
-            foreach (OPMToolStripButton btn in tsOptionList.Items)
+            foreach (TabPage tp in tabOptions.TabPages)
             {
-                if (btn.Tag.GetType() == panelType)
+                Control ctl = tp.Controls[0];
+                if (ctl.GetType() == panelType)
                 {
-                    panelsToRemove.Add(btn);
+                    pagesToRemove.Add(tp);
                 }
             }
 
-            foreach (OPMToolStripButton btn in panelsToRemove)
+            foreach (TabPage tp in pagesToRemove)
             {
-                tsOptionList.Items.Remove(btn);
+                tabOptions.TabPages.Remove(tp);
             }
         }
 
         protected void KeepPanels(List<Type> panelsToKeep)
         {
-            List<OPMToolStripButton> panelsToRemove = new List<OPMToolStripButton>();
+            List<TabPage> pagesToRemove = new List<TabPage>();
 
-            foreach (OPMToolStripButton btn in tsOptionList.Items)
+            foreach (TabPage tp in tabOptions.TabPages)
             {
-                if (!panelsToKeep.Contains(btn.Tag.GetType()))
+                Control ctl = tp.Controls[0];
+                if (!panelsToKeep.Contains(ctl.GetType()))
                 {
-                    panelsToRemove.Add(btn);
+                    pagesToRemove.Add(tp);
                 }
             }
 
-            foreach (OPMToolStripButton btn in panelsToRemove)
+            foreach (TabPage tp in pagesToRemove)
             {
-                tsOptionList.Items.Remove(btn);
+                tabOptions.TabPages.Remove(tp);
             }
         }
 
@@ -229,29 +228,14 @@ namespace OPMedia.UI
                 if (panel != null)
                 {
                     string title = Translator.Translate(panel.Title);
-                    if (!tsOptionList.Items.ContainsKey(title))
+                    if (!tabOptions.TabPages.ContainsKey(title))
                     {
-                        OPMToolStripButton btn = new OPMToolStripButton(title);
-                        btn.Name = title;
-                        btn.Image = panel.Image;
-                        btn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-                        btn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
-                        btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-                        btn.AutoSize = true;
-                        btn.Tag = panel;
-                        btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-
-                        if (alignRight)
-                        {
-                            btn.Alignment = ToolStripItemAlignment.Right;
-                        }
-
-                        tsOptionList.Items.Add(btn);
-
-                        cfgPanels.Add(panel);
-                        panel.Visible = false;
                         panel.Dock = DockStyle.Fill;
-                        pnlOptions.Controls.Add(panel);
+                        OPMTabPage tp = new OPMTabPage(title, panel);
+                        tp.ImageIndex = tabOptions.ImageList.Images.Count;
+                        tabOptions.ImageList.Images.Add(panel.Image);
+
+                        tabOptions.TabPages.Add(tp);
                     }
                 }
             }
@@ -261,49 +245,16 @@ namespace OPMedia.UI
         {
             if (selectedPanel != panel)
             {
-                selectedPanel = panel;
-
-                foreach (Control ctl in pnlOptions.Controls)
+                foreach (TabPage tp in tabOptions.TabPages)
                 {
-                    ctl.Visible = false;
-                }
-
-                if (panel != null)
-                {
-                    panel.Visible = true;
-
-                    lblPanelTitle.Text = Translator.Translate(panel.Title).Replace("\r\n", " ");
-                    pbPanelImage.Image = panel.Image;
-                }
-            }
-        }
-
-        void OnItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            OPMToolStripButton btn = e.ClickedItem as OPMToolStripButton;
-            if (btn != null)
-            {
-                foreach (ToolStripItem tsi in tsOptionList.Items)
-                {
-                    OPMToolStripButton button = tsi as OPMToolStripButton;
-                    if (button != null)
+                    BaseCfgPanel crtPanel = tp.Controls[0] as BaseCfgPanel;
+                    if (panel == crtPanel)
                     {
-                        button.Checked = (button == btn);
+                        tabOptions.SelectedTab = tp;
+                        break;
                     }
                 }
-                
-                ShowPanel(btn.Tag as BaseCfgPanel);
             }
-        }
-
-        private void pbPanelImage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void layoutPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public override void FireHelpRequest()

@@ -374,7 +374,7 @@ More details in the list below.</value>
 <data name="TXT_FRIDAY">
   <value>Friday</value>
 </data>
-<data name="TXT_GENERALSETTINGS">
+<data name="TXT_S_GENERALSETTINGS">
   <value>General</value>
 </data>
 <data name="TXT_HEAVY_TRACE">
@@ -398,10 +398,11 @@ More details in the list below.</value>
 <data name="TXT_KEYCOMMANDEDITOR">
   <value>Define keys for {0}</value>
 </data>
-<data name="TXT_KEYMAP">
-  <value>Keyboard Map</value>
+<data name="TXT_S_KEYMAP">
+  <value>Keyboard&#xD;
+Map</value>
 </data>
-<data name="TXT_KEYMAP_DESC">
+<data name="TXT_S_KEYMAP_DESC">
   <value>To edit a shortcut, click on its associated links in the table below. The shortcuts with disabled links cannot be changed by the user (e.g: OpenHelp = F1, etc).</value>
 </data>
 <data name="TXT_LANGUAGE">
@@ -410,8 +411,9 @@ More details in the list below.</value>
 <data name="TXT_LOGFILENAME">
   <value>Log file name:</value>
 </data>
-<data name="TXT_LOGGINGSETTINGS">
-  <value>Logging</value>
+<data name="TXT_S_LOGGINGSETTINGS">
+  <value>Log&#xD;
+File</value>
 </data>
 <data name="TXT_LOGLINECONSOLE">
   <value>Log file console</value>
@@ -442,7 +444,7 @@ All log level are enabled by default.</value>
 <data name="TXT_NA">
   <value>N/A</value>
 </data>
-<data name="TXT_NETWORK_SETTINGS">
+<data name="TXT_S_NETWORK_SETTINGS">
   <value>Network</value>
 </data>
 <data name="TXT_NEW">

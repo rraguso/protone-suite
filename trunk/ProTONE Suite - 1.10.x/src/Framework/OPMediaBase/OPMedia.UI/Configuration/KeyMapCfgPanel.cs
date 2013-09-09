@@ -31,7 +31,7 @@ namespace OPMedia.UI.Configuration
         public KeyMapCfgPanel()
             : base()
         {
-            this.Title = "TXT_KEYMAP";
+            this.Title = "TXT_S_KEYMAP";
             InitializeComponent();
 
             this.HandleCreated += new EventHandler(KeyMapCfgPanel_Load);

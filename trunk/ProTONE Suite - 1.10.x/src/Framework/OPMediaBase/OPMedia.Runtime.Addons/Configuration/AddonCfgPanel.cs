@@ -40,7 +40,7 @@ namespace OPMedia.Runtime.Addons.Configuration
 
         public AddonCfgPanel() : base()
         {
-            this.Title = "TXT_ADDONSETTINGS";
+            this.Title = "TXT_S_ADDONSETTINGS";
             InitializeComponent();
 
             lbl_UninstallAddons.Enabled = false;

@@ -11,7 +11,7 @@ namespace OPMedia.UI.Controls
 {
     public class OPMTabControl : TabControl
     {
-        public new ImageList ImageList { get; private set;}
+        public new ImageList ImageList { get; set;}
 
         [ReadOnly(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -19,11 +19,8 @@ namespace OPMedia.UI.Controls
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new Font Font { get { return base.Font; } }
 
-        [ReadOnly(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public new TabSizeMode SizeMode { get { return base.SizeMode; } }
+        [DefaultValue(TextImageRelation.ImageBeforeText)]
+        public TextImageRelation TextImageRelation { get; set; }
 
         [ReadOnly(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -37,12 +34,16 @@ namespace OPMedia.UI.Controls
         public OPMTabControl()
             : base()
         {
-            ImageList = new ImageList();
-            ImageList.ColorDepth = ColorDepth.Depth32Bit;
-            ImageList.TransparentColor = Color.Magenta;
-            base.ImageList = this.ImageList;
+            base.ImageList = new ImageList();
 
-            base.SizeMode = TabSizeMode.Normal;
+            this.ImageList = new ImageList();
+            this.ImageList.ColorDepth = ColorDepth.Depth32Bit;
+            this.ImageList.ImageSize = new Size(16, 16);
+            this.ImageList.TransparentColor = Color.Magenta;
+
+            this.TextImageRelation = TextImageRelation.ImageBeforeText;
+
+            this.SizeMode = TabSizeMode.Normal;
 
             base.SetStyle(ControlStyles.ResizeRedraw, true);
             base.SetStyle(ControlStyles.UserPaint, true);
@@ -142,7 +143,7 @@ namespace OPMedia.UI.Controls
                 rcDraw.Width - 2,
                 rcDraw.Height);
 
-            using (Brush b = new LinearGradientBrush(rcx, ControlPaint.Light(ThemeManager.BorderColor), ThemeManager.BorderColor, 90))
+            using (Brush b = new LinearGradientBrush(rcx, ThemeManager.BackColor, ThemeManager.BorderColor, 90))
             using (Pen p = new Pen(ThemeManager.BorderColor))
             {
                 graphics.FillRectangle(b, rcx);
@@ -158,8 +159,8 @@ namespace OPMedia.UI.Controls
             }
             else if (!isLast && !isPrev)
             {
-                Point p1 = new Point(rcDraw.Right - 3, rcDraw.Top + 2);
-                Point p2 = new Point(rcDraw.Right - 3, rcDraw.Bottom - 2);
+                Point p1 = new Point(rcDraw.Right - 2, rcDraw.Top + 2);
+                Point p2 = new Point(rcDraw.Right - 2, rcDraw.Bottom - 2);
                 Point p3 = new Point(rcDraw.Right - 2, rcDraw.Top + 2);
                 Point p4 = new Point(rcDraw.Right - 2, rcDraw.Bottom - 2);
                 
@@ -179,26 +180,57 @@ namespace OPMedia.UI.Controls
             if (img != null)
             {
                 int size = Math.Min(rcDraw.Height - 4, img.Height);
-                int diff = (rcDraw.Height - size) / 2;
-
                 textOffset += size;
+                Rectangle rcImage = Rectangle.Empty;
 
-                Rectangle rcImage = new Rectangle(rcDraw.Left + diff, rcDraw.Top + diff,
-                    size, size);
+                int diff = 0;
+                switch (this.TextImageRelation)
+                {
+                    case TextImageRelation.ImageBeforeText:
+                        diff = (rcDraw.Height - size) / 2;
+                        rcImage = new Rectangle(rcDraw.Left, rcDraw.Top + diff, size, size);
+                        break;
+
+                    case TextImageRelation.ImageAboveText:
+                        diff = (rcDraw.Width - size) / 2;
+                        rcImage = new Rectangle(rcDraw.Left + diff, rcDraw.Top + 4, size, size);
+                        break;
+                }
 
                 graphics.DrawImage(img, rcImage);
             }
             #endregion
 
             #region Draw text
-            Rectangle rcText = new Rectangle(rcDraw.Left + textOffset, rcDraw.Top,
-                    rcDraw.Width - textOffset, rcDraw.Height);
+            Rectangle rcText = Rectangle.Empty;
+                
+            switch (this.TextImageRelation)
+            {
+                case TextImageRelation.ImageBeforeText:
+                    rcText = new Rectangle(rcDraw.Left + textOffset, rcDraw.Top, rcDraw.Width - textOffset, rcDraw.Height);
+                    break;
+
+                case TextImageRelation.ImageAboveText:
+                    rcText = new Rectangle(rcDraw.Left, rcDraw.Top + textOffset, rcDraw.Width, rcDraw.Height - textOffset);
+                    break;
+            }
 
             StringFormat fmt = new StringFormat();
-            fmt.Alignment = StringAlignment.Near;
-            fmt.LineAlignment = StringAlignment.Center;
             fmt.Trimming = StringTrimming.EllipsisCharacter;
             fmt.FormatFlags = StringFormatFlags.NoWrap;
+
+            switch (this.TextImageRelation)
+            {
+                case TextImageRelation.ImageBeforeText:
+                    fmt.Alignment = StringAlignment.Near;
+                    fmt.LineAlignment = StringAlignment.Center;
+                    break;
+
+                case TextImageRelation.ImageAboveText:
+                    fmt.Alignment = StringAlignment.Center;
+                    fmt.LineAlignment = StringAlignment.Center;
+                    break;
+            }
 
             using (Brush tb = new SolidBrush(ThemeManager.ForeColor))
             {

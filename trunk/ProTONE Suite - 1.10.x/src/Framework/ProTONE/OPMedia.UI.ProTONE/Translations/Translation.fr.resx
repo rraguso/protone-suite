@@ -400,10 +400,11 @@ Raccourci:.{0}</value>
 <data name="TXT_FFDSHOW_SUBTITLES">
   <value>Ouvert FFDShow Réglages sous-titres ...</value>
 </data>
-<data name="TXT_FILETYPES">
-  <value>Types de fichiers</value>
+<data name="TXT_S_FILETYPES">
+  <value>Types de &#xD;
+Fichiers</value>
 </data>
-<data name="TXT_FILETYPES_ASSOCIATIONS">
+<data name="TXT_S_FILETYPES_ASSOCIATIONS">
   <value>Lecteur ProTone associé à ces types de fichiers:</value>
 </data>
 <data name="TXT_HANDLEEXPLORERLAUNCH">
@@ -624,7 +625,7 @@ Double click to toggle temps écoulé</value>
 <data name="TXT_SCHEDULED_EVENT_MSG">
   <value>le moment prévu s'est produite</value>
 </data>
-<data name="TXT_SCHEDULERSETTINGS">
+<data name="TXT_S_SCHEDULERSETTINGS">
   <value>Minuteur</value>
 </data>
 <data name="TXT_SCHEDULERWAITTIMERPROCEED">
@@ -682,8 +683,9 @@ Double click to toggle temps écoulé</value>
 <data name="TXT_SUBTITLESCFG">
   <value>Réglages sous-titres</value>
 </data>
-<data name="TXT_SUBTITLESETTINGS">
-  <value>Sous-titres / l'OSD</value>
+<data name="TXT_S_SUBTITLESETTINGS">
+  <value>Sous-titres&#xD;
+et O.S.D.</value>
 </data>
 <data name="TXT_SUBTITLE_DOWNLOAD">
   <value>Autoriser les téléchargements à partir d'Internet sous-titres</value>
@@ -756,8 +758,9 @@ temps Marque page: {0}</value>
 <data name="TXT_MINUTES">
   <value>minute (s).</value>
 </data>
-<data name="TXT_MISC_SETTINGS">
-  <value>Options diverses</value>
+<data name="TXT_S_MISC_SETTINGS">
+  <value>Options&#xD;
+Diverses</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
   <value>Les modèles disponibles pour le formatage élément de la playlist sont basées sur des combinaisons de ces mots-clés:&#xD;&#xD;

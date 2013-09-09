@@ -400,10 +400,11 @@ Double click to toggle remaining time</value>
 <data name="TXT_FFDSHOW_SUBTITLES">
   <value>Open FFDShow Subtitle Settings ...</value>
 </data>
-<data name="TXT_FILETYPES">
-  <value>File Types</value>
+<data name="TXT_S_FILETYPES">
+  <value>File&#xD;
+Types</value>
 </data>
-<data name="TXT_FILETYPES_ASSOCIATIONS">
+<data name="TXT_S_FILETYPES_ASSOCIATIONS">
   <value>Associate ProTONE Player with these file types:</value>
 </data>
 <data name="TXT_HANDLEEXPLORERLAUNCH">
@@ -625,7 +626,7 @@ Click on the button below to launch ProTONE RCC Manager ...</value>
 <data name="TXT_SCHEDULED_EVENT_MSG">
   <value>the scheduled moment has occured</value>
 </data>
-<data name="TXT_SCHEDULERSETTINGS">
+<data name="TXT_S_SCHEDULERSETTINGS">
   <value>Timer</value>
 </data>
 <data name="TXT_SCHEDULERWAITTIMERPROCEED">
@@ -683,8 +684,9 @@ Click on the button below to launch ProTONE RCC Manager ...</value>
 <data name="TXT_SUBTITLESCFG">
   <value>Subtitle Settings</value>
 </data>
-<data name="TXT_SUBTITLESETTINGS">
-  <value>Subtitles/OSD</value>
+<data name="TXT_S_SUBTITLESETTINGS">
+  <value>Subtitles&#xD;
+and OSD</value>
 </data>
 <data name="TXT_SUBTITLE_DOWNLOAD">
   <value>Allow downloading subtitles from Internet</value>
@@ -757,8 +759,9 @@ Click to set volume to: {0} %</value>
 <data name="TXT_MINUTES">
   <value>minute(s).</value>
 </data>
-<data name="TXT_MISC_SETTINGS">
-  <value>Misc options</value>
+<data name="TXT_S_MISC_SETTINGS">
+  <value>Misc&#xD;
+Options</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
   <value>The patterns available for playlist item formatting are based on combinations of these keywords:&#xD;&#xD;

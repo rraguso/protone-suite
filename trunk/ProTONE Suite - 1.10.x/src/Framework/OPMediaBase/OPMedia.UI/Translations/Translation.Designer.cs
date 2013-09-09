@@ -1342,15 +1342,6 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to General.
-        /// </summary>
-        internal static string TXT_GENERALSETTINGS {
-            get {
-                return ResourceManager.GetString("TXT_GENERALSETTINGS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Enable detailed debug logging.
         /// </summary>
         internal static string TXT_HEAVY_TRACE {
@@ -1482,24 +1473,6 @@ namespace OPMedia.UI.Translations {
         internal static string TXT_KEYCOMMANDEDITOR {
             get {
                 return ResourceManager.GetString("TXT_KEYCOMMANDEDITOR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Keyboard Map.
-        /// </summary>
-        internal static string TXT_KEYMAP {
-            get {
-                return ResourceManager.GetString("TXT_KEYMAP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to To edit a shortcut, click on its associated links in the table below. The shortcuts with disabled links cannot be changed by the user (e.g: OpenHelp = F1, etc)..
-        /// </summary>
-        internal static string TXT_KEYMAP_DESC {
-            get {
-                return ResourceManager.GetString("TXT_KEYMAP_DESC", resourceCulture);
             }
         }
         
@@ -1641,15 +1614,6 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logging.
-        /// </summary>
-        internal static string TXT_LOGGINGSETTINGS {
-            get {
-                return ResourceManager.GetString("TXT_LOGGINGSETTINGS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Log file console.
         /// </summary>
         internal static string TXT_LOGLINECONSOLE {
@@ -1745,15 +1709,6 @@ namespace OPMedia.UI.Translations {
         internal static string TXT_NAME {
             get {
                 return ResourceManager.GetString("TXT_NAME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Network.
-        /// </summary>
-        internal static string TXT_NETWORK_SETTINGS {
-            get {
-                return ResourceManager.GetString("TXT_NETWORK_SETTINGS", resourceCulture);
             }
         }
         
@@ -2004,6 +1959,15 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Processing file.
+        /// </summary>
+        internal static string TXT_PROCESSING_FILE {
+            get {
+                return ResourceManager.GetString("TXT_PROCESSING_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Program to be executed (click on the link below to change):.
         /// </summary>
         internal static string TXT_PROGRAM_DEF {
@@ -2130,6 +2094,53 @@ namespace OPMedia.UI.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        internal static string TXT_S_GENERALSETTINGS {
+            get {
+                return ResourceManager.GetString("TXT_S_GENERALSETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard
+        ///Map.
+        /// </summary>
+        internal static string TXT_S_KEYMAP {
+            get {
+                return ResourceManager.GetString("TXT_S_KEYMAP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To edit a shortcut, click on its associated links in the table below. The shortcuts with disabled links cannot be changed by the user (e.g: OpenHelp = F1, etc)..
+        /// </summary>
+        internal static string TXT_S_KEYMAP_DESC {
+            get {
+                return ResourceManager.GetString("TXT_S_KEYMAP_DESC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log 
+        ///File.
+        /// </summary>
+        internal static string TXT_S_LOGGINGSETTINGS {
+            get {
+                return ResourceManager.GetString("TXT_S_LOGGINGSETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Network.
+        /// </summary>
+        internal static string TXT_S_NETWORK_SETTINGS {
+            get {
+                return ResourceManager.GetString("TXT_S_NETWORK_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Example:.
         /// </summary>
         internal static string TXT_SAMPLE {
@@ -2198,6 +2209,15 @@ namespace OPMedia.UI.Translations {
         internal static string TXT_SAVEWINDOW {
             get {
                 return ResourceManager.GetString("TXT_SAVEWINDOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanning.
+        /// </summary>
+        internal static string TXT_SCANNING {
+            get {
+                return ResourceManager.GetString("TXT_SCANNING", resourceCulture);
             }
         }
         

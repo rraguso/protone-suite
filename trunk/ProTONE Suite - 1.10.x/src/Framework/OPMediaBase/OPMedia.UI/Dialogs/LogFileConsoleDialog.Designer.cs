@@ -263,14 +263,14 @@ namespace OPMedia.UI.Dialogs
             // tsmiSaveWindow
             // 
             this.tsmiSaveWindow.Name = "tsmiSaveWindow";
-            this.tsmiSaveWindow.Size = new System.Drawing.Size(145, 22);
+            this.tsmiSaveWindow.Size = new System.Drawing.Size(152, 22);
             this.tsmiSaveWindow.Text = "Save Window";
             this.tsmiSaveWindow.Click += new System.EventHandler(this.OnSaveWindow);
             // 
             // tsmiSaveLogFile
             // 
             this.tsmiSaveLogFile.Name = "tsmiSaveLogFile";
-            this.tsmiSaveLogFile.Size = new System.Drawing.Size(145, 22);
+            this.tsmiSaveLogFile.Size = new System.Drawing.Size(152, 22);
             this.tsmiSaveLogFile.Text = "Save Log File";
             this.tsmiSaveLogFile.Click += new System.EventHandler(this.OnSaveLogFile);
             // 

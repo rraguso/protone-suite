@@ -70,17 +70,7 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Addon Settings.
-        /// </summary>
-        internal static string TXT_ADDON_SETTINGS {
-            get {
-                return ResourceManager.GetString("TXT_ADDON_SETTINGS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In order to modify the new addons configuration, the program needs to be restarted.        ///
-        ///        ///
+        ///   Looks up a localized string similar to In order to modify the new addons configuration, the program needs to be restarted.
         ///Is it OK to restart now ?.
         /// </summary>
         internal static string TXT_ADDONS_CHANGED_RESTART {
@@ -95,15 +85,6 @@ namespace OPMedia.Runtime.Addons.Translations {
         internal static string TXT_ADDONS_NOT_CHANGED {
             get {
                 return ResourceManager.GetString("TXT_ADDONS_NOT_CHANGED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enabled Addons.
-        /// </summary>
-        internal static string TXT_ADDONSETTINGS {
-            get {
-                return ResourceManager.GetString("TXT_ADDONSETTINGS", resourceCulture);
             }
         }
         
@@ -126,12 +107,8 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The addon library you have selected cannot be installed, because it is a built-in library.        ///
-        ///        ///
-        ///        ///
-        ///            ///
-        ///        ///
-        ///        ///
+        ///   Looks up a localized string similar to The addon library you have selected cannot be installed, because it is a built-in library.
+        ///
         ///If you intend to enable/disable the addons from the built-in library, please use the addons checkboxes..
         /// </summary>
         internal static string TXT_CANT_INSTALL_BUILTIN {
@@ -141,12 +118,8 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The addon library you have specified cannot be uninstalled, because it is a built-in library.        ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///        ///
+        ///   Looks up a localized string similar to The addon library you have specified cannot be uninstalled, because it is a built-in library.
+        ///
         ///If you intend to enable/disable the addons from the built-in library, please use the addons checkboxes..
         /// </summary>
         internal static string TXT_CANT_UNINSTALL_BUILTIN {
@@ -156,7 +129,7 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Install new addon(s) ....
+        ///   Looks up a localized string similar to Install addon library....
         /// </summary>
         internal static string TXT_INSTALL_ADDONLIB {
             get {
@@ -183,13 +156,9 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The DLL file you have selected is not a valid OPMedia extension library.          ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///Note: If you believe, however, that the respective file should have been a valid extension,         ///
-        ///        ///
-        ///you are advised to contact the producer or the supplier of this DLL..
+        ///   Looks up a localized string similar to The DLL file you have selected is not a valid OPMedia extension library.
+        ///
+        ///Note: If you believe, however, that the respective file should have been a valid extension, you are advised to contact the producer or the supplier of this DLL..
         /// </summary>
         internal static string TXT_INVALID_ADDON {
             get {
@@ -198,11 +167,9 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The DLL file you have selected is not a valid OPMedia extension library.        ///
-        ///        ///
-        ///        ///
-        ///        ///
-        ///A valid OPMedia extension library file name should follow the convention: &lt;Addon-Name&gt;Extension.dll..
+        ///   Looks up a localized string similar to The DLL file you have selected is not a valid OPMedia extension library.
+        ///
+        ///A valid OPMedia extension library file name should follow the convention: &lt;Library-Name&gt;Extension.dll..
         /// </summary>
         internal static string TXT_INVALID_NAME {
             get {
@@ -287,6 +254,24 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Addon Settings.
+        /// </summary>
+        internal static string TXT_S_ADDON_SETTINGS {
+            get {
+                return ResourceManager.GetString("TXT_S_ADDON_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enabled Addons.
+        /// </summary>
+        internal static string TXT_S_ADDONSETTINGS {
+            get {
+                return ResourceManager.GetString("TXT_S_ADDONSETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select all addons.
         /// </summary>
         internal static string TXT_SELECTALLADDONS {
@@ -296,11 +281,10 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The addon library you are trying to uninstall provides multiple features:        ///
-        ///        ///
-        ///        ///
-        ///{0}        ///
-        ///        ///
+        ///   Looks up a localized string similar to The addon library you are trying to uninstall provides multiple features:
+        ///
+        ///{0}
+        ///
         ///If you continue, all these features will no longer be available. Is it OK to proceed ?.
         /// </summary>
         internal static string TXT_SHAREDADDONS {
@@ -310,7 +294,7 @@ namespace OPMedia.Runtime.Addons.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uninstall addon(s) ....
+        ///   Looks up a localized string similar to Uninstall addon library....
         /// </summary>
         internal static string TXT_UNINSTALL_ADDONLIB {
             get {

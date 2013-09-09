@@ -57,7 +57,7 @@ namespace OPMedia.UI.Configuration
             this.label1.OverrideForeColor = System.Drawing.Color.Empty;
             this.label1.Size = new System.Drawing.Size(333, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "TXT_KEYMAP_DESC";
+            this.label1.Text = "TXT_S_KEYMAP_DESC";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvShortcuts

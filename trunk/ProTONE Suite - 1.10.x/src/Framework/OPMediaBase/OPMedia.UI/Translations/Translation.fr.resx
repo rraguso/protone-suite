@@ -374,7 +374,7 @@ Plus de détails dans la liste ci-dessous.</value>
 <data name="TXT_FRIDAY">
   <value>Vendredi</value>
 </data>
-<data name="TXT_GENERALSETTINGS">
+<data name="TXT_S_GENERALSETTINGS">
   <value>Général</value>
 </data>
 <data name="TXT_HEAVY_TRACE">
@@ -398,10 +398,11 @@ Plus de détails dans la liste ci-dessous.</value>
 <data name="TXT_KEYCOMMANDEDITOR">
   <value>Définir des clés pour {0}</value>
 </data>
-<data name="TXT_KEYMAP">
-  <value>Clavier carte</value>
+<data name="TXT_S_KEYMAP">
+  <value>Clavier &#xD;
+Carte</value>
 </data>
-<data name="TXT_KEYMAP_DESC">
+<data name="TXT_S_KEYMAP_DESC">
   <value>Pour modifier un raccourci, cliquez sur les liens associés à la table ci-dessous.  Les raccourcis avec des liens handicapées ne peuvent pas être changées par l'utilisateur (e.g: OpenHelp = F1, etc.)</value>
 </data>
 <data name="TXT_LANGUAGE">
@@ -410,8 +411,9 @@ Plus de détails dans la liste ci-dessous.</value>
 <data name="TXT_LOGFILENAME">
   <value>Nom du fichier journal:</value>
 </data>
-<data name="TXT_LOGGINGSETTINGS">
-  <value>Enregistrement</value>
+<data name="TXT_S_LOGGINGSETTINGS">
+  <value>Fichier &#xD;
+Journal</value>
 </data>
 <data name="TXT_LOGLINECONSOLE">
   <value>Connexion de la console fichier</value>
@@ -442,7 +444,7 @@ Toutes niveaux de journalisation sont activées par défaut.</value>
 <data name="TXT_NA">
   <value>N / A</value>
 </data>
-<data name="TXT_NETWORK_SETTINGS">
+<data name="TXT_S_NETWORK_SETTINGS">
   <value>Réseau</value>
 </data>
 <data name="TXT_NEW">

@@ -24,7 +24,7 @@ namespace OPMedia.UI.Configuration
 
         public NetworkSettingsPanel() : base()
         {
-            this.Title = "TXT_NETWORK_SETTINGS";
+            this.Title = "TXT_S_NETWORK_SETTINGS";
             InitializeComponent();
 
             ctlProxy.ProxySettings = ProxySettings.Empty;

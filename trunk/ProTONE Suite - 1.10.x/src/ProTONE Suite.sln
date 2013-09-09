@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPMedia.PersistenceService"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPMedia.RemoteControlEmulator", "Applications\OPMedia.RemoteControlEmulator\OPMedia.RemoteControlEmulator.csproj", "{9603D04E-CCD3-471A-A454-24CE2D48F047}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericTestTool", "Framework\ProTONE\GenericTestTool\GenericTestTool.csproj", "{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +239,16 @@ Global
 		{9603D04E-CCD3-471A-A454-24CE2D48F047}.Release|Mixed Platforms.Build.0 = Release|x86
 		{9603D04E-CCD3-471A-A454-24CE2D48F047}.Release|x86.ActiveCfg = Release|x86
 		{9603D04E-CCD3-471A-A454-24CE2D48F047}.Release|x86.Build.0 = Release|x86
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -262,5 +274,6 @@ Global
 		{B34154DC-D0F2-4D9C-9BCD-97EF4BA3E958} = {1101B967-4322-4698-8D82-83DA0B0DACFD}
 		{8C047807-786E-4B9C-8DF5-1DF99F75C874} = {114014C8-9E85-476A-9BD3-036DE649D6CB}
 		{742E1775-5F08-40E3-97D1-E0EEEB7198F4} = {114014C8-9E85-476A-9BD3-036DE649D6CB}
+		{101F4696-A20F-4AAA-BC1C-0863E3DD5A59} = {114014C8-9E85-476A-9BD3-036DE649D6CB}
 	EndGlobalSection
 EndGlobal

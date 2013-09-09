@@ -40,7 +40,7 @@ namespace OPMedia.UI.Configuration
       
         public GeneralSettingsPanel() : base()
         {
-            this.Title= "TXT_GENERALSETTINGS";
+            this.Title= "TXT_S_GENERALSETTINGS";
             InitializeComponent();
 
             #region Languages

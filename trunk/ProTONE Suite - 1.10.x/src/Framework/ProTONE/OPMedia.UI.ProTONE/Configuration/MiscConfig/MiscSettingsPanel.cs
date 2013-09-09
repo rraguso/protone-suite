@@ -38,7 +38,7 @@ namespace OPMedia.UI.ProTONE.Configuration
         public MiscellaneousSettingsPanel()
             : base()
         {
-            this.Title = "TXT_MISC_SETTINGS";
+            this.Title = "TXT_S_MISC_SETTINGS";
 
             InitializeComponent();
 
