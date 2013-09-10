@@ -921,6 +921,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
             IDFF_isEQ = 2431,
             IDFF_showEQ = 2446,
             IDFF_orderEQ = 2432,
+
             IDFF_eq0 = 2433,
             IDFF_eq1 = 2434,
             IDFF_eq2 = 2435,

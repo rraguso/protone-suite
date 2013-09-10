@@ -136,8 +136,7 @@ Notă: Dacă dvs. credeti că ar fi trebuit sa fie o bibliotecă validă, sunte�
   <value>Nume extensie</value>
 </data>
 <data name="TXT_S_ADDON_SETTINGS">
-  <value>Setări&#xD;
-Extensii</value>
+  <value>Configurare</value>
 </data>
 <data name="TXT_ADDONS_CHANGED_RESTART">
   <value>Pentru a modifica configuraţia extensiilor, programul trebuie să fie repornit.&#xD;
@@ -147,8 +146,7 @@ Este OK să fie repornit acum?</value>
   <value>Intrucat aţi anulat repornirea programului, configuraţia extensiilor dvs. nu va fi schimbată.</value>
 </data>
 <data name="TXT_S_ADDONSETTINGS">
-  <value>Extensii &#xD;
-Active</value>
+  <value>Extensii</value>
 </data>
 <data name="TXT_ADDONSLIST">
   <value>Extensiile bifate sunt active. Folositi casetele pentru a activa/dezactiva extensiile. Extensiile marcate cu * sunt necesare si nu pot fi dezactivate. Programul va trebui repornit pentru a aplica noua configuraţie a extensiilor.</value>

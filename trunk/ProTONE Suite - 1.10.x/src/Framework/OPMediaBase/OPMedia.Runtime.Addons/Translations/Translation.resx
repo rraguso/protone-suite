@@ -136,8 +136,7 @@ Note: If you believe, however, that the respective file should have been a valid
   <value>Addon Name</value>
 </data>
 <data name="TXT_S_ADDON_SETTINGS">
-  <value>Addon &#xD;
-Settings</value>
+  <value>Configuration</value>
 </data>
 <data name="TXT_ADDONS_CHANGED_RESTART">
   <value>In order to modify the new addons configuration, the program needs to be restarted.&#xD;
@@ -147,8 +146,7 @@ Is it OK to restart now ?</value>
   <value>Since you have canceled the restart,  your add-on configuration will not be changed.</value>
 </data>
 <data name="TXT_S_ADDONSETTINGS">
-  <value>Enabled &#xD;
-Addons</value>
+  <value>Addons</value>
 </data>
 <data name="TXT_ADDONSLIST">
   <value>Checked addons are currently enabled. Use the checkboxes to enable/disable addons. Addons marked with * are required and cannot be disabled. A program restart will be needed to apply the new addons configuration.</value>

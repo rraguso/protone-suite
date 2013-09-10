@@ -44,6 +44,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OPMedia.UI.ProTONE, Version=1.10.2.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
@@ -59,6 +60,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\AudioSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\AudioSettingsPanel.Designer.cs">
+      <DependentUpon>AudioSettingsPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\MiscConfig\DisksOptionsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,6 +77,24 @@
     </Compile>
     <Compile Include="Configuration\MiscConfig\FavoriteFoldersPage.Designer.cs">
       <DependentUpon>FavoriteFoldersPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\VideoSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\VideoSettingsPanel.Designer.cs">
+      <DependentUpon>VideoSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Equalizer\EqualizerBand.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Equalizer\EqualizerBand.Designer.cs">
+      <DependentUpon>EqualizerBand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Equalizer\TenBandEqualizer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Equalizer\TenBandEqualizer.Designer.cs">
+      <DependentUpon>TenBandEqualizer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\MediaPlayer\MenuBuilder.cs" />
     <Compile Include="Controls\OSD\OSDLabel.cs">
@@ -239,6 +264,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Configuration\AudioSettingsPanel.resx">
+      <DependentUpon>AudioSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\FileTypesPanel.resx">
       <DependentUpon>FileTypesPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -273,6 +301,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BookmarkManagement\BookmarkManagerCtl.resx">
       <DependentUpon>BookmarkManagerCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Equalizer\EqualizerBand.resx">
+      <DependentUpon>EqualizerBand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Equalizer\TenBandEqualizer.resx">
+      <DependentUpon>TenBandEqualizer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MediaPlayer\MediaInfo.resx">
       <DependentUpon>MediaInfo.cs</DependentUpon>
@@ -405,10 +439,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Music_Note_Double_48.png" />
     <None Include="Resources\subtitles16.png" />
     <None Include="Resources\Playlist.png" />
     <None Include="Resources\delete2.png" />
     <None Include="Resources\delete3.png" />
+    <None Include="Resources\GenVideoDoc_32x32_72.png" />
     <Content Include="Resources\movedown.png" />
     <Content Include="Resources\moveup.png" />
     <None Include="Resources\btnCfgTimer.png" />

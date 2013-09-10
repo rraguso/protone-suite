@@ -401,8 +401,7 @@ Doppelklick verbleibende Zeit zu wechseln</value>
   <value>Offene FFDShow Untertitel-Einstellungen ...</value>
 </data>
 <data name="TXT_S_FILETYPES">
-  <value>Datei&#xD;
-Typen</value>
+  <value>Dateien</value>
 </data>
 <data name="TXT_S_FILETYPES_ASSOCIATIONS">
   <value>Assoziierte ProTONE Spieler mit diesen Dateitypen:</value>
@@ -685,8 +684,7 @@ Klicken Sie auf die Taste unten, um ProTONE RCC Manager zu starten ...</value>
   <value>Untertitel Einstellungen</value>
 </data>
 <data name="TXT_S_SUBTITLESETTINGS">
-  <value>Untertitel&#xD;
-und O.S.D.</value>
+  <value>Untertitel</value>
 </data>
 <data name="TXT_SUBTITLE_DOWNLOAD">
   <value>Zulassen des Downloads Untertitel aus dem Internet</value>
@@ -760,8 +758,7 @@ Klicken Sie auf das Volumen eingestellt werden: {0}%</value>
   <value>Minute(n).</value>
 </data>
 <data name="TXT_S_MISC_SETTINGS">
-  <value>Diverse &#xD;
-Optionen</value>
+  <value>Sonstiges</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
   <value>Die Muster für Wiedergabelistenobjekt Formatierung werden auf Kombinationen aus diesen Schlüsselwörtern:&#xD;&#xD;
@@ -1035,6 +1032,15 @@ Videofenster Position</value>
 </data>
 <data name="TXT_CDTRACKINFO">
   <value>CD-Track Info:</value>
+</data>
+<data name="TXT_S_AUDIOSETTINGS">
+  <value>Audio</value>
+</data>
+<data name="TXT_S_VIDEOSETTINGS">
+  <value>Video</value>
+</data>
+<data name="TXT_CAUTION_REALTIME">
+  <value>ACHTUNG: Diese Einstellungen werden in Echtzeit angewendet. Sie brauchen nicht zu drücken OK, um diese Einstellungen zu übernehmen.</value>
 </data>
     
 </root>

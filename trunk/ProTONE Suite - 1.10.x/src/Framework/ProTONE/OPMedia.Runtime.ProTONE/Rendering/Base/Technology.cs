@@ -92,6 +92,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
             set { if (streamRenderer != null) { streamRenderer.AudioVolume = value; } }
         }
 
+        internal int AudioBalance
+        {
+            get { return (streamRenderer == null) ? 0 : streamRenderer.AudioBalance; }
+            set { if (streamRenderer != null) { streamRenderer.AudioBalance = value; } }
+        }
+
         internal int SubtitleStream
         {
             get 

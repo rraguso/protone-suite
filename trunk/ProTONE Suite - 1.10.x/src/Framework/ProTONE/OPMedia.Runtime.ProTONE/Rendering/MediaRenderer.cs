@@ -119,7 +119,44 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         public int VolumePeakR { get { return renderingTechnology.VolumePeakR; } }
         public int VolumePeakL { get { return renderingTechnology.VolumePeakL; } }
 
-        
+
+        public double[] EqFrequencies
+        {
+            get
+            {
+                double[] freqs = new double[10];
+
+                using (FfdShowLib ff = FfdShowInstance())
+                {
+                    for (FFDShowConstants.FFDShowDataId i = FFDShowConstants.FFDShowDataId.IDFF_filterEQ; i < FFDShowConstants.FFDShowDataId.IDFF_filterWinamp2; i++)
+                    {
+                        int iVal = ff.getIntParam(i);
+                        string sVal = ff.getStringParam(i);
+                    }
+                }
+
+                return freqs;
+            }
+
+            set
+            {
+            }
+        }
+
+
+        public int[] EqLevels
+        {
+            get
+            {
+                int[] levels = new int[10];
+
+                return levels;
+            }
+
+            set
+            {
+            }
+        }
 
         public Control RenderPanel
         {
@@ -169,6 +206,15 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             {
                 renderingTechnology.AudioVolume = GetScaledVolume(value);
             } 
+        }
+
+        public int AudioBalance
+        {
+            get { return renderingTechnology.AudioBalance; }
+            set
+            {
+                renderingTechnology.AudioBalance = value;
+            }
         }
 
         public int SubtitleStream
@@ -900,6 +946,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         #endregion
     }
+
+   
 
     public abstract class RenderingStartHint
     {

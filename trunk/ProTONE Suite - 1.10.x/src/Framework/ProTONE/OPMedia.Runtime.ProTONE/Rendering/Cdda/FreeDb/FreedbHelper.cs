@@ -223,6 +223,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
                             reply.RemoveAt(0);
                             foreach (string line in reply)
                             {
+                                if (line.StartsWith(Commands.CMD_TERMINATOR))
+                                    break;
+
                                 QueryResult result = new QueryResult(line, true);
                                 queryResultsColl.Add(result);
                             }

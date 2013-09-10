@@ -36,15 +36,22 @@ namespace OPMedia.UI.ProTONE.Configuration
         
         public override void AddAditionalPanels()
         {
-            if (ApplicationInfo.IsMediaLibrary)
+            if (ApplicationInfo.IsPlayer)
+            {
+                AddPanel(typeof(FileTypesPanel), SuiteConfiguration.CurrentUserIsAdministrator);
+            }
+            else if (ApplicationInfo.IsMediaLibrary)
             {
                 AddPanel(typeof(AddonCfgPanel));
                 AddPanel(typeof(AddonSettingsPanel));
             }
-            else if (ApplicationInfo.IsPlayer)
+
+            AddPanel(typeof(AudioSettingsPanel));
+            AddPanel(typeof(VideoSettingsPanel));
+            AddPanel(typeof(SubtitleSettingsPanel));
+
+            if (ApplicationInfo.IsPlayer)
             {
-                AddPanel(typeof(FileTypesPanel), SuiteConfiguration.CurrentUserIsAdministrator);
-                AddPanel(typeof(MiscellaneousSettingsPanel));
                 AddPanel(typeof(SchedulerSettingsPanel));
 
                 if (!SuiteConfiguration.CurrentUserIsAdministrator)
@@ -52,9 +59,10 @@ namespace OPMedia.UI.ProTONE.Configuration
                     MessageDisplay.Show(Translator.Translate("TXT_PANELSHIDDEN_NOADMIN"),
                         Translator.Translate("TXT_CAUTION"), MessageBoxIcon.Exclamation);
                 }
+
+                AddPanel(typeof(MiscellaneousSettingsPanel));
             }
 
-            AddPanel(typeof(SubtitleSettingsPanel));
             AddPanel(typeof(KeyMapCfgPanel));
         }
 

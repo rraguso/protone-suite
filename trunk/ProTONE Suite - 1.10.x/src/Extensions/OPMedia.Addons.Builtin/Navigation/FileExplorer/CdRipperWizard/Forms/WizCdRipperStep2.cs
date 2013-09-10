@@ -65,6 +65,8 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
         {
             OPMFolderBrowserDialog dlg = new OPMFolderBrowserDialog();
             dlg.SelectedPath = txtDestFolder.Text;
+            dlg.ShowNewFolderButton = true;
+
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 txtDestFolder.Text = dlg.SelectedPath;

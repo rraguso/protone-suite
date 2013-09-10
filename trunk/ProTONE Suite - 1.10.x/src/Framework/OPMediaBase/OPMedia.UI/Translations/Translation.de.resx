@@ -399,8 +399,7 @@ Weitere Details in der Liste unten.</value>
   <value>Definieren Sie Schlüssel für {0}</value>
 </data>
 <data name="TXT_S_KEYMAP">
-  <value>Tastatur &#xD;
-Karte</value>
+  <value>Klaviatur</value>
 </data>
 <data name="TXT_S_KEYMAP_DESC">
   <value>Um einen Schnellzugriff zu bearbeiten, auf die damit verbundenen Links in der Tabelle unten klicken. Die Verknüpfungen mit behinderten Links nicht ändern können vom Anwender sein (z.B.: OpenHelp = F1, etc).</value>
@@ -412,8 +411,7 @@ Karte</value>
   <value>Log-Datei-Name:</value>
 </data>
 <data name="TXT_S_LOGGINGSETTINGS">
-  <value>Log&#xD;
-Datei</value>
+  <value>Zeitschrift</value>
 </data>
 <data name="TXT_LOGLINECONSOLE">
   <value>Log-Datei-Konsole</value>

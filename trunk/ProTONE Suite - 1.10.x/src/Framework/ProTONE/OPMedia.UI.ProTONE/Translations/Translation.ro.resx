@@ -401,8 +401,7 @@ Dublu click pentru a comuta pe timp rămas.</value>
   <value>Setări Subtitrare FFDShow ...</value>
 </data>
 <data name="TXT_S_FILETYPES">
-  <value>Tipuri de&#xD;
-Fişiere</value>
+  <value>Fişiere</value>
 </data>
 <data name="TXT_S_FILETYPES_ASSOCIATIONS">
   <value>Asociază ProTONE Player cu aceste tipuri de fişiere:</value>
@@ -685,8 +684,7 @@ Daţi click pe butonul de mai jos pentru a lansa ProTONE RCC Manager ...</value>
   <value>Setări Subtitrare</value>
 </data>
 <data name="TXT_S_SUBTITLESETTINGS">
-  <value>Subtitrări&#xD;
-şi O.S.D.</value>
+  <value>Subtitrări</value>
 </data>
 <data name="TXT_SUBTITLE_DOWNLOAD">
   <value>Descarcă subtitrările de pe Internet</value>
@@ -760,8 +758,7 @@ Daţi click pentru a seta volumul la {0} %</value>
   <value>minut(e).</value>
 </data>
 <data name="TXT_S_MISC_SETTINGS">
-  <value>Opţiuni &#xD;
-Diverse</value>
+  <value>Diverse</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
   <value>Şabloanele pentru formatarea elementelor listei de redare se bazeaza pe combinatia acestor cuvinte cheie:&#xD;&#xD;&#xD;
@@ -1035,6 +1032,15 @@ fereastră video</value>
 </data>
 <data name="TXT_CDTRACKINFO">
   <value>Info piesă de pe CD:</value>
+</data>
+<data name="TXT_S_AUDIOSETTINGS">
+  <value>Audio</value>
+</data>
+<data name="TXT_S_VIDEOSETTINGS">
+  <value>Video</value>
+</data>
+<data name="TXT_CAUTION_REALTIME">
+  <value>ATENȚIE: Aceste setări sunt aplicate în timp real. Nu trebuie să apăsați OK pentru a aplica aceste setări.</value>
 </data>
     
 </root>

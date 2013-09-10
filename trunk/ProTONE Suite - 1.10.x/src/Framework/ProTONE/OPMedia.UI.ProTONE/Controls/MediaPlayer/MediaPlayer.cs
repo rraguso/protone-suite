@@ -360,6 +360,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void OnMediaRendererHeartbeat()
         {
+            if (pnlRendering.ProjectedVolume != AppSettings.LastVolume)
+            {
+                pnlRendering.ProjectedVolume = AppSettings.LastVolume;
+            }
+
             pnlRendering.ElapsedSeconds = (int)(MediaRenderer.DefaultInstance.MediaPosition);
             pnlRendering.TotalSeconds = (int)(MediaRenderer.DefaultInstance.MediaLength);
 
@@ -693,6 +698,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             {
                 MediaRenderer.DefaultInstance.AudioVolume = (int)volume;
                 MediaRenderer.DefaultInstance.DisplayOsdMessage(Translator.Translate("TXT_OSD_VOL", (int)volume / 100));
+
+                MediaRenderer.DefaultInstance.AudioBalance = AppSettings.LastBalance;
             }
 
             if (pnlRendering.ProjectedVolume != AppSettings.LastVolume)

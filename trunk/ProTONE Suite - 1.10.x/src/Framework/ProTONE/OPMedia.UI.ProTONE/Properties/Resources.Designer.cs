@@ -88,6 +88,13 @@ namespace OPMedia.UI.ProTONE.Properties {
             }
         }
         
+        public static System.Drawing.Bitmap AudioSettings {
+            get {
+                object obj = ResourceManager.GetObject("AudioSettings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap btnCfgAudio {
             get {
                 object obj = ResourceManager.GetObject("btnCfgAudio", resourceCulture);
@@ -392,6 +399,13 @@ namespace OPMedia.UI.ProTONE.Properties {
         public static System.Drawing.Bitmap subtitles16 {
             get {
                 object obj = ResourceManager.GetObject("subtitles16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap VideoSettings {
+            get {
+                object obj = ResourceManager.GetObject("VideoSettings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -326,10 +326,39 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             if (isAudioAvailable)
             {
+                if (vol < -10000)
+                    vol = -10000;
+                else if (vol > 0)
+                    vol = 0;
+
                 basicAudio.put_Volume(vol);
             }
         }
 
+        protected override int GetAudioBalance()
+        {
+            int val = 0;
+            if (isAudioAvailable)
+            {
+                basicAudio.get_Balance(out val);
+            }
+
+            return val;
+        }
+
+        protected override void SetAudioBalance(int b)
+        {
+            if (isAudioAvailable)
+            {
+                if (b < -10000)
+                    b = -10000;
+                else if (b > 10000)
+                    b = 10000;
+
+                basicAudio.put_Balance(b);
+            }
+        }
+        
         protected override bool IsVideoMediaAvailable()
         {
             return isVideoAvailable;

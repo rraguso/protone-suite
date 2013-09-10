@@ -26,6 +26,13 @@ namespace OPMedia.UI.Controls
     public delegate void ValueChangedEventHandler(double val);
     #endregion
 
+    public enum GaugeMode
+    {
+        Point,
+        BandToStart,
+        BandToEnd
+    }
+
     public class ControlGauge : OPMBaseControl
     {
         #region Controls
@@ -34,6 +41,9 @@ namespace OPMedia.UI.Controls
         #endregion
 
         #region Members
+
+        protected GaugeMode _gaugeMode = GaugeMode.BandToStart;
+
         protected double _max = 10000;
         protected double _pos = 0;
         protected int _nrTicks = 20;
@@ -47,6 +57,11 @@ namespace OPMedia.UI.Controls
         #endregion
 
         #region Properties
+
+        [DefaultValue(GaugeMode.BandToStart)]
+        public GaugeMode GaugeMode
+        { get { return _gaugeMode; } set { _gaugeMode = value; Invalidate(true); } }
+
         public double Maximum
         { get { return _max; } set { _max = value; Invalidate(true); } }
 
@@ -210,7 +225,7 @@ namespace OPMedia.UI.Controls
             Graphics g = e.Graphics;
             ThemeManager.PrepareGraphics(g);
 
-            Rectangle rcMinor, rcMajor;
+            Rectangle rcMinor, rcMajor, rcDot = Rectangle.Empty;
             Color c1 = ThemeManager.GradientLTColor;
             Color c2 = ThemeManager.GradientRBColor;
             float a;
@@ -219,6 +234,9 @@ namespace OPMedia.UI.Controls
             {
                 rcMinor = new Rectangle(0, (int)(this.Height * (1 - _pos / _max)), Width, Height);
                 rcMajor = new Rectangle(0, 0, Width, (int)(this.Height * _pos / _max));
+
+                rcDot = new Rectangle(0, (int)(this.Height * (1 - _pos / _max)) - 14, Width, 14);
+
                 a = 0f;
             }
             else
@@ -226,15 +244,30 @@ namespace OPMedia.UI.Controls
                 rcMinor = new Rectangle(0, 0, (int)(this.Width * _pos / _max), Height);
                 rcMajor = new Rectangle((int)(this.Width * _pos / _max), 0,
                     (int)(this.Width * (1 - _pos / _max)), Height);
+
+                rcDot = new Rectangle((int)(this.Width * _pos / _max) - 7, 0, 14, Height);
+
                 a = 90f;
             }
 
             AdjustRectangle(ref rcMinor);
             AdjustRectangle(ref rcMajor);
 
-            using (Brush b = new LinearGradientBrush(rcMinor, c1, c2, a))
+            switch (_gaugeMode)
             {
-                g.FillRectangle(b, rcMinor);
+                case UI.Controls.GaugeMode.Point:
+                    using (Brush b = new LinearGradientBrush(rcDot, c2, ThemeManager.BorderColor, a))
+                    {
+                        g.FillRectangle(b, rcDot);
+                    }
+                    break;
+
+                default:
+                    using (Brush b = new LinearGradientBrush(rcMinor, c1, c2, a))
+                    {
+                        g.FillRectangle(b, rcMinor);
+                    }
+                    break;
             }
 
             if (_showTicks && _nrTicks > 1)

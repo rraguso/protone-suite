@@ -734,6 +734,19 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
+        public static int LastBalance
+        {
+            get
+            {
+                return _config.GetValue("LastBalance", 0);
+            }
+
+            set
+            {
+                _config.SetValue("LastBalance", value);
+            }
+        }
+
         public static int LastVolume
         {
             get

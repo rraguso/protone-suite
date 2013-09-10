@@ -136,8 +136,7 @@ Hinweis: Wenn Sie glauben jedoch, dass die jeweilige Datei sollte eine gültige 
   <value>Addon Namen</value>
 </data>
 <data name="TXT_S_ADDON_SETTINGS">
-  <value>Addon&#xD;
-Einstellungen</value>
+  <value>Konfiguration</value>
 </data>
 <data name="TXT_ADDONS_CHANGED_RESTART">
   <value>Um die neuen Addons Konfiguration zu ändern, muss das Programm neu gestartet werden.&#xD;
@@ -147,8 +146,7 @@ Ist es OK, um jetzt neu starten?</value>
   <value>Da Sie den Neustart abgebrochen haben, wird Ihr Add-on-Konfiguration nicht geändert werden.</value>
 </data>
 <data name="TXT_S_ADDONSETTINGS">
-  <value>Aktiviert&#xD;
-Addons</value>
+  <value>Addons</value>
 </data>
 <data name="TXT_ADDONSLIST">
   <value>Geprüft werden derzeit Addons aktiviert. Verwenden Sie die Kontrollkästchen zum Aktivieren / Deaktivieren Addons. Addons mit * müssen ausgefüllt werden und kann nicht deaktiviert werden. Ein Neustart des Programms erforderlich sein, um den neuen Addons Konfiguration anzuwenden.</value>

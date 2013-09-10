@@ -399,7 +399,7 @@ Examinaţi lista de mai jos pentru mai multe detalii</value>
   <value>Definire taste pentru {0}</value>
 </data>
 <data name="TXT_S_KEYMAP">
-  <value>Scurtături</value>
+  <value>Tastatură</value>
 </data>
 <data name="TXT_S_KEYMAP_DESC">
   <value>Pentru a modifica o scurtătură, daţi click pe linkurile asociate acesteia în tabelul de mai jos. Scurtăturile cu linkuri inactive nu pot fi modificate de către utilizator (Ex: OpenHelp = F1, etc).</value>
@@ -411,8 +411,7 @@ Examinaţi lista de mai jos pentru mai multe detalii</value>
   <value>Nume fişier jurnal:</value>
 </data>
 <data name="TXT_S_LOGGINGSETTINGS">
-  <value>Fişier&#xD;
-Jurnal</value>
+  <value>Jurnal</value>
 </data>
 <data name="TXT_LOGLINECONSOLE">
   <value>Consolă fişier jurnal</value>

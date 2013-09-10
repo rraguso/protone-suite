@@ -401,8 +401,7 @@ Double click to toggle remaining time</value>
   <value>Open FFDShow Subtitle Settings ...</value>
 </data>
 <data name="TXT_S_FILETYPES">
-  <value>File&#xD;
-Types</value>
+  <value>Files</value>
 </data>
 <data name="TXT_S_FILETYPES_ASSOCIATIONS">
   <value>Associate ProTONE Player with these file types:</value>
@@ -685,8 +684,7 @@ Click on the button below to launch ProTONE RCC Manager ...</value>
   <value>Subtitle Settings</value>
 </data>
 <data name="TXT_S_SUBTITLESETTINGS">
-  <value>Subtitles&#xD;
-and OSD</value>
+  <value>Subtitles</value>
 </data>
 <data name="TXT_SUBTITLE_DOWNLOAD">
   <value>Allow downloading subtitles from Internet</value>
@@ -760,8 +758,7 @@ Click to set volume to: {0} %</value>
   <value>minute(s).</value>
 </data>
 <data name="TXT_S_MISC_SETTINGS">
-  <value>Misc&#xD;
-Options</value>
+  <value>Misc</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
   <value>The patterns available for playlist item formatting are based on combinations of these keywords:&#xD;&#xD;
@@ -1036,6 +1033,15 @@ window position</value>
 </data>
 <data name="TXT_CDTRACKINFO">
   <value>CD Track Info:</value>
+</data>
+<data name="TXT_S_AUDIOSETTINGS">
+  <value>Audio</value>
+</data>
+<data name="TXT_S_VIDEOSETTINGS">
+  <value>Video</value>
+</data>
+<data name="TXT_CAUTION_REALTIME">
+  <value>CAUTION: These settings are applied in real time. You do not need to press OK to apply these settings</value>
 </data>
     
 </root>

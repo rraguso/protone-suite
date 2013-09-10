@@ -401,8 +401,7 @@ Raccourci:.{0}</value>
   <value>Ouvert FFDShow Réglages sous-titres ...</value>
 </data>
 <data name="TXT_S_FILETYPES">
-  <value>Types de &#xD;
-Fichiers</value>
+  <value>Fichiers</value>
 </data>
 <data name="TXT_S_FILETYPES_ASSOCIATIONS">
   <value>Lecteur ProTone associé à ces types de fichiers:</value>
@@ -684,8 +683,7 @@ Double click to toggle temps écoulé</value>
   <value>Réglages sous-titres</value>
 </data>
 <data name="TXT_S_SUBTITLESETTINGS">
-  <value>Sous-titres&#xD;
-et O.S.D.</value>
+  <value>Sous-titres</value>
 </data>
 <data name="TXT_SUBTITLE_DOWNLOAD">
   <value>Autoriser les téléchargements à partir d'Internet sous-titres</value>
@@ -759,8 +757,7 @@ temps Marque page: {0}</value>
   <value>minute (s).</value>
 </data>
 <data name="TXT_S_MISC_SETTINGS">
-  <value>Options&#xD;
-Diverses</value>
+  <value>Divers</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
   <value>Les modèles disponibles pour le formatage élément de la playlist sont basées sur des combinaisons de ces mots-clés:&#xD;&#xD;
@@ -1034,6 +1031,15 @@ de la fenêtre vidéo</value>
 </data>
 <data name="TXT_CDTRACKINFO">
   <value>CD Piste Info:</value>
+</data>
+<data name="TXT_S_AUDIOSETTINGS">
+  <value>Audio</value>
+</data>
+<data name="TXT_S_VIDEOSETTINGS">
+  <value>Vidéo</value>
+</data>
+<data name="TXT_CAUTION_REALTIME">
+  <value>ATTENTION: Ces paramètres sont appliqués en temps réel. Vous n'avez pas besoin d'appuyer sur OK pour appliquer ces paramètres</value>
 </data>
     
 </root>

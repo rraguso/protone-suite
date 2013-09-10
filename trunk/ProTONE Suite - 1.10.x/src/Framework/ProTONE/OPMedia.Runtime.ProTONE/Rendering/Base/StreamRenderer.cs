@@ -187,6 +187,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
             } 
         }
 
+        internal int AudioBalance
+        {
+            get
+            {
+                return GetAudioBalance();
+            }
+            set
+            {
+                SetAudioBalance(value);
+            }
+        }
+
         internal Control MessageDrain
         {
             get { return messageDrain; }
@@ -327,7 +339,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
         protected abstract void SetMediaPosition(double pos);
 
         protected abstract int GetAudioVolume();
-        protected abstract void SetAudioVolume(int vol);
+        protected abstract void SetAudioVolume(int b);
+
+        protected abstract int GetAudioBalance();
+        protected abstract void SetAudioBalance(int b);
 
         protected abstract bool IsAudioMediaAvailable();
         protected abstract bool IsVideoMediaAvailable();

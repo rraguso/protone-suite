@@ -46,6 +46,15 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Mono
         {
         }
 
+        protected override int GetAudioBalance()
+        {
+            return -5000;
+        }
+
+        protected override void SetAudioBalance(int b)
+        {
+        }
+
         protected override bool IsAudioMediaAvailable()
         {
             return false;

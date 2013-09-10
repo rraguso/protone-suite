@@ -399,8 +399,7 @@ More details in the list below.</value>
   <value>Define keys for {0}</value>
 </data>
 <data name="TXT_S_KEYMAP">
-  <value>Keyboard&#xD;
-Map</value>
+  <value>Keyboard</value>
 </data>
 <data name="TXT_S_KEYMAP_DESC">
   <value>To edit a shortcut, click on its associated links in the table below. The shortcuts with disabled links cannot be changed by the user (e.g: OpenHelp = F1, etc).</value>
@@ -412,8 +411,7 @@ Map</value>
   <value>Log file name:</value>
 </data>
 <data name="TXT_S_LOGGINGSETTINGS">
-  <value>Log&#xD;
-File</value>
+  <value>Logging</value>
 </data>
 <data name="TXT_LOGLINECONSOLE">
   <value>Log file console</value>

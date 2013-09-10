@@ -102,6 +102,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public TimeScale()
         {
             InitializeComponent();
+
+            //timeProgress.GaugeMode = GaugeMode.Point;
             
             timeProgress.PositionChanged += 
                 new ValueChangedEventHandler(timeProgress_PositionChanged);

@@ -136,8 +136,7 @@ Remarque: Si vous crois, cependant, que le fichier en question aurait dû être 
   <value>Nom Addon</value>
 </data>
 <data name="TXT_S_ADDON_SETTINGS">
-  <value>Paramètres&#xD;
-des Extensions</value>
+  <value>Configuration</value>
 </data>
 <data name="TXT_ADDONS_CHANGED_RESTART">
   <value>Pour modifier la configuration de nouveaux addons, le programme doit être redémarré.&#xD;
@@ -147,8 +146,7 @@ Est-il OK pour redémarrer maintenant?</value>
   <value>Puisque vous avez annulé le redémarrage, votre complément de la configuration ne sera pas modifiée.</value>
 </data>
 <data name="TXT_S_ADDONSETTINGS">
-  <value>Activé&#xD;
-Extensions</value>
+  <value>Extensions</value>
 </data>
 <data name="TXT_ADDONSLIST">
   <value>Addons cochés sont activés. Utilisez les cases à cocher pour activer / désactiver addons. Addons marqués d'une * sont requis et ne peut pas être désactivé. Un redémarrage du programme seront nécessaires pour appliquer la nouvelle configuration addons.</value>
