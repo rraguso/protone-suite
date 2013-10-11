@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
+using System.Drawing;
+using System.Reflection;
 
 namespace OPMedia.Core
 {
@@ -55,54 +57,24 @@ namespace OPMedia.Core
     {
         const string GDI32 = "gdi32.dll";
 
-        /// <summary>
-        /// CreateCompatibleDC
-        /// </summary>
-        [DllImport(GDI32, ExactSpelling = true, SetLastError = true)]
-        public static extern IntPtr CreateCompatibleDC(IntPtr hDC);
+#if HAVE_MONO
 
-        /// <summary>
-        /// DeleteDC
-        /// </summary>
-        [DllImport(GDI32, ExactSpelling = true, SetLastError = true)]
-        public static extern bool DeleteDC(IntPtr hdc);
+        public static IntPtr CreateSolidBrush(int crColor)
+        {
+            return IntPtr.Zero;
+        }
 
-        /// <summary>
-        /// SelectObject
-        /// </summary>
-        [DllImport(GDI32, ExactSpelling = true)]
-        public static extern IntPtr SelectObject(IntPtr hDC,
-                                                  IntPtr hObject);
+        public static uint SetTextColor(IntPtr hdc, int crColor)
+        {
+            return uint.MinValue;
+        }
 
-        /// <summary>
-        /// DeleteObject
-        /// </summary>
-        [DllImport(GDI32, ExactSpelling = true, SetLastError = true)]
-        public static extern bool DeleteObject(IntPtr hObject);
+        public static uint SetBkColor(IntPtr hdc, int crColor)
+        {
+            return uint.MinValue;
+        }
 
-        /// <summary>
-        /// CreateCompatibleBitmap
-        /// </summary>
-        [DllImport(GDI32,
-                   ExactSpelling = true,
-                   SetLastError = true)]
-        public static extern IntPtr CreateCompatibleBitmap(IntPtr hObject,
-                                                           int width,
-                                                           int height);
-
-        /// <summary>
-        /// BitBlt
-        /// </summary>
-        [DllImport(GDI32, ExactSpelling = true, SetLastError = true)]
-        public static extern bool BitBlt(IntPtr hObject,
-                                         int nXDest,
-                                         int nYDest,
-                                         int nWidth,
-                                         int nHeight,
-                                         IntPtr hObjSource,
-                                         int nXSrc,
-                                         int nYSrc,
-                                         TernaryRasterOperations dwRop);
+#else
 
         [DllImport(GDI32, ExactSpelling = true, SetLastError = true)]
         public static extern IntPtr CreateSolidBrush(int crColor);
@@ -112,6 +84,8 @@ namespace OPMedia.Core
 
         [DllImport(GDI32, ExactSpelling = true, SetLastError = true)]
         public static extern uint SetBkColor(IntPtr hdc, int crColor);
+
+#endif
 
     }
 }

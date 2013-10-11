@@ -9,7 +9,6 @@ using OPMedia.UI.Themes;
 using System.Reflection;
 using OPMedia.UI.Generic;
 using OPMedia.UI.Dialogs;
-using OPMedia.Core.Win32;
 using System.Runtime.InteropServices;
 using OPMedia.Core.Utilities;
 using OPMedia.Core.Logging;

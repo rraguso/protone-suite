@@ -76,8 +76,8 @@ namespace OPMedia.Core.Utilities
                 string keyPath = string.Format(".{0}", this.FileType);
 
                 using (RegistryKey key = (forceSetting) ?
-                    Registry.ClassesRoot.CreateSubKey(keyPath) :
-                    Registry.ClassesRoot.OpenSubKey(keyPath))
+                    Registry.ClassesRoot.Emu_CreateSubKey(keyPath) :
+                    Registry.ClassesRoot.Emu_OpenSubKey(keyPath))
                 {
                     if (key != null)
                     {
@@ -97,7 +97,7 @@ namespace OPMedia.Core.Utilities
                             }
 
                             keyPath = string.Format(@"Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.{0}", this.FileType);
-                            using (RegistryKey key2 = Registry.CurrentUser.CreateSubKey(keyPath))
+                            using (RegistryKey key2 = Registry.CurrentUser.Emu_CreateSubKey(keyPath))
                             {
                                 if (key2 != null)
                                 {
@@ -256,7 +256,7 @@ namespace OPMedia.Core.Utilities
                 if (regMediaType)
                 {
                     // ==== Register media type ====
-                    using (RegistryKey mediaTypeKey = Registry.ClassesRoot.CreateSubKey(info.MediaType))
+                    using (RegistryKey mediaTypeKey = Registry.ClassesRoot.Emu_CreateSubKey(info.MediaType))
                     {
                         if (mediaTypeKey != null)
                         {
@@ -264,7 +264,7 @@ namespace OPMedia.Core.Utilities
                         }
 
                         // ==== Register icon ====
-                        using (RegistryKey defaultIconKey = mediaTypeKey.CreateSubKey("DefaultIcon"))
+                        using (RegistryKey defaultIconKey = mediaTypeKey.Emu_CreateSubKey("DefaultIcon"))
                         {
                             if (defaultIconKey != null)
                             {
@@ -275,7 +275,7 @@ namespace OPMedia.Core.Utilities
 
                         if (File.Exists(info.LaunchPath))
                         {
-                            using (RegistryKey shellKey = mediaTypeKey.CreateSubKey("shell"))
+                            using (RegistryKey shellKey = mediaTypeKey.Emu_CreateSubKey("shell"))
                             {
                                 if (shellKey != null)
                                 {
@@ -283,7 +283,7 @@ namespace OPMedia.Core.Utilities
                                     shellKey.SetValue("", "open");
 
                                     // ==== Update OPEN action command ====
-                                    using (RegistryKey key = shellKey.CreateSubKey("open\\command"))
+                                    using (RegistryKey key = shellKey.Emu_CreateSubKey("open\\command"))
                                     {
                                         if (key != null)
                                         {
@@ -311,14 +311,14 @@ namespace OPMedia.Core.Utilities
                 if (unregMediaType)
                 {
                     // ==== Unregister media type ====
-                    using (RegistryKey mediaTypeKey = Registry.ClassesRoot.CreateSubKey(info.MediaType))
+                    using (RegistryKey mediaTypeKey = Registry.ClassesRoot.Emu_CreateSubKey(info.MediaType))
                     {
                         if (mediaTypeKey != null)
                         {
                             mediaTypeKey.SetValue("", "");
 
                             // ==== Unregister icon ====
-                            using (RegistryKey defaultIconKey = mediaTypeKey.CreateSubKey("DefaultIcon"))
+                            using (RegistryKey defaultIconKey = mediaTypeKey.Emu_CreateSubKey("DefaultIcon"))
                             {
                                 if (defaultIconKey != null)
                                 {
@@ -342,7 +342,7 @@ namespace OPMedia.Core.Utilities
                 string keyPath = string.Format("{0}\\shell\\open\\command", info.MediaType);
                 string expectedOpenCommand = string.Format("\"{0}\" launch \"%L\"", info.LaunchPath);
 
-                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(keyPath))
+                using (RegistryKey key = Registry.ClassesRoot.Emu_OpenSubKey(keyPath))
                 {
                     if (key != null)
                     {
@@ -366,7 +366,7 @@ namespace OPMedia.Core.Utilities
         {
             // File context menu handler
             string keyName = @"*\shellex\ContextMenuHandlers\" + Constants.PlayerName;
-            using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyName))
+            using (RegistryKey key = Registry.ClassesRoot.Emu_CreateSubKey(keyName))
             {
                 // Set the default value of the key.
                 if (key != null)
@@ -377,7 +377,7 @@ namespace OPMedia.Core.Utilities
 
             // Folder context menu handler
             keyName = @"Directory\shellex\ContextMenuHandlers\" + Constants.PlayerName;
-            using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyName))
+            using (RegistryKey key = Registry.ClassesRoot.Emu_CreateSubKey(keyName))
             {
                 // Set the default value of the key.
                 if (key != null)
@@ -388,7 +388,7 @@ namespace OPMedia.Core.Utilities
 
             // Drive context menu handler
             keyName = @"Drive\shellex\ContextMenuHandlers\" + Constants.PlayerName;
-            using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(keyName))
+            using (RegistryKey key = Registry.ClassesRoot.Emu_CreateSubKey(keyName))
             {
                 // Set the default value of the key.
                 if (key != null)
@@ -429,7 +429,7 @@ namespace OPMedia.Core.Utilities
                 string fileHandlerGuid = "1";
                 string folderHandlerGuid = "2"; // init with different values so as they are not equal
 
-                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"*\shellex\ContextMenuHandlers\" + Constants.PlayerName))
+                using (RegistryKey key = Registry.ClassesRoot.Emu_OpenSubKey(@"*\shellex\ContextMenuHandlers\" + Constants.PlayerName))
                 {
                     if (key != null)
                     {
@@ -437,7 +437,7 @@ namespace OPMedia.Core.Utilities
                     }
                 }
 
-                using (RegistryKey key = Registry.ClassesRoot.OpenSubKey(@"Directory\shellex\ContextMenuHandlers\" + Constants.PlayerName))
+                using (RegistryKey key = Registry.ClassesRoot.Emu_OpenSubKey(@"Directory\shellex\ContextMenuHandlers\" + Constants.PlayerName))
                 {
                     if (key != null)
                     {

@@ -10,7 +10,7 @@ namespace OPMedia.Core
     {
         public static bool FillSerialPortSettings(ref SerialPort serialPort)
         {
-            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\OPMedia Research\Serial Ports\" + serialPort.PortName);
+            RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(@"SOFTWARE\OPMedia Research\Serial Ports\" + serialPort.PortName);
             if (key != null)
             {
                 try
@@ -42,7 +42,7 @@ namespace OPMedia.Core
 
         public static void SavePortSettings(SerialPort serialPort)
         {
-            using (RegistryKey key = Registry.LocalMachine.CreateSubKey( @"SOFTWARE\OPMedia Research\Serial Ports\" + serialPort.PortName))
+            using (RegistryKey key = Registry.LocalMachine.Emu_CreateSubKey( @"SOFTWARE\OPMedia Research\Serial Ports\" + serialPort.PortName))
             {
                 if (key != null)
                 {

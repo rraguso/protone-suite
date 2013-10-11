@@ -90,7 +90,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
             string dxRegPath = @"SOFTWARE\Microsoft\DirectX";
 
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(dxRegPath))
+            using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(dxRegPath))
             {
                 if (key != null)
                 {

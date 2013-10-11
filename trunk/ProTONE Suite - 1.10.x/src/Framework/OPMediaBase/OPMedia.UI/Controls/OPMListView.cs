@@ -1028,10 +1028,9 @@ namespace OPMedia.UI.Controls
         {
             _parent = parent;
 
-            IntPtr hHeader = User32.SendMessage(parent.Handle, (int)HeaderItemFlags.LVM_GETHEADER, 
-                IntPtr.Zero, IntPtr.Zero); //Get the handle of the ListView header
+            int hHeader = User32.SendMessage(parent.Handle, (int)HeaderItemFlags.LVM_GETHEADER, 0, 0); //Get the handle of the ListView header
 
-            this.AssignHandle(hHeader);
+            this.AssignHandle(new IntPtr(hHeader));
         }
 
         protected override void WndProc(ref Message m)

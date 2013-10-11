@@ -109,7 +109,6 @@
     <Compile Include="Rendering\Cdda\FreeDb\FreedbHelper.cs" />
     <Compile Include="Rendering\Cdda\FreeDb\QueryResult.cs" />
     <Compile Include="Rendering\Cdda\FreeDb\Track.cs" />
-    <Compile Include="Rendering\Cdda\Win32Functions.cs" />
     <Compile Include="Rendering\DS\BaseClasses\BaseClasses.cs">
       <SubType>Form</SubType>
     </Compile>

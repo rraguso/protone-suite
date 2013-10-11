@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Runtime.InteropServices.ComTypes;
+using OPMedia.Core;
 
 // namespace for export direct show interfaces
 namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
@@ -1522,7 +1523,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             AllocFormat(nSize);
             if (pFormat != IntPtr.Zero)
             {
-                COMHelper.API.CopyMemory(formatPtr, pFormat, formatSize);
+                Kernel32.CopyMemory(formatPtr, pFormat, formatSize);
             }
         }
 
@@ -1632,7 +1633,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                 if (formatPtr != IntPtr.Zero && formatSize != 0)
                 {
                     IntPtr _ptr = Marshal.AllocCoTaskMem(formatSize + _size);
-                    COMHelper.API.CopyMemory(_ptr, formatPtr, formatSize);
+                    Kernel32.CopyMemory(_ptr, formatPtr, formatSize);
                     Marshal.FreeCoTaskMem(formatPtr);
                     formatPtr = _ptr;
                     _ptr = new IntPtr(_ptr.ToInt32() + formatSize);
@@ -1833,7 +1834,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             if (_dest.formatSize > 0)
             {
                 _dest.formatPtr = Marshal.AllocCoTaskMem(_dest.formatSize);
-                COMHelper.API.CopyMemory(_dest.formatPtr, mt.formatPtr, _dest.formatSize);
+                Kernel32.CopyMemory(_dest.formatPtr, mt.formatPtr, _dest.formatSize);
             }
         }
 
@@ -1865,7 +1866,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             AllocFormat(ref mt, nSize);
             if (mt != null && pFormat != IntPtr.Zero)
             {
-                COMHelper.API.CopyMemory(mt.formatPtr, pFormat, mt.formatSize);
+                Kernel32.CopyMemory(mt.formatPtr, pFormat, mt.formatSize);
             }
         }
 

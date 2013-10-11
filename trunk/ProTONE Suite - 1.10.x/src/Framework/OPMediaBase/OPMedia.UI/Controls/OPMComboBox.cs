@@ -151,7 +151,7 @@ namespace OPMedia.UI.Controls
                 case (int)Messages.WM_NCPAINT:
                     using (Graphics g = GetPreparedGraphics(ref hDC))
                     {
-                        User32.SendMessage(this.Handle, (int)Messages.WM_ERASEBKGND, hDC, IntPtr.Zero);
+                        User32.SendMessage(this.Handle, (int)Messages.WM_ERASEBKGND, hDC.ToInt32(), 0);
                         SendPrintClientMsg();	// send to draw client area
                         PaintFlatControlBorder(g);
                         User32.ReleaseDC(m.HWnd, hDC);
@@ -254,7 +254,7 @@ namespace OPMedia.UI.Controls
             // We send this message for the control to redraw the client area
             Graphics gClient = this.CreateGraphics();
             IntPtr ptrClientDC = gClient.GetHdc();
-            User32.SendMessage(this.Handle, (int)Messages.WM_PRINTCLIENT, ptrClientDC, IntPtr.Zero);
+            User32.SendMessage(this.Handle, (int)Messages.WM_PRINTCLIENT, ptrClientDC.ToInt32(), 0);
             gClient.ReleaseHdc(ptrClientDC);
             gClient.Dispose();
         }

@@ -336,8 +336,7 @@ namespace OPMedia.UI.Controls
 
 		#region Create Dummy Node
 
-        [DllImport("shlwapi.dll")]
-        public static extern bool PathIsDirectoryEmpty(string pszPath);
+       
 
 		private static void CheckForSubDirs(TreeNode tn, ImageList imageList)
 		{

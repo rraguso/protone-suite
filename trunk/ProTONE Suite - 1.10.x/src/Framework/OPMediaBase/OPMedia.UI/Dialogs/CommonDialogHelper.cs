@@ -8,7 +8,6 @@ using OPMedia.UI.Themes;
 using OPMedia.UI.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using OPMedia.Core.Win32;
 using System.Drawing;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI.Controls.Dialogs;

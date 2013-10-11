@@ -100,7 +100,11 @@
     <Reference Include="System.ServiceProcess" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Persistence.cs" />
+    <Compile Include="Persistence.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Persistence.dbml</DependentUpon>
+    </Compile>
     <Compile Include="PersistenceServiceImpl.cs" />
     <Compile Include="PersistenceServiceInstaller.cs">
       <SubType>Component</SubType>
@@ -134,6 +138,14 @@
   <ItemGroup>
     <Content Include="Persistence.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>GenerateDbmlFromSdf</Generator>
+      <LastGenOutput>Persistence1.sdf</LastGenOutput>
+    </Content>
+    <Content Include="Persistence1.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Persistence.sdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +177,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Persistence.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Persistence.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Persistence.dbml.layout">
+      <DependentUpon>Persistence.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

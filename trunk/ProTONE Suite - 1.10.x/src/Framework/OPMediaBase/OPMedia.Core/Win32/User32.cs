@@ -509,41 +509,255 @@ namespace OPMedia.Core
 
         #region OS_Dependent
 
+        public delegate bool EnumWindowProc(IntPtr hWnd, IntPtr parameter);
+
+#if HAVE_MONO
+
+        public static int PostMessage(IntPtr hWnd, int wMsg, int wParam, int lParam)
+        {
+            return -1;
+        }
+
+        public static int SendMessage(IntPtr hWnd, int Msg, int wParam, ref RECT rect)
+        {
+            return -1;
+        }
+
+        public static int SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam)
+        {
+            return -1;
+        }
+
+        public static int SendMessage(IntPtr hwnd, int msg, Int32 hwndFrom, ref COPYDATASTRUCT cds)
+        {
+            return -1;
+        }
+
+        public static void GetClassName(IntPtr h, StringBuilder s, int nMaxCount)
+        {
+        }
+
+        public static IntPtr SendMessageTimeout(
+            IntPtr windowHandle,
+            int Msg,
+            IntPtr wParam,
+            ref COPYDATASTRUCT cds,
+            SendMessageTimeoutFlags flags,
+            int timeout,
+            out IntPtr result)
+        {
+            result = IntPtr.Zero;
+            return IntPtr.Zero;
+        }
+
+        public static IntPtr SendMessageTimeout(
+            IntPtr windowHandle,
+            [MarshalAs(UnmanagedType.U4)]
+                int Msg,
+            IntPtr wParam,
+            IntPtr lParam,
+            SendMessageTimeoutFlags flags,
+            int timeout,
+            out IntPtr result)
+        {
+            result = IntPtr.Zero;
+            return IntPtr.Zero;
+        }
+
+        public static int DestroyWindow(IntPtr hWnd)
+        {
+            return -1;
+        }
+
+        public static int DestroyIcon(IntPtr hIcon)
+        {
+            return -1;
+        }
+
+        public static bool LockWindowUpdate(IntPtr hWndLock)
+        {
+            return false;
+        }
 
 
+        public static int ReleaseDC(IntPtr hwnd, IntPtr hDC)
+        {
+            return -1;
+        }
 
+
+        public static int GetDlgCtrlID(IntPtr hwndCtl)
+        {
+            return -1;
+        }
+
+
+        public static System.IntPtr GetWindowDC(System.IntPtr hWnd)
+        {
+            return IntPtr.Zero;
+        }
+
+
+        public static System.IntPtr GetTopWindow(System.IntPtr hWnd)
+        {
+            return IntPtr.Zero;
+        }
+
+
+        public static System.IntPtr GetDesktopWindow()
+        {
+            return IntPtr.Zero;
+        }
+
+
+        public static bool SetWindowText(IntPtr hWnd, string lpString)
+        {
+            return false;
+        }
+
+
+        public static IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent)
+        {
+            return IntPtr.Zero;
+        }
+
+
+        public static int GetWindowLong(IntPtr hWnd, int nIndex)
+        {
+            return -1;
+        }
+
+        public static int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong)
+        {
+            return -1;
+        }
+
+        public static bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int Width, int Height, SetWindowPosFlags flags)
+        {
+            return false;
+        }
+
+
+        public static bool InsertMenu(IntPtr hmenu, uint position, MFMENU uflags, IntPtr uIDNewItemOrSubmenu, string text)
+        {
+            return false;
+        }
+
+        public static bool InvalidateRect(IntPtr hWnd, int ignored, bool erase)
+        {
+            return false;
+        }
+
+        public static int GetMenuItemCount(IntPtr hMenu)
+        {
+            return -1;
+        }
+
+
+        public static bool SetMenuItemBitmaps(IntPtr hMenu, uint uPosition, MFMENU uFlags,
+            IntPtr hBitmapUnchecked, IntPtr hBitmapChecked)
+        {
+            return false;
+        }
+
+
+        public static IntPtr GetForegroundWindow()
+        {
+            return IntPtr.Zero;
+        }
+
+        public static IntPtr GetWindowThreadProcessId(IntPtr hWnd, IntPtr ProcessId)
+        {
+            return IntPtr.Zero;
+        }
+
+
+        public static IntPtr AttachThreadInput(IntPtr idAttach, IntPtr idAttachTo, int fAttach)
+        {
+            return IntPtr.Zero;
+        }
+
+
+        public static bool ShowWindow(IntPtr hWnd, ShowWindowStyles nCmdShow)
+        {
+            return false;
+        }
+
+        public static bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint)
+        {
+            return false;
+        }
+
+
+        public static bool BringWindowToTop(IntPtr hWnd)
+        {
+            return false;
+        }
+
+
+        public static bool IsWindow(IntPtr hWnd)
+        {
+            return false;
+        }
+
+        public static IntPtr FindWindow(string lpClassName, string lpWindowName)
+        {
+            return IntPtr.Zero;
+        }
+
+        public static IntPtr CreateWindowEx(
+            uint dwExStyle, string lpClassName, string lpWindowName, uint dwStyle, int x, int y,
+            int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam)
+        {
+            return IntPtr.Zero;
+        }
+
+        public static int EnumWindows(EnumWindowProc lpEnumFunc, IntPtr lParam)
+        {
+            return -1;
+        }
+
+
+        public static bool EnumChildWindows(IntPtr hWndParent, EnumWindowProc lpEnumFunc, IntPtr lParam)
+        {
+            return false;
+        }
+
+
+        public static bool IsWindowVisible(IntPtr hWnd)
+        {
+            return false;
+        }
+
+
+        public static bool ReleaseCapture()
+        {
+            return false;
+        }
+
+        public static uint RegisterWindowMessage([In, MarshalAs(UnmanagedType.LPWStr)] string lpString)
+        {
+            return 0xFFFFFFFF;
+        }
+
+        public static int GetSystemMetrics(int nIndex)
+        {
+            return -1;
+        }
+#else
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern int PostMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-
+        
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, ref RECT rect);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern int SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(HandleRef hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(HandleRef hWnd, uint Msg, IntPtr wParam, StringBuilder lParam);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(IntPtr Handle, Int32 msg, IntPtr wParam, ref HDITEM lParam);
-
-
         // Import the SendMessage function for use with COPYDATASTRUCT
         [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(IntPtr hwnd, Int32 msg, Int32 hwndFrom, ref COPYDATASTRUCT cds);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(int hWnd, uint Msg, int wParam, int lParam);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern void GetWindowText(IntPtr h, StringBuilder s, int nMaxCount);
-
+        public static extern int SendMessage(IntPtr hwnd, int msg, Int32 hwndFrom, ref COPYDATASTRUCT cds);
+    
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern void GetClassName(IntPtr h, StringBuilder s, int nMaxCount);
 
@@ -569,13 +783,6 @@ namespace OPMedia.Core
             out IntPtr result);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr PostMessage(IntPtr hwnd, Int32 msg, Int32 hwndFrom, ref COPYDATASTRUCT cds);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr PostMessage(int hWnd, uint Msg, int wParam, int lParam);
-
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern int DestroyWindow(IntPtr hWnd);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
@@ -586,28 +793,13 @@ namespace OPMedia.Core
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern int ReleaseDC(IntPtr hwnd, IntPtr hDC);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr GetDC(IntPtr hwnd);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr GetDlgItem(IntPtr hDlg, int nIDDlgItem);
-
+       
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern int GetDlgCtrlID(IntPtr hwndCtl);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public extern static System.IntPtr GetWindowDC(System.IntPtr hWnd);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public extern static System.IntPtr GetDCEx(System.IntPtr hWnd, IntPtr hRgn, uint flags);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public extern static bool GetClientRect(IntPtr hWnd, ref RECT lpRect);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public extern static bool GetWindowRect(IntPtr hWnd, ref RECT lpRect);
-        
+     
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public extern static System.IntPtr GetTopWindow(System.IntPtr hWnd);
 
@@ -644,15 +836,11 @@ namespace OPMedia.Core
             IntPtr hBitmapUnchecked, IntPtr hBitmapChecked);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern bool RedrawWindow(IntPtr hWnd, ref Rectangle lprcUpdate, IntPtr hrgnUpdate, uint flags);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern IntPtr GetForegroundWindow();
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern Boolean SetForegroundWindow(IntPtr hWnd);
-        [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, IntPtr ProcessId);
+
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern IntPtr AttachThreadInput(IntPtr idAttach, IntPtr idAttachTo, int fAttach);
         
@@ -669,18 +857,6 @@ namespace OPMedia.Core
         public static extern bool IsWindow(IntPtr hWnd);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern bool IsWindow(int hWnd);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern bool GetSystemMenu(IntPtr hWnd, bool bRevert);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern bool GetComboBoxInfo(IntPtr hwndCombo, ref COMBOBOXINFO pcbi);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern bool ShowScrollBar(IntPtr hWnd, int wBar, bool bShow);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
 
@@ -690,11 +866,6 @@ namespace OPMedia.Core
            int nWidth,int nHeight,IntPtr hWndParent,IntPtr hMenu,IntPtr hInstance,IntPtr lpParam);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
-        public static extern IntPtr GetActiveWindow();
-
-        public delegate bool EnumWindowProc(IntPtr hWnd, IntPtr parameter);
-
-        [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern int EnumWindows(EnumWindowProc lpEnumFunc, IntPtr lParam);
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
@@ -702,6 +873,16 @@ namespace OPMedia.Core
 
         [DllImport(USER32, CharSet = CharSet.Auto)]
         public static extern bool IsWindowVisible(IntPtr hWnd);
+
+        [DllImport(USER32, CharSet = CharSet.Auto)]
+        public static extern bool ReleaseCapture();
+
+        [DllImport(USER32, CallingConvention = CallingConvention.StdCall, EntryPoint = "RegisterWindowMessageW")]
+        public static extern uint RegisterWindowMessage([In, MarshalAs(UnmanagedType.LPWStr)] string lpString);
+
+        [DllImport(USER32)]
+        public static extern int GetSystemMetrics(int nIndex);
+#endif
 
         #endregion
 

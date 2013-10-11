@@ -11,6 +11,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
+using OPMedia.Core;
 
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
@@ -1414,10 +1415,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         protected static HRESULT CreateMemoryAllocator(out IntPtr ppAlloc)
         {
             ppAlloc = IntPtr.Zero;
-            HRESULT hr = (HRESULT)API.CoCreateInstance(
+            HRESULT hr = (HRESULT)Ole32.CoCreateInstance(
                 typeof(MemoryAllocator).GUID,
                 IntPtr.Zero,
-                CLSCTX.CLSCTX_INPROC_SERVER,
+                Ole32.CLSCTX.CLSCTX_INPROC_SERVER,
                 typeof(IMemAllocator).GUID,
                 out ppAlloc);
             return hr;
@@ -1426,10 +1427,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         protected static HRESULT CreatePosPassThru(IntPtr _owner, IPin pPin, bool bRenderer, out IntPtr ppPassThru)
         {
             ppPassThru = IntPtr.Zero;
-            HRESULT hr = (HRESULT)API.CoCreateInstance(
+            HRESULT hr = (HRESULT)Ole32.CoCreateInstance(
                 typeof(SeekingPassThru).GUID,
                 _owner,
-                CLSCTX.CLSCTX_INPROC_SERVER,
+                Ole32.CLSCTX.CLSCTX_INPROC_SERVER,
                 typeof(ISeekingPassThru).GUID,
                 out ppPassThru);
             if (FAILED(hr)) return hr;
@@ -2745,7 +2746,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                 try
                 {
                     string _path = "CLSID\\" + this.GetType().GUID.ToString("B") + "\\" + m_csRegistryPath;
-                    _key = Microsoft.Win32.Registry.ClassesRoot.CreateSubKey(_path);
+                    _key = Microsoft.Win32.Registry.ClassesRoot.Emu_CreateSubKey(_path);
                     return _key.GetValue(_name, _default);
                 }
                 catch (Exception _exception)
@@ -2772,7 +2773,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                 try
                 {
                     string _path = "CLSID\\" + this.GetType().GUID.ToString("B") + "\\" + m_csRegistryPath;
-                    _key = Microsoft.Win32.Registry.ClassesRoot.CreateSubKey(_path);
+                    _key = Microsoft.Win32.Registry.ClassesRoot.Emu_CreateSubKey(_path);
                     _key.SetValue(_name, _value);
                     return true;
                 }
@@ -2927,7 +2928,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                         try
                         {
                             string _path = "CLSID\\" + _type.GUID.ToString("B");
-                            _key = Microsoft.Win32.Registry.ClassesRoot.CreateSubKey(_path);
+                            _key = Microsoft.Win32.Registry.ClassesRoot.Emu_CreateSubKey(_path);
                             if (_key != null)
                             {
                                 _key.DeleteSubKeyTree(m_csRegistryPath);
@@ -4407,7 +4408,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                         pDest.GetPointer(out pDestBuffer);
                         ASSERT(lDestSize == 0 || pSourceBuffer != IntPtr.Zero && pDestBuffer != IntPtr.Zero);
 
-                        API.CopyMemory(pDestBuffer, pSourceBuffer, lDataLength);
+                        Kernel32.CopyMemory(pDestBuffer, pSourceBuffer, lDataLength);
                     }
                 }
 
@@ -5658,7 +5659,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                 return HRESULT.E_INVALIDARG;
             }
             this.CreateControl();
-            SetParent(Handle, hWndParent);
+            User32.SetParent(Handle, hWndParent);
 
             OnActivate();
             (this as IPropertyPage).Move(pRect);
@@ -5669,7 +5670,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         {
             OnDeactivate();
             Hide();
-            DestroyWindow(Handle);
+            User32.DestroyWindow(Handle);
             return HRESULT.NOERROR;
         }
 
@@ -5726,7 +5727,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
 
         public virtual new int Move(DsRect pRect)
         {
-            MoveWindow(Handle, pRect.left, pRect.top, pRect.right - pRect.left, pRect.bottom - pRect.top, true);
+            User32.MoveWindow(Handle, pRect.left, pRect.top, pRect.right - pRect.left, pRect.bottom - pRect.top, true);
             return HRESULT.NOERROR;
         }
 
@@ -5819,7 +5820,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                     if (COMHelper.SUCCEEDED(pProp.GetPages(out pCAUUID)))
                     {
                         object oDevice = (object)_filter;
-                        int hr = OleCreatePropertyFrame(_hwnd, 0, 0, "Filter ", 1, ref oDevice, pCAUUID.cElems, pCAUUID.pElems, 0, 0, IntPtr.Zero);
+                        int hr = Ole32.OleCreatePropertyFrame(_hwnd, 0, 0, "Filter ", 1, ref oDevice, pCAUUID.cElems, pCAUUID.pElems, 0, 0, IntPtr.Zero);
                         if (hr < 0) 
                             DsError.ThrowExceptionForHR(hr);
 
@@ -5838,39 +5839,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             }
             return false;
         }
-
-        #endregion
-
-        #region API
-
-        /// <summary>
-        /// COM function helper for displaying properties dialog
-        /// </summary>
-        [DllImport("olepro32.dll")]
-        private static extern int OleCreatePropertyFrame(
-            IntPtr hwndOwner,
-            int x,
-            int y,
-            [MarshalAs(UnmanagedType.LPWStr)] string lpszCaption,
-            int cObjects,
-            [MarshalAs(UnmanagedType.Interface, ArraySubType = UnmanagedType.IUnknown)] 
-			ref object ppUnk,
-            int cPages,
-            IntPtr lpPageClsID,
-            int lcid,
-            int dwReserved,
-            IntPtr lpvReserved
-            );
-
-        [DllImport("user32.dll")]
-        private static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
-
-        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool DestroyWindow(IntPtr hwnd);
 
         #endregion
     }
@@ -6573,7 +6541,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         }
 
         public MessageDispatcher(EventWaitHandle hAbort, string _message)
-            : this(hAbort, (int)RegisterWindowMessage(_message))
+            : this(hAbort, (int)User32.RegisterWindowMessage(_message))
         {
 
         }
@@ -6633,13 +6601,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                 Application.RemoveMessageFilter(this);
             }
         }
-
-        #endregion
-
-        #region API
-
-        [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "RegisterWindowMessageW")]
-        private static extern uint RegisterWindowMessage([In, MarshalAs(UnmanagedType.LPWStr)] string lpString);
 
         #endregion
     }
@@ -10084,7 +10045,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                 }
                 if (_bmi.Width == 0 || _bmi.Height == 0)
                 {
-                    lSize = Math.Max(lSize, GetSystemMetrics(0) * GetSystemMetrics(1) * 4);
+                    lSize = Math.Max(lSize, User32.GetSystemMetrics(0) * User32.GetSystemMetrics(1) * 4);
                 }
                 if (lSize > prop.cbBuffer)
                 {
@@ -10555,13 +10516,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         }
 
         #endregion
-
-        #region API
-
-        [DllImport("User32.dll")]
-        private static extern int GetSystemMetrics(int nIndex);
-
-        #endregion
     }
 
     [ComVisible(false)]
@@ -11004,7 +10958,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                         {
                             if (_setup.Extensions.Count > 0)
                             {
-                                _key = Microsoft.Win32.Registry.ClassesRoot.CreateSubKey(_setup.Protocol + "\\Extensions");
+                                _key = Microsoft.Win32.Registry.ClassesRoot.Emu_CreateSubKey(_setup.Protocol + "\\Extensions");
                                 foreach (string _extension in _setup.Extensions)
                                 {
                                     if (!string.IsNullOrEmpty(_extension))
@@ -11015,7 +10969,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                             }
                             else
                             {
-                                _key = Microsoft.Win32.Registry.ClassesRoot.CreateSubKey(_setup.Protocol);
+                                _key = Microsoft.Win32.Registry.ClassesRoot.Emu_CreateSubKey(_setup.Protocol);
                                 _key.SetValue("Source Filter", this.GetType().GUID.ToString("B"));
                             }
                         }
@@ -11049,7 +11003,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                         Microsoft.Win32.RegistryKey _key = null;
                         try
                         {
-                            _key = Microsoft.Win32.Registry.ClassesRoot.CreateSubKey("Media Type\\Extensions\\" + _setup.Extension);
+                            _key = Microsoft.Win32.Registry.ClassesRoot.Emu_CreateSubKey("Media Type\\Extensions\\" + _setup.Extension);
                             _key.SetValue("Source Filter", this.GetType().GUID.ToString("B"));
                             if (_setup.MediaType != Guid.Empty)
                             {
@@ -11100,7 +11054,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                                 _path += MediaType.Stream.ToString("B") + "\\";
                             }
                             _path += _setup.SubType.ToString("B");
-                            _key = Microsoft.Win32.Registry.ClassesRoot.CreateSubKey(_path);
+                            _key = Microsoft.Win32.Registry.ClassesRoot.Emu_CreateSubKey(_path);
                             if (_setup.FilterGuid == Guid.Empty)
                             {
                                 if (this.InputPin == null)
@@ -11152,7 +11106,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                         {
                             if (_setup.Extensions.Count > 0)
                             {
-                                _key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(_setup.Protocol + "\\Extensions");
+                                _key = Microsoft.Win32.Registry.ClassesRoot.Emu_OpenSubKey(_setup.Protocol + "\\Extensions");
                                 if (_key != null)
                                 {
                                     foreach (string _extension in _setup.Extensions)
@@ -11166,7 +11120,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                                     {
                                         _key.Close();
                                         _key = null;
-                                        _key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(_setup.Protocol);
+                                        _key = Microsoft.Win32.Registry.ClassesRoot.Emu_OpenSubKey(_setup.Protocol);
                                         _key.DeleteSubKeyTree("Extensions");
                                         if (_key.ValueCount == 0 && _key.SubKeyCount == 0)
                                         {
@@ -11179,7 +11133,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                             }
                             else
                             {
-                                _key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(_setup.Protocol);
+                                _key = Microsoft.Win32.Registry.ClassesRoot.Emu_OpenSubKey(_setup.Protocol);
                                 if (_key != null)
                                 {
                                     _key.DeleteValue("Source Filter");
@@ -11222,14 +11176,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                         Microsoft.Win32.RegistryKey _key = null;
                         try
                         {
-                            _key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey("Media Type\\Extensions\\" + _setup.Extension);
+                            _key = Microsoft.Win32.Registry.ClassesRoot.Emu_OpenSubKey("Media Type\\Extensions\\" + _setup.Extension);
                             if (_key != null)
                             {
                                 string _guid = (string)_key.GetValue("Source Filter","");
                                 if (_guid == this.GetType().GUID.ToString("B"))
                                 {
                                     _key.Close();
-                                    _key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey("Media Type\\Extensions");
+                                    _key = Microsoft.Win32.Registry.ClassesRoot.Emu_OpenSubKey("Media Type\\Extensions");
                                     _key.DeleteSubKeyTree(_setup.Extension);
                                 }
                             }
@@ -11273,7 +11227,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                             {
                                 _path += MediaType.Stream.ToString("B");
                             }
-                            _key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(_path);
+                            _key = Microsoft.Win32.Registry.ClassesRoot.Emu_OpenSubKey(_path);
                             if (_key != null)
                             {
                                 _key.DeleteSubKeyTree(_setup.SubType.ToString("B"));

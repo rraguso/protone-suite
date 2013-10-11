@@ -18,6 +18,7 @@ using OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb;
 using OPMedia.Core.Logging;
 using System.Diagnostics;
 using System.IO;
+using OPMedia.Core;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
 {
@@ -49,7 +50,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       private char m_Drive = '\0';
       private DeviceChangeNotificationWindow NotWnd = null;
       protected const int NSECTORS = 13;
-      private Win32Functions.CDROM_TOC Toc = null;
+      private Kernel32.CDROM_TOC Toc = null;
       private bool TocValid = false;
       protected const int UNDERSAMPLING = 1;
 
@@ -86,7 +87,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       // Methods
       public CDDrive()
       {
-          this.Toc = new Win32Functions.CDROM_TOC();
+          this.Toc = new Kernel32.CDROM_TOC();
           this.cdHandle = IntPtr.Zero;
       }
 
@@ -111,7 +112,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           }
           if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
           {
-              Win32Functions.CloseHandle(this.cdHandle);
+              Kernel32.CloseHandle(this.cdHandle);
           }
           this.cdHandle = IntPtr.Zero;
           this.m_Drive = '\0';
@@ -130,7 +131,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
           {
               uint lpBytesReturned = 0;
-              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d4808, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0);
+              return (Kernel32.DeviceIoControl(this.cdHandle, 0x2d4808, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0);
           }
           return false;
       }
@@ -163,8 +164,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           }
           int num7 = (this.Toc.TrackData[track].Address_1 * 60) + this.Toc.TrackData[track].Address_2;
           str = str + " " + num7;
-          Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[numTracks];
-          Win32Functions.TRACK_DATA track_data2 = this.Toc.TrackData[0];
+          Kernel32.TRACK_DATA track_data = this.Toc.TrackData[numTracks];
+          Kernel32.TRACK_DATA track_data2 = this.Toc.TrackData[0];
           num3 = ((track_data.Address_1 * 60) + track_data.Address_2) - ((track_data2.Address_1 * 60) + track_data2.Address_2);
           ulong num8 = (ulong)((((num4 % 0xff) << 0x18) | (num3 << 8)) | numTracks);
           return str;
@@ -174,7 +175,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       {
           if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
           {
-              Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[track];
+              Kernel32.TRACK_DATA track_data = this.Toc.TrackData[track];
               return (((((track_data.Address_1 * 60) * 0x4b) + (track_data.Address_2 * 0x4b)) + track_data.Address_3) - 0x97);
           }
           return -1;
@@ -184,7 +185,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       {
           if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
           {
-              Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[track];
+              Kernel32.TRACK_DATA track_data = this.Toc.TrackData[track];
               return ((((track_data.Address_1 * 60) * 0x4b) + (track_data.Address_2 * 0x4b)) - 0x97);
           }
           return -1;
@@ -197,7 +198,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
               int num = 0;
               for (int i = this.Toc.FirstTrack - 1; i < this.Toc.LastTrack; i++)
               {
-                  Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[i];
+                  Kernel32.TRACK_DATA track_data = this.Toc.TrackData[i];
                   if (track_data.Control == 0)
                   {
                       num++;
@@ -232,7 +233,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       {
           if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
           {
-              Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[track - 1];
+              Kernel32.TRACK_DATA track_data = this.Toc.TrackData[track - 1];
               return (((((track_data.Address_1 * 60) * 0x4b) + (track_data.Address_2 * 0x4b)) + track_data.Address_3) - 150);
           }
           return -1;
@@ -242,7 +243,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       {
           if ((this.TocValid && (track >= this.Toc.FirstTrack)) && (track <= this.Toc.LastTrack))
           {
-              Win32Functions.TRACK_DATA track_data = this.Toc.TrackData[track - 1];
+              Kernel32.TRACK_DATA track_data = this.Toc.TrackData[track - 1];
               return ((track_data.Control & 4) == 0);
           }
           return false;
@@ -253,7 +254,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
           {
               uint lpBytesReturned = 0;
-              if (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d4800, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0)
+              if (Kernel32.DeviceIoControl(this.cdHandle, 0x2d4800, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0)
               {
                   return true;
               }
@@ -270,7 +271,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
           {
               uint lpBytesReturned = 0;
-              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d480c, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0);
+              return (Kernel32.DeviceIoControl(this.cdHandle, 0x2d480c, IntPtr.Zero, 0, IntPtr.Zero, 0, ref lpBytesReturned, IntPtr.Zero) != 0);
           }
           return false;
       }
@@ -280,11 +281,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
           {
               uint bytesReturned = 0;
-              Win32Functions.PREVENT_MEDIA_REMOVAL inMediaRemoval = new Win32Functions.PREVENT_MEDIA_REMOVAL
+              Kernel32.PREVENT_MEDIA_REMOVAL inMediaRemoval = new Kernel32.PREVENT_MEDIA_REMOVAL
               {
                   PreventMediaRemoval = 1
               };
-              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d4804, inMediaRemoval, (uint)Marshal.SizeOf(inMediaRemoval), IntPtr.Zero, 0, ref bytesReturned, IntPtr.Zero) != 0);
+              return (Kernel32.DeviceIoControl(this.cdHandle, 0x2d4804, inMediaRemoval, (uint)Marshal.SizeOf(inMediaRemoval), IntPtr.Zero, 0, ref bytesReturned, IntPtr.Zero) != 0);
           }
           return false;
       }
@@ -326,9 +327,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       public bool Open(char Drive)
       {
           this.Close();
-          if (Win32Functions.GetDriveType(Drive + @":\") == Win32Functions.DriveTypes.DRIVE_CDROM)
+          if (Kernel32.GetDriveType(Drive + @":\") == Kernel32.DriveTypes.DRIVE_CDROM)
           {
-              this.cdHandle = Win32Functions.CreateFile(@"\\.\" + Drive + ':', 0x80000000, 1, IntPtr.Zero, 3, 0, IntPtr.Zero);
+              this.cdHandle = Kernel32.CreateFile(@"\\.\" + Drive + ':', 0x80000000, 1, IntPtr.Zero, 3, 0, IntPtr.Zero);
               if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
               {
                   this.m_Drive = Drive;
@@ -345,14 +346,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       {
           if ((this.TocValid && ((sector + NumSectors) <= this.GetEndSector(this.Toc.LastTrack))) && (Buffer.Length >= (0x930 * NumSectors)))
           {
-              Win32Functions.RAW_READ_INFO rri = new Win32Functions.RAW_READ_INFO
+              Kernel32.RAW_READ_INFO rri = new Kernel32.RAW_READ_INFO
               {
-                  TrackMode = Win32Functions.TRACK_MODE_TYPE.CDDA,
+                  TrackMode = Kernel32.TRACK_MODE_TYPE.CDDA,
                   SectorCount = (uint)NumSectors,
                   DiskOffset = (long)(sector * 0x800)
               };
               uint bytesReturned = 0;
-              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2403e, rri, (uint)Marshal.SizeOf(rri), Buffer, (uint)(NumSectors * 0x930), ref bytesReturned, IntPtr.Zero) != 0);
+              return (Kernel32.DeviceIoControl(this.cdHandle, 0x2403e, rri, (uint)Marshal.SizeOf(rri), Buffer, (uint)(NumSectors * 0x930), ref bytesReturned, IntPtr.Zero) != 0);
           }
           return false;
       }
@@ -362,7 +363,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
           {
               uint bytesReturned = 0;
-              this.TocValid = Win32Functions.DeviceIoControl(this.cdHandle, 0x24000, IntPtr.Zero, 0, this.Toc, (uint)Marshal.SizeOf(this.Toc), ref bytesReturned, IntPtr.Zero) != 0;
+              this.TocValid = Kernel32.DeviceIoControl(this.cdHandle, 0x24000, IntPtr.Zero, 0, this.Toc, (uint)Marshal.SizeOf(this.Toc), ref bytesReturned, IntPtr.Zero) != 0;
           }
           else
           {
@@ -493,11 +494,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           if ((((int)this.cdHandle) != -1) && (((int)this.cdHandle) != 0))
           {
               uint bytesReturned = 0;
-              Win32Functions.PREVENT_MEDIA_REMOVAL inMediaRemoval = new Win32Functions.PREVENT_MEDIA_REMOVAL
+              Kernel32.PREVENT_MEDIA_REMOVAL inMediaRemoval = new Kernel32.PREVENT_MEDIA_REMOVAL
               {
                   PreventMediaRemoval = 0
               };
-              return (Win32Functions.DeviceIoControl(this.cdHandle, 0x2d4804, inMediaRemoval, (uint)Marshal.SizeOf(inMediaRemoval), IntPtr.Zero, 0, ref bytesReturned, IntPtr.Zero) != 0);
+              return (Kernel32.DeviceIoControl(this.cdHandle, 0x2d4804, inMediaRemoval, (uint)Marshal.SizeOf(inMediaRemoval), IntPtr.Zero, 0, ref bytesReturned, IntPtr.Zero) != 0);
           }
           return false;
       }
@@ -562,8 +563,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           Console.WriteLine("n = {0}, numSecs = {1}, secs = {2}", n, numSecs, secs);
 
           postfix += " " + numSecs;
-          Win32Functions.TRACK_DATA last = Toc.TrackData[numTracks];
-          Win32Functions.TRACK_DATA first = Toc.TrackData[0];
+          Kernel32.TRACK_DATA last = Toc.TrackData[numTracks];
+          Kernel32.TRACK_DATA first = Toc.TrackData[0];
 
           t = ((last.Address_1 * 60) + last.Address_2) -
               ((first.Address_1 * 60) + first.Address_2);
@@ -583,23 +584,23 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           if (((Environment.OSVersion.Platform != PlatformID.Win32NT) || (version.Major < 5)) || ((version.Major == 5) && (version.Minor < 1)))
               return false;
 
-          Win32Functions.CDROM_READ_TOC_EX structure = new Win32Functions.CDROM_READ_TOC_EX
+          Kernel32.CDROM_READ_TOC_EX structure = new Kernel32.CDROM_READ_TOC_EX
           {
-              Format = Win32Functions.CDROM_READ_TOC_EX_FORMAT.CDTEXT
+              Format = Kernel32.CDROM_READ_TOC_EX_FORMAT.CDTEXT
           };
           int cb = Marshal.SizeOf(structure);
           IntPtr ptr = Marshal.AllocHGlobal(cb);
           Marshal.StructureToPtr(structure, ptr, true);
 
-          Win32Functions.CDROM_TOC_CD_TEXT_DATA cdrom_toc_cd_text_data = new Win32Functions.CDROM_TOC_CD_TEXT_DATA
+          Kernel32.CDROM_TOC_CD_TEXT_DATA cdrom_toc_cd_text_data = new Kernel32.CDROM_TOC_CD_TEXT_DATA
           {
-            Length = (ushort)Marshal.SizeOf(typeof(Win32Functions.CDROM_TOC_CD_TEXT_DATA))
+            Length = (ushort)Marshal.SizeOf(typeof(Kernel32.CDROM_TOC_CD_TEXT_DATA))
           };
 
           IntPtr ptr2 = Marshal.AllocHGlobal(cdrom_toc_cd_text_data.Length);
           Marshal.StructureToPtr(cdrom_toc_cd_text_data, ptr2, true);
           uint bytesReturned = 0;
-          bool flag = Win32Functions.DeviceIoControl(this.CDHandle, Win32Functions.IOCTL_CDROM_READ_TOC_EX, ptr, (uint)cb, ptr2, cdrom_toc_cd_text_data.Length, ref bytesReturned, IntPtr.Zero) != 0;
+          bool flag = Kernel32.DeviceIoControl(this.CDHandle, Kernel32.IOCTL_CDROM_READ_TOC_EX, ptr, (uint)cb, ptr2, cdrom_toc_cd_text_data.Length, ref bytesReturned, IntPtr.Zero) != 0;
           if (flag)
           {
               Marshal.PtrToStructure(ptr2, cdrom_toc_cd_text_data);
@@ -611,7 +612,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
           return flag;
       }
 
-      private List<Track> BuildCDTracks(Win32Functions.CDROM_TOC_CD_TEXT_DATA Data)
+      private List<Track> BuildCDTracks(Kernel32.CDROM_TOC_CD_TEXT_DATA Data)
       {
           List<Track> tracks = new List<Track>();
 
@@ -641,7 +642,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
 
               for (int i = 0; i < Data.Descriptors.MaxIndex; i++)
               {
-                  Win32Functions.CDROM_TOC_CD_TEXT_DATA_BLOCK cdrom_toc_cd_text_data_block = Data.Descriptors[i];
+                  Kernel32.CDROM_TOC_CD_TEXT_DATA_BLOCK cdrom_toc_cd_text_data_block = Data.Descriptors[i];
                   foreach (char ch in cdrom_toc_cd_text_data_block.Text)
                   {
                       if (ch != '\0')
@@ -652,17 +653,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
                       {
                           switch (cdrom_toc_cd_text_data_block.PackType)
                           {
-                              case Win32Functions.CDROM_CD_TEXT_PACK.ALBUM_NAME:
+                              case Kernel32.CDROM_CD_TEXT_PACK.ALBUM_NAME:
                                   titles.Add(item);
                                   item = string.Empty;
                                   break;
 
-                              case Win32Functions.CDROM_CD_TEXT_PACK.GENRE:
+                              case Kernel32.CDROM_CD_TEXT_PACK.GENRE:
                                   genres.Add(item);
                                   item = string.Empty;
                                   break;
 
-                              case Win32Functions.CDROM_CD_TEXT_PACK.PERFORMER:
+                              case Kernel32.CDROM_CD_TEXT_PACK.PERFORMER:
                                   artists.Add(item);
                                   item = string.Empty;
                                   break;

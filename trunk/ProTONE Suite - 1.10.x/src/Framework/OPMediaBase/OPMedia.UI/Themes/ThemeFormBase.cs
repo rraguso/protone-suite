@@ -77,7 +77,12 @@ namespace OPMedia.UI.Themes
             { 
                 _text = value;
 
-                User32.SetWindowText(Handle, _text);
+                try
+                {
+                    User32.SetWindowText(Handle, _text);
+                }
+                catch { }
+
                 ApplyWindowParams();
             } 
         }
@@ -578,15 +583,12 @@ namespace OPMedia.UI.Themes
         {
         }
         
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
         private void OnResizeMouseMove(object sender, MouseEventArgs e)
         {
             if (sender is ResizeMargin && e.Button == MouseButtons.Left)
             {
                 int dir = (int)(sender as ResizeMargin).Tag;
-                ReleaseCapture();
+                User32.ReleaseCapture();
                 User32.SendMessage(Handle, (int)Messages.WM_NCLBUTTONDOWN, dir, 0);
             }
         }

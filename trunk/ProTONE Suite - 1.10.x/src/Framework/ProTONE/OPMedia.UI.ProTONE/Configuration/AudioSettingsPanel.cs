@@ -51,6 +51,13 @@ namespace OPMedia.UI.ProTONE.Configuration
                     MediaRenderer.DefaultInstance.AudioVolume = AppSettings.LastVolume;
                     AppSettings.Save();
                 };
+
+            tenBandEqualizer1.EqBandFreqChanged += (b) =>
+                {
+                };
+            tenBandEqualizer1.EqBandLevelChanged += (b) =>
+                {
+                };
         }
     }
 }

@@ -131,15 +131,21 @@ namespace OPMedia.Core
 
         public static Image GetIcon(string strPath, bool largeIcon = false)
         {
-            Image retVal = _GetIcon(strPath, largeIcon).ToBitmap();
-            if (retVal == null)
+            Icon icon = _GetIcon(strPath, largeIcon);
+            if (icon != null)
             {
-                return GetShell32Icon(Shell32Icon.GenericFile, largeIcon);
+                Image retVal = icon.ToBitmap();
+                if (retVal == null)
+                {
+                    return GetShell32Icon(Shell32Icon.GenericFile, largeIcon);
+                }
+                else
+                {
+                    return retVal.Resize(largeIcon);
+                }
             }
-            else
-            {
-                return retVal.Resize(largeIcon);
-            }
+
+            return null;
         }
 
         private static Icon _GetIcon(string strPath, bool largeIcon = false)
@@ -278,11 +284,15 @@ namespace OPMedia.Core
             IntPtr[] handlesIconSmall = new IntPtr[1];
 
             uint i = Shell32.ExtractIconEx(file, iconIndex, handlesIconLarge, handlesIconSmall, 1);
+            if (i > 0)
+            {
+                if (largeIcon)
+                    return Icon.FromHandle(handlesIconLarge[0]).ToBitmap();
+                else
+                    return Icon.FromHandle(handlesIconSmall[0]).ToBitmap();
+            }
 
-            if (largeIcon)
-                return Icon.FromHandle(handlesIconLarge[0]).ToBitmap();
-            else
-                return Icon.FromHandle(handlesIconSmall[0]).ToBitmap();
+            return null;
         }
     }
 }

@@ -9,6 +9,8 @@ using System.Threading;
 using System.ComponentModel;
 using System.Reflection;
 using System.IO;
+using OPMedia.Core;
+using System.Text;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
 {
@@ -43,7 +45,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
 
 #if DEBUG
         public static void _TRACE(string _message) { if (!string.IsNullOrEmpty(_message)) Trace.WriteLine(_message); }
-        public static void TRACE(string _message) { if (!string.IsNullOrEmpty(_message)) { _message += "\n"; API.OutputDebugString(_message); } }
+        public static void TRACE(string _message) { if (!string.IsNullOrEmpty(_message)) { _message += "\n"; Kernel32.OutputDebugString(_message); } }
         
         public static void TRACE_ENTER() 
         { 
@@ -157,84 +159,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         public static HRESULT VFW_E_SAMPLE_TIME_NOT_SET { get { unchecked { return (HRESULT)0x80040249; } } }
         public static HRESULT VFW_E_TIMEOUT { get { unchecked { return (HRESULT)0x8004022E; } } }
         public static HRESULT VFW_S_NO_STOP_TIME { get { unchecked { return (HRESULT)0x00040270; } } }
-
-        #endregion
-
-        #region Enum
-
-        [ComVisible(false)]
-        [Flags]
-        public enum CLSCTX : uint
-        {
-            CLSCTX_INPROC_SERVER = 0x1,
-            CLSCTX_INPROC_HANDLER = 0x2,
-            CLSCTX_LOCAL_SERVER = 0x4,
-            CLSCTX_INPROC_SERVER16 = 0x8,
-            CLSCTX_REMOTE_SERVER = 0x10,
-            CLSCTX_INPROC_HANDLER16 = 0x20,
-            CLSCTX_RESERVED1 = 0x40,
-            CLSCTX_RESERVED2 = 0x80,
-            CLSCTX_RESERVED3 = 0x100,
-            CLSCTX_RESERVED4 = 0x200,
-            CLSCTX_NO_CODE_DOWNLOAD = 0x400,
-            CLSCTX_RESERVED5 = 0x800,
-            CLSCTX_NO_CUSTOM_MARSHAL = 0x1000,
-            CLSCTX_ENABLE_CODE_DOWNLOAD = 0x2000,
-            CLSCTX_NO_FAILURE_LOG = 0x4000,
-            CLSCTX_DISABLE_AAA = 0x8000,
-            CLSCTX_ENABLE_AAA = 0x10000,
-            CLSCTX_FROM_DEFAULT_CONTEXT = 0x20000,
-            CLSCTX_ACTIVATE_32_BIT_SERVER = 0x40000,
-            CLSCTX_ACTIVATE_64_BIT_SERVER = 0x80000,
-            CLSCTX_INPROC = CLSCTX_INPROC_SERVER | CLSCTX_INPROC_HANDLER,
-            CLSCTX_SERVER = CLSCTX_INPROC_SERVER | CLSCTX_LOCAL_SERVER | CLSCTX_REMOTE_SERVER,
-            CLSCTX_ALL = CLSCTX_SERVER | CLSCTX_INPROC_HANDLER
-        }
-
-        #endregion
-
-        #region API
-
-        [ComVisible(false)]
-        public static class API
-        {
-            [DllImport("kernel32.dll", EntryPoint = "OutputDebugStringW", CharSet = CharSet.Unicode)]
-            public static extern void OutputDebugString(string _text);
-
-            [DllImport("kernel32.dll", EntryPoint = "RtlMoveMemory")]
-            public static extern void CopyMemory(IntPtr Destination, IntPtr Source, [MarshalAs(UnmanagedType.U4)] int Length);
-            
-            [DllImport("ole32.dll")]
-            public static extern int CreateBindCtx(int reserved, out IBindCtx ppbc);
-
-            [DllImport("ole32.dll", CharSet = CharSet.Unicode)]
-            public static extern int MkParseDisplayName(IBindCtx pbc, string szUserName, ref int pchEaten, out IMoniker ppmk);
-
-            [DllImport("olepro32.dll")]
-            public static extern int OleCreatePropertyFrame(
-                IntPtr hwndOwner,
-                int x,
-                int y,
-                [MarshalAs(UnmanagedType.LPWStr)] string lpszCaption,
-                int cObjects,
-                [MarshalAs(UnmanagedType.Interface, ArraySubType = UnmanagedType.IUnknown)] 
-			    ref object ppUnk,
-                int cPages,
-                IntPtr lpPageClsID,
-                int lcid,
-                int dwReserved,
-                IntPtr lpvReserved
-                );
-
-            [DllImport("ole32.dll")]
-            public static extern int CoCreateInstance(
-                [In, MarshalAs(UnmanagedType.LPStruct)] Guid rclsid,
-                IntPtr pUnkOuter,
-                CLSCTX dwClsContext,
-                [In, MarshalAs(UnmanagedType.LPStruct)] Guid riid,
-                out IntPtr rReturnedComObject
-                );
-        }
 
         #endregion
     }
@@ -511,19 +435,20 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         protected virtual string GetErrorText()
         {
             string _text = "";
-            uint _length = 160;
-            IntPtr _ptr = Marshal.AllocCoTaskMem((int)_length);
+            int _length = 160;
+            StringBuilder sb = new StringBuilder(_length);
+
             try
             {
-                if (AMGetErrorText(m_Result, _ptr, _length) > 0)
+                if (Quartz.AMGetErrorText(m_Result, sb, _length) > 0)
                 {
-                    _text = Marshal.PtrToStringAuto(_ptr);
+                    _text = sb.ToString();
                 }
             }
             catch
             {
             }
-            Marshal.FreeCoTaskMem(_ptr);
+            
             return _text;
         }
 
@@ -561,13 +486,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
                     )); 
             }
         }
-
-        #endregion
-
-        #region Imports
-
-        [DllImport("quartz.dll", EntryPoint = "AMGetErrorText", CharSet = CharSet.Auto)]
-        private static extern uint AMGetErrorText(int hr,IntPtr sText,[In] uint _length);
 
         #endregion
 
@@ -1243,10 +1161,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             if (_guid != Guid.Empty)
             {
                 IntPtr _ptr;
-                HRESULT hr = (HRESULT)API.CoCreateInstance(
+                HRESULT hr = (HRESULT)Ole32.CoCreateInstance(
                     _guid,
                     IntPtr.Zero,
-                    CLSCTX.CLSCTX_INPROC_SERVER,
+                    Ole32.CLSCTX.CLSCTX_INPROC_SERVER,
                     typeof(T).GUID,
                     out _ptr);
                 if (hr.Succeeded)
@@ -1262,10 +1180,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             if (_guid != Guid.Empty)
             {
                 IntPtr _ptr;
-                HRESULT hr = (HRESULT)API.CoCreateInstance(
+                HRESULT hr = (HRESULT)Ole32.CoCreateInstance(
                     _guid,
                     IntPtr.Zero,
-                    CLSCTX.CLSCTX_INPROC_SERVER,
+                    Ole32.CLSCTX.CLSCTX_INPROC_SERVER,
                     typeof(T).GUID,
                     out _ptr);
                 if (hr.Succeeded)
@@ -1539,10 +1457,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
             IBindCtx _context = null;
             try
             {
-                if (SUCCEEDED(API.CreateBindCtx(0, out _context)))
+                if (SUCCEEDED(Ole32.CreateBindCtx(0, out _context)))
                 {
                     int n = 0;
-                    ASSERT(SUCCEEDED(API.MkParseDisplayName(_context, _moniker, ref n, out m_pUnknown)));
+                    ASSERT(SUCCEEDED(Ole32.MkParseDisplayName(_context, _moniker, ref n, out m_pUnknown)));
                 }
             }
             finally
