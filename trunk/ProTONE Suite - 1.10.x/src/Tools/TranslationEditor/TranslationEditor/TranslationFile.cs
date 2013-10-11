@@ -11,6 +11,7 @@ namespace TranslationEditor
     {
         public override string ToString()
         {
+
             return string.Format("{0} in '{3}': {1} -> {2}", StringName, BaseString, TranslatedString, Path);
         }
 
