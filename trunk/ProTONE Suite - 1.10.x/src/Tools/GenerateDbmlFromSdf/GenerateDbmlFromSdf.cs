@@ -114,11 +114,12 @@ namespace SqlCeCustomTool
 
             if (isError)
             {
-                MessageBox.Show(output, "SqlCeCustomTool", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(output, "GenerateDbmlFromSdf", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Tool executed successfully !", "SqlCeCustomTool", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                output += "\n\nTool executed successfully !"; 
+                MessageBox.Show(output, "GenerateDbmlFromSdf", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             pcbOutput = 0;
