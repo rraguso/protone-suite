@@ -141,12 +141,6 @@
       <Generator>GenerateDbmlFromSdf</Generator>
       <LastGenOutput>Persistence1.sdf</LastGenOutput>
     </Content>
-    <Content Include="Persistence1.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Persistence.sdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
