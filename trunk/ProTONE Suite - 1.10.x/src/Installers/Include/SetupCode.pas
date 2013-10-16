@@ -193,10 +193,10 @@ var
    ResultCode : integer;
 begin
 
-   DownloadFile('Download .NET 4.0 ...', 'Please wait while downloading', 
+   DownloadFile('Download .NET 4.0', 'Please wait while downloading Microsoft .NET Framework 4.0 ...', 
     DotNetFxDownloadUrl, ExpandConstant('{tmp}\dotnet40.exe'));
 
-   Exec(ExpandConstant('{tmp}\dotnet40.exe'), '/q:a /c:"install /l /q"', '', SW_SHOW, ewWaitUntilTerminated, ResultCode)
+   Exec(ExpandConstant('{tmp}\dotnet40.exe'), '/q', '', SW_SHOW, ewWaitUntilTerminated, ResultCode)
    
    DeleteFile(ExpandConstant('{tmp}\dotnet40.exe'))
 
