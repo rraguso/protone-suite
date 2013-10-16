@@ -173,7 +173,7 @@ namespace OPMedia.Core
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
             }
 
@@ -187,46 +187,31 @@ namespace OPMedia.Core
 
         public static Image GetShell32Icon(Shell32Icon type, bool largeIcon)
         {
-            return GetShell32Icon((int)type, largeIcon);
+            try
+            {
+                // Use icons provided by Shell32.dll itself
+                return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "shell32.dll",
+                    (int)type, largeIcon);
+            }
+            catch (Exception ex)
+            {
+                return new Bitmap(1, 1);
+            }
         }
-
-        public static Image GetShell32Icon(int index, bool largeIcon)
-        {
-
-            // Use icons provided by Shell32.dll itself
-            return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "shell32.dll", 
-                index, largeIcon);
-        }
-
 
         public static Image GetUser32Icon(User32Icon type, bool largeIcon)
         {
-            return GetUser32Icon((int)type, largeIcon);
+            try
+            {
+                // Use icons provided by User32.dll itself
+                return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "user32.dll",
+                    (int)type, largeIcon);
+            }
+            catch (Exception ex)
+            {
+                return new Bitmap(1, 1);
+            }
         }
-
-        public static Image GetUser32Icon(int index, bool largeIcon)
-        {
-
-            // Use icons provided by User32.dll itself
-            return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "user32.dll",
-                index, largeIcon);
-        }
-
-
-        //public static Icon GetByResourceName(string name, bool largeIcon)
-        //{
-        //    try
-        //    {
-        //        Icon resIcon = Resources.ResourceManager.GetObject(name) as Icon;
-        //        return ResizeIcon(resIcon, largeIcon);
-
-        //    }
-        //    catch
-        //    {
-        //    }
-            
-        //    return null;
-        //}
 
         public static Icon ToIcon(this Bitmap bmp, uint argbTRansparentColor = 0xFFFF00FF)
         {
@@ -280,16 +265,29 @@ namespace OPMedia.Core
         
         public static Image GetIcon(string file, int iconIndex, bool largeIcon)
         {
-            IntPtr[] handlesIconLarge = new IntPtr[1];
-            IntPtr[] handlesIconSmall = new IntPtr[1];
+            IntPtr[] handlesIconLarge = new IntPtr[1] { IntPtr.Zero };
+            IntPtr[] handlesIconSmall = new IntPtr[1] { IntPtr.Zero };
 
-            uint i = Shell32.ExtractIconEx(file, iconIndex, handlesIconLarge, handlesIconSmall, 1);
-            if (i > 0)
+            try
             {
-                if (largeIcon)
-                    return Icon.FromHandle(handlesIconLarge[0]).ToBitmap();
-                else
-                    return Icon.FromHandle(handlesIconSmall[0]).ToBitmap();
+                uint i = Shell32.ExtractIconEx(file, iconIndex, handlesIconLarge, handlesIconSmall, 1);
+                if (i > 0)
+                {
+                    if (largeIcon && handlesIconLarge[0] != IntPtr.Zero)
+                        return (Icon.FromHandle(handlesIconLarge[0]).Clone() as Icon).ToBitmap();
+                    else if (handlesIconSmall[0] != IntPtr.Zero)
+                        return (Icon.FromHandle(handlesIconSmall[0]).Clone() as Icon).ToBitmap();
+                }
+            }
+            catch { }
+            finally
+            {
+                // RELEASE RESOURCES
+                if (handlesIconLarge[0] != IntPtr.Zero)
+                    User32.DestroyIcon(handlesIconLarge[0]);
+
+                if (handlesIconSmall[0] != IntPtr.Zero)
+                    User32.DestroyIcon(handlesIconSmall[0]);
             }
 
             return null;
