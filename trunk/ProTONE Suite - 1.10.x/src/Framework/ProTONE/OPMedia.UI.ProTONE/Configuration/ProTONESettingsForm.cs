@@ -46,8 +46,8 @@ namespace OPMedia.UI.ProTONE.Configuration
                 AddPanel(typeof(AddonSettingsPanel));
             }
 
-            AddPanel(typeof(AudioSettingsPanel));
-            AddPanel(typeof(VideoSettingsPanel));
+            //AddPanel(typeof(AudioSettingsPanel));
+            //AddPanel(typeof(VideoSettingsPanel));
             AddPanel(typeof(SubtitleSettingsPanel));
 
             if (ApplicationInfo.IsPlayer)

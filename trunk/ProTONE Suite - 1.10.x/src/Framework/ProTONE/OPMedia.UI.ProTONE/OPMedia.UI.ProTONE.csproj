@@ -59,12 +59,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\AudioSettingsPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Configuration\AudioSettingsPanel.Designer.cs">
-      <DependentUpon>AudioSettingsPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Configuration\MiscConfig\DisksOptionsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,12 +70,6 @@
     </Compile>
     <Compile Include="Configuration\MiscConfig\FavoriteFoldersPage.Designer.cs">
       <DependentUpon>FavoriteFoldersPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configuration\VideoSettingsPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Configuration\VideoSettingsPanel.Designer.cs">
-      <DependentUpon>VideoSettingsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Equalizer\EqualizerBand.cs">
       <SubType>UserControl</SubType>
@@ -263,9 +251,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Configuration\AudioSettingsPanel.resx">
-      <DependentUpon>AudioSettingsPanel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\FileTypesPanel.resx">
       <DependentUpon>FileTypesPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
