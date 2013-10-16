@@ -4,6 +4,9 @@ const
    // .NET Framework detection parameters
    DotNetFxRegistryPath =       'SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full';
    DotNetFxDownloadUrl =        'http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe';
+   
+   //
+   WicDownloadUrl = 		'http://download.microsoft.com/download/f/f/1/ff178bb1-da91-48ed-89e5-478a99387d4f/wic_x86_enu.exe';
 
    // Haali Media Splitter detection parameter
    // This is the CLSID of splitter.ax filter
@@ -175,6 +178,43 @@ begin
 end;
 
 //--------------------------------------------------------------------------------
+function IsVistaOrLater: Boolean;
+begin
+  Result := (GetWindowsVersion >= $06006000);
+end;
+
+//--------------------------------------------------------------------------------
+// Indicates whether Windows Imaging Component (WIC) is installed.
+function IsWICDetected: boolean;
+begin
+    result := FileExists(ExpandConstant('{sys}\WindowsCodecs.dll'));
+end;
+
+//--------------------------------------------------------------------------------
+// Installs Windows Imaging Component (WIC)
+function InstallWIC: boolean;
+var
+   ResultCode : integer;
+begin
+
+   DownloadFile('Download .NET 4.0 prerequisites ...', 'Please wait while downloading Windows Imaging Component (WIC) ...', 
+       WicDownloadUrl, ExpandConstant('{tmp}\wic_setup.exe'));
+
+   Exec(ExpandConstant('{tmp}\wic_setup.exe'), '/q /norestart', '', SW_SHOW, ewWaitUntilTerminated, ResultCode)
+   
+   DeleteFile(ExpandConstant('{tmp}\wic_setup.exe'))
+
+   if (IsWICDetected = false) then
+   begin
+    MsgBox('Windows Imaging Component failed to install.', mbCriticalError, MB_OK);
+    result := false;
+    exit;
+   end;
+
+   result := true;
+end;
+
+//--------------------------------------------------------------------------------
 // Indicates whether .NET Framework 4.0 is installed.
 function IsDotNETFxDetected: boolean;
 var
@@ -191,10 +231,22 @@ end;
 function InstallDotNETFx: boolean;
 var
    ResultCode : integer;
+   wicPresent : boolean;
 begin
 
-   DownloadFile('Download .NET 4.0', 'Please wait while downloading Microsoft .NET Framework 4.0 ...', 
-    DotNetFxDownloadUrl, ExpandConstant('{tmp}\dotnet40.exe'));
+   wicPresent := IsVistaOrLater or IsWICDetected;
+   if (wicPresent = false) then
+   begin
+       // On XP/2003, WIC must be installed before .NET 4.0
+       if (InstallWIC = false) then
+       begin
+           result := false;
+           exit;
+       end;
+   end;
+
+   DownloadFile('Download .NET 4.0 installation ...', 'Please wait while downloading Microsoft .NET Framework 4.0 ...', 
+       DotNetFxDownloadUrl, ExpandConstant('{tmp}\dotnet40.exe'));
 
    Exec(ExpandConstant('{tmp}\dotnet40.exe'), '/q', '', SW_SHOW, ewWaitUntilTerminated, ResultCode)
    
@@ -329,6 +381,7 @@ begin
    // Detect and install .NET Framework if not present
    if (IsDotNETFxDetected = false) then
    begin
+   
     // .NET Framework was not detected.
     res := MsgBox(CustomMessage('DotNetRequired'), mbConfirmation, MB_YESNO);
 
