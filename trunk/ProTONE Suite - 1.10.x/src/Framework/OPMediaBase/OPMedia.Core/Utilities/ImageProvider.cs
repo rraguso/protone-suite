@@ -187,30 +187,16 @@ namespace OPMedia.Core
 
         public static Image GetShell32Icon(Shell32Icon type, bool largeIcon)
         {
-            try
-            {
-                // Use icons provided by Shell32.dll itself
-                return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "shell32.dll",
-                    (int)type, largeIcon);
-            }
-            catch (Exception ex)
-            {
-                return new Bitmap(1, 1);
-            }
+            // Use icons provided by Shell32.dll itself
+            return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "shell32.dll",
+                (int)type, largeIcon);
         }
 
         public static Image GetUser32Icon(User32Icon type, bool largeIcon)
         {
-            try
-            {
-                // Use icons provided by User32.dll itself
-                return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "user32.dll",
-                    (int)type, largeIcon);
-            }
-            catch (Exception ex)
-            {
-                return new Bitmap(1, 1);
-            }
+            // Use icons provided by User32.dll itself
+            return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "user32.dll",
+                (int)type, largeIcon);
         }
 
         public static Icon ToIcon(this Bitmap bmp, uint argbTRansparentColor = 0xFFFF00FF)
