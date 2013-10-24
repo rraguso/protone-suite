@@ -115,11 +115,19 @@ namespace OPMedia.UI.Themes
             this.ShowInTaskbar = false;
         }
 
+        protected virtual bool AutoCenterEnabled
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         void ThemeForm_Shown(object sender, EventArgs e)
         {
             if (!DesignMode)
             {
-                if (!(this is MainFrame))
+                if (AutoCenterEnabled)
                 {
                     IWin32Window owner = MainThread.MainWindow;
                     if (owner == null ||
@@ -372,6 +380,14 @@ namespace OPMedia.UI.Themes
         {
         }
 
+        protected override bool AutoCenterEnabled
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         private void AttachEvents()
         {
             if (!DesignMode)
@@ -529,22 +545,32 @@ namespace OPMedia.UI.Themes
         {
             if (Visible && WindowState == FormWindowState.Normal)
             {
-                // Get the display rectangle
-                Rectangle displayRect = Screen.GetWorkingArea(this);
-
+                bool isInAnyVisibleScreen = false;
                 Point restoreLocation = AppSettings.WindowLocation;
                 Size restoreSize = AppSettings.WindowSize;
 
-                if (!displayRect.Contains(restoreLocation))
+                foreach (Screen scr in Screen.AllScreens)
                 {
-                    // Bring the left top corner into view
-                    restoreLocation = new Point(0, 0);
+                    // Get the display rectangle
+                    Rectangle displayRect = scr.WorkingArea;
+                    if (displayRect.Contains(restoreLocation))
+                    {
+                        isInAnyVisibleScreen = true;
+                        break;
+                    }
                 }
 
-                // Check whether the original window size combined with actual location fits the screen.
-                // If it does not fit the screen adjust the window size so as it will fit the best.
-                restoreSize.Width = Math.Min(restoreSize.Width, displayRect.Width - restoreLocation.X);
-                restoreSize.Height = Math.Min(restoreSize.Height, displayRect.Height - restoreLocation.Y);
+                if (!isInAnyVisibleScreen)
+                {
+                    restoreLocation = new Point(100, 100);
+
+                    Rectangle displayRect = Screen.PrimaryScreen.WorkingArea;
+
+                    // Check whether the original window size combined with actual location fits the screen.
+                    // If it does not fit the screen adjust the window size so as it will fit the best.
+                    restoreSize.Width = Math.Min(restoreSize.Width, displayRect.Width - restoreLocation.X);
+                    restoreSize.Height = Math.Min(restoreSize.Height, displayRect.Height - restoreLocation.Y);
+                }
 
                 this.Location = restoreLocation;
                 this.Size = restoreSize;

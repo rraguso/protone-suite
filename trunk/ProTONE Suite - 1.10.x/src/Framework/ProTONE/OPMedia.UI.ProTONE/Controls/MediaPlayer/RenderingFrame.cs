@@ -43,6 +43,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             _osdShowTimer.Tick += new EventHandler(_osdShowTimer_Tick);
         }
 
+        protected override bool AutoCenterEnabled
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         void _osdShowTimer_Tick(object sender, EventArgs e)
         {
             _osdShowTimer.Stop();
