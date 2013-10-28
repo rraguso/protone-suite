@@ -17,6 +17,7 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.UI.Controls;
 using OPMedia.Core.ComTypes;
 using OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer;
+using OPMedia.Runtime.FileInformation;
 
 namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Tasks
 {
@@ -240,14 +241,17 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Tasks
                 ci.RootSerialNumber = Kernel32.GetVolumeSerialNumber(di.RootDirectory.FullName);
                 ci.ParentItemID = parent.ItemID;
 
-                if (MediaRenderer.IsSupportedMedia(file.FullName))
+                try
                 {
-                    PlaylistItem pi = new PlaylistItem(file.FullName, false);
-                    ci.Description = pi.Details;
+                    NativeFileInfo nfi = NativeFileInfoFactory.FromPath(file.FullName);
+                    if (nfi != null)
+                    {
+                        ci.Description = nfi.Details;
+                    }
                 }
-                //else
+                catch(Exception ex)
                 {
-                    // In future ... try add description for other files too
+                    Logger.LogException(ex);
                 }
 
                 ci.Save();

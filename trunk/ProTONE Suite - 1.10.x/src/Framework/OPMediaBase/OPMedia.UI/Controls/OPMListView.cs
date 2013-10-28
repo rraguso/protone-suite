@@ -129,13 +129,6 @@ namespace OPMedia.UI.Controls
         int _sortColumn = -1;
         SortOrder _sortorder = SortOrder.Ascending;
 
-        //
-        // TODO:
-        //
-        // 1. Add more supported in-place edit controls.
-        // 2. Find a way to define and edit the in-place edit controls directly
-        //    in the properties of the column headers (in designer).
-		//
 		#region Delegates
 		/// <summary>
 		/// Type of delegate used to raise EditableListViewXXX events.

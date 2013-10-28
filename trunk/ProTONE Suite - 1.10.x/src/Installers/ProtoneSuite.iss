@@ -80,6 +80,7 @@ Source: ISSkin.dll; DestDir: {app}; Flags: dontcopy
 Source: Skins\OPMedia.cjstyles; DestDir: {tmp}; Flags: dontcopy
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+Source: {#BINDIR}\lame_enc.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\ICSharpCode.SharpZipLib.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\XmlRpc.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\taglib-sharp.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
@@ -167,42 +168,42 @@ Source: {#EXTDIR}\SQLCE\sqlceoledb35.dll; DestDir: {app}
 Source: {#EXTDIR}\SQLCE\sqlceqp35.dll; DestDir: {app}
 Source: {#EXTDIR}\SQLCE\sqlcese35.dll; DestDir: {app}
 Source: {#EXTDIR}\SQLCE\System.Data.SqlServerCe.dll; DestDir: {app}
-Source: ..\..\Externals\ffdshow\Boost_Software_License_1.0.txt; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ff_kernelDeint.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ff_liba52.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ff_libdts.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ff_libfaad2.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ff_libmad.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ff_samplerate.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ff_unrar.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ff_wmv9.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ffavisynth.avsi; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ffavisynth.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ffdshow.ax; DestDir: {app}\Codecs; Flags: regserver; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ffmpeg.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\ffvdub.vdf; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\FLT_ffdshow.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\gnu_license.txt; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\IntelQuickSyncDecoder.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\libmpeg2_ff.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\makeAVIS.exe; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\openIE.js; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\ffdshow\TomsMoComp_ff.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
-Source: ..\..\Externals\haali\avi.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\avs.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\avss.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\cue2xml.js; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\dsmux.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\dxr.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\gdsmux.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\mkunicode.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\mkv2vfr.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\mkx.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\mkzlib.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\mp4.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\ogm.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
-Source: ..\..\Externals\haali\splitter.ax; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"; Languages: 
-Source: ..\..\Externals\haali\ts.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\ffdshow\Boost_Software_License_1.0.txt; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_kernelDeint.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_liba52.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_libdts.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_libfaad2.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_libmad.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_samplerate.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_unrar.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ff_wmv9.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ffavisynth.avsi; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ffavisynth.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ffdshow.ax; DestDir: {app}\Codecs; Flags: regserver; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ffmpeg.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\ffvdub.vdf; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\FLT_ffdshow.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\gnu_license.txt; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\IntelQuickSyncDecoder.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\libmpeg2_ff.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\makeAVIS.exe; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\openIE.js; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\ffdshow\TomsMoComp_ff.dll; DestDir: {app}\Codecs; Components: itemCodecs\itemFFDShow
+Source: {#EXTDIR}\haali\avi.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\avs.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\avss.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\cue2xml.js; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\dsmux.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\dxr.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\gdsmux.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkunicode.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkv2vfr.exe; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkx.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mkzlib.dll; DestDir: {app}\HDSupport; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\mp4.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\ogm.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
+Source: {#EXTDIR}\haali\splitter.ax; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"; Languages: 
+Source: {#EXTDIR}\haali\ts.dll; DestDir: {app}\HDSupport; Flags: regserver; Components: "  itemCodecs\itemHaali"
 
 [Icons]
 Name: {group}\{cm:UninstallProgram,ProTONE Suite}; Filename: {uninstallexe}
@@ -706,7 +707,7 @@ Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: dword; ValueName: a
 Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: dword; ValueName: showAvisynth; ValueData: $00000001; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: dword; ValueName: avisynthFfdshowSource; ValueData: $00000001; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: string; ValueName: avisynthScriptMULTI_SZ; ValueData: hex(7):68,00,65,00,78,00,28,00,37,00,29,00,3a,00,30,00,30,00,2c,00,30,00,30,00,00,00,00,00; Components: itemCodecs\itemFFDShow
-Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: string; ValueName: avisynthScript; ValueData: hex(7):00,00
+Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: string; ValueName: avisynthScript; ValueData: hex(7):00,00
 ; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: dword; ValueName: isVis; ValueData: $00000000; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: dword; ValueName: showVis; ValueData: $00000001; Components: itemCodecs\itemFFDShow

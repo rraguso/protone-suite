@@ -39,10 +39,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             for (OPMShortcut cmd = OPMShortcut.CmdPlay; cmd <= OPMShortcut.CmdFullScreen; cmd++)
             {
-                // TODO remove this after Shoutcast is implemented
-                //if (cmd == OPMShortcut.CmdOpenURL)
-                  //  continue;
-
                 BuildMenuEntry(cmd, menu, clickHandler, index);
                 index++;
             }

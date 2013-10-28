@@ -81,6 +81,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FileInformation\CDAFileInfo.cs" />
+    <Compile Include="FileInformation\GenericFileInfo.cs" />
     <Compile Include="FileInformation\ID3FileInfo.cs" />
     <Compile Include="FileInformation\DvdMedia.cs" />
     <Compile Include="FileInformation\MediaFileInfo.cs" />

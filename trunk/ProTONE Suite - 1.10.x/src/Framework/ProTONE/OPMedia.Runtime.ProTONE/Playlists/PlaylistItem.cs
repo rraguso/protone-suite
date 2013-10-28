@@ -166,20 +166,10 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                 string retVal = string.Empty;
                 if (MediaInfo != null)
                 {
-                    foreach (KeyValuePair<string, string> kvp in mi.ExtendedInfo)
-                    {
-                        if (string.IsNullOrEmpty(kvp.Key) &&
-                            string.IsNullOrEmpty(kvp.Value))
-                        {
-                            retVal += "\r\n";
-                        }
-                        else
-                        {
-                            retVal += string.Format("{0} {1}\r\n", kvp.Key, kvp.Value);
-                        }
-                    }
+                    retVal = mi.Details;
                 }
-                return retVal.TrimEnd(new char[]{'\r', '\n'});
+                
+                return retVal;
             }
         }
 

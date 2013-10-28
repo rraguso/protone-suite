@@ -145,6 +145,27 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             get { return null; }
         }
 
+        protected override string GetDetailsInner()
+        {
+            string retVal = string.Empty;
+            if (ExtendedInfo != null)
+            {
+                foreach (KeyValuePair<string, string> kvp in ExtendedInfo)
+                {
+                    if (string.IsNullOrEmpty(kvp.Key) &&
+                        string.IsNullOrEmpty(kvp.Value))
+                    {
+                        retVal += "\r\n";
+                    }
+                    else
+                    {
+                        retVal += string.Format("{0} {1}\r\n", kvp.Key, kvp.Value);
+                    }
+                }
+            }
+            return retVal.TrimEnd(new char[] { '\r', '\n' });
+        }
+
         public Bookmark GetNearestBookmarkInRange(int timeStamp, int range)
         {
             if (_bookmarkInfo == null ||

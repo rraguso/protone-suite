@@ -25,6 +25,7 @@ using OPMedia.UI.Dialogs;
 using OPMedia.UI.Controls;
 using System.Linq;
 using OPMedia.UI.Controls.Dialogs;
+using System.Xml;
 
 
 namespace OPMedia.RCCManager
@@ -671,14 +672,65 @@ namespace OPMedia.RCCManager
 
         private void tsmiExportPartial_Click(object sender, EventArgs e)
         {
-            OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
-            dlg.Filter = Translator.Translate("TXT_CONFIG_FILES_FILTER");
-            dlg.DefaultExt = "config";
-            dlg.Title = Translator.Translate("TXT_EXPORT_PARTIAL");
-
-            if (dlg.ShowDialog() == DialogResult.OK)
+            try
             {
-                // TODO: partial export
+                string selRemoteName = string.Empty;
+
+                TreeNode node = tvRemotes.SelectedNode;
+                if (node != null)
+                {
+                    if (node.Tag is RCCServiceConfig.RemoteControlRow)
+                    {
+                        selRemoteName = (node.Tag as RCCServiceConfig.RemoteControlRow).RemoteName;
+                    }
+                    else if (node.Tag is RCCServiceConfig.RemoteButtonsRow)
+                    {
+                        selRemoteName = (node.Tag as RCCServiceConfig.RemoteButtonsRow).RemoteName;
+                    }
+                }
+
+                RCCServiceConfig partialConfig = new RCCServiceConfig();
+
+                var remote = (from rc in _config.RemoteControl
+                        where rc.RemoteName == selRemoteName
+                        select rc).FirstOrDefault();
+
+                if (remote != null)
+                {
+                    partialConfig.RemoteControl.AddRemoteControlRow(selRemoteName, 
+                        remote.InputPinName, remote.InputPinCfgData, remote.OutputPinName, remote.OutputPinCfgData, remote.Enabled);
+
+                    var buttons = (from rb in _config.RemoteButtons
+                                    where rb.RemoteName == selRemoteName
+                                    select rb);
+
+                    if (buttons != null)
+                    {
+                        foreach(var button in buttons)
+                        {
+                            partialConfig.RemoteButtons.AddRemoteButtonsRow(selRemoteName, 
+                                button.InputData, button.OutputData, button.ButtonName, button.TargetWndName, button.Enabled, button.TimedRepeatRate);
+                        }
+
+                        partialConfig.RemoteButtons.AcceptChanges();
+                    }
+
+                    partialConfig.RemoteControl.AcceptChanges();
+
+                    OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+                    dlg.Filter = Translator.Translate("TXT_CONFIG_FILES_FILTER");
+                    dlg.DefaultExt = "config";
+                    dlg.Title = Translator.Translate("TXT_EXPORT_PARTIAL");
+
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        partialConfig.WriteXml(dlg.FileName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorDispatcher.DispatchError(ex);
             }
         }
 

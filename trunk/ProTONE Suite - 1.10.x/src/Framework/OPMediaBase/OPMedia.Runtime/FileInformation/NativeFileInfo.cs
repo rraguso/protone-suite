@@ -142,6 +142,27 @@ namespace OPMedia.Runtime.FileInformation
         public string DateModified
         { get { if (IsValid) return StringUtils.BuildTimeString(fsi.LastWriteTime.ToLocalTime()); else return null; } }
 
+        [Browsable(false)]
+        public virtual Dictionary<string, string> ExtendedInfo
+        {
+            get { return null; }
+            set { }
+        }
+
+        [Browsable(false)]
+        public string Details
+        {
+            get
+            {
+                return GetDetailsInner();
+            }
+        }
+
+        protected virtual string GetDetailsInner()
+        {
+            return string.Empty;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is NativeFileInfo)

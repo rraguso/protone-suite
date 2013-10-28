@@ -70,6 +70,28 @@ namespace OPMedia.Core
                 ApplicationIcon = icon.ToBitmap();
         }
 
+        
+        public static string ImageToString(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, img.RawFormat);
+                byte[] array = ms.ToArray();
+                return Convert.ToBase64String(array);
+            }
+        }
+
+        public static Image StringToImage(string imageString)
+        {
+            if (!string.IsNullOrEmpty(imageString))
+            {
+                byte[] array = Convert.FromBase64String(imageString);
+                return Image.FromStream(new MemoryStream(array));
+            }
+
+            return null;
+        }
+
         public static Icon GetAppIcon(bool largeIcon = false)
         {
             if (ApplicationInfo.IsPlayer)
