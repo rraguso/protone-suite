@@ -7,6 +7,7 @@ using OPMedia.Core;
 using System.Xml;
 using System.IO;
 using System.Xml.Serialization;
+using OPMedia.Core.Utilities;
 
 namespace OPMedia.Runtime.ProTONE.Playlists
 {
@@ -73,7 +74,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                 xs.Serialize(xw, this, ns);
             }
 
-            PersistenceProxy.SaveObject("RadioStationsData", xml.ToString());
+            PersistenceProxy.SaveObject("RadioStationsData", xml.ToValidXml());
         }
 
     }

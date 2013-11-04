@@ -747,7 +747,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
                 sw = new StreamWriter(fileName);
                 sw.WriteLine("<?wpl version=\"1.0\"?>");
-                sw.Write(sb.ToString());
+                sw.Write(sb.ToValidXml());
             }
             catch (Exception ex)
             {
@@ -848,7 +848,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                 xw.Flush();
 
                 sw = new StreamWriter(fileName);
-                sw.Write(sb.ToString());
+                sw.Write(sb.ToValidXml());
             }
             catch (Exception ex)
             {

@@ -134,7 +134,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
                 xs.Serialize(xw, this, ns);
             }
 
-            PersistenceProxy.SaveObject("CDA:" + this.Discid, xml.ToString());
+            PersistenceProxy.SaveObject("CDA:" + this.Discid, xml.ToValidXml());
         }
 
         public CDEntry(string discId) : this()
