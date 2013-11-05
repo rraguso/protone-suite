@@ -203,7 +203,7 @@
             this.grpOptionsVBR.Margin = new System.Windows.Forms.Padding(0);
             this.grpOptionsVBR.Name = "grpOptionsVBR";
             this.grpOptionsVBR.Padding = new System.Windows.Forms.Padding(2);
-            this.grpOptionsVBR.Size = new System.Drawing.Size(448, 81);
+            this.grpOptionsVBR.Size = new System.Drawing.Size(622, 81);
             this.grpOptionsVBR.TabIndex = 3;
             this.grpOptionsVBR.TabStop = false;
             this.grpOptionsVBR.Text = "TXT_OPTIONS_VBR";
@@ -232,7 +232,7 @@
             this.opmTableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel3.Size = new System.Drawing.Size(444, 62);
+            this.opmTableLayoutPanel3.Size = new System.Drawing.Size(618, 62);
             this.opmTableLayoutPanel3.TabIndex = 0;
             // 
             // cmbVbrQuality
@@ -485,6 +485,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // opmLabel8
             // 

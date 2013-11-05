@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks;
 using OPMedia.Runtime.ProTONE.Compression.Lame;
+using OPMedia.UI.Dialogs;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
 {
@@ -143,6 +144,17 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             {
                 this.Task.GenerateTagsFromTrackMetadata = chkGenerateID3.Checked;
             };
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (Mp3ConversionOptions != null)
+            {
+                string conversionFlags = Mp3ConversionOptions.ToString();
+                LogFileConsoleDetail dlg = new LogFileConsoleDetail(conversionFlags);
+                dlg.Text = "MP3 Conversion Flags";
+                dlg.ShowDialog();
+            }
         }
     }
 }

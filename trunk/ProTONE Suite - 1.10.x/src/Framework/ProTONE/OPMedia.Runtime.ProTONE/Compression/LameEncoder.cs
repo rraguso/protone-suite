@@ -70,6 +70,19 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         public int bCRC;
         public int bCopyright;
         public int bOriginal;
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("    dwSampleRate={0}\r\n", dwSampleRate);
+            sb.AppendFormat("    byMode={0}\r\n", byMode);
+            sb.AppendFormat("    wBitrate={0}\r\n", wBitrate);
+            sb.AppendFormat("    bPrivate={0}\r\n", bPrivate);
+            sb.AppendFormat("    bCRC={0}\r\n", bCRC);
+            sb.AppendFormat("    bCopyright={0}\r\n", bCopyright);
+            sb.AppendFormat("    bOriginal={0}", bOriginal);
+            return sb.ToString();
+        }
     }
 
     [StructLayout(LayoutKind.Sequential, Size = 327), Serializable]
@@ -109,6 +122,37 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         // FUTURE USE, SET TO 0, align strucutre to 331 bytes
         //[ MarshalAs( UnmanagedType.ByValArray, SizeConst=255-4*4-2 )]
         //public byte[]   btReserved;//[255-4*sizeof(DWORD) - sizeof( WORD )];
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("    dwStructVersion={0}\r\n ", dwStructVersion);
+            sb.AppendFormat("    dwStructSize={0}\r\n ", dwStructSize);
+            sb.AppendFormat("    dwSampleRate={0}\r\n ", dwSampleRate);
+            sb.AppendFormat("    dwReSampleRate={0}\r\n ", dwReSampleRate);
+            sb.AppendFormat("    nMode={0}\r\n ", nMode);
+            sb.AppendFormat("    dwBitrate={0}\r\n ", dwBitrate);
+            sb.AppendFormat("    dwMaxBitrate={0}\r\n ", dwMaxBitrate);
+            sb.AppendFormat("    nPreset={0}\r\n ", nPreset);
+            sb.AppendFormat("    dwMpegVersion={0}\r\n ", dwMpegVersion);
+            sb.AppendFormat("    dwPsyModel={0}\r\n ", dwPsyModel);
+            sb.AppendFormat("    dwEmphasis={0}\r\n ", dwEmphasis);
+            sb.AppendFormat("    bPrivate={0}\r\n ", bPrivate);
+            sb.AppendFormat("    bCRC={0}\r\n ", bCRC);
+            sb.AppendFormat("    bCopyright={0}\r\n ", bCopyright);
+            sb.AppendFormat("    bOriginal={0}\r\n ", bOriginal);
+            sb.AppendFormat("    bWriteVBRHeader={0}\r\n ", bWriteVBRHeader);
+            sb.AppendFormat("    bEnableVBR={0}\r\n ", bEnableVBR);
+            sb.AppendFormat("    nVBRQuality={0}\r\n ", nVBRQuality);
+            sb.AppendFormat("    dwVbrAbr_bps={0}\r\n ", dwVbrAbr_bps);
+            sb.AppendFormat("    nVbrMethod={0}\r\n ", nVbrMethod);
+            sb.AppendFormat("    bNoRes={0}\r\n ", bNoRes);
+            sb.AppendFormat("    bStrictIso={0}\r\n ", bStrictIso);
+            sb.AppendFormat("    nQuality={0}", nQuality);
+            return sb.ToString();
+        }
+
+
         public LHV1(WaveFormatEx format, uint MpeBitRate)
         {
             if (format.wFormatTag != 1 /* WAVE_FORMAT_PCM */)
@@ -211,6 +255,16 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         public byte byMode;
         public ushort wBitrate;
         public byte byEncodingMethod;
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("    dwSampleRate={0}\r\n ", dwSampleRate);
+            sb.AppendFormat("    byMode={0}\r\n ", byMode);
+            sb.AppendFormat("    wBitrate={0}\r\n ", wBitrate);
+            sb.AppendFormat("    byEncodingMethod={0} ", byEncodingMethod);
+            return sb.ToString();
+        }
     }
 
     [StructLayout(LayoutKind.Explicit), Serializable]
@@ -226,6 +280,15 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         public Format(WaveFormatEx format, uint MpeBitRate)
         {
             lhv1 = new LHV1(format, MpeBitRate);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("  mp3=\r\n  [\r\n{0}\r\n  ];\r\n\r\n", mp3);
+            sb.AppendFormat("  lhv1=\r\n [\r\n{0}\r\n  ];\r\n\r\n", lhv1);
+            sb.AppendFormat("  acc=\r\n  [\r\n{0}\r\n  ];\r\n", acc);
+            return sb.ToString();
         }
     }
 
@@ -255,6 +318,13 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         {
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("dwConfig={0}\r\n", dwConfig == 0 ? "BE_CONFIG_MP3" : "BE_CONFIG_LAME");
+            sb.AppendFormat("format=\r\n[\r\n{0}];", format);
+            return sb.ToString();
+        }
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
