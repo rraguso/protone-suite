@@ -1042,5 +1042,17 @@ fereastră video</value>
 <data name="TXT_CAUTION_REALTIME">
   <value>ATENȚIE: Aceste setări sunt aplicate în timp real. Nu trebuie să apăsați OK pentru a aplica aceste setări.</value>
 </data>
+<data name="TXT_SELECT_RADIO_STATION">
+  <value>Selectați un post de radio:</value>
+</data>
+<data name="TXT_URLPART">
+  <value>URL-ul serverului (corespondenţă parţială):</value>
+</data>
+<data name="TXT_SERVERTITLE">
+  <value>Nume Server (corespondenţă parţială):</value>
+</data>
+<data name="TXT_SEARCH_BY">
+  <value>Căutare după:</value>
+</data>
     
 </root>

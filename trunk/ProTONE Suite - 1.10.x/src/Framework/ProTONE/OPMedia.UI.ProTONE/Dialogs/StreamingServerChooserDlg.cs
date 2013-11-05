@@ -17,28 +17,17 @@ namespace OPMedia.UI.ProTONE.Dialogs
     {
         public string Uri { get; set; }
 
-        OPMTextBox txtEditUrl = new OPMTextBox();
-        OPMTextBox txtEditTitle = new OPMTextBox();
-        OPMComboBox cmbEditGenre = new OPMComboBox();
+        Timer _tmrSearch = null;
 
         RadioStationsData _allData = null;
         List<RadioStation> _displayData = null;
 
-        public StreamingServerChooserDlg()
+        public StreamingServerChooserDlg() : base("TXT_SELECT_RADIO_STATION")
         {
             InitializeComponent();
 
             AdjustColumns();
             lvServers.Resize += new EventHandler(lvServers_Resize);
-
-            lvServers.RegisterEditControl(txtEditUrl);
-            lvServers.RegisterEditControl(txtEditTitle);
-            lvServers.RegisterEditControl(cmbEditGenre);
-
-            foreach (string gi in Genres.Audio)
-            {
-                cmbEditGenre.Items.Add(gi);
-            }
 
             this.Load += new EventHandler(StreamingServerChooserDlg_Load);
 
@@ -87,27 +76,33 @@ namespace OPMedia.UI.ProTONE.Dialogs
             _allData = RadioStationsData.Load();
             if (_allData != null && _allData.RadioStations != null)
             {
+                var genres = (from rs in _allData.RadioStations
+                              orderby rs.Genre ascending
+                              select rs.Genre).Distinct();
+
+                cmbSearchgenre.Items.Add(string.Empty);
+                foreach (var genre in genres)
+                {
+                    cmbSearchgenre.Items.Add(genre);
+                }
+
+                this.txtSearchUrlPart.TextChanged += new System.EventHandler(this.txtSearchUrlPart_TextChanged);
+                this.txtSearchServerTitlePart.TextChanged += new System.EventHandler(this.txtSearchServerTitlePart_TextChanged);
+                this.cmbSearchgenre.SelectedIndexChanged += new System.EventHandler(this.cmbSearchgenre_SelectedIndexChanged);
+
                 DisplayData();
             }
         }
 
         private void DisplayData()
         {
+            lvServers.Items.Clear();
             _displayData = PrepareDisplayData();
             foreach (RadioStation rs in _displayData)
             {
                 ListViewItem lvi = new ListViewItem(new string[] { "", rs.Url, rs.Title, rs.Genre });
                 lvServers.Items.Add(lvi);
             }
-        }
-
-        private List<RadioStation> PrepareDisplayData()
-        {
-            var x = from rs in _allData.RadioStations
-                    orderby rs.Genre
-                    select rs;
-
-            return x.ToList();
         }
 
         void lvServers_Resize(object sender, EventArgs e)
@@ -121,9 +116,56 @@ namespace OPMedia.UI.ProTONE.Dialogs
             colURL.Width = colTitle.Width = (lvServers.Width - colGenre.Width - SystemInformation.VerticalScrollBarWidth - 5) / 2;
         }
 
-        private void StreamingServerChooserDlg_Load_1(object sender, EventArgs e)
-        {
 
+        private void cmbSearchgenre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            StartSearchTimer();
+        }
+
+        private void txtSearchServerTitlePart_TextChanged(object sender, EventArgs e)
+        {
+            StartSearchTimer();
+        }
+
+        private void txtSearchUrlPart_TextChanged(object sender, EventArgs e)
+        {
+            StartSearchTimer();
+        }
+
+        private void StartSearchTimer()
+        {
+            if (_tmrSearch == null)
+            {
+                _tmrSearch = new Timer();
+                _tmrSearch.Interval = 300;
+                _tmrSearch.Tick += new EventHandler(_tmrSearch_Tick);
+            }
+
+            _tmrSearch.Start();
+        }
+
+        void _tmrSearch_Tick(object sender, EventArgs e)
+        {
+            _tmrSearch.Stop();
+            DisplayData();
+        }
+
+        private List<RadioStation> PrepareDisplayData()
+        {
+            if (_allData != null && _allData.RadioStations != null)
+            {
+                var x = from rs in _allData.RadioStations 
+                        where 
+                            (txtSearchUrlPart.Text.Length < 1 || rs.Url.ToLowerInvariant().Contains(txtSearchUrlPart.Text.ToLowerInvariant())) &&
+                            (txtSearchServerTitlePart.Text.Length < 1 || rs.Title.ToLowerInvariant().Contains(txtSearchServerTitlePart.Text.ToLowerInvariant())) &&
+                            (cmbSearchgenre.Text.Length < 1 || rs.Genre == cmbSearchgenre.Text)
+                        orderby rs.Genre ascending
+                        select rs;
+
+                return x.ToList();
+            }
+
+            return new List<RadioStation>();
         }
     }
 }

@@ -1041,5 +1041,17 @@ de la fenêtre vidéo</value>
 <data name="TXT_CAUTION_REALTIME">
   <value>ATTENTION: Ces paramètres sont appliqués en temps réel. Vous n'avez pas besoin d'appuyer sur OK pour appliquer ces paramètres</value>
 </data>
+<data name="TXT_SELECT_RADIO_STATION">
+  <value>Sélectionnez une station de radio:</value>
+</data>
+<data name="TXT_URLPART">
+  <value>URL du serveur (correspondance partielle):</value>
+</data>
+<data name="TXT_SERVERTITLE">
+  <value>Nom du serveur (correspondance partielle):</value>
+</data>
+<data name="TXT_SEARCH_BY">
+  <value>Recherche par:</value>
+</data>
     
 </root>

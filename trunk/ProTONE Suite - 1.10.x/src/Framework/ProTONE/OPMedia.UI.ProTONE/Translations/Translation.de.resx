@@ -1042,5 +1042,17 @@ Videofenster Position</value>
 <data name="TXT_CAUTION_REALTIME">
   <value>ACHTUNG: Diese Einstellungen werden in Echtzeit angewendet. Sie brauchen nicht zu drücken OK, um diese Einstellungen zu übernehmen.</value>
 </data>
+<data name="TXT_SELECT_RADIO_STATION">
+  <value>Wählen Sie einen Radiosender:</value>
+</data>
+<data name="TXT_URLPART">
+  <value>Server URL (teilweise Übereinstimmung):</value>
+</data>
+<data name="TXT_SERVERTITLE">
+  <value>Server Name (teilweise Übereinstimmung):</value>
+</data>
+<data name="TXT_SEARCH_BY">
+  <value>Suchen nach:</value>
+</data>
     
 </root>

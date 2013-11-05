@@ -1043,5 +1043,17 @@ window position</value>
 <data name="TXT_CAUTION_REALTIME">
   <value>CAUTION: These settings are applied in real time. You do not need to press OK to apply these settings</value>
 </data>
+<data name="TXT_SELECT_RADIO_STATION">
+  <value>Select a radio station:</value>
+</data>
+<data name="TXT_URLPART">
+  <value>Server URL (partial match):</value>
+</data>
+<data name="TXT_SERVERTITLE">
+  <value>Server Name (partial match):</value>
+</data>
+<data name="TXT_SEARCH_BY">
+  <value>Search by:</value>
+</data>
     
 </root>
