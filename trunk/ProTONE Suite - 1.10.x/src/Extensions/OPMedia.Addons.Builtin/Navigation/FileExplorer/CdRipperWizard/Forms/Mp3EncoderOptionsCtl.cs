@@ -62,80 +62,81 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
         void Mp3EncoderOptionsCtl_Load(object sender, EventArgs e)
         {
             // ---- 1 ----
-            grpOptionsVBR.Visible = (Mp3ConversionOptions.format.lhv1.bEnableVBR != 0);
-            cmbBitrateMode.SelectedIndex = Mp3ConversionOptions.format.lhv1.bEnableVBR;
+            grpOptionsVBR.Visible = (Mp3ConversionOptions.format.bEnableVBR != 0);
+            cmbBitrateMode.SelectedIndex = Mp3ConversionOptions.format.bEnableVBR;
             cmbBitrateMode.SelectedIndexChanged += (s, a) =>
             {
-                Mp3ConversionOptions.format.lhv1.bEnableVBR = cmbBitrateMode.SelectedIndex;
-                grpOptionsVBR.Visible = (Mp3ConversionOptions.format.lhv1.bEnableVBR != 0);
+                Mp3ConversionOptions.format.bEnableVBR = cmbBitrateMode.SelectedIndex;
+                Mp3ConversionOptions.format.bWriteVBRHeader = cmbBitrateMode.SelectedIndex;
+                grpOptionsVBR.Visible = (Mp3ConversionOptions.format.bEnableVBR != 0);
             };
 
             // ---- 2 ----
-            cmbChannelMode.SelectedIndex = cmbChannelMode.FindStringExact(Mp3ConversionOptions.format.lhv1.nMode.ToString());
+            cmbChannelMode.SelectedIndex = cmbChannelMode.FindStringExact(Mp3ConversionOptions.format.nMode.ToString());
             cmbChannelMode.SelectedIndexChanged += (s, a) =>
             {
-                Mp3ConversionOptions.format.lhv1.nMode =
+                Mp3ConversionOptions.format.nMode =
                     (MpegMode)Enum.Parse(typeof(MpegMode), cmbChannelMode.Text);
             };
 
             // ---- 3 ----
-            cmbBitrate.SelectedIndex = cmbBitrate.FindStringExact(Mp3ConversionOptions.format.lhv1.dwBitrate.ToString());
+            cmbBitrate.SelectedIndex = cmbBitrate.FindStringExact(Mp3ConversionOptions.format.dwBitrate.ToString());
             cmbBitrate.SelectedIndexChanged += (s, a) =>
             {
-                Mp3ConversionOptions.format.lhv1.dwBitrate = uint.Parse(cmbBitrate.Text);
+                Mp3ConversionOptions.format.dwBitrate = uint.Parse(cmbBitrate.Text);
             };
 
             // ---- 4 ----
-            if (Mp3ConversionOptions.format.lhv1.dwMaxBitrate == 0)
-                Mp3ConversionOptions.format.lhv1.dwMaxBitrate = Mp3ConversionOptions.format.lhv1.dwBitrate;
+            if (Mp3ConversionOptions.format.dwMaxBitrate == 0)
+                Mp3ConversionOptions.format.dwMaxBitrate = Mp3ConversionOptions.format.dwBitrate;
 
-            cmbVbrMax.SelectedIndex = cmbBitrate.FindStringExact(Mp3ConversionOptions.format.lhv1.dwMaxBitrate.ToString());
+            cmbVbrMax.SelectedIndex = cmbBitrate.FindStringExact(Mp3ConversionOptions.format.dwMaxBitrate.ToString());
             cmbVbrMax.SelectedIndexChanged += (s, a) =>
             {
-                Mp3ConversionOptions.format.lhv1.dwMaxBitrate = uint.Parse(cmbVbrMax.Text);
+                Mp3ConversionOptions.format.dwMaxBitrate = uint.Parse(cmbVbrMax.Text);
             };
 
             // ---- 5 ----
-            cmbVbrQuality.SelectedIndex = Mp3ConversionOptions.format.lhv1.nVBRQuality;
+            cmbVbrQuality.SelectedIndex = Mp3ConversionOptions.format.nVBRQuality;
             cmbVbrQuality.SelectedIndexChanged += (s, a) =>
                 {
-                    Mp3ConversionOptions.format.lhv1.nVBRQuality = cmbVbrQuality.SelectedIndex;
+                    Mp3ConversionOptions.format.nVBRQuality = cmbVbrQuality.SelectedIndex;
                 };
 
             // ---- 6 ----
-            cmbVbrMode.SelectedIndex = cmbVbrMode.FindStringExact(Mp3ConversionOptions.format.lhv1.nVbrMethod.ToString());
+            cmbVbrMode.SelectedIndex = cmbVbrMode.FindStringExact(Mp3ConversionOptions.format.nVbrMethod.ToString());
             cmbVbrMode.SelectedIndexChanged += (s, a) =>
             {
-                Mp3ConversionOptions.format.lhv1.nVbrMethod =
+                Mp3ConversionOptions.format.nVbrMethod =
                     (VBRMETHOD)Enum.Parse(typeof(VBRMETHOD), cmbVbrMode.Text);
             };
 
             // ---- 7 ----
-            chkCopyright.Checked = (Mp3ConversionOptions.format.lhv1.bCopyright != 0);
+            chkCopyright.Checked = (Mp3ConversionOptions.format.bCopyright != 0);
             chkCopyright.CheckedChanged += (s, a) =>
                 {
-                    Mp3ConversionOptions.format.lhv1.bCopyright = chkCopyright.Checked ? 1 : 0;
+                    Mp3ConversionOptions.format.bCopyright = chkCopyright.Checked ? 1 : 0;
                 };
 
             // ---- 8 ----
-            chkPrivate.Checked = (Mp3ConversionOptions.format.lhv1.bPrivate != 0);
+            chkPrivate.Checked = (Mp3ConversionOptions.format.bPrivate != 0);
             chkPrivate.CheckedChanged += (s, a) =>
             {
-                Mp3ConversionOptions.format.lhv1.bPrivate = chkPrivate.Checked ? 1 : 0;
+                Mp3ConversionOptions.format.bPrivate = chkPrivate.Checked ? 1 : 0;
             };
 
             // ---- 9 ----
-            chkCRC.Checked = (Mp3ConversionOptions.format.lhv1.bCRC != 0);
+            chkCRC.Checked = (Mp3ConversionOptions.format.bCRC != 0);
             chkCRC.CheckedChanged += (s, a) =>
             {
-                Mp3ConversionOptions.format.lhv1.bCRC = chkCRC.Checked ? 1 : 0;
+                Mp3ConversionOptions.format.bCRC = chkCRC.Checked ? 1 : 0;
             };
 
             // ---- 10 ----
-            chkOriginal.Checked = (Mp3ConversionOptions.format.lhv1.bOriginal != 0);
+            chkOriginal.Checked = (Mp3ConversionOptions.format.bOriginal != 0);
             chkOriginal.CheckedChanged += (s, a) =>
             {
-                Mp3ConversionOptions.format.lhv1.bOriginal = chkOriginal.Checked ? 1 : 0;
+                Mp3ConversionOptions.format.bOriginal = chkOriginal.Checked ? 1 : 0;
             };
 
             // --- 11 ----

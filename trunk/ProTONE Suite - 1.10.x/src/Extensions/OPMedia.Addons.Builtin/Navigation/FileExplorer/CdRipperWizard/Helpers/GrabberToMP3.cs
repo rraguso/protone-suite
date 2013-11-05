@@ -30,15 +30,15 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Helpers
             if (MustCancel())
                 return;
 
+            uint LameResult = Lame_encDll.beInitStream(Mp3ConversionOptions, ref m_InputSamples, ref m_OutBufferSize, ref m_hLameStream);
+            if (LameResult != Lame_encDll.BE_ERR_SUCCESSFUL)
+            {
+                throw new ApplicationException(string.Format("Lame_encDll.beInitStream failed with the error code {0}", LameResult));
+            } 
+            
             using (FileStream fs = new FileStream(destFile, FileMode.Create, FileAccess.Write, FileShare.None))
             using (BinaryWriter bw = new BinaryWriter(fs))
             {
-                uint LameResult = Lame_encDll.beInitStream(Mp3ConversionOptions, ref m_InputSamples, ref m_OutBufferSize, ref m_hLameStream);
-                if (LameResult != Lame_encDll.BE_ERR_SUCCESSFUL)
-                {
-                    throw new ApplicationException(string.Format("Lame_encDll.beInitStream failed with the error code {0}", LameResult));
-                }
-
                 uint EncodedSize = 0;
                 m_OutBuffer = new byte[m_OutBufferSize];
 
@@ -82,9 +82,13 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Helpers
                             bw.Write(m_OutBuffer, 0, (int)EncodedSize);
                         }
                     }
-
                     Lame_encDll.beCloseStream(m_hLameStream);
                 }
+            }
+
+            if (!MustCancel() && Mp3ConversionOptions.format.bWriteVBRHeader != 0)
+            {
+                uint err = Lame_encDll.beWriteVBRHeader(destFile);
             }
 
             if (!MustCancel() && generateTags)

@@ -60,31 +60,6 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         LQP_STUDIO = 10000
     }
 
-    [StructLayout(LayoutKind.Sequential), Serializable]
-    public struct MP3 //BE_CONFIG_MP3
-    {
-        public uint dwSampleRate;		// 48000, 44100 and 32000 allowed
-        public byte byMode;			// BE_MP3_MODE_STEREO, BE_MP3_MODE_DUALCHANNEL, BE_MP3_MODE_MONO
-        public ushort wBitrate;		// 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256 and 320 allowed
-        public int bPrivate;
-        public int bCRC;
-        public int bCopyright;
-        public int bOriginal;
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("    dwSampleRate={0}\r\n", dwSampleRate);
-            sb.AppendFormat("    byMode={0}\r\n", byMode);
-            sb.AppendFormat("    wBitrate={0}\r\n", wBitrate);
-            sb.AppendFormat("    bPrivate={0}\r\n", bPrivate);
-            sb.AppendFormat("    bCRC={0}\r\n", bCRC);
-            sb.AppendFormat("    bCopyright={0}\r\n", bCopyright);
-            sb.AppendFormat("    bOriginal={0}", bOriginal);
-            return sb.ToString();
-        }
-    }
-
     [StructLayout(LayoutKind.Sequential, Size = 327), Serializable]
     public struct LHV1 // BE_CONFIG_LAME LAME header version 1
     {
@@ -247,51 +222,6 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         }
     }
 
-
-    [StructLayout(LayoutKind.Sequential), Serializable]
-    public struct ACC
-    {
-        public uint dwSampleRate;
-        public byte byMode;
-        public ushort wBitrate;
-        public byte byEncodingMethod;
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("    dwSampleRate={0}\r\n ", dwSampleRate);
-            sb.AppendFormat("    byMode={0}\r\n ", byMode);
-            sb.AppendFormat("    wBitrate={0}\r\n ", wBitrate);
-            sb.AppendFormat("    byEncodingMethod={0} ", byEncodingMethod);
-            return sb.ToString();
-        }
-    }
-
-    [StructLayout(LayoutKind.Explicit), Serializable]
-    public class Format
-    {
-        [FieldOffset(0)]
-        public MP3 mp3;
-        [FieldOffset(0)]
-        public LHV1 lhv1;
-        [FieldOffset(0)]
-        public ACC acc;
-
-        public Format(WaveFormatEx format, uint MpeBitRate)
-        {
-            lhv1 = new LHV1(format, MpeBitRate);
-        }
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("  mp3=\r\n  [\r\n{0}\r\n  ];\r\n\r\n", mp3);
-            sb.AppendFormat("  lhv1=\r\n [\r\n{0}\r\n  ];\r\n\r\n", lhv1);
-            sb.AppendFormat("  acc=\r\n  [\r\n{0}\r\n  ];\r\n", acc);
-            return sb.ToString();
-        }
-    }
-
     [StructLayout(LayoutKind.Sequential), Serializable]
     public class BE_CONFIG
     {
@@ -300,12 +230,12 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         public const uint BE_CONFIG_LAME = 256;
 
         public uint dwConfig;
-        public Format format;
+        public LHV1 format;
 
         public BE_CONFIG(WaveFormatEx format, uint MpeBitRate)
         {
             this.dwConfig = BE_CONFIG_LAME;
-            this.format = new Format(format, MpeBitRate);
+            this.format = new LHV1(format, MpeBitRate);
         }
 
         public BE_CONFIG(WaveFormatEx format)
@@ -322,7 +252,7 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("dwConfig={0}\r\n", dwConfig == 0 ? "BE_CONFIG_MP3" : "BE_CONFIG_LAME");
-            sb.AppendFormat("format=\r\n[\r\n{0}];", format);
+            sb.AppendFormat("format=\r\n[\r\n{0}\r\n];", format);
             return sb.ToString();
         }
     }
@@ -376,6 +306,9 @@ namespace OPMedia.Runtime.ProTONE.Compression.Lame
 
         [DllImport("Lame_enc.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern uint beCloseStream(uint hbeStream);
+
+        [DllImport("Lame_enc.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern uint beWriteVBRHeader(string lpszFileName);
         
         public static uint EncodeChunk(uint hbeStream, byte[] buffer, int index, uint nBytes, byte[] pOutput, ref uint pdwOutput)
         {
