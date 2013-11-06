@@ -61,8 +61,8 @@ namespace OPMedia.UI.FileTasks
                     else
                     {
                         FileInfo fi = new FileInfo(path);
-                        MoveLinkedFiles(fi, destinationPath);
-                        _support.MoveFile(fi, destinationPath);
+                        MoveConnectedFiles(fi, destinationPath);
+                        _support.MoveFile(fi, destinationPath, false);
                     }
                 }
                 catch (Exception ex)
@@ -78,6 +78,6 @@ namespace OPMedia.UI.FileTasks
             return true;
         }
 
-        protected virtual void MoveLinkedFiles(FileInfo fi, string destPath) { }
+        protected virtual void MoveConnectedFiles(FileInfo fi, string destPath) { }
     }
 }

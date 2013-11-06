@@ -200,6 +200,23 @@ namespace OPMedia.UI.FileTasks
                 ObjectsCount = 0;
                 ErrorMap.Clear();
 
+                List<string> toRemove = new List<string>();
+                foreach (string path in SrcFiles)
+                {
+                    FileInfo fi = new FileInfo(path);
+                    if (fi.Exists)
+                    {
+                        List<String> linkedFiles = _support.GetLinkedFiles(fi, TaskType);
+                        if (linkedFiles != null && linkedFiles.Count > 0)
+                            toRemove.AddRange(linkedFiles);
+                    }
+                }
+
+                foreach (string dup in toRemove)
+                {
+                    SrcFiles.Remove(dup);
+                }
+                
                 foreach (string path in SrcFiles)
                 {
                     if (Directory.Exists(path))

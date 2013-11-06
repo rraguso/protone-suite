@@ -18,7 +18,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
         {
         }
 
-        public override List<string> GetLinkedFiles(FileInfo fi)
+        public override List<string> GetLinkedFiles(FileInfo fi, FileTaskType taskType)
         {
             List<string> list = new List<string>();
 
@@ -44,31 +44,37 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
                         list.Add(mfi.BookmarkFileInfo.Path);
                     }
                 }
-                else
-                {
-                    // Not a media file. Maybe a bookmark file ?
-                    BookmarkFileInfo bfi = null;
-                    try
-                    {
-                        bfi = new BookmarkFileInfo(fi.FullName, true);
-                    }
-                    catch
-                    {
-                        bfi = null;
-                    }
+            }
 
-                    if (bfi != null && bfi.IsValid && bfi.Bookmarks != null)
+            return list;
+        }
+
+        public override string GetParentFile(FileInfo fi, FileTaskType taskType)
+        {
+            if (AppSettings.GroupBookmarkWithMedia)
+            {
+                // Is it a bookmark file ?
+                BookmarkFileInfo bfi = null;
+                try
+                {
+                    bfi = new BookmarkFileInfo(fi.FullName, true);
+                }
+                catch
+                {
+                    bfi = null;
+                }
+
+                if (bfi != null && bfi.IsValid && bfi.Bookmarks != null)
+                {
+                    // Indeed a bookmark file. Is it orphan ?
+                    if (!bfi.IsOrphan)
                     {
-                        // Indeed a bookmark file. Is it orphan ?
-                        if (!bfi.IsOrphan)
-                        {
-                            list.Add(bfi.ParentMediaFile);
-                        }
+                        return bfi.ParentMediaFile;
                     }
                 }
             }
 
-            return list;
+            return null;
         }
     }
 }

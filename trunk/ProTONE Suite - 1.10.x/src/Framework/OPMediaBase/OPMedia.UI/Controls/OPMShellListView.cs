@@ -33,6 +33,7 @@ using OPMedia.Core.GlobalEvents;
 using System.Linq;
 using System.Globalization;
 using OPMedia.Core.Utilities;
+using OPMedia.UI.FileTasks;
 
 #endregion
 
@@ -60,7 +61,7 @@ namespace OPMedia.UI.Controls
     /// </summary>
     public delegate void SelectMultipleItemsEventHandler(object sender, SelectMultipleItemsEventArgs args);
 
-    public delegate List<string> QueryLinkedFilesHandler(string path);
+    public delegate List<string> QueryLinkedFilesHandler(string path, FileTaskType taskType);
     public delegate void ItemRenameHandler(string newPath);
 
     public delegate bool LaunchMultipleItemsHandler(object sender, System.EventArgs e);
@@ -163,7 +164,7 @@ namespace OPMedia.UI.Controls
                     FileSystemInfo fsi = item.Tag as FileSystemInfo;
                     if (fsi != null && fsi.Exists && string.Compare(fsi.FullName, ParentFolderTarget, true) != 0)
                     {
-                        selectedItems.Add(fsi.FullName.ToLowerInvariant());
+                        selectedItems.Add(fsi.FullName);
                     }
                 }
 
@@ -476,17 +477,19 @@ namespace OPMedia.UI.Controls
 
                         if (QueryLinkedFiles != null)
                         {
-                            linkedFiles = QueryLinkedFiles(oldPath);
+                            linkedFiles = QueryLinkedFiles(oldPath, FileTaskType.Move);
                         }
 
                         if (linkedFiles != null)
                         {
-                            string oldFileName = System.IO.Path.GetFileNameWithoutExtension(oldPath).ToLowerInvariant();
-                            string newFileName = System.IO.Path.GetFileNameWithoutExtension(finalPath).ToLowerInvariant();
+                            string oldFileName = System.IO.Path.GetFileNameWithoutExtension(oldPath);
+                            string newFileName = System.IO.Path.GetFileNameWithoutExtension(finalPath);
+
+                            // TODO correctly handle letter casing
 
                             foreach (string linkedFile in linkedFiles)
                             {
-                                string linkedFileName = System.IO.Path.GetFileName(linkedFile).ToLowerInvariant().Replace(oldFileName, newFileName);
+                                string linkedFileName = System.IO.Path.GetFileName(linkedFile).Replace(oldFileName, newFileName);
                                 string linkedFileFinalPath = System.IO.Path.Combine(m_strDirPath, linkedFileName);
 
                                 FileInfo lfi = new FileInfo(linkedFile);
@@ -714,8 +717,7 @@ namespace OPMedia.UI.Controls
             foreach (ListViewItem row in this.Items)
             {
                 FileSystemInfo fsi = (row.Tag as FileSystemInfo);
-                if (fsi != null &&
-                    fsi.FullName.ToLowerInvariant() == item.ToLowerInvariant())
+                if (fsi != null && string.Compare(fsi.FullName, item, true) == 0)
                 {
                     if (fsi is DirectoryInfo)
                     {
@@ -865,7 +867,7 @@ namespace OPMedia.UI.Controls
                             path = (item.Tag as FileSystemInfo).FullName;
                         }
 
-                        if (selection.Contains(path.ToLowerInvariant()))
+                        if (selection.Contains(path))
                         {
                             if (!focusSet)
                             {
@@ -1084,8 +1086,7 @@ namespace OPMedia.UI.Controls
                 foreach (ListViewItem item in this.Items)
                 {
                     FileSystemInfo fsi = item.Tag as FileSystemInfo;
-                    if (fsi != null &&
-                        fsi.FullName.ToLowerInvariant() == itemPath.ToLowerInvariant())
+                    if (fsi != null && string.Compare(fsi.FullName, itemPath, true) == 0)
                     {
                         this.Select();
                         this.Focus();

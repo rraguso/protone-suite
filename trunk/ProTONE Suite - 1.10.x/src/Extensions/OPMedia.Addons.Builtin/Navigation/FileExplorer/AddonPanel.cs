@@ -124,14 +124,14 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.Leave += new EventHandler(AddonPanel_Leave);
         }
 
-        List<string> OnQueryLinkedFiles(string path)
+        List<string> OnQueryLinkedFiles(string path, FileTaskType taskType)
         {
             FEFileTaskSupport support = new FEFileTaskSupport(null);
 
             FileInfo fi = new FileInfo(path);
             if (fi != null && fi.Exists)
             {
-                return support.GetLinkedFiles(fi);
+                return support.GetLinkedFiles(fi, taskType);
             }
 
             return null;

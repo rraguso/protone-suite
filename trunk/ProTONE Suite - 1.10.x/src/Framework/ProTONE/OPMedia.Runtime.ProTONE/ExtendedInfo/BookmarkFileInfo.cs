@@ -33,7 +33,7 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
         [TranslatableDisplayName("TXT_PARENTMEDIAFILE")]
         [TranslatableCategory("TXT_BOOKMARKINFO")]
         public string ParentMediaFile
-        { get { return base.Path.ToLowerInvariant().Replace(".bmk", string.Empty); } }
+        { get { return base.Path.Replace(".bmk", string.Empty); } }
 
         [Browsable(true)]
         [Editor("OPMedia.UI.ProTONE.Controls.BookmarkManagement.BookmarkPropertyBrowser, OPMedia.UI.ProTONE", typeof(UITypeEditor))]

@@ -408,8 +408,8 @@ namespace OPMedia.UI.Controls.Dialogs
                 FolderItem fi = item as FolderItem;
                 if (fi != null)
                 {
-                    string itemPath = fi.Path.ToLowerInvariant().Trim("\\/".ToCharArray());
-                    string compareDir = dir.ToLowerInvariant().Trim("\\/".ToCharArray());
+                    string itemPath = fi.Path.Trim("\\/".ToCharArray());
+                    string compareDir = dir.Trim("\\/".ToCharArray());
                     if (compareDir.StartsWith(itemPath))
                     {
                         cmbDiskDrives.SelectedItem = item;

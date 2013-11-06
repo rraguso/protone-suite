@@ -362,9 +362,9 @@ namespace OPMedia.UI.FileOperations.Tasks
             }
         }
 
-        public void MoveFile(FileInfo fi, string destFile)
+        public void MoveFile(FileInfo fi, string destFile, bool skipConfirmations)
         {
-            if (this.CanMove(fi))
+            if (skipConfirmations || this.CanMove(fi))
             {
                 if (PathUtils.PathsAreOnSameRoot(fi.FullName, destFile))
                 {
@@ -400,9 +400,9 @@ namespace OPMedia.UI.FileOperations.Tasks
             }
         }
 
-        public void DeleteFile(FileInfo fi, bool skipConfirmation)
+        public void DeleteFile(FileInfo fi, bool skipConfirmations)
         {
-            if (skipConfirmation || CanDelete(fi))
+            if (skipConfirmations || CanDelete(fi))
             {
                 DeleteFileSystemObject(fi);
             }
@@ -486,7 +486,11 @@ namespace OPMedia.UI.FileOperations.Tasks
 
         #endregion
 
-        public virtual List<string> GetLinkedFiles(FileInfo fi)
+        public virtual List<string> GetLinkedFiles(FileInfo fi, FileTaskType taskType)
+        {
+            return null;
+        }
+        public virtual string GetParentFile(FileInfo fi, FileTaskType taskType)
         {
             return null;
         }

@@ -19,9 +19,9 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
             return new FEFileTaskSupport(this);
         }
 
-        protected override void MoveLinkedFiles(System.IO.FileInfo fi, string destPath)
+        protected override void MoveConnectedFiles(System.IO.FileInfo fi, string destPath)
         {
-            List<string> linkedFiles = _support.GetLinkedFiles(fi);
+            List<string> linkedFiles = _support.GetLinkedFiles(fi, this.TaskType);
             if (linkedFiles != null && linkedFiles.Count > 0)
             {
                 foreach (string linkedFile in linkedFiles)
@@ -33,11 +33,28 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
                         string destinationPath = this.GetDestinationPath(linkedFile);
 
                         FileInfo lfi = new FileInfo(linkedFile);
-                        _support.MoveFile(lfi, destinationPath);
+                        _support.MoveFile(lfi, destinationPath, true);
                     }
                     catch
                     {
                     }
+                }
+            }
+
+            string parentFile = _support.GetParentFile(fi, this.TaskType);
+            if (!string.IsNullOrEmpty(parentFile))
+            {
+                _support.CheckIfCanContinue(parentFile);
+
+                try
+                {
+                    string destinationPath = this.GetDestinationPath(parentFile);
+
+                    FileInfo lfi = new FileInfo(parentFile);
+                    _support.MoveFile(lfi, destinationPath, false);
+                }
+                catch
+                {
                 }
             }
         }

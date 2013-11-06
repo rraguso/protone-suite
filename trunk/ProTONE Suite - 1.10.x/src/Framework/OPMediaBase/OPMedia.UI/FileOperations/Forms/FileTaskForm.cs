@@ -83,10 +83,10 @@ namespace OPMedia.UI.FileTasks
             switch (type)
             {
                 case FileTaskType.Copy:
-                    return new CopyFilesTask(srcFiles, srcPath.ToLowerInvariant());
+                    return new CopyFilesTask(srcFiles, srcPath);
 
                 case FileTaskType.Move:
-                    return new MoveFilesTask(srcFiles, srcPath.ToLowerInvariant());
+                    return new MoveFilesTask(srcFiles, srcPath);
 
                 case FileTaskType.Delete:
                     return new DeleteFilesTask(srcFiles);

@@ -11,6 +11,7 @@ using OPMedia.UI;
 using OPMedia.Runtime;
 using OPMedia.Core.Utilities;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
+using OPMedia.UI.FileTasks;
 
 namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
 {
@@ -186,18 +187,18 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             FEFileTaskSupport support = new FEFileTaskSupport(null);
 
             FileInfo fi = new FileInfo(oldPath);
-            List<string> linkedFiles = support.GetLinkedFiles(fi);
+            List<string> linkedFiles = support.GetLinkedFiles(fi, FileTaskType.Move);
 
             File.Move(oldPath, newPath);
 
             if (linkedFiles != null)
             {
-                string oldName = Path.GetFileNameWithoutExtension(oldPath).ToLowerInvariant();
-                string newName = Path.GetFileNameWithoutExtension(newPath).ToLowerInvariant();
+                string oldName = Path.GetFileNameWithoutExtension(oldPath);
+                string newName = Path.GetFileNameWithoutExtension(newPath);
 
                 foreach (string linkedFile in linkedFiles)
                 {
-                    string newLinkedFile = linkedFile.ToLowerInvariant().Replace(oldName, newName);
+                    string newLinkedFile = linkedFile.Replace(oldName, newName);
                     File.Move(linkedFile, StringUtils.Capitalize(newLinkedFile, _wordCasing));
                 }
             }

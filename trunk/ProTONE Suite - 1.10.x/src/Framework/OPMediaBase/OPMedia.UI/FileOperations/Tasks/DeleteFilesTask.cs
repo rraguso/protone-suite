@@ -28,7 +28,7 @@ namespace OPMedia.UI.FileTasks
                 else
                 {
                     FileInfo fi = new FileInfo(path);
-                    DeleteLinkedFiles(fi);
+                    DeleteConnectedFiles(fi);
                     _support.DeleteFile(fi, false);
                 }
             }
@@ -40,6 +40,6 @@ namespace OPMedia.UI.FileTasks
             return true;
         }
 
-        protected virtual void DeleteLinkedFiles(FileInfo fi) { }
+        protected virtual void DeleteConnectedFiles(FileInfo fi) { }
     }
 }

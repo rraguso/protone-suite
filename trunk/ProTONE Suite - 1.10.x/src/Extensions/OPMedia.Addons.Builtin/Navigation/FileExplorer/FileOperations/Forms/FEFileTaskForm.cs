@@ -22,10 +22,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer.FileOperations.Forms
             switch (type)
             {
                 case FileTaskType.Copy:
-                    return new FECopyFilesTask(srcFiles, srcPath.ToLowerInvariant());
+                    return new FECopyFilesTask(srcFiles, srcPath);
 
                 case FileTaskType.Move:
-                    return new FEMoveFilesTask(srcFiles, srcPath.ToLowerInvariant());
+                    return new FEMoveFilesTask(srcFiles, srcPath);
 
                 case FileTaskType.Delete:
                     return new FEDeleteFilesTask(srcFiles);
