@@ -128,8 +128,8 @@
   <value>Select an OPMedia addon library to install:</value>
 </data>
 <data name="TXT_INVALID_ADDON">
-  <value>The DLL file you have selected is not a valid OPMedia extension library.&#xD;
-&#xD;
+  <value>The DLL file you have selected is not a valid OPMedia extension library.
+
 Note: If you believe, however, that the respective file should have been a valid extension, you are advised to contact the producer or the supplier of this DLL.</value>
 </data>
 <data name="TXT_ADDON_NAME">
@@ -139,7 +139,7 @@ Note: If you believe, however, that the respective file should have been a valid
   <value>Configuration</value>
 </data>
 <data name="TXT_ADDONS_CHANGED_RESTART">
-  <value>In order to modify the new addons configuration, the program needs to be restarted.&#xD;
+  <value>In order to modify the new addons configuration, the program needs to be restarted.
 Is it OK to restart now ?</value>
 </data>
 <data name="TXT_ADDONS_NOT_CHANGED">
@@ -155,18 +155,18 @@ Is it OK to restart now ?</value>
   <value>Checked addons are currently enabled. Use the checkboxes to enable/disable addons. Addons marked with * are required and cannot be disabled.</value>
 </data>
 <data name="TXT_CANT_INSTALL_BUILTIN">
-  <value>The addon library you have selected cannot be installed, because it is a built-in library.&#xD;
-&#xD;
+  <value>The addon library you have selected cannot be installed, because it is a built-in library.
+
 If you intend to enable/disable the addons from the built-in library, please use the addons checkboxes.</value>
 </data>
 <data name="TXT_CANT_UNINSTALL_BUILTIN">
-  <value>The addon library you have specified cannot be uninstalled, because it is a built-in library.&#xD;
-&#xD;
+  <value>The addon library you have specified cannot be uninstalled, because it is a built-in library.
+
 If you intend to enable/disable the addons from the built-in library, please use the addons checkboxes.</value>
 </data>
 <data name="TXT_INVALID_NAME">
-  <value>The DLL file you have selected is not a valid OPMedia extension library.&#xD;
-&#xD;
+  <value>The DLL file you have selected is not a valid OPMedia extension library.
+
 A valid OPMedia extension library file name should follow the convention: &lt;Library-Name&gt;Extension.dll.</value>
 </data>
 <data name="TXT_NAV_ADDONS">
@@ -179,29 +179,29 @@ A valid OPMedia extension library file name should follow the convention: &lt;Li
   <value>File Property Interaction</value>
 </data>
 <data name="TXT_SHAREDADDONS">
-  <value>The addon library you are trying to uninstall provides multiple features:&#xD;
-&#xD;
-{0}&#xD;
-&#xD;
+  <value>The addon library you are trying to uninstall provides multiple features:
+
+{0}
+
 If you continue, all these features will no longer be available. Is it OK to proceed ?</value>
 </data>
 <data name="TXT_NO_NAV_ADDONS">
-  <value>No navigation addons are currently configured. The application cannot run without them.&#xD;
+  <value>No navigation addons are currently configured. The application cannot run without them.
 You must to select and enable at least one navigation addon in order to continue.</value>
 </data>
 <data name="TXT_NOTIFY_NON_PREVIEW">
-  <value>The selected item cannot be previewed. &#xD;
+  <value>The selected item cannot be previewed. 
 You must use an external program to view it.</value>
 </data>
 <data name="TXT_NOTIFY_PREVIEW">
   <value>To preview the selected item, double click it or press Enter.</value>
 </data>
 <data name="TXT_PREPARE_PREVIEW">
-  <value>Automatic preview of selected item is starting in a couple of seconds. &#xD;
+  <value>Automatic preview of selected item is starting in a couple of seconds. 
 Press Escape to cancel ...</value>
 </data>
 <data name="TXT_PREVIEW_CANCELED">
-  <value>Automatic preview of selected item has been canceled. &#xD;
+  <value>Automatic preview of selected item has been canceled. 
 Select another item or press Enter to preview the current item.</value>
 </data>
 <data name="TXT_SELECTALLADDONS">

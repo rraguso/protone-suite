@@ -128,8 +128,8 @@
   <value>Sélectionnez une bibliothèque addon OPMedia à installer:</value>
 </data>
 <data name="TXT_INVALID_ADDON">
-  <value>Le fichier DLL que vous avez sélectionné n'est pas une extension de la bibliothèque valide OPMedia.&#xD;
-&#xD;
+  <value>Le fichier DLL que vous avez sélectionné n'est pas une extension de la bibliothèque valide OPMedia.
+
 Remarque: Si vous crois, cependant, que le fichier en question aurait dû être une extension valide, il vous est conseillé de contacter le producteur ou le fournisseur de cette DLL.</value>
 </data>
 <data name="TXT_ADDON_NAME">
@@ -139,7 +139,7 @@ Remarque: Si vous crois, cependant, que le fichier en question aurait dû être 
   <value>Configuration</value>
 </data>
 <data name="TXT_ADDONS_CHANGED_RESTART">
-  <value>Pour modifier la configuration de nouveaux addons, le programme doit être redémarré.&#xD;
+  <value>Pour modifier la configuration de nouveaux addons, le programme doit être redémarré.
 Est-il OK pour redémarrer maintenant?</value>
 </data>
 <data name="TXT_ADDONS_NOT_CHANGED">
@@ -155,18 +155,18 @@ Est-il OK pour redémarrer maintenant?</value>
   <value>Addons cochés sont activés. Utilisez les cases à cocher pour activer / désactiver addons. Addons marqués d'une * sont requis et ne peut pas être désactivé.</value>
 </data>
 <data name="TXT_CANT_INSTALL_BUILTIN">
-  <value>La bibliothèque addon vous avez sélectionné ne peut pas être installé, car il s'agit d'une bibliothèque intégrée.&#xD;
-&#xD;
+  <value>La bibliothèque addon vous avez sélectionné ne peut pas être installé, car il s'agit d'une bibliothèque intégrée.
+
 Si vous avez l'intention d'activer / désactiver les addons de la bibliothèque intégrée, s'il vous plaît utiliser les cases à cocher addons.</value>
 </data>
 <data name="TXT_CANT_UNINSTALL_BUILTIN">
-  <value>La bibliothèque addon vous avez spécifié ne peut pas être désinstallé, car il s'agit d'une bibliothèque intégrée.&#xD;
-&#xD;
+  <value>La bibliothèque addon vous avez spécifié ne peut pas être désinstallé, car il s'agit d'une bibliothèque intégrée.
+
 Si vous avez l'intention d'activer / désactiver les addons de la bibliothèque intégrée, s'il vous plaît utiliser les cases à cocher addons.</value>
 </data>
 <data name="TXT_INVALID_NAME">
-  <value>Le fichier DLL que vous avez sélectionné n'est pas une extension de la bibliothèque valide OPMedia.&#xD;
-&#xD;
+  <value>Le fichier DLL que vous avez sélectionné n'est pas une extension de la bibliothèque valide OPMedia.
+
 Une extension valide OPMedia bibliothèque nom du fichier doit suivre la convention: Extension.dll &lt;Addon-Name&gt;.</value>
 </data>
 <data name="TXT_NAV_ADDONS">
@@ -179,29 +179,29 @@ Une extension valide OPMedia bibliothèque nom du fichier doit suivre la convent
   <value>Interaction de la propriété du fichier</value>
 </data>
 <data name="TXT_SHAREDADDONS">
-  <value>La bibliothèque addon vous essayez de désinstaller offre des fonctions multiples:&#xD;
-&#xD;
-{0}&#xD;
-&#xD;
+  <value>La bibliothèque addon vous essayez de désinstaller offre des fonctions multiples:
+
+{0}
+
 Si vous continuez, toutes ces fonctionnalités ne seront plus disponibles. Est-il OK pour continuer?</value>
 </data>
 <data name="TXT_NO_NAV_ADDONS">
-  <value>Aucun addons de navigation sont actuellement configurés. L'application ne peut pas fonctionner sans eux.&#xD;
+  <value>Aucun addons de navigation sont actuellement configurés. L'application ne peut pas fonctionner sans eux.
 Vous devez sélectionner et activer au moins un addon de navigation pour continuer.</value>
 </data>
 <data name="TXT_NOTIFY_NON_PREVIEW">
-  <value>L'élément sélectionné ne peut pas être prévisualisé.&#xD;
+  <value>L'élément sélectionné ne peut pas être prévisualisé.
 Vous devez utiliser un programme externe pour la voir.</value>
 </data>
 <data name="TXT_NOTIFY_PREVIEW">
   <value>Pour prévisualiser l'élément sélectionné, double-cliquez dessus ou appuyez sur Entrée.</value>
 </data>
 <data name="TXT_PREPARE_PREVIEW">
-  <value>Prévisualisation automatique de l'élément sélectionné démarre en quelques secondes.&#xD;
+  <value>Prévisualisation automatique de l'élément sélectionné démarre en quelques secondes.
 Appuyez sur Echap pour annuler ...</value>
 </data>
 <data name="TXT_PREVIEW_CANCELED">
-  <value>Prévisualisation automatique de l'élément sélectionné a été annulée.&#xD;
+  <value>Prévisualisation automatique de l'élément sélectionné a été annulée.
 Sélectionnez un autre élément ou appuyez sur Entrée pour prévisualiser l'élément actuel.</value>
 </data>
 <data name="TXT_SELECTALLADDONS">

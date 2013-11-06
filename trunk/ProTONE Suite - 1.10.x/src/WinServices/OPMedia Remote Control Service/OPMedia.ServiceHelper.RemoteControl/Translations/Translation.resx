@@ -125,7 +125,7 @@
   <value>Codeword Detection Parameters:</value>
 </data>
 <data name="TXT_FINETUNEDESC">
-  <value>Press any button on your remote control and keep it pressed.&#xD;
+  <value>Press any button on your remote control and keep it pressed.
 Then adjust the detection parameters until the noise factor drops under -6 dBM.</value>
 </data>
 <data name="TXT_DETECTEDCODEWORD">

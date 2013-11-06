@@ -260,27 +260,27 @@
   <value>Sind Sie sicher, dass Sie den Vorgang abbrechen?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE">
-  <value>Sind Sie sicher, dass Sie die Datei zu löschen:&#xD;
+  <value>Sind Sie sicher, dass Sie die Datei zu löschen:
 {0}?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_DIR">
-  <value>Der Ordner: {0} ist nicht leer.&#xD;
+  <value>Der Ordner: {0} ist nicht leer.
 Wollen Sie es (samt Inhalt) löschen?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_EMPTYDIR">
-  <value>Sind Sie sicher, dass Sie den Ordner zu löschen:&#xD;
+  <value>Sind Sie sicher, dass Sie den Ordner zu löschen:
 {0}?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_ROHS">
-  <value>Die Datei {0} ist eine oder mehrere dieser Attribute: Read-Only/Hidden/System.&#xD;
+  <value>Die Datei {0} ist eine oder mehrere dieser Attribute: Read-Only/Hidden/System.
 Glauben Sie immer noch wollen, um es zu löschen?</value>
 </data>
 <data name="TXT_CONFIRM_OVERWRITE">
-  <value>Die Zieldatei {0} existiert bereits.&#xD;
+  <value>Die Zieldatei {0} existiert bereits.
 Wollen Sie es überschreiben?</value>
 </data>
 <data name="TXT_CONFIRM_OVERWRITE_RO">
-  <value>Die Zieldatei {0} existiert bereits und es ist eine Nur-Lese-Datei.&#xD;
+  <value>Die Zieldatei {0} existiert bereits und es ist eine Nur-Lese-Datei.
 Wollen Sie es überschreiben?</value>
 </data>
 <data name="TXT_COPY">
@@ -320,7 +320,7 @@ Wollen Sie es überschreiben?</value>
   <value>Zeichnen Sie skinned Grenzen und Titelleiste (empfohlen)</value>
 </data>
 <data name="TXT_EDITKEYDESC">
-  <value>Drücken Sie die neue Tastenkombination für: {0}.&#xD;
+  <value>Drücken Sie die neue Tastenkombination für: {0}.
 Aktuelle Verknüpfung ist: {1}.</value>
 </data>
 <data name="TXT_ENABLESKINNEDBORDERS">
@@ -336,18 +336,18 @@ Aktuelle Verknüpfung ist: {1}.</value>
   <value>Melden Sie sich Fehlermeldungen</value>
 </data>
 <data name="TXT_ERRORS_COPY_TASK">
-  <value>Einige Fehler trat beim Kopieren der entsprechenden Dateien auf.&#xD;
+  <value>Einige Fehler trat beim Kopieren der entsprechenden Dateien auf.
 Weitere Details in der Liste unten.</value>
 </data>
 <data name="TXT_ERRORS_DELETE_TASK">
-  <value>Einige Fehler trat beim Löschen der angegebenen Dateien.&#xD;
+  <value>Einige Fehler trat beim Löschen der angegebenen Dateien.
 Weitere Details in der Liste unten.</value>
 </data>
 <data name="TXT_ERRORS_ENCOUNTERED">
   <value>Einige Fehler trat während der Operation.</value>
 </data>
 <data name="TXT_ERRORS_MOVE_TASK">
-  <value>Einige Fehler trat während der Bewegung die angegebenen Dateien.&#xD;
+  <value>Einige Fehler trat während der Bewegung die angegebenen Dateien.
 Weitere Details in der Liste unten.</value>
 </data>
 <data name="TXT_EVERYDAY">
@@ -420,11 +420,11 @@ Weitere Details in der Liste unten.</value>
   <value>Log-Einträge insgesamt:</value>
 </data>
 <data name="TXT_LOG_DESC">
-  <value>Dieses Programm wird mit Version durchgesetzt Protokollierung gebaut.&#xD;
+  <value>Dieses Programm wird mit Version durchgesetzt Protokollierung gebaut.
 Alle Log-Level sind standardmäßig aktiviert.</value>
 </data>
 <data name="TXT_LOG_KEEPDAYS">
-  <value>Wie viele Tage zu halten, die alten Log-Dateien &#xD;
+  <value>Wie viele Tage zu halten, die alten Log-Dateien 
 (min = 2, max = 10):</value>
 </data>
 <data name="TXT_LOG_PATH">
@@ -725,11 +725,11 @@ Alle Log-Level sind standardmäßig aktiviert.</value>
   <value>Abkürzung ist bereits im Einsatz</value>
 </data>
 <data name="TXT_DUP_SHORTCUT_FIXED">
-  <value>Die Tastenkombination '{0}' ist bereits zu "{1} 'zugewiesen und kann nicht geändert werden.&#xD;
+  <value>Die Tastenkombination '{0}' ist bereits zu "{1} 'zugewiesen und kann nicht geändert werden.
 Bitte geben Sie eine andere Kombination.</value>
 </data>
 <data name="TXT_DUP_SHORTCUT_CONFIRM">
-  <value>Die Tastenkombination '{0}' ist bereits zu "{1} 'zugewiesen.&#xD;
+  <value>Die Tastenkombination '{0}' ist bereits zu "{1} 'zugewiesen.
 Wollen Sie neu zuweisen es auf '{2}'?</value>
 </data>
 <data name="TXT_CONFIRM_RESTORE">
@@ -772,7 +772,7 @@ Wollen Sie neu zuweisen es auf '{2}'?</value>
   <value>Save Log-Datei oder Fenster</value>
 </data>
 <data name="TXT_NOTIFYUPDATE">
-  <value>Eine neue Programm-Version steht zur Verfügung: {0}.&#xD;
+  <value>Eine neue Programm-Version steht zur Verfügung: {0}.
 Wollen Sie auf diese Version aktualisieren?</value>
 </data>
 <data name="TXT_CONFIRMUPDATE">
@@ -791,24 +791,24 @@ Wollen Sie auf diese Version aktualisieren?</value>
   <value>Deaktivieren Sie die automatische Updates</value>
 </data>
 <data name="TXT_NOUPDATEREQUIRED">
-  <value>Dieses Programm verfügt über die neueste verfügbare Version.&#xD;
-&#xD;
+  <value>Dieses Programm verfügt über die neueste verfügbare Version.
+
  Für den Moment ist es nicht erforderlich, um das Programm zu aktualisieren.</value>
 </data>
 <data name="TXT_CONFIRM_MOVE">
-  <value>Sind Sie sicher, dass Sie die Datei verschieben:&#xD;
+  <value>Sind Sie sicher, dass Sie die Datei verschieben:
 {0}?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_DIR">
-  <value>Der Ordner: {0} ist nicht leer.&#xD;
+  <value>Der Ordner: {0} ist nicht leer.
 Sie wollen es und alle Inhalte zu bewegen?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_EMPTYDIR">
-  <value>Sind Sie sicher, dass Sie den Ordner zu verschieben:&#xD;
+  <value>Sind Sie sicher, dass Sie den Ordner zu verschieben:
 {0}?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_ROHS">
-  <value>Die Datei {0} ist eine oder mehrere dieser Attribute: Read-Only/Hidden/System.&#xD;
+  <value>Die Datei {0} ist eine oder mehrere dieser Attribute: Read-Only/Hidden/System.
 Wollen Sie immer noch, ihn zu bewegen?</value>
 </data>
 <data name="TXT_NOPROXY">
@@ -851,19 +851,19 @@ Wollen Sie immer noch, ihn zu bewegen?</value>
   <value>Aktiv</value>
 </data>
 <data name="TXT_FLAG_ERRORS">
-  <value>Fehler&#xD;
+  <value>Fehler
 Anzeigen</value>
 </data>
 <data name="TXT_FLAG_WARNINGS">
-  <value>Warnungen&#xD;
+  <value>Warnungen
 Anzeigen</value>
 </data>
 <data name="TXT_FLAG_INFOS">
-  <value>Informationen&#xD;
+  <value>Informationen
 Anzeigen</value>
 </data>
 <data name="TXT_FLAG_TRACES">
-  <value>Debug Traces&#xD;
+  <value>Debug Traces
 Anzeigen</value>
 </data>
 <data name="TXT_LOGFILE_FILTER">
@@ -1011,7 +1011,7 @@ Anzeigen</value>
   <value>Zeitstempel</value>
 </data>
 <data name="TXT_CONFIRM_CREATE">
-  <value>Die Datei {0} ist nicht vorhanden.&#xD;
+  <value>Die Datei {0} ist nicht vorhanden.
 Wollen Sie es schaffen?</value>
 </data>
 <data name="TXT_ASSISTANCE">

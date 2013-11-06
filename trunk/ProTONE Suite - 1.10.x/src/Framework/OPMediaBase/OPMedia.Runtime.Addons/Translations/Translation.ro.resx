@@ -128,8 +128,8 @@
   <value>Selectaţi o extensie OPMedia pentru instalare:</value>
 </data>
 <data name="TXT_INVALID_ADDON">
-  <value>Fişierul DLL selectat nu reprezintă o bibliotecă de extensii OPMedia validă.&#xD;
-&#xD;
+  <value>Fişierul DLL selectat nu reprezintă o bibliotecă de extensii OPMedia validă.
+
 Notă: Dacă dvs. credeti că ar fi trebuit sa fie o bibliotecă validă, sunteţi sfătuit să contactaţi producătorul sau distribuitorul acelui DLL.</value>
 </data>
 <data name="TXT_ADDON_NAME">
@@ -139,7 +139,7 @@ Notă: Dacă dvs. credeti că ar fi trebuit sa fie o bibliotecă validă, sunte�
   <value>Configurare</value>
 </data>
 <data name="TXT_ADDONS_CHANGED_RESTART">
-  <value>Pentru a modifica configuraţia extensiilor, programul trebuie să fie repornit.&#xD;
+  <value>Pentru a modifica configuraţia extensiilor, programul trebuie să fie repornit.
 Este OK să fie repornit acum?</value>
 </data>
 <data name="TXT_ADDONS_NOT_CHANGED">
@@ -155,18 +155,18 @@ Este OK să fie repornit acum?</value>
   <value>Extensiile bifate sunt active. Folositi casetele pentru a activa/dezactiva extensiile. Extensiile marcate cu * sunt necesare si nu pot fi dezactivate.</value>
 </data>
 <data name="TXT_CANT_INSTALL_BUILTIN">
-  <value>Biblioteca selectată nu poate fi instalată, intrucât este o bibliotecă nativă.&#xD;
-&#xD;
+  <value>Biblioteca selectată nu poate fi instalată, intrucât este o bibliotecă nativă.
+
 Pentru a activa/dezactiva extensiile acestei biblioteci, folosiţi casetele asociate acestora.</value>
 </data>
 <data name="TXT_CANT_UNINSTALL_BUILTIN">
-  <value>Biblioteca selectată nu poate fi dezinstalată, intrucât este o bibliotecă nativă.&#xD;
-&#xD;
+  <value>Biblioteca selectată nu poate fi dezinstalată, intrucât este o bibliotecă nativă.
+
 Pentru a activa/dezactiva extensiile acestei biblioteci, folosiţi casetele asociate acestora.</value>
 </data>
 <data name="TXT_INVALID_NAME">
-  <value>Fişierul DLL selectat nu reprezintă o bibliotecă de extensii OPMedia validă.&#xD;
-&#xD;
+  <value>Fişierul DLL selectat nu reprezintă o bibliotecă de extensii OPMedia validă.
+
 Numele unei biblioteci de extensii OPMedia valide trebuie să respecte convenţia: &lt;Nume_Bibliotecă&gt;Extension.dll.</value>
 </data>
 <data name="TXT_NAV_ADDONS">
@@ -179,29 +179,29 @@ Numele unei biblioteci de extensii OPMedia valide trebuie să respecte convenţi
   <value>Interacţiune cu proprietăţile fişierelor</value>
 </data>
 <data name="TXT_SHAREDADDONS">
-  <value>Biblioteca de extensii pe care doriţi să o dezinstalaţi ofera mai multe functionalităţi: &#xD;
-&#xD;
-{0}&#xD;
-&#xD;
+  <value>Biblioteca de extensii pe care doriţi să o dezinstalaţi ofera mai multe functionalităţi: 
+
+{0}
+
 Daca veţi continua, aceste funcţionalităţi nu vor mai fi disponibile. Doriţi să continuaţi ?</value>
 </data>
 <data name="TXT_NO_NAV_ADDONS">
-  <value>Nici o extensie de navigaţie nu este activă. Aplicaţia nu poate funcţiona fără acestea.&#xD;
+  <value>Nici o extensie de navigaţie nu este activă. Aplicaţia nu poate funcţiona fără acestea.
 Trebuie să activaţi cel puţin o extensie de navigaţie pentru a putea continua.</value>
 </data>
 <data name="TXT_NOTIFY_NON_PREVIEW">
-  <value>Obiectul selectat nu poate fi vizualizat. &#xD;
+  <value>Obiectul selectat nu poate fi vizualizat. 
 Trebuie să folosiţi un alt program pentru a-l vizualiza.</value>
 </data>
 <data name="TXT_NOTIFY_PREVIEW">
   <value>Pentru a vizualiza obiectul selectat, daţi dublu click pe acesta sau apăsați Enter.</value>
 </data>
 <data name="TXT_PREPARE_PREVIEW">
-  <value>Vizualizarea automată a obiectului selectat va porni în cateva secunde. &#xD;
+  <value>Vizualizarea automată a obiectului selectat va porni în cateva secunde. 
 Apăsați Escape pentru a opri vizualizarea ...</value>
 </data>
 <data name="TXT_PREVIEW_CANCELED">
-  <value>Vizualizarea automată a obiectului selectat a fost oprită.&#xD;
+  <value>Vizualizarea automată a obiectului selectat a fost oprită.
 Selectaţi alt obiect sau apăsați Enter pentru a vizualiza obiectul curent.</value>
 </data>
 <data name="TXT_SELECTALLADDONS">

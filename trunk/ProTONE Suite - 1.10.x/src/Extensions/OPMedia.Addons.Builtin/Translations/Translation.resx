@@ -182,15 +182,15 @@
   <value>Specify a description for the entry to be added:</value>
 </data>
 <data name="TXT_ERROR_INVALID_CATALOG">
-  <value>This file does not represent a valid Media Catalog:&#xD;&#xD;&#xD;&#xD;
+  <value>This file does not represent a valid Media Catalog:
 {0}</value>
 </data>
 <data name="TXT_ERROR_MERGE_SAME_CATALOG">
-  <value>You cannot merge a catalog into itself: &#xD;&#xD;&#xD;&#xD;
+  <value>You cannot merge a catalog into itself: 
 {0}</value>
 </data>
 <data name="TXT_ERR_MERGE_FAILED">
-  <value>Merge catalogs have failed. Details:&#xD;&#xD;&#xD;&#xD;
+  <value>Merge catalogs have failed. Details:
 {0}</value>
 </data>
 <data name="TXT_FILENAMEPATTERN">
@@ -203,17 +203,17 @@
   <value>Fill ID3 Infos using file/folder name</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA">
-  <value>Link media files to bookmark files&#xD;(Hover with the mouse upon this text to show an explanatory tooltip)</value>
+  <value>Link media files to bookmark files(Hover with the mouse upon this text to show an explanatory tooltip)</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA_DESC">
-  <value>Bookmark files (BMK) contain information about particular moments in a media file. It is very &#xD;&#xD;&#xD;
-important that BMK files are located near the related media files (also called 'parent files').  &#xD;&#xD;&#xD;
-&#xD;&#xD;&#xD;
-If you ckeck this box, the File Browser will always consider that a media file and its related &#xD;&#xD;&#xD;
-bookmark file represent a single entity. This means that a copy, rename, move or delete operation &#xD;&#xD;&#xD;
-issued from the File Browser on one of these files automatically propagates to the other file too.  &#xD;&#xD;&#xD;
-&#xD;&#xD;&#xD;
-Keep this box unchecked if you want to consider them as different entities and handle them in &#xD;&#xD;&#xD;
+  <value>Bookmark files (BMK) contain information about particular moments in a media file. It is very 
+important that BMK files are located near the related media files (also called 'parent files').  
+
+If you ckeck this box, the File Browser will always consider that a media file and its related 
+bookmark file represent a single entity. This means that a copy, rename, move or delete operation 
+issued from the File Browser on one of these files automatically propagates to the other file too.  
+
+Keep this box unchecked if you want to consider them as different entities and handle them in 
 the Windows Explorer style.</value>
 </data>
 <data name="TXT_ID3FILESFILTER">
@@ -337,7 +337,7 @@ the Windows Explorer style.</value>
   <value>Preview Results</value>
 </data>
 <data name="TXT_PREVIEW_TIMER">
-  <value>Automatic preview timer (seconds)&#xD;&#xD;&#xD;
+  <value>Automatic preview timer (seconds)
 (0 = Disable automatic preview):</value>
 </data>
 <data name="TXT_PROPERTYSEARCH">
@@ -371,9 +371,9 @@ the Windows Explorer style.</value>
   <value>Scan error</value>
 </data>
 <data name="TXT_SCAN_ERROR_MSG">
-  <value>A non-fatal error occured while scanning object: {0}.&#xD;&#xD;&#xD;
-The error message is: {1}.&#xD;&#xD;&#xD;
-&#xD;&#xD;&#xD;
+  <value>A non-fatal error occured while scanning object: {0}.
+The error message is: {1}.
+
 Do you want to continue scanning ?</value>
 </data>
 <data name="TXT_SEARCHFOLDER">
@@ -410,14 +410,14 @@ Do you want to continue scanning ?</value>
   <value>Select a folder containing MPEG audio files:</value>
 </data>
 <data name="TXT_SELECTINSERTPOINT">
-  <value>Select the insertion point within the selected catalog &#xD;&#xD;&#xD;
+  <value>Select the insertion point within the selected catalog 
 (press F5 to reload the tree):</value>
 </data>
 <data name="TXT_SENTENCECASE">
   <value>Capitalize first word</value>
 </data>
 <data name="TXT_SHORTCUT">
-  <value>&#xD;&#xD;&#xD;
+  <value>
 Shortcut: {0}</value>
 </data>
 <data name="TXT_SUPPLY_CATALOG_DESC">
@@ -445,11 +445,11 @@ Shortcut: {0}</value>
   <value>Specify the catalog to add the imported files to:</value>
 </data>
 <data name="TXT_WIZCATSTEP2_DESC">
-  <value>Select the folder or disk containing the items to be imported&#xD;&#xD;&#xD;
+  <value>Select the folder or disk containing the items to be imported
 (press F5 to reload the tree):</value>
 </data>
 <data name="TXT_WIZID3STEP1_DESC">
-  <value>Please specify which files you want to edit. &#xD;&#xD;&#xD;
+  <value>Please specify which files you want to edit. 
 Use the 'Add Files', 'Add Folder',  'Remove Files' buttons to configure the files list.</value>
 </data>
 <data name="TXT_WIZID3STEP2_DESC">
@@ -519,7 +519,7 @@ Use the 'Add Files', 'Add Folder',  'Remove Files' buttons to configure the file
   <value>CD Ripper</value>
 </data>
 <data name="TXT_GRABBERHINT_STEP1">
-  <value>Click on list cells to edit them. &#xD;&#xD;
+  <value>Click on list cells to edit them. 
 Double-click on check images to choose whether to grab a track or not.</value>
 </data>
 <data name="TXT_OPTIONS_VBR">

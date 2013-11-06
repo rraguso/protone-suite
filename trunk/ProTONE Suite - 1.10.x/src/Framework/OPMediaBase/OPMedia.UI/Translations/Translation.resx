@@ -260,27 +260,27 @@
   <value>Are you sure you want to cancel the operation ?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE">
-  <value>Are you sure you want to delete the file:&#xD;
+  <value>Are you sure you want to delete the file:
 {0} ?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_DIR">
-  <value>The folder: {0} is not empty. &#xD;
+  <value>The folder: {0} is not empty. 
 Do you want to delete it (including its contents) ?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_EMPTYDIR">
-  <value>Are you sure you want to delete the folder:&#xD;
+  <value>Are you sure you want to delete the folder:
 {0} ?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_ROHS">
-  <value>The file {0} is has one or more of these attributes: Read-Only/Hidden/System.&#xD;
+  <value>The file {0} is has one or more of these attributes: Read-Only/Hidden/System.
 Do you still want to delete it ?</value>
 </data>
 <data name="TXT_CONFIRM_OVERWRITE">
-  <value>The destination file {0} already exists. &#xD;
+  <value>The destination file {0} already exists. 
 Do you want to overwrite it ?</value>
 </data>
 <data name="TXT_CONFIRM_OVERWRITE_RO">
-  <value>The destination file {0} already exists and it is a Read-Only file. &#xD;
+  <value>The destination file {0} already exists and it is a Read-Only file. 
 Do you want to overwrite it ?</value>
 </data>
 <data name="TXT_COPY">
@@ -320,7 +320,7 @@ Do you want to overwrite it ?</value>
   <value>Draw skinned borders and title bar (recommended)</value>
 </data>
 <data name="TXT_EDITKEYDESC">
-  <value>Press the new key combination for: {0}.&#xD;
+  <value>Press the new key combination for: {0}.
 Current shortcut is: {1}.</value>
 </data>
 <data name="TXT_ENABLESKINNEDBORDERS">
@@ -336,18 +336,18 @@ Current shortcut is: {1}.</value>
   <value>Log error messages</value>
 </data>
 <data name="TXT_ERRORS_COPY_TASK">
-  <value>Some errors appeared while copying the specified files.&#xD;
+  <value>Some errors appeared while copying the specified files.
 More details in the list below.</value>
 </data>
 <data name="TXT_ERRORS_DELETE_TASK">
-  <value>Some errors appeared while deleting the specified files.&#xD;
+  <value>Some errors appeared while deleting the specified files.
 More details in the list below.</value>
 </data>
 <data name="TXT_ERRORS_ENCOUNTERED">
   <value>Some errors appeared during the operation.</value>
 </data>
 <data name="TXT_ERRORS_MOVE_TASK">
-  <value>Some errors appeared while moving the specified files.&#xD;
+  <value>Some errors appeared while moving the specified files.
 More details in the list below.</value>
 </data>
 <data name="TXT_EVERYDAY">
@@ -420,11 +420,11 @@ More details in the list below.</value>
   <value>Log entries count:</value>
 </data>
 <data name="TXT_LOG_DESC">
-  <value>This program version is built with enforced logging.&#xD;
+  <value>This program version is built with enforced logging.
 All log level are enabled by default.</value>
 </data>
 <data name="TXT_LOG_KEEPDAYS">
-  <value>How many days to keep the old log files &#xD;
+  <value>How many days to keep the old log files 
 (min=2, max=10):</value>
 </data>
 <data name="TXT_LOG_PATH">
@@ -725,11 +725,11 @@ All log level are enabled by default.</value>
   <value>Shortcut is already in use</value>
 </data>
 <data name="TXT_DUP_SHORTCUT_FIXED">
-  <value>The key combination '{0}' is already assigned to '{1}' and cannot be modified.&#xD;
+  <value>The key combination '{0}' is already assigned to '{1}' and cannot be modified.
 Please enter a different combination.</value>
 </data>
 <data name="TXT_DUP_SHORTCUT_CONFIRM">
-  <value>The key combination '{0}' is already assigned to '{1}'.&#xD;
+  <value>The key combination '{0}' is already assigned to '{1}'.
 Do you want to re-assign it to '{2}'?</value>
 </data>
 <data name="TXT_CONFIRM_RESTORE">
@@ -772,7 +772,7 @@ Do you want to re-assign it to '{2}'?</value>
   <value>Save log file or window</value>
 </data>
 <data name="TXT_NOTIFYUPDATE">
-  <value>A new program version is available: {0}.&#xD;
+  <value>A new program version is available: {0}.
 Do you want to update to this version?</value>
 </data>
 <data name="TXT_CONFIRMUPDATE">
@@ -791,24 +791,24 @@ Do you want to update to this version?</value>
   <value>Disable automatic updates</value>
 </data>
 <data name="TXT_NOUPDATEREQUIRED">
-  <value>This program has the latest available version.&#xD;
-&#xD;
+  <value>This program has the latest available version.
+
 For the moment, you do not need to update the program.</value>
 </data>
 <data name="TXT_CONFIRM_MOVE">
-  <value>Are you sure you want to move the file:&#xD;
+  <value>Are you sure you want to move the file:
 {0} ?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_DIR">
-  <value>The folder: {0} is not empty. &#xD;
+  <value>The folder: {0} is not empty. 
 Do you want to move it and all its contents ?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_EMPTYDIR">
-  <value>Are you sure you want to move the folder:&#xD;
+  <value>Are you sure you want to move the folder:
 {0} ?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_ROHS">
-  <value>The file {0} is has one or more of these attributes: Read-Only/Hidden/System.&#xD;
+  <value>The file {0} is has one or more of these attributes: Read-Only/Hidden/System.
 Do you still want to move it ?</value>
 </data>
 <data name="TXT_NOPROXY">
@@ -851,19 +851,19 @@ Do you still want to move it ?</value>
   <value>Active</value>
 </data>
 <data name="TXT_FLAG_ERRORS">
-  <value>Show&#xD;
+  <value>Show
 Errors</value>
 </data>
 <data name="TXT_FLAG_WARNINGS">
-  <value>Show&#xD;
+  <value>Show
 Warnings</value>
 </data>
 <data name="TXT_FLAG_INFOS">
-  <value>Show&#xD;
+  <value>Show
 Information</value>
 </data>
 <data name="TXT_FLAG_TRACES">
-  <value>Show&#xD;
+  <value>Show
 Debug Traces</value>
 </data>
 <data name="TXT_LOGFILE_FILTER">
@@ -1011,7 +1011,7 @@ Debug Traces</value>
   <value>Timestamp</value>
 </data>
 <data name="TXT_CONFIRM_CREATE">
-  <value>The file {0} does not exist yet.&#xD;
+  <value>The file {0} does not exist yet.
 Do you want to create it ?</value>
 </data>
 <data name="TXT_ASSISTANCE">
