@@ -66,7 +66,7 @@ namespace OPMedia.UI.FileTasks
             this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnlLayout.Size = new System.Drawing.Size(509, 101);
+            this.pnlLayout.Size = new System.Drawing.Size(509, 121);
             this.pnlLayout.TabIndex = 0;
             // 
             // pbCurrent
@@ -76,7 +76,7 @@ namespace OPMedia.UI.FileTasks
             this.pbCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbCurrent.Enabled = false;
             this.pbCurrent.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pbCurrent.Location = new System.Drawing.Point(5, 55);
+            this.pbCurrent.Location = new System.Drawing.Point(5, 70);
             this.pbCurrent.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.pbCurrent.Maximum = 10000D;
             this.pbCurrent.Name = "pbCurrent";
@@ -92,8 +92,8 @@ namespace OPMedia.UI.FileTasks
             // 
             this.lblCurrentProgress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCurrentProgress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCurrentProgress.Location = new System.Drawing.Point(5, 5);
-            this.lblCurrentProgress.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.lblCurrentProgress.Location = new System.Drawing.Point(5, 10);
+            this.lblCurrentProgress.Margin = new System.Windows.Forms.Padding(5, 10, 0, 5);
             this.lblCurrentProgress.Name = "lblCurrentProgress";
             this.lblCurrentProgress.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblCurrentProgress.OverrideForeColor = System.Drawing.Color.Empty;
@@ -109,12 +109,12 @@ namespace OPMedia.UI.FileTasks
             this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnCancel.Enabled = false;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(429, 72);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 3, 5, 5);
+            this.btnCancel.Location = new System.Drawing.Point(429, 94);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 10, 5, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnCancel.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnCancel.Size = new System.Drawing.Size(75, 24);
+            this.btnCancel.Size = new System.Drawing.Size(75, 22);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "TXT_ABORT";
             this.btnCancel.Click += new System.EventHandler(this.OnCancel);
@@ -126,7 +126,7 @@ namespace OPMedia.UI.FileTasks
             this.pbOperation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbOperation.Enabled = false;
             this.pbOperation.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pbOperation.Location = new System.Drawing.Point(5, 23);
+            this.pbOperation.Location = new System.Drawing.Point(5, 28);
             this.pbOperation.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.pbOperation.Maximum = 10000D;
             this.pbOperation.Name = "pbOperation";
@@ -142,8 +142,8 @@ namespace OPMedia.UI.FileTasks
             // 
             this.txtCurFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCurFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtCurFile.Location = new System.Drawing.Point(5, 37);
-            this.txtCurFile.Margin = new System.Windows.Forms.Padding(5, 0, 0, 5);
+            this.txtCurFile.Location = new System.Drawing.Point(5, 52);
+            this.txtCurFile.Margin = new System.Windows.Forms.Padding(5, 10, 0, 5);
             this.txtCurFile.Name = "txtCurFile";
             this.txtCurFile.OverrideBackColor = System.Drawing.Color.Empty;
             this.txtCurFile.OverrideForeColor = System.Drawing.Color.Empty;
@@ -162,7 +162,7 @@ namespace OPMedia.UI.FileTasks
             // 
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(519, 129);
+            this.ClientSize = new System.Drawing.Size(519, 149);
             this.Name = "FileTaskForm";
             this.pnlContent.ResumeLayout(false);
             this.pnlContent.PerformLayout();

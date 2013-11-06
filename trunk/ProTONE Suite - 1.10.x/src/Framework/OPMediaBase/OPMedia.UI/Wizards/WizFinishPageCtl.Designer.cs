@@ -60,7 +60,8 @@ namespace OPMedia.UI.Wizards
             this.pbProgress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbProgress.Enabled = false;
             this.pbProgress.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pbProgress.Location = new System.Drawing.Point(3, 35);
+            this.pbProgress.Location = new System.Drawing.Point(3, 29);
+            this.pbProgress.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pbProgress.Maximum = 10000D;
             this.pbProgress.Name = "pbProgress";
             this.pbProgress.NrTicks = 20;
@@ -78,10 +79,10 @@ namespace OPMedia.UI.Wizards
             this.tvResults.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
             this.tvResults.FullRowSelect = true;
             this.tvResults.HideSelection = false;
-            this.tvResults.Location = new System.Drawing.Point(3, 51);
+            this.tvResults.Location = new System.Drawing.Point(3, 68);
             this.tvResults.Name = "tvResults";
             this.tvResults.ShowNodeToolTips = true;
-            this.tvResults.Size = new System.Drawing.Size(212, 158);
+            this.tvResults.Size = new System.Drawing.Size(212, 141);
             this.tvResults.TabIndex = 2;
             // 
             // opmTableLayoutPanel1
@@ -90,8 +91,8 @@ namespace OPMedia.UI.Wizards
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmTableLayoutPanel1.Controls.Add(this.lblWizardResults, 0, 0);
             this.opmTableLayoutPanel1.Controls.Add(this.tvResults, 0, 3);
-            this.opmTableLayoutPanel1.Controls.Add(this.pbProgress, 0, 2);
-            this.opmTableLayoutPanel1.Controls.Add(this.lblStepDetails, 0, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.pbProgress, 0, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.lblStepDetails, 0, 2);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
@@ -101,6 +102,7 @@ namespace OPMedia.UI.Wizards
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.opmTableLayoutPanel1.Size = new System.Drawing.Size(218, 212);
             this.opmTableLayoutPanel1.TabIndex = 3;
             // 
@@ -109,7 +111,8 @@ namespace OPMedia.UI.Wizards
             this.lblStepDetails.AutoSize = true;
             this.lblStepDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStepDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblStepDetails.Location = new System.Drawing.Point(3, 19);
+            this.lblStepDetails.Location = new System.Drawing.Point(3, 52);
+            this.lblStepDetails.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.lblStepDetails.Name = "lblStepDetails";
             this.lblStepDetails.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblStepDetails.OverrideForeColor = System.Drawing.Color.Empty;
