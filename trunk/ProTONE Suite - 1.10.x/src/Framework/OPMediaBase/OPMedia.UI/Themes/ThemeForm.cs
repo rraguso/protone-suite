@@ -162,8 +162,8 @@ namespace OPMedia.UI.Themes
             if (this.WindowState != FormWindowState.Minimized)
             {
                 int th = TitleBarVisible ? DefaultTitleBarHeight : 0;
-                pnlContent.SetLocation(new Point(5, th + 2));
-                pnlContent.SetSize(new Size(this.Width - 10, this.Height - th - 7));
+                pnlContent.SetLocation(new Point(2, th + 2));
+                pnlContent.SetSize(new Size(this.Width - 5, this.Height - th - 7));
             }
         }
 
@@ -174,7 +174,7 @@ namespace OPMedia.UI.Themes
             // pnlContent
             // 
             this.pnlContent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlContent.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             // 
             // ThemeForm
             // 

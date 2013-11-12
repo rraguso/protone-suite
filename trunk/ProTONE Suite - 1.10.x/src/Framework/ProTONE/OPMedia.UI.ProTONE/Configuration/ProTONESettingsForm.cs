@@ -52,7 +52,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             if (ApplicationInfo.IsPlayer)
             {
-                AddPanel(typeof(SchedulerSettingsPanel));
+                //AddPanel(typeof(SchedulerSettingsPanel));
 
                 if (!SuiteConfiguration.CurrentUserIsAdministrator)
                 {

@@ -59,22 +59,23 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.chkFilterStateNotificationsEnabled.AutoSize = true;
             this.chkFilterStateNotificationsEnabled.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkFilterStateNotificationsEnabled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkFilterStateNotificationsEnabled.Location = new System.Drawing.Point(0, 339);
-            this.chkFilterStateNotificationsEnabled.Margin = new System.Windows.Forms.Padding(0);
+            this.chkFilterStateNotificationsEnabled.Location = new System.Drawing.Point(0, 341);
+            this.chkFilterStateNotificationsEnabled.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.chkFilterStateNotificationsEnabled.Name = "chkFilterStateNotificationsEnabled";
             this.chkFilterStateNotificationsEnabled.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkFilterStateNotificationsEnabled.Size = new System.Drawing.Size(470, 20);
+            this.chkFilterStateNotificationsEnabled.Size = new System.Drawing.Size(470, 18);
             this.chkFilterStateNotificationsEnabled.TabIndex = 8;
-            this.chkFilterStateNotificationsEnabled.Text = "TXT_FilterStateNOTIFICATIONSENABLED";
+            this.chkFilterStateNotificationsEnabled.Text = "TXT_NOTIFICATIONSENABLED";
             this.chkFilterStateNotificationsEnabled.CheckedChanged += new System.EventHandler(this.chkFilterStateNotificationsEnabled_CheckedChanged);
             // 
             // lblOsdFont
             // 
             this.lblOsdFont.AccessibleName = "lblOsdFont";
+            this.lblOsdFont.AutoSize = true;
             this.lblOsdFont.Location = new System.Drawing.Point(0, 0);
             this.lblOsdFont.Margin = new System.Windows.Forms.Padding(0);
             this.lblOsdFont.Name = "lblOsdFont";
-            this.lblOsdFont.Size = new System.Drawing.Size(78, 17);
+            this.lblOsdFont.Size = new System.Drawing.Size(79, 13);
             this.lblOsdFont.TabIndex = 0;
             this.lblOsdFont.TabStop = true;
             this.lblOsdFont.Text = "TXT_OSDFONT";
@@ -83,10 +84,11 @@ namespace OPMedia.UI.ProTONE.Configuration
             // lblOsdColor
             // 
             this.lblOsdColor.AccessibleName = "lblOsdColor";
-            this.lblOsdColor.Location = new System.Drawing.Point(88, 0);
+            this.lblOsdColor.AutoSize = true;
+            this.lblOsdColor.Location = new System.Drawing.Point(89, 0);
             this.lblOsdColor.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblOsdColor.Name = "lblOsdColor";
-            this.lblOsdColor.Size = new System.Drawing.Size(86, 17);
+            this.lblOsdColor.Size = new System.Drawing.Size(88, 13);
             this.lblOsdColor.TabIndex = 1;
             this.lblOsdColor.TabStop = true;
             this.lblOsdColor.Text = "TXT_OSDCOLOR";
@@ -182,7 +184,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.lblOsdText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblOsdText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblOsdText.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.lblOsdText.Location = new System.Drawing.Point(0, 192);
+            this.lblOsdText.Location = new System.Drawing.Point(0, 188);
             this.lblOsdText.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.lblOsdText.Name = "lblOsdText";
             this.lblOsdText.Size = new System.Drawing.Size(470, 61);
@@ -196,7 +198,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.lblOsdText2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblOsdText2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblOsdText2.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.lblOsdText2.Location = new System.Drawing.Point(0, 253);
+            this.lblOsdText2.Location = new System.Drawing.Point(0, 249);
             this.lblOsdText2.Margin = new System.Windows.Forms.Padding(0);
             this.lblOsdText2.Name = "lblOsdText2";
             this.lblOsdText2.Size = new System.Drawing.Size(470, 64);
@@ -242,16 +244,17 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.OverrideBackColor = System.Drawing.Color.Empty;
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(470, 17);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(470, 13);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // lblSubFont
             // 
             this.lblSubFont.AccessibleName = "lblOsdFont";
+            this.lblSubFont.AutoSize = true;
             this.lblSubFont.Location = new System.Drawing.Point(0, 0);
             this.lblSubFont.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubFont.Name = "lblSubFont";
-            this.lblSubFont.Size = new System.Drawing.Size(76, 17);
+            this.lblSubFont.Size = new System.Drawing.Size(77, 13);
             this.lblSubFont.TabIndex = 0;
             this.lblSubFont.TabStop = true;
             this.lblSubFont.Text = "TXT_SUBFONT";
@@ -260,10 +263,11 @@ namespace OPMedia.UI.ProTONE.Configuration
             // lblSubColor
             // 
             this.lblSubColor.AccessibleName = "lblOsdColor";
-            this.lblSubColor.Location = new System.Drawing.Point(86, 0);
+            this.lblSubColor.AutoSize = true;
+            this.lblSubColor.Location = new System.Drawing.Point(87, 0);
             this.lblSubColor.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblSubColor.Name = "lblSubColor";
-            this.lblSubColor.Size = new System.Drawing.Size(84, 17);
+            this.lblSubColor.Size = new System.Drawing.Size(86, 13);
             this.lblSubColor.TabIndex = 1;
             this.lblSubColor.TabStop = true;
             this.lblSubColor.Text = "TXT_SUBCOLOR";
@@ -276,11 +280,11 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.flowLayoutPanel3.Controls.Add(this.lblOsdFont);
             this.flowLayoutPanel3.Controls.Add(this.lblOsdColor);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 317);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 313);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.OverrideBackColor = System.Drawing.Color.Empty;
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(470, 17);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(470, 13);
             this.flowLayoutPanel3.TabIndex = 7;
             // 
             // tableLayoutPanel4
@@ -295,7 +299,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tableLayoutPanel4.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.nudOsdTmr, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 167);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 163);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.OverrideBackColor = System.Drawing.Color.Empty;
@@ -330,7 +334,9 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);

@@ -29,21 +29,27 @@ namespace OPMedia.UI.ProTONE.Configuration
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabMisc = new OPMedia.UI.Controls.OPMTabControl();
+            this.tpDisksOptions = new OPMedia.UI.Controls.OPMTabPage();
+            this.pageDisksOptions = new OPMedia.UI.ProTONE.Configuration.MiscConfig.DisksOptionsPage();
             this.tpPlaylist = new OPMedia.UI.Controls.OPMTabPage();
             this.pagePlaylist = new OPMedia.UI.ProTONE.Configuration.MiscConfig.PlaylistOptionsPage();
+            this.tpFavoriteFolders = new OPMedia.UI.Controls.OPMTabPage();
+            this.pageFavoriteFolders = new OPMedia.UI.ProTONE.Configuration.MiscConfig.FavoriteFoldersPage();
             this.tpRemote = new OPMedia.UI.Controls.OPMTabPage();
             this.pageRemote = new OPMedia.UI.ProTONE.Configuration.MiscConfig.RemoteControlPage();
             this.tpDiagnostics = new OPMedia.UI.Controls.OPMTabPage();
             this.pageDiagnostics = new OPMedia.UI.ProTONE.Configuration.MiscConfig.DiagnosticsPage();
-            this.tpFavoriteFolders = new OPMedia.UI.Controls.OPMTabPage();
-            this.pageFavoriteFolders = new OPMedia.UI.ProTONE.Configuration.MiscConfig.FavoriteFoldersPage();
-            this.tpDisksOptions = new OPMedia.UI.Controls.OPMTabPage();
-            this.pageDisksOptions = new OPMedia.UI.ProTONE.Configuration.MiscConfig.DisksOptionsPage();
+            this.tpScheduler = new OPMedia.UI.Controls.OPMTabPage();
+            this.pageScheduler = new OPMedia.UI.ProTONE.Configuration.MiscConfig.SchedulerSettingsPage();
             this.tabMisc.SuspendLayout();
+            this.tpDisksOptions.SuspendLayout();
             this.tpPlaylist.SuspendLayout();
+            this.tpFavoriteFolders.SuspendLayout();
             this.tpRemote.SuspendLayout();
             this.tpDiagnostics.SuspendLayout();
+            this.tpScheduler.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMisc
@@ -51,6 +57,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tabMisc.AccessibleName = "tabMisc";
             this.tabMisc.Controls.Add(this.tpDisksOptions);
             this.tabMisc.Controls.Add(this.tpPlaylist);
+            this.tabMisc.Controls.Add(this.tpScheduler);
             this.tabMisc.Controls.Add(this.tpFavoriteFolders);
             this.tabMisc.Controls.Add(this.tpRemote);
             this.tabMisc.Controls.Add(this.tpDiagnostics);
@@ -62,6 +69,32 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tabMisc.SelectedIndex = 3;
             this.tabMisc.Size = new System.Drawing.Size(655, 393);
             this.tabMisc.TabIndex = 0;
+            // 
+            // tpDisksOptions
+            // 
+            this.tpDisksOptions.AccessibleName = "TXT_DISKS_OPTIONS";
+            this.tpDisksOptions.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
+            this.tpDisksOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.tpDisksOptions.Controls.Add(this.pageDisksOptions);
+            this.tpDisksOptions.Location = new System.Drawing.Point(4, 23);
+            this.tpDisksOptions.Name = "tpDisksOptions";
+            this.tpDisksOptions.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tpDisksOptions.Size = new System.Drawing.Size(647, 366);
+            this.tpDisksOptions.TabIndex = 3;
+            this.tpDisksOptions.Text = "TXT_DISKS_OPTIONS";
+            // 
+            // pageDisksOptions
+            // 
+            this.pageDisksOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageDisksOptions.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.pageDisksOptions.Location = new System.Drawing.Point(5, 10);
+            this.pageDisksOptions.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pageDisksOptions.Modified = false;
+            this.pageDisksOptions.Name = "pageDisksOptions";
+            this.pageDisksOptions.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pageDisksOptions.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.pageDisksOptions.Size = new System.Drawing.Size(637, 351);
+            this.pageDisksOptions.TabIndex = 0;
             // 
             // tpPlaylist
             // 
@@ -88,6 +121,32 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pagePlaylist.Size = new System.Drawing.Size(637, 351);
             this.pagePlaylist.TabIndex = 0;
             // 
+            // tpFavoriteFolders
+            // 
+            this.tpFavoriteFolders.AccessibleName = "TXT_FAVORITES";
+            this.tpFavoriteFolders.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
+            this.tpFavoriteFolders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.tpFavoriteFolders.Controls.Add(this.pageFavoriteFolders);
+            this.tpFavoriteFolders.Location = new System.Drawing.Point(4, 23);
+            this.tpFavoriteFolders.Name = "tpFavoriteFolders";
+            this.tpFavoriteFolders.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tpFavoriteFolders.Size = new System.Drawing.Size(647, 366);
+            this.tpFavoriteFolders.TabIndex = 3;
+            this.tpFavoriteFolders.Text = "TXT_FAVORITES";
+            // 
+            // pageFavoriteFolders
+            // 
+            this.pageFavoriteFolders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageFavoriteFolders.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.pageFavoriteFolders.Location = new System.Drawing.Point(5, 10);
+            this.pageFavoriteFolders.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pageFavoriteFolders.Modified = false;
+            this.pageFavoriteFolders.Name = "pageFavoriteFolders";
+            this.pageFavoriteFolders.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pageFavoriteFolders.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.pageFavoriteFolders.Size = new System.Drawing.Size(637, 351);
+            this.pageFavoriteFolders.TabIndex = 0;
+            // 
             // tpRemote
             // 
             this.tpRemote.AccessibleName = "TXT_REMOTECONTROLCFG";
@@ -107,7 +166,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageRemote.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.pageRemote.Location = new System.Drawing.Point(5, 10);
             this.pageRemote.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageRemote.Modified = false;
+            this.pageRemote.Modified = true;
             this.pageRemote.Name = "pageRemote";
             this.pageRemote.OverrideBackColor = System.Drawing.Color.Empty;
             this.pageRemote.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -139,61 +198,30 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageDiagnostics.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.pageDiagnostics.Size = new System.Drawing.Size(637, 351);
             this.pageDiagnostics.TabIndex = 0;
-
             // 
-            // tpFavoriteFolders
+            // tpScheduler
             // 
-            this.tpFavoriteFolders.AccessibleName = "TXT_FAVORITES";
-            this.tpFavoriteFolders.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
-            this.tpFavoriteFolders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.tpFavoriteFolders.Controls.Add(this.pageFavoriteFolders);
-            this.tpFavoriteFolders.Location = new System.Drawing.Point(4, 23);
-            this.tpFavoriteFolders.Name = "tpFavoriteFolders";
-            this.tpFavoriteFolders.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.tpFavoriteFolders.Size = new System.Drawing.Size(647, 366);
-            this.tpFavoriteFolders.TabIndex = 3;
-            this.tpFavoriteFolders.Text = "TXT_FAVORITES";
+            this.tpScheduler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.tpScheduler.Controls.Add(this.pageScheduler);
+            this.tpScheduler.Location = new System.Drawing.Point(4, 23);
+            this.tpScheduler.Name = "tpScheduler";
+            this.tpScheduler.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tpScheduler.Size = new System.Drawing.Size(647, 366);
+            this.tpScheduler.TabIndex = 5;
+            this.tpScheduler.Text = "TXT_S_SCHEDULERSETTINGS";
             // 
-            // pageFavoriteFolders
+            // pageScheduler
             // 
-            this.pageFavoriteFolders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageFavoriteFolders.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pageFavoriteFolders.Location = new System.Drawing.Point(5, 10);
-            this.pageFavoriteFolders.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageFavoriteFolders.Modified = false;
-            this.pageFavoriteFolders.Name = "pageDiagnostics";
-            this.pageFavoriteFolders.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pageFavoriteFolders.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.pageFavoriteFolders.Size = new System.Drawing.Size(637, 351);
-            this.pageFavoriteFolders.TabIndex = 0;
-
-            // 
-            // tpDisksOptions
-            // 
-            this.tpDisksOptions.AccessibleName = "TXT_DISKS_OPTIONS";
-            this.tpDisksOptions.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
-            this.tpDisksOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.tpDisksOptions.Controls.Add(this.pageDisksOptions);
-            this.tpDisksOptions.Location = new System.Drawing.Point(4, 23);
-            this.tpDisksOptions.Name = "tpDisksOptions";
-            this.tpDisksOptions.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.tpDisksOptions.Size = new System.Drawing.Size(647, 366);
-            this.tpDisksOptions.TabIndex = 3;
-            this.tpDisksOptions.Text = "TXT_DISKS_OPTIONS";
-            // 
-            // pageDisksOptions
-            // 
-            this.pageDisksOptions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageDisksOptions.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pageDisksOptions.Location = new System.Drawing.Point(5, 10);
-            this.pageDisksOptions.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageDisksOptions.Modified = false;
-            this.pageDisksOptions.Name = "pageDisksOptions";
-            this.pageDisksOptions.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pageDisksOptions.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.pageDisksOptions.Size = new System.Drawing.Size(637, 351);
-            this.pageDisksOptions.TabIndex = 0;
-
+            this.pageScheduler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageScheduler.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.pageScheduler.Location = new System.Drawing.Point(5, 10);
+            this.pageScheduler.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pageScheduler.Modified = false;
+            this.pageScheduler.Name = "pageScheduler";
+            this.pageScheduler.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pageScheduler.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.pageScheduler.Size = new System.Drawing.Size(637, 351);
+            this.pageScheduler.TabIndex = 0;
             // 
             // MiscellaneousSettingsPanel
             // 
@@ -203,9 +231,12 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.Name = "MiscellaneousSettingsPanel";
             this.Size = new System.Drawing.Size(655, 393);
             this.tabMisc.ResumeLayout(false);
+            this.tpDisksOptions.ResumeLayout(false);
             this.tpPlaylist.ResumeLayout(false);
+            this.tpFavoriteFolders.ResumeLayout(false);
             this.tpRemote.ResumeLayout(false);
             this.tpDiagnostics.ResumeLayout(false);
+            this.tpScheduler.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -218,10 +249,12 @@ namespace OPMedia.UI.ProTONE.Configuration
         private UI.Controls.OPMTabPage tpPlaylist;
         private UI.Controls.OPMTabPage tpFavoriteFolders;
         private UI.Controls.OPMTabPage tpDisksOptions;
+        private UI.Controls.OPMTabPage tpScheduler;
         private MiscConfig.RemoteControlPage pageRemote;
         private MiscConfig.DiagnosticsPage pageDiagnostics;
         private MiscConfig.PlaylistOptionsPage pagePlaylist;
         private MiscConfig.FavoriteFoldersPage pageFavoriteFolders;
-        private MiscConfig.DisksOptionsPage pageDisksOptions;    
+        private MiscConfig.DisksOptionsPage pageDisksOptions;
+        private MiscConfig.SchedulerSettingsPage pageScheduler;
     }
 }

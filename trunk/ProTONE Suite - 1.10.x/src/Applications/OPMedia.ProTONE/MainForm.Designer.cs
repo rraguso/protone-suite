@@ -39,7 +39,7 @@ namespace OPMedia.ProTONE
         {
             this.components = new System.ComponentModel.Container();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.cmsMain = new OPMContextMenuStrip();
+            this.cmsMain = new OPMedia.UI.Controls.OPMContextMenuStrip();
             this.toolStripSeparator7 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.mnuPlaylistPlaceholder = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.timeScale = new OPMedia.UI.ProTONE.Controls.MediaPlayer.ToolStripTimeScale();
@@ -66,7 +66,9 @@ namespace OPMedia.ProTONE
             // 
             // cmsMain
             // 
+            this.cmsMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cmsMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator7,
             this.mnuPlaylistPlaceholder,
@@ -79,7 +81,7 @@ namespace OPMedia.ProTONE
             this.mnuExit});
             this.cmsMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(200, 194);
+            this.cmsMain.Size = new System.Drawing.Size(261, 172);
             this.cmsMain.Opening += new System.ComponentModel.CancelEventHandler(this.cmsMain_Opening);
             // 
             // toolStripSeparator7
@@ -162,7 +164,7 @@ namespace OPMedia.ProTONE
             this.mediaPlayer.MinimumSize = new System.Drawing.Size(160, 0);
             this.mediaPlayer.Name = "mediaPlayer";
             this.mediaPlayer.OverrideBackColor = System.Drawing.Color.Empty;
-            this.mediaPlayer.Size = new System.Drawing.Size(410, 242);
+            this.mediaPlayer.Size = new System.Drawing.Size(415, 242);
             this.mediaPlayer.TabIndex = 0;
             // 
             // MainForm

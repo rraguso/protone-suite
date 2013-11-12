@@ -84,7 +84,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -147,7 +147,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.lblGlobalStatus.Name = "lblGlobalStatus";
             this.lblGlobalStatus.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblGlobalStatus.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblGlobalStatus.Size = new System.Drawing.Size(534, 10);
+            this.lblGlobalStatus.Size = new System.Drawing.Size(534, 16);
             this.lblGlobalStatus.TabIndex = 7;
             this.lblGlobalStatus.Text = "GlobalStatus";
             this.lblGlobalStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -177,7 +177,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.pbGlobalStatus.Location = new System.Drawing.Point(0, 105);
             this.pbGlobalStatus.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.pbGlobalStatus.Name = "pbGlobalStatus";
-            this.pbGlobalStatus.Size = new System.Drawing.Size(16, 10);
+            this.pbGlobalStatus.Size = new System.Drawing.Size(16, 16);
             this.pbGlobalStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbGlobalStatus.TabIndex = 20;
             this.pbGlobalStatus.TabStop = false;

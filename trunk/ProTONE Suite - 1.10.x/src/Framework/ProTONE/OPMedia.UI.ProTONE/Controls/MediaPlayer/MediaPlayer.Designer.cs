@@ -62,12 +62,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlPlaylist.AllowDrop = true;
             this.pnlPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPlaylist.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pnlPlaylist.Location = new System.Drawing.Point(0, 0);
-            this.pnlPlaylist.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.pnlPlaylist.Location = new System.Drawing.Point(3, 0);
+            this.pnlPlaylist.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.pnlPlaylist.MinimumSize = new System.Drawing.Size(160, 160);
             this.pnlPlaylist.Name = "pnlPlaylist";
             this.pnlPlaylist.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pnlPlaylist.Size = new System.Drawing.Size(365, 220);
+            this.pnlPlaylist.Size = new System.Drawing.Size(359, 220);
             this.pnlPlaylist.TabIndex = 0;
             this.pnlPlaylist.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragDrop);
             this.pnlPlaylist.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragEnter);

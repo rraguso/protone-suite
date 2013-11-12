@@ -30,17 +30,19 @@ namespace OPMedia.MediaLibrary
 
         public override void OnExecuteShortcut(OPMShortcutEventArgs args)
         {
-            if (args.Handled)
-                return;
-
-            switch (args.cmd)
+            if (!this.DesignMode)
             {
-                case OPMShortcut.CmdOpenSettings:
-                    ProTONESettingsForm.Show();
-                    args.Handled = true;
-                    break;
-            }
+                if (args.Handled)
+                    return;
 
+                switch (args.cmd)
+                {
+                    case OPMShortcut.CmdOpenSettings:
+                        ProTONESettingsForm.Show();
+                        args.Handled = true;
+                        break;
+                }
+            }
         }
     }
 }

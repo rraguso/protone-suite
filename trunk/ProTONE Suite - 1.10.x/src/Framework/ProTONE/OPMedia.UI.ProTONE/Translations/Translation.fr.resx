@@ -449,7 +449,7 @@ Raccourci:.{0}</value>
 <data name="TXT_MEDIA_TIME">
   <value>Heure:</value>
 </data>
-<data name="TXT_FilterStateNOTIFICATIONSENABLED">
+<data name="TXT_NOTIFICATIONSENABLED">
   <value>Afficher les info-bulles de notification près de la zone de notification lorsque des médias changements d'état</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">

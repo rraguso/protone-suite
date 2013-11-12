@@ -449,7 +449,7 @@ Double click to toggle remaining time</value>
 <data name="TXT_MEDIA_TIME">
   <value>Time: </value>
 </data>
-<data name="TXT_FilterStateNOTIFICATIONSENABLED">
+<data name="TXT_NOTIFICATIONSENABLED">
   <value>Display notification tooltips near system tray when media state changes</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">

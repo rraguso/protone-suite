@@ -352,15 +352,14 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.lblMinDuration.AutoSize = true;
             this.lblMinDuration.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMinDuration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblMinDuration.Location = new System.Drawing.Point(0, 0);
-            this.lblMinDuration.Margin = new System.Windows.Forms.Padding(0);
+            this.lblMinDuration.Location = new System.Drawing.Point(0, 5);
+            this.lblMinDuration.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblMinDuration.Name = "lblMinDuration";
             this.lblMinDuration.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblMinDuration.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblMinDuration.Size = new System.Drawing.Size(139, 28);
+            this.lblMinDuration.Size = new System.Drawing.Size(139, 23);
             this.lblMinDuration.TabIndex = 0;
             this.lblMinDuration.Text = "TXT_MINMOVIEDURATION";
-            this.lblMinDuration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // nudMinMovieDuration
             // 
@@ -385,24 +384,24 @@ namespace OPMedia.UI.ProTONE.Configuration
             // kryptonLabel2
             // 
             this.kryptonLabel2.AccessibleName = "kryptonLabel2";
+            this.kryptonLabel2.AutoSize = true;
             this.kryptonLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.kryptonLabel2.Location = new System.Drawing.Point(183, 0);
-            this.kryptonLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.kryptonLabel2.Location = new System.Drawing.Point(183, 5);
+            this.kryptonLabel2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.OverrideBackColor = System.Drawing.Color.Empty;
             this.kryptonLabel2.OverrideForeColor = System.Drawing.Color.Empty;
-            this.kryptonLabel2.Size = new System.Drawing.Size(75, 23);
+            this.kryptonLabel2.Size = new System.Drawing.Size(74, 13);
             this.kryptonLabel2.TabIndex = 2;
             this.kryptonLabel2.Text = "TXT_MINUTES";
-            this.kryptonLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // chkNotifySubDownloaded
             // 
             this.pnlOnlineSubtitles.SetColumnSpan(this.chkNotifySubDownloaded, 2);
             this.chkNotifySubDownloaded.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkNotifySubDownloaded.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkNotifySubDownloaded.Location = new System.Drawing.Point(0, 165);
-            this.chkNotifySubDownloaded.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.chkNotifySubDownloaded.Location = new System.Drawing.Point(0, 170);
+            this.chkNotifySubDownloaded.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.chkNotifySubDownloaded.Name = "chkNotifySubDownloaded";
             this.chkNotifySubDownloaded.OverrideForeColor = System.Drawing.Color.Empty;
             this.chkNotifySubDownloaded.Size = new System.Drawing.Size(468, 15);

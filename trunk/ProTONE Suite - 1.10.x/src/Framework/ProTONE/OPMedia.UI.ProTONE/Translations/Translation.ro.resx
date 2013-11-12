@@ -449,7 +449,7 @@ Dublu click pentru a comuta pe timp rămas.</value>
 <data name="TXT_MEDIA_TIME">
   <value>Poziţie redare: </value>
 </data>
-<data name="TXT_FilterStateNOTIFICATIONSENABLED">
+<data name="TXT_NOTIFICATIONSENABLED">
   <value>Afişează mesaje de notifcare atunci când se schimbă starea mediului redat</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">

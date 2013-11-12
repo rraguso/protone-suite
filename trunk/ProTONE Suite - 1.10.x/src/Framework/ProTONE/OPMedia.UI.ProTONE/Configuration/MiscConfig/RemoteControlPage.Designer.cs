@@ -63,7 +63,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.btnLaunch.AutoSize = true;
             this.btnLaunch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLaunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunch.Location = new System.Drawing.Point(13, 59);
+            this.btnLaunch.Location = new System.Drawing.Point(13, 69);
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnLaunch.OverrideForeColor = System.Drawing.Color.Empty;
@@ -92,8 +92,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(0, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Location = new System.Drawing.Point(0, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.label1.Name = "label1";
             this.label1.OverrideBackColor = System.Drawing.Color.Empty;
             this.label1.OverrideForeColor = System.Drawing.Color.Empty;

@@ -1,9 +1,9 @@
 using OPMedia.UI.Controls;
 using System.Windows.Forms;
 
-namespace OPMedia.UI.ProTONE.Configuration
+namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
-    partial class SchedulerSettingsPanel
+    partial class SchedulerSettingsPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -476,10 +476,11 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.opmLayoutPanel2.Size = new System.Drawing.Size(535, 22);
             this.opmLayoutPanel2.TabIndex = 5;
             // 
-            // SchedulerSettingsPanel
+            // SchedulerSettingsPage
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Controls.Add(this.opmLayoutPanel1);
-            this.Name = "SchedulerSettingsPanel";
+            this.Name = "SchedulerSettingsPage";
             this.Size = new System.Drawing.Size(535, 354);
             this.grpPlaylistEvt.ResumeLayout(false);
             this.grpPlaylistEvt.PerformLayout();

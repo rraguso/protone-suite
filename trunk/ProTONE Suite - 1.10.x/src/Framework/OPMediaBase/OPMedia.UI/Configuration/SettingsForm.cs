@@ -63,7 +63,7 @@ namespace OPMedia.UI
             tabOptions.ImageList.ImageSize = new Size(32, 32);
             tabOptions.ImageList.TransparentColor = Color.Magenta;
 
-            this.AllowResize = true;
+            //this.AllowResize = true;
             this.InheritAppIcon = false;
             this.Icon = Resources.settings.ToIcon();
             this.FormClosing += new FormClosingEventHandler(SettingsForm_FormClosing);

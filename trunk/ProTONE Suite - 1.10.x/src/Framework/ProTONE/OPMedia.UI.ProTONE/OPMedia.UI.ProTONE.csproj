@@ -121,11 +121,11 @@
     <Compile Include="Configuration\MiscConfig\RemoteControlPage.Designer.cs">
       <DependentUpon>RemoteControlPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\SchedulerSettingsPanel.cs">
+    <Compile Include="Configuration\MiscConfig\SchedulerSettingsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Configuration\SchedulerSettingsPanel.Designer.cs">
-      <DependentUpon>SchedulerSettingsPanel.cs</DependentUpon>
+    <Compile Include="Configuration\MiscConfig\SchedulerSettingsPage.Designer.cs">
+      <DependentUpon>SchedulerSettingsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration\ProTONESettingsForm.cs">
       <SubType>Form</SubType>
@@ -372,9 +372,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Configuration\SchedulerSettingsPanel.resx">
+    <EmbeddedResource Include="Configuration\MiscConfig\SchedulerSettingsPage.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>SchedulerSettingsPanel.cs</DependentUpon>
+      <DependentUpon>SchedulerSettingsPage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

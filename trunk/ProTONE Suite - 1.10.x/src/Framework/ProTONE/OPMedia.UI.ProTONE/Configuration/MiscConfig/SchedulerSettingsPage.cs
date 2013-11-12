@@ -18,9 +18,9 @@ using OPMedia.UI.Themes;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
 
-namespace OPMedia.UI.ProTONE.Configuration
+namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
-    public partial class SchedulerSettingsPanel : BaseCfgPanel
+    public partial class SchedulerSettingsPage : SettingsTabPage
     {
         public override Image Image
         {
@@ -30,7 +30,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             }
         }
 
-        public SchedulerSettingsPanel(): base()
+        public SchedulerSettingsPage(): base()
         {
             this.Title = "TXT_S_SCHEDULERSETTINGS";
             InitializeComponent();

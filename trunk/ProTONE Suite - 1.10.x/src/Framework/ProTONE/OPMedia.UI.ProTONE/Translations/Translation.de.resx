@@ -449,7 +449,7 @@ Doppelklick verbleibende Zeit zu wechseln</value>
 <data name="TXT_MEDIA_TIME">
   <value>Zeit:</value>
 </data>
-<data name="TXT_FilterStateNOTIFICATIONSENABLED">
+<data name="TXT_NOTIFICATIONSENABLED">
   <value>Anzeigebenachrichtigung Tooltips in der Nähe der Taskleiste, wenn Medien Zustandsänderungen</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">

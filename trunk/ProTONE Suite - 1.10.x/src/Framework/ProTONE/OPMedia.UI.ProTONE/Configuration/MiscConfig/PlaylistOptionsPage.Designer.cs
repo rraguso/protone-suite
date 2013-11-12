@@ -73,7 +73,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             // 
             // txtHints
             // 
-            this.txtHints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.txtHints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.txtHints.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtHints.FontSize = OPMedia.UI.Themes.FontSizes.Small;
             this.txtHints.Location = new System.Drawing.Point(0, 142);

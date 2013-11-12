@@ -979,9 +979,9 @@ namespace OPMedia.UI.ProTONE.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Display notification tooltips near system tray when media state changes.
         /// </summary>
-        internal static string TXT_FilterStateNOTIFICATIONSENABLED {
+        internal static string TXT_NOTIFICATIONSENABLED {
             get {
-                return ResourceManager.GetString("TXT_FilterStateNOTIFICATIONSENABLED", resourceCulture);
+                return ResourceManager.GetString("TXT_NOTIFICATIONSENABLED", resourceCulture);
             }
         }
         

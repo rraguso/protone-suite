@@ -52,6 +52,10 @@ namespace OPMedia.UI.ProTONE.Configuration
             bmp.MakeTransparent();
             tabMisc.ImageList.Images.Add(bmp);
 
+            bmp = Resources.Scheduler;
+            bmp.MakeTransparent();
+            tabMisc.ImageList.Images.Add(bmp);
+
             //tabMisc.ImageList.Images.Add(Resources.Monitor);
             tabMisc.ImageList.Images.Add(OPMedia.UI.Properties.Resources.Favorites16);
             tabMisc.ImageList.Images.Add(OPMedia.Core.Properties.Resources.ir_remote);
@@ -74,6 +78,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             pageDiagnostics.ModifiedActive += new EventHandler(OnModifiedActive);
             pageFavoriteFolders.ModifiedActive += new EventHandler(OnModifiedActive);
             pageDisksOptions.ModifiedActive += new EventHandler(OnModifiedActive);
+            pageScheduler.ModifiedActive += new EventHandler(OnModifiedActive);
 
             this.HandleCreated += new EventHandler(MiscellaneousSettingsPanel_HandleCreated);
         }
@@ -91,9 +96,9 @@ namespace OPMedia.UI.ProTONE.Configuration
         protected override void SaveInternal()
         {
             pageDisksOptions.Save();
-
             pagePlaylist.Save();
-
+            pageScheduler.Save();
+            
             if (SuiteConfiguration.CurrentUserIsAdministrator &&
                 SuiteConfiguration.IsRCCServiceInstalled)
             {
