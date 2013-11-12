@@ -70,7 +70,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbFavorites = new OPMedia.UI.Controls.OPMToolStripDropDownButton();
             this.tsbFavoritesAdd = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsbFavoritesManage = new OPMedia.UI.Controls.OPMToolStripMenuItem();
-            this.toolStripSeparator6 = new OPMedia.UI.Controls.OPMToolStripSeparator();
+            this.toolStripSeparator6 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
             this.tsbSep2 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsbSearch = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbReload = new OPMedia.UI.Controls.OPMToolStripButton();
@@ -763,7 +763,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         private OPMToolStripDropDownButton tsbFavorites;
         private OPMToolStripMenuItem tsbFavoritesAdd;
         private OPMToolStripMenuItem tsbFavoritesManage;
-        private OPMToolStripSeparator toolStripSeparator6;
+        private OPMMenuStripSeparator toolStripSeparator6;
         private OPMToolStripSeparator tsbSep1;
         private OPMContextMenuStrip contextMenuStrip;
         private OPMToolStripMenuItem tsmiBack;
