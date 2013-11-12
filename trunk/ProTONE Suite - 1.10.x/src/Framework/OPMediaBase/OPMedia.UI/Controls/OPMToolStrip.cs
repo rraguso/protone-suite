@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Windows.Forms.Design;
 using OPMedia.UI.Controls;
 using OPMedia.UI.Properties;
+using System.Data;
 
 namespace OPMedia.UI.Controls
 {
@@ -38,33 +39,39 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Width + 4,
                 ContentRectangle.Height + 4);
 
-            using (SolidBrush b1 = new SolidBrush(ThemeManager.SelectedColor))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
             {
-                using (Brush b2 = new SolidBrush(ThemeManager.HighlightColor))
                 using (Pen p2 = new Pen(ThemeManager.ForeColor))
                 {
                     Rectangle rect = clientRectangle;
 
                     if (Enabled && (Selected || Pressed))
                     {
-                        e.Graphics.FillRectangle(b1, rect);
+                        using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
+                        {
+                            e.Graphics.FillPath(b1, gp);
+                        }
 
                         rect.Width -= 1;
                         rect.Height -= 1;
-                        e.Graphics.DrawRectangle(p2, rect);
+
+                        using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
+                        {
+                            e.Graphics.DrawPath(p2, gp);
+                        }
 
                         if (DropDownItems != null && DropDownItems.Count >= 0)
                         {
                             Point pt1 = new Point(clientRectangle.Right - DropDownButtonWidth,
                                 clientRectangle.Top);
                             Point pt2 = new Point(clientRectangle.Right - DropDownButtonWidth,
-                                clientRectangle.Bottom);
+                                clientRectangle.Bottom - 4);
 
                             e.Graphics.DrawLine(p2, pt1, pt2);
                         }
                     }
 
-                    int xpos = this.Width / 2 - this.Owner.ImageScalingSize.Width / 2 - DropDownButtonWidth / 2;
+                    int xpos = ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 - DropDownButtonWidth / 2;
 
                     if (Image != null)
                     {
@@ -122,7 +129,7 @@ namespace OPMedia.UI.Controls
 
             if (DropDownItems != null && DropDownItems.Count >= 0)
             {
-                Rectangle rcArrow = new Rectangle(clientRectangle.Right - DropDownButtonWidth,
+                Rectangle rcArrow = new Rectangle(clientRectangle.Right - DropDownButtonWidth - 2,
                     clientRectangle.Top + (clientRectangle.Height - 20) / 2,
                         DropDownButtonWidth, 15);
 
@@ -340,7 +347,7 @@ namespace OPMedia.UI.Controls
                         }
                     }
 
-                    int xpos = this.Width / 2 - this.Owner.ImageScalingSize.Width / 2;
+                    int xpos = this.ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2;
 
                     if (Image != null)
                     {
@@ -431,23 +438,29 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Width + 4,
                 ContentRectangle.Height + 4);
 
-            using (SolidBrush b1 = new SolidBrush(ThemeManager.SelectedColor))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
             {
-                using (Brush b2 = new SolidBrush(ThemeManager.HighlightColor))
                 using (Pen p2 = new Pen(ThemeManager.ForeColor))
                 {
                     Rectangle rect = clientRectangle;
 
                     if (Selected || Pressed)
                     {
-                        e.Graphics.FillRectangle(b1, rect);
+                        using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
+                        {
+                            e.Graphics.FillPath(b1, gp);
+                        }
 
                         rect.Width -= 1;
                         rect.Height -= 1;
-                        e.Graphics.DrawRectangle(p2, rect);
+
+                        using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
+                        {
+                            e.Graphics.DrawPath(p2, gp);
+                        }
                     }
 
-                    int xpos = this.Width / 2 - this.Owner.ImageScalingSize.Width / 2;
+                    int xpos = ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2;
 
                     if (Image != null)
                     {
@@ -497,7 +510,7 @@ namespace OPMedia.UI.Controls
                 }
             }
 
-            Rectangle rcArrow = new Rectangle(clientRectangle.Right - 15, 
+            Rectangle rcArrow = new Rectangle(clientRectangle.Right - 18, 
                 clientRectangle.Top + (clientRectangle.Height - 25) / 2,
                     15, 15);
 
