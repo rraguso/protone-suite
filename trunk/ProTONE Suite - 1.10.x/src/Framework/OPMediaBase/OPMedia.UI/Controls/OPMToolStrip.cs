@@ -553,6 +553,29 @@ namespace OPMedia.UI.Controls
         {
             ThemeManager.PrepareGraphics(e.Graphics);
 
+            using (Pen pb = new Pen(ThemeManager.BackColor, 1))
+            using (Pen pf = new Pen(ThemeManager.ForeColor, 1))
+            {
+                //int dy = e.ClipRectangle.Height / 2;
+                //int dx = 8;
+
+                Point p1 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2, e.ClipRectangle.Top + 5);
+                Point p2 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2, e.ClipRectangle.Bottom - 5);
+                Point p3 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2 + 1, e.ClipRectangle.Top + 5);
+                Point p4 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2 + 1, e.ClipRectangle.Bottom - 5);
+
+                e.Graphics.DrawLine(pf, p1, p2);
+                e.Graphics.DrawLine(pb, p3, p4);
+            }
+        }
+    }
+    
+    public class OPMMenuStripSeparator : ToolStripSeparator
+    {
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ThemeManager.PrepareGraphics(e.Graphics);
+
             using (Pen p = new Pen(ThemeManager.BackColor, 1))
             {
                 int dy = e.ClipRectangle.Height / 2;

@@ -40,12 +40,12 @@ namespace OPMedia.ProTONE
             this.components = new System.ComponentModel.Container();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsMain = new OPMedia.UI.Controls.OPMContextMenuStrip();
-            this.toolStripSeparator7 = new OPMedia.UI.Controls.OPMToolStripSeparator();
+            this.toolStripSeparator7 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
             this.mnuPlaylistPlaceholder = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.timeScale = new OPMedia.UI.ProTONE.Controls.MediaPlayer.ToolStripTimeScale();
             this.volumeScale = new OPMedia.UI.ProTONE.Controls.MediaPlayer.ToolStripVolumeScale();
             this.mnuMediaState = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator5 = new OPMedia.UI.Controls.OPMToolStripSeparator();
+            this.toolStripSeparator5 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
             this.mnuTools = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.mnuAbout = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.mnuExit = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -188,9 +188,9 @@ namespace OPMedia.ProTONE
 
         private OPMToolStripMenuItem mnuAbout;
         private OPMToolStripMenuItem mnuExit;
-        private OPMToolStripSeparator toolStripSeparator5;
+        private OPMMenuStripSeparator toolStripSeparator5;
         private MediaPlayer mediaPlayer;
-        private OPMToolStripSeparator toolStripSeparator7;
+        private OPMMenuStripSeparator toolStripSeparator7;
         private ToolStripLabel mnuMediaState;
         private OPMToolStripMenuItem mnuPlaylistPlaceholder;
     }

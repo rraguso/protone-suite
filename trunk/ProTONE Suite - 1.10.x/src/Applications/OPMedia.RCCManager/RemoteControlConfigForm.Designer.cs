@@ -61,7 +61,7 @@ namespace OPMedia.RCCManager
             this.cmsList = new OPMContextMenuStrip();
             this.tsmiChange = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
-            this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
+            this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
             this.tsmiEnable = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.label1 = new OPMedia.UI.Controls.OPMLabel();
             this.btnAdd = new OPMedia.UI.Controls.OPMButton();
@@ -591,7 +591,7 @@ namespace OPMedia.RCCManager
         private OPMContextMenuStrip cmsList;
         private OPMToolStripMenuItem tsmiChange;
         private OPMToolStripMenuItem tsmiDelete;
-        private OPMToolStripSeparator toolStripSeparator1;
+        private OPMMenuStripSeparator toolStripSeparator1;
         private OPMToolStripMenuItem tsmiEnable;
         private ColumnHeader colActionName;
         private ColumnHeader colEnabled;

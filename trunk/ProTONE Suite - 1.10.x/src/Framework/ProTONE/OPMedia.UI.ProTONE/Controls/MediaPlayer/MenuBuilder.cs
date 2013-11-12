@@ -43,7 +43,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 index++;
             }
 
-            menu.InsertSingleEntry(index, new OPMToolStripSeparator());
+            menu.InsertSingleEntry(index, new OPMMenuStripSeparator());
             index++;
 
             for (OPMShortcut cmd = OPMShortcut.CmdFwd; cmd <= OPMShortcut.CmdVolDn; cmd++)
@@ -52,7 +52,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 index++;
             }
 
-            menu.InsertSingleEntry(index, new OPMToolStripSeparator());
+            menu.InsertSingleEntry(index, new OPMMenuStripSeparator());
             index++;
 
             for (OPMShortcut cmd = OPMShortcut.CmdLoopPlay; cmd <= OPMShortcut.CmdToggleShuffle; cmd++)
@@ -68,10 +68,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             BuildMenuEntry(OPMShortcut.CmdCfgVideo, menu, clickHandler);
             BuildMenuEntry(OPMShortcut.CmdCfgAudio, menu, clickHandler);
-            menu.AddSingleEntry(new OPMToolStripSeparator());
+            menu.AddSingleEntry(new OPMMenuStripSeparator());
             BuildMenuEntry(OPMShortcut.CmdCfgSubtitles, menu, clickHandler);
             BuildMenuEntry(OPMShortcut.CmdCfgTimer, menu, clickHandler);
-            menu.AddSingleEntry(new OPMToolStripSeparator());
+            menu.AddSingleEntry(new OPMMenuStripSeparator());
             BuildMenuEntry(OPMShortcut.CmdOpenSettings, menu, clickHandler);
             BuildMenuEntry(OPMShortcut.CmdShowLogConsole, menu, clickHandler);
         }
@@ -105,7 +105,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 if (submenu != null && submenu.Count >= 1)
                 {
-                    menuToAlter.AddSingleEntry(new OPMToolStripSeparator());
+                    menuToAlter.AddSingleEntry(new OPMMenuStripSeparator());
 
                     foreach (KeyValuePair<PlaylistSubItem, List<PlaylistSubItem>> subitems in submenu)
                     {
@@ -221,7 +221,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             {
                 if (menu.MenuItemsCount > 0)
                 {
-                    menu.AddSingleEntry(new OPMToolStripSeparator());
+                    menu.AddSingleEntry(new OPMMenuStripSeparator());
                 }
 
                 string str = Translator.Translate("TXT_SEARCH_SUBTITLES");
