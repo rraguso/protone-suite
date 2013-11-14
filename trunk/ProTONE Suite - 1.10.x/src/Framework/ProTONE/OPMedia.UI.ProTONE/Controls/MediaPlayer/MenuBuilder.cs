@@ -96,7 +96,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 menuToAlter = new MenuWrapper<OPMToolStripMenuItem>(item) as MenuWrapper<T>;
             }
 
-            if (menuType == MenuType.SingleItem && plItem != null)
+            if (plItem != null && menuType != MenuType.MultipleItems)
             {
                 // It may have subitems:
                 // * a DVD item will have titles, chapters, etc ...
@@ -105,7 +105,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 if (submenu != null && submenu.Count >= 1)
                 {
-                    menuToAlter.AddSingleEntry(new OPMMenuStripSeparator());
+                    if (menuType == MenuType.SingleItem)
+                    {
+                        menuToAlter.AddSingleEntry(new OPMMenuStripSeparator());
+                    }
 
                     foreach (KeyValuePair<PlaylistSubItem, List<PlaylistSubItem>> subitems in submenu)
                     {
@@ -156,15 +159,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                         menuToAlter.AddSingleEntry(subItem);
                     }
                 }
-            }
 
-            if (plItem is DvdPlaylistItem)
-            {
-                AttachDvdMenuItems(plItem as DvdPlaylistItem, menuToAlter, clickHandler);
-            }
-            else
-            {
-                AttachFileMenuItems(plItem as PlaylistItem, menuToAlter, clickHandler);
+                if (menuType == MenuType.SingleItem)
+                {
+                    if (plItem is DvdPlaylistItem)
+                    {
+                        AttachDvdMenuItems(plItem as DvdPlaylistItem, menuToAlter, clickHandler);
+                    }
+                    else
+                    {
+                        AttachFileMenuItems(plItem as PlaylistItem, menuToAlter, clickHandler);
+                    }
+                }
             }
         }
 
