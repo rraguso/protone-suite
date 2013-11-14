@@ -355,6 +355,11 @@ namespace OPMedia.UI.Controls
         [EventSink(EventNames.ThemeUpdated)]
         public void OnThemeUpdated()
         {
+            OnThemeUpdatedInternal();
+        }
+
+        protected virtual void OnThemeUpdatedInternal()
+        {
             base.BackColor = ThemeManager.BackColor;
             base.ForeColor = ThemeManager.ForeColor;
             Invalidate(true);
@@ -546,7 +551,7 @@ namespace OPMedia.UI.Controls
             Font drawFont = e.SubItem.Font;
 
             Color bColor = isSelected ? ThemeManager.SelectedColor : GetBackColor();
-            Color fColor = ThemeManager.ForeColor;// e.Item.ForeColor;
+            Color fColor = e.Item.ForeColor;// ThemeManager.ForeColor;
 
             ExtendedSubItemDetail esid = e.SubItem.Tag as ExtendedSubItemDetail;
 

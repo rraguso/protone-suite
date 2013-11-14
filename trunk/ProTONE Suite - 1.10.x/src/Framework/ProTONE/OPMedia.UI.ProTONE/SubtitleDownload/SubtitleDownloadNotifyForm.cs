@@ -41,7 +41,7 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
         {
             InitializeComponent();
 
-            ThemeManager.SetFont(lvSubtitles, FontSizes.Small);
+            ThemeManager.SetFont(lvSubtitles, FontSizes.Smallest);
 
             _subtitleDownloadInfo = subtitleDownloadInfo;
             _movieFilePath = movieFilePath;
@@ -98,28 +98,29 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
                         sdi.sd = sd;
                         sdi.si = si;
                         item.Tag = sdi;
+                        lvSubtitles.Items.Add(item);
 
                         //item.UseItemStyleForSubItems = true;
 
                         if (SubtitleLanguage.IsPrefferedLanguage(si.LanguageName))
                         {
-                            item.ForeColor = ThemeManager.ColorValidationFailed;
+                            item.ForeColor = ThemeManager.HighlightColor;
                             foreach (ListViewItem.ListViewSubItem lvsi in item.SubItems)
                             {
-                                lvsi.ForeColor = ThemeManager.ColorValidationFailed;
+                                lvsi.ForeColor = ThemeManager.HighlightColor;
                             }
                         }
 
-                        if (_highestPrio != sd.Priority)
+                        if (_highestPrio == sd.Priority)
                         {
-                            item.Font = ThemeManager.SmallestFont;
+                            item.Font = ThemeManager.SmallFont;
                             foreach (ListViewItem.ListViewSubItem lvsi in item.SubItems)
                             {
-                                lvsi.Font = ThemeManager.SmallestFont;
+                                lvsi.Font = ThemeManager.SmallFont;
                             }
                         }
 
-                        lvSubtitles.Items.Add(item);
+                        
                     }
                 }
             }

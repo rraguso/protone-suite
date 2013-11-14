@@ -135,6 +135,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         }
 
         [EventSink(LocalEventNames.PerformTranslation)]
+        public void UpdateLanguage()
+        {
+            UpdatePlaylistNames(false);
+        }
+
         [EventSink(LocalEventNames.UpdatePlaylistNames)]
         public void UpdatePlaylistNames(bool rebuildFileInfos)
         {

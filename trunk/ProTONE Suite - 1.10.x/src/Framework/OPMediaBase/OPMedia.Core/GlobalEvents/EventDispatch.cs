@@ -69,11 +69,7 @@ namespace OPMedia.Core
         {
             lock (_invocationMap)
             {
-                if (eventName == EventNames.PerformTranslation)
-                {
-                    //int x = 0;
-                }
-               
+                              
 
                 if (!_invocationMap.ContainsKey(eventName))
                 {

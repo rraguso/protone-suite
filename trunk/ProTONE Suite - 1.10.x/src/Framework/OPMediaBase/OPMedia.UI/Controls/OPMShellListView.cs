@@ -396,11 +396,6 @@ namespace OPMedia.UI.Controls
             colName.Width = this.Width - colSize.Width - colAttr.Width - colLastAccess.Width - SystemInformation.VerticalScrollBarWidth - 5;
         }
 
-        protected void OnThemeChanged(object sender, EventArgs args)
-        {
-            Invalidate(true);
-        }
-
         #endregion
 
         #region Items rename
@@ -709,6 +704,18 @@ namespace OPMedia.UI.Controls
                 {
                     RefreshItem(item);
                 }
+            }
+        }
+
+        protected override void OnThemeUpdatedInternal()
+        {
+            base.OnThemeUpdatedInternal();
+            foreach (ListViewItem item in Items)
+            {
+                bool isFile = (item.Tag is FileInfo);
+                item.BackColor = ThemeManager.BackColor;
+                item.ForeColor = isFile ? ThemeManager.ForeColor : ThemeManager.HighlightColor;
+                item.Font = isFile ? ThemeManager.NormalFont : ThemeManager.NormalBoldFont;
             }
         }
 
@@ -1202,13 +1209,10 @@ namespace OPMedia.UI.Controls
 
             ListViewItem item = new ListViewItem(data);
             item.BackColor = ThemeManager.BackColor;
-            item.ForeColor = ThemeManager.ForeColor;
+            item.ForeColor = isFile ? ThemeManager.ForeColor : ThemeManager.HighlightColor;
             item.ImageIndex = imgIndex;
             item.Tag = fsi;
             item.Font = isFile ? ThemeManager.NormalFont : ThemeManager.NormalBoldFont;
-
-            item.UseItemStyleForSubItems = true;
-            
 
             this.Items.Add(item);
             
