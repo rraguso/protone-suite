@@ -507,9 +507,6 @@
     <None Include="Resources\DiskDrive.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Favorites.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Forward.png" />
   </ItemGroup>
   <ItemGroup>
@@ -528,7 +525,6 @@
     <None Include="Resources\Up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Favorites16.png" />
     <None Include="Resources\player16.png" />
     <None Include="Resources\ID316.png" />
     <None Include="Resources\FileExplorer16.png" />
@@ -554,6 +550,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lame-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New_Folder_Command.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New_Folder_Command16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

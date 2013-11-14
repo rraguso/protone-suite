@@ -260,27 +260,27 @@
   <value>Sunteţi sigur că doriţi abandonarea operaţiunii ?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE">
-  <value>Sunteţi sigur că doriţi ştergerea fişierului:
+  <value>Sunteţi sigur că doriţi ştergerea fişierului:&#xD;
 {0} ?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_DIR">
-  <value>Directorul: {0} nu este gol.
+  <value>Directorul: {0} nu este gol.&#xD;
 Doriţi să-l ştergeti (inclusiv conţinutul sau) ?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_EMPTYDIR">
-  <value>Sunteţi sigur că doriţi ştergerea directorului:
+  <value>Sunteţi sigur că doriţi ştergerea directorului:&#xD;
 {0} ?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_ROHS">
-  <value>Fişierul {0} are unul sau mai multe din atributele: Read-Only/Hidden/System
+  <value>Fişierul {0} are unul sau mai multe din atributele: Read-Only/Hidden/System&#xD;
 Doriţi totuşi să îl ştergeti ?</value>
 </data>
 <data name="TXT_CONFIRM_OVERWRITE">
-  <value>Fişierul destinaţie: {0} este deja prezent. 
+  <value>Fişierul destinaţie: {0} este deja prezent. &#xD;
 Doriţi să fie suprascris ?</value>
 </data>
 <data name="TXT_CONFIRM_OVERWRITE_RO">
-  <value>Fişierul destinaţie: {0} este deja prezent şi are atributul Read-Only. 
+  <value>Fişierul destinaţie: {0} este deja prezent şi are atributul Read-Only. &#xD;
 Doriţi să fie suprascris ?</value>
 </data>
 <data name="TXT_COPY">
@@ -320,7 +320,7 @@ Doriţi să fie suprascris ?</value>
   <value>Desenează marginile şi bara de titlu (recomandat)</value>
 </data>
 <data name="TXT_EDITKEYDESC">
-  <value>Apasaţi noua combinaţie de taste pentru: {0}. 
+  <value>Apasaţi noua combinaţie de taste pentru: {0}. &#xD;
 Scurtătura curenta este: {1}.</value>
 </data>
 <data name="TXT_ENABLESKINNEDBORDERS">
@@ -336,18 +336,18 @@ Scurtătura curenta este: {1}.</value>
   <value>Înregistrează erorile în jurnal</value>
 </data>
 <data name="TXT_ERRORS_COPY_TASK">
-  <value>Au apărut câteva erori în timpul copierii fişierelor specificate.
+  <value>Au apărut câteva erori în timpul copierii fişierelor specificate.&#xD;
 Examinaţi lista de mai jos pentru mai multe detalii</value>
 </data>
 <data name="TXT_ERRORS_DELETE_TASK">
-  <value>Au apărut câteva erori în timpul ştergerii fişierelor specificate.
+  <value>Au apărut câteva erori în timpul ştergerii fişierelor specificate.&#xD;
 Examinaţi lista de mai jos pentru mai multe detalii</value>
 </data>
 <data name="TXT_ERRORS_ENCOUNTERED">
   <value>Câteva erori au fost întâlnite în timpul operaţiunii.</value>
 </data>
 <data name="TXT_ERRORS_MOVE_TASK">
-  <value>Au apărut câteva erori în timpul mutării fişierelor specificate.
+  <value>Au apărut câteva erori în timpul mutării fişierelor specificate.&#xD;
 Examinaţi lista de mai jos pentru mai multe detalii</value>
 </data>
 <data name="TXT_EVERYDAY">
@@ -420,11 +420,11 @@ Examinaţi lista de mai jos pentru mai multe detalii</value>
   <value>Număr intrări jurnal:</value>
 </data>
 <data name="TXT_LOG_DESC">
-  <value>Această versiune este compilată cu jurnalizare implicită.
+  <value>Această versiune este compilată cu jurnalizare implicită.&#xD;
 Toate nivelele de jurnalizare sunt implicit active.</value>
 </data>
 <data name="TXT_LOG_KEEPDAYS">
-  <value>Numărul de zile de păstrare a fişierelor jurnal 
+  <value>Numărul de zile de păstrare a fişierelor jurnal &#xD;
 (min=2, max=10):</value>
 </data>
 <data name="TXT_LOG_PATH">
@@ -725,11 +725,11 @@ Toate nivelele de jurnalizare sunt implicit active.</value>
   <value>Scurtătura este deja folosită</value>
 </data>
 <data name="TXT_DUP_SHORTCUT_FIXED">
-  <value>Combinaţia de taste '{0}' este deja alocată pentru '{1}' şi nu poate fi modificată.
+  <value>Combinaţia de taste '{0}' este deja alocată pentru '{1}' şi nu poate fi modificată.&#xD;
 Vă rugăm introduceţi o altă combinaţie.</value>
 </data>
 <data name="TXT_DUP_SHORTCUT_CONFIRM">
-  <value>Combinaţia de taste '{0}' este deja alocată pentru '{1}'.
+  <value>Combinaţia de taste '{0}' este deja alocată pentru '{1}'.&#xD;
 Doriţi să o realocaţi pentru '{2}'?</value>
 </data>
 <data name="TXT_CONFIRM_RESTORE">
@@ -772,7 +772,7 @@ Doriţi să o realocaţi pentru '{2}'?</value>
   <value>Salvează fişierul jurnal sau fereastra</value>
 </data>
 <data name="TXT_NOTIFYUPDATE">
-  <value>O nouă versiune de program este disponibilă: {0}.
+  <value>O nouă versiune de program este disponibilă: {0}.&#xD;
 Doriţi să actualizaţi la această versiune?</value>
 </data>
 <data name="TXT_CONFIRMUPDATE">
@@ -791,23 +791,23 @@ Doriţi să actualizaţi la această versiune?</value>
   <value>Dezactivează actualizările automate</value>
 </data>
 <data name="TXT_NOUPDATEREQUIRED">
-  <value>Programul dvs. are ultima versiune disponibilă.
+  <value>Programul dvs. are ultima versiune disponibilă.&#xD;
 Pentru moment, nu este nevoie să actualizati programul.</value>
 </data>
 <data name="TXT_CONFIRM_MOVE">
-  <value>Sunteţi sigur că doriţi mutarea fişierului:
+  <value>Sunteţi sigur că doriţi mutarea fişierului:&#xD;
 {0} ?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_DIR">
-  <value>Directorul: {0} nu este gol.
+  <value>Directorul: {0} nu este gol.&#xD;
 Doriţi să-l mutaţi cu tot conţinutul sau ?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_EMPTYDIR">
-  <value>Sunteţi sigur că doriţi mutarea directorului:
+  <value>Sunteţi sigur că doriţi mutarea directorului:&#xD;
 {0} ?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_ROHS">
-  <value>Fişierul {0} are unul sau mai multe din atributele: Read-Only/Hidden/System
+  <value>Fişierul {0} are unul sau mai multe din atributele: Read-Only/Hidden/System&#xD;
 Doriţi totuşi să îl mutaţi ?</value>
 </data>
 <data name="TXT_NOPROXY">
@@ -850,19 +850,19 @@ Doriţi totuşi să îl mutaţi ?</value>
   <value>Activ</value>
 </data>
 <data name="TXT_FLAG_ERRORS">
-  <value>Arată
+  <value>Arată&#xD;
 Erorile</value>
 </data>
 <data name="TXT_FLAG_WARNINGS">
-  <value>Arată Mesaje
+  <value>Arată Mesaje&#xD;
 de Avertizare</value>
 </data>
 <data name="TXT_FLAG_INFOS">
-  <value>Arată Mesaje
+  <value>Arată Mesaje&#xD;
 Informative</value>
 </data>
 <data name="TXT_FLAG_TRACES">
-  <value>Arată
+  <value>Arată&#xD;
 Mesaje Depanare</value>
 </data>
 <data name="TXT_LOGFILE_FILTER">
@@ -1010,7 +1010,7 @@ Mesaje Depanare</value>
   <value>Marcaj temporal</value>
 </data>
 <data name="TXT_CONFIRM_CREATE">
-  <value>Fişierul {0} nu există încă. 
+  <value>Fişierul {0} nu există încă. &#xD;
 Doriţi să fie creat ?</value>
 </data>
 <data name="TXT_ASSISTANCE">
@@ -1039,6 +1039,9 @@ Doriţi să fie creat ?</value>
 </data>
 <data name="TXT_SCANNING">
   <value>Se scanează</value>
+</data>
+<data name="TXT_NEWFOLDER">
+  <value>Creează Director Nou</value>
 </data>
     
 </root>

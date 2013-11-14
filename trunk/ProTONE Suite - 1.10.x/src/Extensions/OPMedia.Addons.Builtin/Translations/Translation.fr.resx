@@ -182,15 +182,15 @@
   <value>Spécifiez une description pour l'entrée à ajouter:</value>
 </data>
 <data name="TXT_ERROR_INVALID_CATALOG">
-  <value>Ce fichier ne représente pas un catalogue valable médias:
+  <value>Ce fichier ne représente pas un catalogue valable médias:&#xD;
  {0}</value>
 </data>
 <data name="TXT_ERROR_MERGE_SAME_CATALOG">
-  <value>Vous ne pouvez pas fusionner un catalogue en lui-même:
+  <value>Vous ne pouvez pas fusionner un catalogue en lui-même:&#xD;
  {0}</value>
 </data>
 <data name="TXT_ERR_MERGE_FAILED">
-  <value>Catalogues de fusion ont échoué. Détails:
+  <value>Catalogues de fusion ont échoué. Détails:&#xD;
  {0}</value>
 </data>
 <data name="TXT_FILENAMEPATTERN">
@@ -206,12 +206,12 @@
   <value>Lien des fichiers multimédia à vos favoris fichiers(Passez avec la souris sur ce texte pour afficher une info-bulle explicative)</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA_DESC">
-  <value>Fichiers de signets (BMK) contiennent des informations sur des moments particuliers dans un fichier multimédia. Il est très important que les fichiers
- BMK sont situés à proximité les fichiers multimédias connexes (également appelés «fichiers-mères).
- Si vous ckeck cette case, le navigateur de fichiers sera toujours considérer qu'un fichier multimédia et sa liée
- fichier de signets constituent une seule et même entité. Cela signifie qu'un copier, renommer, déplacer ou supprimer opération
- émis à partir de l'explorateur de fichiers sur un de ces fichiers se propage automatiquement à l'autre fichier trop.
- Gardez cochez pas cette case si vous voulez les considérer comme des entités différentes et de les gérer dans
+  <value>Fichiers de signets (BMK) contiennent des informations sur des moments particuliers dans un fichier multimédia. Il est très important que les fichiers&#xD;
+ BMK sont situés à proximité les fichiers multimédias connexes (également appelés «fichiers-mères).&#xD;
+ Si vous ckeck cette case, le navigateur de fichiers sera toujours considérer qu'un fichier multimédia et sa liée&#xD;
+ fichier de signets constituent une seule et même entité. Cela signifie qu'un copier, renommer, déplacer ou supprimer opération&#xD;
+ émis à partir de l'explorateur de fichiers sur un de ces fichiers se propage automatiquement à l'autre fichier trop.&#xD;
+ Gardez cochez pas cette case si vous voulez les considérer comme des entités différentes et de les gérer dans&#xD;
  le style Explorateur Windows.</value>
 </data>
 <data name="TXT_ID3FILESFILTER">
@@ -335,7 +335,7 @@
   <value>Aperçu des résultats</value>
 </data>
 <data name="TXT_PREVIEW_TIMER">
-  <value>Minuterie Prévisualisation automatique (secondes)
+  <value>Minuterie Prévisualisation automatique (secondes)&#xD;
  (0 = Désactiver la prévisualisation automatique):</value>
 </data>
 <data name="TXT_PROPERTYSEARCH">
@@ -369,8 +369,8 @@
   <value>Numérisation d'erreur</value>
 </data>
 <data name="TXT_SCAN_ERROR_MSG">
-  <value>Une erreur non fatale s'est produite lors de la numérisation d'objet:. {0}
- Le message d'erreur est le suivant:. {1}
+  <value>Une erreur non fatale s'est produite lors de la numérisation d'objet:. {0}&#xD;
+ Le message d'erreur est le suivant:. {1}&#xD;
  Voulez-vous continuer la numérisation?</value>
 </data>
 <data name="TXT_SEARCHFOLDER">
@@ -407,14 +407,14 @@
   <value>Sélectionnez un dossier contenant des fichiers audio MPEG:</value>
 </data>
 <data name="TXT_SELECTINSERTPOINT">
-  <value>Sélectionnez le point d'insertion dans le catalogue sélectionné
+  <value>Sélectionnez le point d'insertion dans le catalogue sélectionné&#xD;
  (appuyez sur F5 pour recharger l'arbre):</value>
 </data>
 <data name="TXT_SENTENCECASE">
   <value>Capitaliser premier mot</value>
 </data>
 <data name="TXT_SHORTCUT">
-  <value>
+  <value>&#xD;
  Raccourci: {0}</value>
 </data>
 <data name="TXT_SUPPLY_CATALOG_DESC">
@@ -442,11 +442,11 @@
   <value>Spécifier le fichier pour ajouter les fichiers importés:</value>
 </data>
 <data name="TXT_WIZCATSTEP2_DESC">
-  <value>Sélectionnez le dossier ou le disque contenant les éléments à importer
+  <value>Sélectionnez le dossier ou le disque contenant les éléments à importer&#xD;
  (appuyez sur F5 pour recharger l'arbre):</value>
 </data>
 <data name="TXT_WIZID3STEP1_DESC">
-  <value>S'il vous plaît spécifier les fichiers que vous souhaitez modifier.
+  <value>S'il vous plaît spécifier les fichiers que vous souhaitez modifier.&#xD;
  Utilisez les «Ajouter des fichiers», «Ajouter un dossier», les boutons «Supprimer les fichiers» pour configurer la liste des fichiers.</value>
 </data>
 <data name="TXT_WIZID3STEP2_DESC">
@@ -516,7 +516,7 @@
   <value>CD Ripper</value>
 </data>
 <data name="TXT_GRABBERHINT_STEP1">
-  <value>Cliquez sur les cellules de la liste à modifier.
+  <value>Cliquez sur les cellules de la liste à modifier.&#xD;
 Double-cliquez sur les images de chèques de choisir de saisir une piste ou pas.</value>
 </data>
 <data name="TXT_OPTIONS_VBR">

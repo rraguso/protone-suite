@@ -23,6 +23,7 @@ namespace OPMedia.UI.Controls.Dialogs
     public partial class OPMFileDialog : ToolForm
     {
         OPMToolTipManager _tt = null;
+        OPMToolTipManager _tt2 = null;
 
         public string Title { get; set; }
         public string Filter { get; set; }
@@ -34,6 +35,7 @@ namespace OPMedia.UI.Controls.Dialogs
         public event AddToFavoriteFoldersHandler AddToFavoriteFolders = null;
 
         public bool ShowAddToFavorites { get; set; }
+        public bool ShowNewFolder { get; set; }
 
         public string FileName 
         {
@@ -83,6 +85,9 @@ namespace OPMedia.UI.Controls.Dialogs
             this.AllowResize = true;
             this.FilterIndex = -1;
 
+            this.ShowAddToFavorites = false;
+            this.ShowNewFolder = (this is OPMSaveFileDialog);
+
             lvExplorer.SelectFile += new SelectFileEventHandler(lvExplorer_SelectFile);
             lvExplorer.SelectMultipleItems += new SelectMultipleItemsEventHandler(lvExplorer_SelectMultipleItems);
             lvExplorer.SelectDirectory += new SelectDirectoryEventHandler(lvExplorer_SelectDirectory);
@@ -97,8 +102,10 @@ namespace OPMedia.UI.Controls.Dialogs
             this.Load += new EventHandler(OPMFileDialog_Load);
 
             btnAddToFavorites.Image = Resources.Favorites16;
+            btnNewFolder.Image = Resources.New_Folder_Command16;
 
             _tt = new OPMToolTipManager(btnAddToFavorites);
+            _tt2 = new OPMToolTipManager(btnNewFolder);
         }
 
         bool lvExplorer_LaunchMultipleItems(object sender, EventArgs e)
@@ -236,10 +243,22 @@ namespace OPMedia.UI.Controls.Dialogs
             }
             else
             {
-                opmTableLayoutPanel1.Controls.Remove(btnAddToFavorites);
-                opmTableLayoutPanel1.SetColumnSpan(lblCurrentPath, 4);
+                btnAddToFavorites.Visible = false;
             }
-            
+
+            if (ShowNewFolder)
+            {
+                btnNewFolder.MouseHover += new EventHandler(btnNewFolder_MouseHover);
+            }
+            else
+            {
+                btnNewFolder.Visible = false;
+            }
+        }
+
+        void btnNewFolder_MouseHover(object sender, EventArgs e)
+        {
+            _tt2.ShowSimpleToolTip(Translator.Translate("TXT_NEWFOLDER"), Resources.New_Folder_Command);
         }
 
         void btnAddToFavorites_MouseHover(object sender, EventArgs e)
@@ -640,6 +659,11 @@ namespace OPMedia.UI.Controls.Dialogs
                     
                 }
             }
+        }
+
+        private void btnNewFolder_Click(object sender, EventArgs e)
+        {
+            lvExplorer.CreateNewFolder();
         }
     }
 

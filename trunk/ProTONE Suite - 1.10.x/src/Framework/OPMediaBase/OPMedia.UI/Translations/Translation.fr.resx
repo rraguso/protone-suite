@@ -260,27 +260,27 @@
   <value>Êtes-vous sûr de vouloir annuler l'opération?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE">
-  <value>Êtes-vous sûr de vouloir supprimer le fichier:
+  <value>Êtes-vous sûr de vouloir supprimer le fichier:&#xD;
 {0}?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_DIR">
-  <value>Le dossier: {0} n'est pas vide.
+  <value>Le dossier: {0} n'est pas vide.&#xD;
 Voulez-vous le supprimer (y compris son contenu)?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_EMPTYDIR">
-  <value>Êtes-vous sûr de vouloir supprimer le dossier:
+  <value>Êtes-vous sûr de vouloir supprimer le dossier:&#xD;
 {0}?</value>
 </data>
 <data name="TXT_CONFIRM_DELETE_ROHS">
-  <value>Le fichier {0} est a un ou plusieurs de ces attributs: Read-Only/Hidden/System.
+  <value>Le fichier {0} est a un ou plusieurs de ces attributs: Read-Only/Hidden/System.&#xD;
 Voulez-vous toujours de le supprimer?</value>
 </data>
 <data name="TXT_CONFIRM_OVERWRITE">
-  <value>Le fichier de destination {0} existe déjà.
+  <value>Le fichier de destination {0} existe déjà.&#xD;
 Voulez-vous l'écraser?</value>
 </data>
 <data name="TXT_CONFIRM_OVERWRITE_RO">
-  <value>Le fichier de destination {0} existe déjà et il s'agit d'un fichier en lecture seule.
+  <value>Le fichier de destination {0} existe déjà et il s'agit d'un fichier en lecture seule.&#xD;
 Voulez-vous l'écraser?</value>
 </data>
 <data name="TXT_COPY">
@@ -320,7 +320,7 @@ Voulez-vous l'écraser?</value>
   <value>Tracer des frontières peau et barre de titre (recommandé)</value>
 </data>
 <data name="TXT_EDITKEYDESC">
-  <value>Appuyez sur la nouvelle combinaison de touches pour: {0}.
+  <value>Appuyez sur la nouvelle combinaison de touches pour: {0}.&#xD;
 Raccourci actuelle est: {1}.</value>
 </data>
 <data name="TXT_ENABLESKINNEDBORDERS">
@@ -336,18 +336,18 @@ Raccourci actuelle est: {1}.</value>
   <value>Connexion messages d'erreur</value>
 </data>
 <data name="TXT_ERRORS_COPY_TASK">
-  <value>Quelques erreurs sont apparues lors de la copie des fichiers spécifiés.
+  <value>Quelques erreurs sont apparues lors de la copie des fichiers spécifiés.&#xD;
 Plus de détails dans la liste ci-dessous.</value>
 </data>
 <data name="TXT_ERRORS_DELETE_TASK">
-  <value>Quelques erreurs sont apparues lors de la suppression des fichiers spécifiés.
+  <value>Quelques erreurs sont apparues lors de la suppression des fichiers spécifiés.&#xD;
 Plus de détails dans la liste ci-dessous.</value>
 </data>
 <data name="TXT_ERRORS_ENCOUNTERED">
   <value>Quelques erreurs sont apparues lors de l'opération.</value>
 </data>
 <data name="TXT_ERRORS_MOVE_TASK">
-  <value>Quelques erreurs sont apparues lors du déplacement des fichiers spécifiés.
+  <value>Quelques erreurs sont apparues lors du déplacement des fichiers spécifiés.&#xD;
 Plus de détails dans la liste ci-dessous.</value>
 </data>
 <data name="TXT_EVERYDAY">
@@ -399,7 +399,7 @@ Plus de détails dans la liste ci-dessous.</value>
   <value>Définir des clés pour {0}</value>
 </data>
 <data name="TXT_S_KEYMAP">
-  <value>Clavier 
+  <value>Clavier &#xD;
 Carte</value>
 </data>
 <data name="TXT_S_KEYMAP_DESC">
@@ -412,7 +412,7 @@ Carte</value>
   <value>Nom du fichier journal:</value>
 </data>
 <data name="TXT_S_LOGGINGSETTINGS">
-  <value>Fichier 
+  <value>Fichier &#xD;
 Journal</value>
 </data>
 <data name="TXT_LOGLINECONSOLE">
@@ -422,11 +422,11 @@ Journal</value>
   <value>Connectez-vous compte des entrées:</value>
 </data>
 <data name="TXT_LOG_DESC">
-  <value>Cette version du programme est construit avec l'exploitation forestière appliquée.
+  <value>Cette version du programme est construit avec l'exploitation forestière appliquée.&#xD;
 Toutes niveaux de journalisation sont activées par défaut.</value>
 </data>
 <data name="TXT_LOG_KEEPDAYS">
-  <value>Combien de jours pour garder les anciens fichiers de log 
+  <value>Combien de jours pour garder les anciens fichiers de log &#xD;
 (min = 2, max = 10):</value>
 </data>
 <data name="TXT_LOG_PATH">
@@ -727,11 +727,11 @@ Toutes niveaux de journalisation sont activées par défaut.</value>
   <value>Raccourci est déjà utilisé</value>
 </data>
 <data name="TXT_DUP_SHORTCUT_FIXED">
-  <value>La combinaison de touches '{0}' est déjà attribué à '{1}' et ne peut pas être modifié.
+  <value>La combinaison de touches '{0}' est déjà attribué à '{1}' et ne peut pas être modifié.&#xD;
 Veuillez entrer une combinaison différente.</value>
 </data>
 <data name="TXT_DUP_SHORTCUT_CONFIRM">
-  <value>La combinaison de touches '{0}' est déjà attribué à '{1}'.
+  <value>La combinaison de touches '{0}' est déjà attribué à '{1}'.&#xD;
 Voulez-vous le ré-affecter à '{2}'?</value>
 </data>
 <data name="TXT_CONFIRM_RESTORE">
@@ -774,7 +774,7 @@ Voulez-vous le ré-affecter à '{2}'?</value>
   <value>Enregistrer le fichier journal ou d'une fenêtre</value>
 </data>
 <data name="TXT_NOTIFYUPDATE">
-  <value>Une nouvelle version du programme est disponible: {0}.
+  <value>Une nouvelle version du programme est disponible: {0}.&#xD;
 Voulez-vous mettre à jour vers cette version?</value>
 </data>
 <data name="TXT_CONFIRMUPDATE">
@@ -793,24 +793,24 @@ Voulez-vous mettre à jour vers cette version?</value>
   <value>Désactiver les mises à jour automatiques</value>
 </data>
 <data name="TXT_NOUPDATEREQUIRED">
-  <value>Ce programme dispose de la dernière version disponible.
-
+  <value>Ce programme dispose de la dernière version disponible.&#xD;
+&#xD;
  Pour le moment, vous n'avez pas besoin de mettre à jour le programme.</value>
 </data>
 <data name="TXT_CONFIRM_MOVE">
-  <value>Etes-vous sûr que vous voulez déplacer le fichier:
+  <value>Etes-vous sûr que vous voulez déplacer le fichier:&#xD;
 {0}?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_DIR">
-  <value>Le dossier: {0} n'est pas vide.
+  <value>Le dossier: {0} n'est pas vide.&#xD;
 Voulez-vous déplacer et tout son contenu?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_EMPTYDIR">
-  <value>Etes-vous sûr que vous voulez déplacer le dossier:
+  <value>Etes-vous sûr que vous voulez déplacer le dossier:&#xD;
 {0}?</value>
 </data>
 <data name="TXT_CONFIRM_MOVE_ROHS">
-  <value>Le fichier {0} est a un ou plusieurs de ces attributs: Read-Only/Hidden/System.
+  <value>Le fichier {0} est a un ou plusieurs de ces attributs: Read-Only/Hidden/System.&#xD;
 Voulez-vous toujours de le déplacer?</value>
 </data>
 <data name="TXT_NOPROXY">
@@ -853,19 +853,19 @@ Voulez-vous toujours de le déplacer?</value>
   <value>Actif</value>
 </data>
 <data name="TXT_FLAG_ERRORS">
-  <value>Afficher
+  <value>Afficher&#xD;
 les erreurs</value>
 </data>
 <data name="TXT_FLAG_WARNINGS">
-  <value>Afficher les 
+  <value>Afficher les &#xD;
 avertissements</value>
 </data>
 <data name="TXT_FLAG_INFOS">
-  <value>Afficher
+  <value>Afficher&#xD;
 les informations</value>
 </data>
 <data name="TXT_FLAG_TRACES">
-  <value>Afficher les
+  <value>Afficher les&#xD;
 Debug Traces</value>
 </data>
 <data name="TXT_LOGFILE_FILTER">
@@ -1013,7 +1013,7 @@ Debug Traces</value>
   <value>Timestamp</value>
 </data>
 <data name="TXT_CONFIRM_CREATE">
-  <value>Le fichier {0} n'existe pas encore.
+  <value>Le fichier {0} n'existe pas encore.&#xD;
 Voulez-vous le créer?</value>
 </data>
 <data name="TXT_ASSISTANCE">
@@ -1042,6 +1042,9 @@ Voulez-vous le créer?</value>
 </data>
 <data name="TXT_SCANNING">
   <value>Numérisation</value>
+</data>
+<data name="TXT_NEWFOLDER">
+  <value>Créer nouveau dossier</value>
 </data>
     
 </root>

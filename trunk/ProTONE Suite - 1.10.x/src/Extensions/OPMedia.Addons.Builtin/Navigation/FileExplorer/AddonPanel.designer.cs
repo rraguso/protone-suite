@@ -87,6 +87,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.tableLayoutPanel2 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.pnlHeader = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
+            this.tsbSep0 = new OPMedia.UI.Controls.OPMToolStripSeparator();
+            this.tsbNewFolder = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.tsmiSep0 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
+            this.tsmiNewFolder = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -127,6 +131,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.contextMenuStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiNewFolder,
+            this.tsmiSep0,
             this.tsmiBack,
             this.tsmiFwd,
             this.tsmiUp,
@@ -149,6 +155,22 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiProTONEEnqueue});
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(212, 348);
+            // 
+            // tsmiNewFolder
+            // 
+            this.tsmiNewFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.tsmiNewFolder.Image = global::OPMedia.Addons.Builtin.Properties.Resources.New;
+            this.tsmiNewFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsmiNewFolder.Name = "tsmiNewFolder";
+            this.tsmiNewFolder.Size = new System.Drawing.Size(211, 22);
+            this.tsmiNewFolder.Tag = "ToolActionNewFolder";
+            this.tsmiNewFolder.Text = "TXT_NEWFOLDER";
+            this.tsmiNewFolder.Click += new System.EventHandler(this.OnToolAction);
+            // 
+            // tsmiSep0
+            // 
+            this.tsmiSep0.Name = "tsmiSep0";
+            this.tsmiSep0.Size = new System.Drawing.Size(208, 6);
             // 
             // tsmiBack
             // 
@@ -370,6 +392,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripMain.ImageScalingSize = new System.Drawing.Size(25, 25);
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNewFolder,
+            this.tsbSep0,
             this.tsbBack,
             this.tsbForward,
             this.tsbUpLevel,
@@ -397,6 +421,26 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.toolStripMain.Size = new System.Drawing.Size(1141, 46);
             this.toolStripMain.TabIndex = 0;
             this.toolStripMain.VerticalGradient = true;
+            // 
+            // tsbNewFolder
+            // 
+            this.tsbNewFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.tsbNewFolder.Image = global::OPMedia.Addons.Builtin.Properties.Resources.New;
+            this.tsbNewFolder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tsbNewFolder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbNewFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNewFolder.Name = "tsbNewFolder";
+            this.tsbNewFolder.Size = new System.Drawing.Size(91, 43);
+            this.tsbNewFolder.Tag = "ToolActionNewFolder";
+            this.tsbNewFolder.Text = "TXT_NEWFOLDER";
+            this.tsbNewFolder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbNewFolder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbNewFolder.Click += new System.EventHandler(this.OnToolAction);
+            // 
+            // tsbSep0
+            // 
+            this.tsbSep0.Name = "tsbSep0";
+            this.tsbSep0.Size = new System.Drawing.Size(6, 46);
             // 
             // tsbBack
             // 
@@ -671,7 +715,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbCdRipperWizard.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.tsbCdRipperWizard.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCdRipperWizard.Name = "tsbCdRipperWizard";
-            this.tsbCdRipperWizard.Size = new System.Drawing.Size(183, 43);
+            this.tsbCdRipperWizard.Size = new System.Drawing.Size(149, 43);
             this.tsbCdRipperWizard.Tag = "ToolActionCdRipper";
             this.tsbCdRipperWizard.Text = "TXT_CDRIPPERWIZARD";
             this.tsbCdRipperWizard.Click += new System.EventHandler(this.OnToolAction);
@@ -795,7 +839,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         private OPMTableLayoutPanel tableLayoutPanel2;
         private OPMFlowLayoutPanel pnlHeader;
         private OPMToolStripButton tsbCdRipperWizard;
-       
+        private OPMToolStripButton tsbNewFolder;
+        private OPMToolStripSeparator tsbSep0;
+        private OPMToolStripMenuItem tsmiNewFolder;
+        private OPMMenuStripSeparator tsmiSep0;
        
         
     }

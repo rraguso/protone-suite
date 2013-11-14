@@ -454,6 +454,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
 
             dlg.ShowAddToFavorites = true;
+            dlg.ShowNewFolder = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {

@@ -305,7 +305,7 @@ namespace OPMedia.UI.Controls
 
             try
             {
-                Explore(true);
+                Explore(_diNew == null);
             }
             finally
             {
@@ -767,7 +767,11 @@ namespace OPMedia.UI.Controls
                 return;
             }
 
-            List<string> selection = new List<string>(SelectedPaths);
+            List<string> selection = new List<string>();
+            if (keepSelection)
+            {
+                selection.AddRange(SelectedPaths);
+            }
 
             Clear();
             m_ilDirList.Images.Clear();
@@ -853,9 +857,9 @@ namespace OPMedia.UI.Controls
             //ClearSelection();
             this.SelectedItems.Clear();
 
-            if (keepSelection)
+            if (keepSelection || _diNew != null)
             {
-                if (selection != null && selection.Count > 0)
+                if ((selection != null && selection.Count > 0) || _diNew != null)
                 {
                     bool focusSet = false;
 
@@ -867,7 +871,7 @@ namespace OPMedia.UI.Controls
                             path = (item.Tag as FileSystemInfo).FullName;
                         }
 
-                        if (selection.Contains(path))
+                        if (selection.Contains(path) || (_diNew != null && string.Compare(_diNew.FullName, path, true) == 0))
                         {
                             if (!focusSet)
                             {
@@ -908,6 +912,12 @@ namespace OPMedia.UI.Controls
 
             this.Select();
             this.Focus();
+
+            if (_diNew != null)
+            {
+                _diNew = null;
+                Rename();
+            }
 		}
 
         private static string[] EnumerateFiles(string sourceFolder, string filters, System.IO.SearchOption searchOption)
@@ -1255,6 +1265,18 @@ namespace OPMedia.UI.Controls
             catch
             {
                 return -1;
+            }
+        }
+
+        DirectoryInfo _diNew = null;
+
+        public void CreateNewFolder()
+        {
+            DirectoryInfo di = new DirectoryInfo(Path);
+            if (di.Exists)
+            {
+                string newName = string.Format("NewFolder_{0}", StringUtils.GenerateRandomToken(4));
+                _diNew = di.CreateSubdirectory(newName);
             }
         }
     }

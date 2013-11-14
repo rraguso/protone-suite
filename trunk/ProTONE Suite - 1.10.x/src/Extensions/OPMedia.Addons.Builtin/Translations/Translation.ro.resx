@@ -182,17 +182,17 @@
   <value>Daţi o descriere pentru elementul ce va fi adaugat:</value>
 </data>
 <data name="TXT_ERROR_INVALID_CATALOG">
-  <value>Acest fişier nu reprezintă un catalog media valid:
-
+  <value>Acest fişier nu reprezintă un catalog media valid:&#xD;
+&#xD;
 {0}</value>
 </data>
 <data name="TXT_ERROR_MERGE_SAME_CATALOG">
-  <value>Nu se poate alipi un catalog cu el insusi:
-
+  <value>Nu se poate alipi un catalog cu el insusi:&#xD;
+&#xD;
 {0}</value>
 </data>
 <data name="TXT_ERR_MERGE_FAILED">
-  <value>Alipirea cataloagelor a eşuat. Detalii:
+  <value>Alipirea cataloagelor a eşuat. Detalii:&#xD;
 {0}</value>
 </data>
 <data name="TXT_FILENAMEPATTERN">
@@ -205,20 +205,20 @@
   <value>Populează câmpurile ID3 folosind numele fişierului/directorului</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA">
-  <value>Leagă fişierele media de fişierele bookmark
+  <value>Leagă fişierele media de fişierele bookmark&#xD;
 (Stationaţi cu mouse-ul peste acest text pentru a afişa un tooltip explicativ)</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA_DESC">
-  <value>Fişierele bookmark (extensia BMK) conţin informaţii despre anumite momente în cadrul unui fişier 
-media. Este foarte important ca fişierele BMK să se afle lânga fişierele media asociate (numite şi 
-'fişiere părinte').
-
-Dacă bifaţi această casetă, Exploratorul de Fişiere va considera intotdeauna că un fişier media şi 
-fişierul bookmark asociat reprezintă o singura entitate. Acest lucru inseamna că o operaţiune de 
-copiere, redenumire, mutare sau ştergere efectuata prin Exploratorul de Fişiere pe oricare din aceste 
-doua fişiere se va propaga automat şi asupra celuilalt.
-
-Lăsaţi această casetă nebifată dacă doriţi ca aceste două fişiere să fie tratate ca două fişiere 
+  <value>Fişierele bookmark (extensia BMK) conţin informaţii despre anumite momente în cadrul unui fişier &#xD;
+media. Este foarte important ca fişierele BMK să se afle lânga fişierele media asociate (numite şi &#xD;
+'fişiere părinte').&#xD;
+&#xD;
+Dacă bifaţi această casetă, Exploratorul de Fişiere va considera intotdeauna că un fişier media şi &#xD;
+fişierul bookmark asociat reprezintă o singura entitate. Acest lucru inseamna că o operaţiune de &#xD;
+copiere, redenumire, mutare sau ştergere efectuata prin Exploratorul de Fişiere pe oricare din aceste &#xD;
+doua fişiere se va propaga automat şi asupra celuilalt.&#xD;
+&#xD;
+Lăsaţi această casetă nebifată dacă doriţi ca aceste două fişiere să fie tratate ca două fişiere &#xD;
 distincte, gestionate în stilul Windows Explorer.</value>
 </data>
 <data name="TXT_ID3FILESFILTER">
@@ -342,7 +342,7 @@ distincte, gestionate în stilul Windows Explorer.</value>
   <value>Vizualizare rezultate</value>
 </data>
 <data name="TXT_PREVIEW_TIMER">
-  <value>Temporizare vizualizare automată (secunde)
+  <value>Temporizare vizualizare automată (secunde)&#xD;
 (0 = Dezactivează vizualizarea automată):</value>
 </data>
 <data name="TXT_PROPERTYSEARCH">
@@ -376,9 +376,9 @@ distincte, gestionate în stilul Windows Explorer.</value>
   <value>Eroare la scanare</value>
 </data>
 <data name="TXT_SCAN_ERROR_MSG">
-  <value>O eroare non-fatală s-a produs la scanarea obiectului: {0}.
-Mesajul de eroare este: {1}. 
-
+  <value>O eroare non-fatală s-a produs la scanarea obiectului: {0}.&#xD;
+Mesajul de eroare este: {1}. &#xD;
+&#xD;
 Doriţi continuarea scanării ?</value>
 </data>
 <data name="TXT_SEARCHFOLDER">
@@ -415,14 +415,14 @@ Doriţi continuarea scanării ?</value>
   <value>Selectaţi un director ce contine fişiere MPEG audio:</value>
 </data>
 <data name="TXT_SELECTINSERTPOINT">
-  <value>Selectaţi punctul de insertie în cadrul catalogului selectat
+  <value>Selectaţi punctul de insertie în cadrul catalogului selectat&#xD;
 (apasaţi F5 pentru reîncărcarea listei):</value>
 </data>
 <data name="TXT_SENTENCECASE">
   <value>Primul cuvânt cu majusculă</value>
 </data>
 <data name="TXT_SHORTCUT">
-  <value>
+  <value>&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_SUPPLY_CATALOG_DESC">
@@ -450,11 +450,11 @@ Scurtătură: {0}</value>
   <value>Specificaţi catalogul unde se vor adăuga elementele importate:</value>
 </data>
 <data name="TXT_WIZCATSTEP2_DESC">
-  <value>Selectaţi directorul sau discul conţinând fişierele ce trebuiesc importate: 
+  <value>Selectaţi directorul sau discul conţinând fişierele ce trebuiesc importate: &#xD;
 (apasaţi F5 pentru a reîncărca lista):</value>
 </data>
 <data name="TXT_WIZID3STEP1_DESC">
-  <value>Specificaţi fişierele ce trebuiesc editate. Folosiţi butoanele 'Adaugă Fişier', 
+  <value>Specificaţi fişierele ce trebuiesc editate. Folosiţi butoanele 'Adaugă Fişier', &#xD;
 'Adaugă Director', 'Şterge fişiere' pentru a configura lista de fişiere.</value>
 </data>
 <data name="TXT_WIZID3STEP2_DESC">
@@ -524,7 +524,7 @@ Scurtătură: {0}</value>
   <value>CD Ripper</value>
 </data>
 <data name="TXT_GRABBERHINT_STEP1">
-  <value>Daţi clic pe celulele listei pentru a le edita.
+  <value>Daţi clic pe celulele listei pentru a le edita.&#xD;
 Daţi dublu-clic pe imagini pentru a alege dacă importaţi o pistă sau nu.</value>
 </data>
 <data name="TXT_OPTIONS_VBR">

@@ -40,9 +40,12 @@
             this.lvExplorer = new OPMedia.UI.Controls.OPMShellListView();
             this.lblCurrentPath = new OPMedia.UI.Controls.OPMLabel();
             this.tsSpecialFolders = new OPMedia.UI.Controls.OPMToolStrip();
+            this.pnlButtons = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
+            this.btnNewFolder = new OPMedia.UI.Controls.OPMButton();
             this.btnAddToFavorites = new OPMedia.UI.Controls.OPMButton();
             this.pnlContent.SuspendLayout();
             this.opmTableLayoutPanel1.SuspendLayout();
+            this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContent
@@ -69,7 +72,7 @@
             this.opmTableLayoutPanel1.Controls.Add(this.lvExplorer, 1, 4);
             this.opmTableLayoutPanel1.Controls.Add(this.lblCurrentPath, 1, 3);
             this.opmTableLayoutPanel1.Controls.Add(this.tsSpecialFolders, 0, 4);
-            this.opmTableLayoutPanel1.Controls.Add(this.btnAddToFavorites, 4, 3);
+            this.opmTableLayoutPanel1.Controls.Add(this.pnlButtons, 4, 3);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
@@ -211,12 +214,12 @@
             this.lvExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvExplorer.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.lvExplorer.LabelEdit = true;
-            this.lvExplorer.Location = new System.Drawing.Point(85, 55);
+            this.lvExplorer.Location = new System.Drawing.Point(85, 59);
             this.lvExplorer.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.lvExplorer.MultiSelect = false;
             this.lvExplorer.Name = "lvExplorer";
             this.lvExplorer.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvExplorer.Size = new System.Drawing.Size(555, 370);
+            this.lvExplorer.Size = new System.Drawing.Size(555, 366);
             this.lvExplorer.TabIndex = 3;
             this.lvExplorer.UseCompatibleStateImageBehavior = false;
             this.lvExplorer.View = System.Windows.Forms.View.Details;
@@ -233,7 +236,7 @@
             this.lblCurrentPath.Name = "lblCurrentPath";
             this.lblCurrentPath.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblCurrentPath.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblCurrentPath.Size = new System.Drawing.Size(523, 16);
+            this.lblCurrentPath.Size = new System.Drawing.Size(498, 20);
             this.lblCurrentPath.TabIndex = 9;
             this.lblCurrentPath.Text = "opmLabel4";
             this.lblCurrentPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -245,21 +248,48 @@
             this.tsSpecialFolders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.tsSpecialFolders.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsSpecialFolders.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.tsSpecialFolders.Location = new System.Drawing.Point(0, 55);
+            this.tsSpecialFolders.Location = new System.Drawing.Point(0, 59);
             this.tsSpecialFolders.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.tsSpecialFolders.Name = "tsSpecialFolders";
             this.tsSpecialFolders.ShowBorder = true;
-            this.tsSpecialFolders.Size = new System.Drawing.Size(85, 370);
+            this.tsSpecialFolders.Size = new System.Drawing.Size(85, 366);
             this.tsSpecialFolders.TabIndex = 2;
             this.tsSpecialFolders.Text = "opmToolStrip1";
             this.tsSpecialFolders.VerticalGradient = false;
+            // 
+            // pnlButtons
+            // 
+            this.pnlButtons.AutoSize = true;
+            this.pnlButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlButtons.Controls.Add(this.btnNewFolder);
+            this.pnlButtons.Controls.Add(this.btnAddToFavorites);
+            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlButtons.Location = new System.Drawing.Point(596, 36);
+            this.pnlButtons.Name = "pnlButtons";
+            this.pnlButtons.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlButtons.Size = new System.Drawing.Size(41, 20);
+            this.pnlButtons.TabIndex = 10;
+            this.pnlButtons.WrapContents = false;
+            // 
+            // btnNewFolder
+            // 
+            this.btnNewFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewFolder.Location = new System.Drawing.Point(0, 0);
+            this.btnNewFolder.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNewFolder.Name = "btnNewFolder";
+            this.btnNewFolder.OverrideBackColor = System.Drawing.Color.Empty;
+            this.btnNewFolder.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnNewFolder.Size = new System.Drawing.Size(20, 20);
+            this.btnNewFolder.TabIndex = 11;
+            this.btnNewFolder.UseVisualStyleBackColor = true;
+            this.btnNewFolder.Click += new System.EventHandler(this.btnNewFolder_Click);
             // 
             // btnAddToFavorites
             // 
             this.btnAddToFavorites.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAddToFavorites.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddToFavorites.Location = new System.Drawing.Point(619, 34);
-            this.btnAddToFavorites.Margin = new System.Windows.Forms.Padding(1);
+            this.btnAddToFavorites.Location = new System.Drawing.Point(21, 0);
+            this.btnAddToFavorites.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.btnAddToFavorites.MaximumSize = new System.Drawing.Size(20, 20);
             this.btnAddToFavorites.MinimumSize = new System.Drawing.Size(20, 20);
             this.btnAddToFavorites.Name = "btnAddToFavorites";
@@ -280,6 +310,7 @@
             this.pnlContent.PerformLayout();
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmTableLayoutPanel1.PerformLayout();
+            this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -299,5 +330,7 @@
         protected internal OPMedia.UI.Controls.OPMShellListView lvExplorer;
         private OPMToolStrip tsSpecialFolders;
         private OPMButton btnAddToFavorites;
+        private OPMFlowLayoutPanel pnlButtons;
+        private OPMButton btnNewFolder;
     }
 }

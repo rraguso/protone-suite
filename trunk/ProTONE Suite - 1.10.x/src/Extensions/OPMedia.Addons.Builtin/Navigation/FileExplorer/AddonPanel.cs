@@ -90,6 +90,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
             this.tsbFavorites.Image = OPMedia.UI.Properties.Resources.Favorites;
             this.tsmiFavorites.Image = OPMedia.UI.Properties.Resources.Favorites16;
+            this.tsbNewFolder.Image = OPMedia.UI.Properties.Resources.New_Folder_Command;
+            this.tsmiNewFolder.Image = OPMedia.UI.Properties.Resources.New_Folder_Command16;
 
             this.AddonImage = Resources.FileExplorer;
             this.SmallAddonImage = Resources.FileExplorer16;
@@ -155,6 +157,11 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             {
                 switch (args.cmd)
                 {
+                    case OPMShortcut.CmdGenericNew:
+                        HandleAction(ToolAction.ToolActionNewFolder);
+                        args.Handled = true;
+                        break;
+
                     case OPMShortcut.CmdGenericRename:
                         HandleAction(ToolAction.ToolActionRename);
                         args.Handled = true;
@@ -524,6 +531,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                 List<string> selItems = opmShellList.SelectedPaths;
                 switch (action)
                 {
+                    case ToolAction.ToolActionNewFolder:
+                        opmShellList.CreateNewFolder();
+                        return;
+
                     case ToolAction.ToolActionBack:
                         opmShellList.ExploreBack();
                         return;
@@ -800,6 +811,12 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                 List<string> selItems = opmShellList.SelectedPaths;
                 switch (action)
                 {
+                    case ToolAction.ToolActionNewFolder:
+                        btn.Enabled = true;
+                        btn.Visible = true;
+                        BuildMenuText(btn, "TXT_NEWFOLDER", string.Empty, OPMShortcut.CmdGenericNew);
+                        break;
+
                     case ToolAction.ToolActionBack:
                         btn.Enabled = opmShellList.ExploreBackTarget.Length > 0;
                         BuildMenuText(btn, "TXT_BACK", opmShellList.ExploreBackTarget, OPMShortcut.CmdNavigateBack);
@@ -1128,7 +1145,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
     {
         ToolActionNothing = -1,
 
-        ToolActionBack = 0,
+        ToolActionNewFolder = 0,
+
+        ToolActionBack,
         ToolActionFwd,
         ToolActionUp,
 
