@@ -17,7 +17,7 @@ using OPMedia.UI.Controls;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
-    public partial class PlaylistOptionsPage : SettingsTabPage
+    public partial class PlaylistOptionsPage : BaseCfgPanel
     {
         readonly string[] DefaultFormats = new string[]
         {

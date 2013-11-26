@@ -18,7 +18,7 @@ using OPMedia.Core.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
-    public partial class FavoriteFoldersPage : SettingsTabPage
+    public partial class FavoriteFoldersPage : BaseCfgPanel
     {
         public FavoriteFoldersPage()
         {

@@ -98,8 +98,6 @@ namespace OPMedia.UI.FileTasks
             // 
             // FileTaskErrorReport
             // 
-            this.AcceptButton = this.btnOK;
-            this.CancelButton = this.btnOK;
             this.ClientSize = new System.Drawing.Size(544, 444);
             this.MaximumSize = new System.Drawing.Size(700, 800);
             this.MinimumSize = new System.Drawing.Size(500, 200);

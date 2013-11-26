@@ -12,10 +12,13 @@ using OPMedia.Addons.Builtin.Properties;
 
 using OPMedia.UI.Controls;
 using OPMedia.Runtime.Addons.Configuration;
+using OPMedia.Core;
+using OPMedia.Runtime.ProTONE.Rendering;
+using OPMedia.Core.Utilities;
 
 namespace OPMedia.Addons.Builtin.FileExplorer
 {
-    public partial class FileExplorerCfgPanel : SettingsTabPage
+    public partial class FileExplorerCfgPanel : BaseCfgPanel
     {
         OPMToolTip _tip = new OPMToolTip();
 
@@ -34,8 +37,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.Title = "TXT_ADDON_FE_SETTINGS";
             this.HandleCreated += new EventHandler(FileExplorerCfgPanel_HandleCreated);
 
-            _tip.SetSimpleToolTip(chkGroupBookmarkWithMedia,
-                Translator.Translate("TXT_GROUP_BMKWITHMEDIA_DESC"));
+            connectedFilesConfigCtl1.ModifiedActive += new EventHandler(OnSettingsChanged);
         }
 
         void FileExplorerCfgPanel_HandleCreated(object sender, EventArgs e)
@@ -44,7 +46,27 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
             nudMaxProcessedFiles.Value = AppSettings.FEMaxProcessedFiles;
             nudPreviewTimer.Value = AppSettings.FEPreviewTimer;
-            chkGroupBookmarkWithMedia.Checked = AppSettings.GroupBookmarkWithMedia;
+
+            Dictionary<string, string> tableLinkedFiles = SuiteConfiguration.LinkedFilesTable;
+            if (tableLinkedFiles.Count < 1)
+            {
+                List<string> supChildrenForAudioTypes = new List<string>();
+                supChildrenForAudioTypes.Add("BMK");
+
+                List<string> supChildrenForVideoTypes = new List<string>();
+                supChildrenForVideoTypes.AddRange(MediaRenderer.GetSupportedFileProvider().SupportedSubtitles);
+                supChildrenForVideoTypes.Add("BMK");
+
+                tableLinkedFiles.Add(
+                    StringUtils.FromStringArray(MediaRenderer.SupportedAudioTypes.ToArray(), ';'),
+                    StringUtils.FromStringArray(supChildrenForAudioTypes.ToArray(), ';'));
+
+                tableLinkedFiles.Add(
+                    StringUtils.FromStringArray(MediaRenderer.SupportedVideoTypes.ToArray(), ';'),
+                    StringUtils.FromStringArray(supChildrenForVideoTypes.ToArray(), ';'));
+
+                SuiteConfiguration.LinkedFilesTable = new Dictionary<string, string>(tableLinkedFiles);
+            }
         }
 
         private void OnSettingsChanged(object sender, EventArgs e)
@@ -54,10 +76,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
         protected override void SaveInternal()
         {
+            connectedFilesConfigCtl1.Save();
             AppSettings.FEMaxProcessedFiles = (int)nudMaxProcessedFiles.Value;
             AppSettings.FEPreviewTimer = nudPreviewTimer.Value;
-            AppSettings.GroupBookmarkWithMedia = chkGroupBookmarkWithMedia.Checked;
-
             AppSettings.Save();
         }
     }

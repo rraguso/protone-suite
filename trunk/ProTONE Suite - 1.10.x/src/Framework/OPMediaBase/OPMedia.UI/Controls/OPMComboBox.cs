@@ -110,8 +110,14 @@ namespace OPMedia.UI.Controls
             this.Leave += new EventHandler(OnLeave);
 
             this.DrawItem += new DrawItemEventHandler(OPMComboBox_DrawItem);
+            this.MeasureItem += new MeasureItemEventHandler(OPMComboBox_MeasureItem);
 
             this.FontSize = FontSizes.Normal;
+        }
+
+        void OPMComboBox_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+
         }
 
         void OnLeave(object sender, EventArgs e)

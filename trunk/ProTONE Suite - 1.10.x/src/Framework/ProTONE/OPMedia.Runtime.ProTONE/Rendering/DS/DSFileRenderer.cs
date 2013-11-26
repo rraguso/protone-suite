@@ -70,6 +70,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             // Run the graph to play the media file
             mediaControl.Run();
 
+            rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
+
             // HACK: call GetMedialenght once here to ensure that durationScaleFactor is buuilt up
             double len = GetMediaLength();
         }
@@ -114,7 +116,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         private void InitMedia()
         {
-            mediaControl = Activator.CreateInstance(Type.GetTypeFromCLSID(Filters.FilterGraphNoThread, true))
+            mediaControl = Activator.CreateInstance(Type.GetTypeFromCLSID(Filters.FilterGraph, true))
                         as IMediaControl;
 
 #if HAVE_SAMPLES

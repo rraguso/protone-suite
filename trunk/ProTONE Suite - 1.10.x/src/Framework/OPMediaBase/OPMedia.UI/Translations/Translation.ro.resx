@@ -1043,5 +1043,14 @@ Doriţi să fie creat ?</value>
 <data name="TXT_NEWFOLDER">
   <value>Creează Director Nou</value>
 </data>
+<data name="TXT_PARENTFILETYPES">
+  <value>Tipuri de fișiere 'părinte':</value>
+</data>
+<data name="TXT_CHILDFILETYPES">
+  <value>Tipuri de fișiere 'copil':</value>
+</data>
+<data name="TXT_USE_LINKEDFILES">
+  <value>Manipulează fișierele înlănţuite ca un singur element</value>
+</data>
     
 </root>

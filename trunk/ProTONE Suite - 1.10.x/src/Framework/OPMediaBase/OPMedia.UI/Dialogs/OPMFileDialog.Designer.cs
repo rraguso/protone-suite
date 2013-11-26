@@ -302,7 +302,6 @@
             // 
             // OPMFileDialog
             // 
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(650, 520);
             this.MinimumSize = new System.Drawing.Size(650, 520);
             this.Name = "OPMFileDialog";

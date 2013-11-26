@@ -90,16 +90,16 @@ namespace OPMedia.Runtime.Addons
         {
             Translator.RegisterTranslationAssembly(GetType().Assembly);
 
-            AddonSettingsPanel.InitAddonCfg -= new InitAddonCfgHandler(_GetSettingsTabPage);
-            AddonSettingsPanel.InitAddonCfg += new InitAddonCfgHandler(_GetSettingsTabPage);
+            AddonSettingsPanel.InitAddonCfg -= new InitAddonCfgHandler(_GetBaseCfgPanel);
+            AddonSettingsPanel.InitAddonCfg += new InitAddonCfgHandler(_GetBaseCfgPanel);
         }
 
-        private SettingsTabPage _GetSettingsTabPage()
+        private BaseCfgPanel _GetBaseCfgPanel()
         {
-            return GetSettingsTabPage();
+            return GetBaseCfgPanel();
         }
 
-        protected virtual SettingsTabPage GetSettingsTabPage()
+        protected virtual BaseCfgPanel GetBaseCfgPanel()
         {
             return null;
         }

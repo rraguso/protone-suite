@@ -21,7 +21,7 @@ using OPMedia.UI.ProTONE.Properties;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
-    public partial class SubtitleSubtitlePage : SettingsTabPage
+    public partial class SubtitleSubtitlePage : BaseCfgPanel
     {
         List<SubtitleLanguage> languages = null;
         bool _subtitleDownloadEnabled = AppSettings.SubtitleDownloadEnabled;
@@ -57,8 +57,8 @@ namespace OPMedia.UI.ProTONE.Configuration
         {
             InitializeComponent();
 
-            btnAdd.Image = Resources.Add;
-            btnDelete.Image = Resources.Delete;
+            btnAdd.Image = OPMedia.UI.Properties.Resources.Add;
+            btnDelete.Image = OPMedia.UI.Properties.Resources.Del;
             btnMoveUp.Image = Resources.MoveUp;
             btnMoveDown.Image = Resources.MoveDown;
 
@@ -79,27 +79,10 @@ namespace OPMedia.UI.ProTONE.Configuration
             lvDownloadAddresses.Resize += new EventHandler(lvDownloadAddresses_Resize);
             lvDownloadAddresses.SubItemEdited += new OPMListView.EditableListViewEventHandler(OnListEdited);
 
-            _txtEditServer.Enabled = true;
-            _txtEditServer.Multiline = true;
-            _txtEditServer.Height = lvDownloadAddresses.Font.Height + 4;
             lvDownloadAddresses.RegisterEditControl(_txtEditServer);
-
-            _cmbEditServerType.Items.AddRange(Enum.GetNames(typeof(SubtitleServerType)));
-            _cmbEditServerType.Enabled = true;
-            _cmbEditServerType.Height = lvDownloadAddresses.Font.Height + 4;
             lvDownloadAddresses.RegisterEditControl(_cmbEditServerType);
-
-            _cmbEditActive.Enabled = true;
             lvDownloadAddresses.RegisterEditControl(_cmbEditActive);
-
-            _txtEditUser.Enabled = true;
-            _txtEditUser.Multiline = true;
-            _txtEditUser.Height = lvDownloadAddresses.Font.Height + 4;
             lvDownloadAddresses.RegisterEditControl(_txtEditUser);
-
-            _txtEditPswd.Enabled = true;
-            _txtEditPswd.Multiline = true;
-            _txtEditPswd.Height = lvDownloadAddresses.Font.Height + 4;
             lvDownloadAddresses.RegisterEditControl(_txtEditPswd);
 
             lvDownloadAddresses.ColumnWidthChanging += new ColumnWidthChangingEventHandler(lvDownloadAddresses_ColumnWidthChanging);
@@ -142,7 +125,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             }
             w += 1;
 
-            colServerUrl.Width = (lvDownloadAddresses.Width - w);
+            colServerUrl.Width = (lvDownloadAddresses.Width - w - SystemInformation.VerticalScrollBarWidth);
         }
 
         void OnLoad(object sender, EventArgs e)

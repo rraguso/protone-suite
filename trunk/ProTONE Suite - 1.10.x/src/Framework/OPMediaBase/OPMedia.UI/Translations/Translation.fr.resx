@@ -1046,5 +1046,14 @@ Voulez-vous le créer?</value>
 <data name="TXT_NEWFOLDER">
   <value>Créer nouveau dossier</value>
 </data>
+<data name="TXT_PARENTFILETYPES">
+  <value>Types de fichiers 'parent':</value>
+</data>
+<data name="TXT_CHILDFILETYPES">
+  <value>Types de fichiers 'enfant':</value>
+</data>
+<data name="TXT_USE_LINKEDFILES">
+  <value>Manipuler des fichiers liés comme un seul élément</value>
+</data>
     
 </root>

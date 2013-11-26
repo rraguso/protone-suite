@@ -206,7 +206,7 @@ namespace OPMedia.UI.FileTasks
                     FileInfo fi = new FileInfo(path);
                     if (fi.Exists)
                     {
-                        List<String> linkedFiles = _support.GetLinkedFiles(fi, TaskType);
+                        List<String> linkedFiles = _support.GetChildFiles(fi, TaskType);
                         if (linkedFiles != null && linkedFiles.Count > 0)
                             toRemove.AddRange(linkedFiles);
                     }

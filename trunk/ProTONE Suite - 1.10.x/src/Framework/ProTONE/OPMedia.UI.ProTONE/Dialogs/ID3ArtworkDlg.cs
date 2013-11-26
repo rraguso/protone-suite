@@ -29,7 +29,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
         ToolTip _tip = new ToolTip();
 
         OPMComboBox _cmbImageType = null;
-        OPMTextBox _txtDescription = null;
+        MultilineEditTextBox _txtDescription = null;
 
         ImageList _ilDummy = null;
 
@@ -53,8 +53,8 @@ namespace OPMedia.UI.ProTONE.Dialogs
             InitializeComponent();
 
             pbAdd.Text = pbDelete.Text = string.Empty;
-            pbAdd.Image = Resources.Add;
-            pbDelete.Image = Resources.Delete;
+            pbAdd.Image = OPMedia.UI.Properties.Resources.Add;
+            pbDelete.Image = OPMedia.UI.Properties.Resources.Del;
 
             btnBrowse.Image = Resources.btnLoadPlaylist;
             btnSave.Image = Resources.btnSavePlaylist;
@@ -77,9 +77,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
                 _cmbImageType.Items.Add(obj.ToString());
             }
 
-            _txtDescription = new OPMTextBox();
-            _txtDescription.Multiline = true;
-            _txtDescription.Height = 50;
+            _txtDescription = new MultilineEditTextBox();
 
             lvPictures.RegisterEditControl(_cmbImageType);
             lvPictures.RegisterEditControl(_txtDescription);

@@ -37,6 +37,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         protected double durationScaleFactor = 1;
 
+        protected DsROTEntry rotEntry = null;
+
         internal int VideoWidth
         {
             get

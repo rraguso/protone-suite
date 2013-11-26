@@ -20,7 +20,7 @@ using OPMedia.UI.ProTONE.GlobalEvents;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
-    public partial class SchedulerSettingsPage : SettingsTabPage
+    public partial class SchedulerSettingsPage : BaseCfgPanel
     {
         public override Image Image
         {

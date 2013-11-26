@@ -27,7 +27,26 @@ namespace OPMedia.UI.Configuration
             return this.Name;
         }
 
-        protected bool Modified { get; set; }
+        public event EventHandler ModifiedActive = null;
+
+        private bool _modified = false;
+        public new bool Modified
+        {
+            get
+            {
+                return _modified;
+            }
+
+            set
+            {
+                _modified = value;
+                if (value && ModifiedActive != null)
+                {
+                    ModifiedActive(this, EventArgs.Empty);
+                }
+            }
+        }
+        
         public string Title { get; protected set; }
 
         public BaseCfgPanel()

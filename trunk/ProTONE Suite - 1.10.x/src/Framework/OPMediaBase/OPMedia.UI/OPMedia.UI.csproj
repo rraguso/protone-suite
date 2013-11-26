@@ -62,6 +62,12 @@
     <Compile Include="Configuration\BaseCfgPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Configuration\ConnectedFilesConfigCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\ConnectedFilesConfigCtl.Designer.cs">
+      <DependentUpon>ConnectedFilesConfigCtl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\GeneralSettingsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,17 +116,14 @@
     <Compile Include="Configuration\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\SettingsTabPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Configuration\SettingsTabPage.Designer.cs">
-      <DependentUpon>SettingsTabPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Configuration\UrlCfgDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Configuration\UrlCfgDlg.Designer.cs">
       <DependentUpon>UrlCfgDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MultilineEditTextBox.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\OPMCheckedListBox.cs">
       <SubType>Component</SubType>
@@ -420,8 +423,8 @@
     <EmbeddedResource Include="ApplicationUpdate\UpdateWaitForm.resx">
       <DependentUpon>UpdateWaitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\SettingsTabPage.resx">
-      <DependentUpon>SettingsTabPage.cs</DependentUpon>
+    <EmbeddedResource Include="Configuration\ConnectedFilesConfigCtl.resx">
+      <DependentUpon>ConnectedFilesConfigCtl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\FileAttributesBrowserCtl.resx">
       <DependentUpon>FileAttributesBrowserCtl.cs</DependentUpon>
@@ -712,6 +715,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\New_Folder_Command16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

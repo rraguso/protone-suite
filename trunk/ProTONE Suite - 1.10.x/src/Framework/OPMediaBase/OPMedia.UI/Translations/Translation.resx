@@ -1044,5 +1044,14 @@ Do you want to create it ?</value>
 <data name="TXT_NEWFOLDER">
   <value>Create New Folder</value>
 </data>
+<data name="TXT_PARENTFILETYPES">
+  <value>'Parent' file types:</value>
+</data>
+<data name="TXT_CHILDFILETYPES">
+  <value>'Child' file types:</value>
+</data>
+<data name="TXT_USE_LINKEDFILES">
+  <value>Manipulate linked files as a single item</value>
+</data>
     
 </root>

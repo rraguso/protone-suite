@@ -31,10 +31,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         {
             this.label5 = new OPMedia.UI.Controls.OPMLabel();
             this.nudPreviewTimer = new OPMedia.UI.Controls.OPMNumericUpDown();
-            this.chkGroupBookmarkWithMedia = new OPMedia.UI.Controls.OPMCheckBox();
             this.kryptonLabel1 = new OPMedia.UI.Controls.OPMLabel();
             this.nudMaxProcessedFiles = new OPMedia.UI.Controls.OPMNumericUpDown();
             this.tableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.connectedFilesConfigCtl1 = new OPMedia.UI.Configuration.ConnectedFilesConfigCtl();
             ((System.ComponentModel.ISupportInitialize)(this.nudPreviewTimer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxProcessedFiles)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -45,7 +45,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Location = new System.Drawing.Point(3, 32);
+            this.label5.Location = new System.Drawing.Point(3, 27);
             this.label5.Name = "label5";
             this.label5.OverrideBackColor = System.Drawing.Color.Empty;
             this.label5.OverrideForeColor = System.Drawing.Color.Empty;
@@ -56,14 +56,15 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // 
             // nudPreviewTimer
             // 
+            this.nudPreviewTimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.nudPreviewTimer.DecimalPlaces = 1;
-            this.nudPreviewTimer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudPreviewTimer.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.nudPreviewTimer.Location = new System.Drawing.Point(144, 32);
+            this.nudPreviewTimer.Location = new System.Drawing.Point(144, 27);
             this.nudPreviewTimer.Margin = new System.Windows.Forms.Padding(0);
             this.nudPreviewTimer.Maximum = new decimal(new int[] {
             2,
@@ -82,20 +83,6 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             0});
             this.nudPreviewTimer.ValueChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
-            // chkGroupBookmarkWithMedia
-            // 
-            this.chkGroupBookmarkWithMedia.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.chkGroupBookmarkWithMedia, 3);
-            this.chkGroupBookmarkWithMedia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkGroupBookmarkWithMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkGroupBookmarkWithMedia.Location = new System.Drawing.Point(3, 67);
-            this.chkGroupBookmarkWithMedia.Name = "chkGroupBookmarkWithMedia";
-            this.chkGroupBookmarkWithMedia.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkGroupBookmarkWithMedia.Size = new System.Drawing.Size(344, 17);
-            this.chkGroupBookmarkWithMedia.TabIndex = 8;
-            this.chkGroupBookmarkWithMedia.Text = "TXT_GROUP_BMKWITHMEDIA";
-            this.chkGroupBookmarkWithMedia.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
-            // 
             // kryptonLabel1
             // 
             this.kryptonLabel1.AutoSize = true;
@@ -112,7 +99,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             // 
             // nudMaxProcessedFiles
             // 
-            this.nudMaxProcessedFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nudMaxProcessedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.nudMaxProcessedFiles.Increment = new decimal(new int[] {
             10,
             0,
@@ -151,28 +139,40 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tableLayoutPanel1.Controls.Add(this.nudMaxProcessedFiles, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.kryptonLabel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chkGroupBookmarkWithMedia, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.connectedFilesConfigCtl1, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(350, 231);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 338);
             this.tableLayoutPanel1.TabIndex = 11;
+            // 
+            // connectedFilesConfigCtl1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.connectedFilesConfigCtl1, 3);
+            this.connectedFilesConfigCtl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.connectedFilesConfigCtl1.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.connectedFilesConfigCtl1.Location = new System.Drawing.Point(3, 62);
+            this.connectedFilesConfigCtl1.Name = "connectedFilesConfigCtl1";
+            this.connectedFilesConfigCtl1.OverrideBackColor = System.Drawing.Color.Empty;
+            this.connectedFilesConfigCtl1.Size = new System.Drawing.Size(369, 273);
+            this.connectedFilesConfigCtl1.TabIndex = 8;
             // 
             // FileExplorerCfgPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FileExplorerCfgPanel";
-            this.Size = new System.Drawing.Size(350, 231);
+            this.Size = new System.Drawing.Size(375, 338);
             ((System.ComponentModel.ISupportInitialize)(this.nudPreviewTimer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxProcessedFiles)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -185,9 +185,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
         private OPMLabel label5;
         private OPMNumericUpDown nudPreviewTimer;
-        private OPMCheckBox chkGroupBookmarkWithMedia;
         private OPMLabel kryptonLabel1;
         private OPMNumericUpDown nudMaxProcessedFiles;
         private OPMTableLayoutPanel tableLayoutPanel1;
+        private UI.Configuration.ConnectedFilesConfigCtl connectedFilesConfigCtl1;
     }
 }

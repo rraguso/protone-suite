@@ -187,7 +187,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             FEFileTaskSupport support = new FEFileTaskSupport(null);
 
             FileInfo fi = new FileInfo(oldPath);
-            List<string> linkedFiles = support.GetLinkedFiles(fi, FileTaskType.Move);
+            List<string> linkedFiles = support.GetChildFiles(fi, FileTaskType.Move);
 
             File.Move(oldPath, newPath);
 

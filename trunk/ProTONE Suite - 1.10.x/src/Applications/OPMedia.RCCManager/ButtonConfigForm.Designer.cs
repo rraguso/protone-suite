@@ -398,8 +398,6 @@ namespace OPMedia.RCCManager
             // 
             // ButtonConfigForm
             // 
-            this.AcceptButton = this.btnOk;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(388, 275);
             this.Name = "ButtonConfigForm";
             this.pnlContent.ResumeLayout(false);

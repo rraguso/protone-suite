@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
-    public partial class RemoteControlPage : SettingsTabPage
+    public partial class RemoteControlPage : BaseCfgPanel
     {
         public RemoteControlPage()
         {

@@ -70,6 +70,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (_source.OutputPin == null)
                 throw new RenderingException("Unable to stream media from URL: " + renderMediaName);
 
+            rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
+
             mediaPosition = mediaControl as IMediaPosition;
             videoWindow = null;
             basicVideo = null;

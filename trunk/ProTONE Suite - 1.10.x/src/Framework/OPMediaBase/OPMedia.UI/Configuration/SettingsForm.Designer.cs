@@ -162,8 +162,6 @@ namespace OPMedia.UI
             // 
             // SettingsForm
             // 
-            this.AcceptButton = this.btnOk;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(605, 455);
             this.Name = "SettingsForm";
             this.pnlContent.ResumeLayout(false);

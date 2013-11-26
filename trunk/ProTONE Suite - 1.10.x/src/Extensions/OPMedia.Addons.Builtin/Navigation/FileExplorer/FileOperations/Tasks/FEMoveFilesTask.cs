@@ -21,7 +21,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
 
         protected override void MoveConnectedFiles(System.IO.FileInfo fi, string destPath)
         {
-            List<string> linkedFiles = _support.GetLinkedFiles(fi, this.TaskType);
+            List<string> linkedFiles = _support.GetChildFiles(fi, this.TaskType);
             if (linkedFiles != null && linkedFiles.Count > 0)
             {
                 foreach (string linkedFile in linkedFiles)

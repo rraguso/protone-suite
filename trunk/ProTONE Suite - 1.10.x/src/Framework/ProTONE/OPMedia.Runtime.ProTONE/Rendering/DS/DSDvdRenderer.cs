@@ -55,6 +55,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
                 // Give enough time for the filter graph to be completely built
                 Thread.Sleep(500);
+
+                rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
             }
 
             if (hint == DvdRenderingStartHint.MainMenu)

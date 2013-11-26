@@ -94,6 +94,8 @@ namespace OPMedia.UI.Themes
             return base.ShowDialog(owner);
         }
 
+        public bool SuppressKeyPress { get; set; }
+
         public ThemeForm() : base()
         {
             InitializeComponent();
@@ -241,7 +243,10 @@ namespace OPMedia.UI.Themes
 
         void ThemeForm_KeyDown(object sender, KeyEventArgs e)
         {
-            ProcessKeyDown(e.KeyData, e.Modifiers);
+            if (SuppressKeyPress == false)
+            {
+                ProcessKeyDown(e.KeyData, e.Modifiers);
+            }
         }
 
         protected bool ProcessKeyDown(Keys key, Keys modifiers)

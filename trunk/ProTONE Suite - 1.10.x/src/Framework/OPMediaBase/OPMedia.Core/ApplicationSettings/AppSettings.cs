@@ -1089,20 +1089,6 @@ namespace OPMedia.Core.ApplicationSettings
         }
         #endregion
 
-        #region Bookmark management
-        public static bool GroupBookmarkWithMedia
-        {
-            get
-            {
-                return _config.GetValue("GroupBookmarkWithMedia", true);
-            }
-            set
-            {
-                _config.SetValue("GroupBookmarkWithMedia", value);
-            }
-        }
-        #endregion
-
         #region Subtitle and OSD
 
         public static int SUB_LastFilterIndex

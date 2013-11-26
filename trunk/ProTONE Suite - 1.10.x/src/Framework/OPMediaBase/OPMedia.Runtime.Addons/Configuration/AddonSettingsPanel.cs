@@ -14,7 +14,7 @@ using OPMedia.UI.Controls;
 
 namespace OPMedia.Runtime.Addons.Configuration
 {
-    public delegate SettingsTabPage InitAddonCfgHandler();
+    public delegate BaseCfgPanel InitAddonCfgHandler();
 
     public partial class AddonSettingsPanel : BaseCfgPanel                     
     {
@@ -66,7 +66,7 @@ namespace OPMedia.Runtime.Addons.Configuration
                      InitAddonCfgHandler callDlg = dlg as InitAddonCfgHandler;
                      if (callDlg != null)
                      {
-                         SettingsTabPage pageContents = callDlg();
+                         BaseCfgPanel pageContents = callDlg();
                          if (pageContents != null)
                          {
                              string title = Translator.Translate(pageContents.Title);
@@ -103,7 +103,7 @@ namespace OPMedia.Runtime.Addons.Configuration
          {
              foreach (OPMTabPage tp in tabAddons.TabPages)
              {
-                 SettingsTabPage page = tp.Control as SettingsTabPage;
+                 BaseCfgPanel page = tp.Control as BaseCfgPanel;
                  if (page != null)
                  {
                      page.Save();
@@ -117,7 +117,7 @@ namespace OPMedia.Runtime.Addons.Configuration
          {
              foreach (OPMTabPage tp in tabAddons.TabPages)
              {
-                 SettingsTabPage page = tp.Control as SettingsTabPage;
+                 BaseCfgPanel page = tp.Control as BaseCfgPanel;
                  if (page != null)
                  {
                      page.Discard();

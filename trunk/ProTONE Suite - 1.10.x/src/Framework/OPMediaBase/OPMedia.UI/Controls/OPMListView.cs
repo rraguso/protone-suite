@@ -522,33 +522,40 @@ namespace OPMedia.UI.Controls
         private void OnEditorKeyDown(object sender, KeyEventArgs e)
         {
             e.Handled = false;
-
-            switch (e.KeyCode)
+            if (e.Modifiers == Keys.None)
             {
-                case Keys.Escape:
-                    EndEditing(false);
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
-                    break;
+                switch (e.KeyCode)
+                {
+                    case Keys.Escape:
+                        EndEditing(false);
+                        e.Handled = true;
+                        e.SuppressKeyPress = true;
+                        return;
 
-                case Keys.Enter:
-                    EndEditing(true);
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
-                    break;
+                    case Keys.Enter:
+                        EndEditing(true);
+                        e.Handled = true;
+                        e.SuppressKeyPress = true;
+                        return;
 
-                default:
-                    e.SuppressKeyPress = false;
-                    break;
+                }
             }
+
+            e.SuppressKeyPress = false;
         }
 
         void OnDrawSubItem(object sender, DrawListViewSubItemEventArgs e)
         {
             bool isSelected = e.Item.Selected;
             bool drawBorder = false;
-            
+            bool isValid = true;
+
             Font drawFont = e.SubItem.Font;
+
+            if (e.SubItem is OPMListViewSubItem)
+            {
+                isValid = (e.SubItem as OPMListViewSubItem).IsValid;
+            }
 
             Color bColor = isSelected ? ThemeManager.SelectedColor : GetBackColor();
             Color fColor = e.Item.ForeColor;// ThemeManager.ForeColor;
@@ -568,13 +575,21 @@ namespace OPMedia.UI.Controls
                     // here's an editable subitem
                     drawBorder = true;
 
-                    bColor = ThemeManager.WndValidColor;
-                    fColor = ThemeManager.WndTextColor;
-
-                    if (isSelected)
+                    if (isValid)
                     {
-                        bColor = ThemeManager.GradientRBColor;
-                        fColor = ThemeManager.WndValidColor;
+                        bColor = ThemeManager.WndValidColor;
+                        fColor = ThemeManager.WndTextColor;
+
+                        if (isSelected)
+                        {
+                            bColor = ThemeManager.GradientRBColor;
+                            fColor = ThemeManager.WndValidColor;
+                        }
+                    }
+                    else
+                    {
+                        bColor = ThemeManager.ColorValidationFailed;
+                        fColor = ThemeManager.WndTextColor;
                     }
                 }
             }
@@ -698,6 +713,23 @@ namespace OPMedia.UI.Controls
                editControl is DateTimePicker))
                 return;
 
+            if (editControl is ComboBox)
+            {
+                (editControl as ComboBox).Font = ThemeManager.SmallestFont;
+                (editControl as ComboBox).ItemHeight = ThemeManager.SmallestFont.Height + 2;
+                (editControl as ComboBox).DropDownHeight = 3 * this.Font.Height;
+            }
+            else if (editControl is MultilineEditTextBox)
+            {
+                (editControl as MultilineEditTextBox).Height = 6 * this.Font.Height + 4;
+                (editControl as MultilineEditTextBox).Multiline = true;
+                (editControl as MultilineEditTextBox).ScrollBars = ScrollBars.Vertical;
+            }
+            else
+            {
+                editControl.Height = this.Font.Height + 4;
+            }
+
             // Set parent for the in-place edit control.
             if (this != editControl.Parent)
             {
@@ -772,10 +804,10 @@ namespace OPMedia.UI.Controls
                     DisplayEditControl(false, editControl, editedSubItem);
                 }
 
-                Form frm = FindForm();
-                if (frm != null && frm.KeyPreview)
+                ThemeForm frm = FindForm() as ThemeForm;
+                if (frm != null)
                 {
-                    frm.KeyPreview = false;
+                    frm.SuppressKeyPress = true;
                     _restoreKeyPreview = true;
                 }
             }
@@ -799,10 +831,10 @@ namespace OPMedia.UI.Controls
                 if (activeEditControl == null || !activeEditControl.Visible)
                     return;
 
-                Form frm = FindForm();
+                ThemeForm frm = FindForm() as ThemeForm;
                 if (frm != null && _restoreKeyPreview)
                 {
-                    frm.KeyPreview = true;
+                    frm.SuppressKeyPress = false;
                     _restoreKeyPreview = false;
                 }
 
@@ -821,7 +853,14 @@ namespace OPMedia.UI.Controls
                     // for each type of supported in-place edit control.
                     OPMListViewSubItem customSubItem = editedSubItem as OPMListViewSubItem;
 
-                    string text = activeEditControl.Text;
+
+                    string text = "";
+                    
+                    if (activeEditControl is MultilineEditTextBox)
+                        text = (activeEditControl as MultilineEditTextBox).MultiLineText;
+                    else
+                        text = activeEditControl.Text;
+
                     if (customSubItem != null)
                         customSubItem.Text = text;
                     else
@@ -921,11 +960,11 @@ namespace OPMedia.UI.Controls
             #endregion
 
             int origHeight = activeEditControl.Height;
-            int dh = (editedSubItem.Bounds.Height - origHeight) / 2;
+            //int dh = (editedSubItem.Bounds.Height - origHeight) / 2;
 
             // Not overlayed, so display the edit control.
-            activeEditControl.Bounds = new Rectangle(editedSubItem.Bounds.Left, editedSubItem.Bounds.Top + dh,
-                editedSubItem.Bounds.Width, editedSubItem.Bounds.Height - dh);
+            activeEditControl.Bounds = new Rectangle(editedSubItem.Bounds.Left, editedSubItem.Bounds.Top,
+                editedSubItem.Bounds.Width, editedSubItem.Bounds.Height);
 
             activeEditControl.Height = origHeight;
 
@@ -977,6 +1016,15 @@ namespace OPMedia.UI.Controls
         {
             try
             {
+                MultilineEditTextBox tbmInPlaceEditor = activeEditControl as MultilineEditTextBox;
+                if (tbmInPlaceEditor != null)
+                {
+                    // In-place edit control is a MultilineEditTextBox
+                    tbmInPlaceEditor.MultiLineText = text;
+                    //tbmInPlaceEditor.SelectAll();
+                    return;
+                }
+
                 TextBox tbInPlaceEditor = activeEditControl as TextBox;
                 if (tbInPlaceEditor != null)
                 {

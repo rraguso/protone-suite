@@ -8,6 +8,7 @@ using System.IO;
 using OPMedia.Core.ApplicationSettings;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
+using OPMedia.Core;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
 {
@@ -18,30 +19,34 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
         {
         }
 
-        public override List<string> GetLinkedFiles(FileInfo fi, FileTaskType taskType)
+        public override List<string> GetChildFiles(FileInfo fi, FileTaskType taskType)
         {
             List<string> list = new List<string>();
 
-            if (AppSettings.GroupBookmarkWithMedia)
+            if (SuiteConfiguration.UseLinkedFiles)
             {
-                // Is it a media file ?
-                MediaFileInfo mfi = null;
+                string fileType = fi.Extension.ToUpperInvariant().Trim('.');
+                string[] childFileTypes = SuiteConfiguration.GetChildFileTypes(fileType);
 
-                try
+                if (childFileTypes != null && childFileTypes.Length > 0)
                 {
-                    mfi = MediaFileInfo.FromPath(fi.FullName);
-                }
-                catch
-                {
-                    mfi = null;
-                }
-
-                if (mfi != null && mfi.IsValid)
-                {
-                    // Yes it is. See if it has bookmark file and this is added to the list.
-                    if (mfi.Bookmarks != null && mfi.Bookmarks.Count > 0 && mfi.BookmarkFileInfo != null)
+                    foreach (string childFileType in childFileTypes)
                     {
-                        list.Add(mfi.BookmarkFileInfo.Path);
+                        // This will find files like "FileName.PFT" and change them into "FileName.CFT"
+                        string childFilePath = Path.ChangeExtension(fi.FullName, childFileType);
+                        if (File.Exists(childFilePath) && !list.Contains(childFilePath))
+                        {
+                            list.Add(childFilePath);
+                        }
+
+                        // This will find files like "FileName.PFT" and change them into "FileName.PFT.CFT"
+                        // (i.e. handle double type extension case like for Bookmark files)
+                        string childFileType2 = string.Format("{0}.{1}", fi.Extension, childFileType);
+                        string childFilePath2 = Path.ChangeExtension(fi.FullName, childFileType2);
+                        if (File.Exists(childFilePath2) && !list.Contains(childFilePath2))
+                        {
+                            list.Add(childFilePath2);
+                        }
                     }
                 }
             }
@@ -51,25 +56,26 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
 
         public override string GetParentFile(FileInfo fi, FileTaskType taskType)
         {
-            if (AppSettings.GroupBookmarkWithMedia)
+            if (SuiteConfiguration.UseLinkedFiles)
             {
-                // Is it a bookmark file ?
-                BookmarkFileInfo bfi = null;
-                try
-                {
-                    bfi = new BookmarkFileInfo(fi.FullName, true);
-                }
-                catch
-                {
-                    bfi = null;
-                }
+                // Check whether the child file is a double extension file
+                // In this case the parent file should have same name but w/o the second extension part.
+                string parentFilePath = Path.Combine(fi.DirectoryName, Path.GetFileNameWithoutExtension(fi.FullName));
+                if (File.Exists(parentFilePath))
+                    return parentFilePath;
 
-                if (bfi != null && bfi.IsValid && bfi.Bookmarks != null)
+                string fileType = fi.Extension.ToUpperInvariant().Trim('.');
+                string[] parentFileTypes = SuiteConfiguration.GetParentFileTypes(fileType);
+
+                if (parentFileTypes != null && parentFileTypes.Length > 0)
                 {
-                    // Indeed a bookmark file. Is it orphan ?
-                    if (!bfi.IsOrphan)
+                    foreach (string parentFileType in parentFileTypes)
                     {
-                        return bfi.ParentMediaFile;
+                        parentFilePath = Path.ChangeExtension(fi.FullName, parentFileType);
+                        if (File.Exists(parentFilePath))
+                        {
+                            return parentFilePath;
+                        }
                     }
                 }
             }

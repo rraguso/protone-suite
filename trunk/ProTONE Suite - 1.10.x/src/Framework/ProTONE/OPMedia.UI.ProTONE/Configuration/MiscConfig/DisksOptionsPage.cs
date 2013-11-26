@@ -18,7 +18,7 @@ using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
-    public partial class DisksOptionsPage : SettingsTabPage
+    public partial class DisksOptionsPage : BaseCfgPanel
     {
         public DisksOptionsPage()
         {

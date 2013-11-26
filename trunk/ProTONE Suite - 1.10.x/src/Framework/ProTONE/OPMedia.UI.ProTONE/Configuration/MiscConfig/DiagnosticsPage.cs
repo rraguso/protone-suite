@@ -18,7 +18,7 @@ using OPMedia.Core.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
-    public partial class DiagnosticsPage : SettingsTabPage
+    public partial class DiagnosticsPage : BaseCfgPanel
     {
         public DiagnosticsPage()
         {

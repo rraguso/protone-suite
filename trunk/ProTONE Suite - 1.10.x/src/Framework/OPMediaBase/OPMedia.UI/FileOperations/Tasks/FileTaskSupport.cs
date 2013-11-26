@@ -486,7 +486,7 @@ namespace OPMedia.UI.FileOperations.Tasks
 
         #endregion
 
-        public virtual List<string> GetLinkedFiles(FileInfo fi, FileTaskType taskType)
+        public virtual List<string> GetChildFiles(FileInfo fi, FileTaskType taskType)
         {
             return null;
         }

@@ -70,6 +70,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             // Render the output pin
             _source.OutputPin.Render();
 
+            rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
+
             mediaPosition = mediaControl as IMediaPosition;
             videoWindow = null;
             basicVideo = null;

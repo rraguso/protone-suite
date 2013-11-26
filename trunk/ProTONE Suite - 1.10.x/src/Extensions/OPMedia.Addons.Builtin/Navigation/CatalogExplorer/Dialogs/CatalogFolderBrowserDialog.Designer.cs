@@ -130,8 +130,6 @@ namespace OPMedia.Addons.Builtin.Navigation.CatalogExplorer.Dialogs
             // 
             // CatalogFolderBrowserDialog
             // 
-            this.AcceptButton = this.btnOK;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(400, 400);
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "CatalogFolderBrowserDialog";

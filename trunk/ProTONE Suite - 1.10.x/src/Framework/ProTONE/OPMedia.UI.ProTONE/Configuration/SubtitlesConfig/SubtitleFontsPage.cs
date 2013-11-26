@@ -15,7 +15,7 @@ using OPMedia.Runtime.ProTONE.Rendering;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
-    public partial class SubtitleOsdPage : SettingsTabPage
+    public partial class SubtitleOsdPage : BaseCfgPanel
     {
         Font _osdFont = AppSettings.OsdFont;
         Color _osdColor = AppSettings.OsdColor;

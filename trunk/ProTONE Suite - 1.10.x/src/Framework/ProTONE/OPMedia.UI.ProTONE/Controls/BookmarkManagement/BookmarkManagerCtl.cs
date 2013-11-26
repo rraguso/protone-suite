@@ -96,9 +96,9 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
             pbAdd.Text = pbAddCurrent.Text = pbDelete.Text = string.Empty;
 
-            pbAdd.Image = Resources.Add;
-            pbAddCurrent.Image = Resources.Add2;
-            pbDelete.Image = Resources.Delete;
+            pbAdd.Image = OPMedia.UI.Properties.Resources.Add;
+            pbAddCurrent.Image = OPMedia.UI.Properties.Resources.Add2;
+            pbDelete.Image = OPMedia.UI.Properties.Resources.Del;
 
             _tip.SetToolTip(pbAdd, Translator.Translate("TXT_NEW_BMDESC"));
             _tip.SetToolTip(pbAddCurrent, Translator.Translate("TXT_NEWNOW_BMDESC"));
@@ -117,9 +117,6 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             _dtpEditTime.Enabled = true;
             lvBookmarks.RegisterEditControl(_dtpEditTime);
 
-            _txtEditComment.Enabled = true;
-            _txtEditComment.Multiline = true;
-            _txtEditComment.Height = lvBookmarks.Font.Height + 4;
             lvBookmarks.RegisterEditControl(_txtEditComment);
 
             lvBookmarks.ColumnWidthChanging += new ColumnWidthChangingEventHandler(lvBookmarks_ColumnWidthChanging);

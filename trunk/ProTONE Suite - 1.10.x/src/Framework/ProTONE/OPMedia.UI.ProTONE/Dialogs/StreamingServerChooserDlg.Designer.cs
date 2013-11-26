@@ -223,7 +223,6 @@
             // 
             // StreamingServerChooserDlg
             // 
-            this.AcceptButton = this.btnOK;
             this.ClientSize = new System.Drawing.Size(631, 406);
             this.Name = "StreamingServerChooserDlg";
             this.pnlContent.ResumeLayout(false);

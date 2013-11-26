@@ -1172,7 +1172,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             }
         }
 
-        protected override SettingsTabPage GetSettingsTabPage()
+        protected override BaseCfgPanel GetBaseCfgPanel()
         {
             return new CatalogExplorerCfgPanel();
         }

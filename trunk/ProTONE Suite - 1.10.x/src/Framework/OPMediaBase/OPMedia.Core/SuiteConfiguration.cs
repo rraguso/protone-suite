@@ -603,5 +603,158 @@ namespace OPMedia.Core
                 }
             }
         }
+
+
+        public static bool UseLinkedFiles
+        {
+            get
+            {
+                int val = 1;
+
+                try
+                {
+                    using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(ConfigRegPath))
+                    {
+                        if (key != null)
+                        {
+                            val = (int)key.GetValue("UseLinkedFiles", 1);
+                        }
+                    }
+                }
+                catch
+                {
+                    val = 1;
+                }
+
+                return (val != 0);
+            }
+
+            set
+            {
+                try
+                {
+                    using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(ConfigRegPath))
+                    {
+                        if (key != null)
+                        {
+                            key.SetValue("UseLinkedFiles", value ? 1 : 0);
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        static Dictionary<string, string> _table = null;
+        public static Dictionary<string, string> LinkedFilesTable 
+        {
+            get
+            {
+                _table = new Dictionary<string, string>();
+
+                try
+                {
+                    using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(ConfigRegPath))
+                    {
+                        if (key != null)
+                        {
+                            string st = key.GetValue("LinkedFiles", string.Empty) as string;
+                            string[] pairs = StringUtils.ToStringArray(st, '\\');
+                            if (pairs != null && pairs.Length > 0)
+                            {
+                                foreach (string pair in pairs)
+                                {
+                                    string[] nameValue = StringUtils.ToStringArray(pair, '/');
+                                    if (nameValue != null && nameValue.Length > 0)
+                                    {
+                                        string name = nameValue[0];
+                                        string value = nameValue.Length > 1 ? nameValue[1] : string.Empty;
+
+                                        try
+                                        {
+                                            _table.Add(name, value);
+                                        }
+                                        catch
+                                        {
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                }
+
+                return _table;
+            }
+
+            set
+            {
+                try
+                {
+                    if (value != null)
+                    {
+                        string str = string.Empty;
+                        foreach(KeyValuePair<string, string> kvp in value)
+                        {
+                            str += kvp.Key;
+                            str += "/";
+                            str += kvp.Value;
+                            str += "\\";
+                        }
+
+                        str = str.Trim('\\').Trim('/');
+
+                        using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(ConfigRegPath))
+                        {
+                            if (key != null)
+                            {
+                                key.SetValue("LinkedFiles", str);
+                            }
+                        }
+                    }
+
+                    _table = value;
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        public static string[] GetChildFileTypes(string fileType)
+        {
+            if (_table == null)
+                _table = LinkedFilesTable;
+
+            foreach(KeyValuePair<string, string> kvp in _table)
+            {
+                List<string> types = new List<string>(StringUtils.ToStringArray(kvp.Key, ';'));
+                if (types.Contains(fileType.ToUpperInvariant()))
+                {
+                    return StringUtils.ToStringArray(kvp.Value, ';');
+                }
+            }
+
+            return null;
+        }
+
+        public static string[] GetParentFileTypes(string fileType)
+        {
+            foreach (KeyValuePair<string, string> kvp in _table)
+            {
+                List<string> types = new List<string>(StringUtils.ToStringArray(kvp.Value, ';'));
+                if (types.Contains(fileType.ToUpperInvariant()))
+                {
+                    return StringUtils.ToStringArray(kvp.Key, ';');
+                }
+            }
+
+            return null;
+        }
     }
 }

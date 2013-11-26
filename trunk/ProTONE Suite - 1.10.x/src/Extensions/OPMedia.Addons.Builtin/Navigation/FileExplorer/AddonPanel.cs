@@ -133,7 +133,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             FileInfo fi = new FileInfo(path);
             if (fi != null && fi.Exists)
             {
-                return support.GetLinkedFiles(fi, taskType);
+                return support.GetChildFiles(fi, taskType);
             }
 
             return null;
@@ -1134,7 +1134,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             return 0;
         }
 
-        protected override SettingsTabPage GetSettingsTabPage()
+        protected override BaseCfgPanel GetBaseCfgPanel()
         {
             return new FileExplorerCfgPanel();
         }

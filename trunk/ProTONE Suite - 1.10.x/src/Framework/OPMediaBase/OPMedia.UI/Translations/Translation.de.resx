@@ -1044,5 +1044,14 @@ Wollen Sie es schaffen?</value>
 <data name="TXT_NEWFOLDER">
   <value>Neuen Ordner Erstellen</value>
 </data>
+<data name="TXT_PARENTFILETYPES">
+  <value>'Eltern' Dateitypen:</value>
+</data>
+<data name="TXT_CHILDFILETYPES">
+  <value>'Kind' Dateitypen:</value>
+</data>
+<data name="TXT_USE_LINKEDFILES">
+  <value>Manipulieren verknüpften Dateien als ein einzelnes Element</value>
+</data>
     
 </root>

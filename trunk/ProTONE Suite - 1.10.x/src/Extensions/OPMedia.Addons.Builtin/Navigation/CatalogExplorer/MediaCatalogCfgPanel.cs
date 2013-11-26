@@ -15,7 +15,7 @@ using OPMedia.Runtime.Addons.Configuration;
 
 namespace OPMedia.Addons.Builtin.CatalogExplorer
 {
-    public partial class CatalogExplorerCfgPanel : SettingsTabPage
+    public partial class CatalogExplorerCfgPanel : BaseCfgPanel
     {
         public override Image Image
         {
