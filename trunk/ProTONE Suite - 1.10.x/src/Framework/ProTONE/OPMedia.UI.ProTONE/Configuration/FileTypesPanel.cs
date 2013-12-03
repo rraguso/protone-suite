@@ -576,7 +576,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             }
         }
 
-        private class ExplorerLaunchType
+        internal class ExplorerLaunchType
         {
             public CommandType CommandType = CommandType.EnqueueFiles;
 

@@ -21,6 +21,10 @@ namespace OPMedia.UI.Controls
         bool _isMouseDown = false;
         bool _isHovered = false;
 
+        public event EventHandler OnDropDownClicked = null;
+
+        const int ArrowSize = 18;
+
         #region GUI Properties
 
         #region Font Size
@@ -78,6 +82,8 @@ namespace OPMedia.UI.Controls
 
         #endregion
 
+        public bool ShowDropDown { get; set; }
+
         #endregion
 
 
@@ -100,6 +106,25 @@ namespace OPMedia.UI.Controls
             this.KeyUp += new KeyEventHandler(OnKeyUp);
 
             this.FontSize = FontSizes.Normal;
+            this.ShowDropDown = false;
+        }
+
+        protected override void OnClick(EventArgs e)
+        {
+            if (ShowDropDown && TestDropDownClicked())
+            {
+                OnDropDownClicked(this, e);
+                return;
+            }
+
+            base.OnClick(e);
+        }
+
+        private bool TestDropDownClicked()
+        {
+            Rectangle rcDropDown = new Rectangle(this.Width - ArrowSize, 0, ArrowSize, this.Height);
+            Point ptMouse = PointToClient(MousePosition);
+            return (rcDropDown.Contains(ptMouse));
         }
 
         void OnKeyUp(object sender, KeyEventArgs e)
@@ -245,7 +270,27 @@ namespace OPMedia.UI.Controls
 
                     sf.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.Show;
 
-                    e.Graphics.DrawString(this.Text, this.Font, b, rc, sf);
+                    Rectangle rcText = rc;
+                    if (ShowDropDown)
+                        rcText = new Rectangle(0, 0, this.Width - ArrowSize, this.Height);
+
+                    e.Graphics.DrawString(this.Text, this.Font, b, rcText, sf);
+                }
+
+                if (ShowDropDown)
+                {
+                    Rectangle rcArrow = new Rectangle(this.Width - ArrowSize, 0, ArrowSize, this.Height);
+                    using (GraphicsPath gp = ImageProcessing.GenerateCenteredArrow(rcArrow))
+                    using (Brush b = new SolidBrush(cText))
+                    using (Pen p = new Pen(b, 1))
+                    {
+                        e.Graphics.FillPath(b, gp);
+                        e.Graphics.DrawPath(p, gp);
+
+                        Point p1 = new Point(this.Width - ArrowSize + 2, 2);
+                        Point p2 = new Point(this.Width - ArrowSize + 2, this.Height - 4);
+                        e.Graphics.DrawLine(p, p1, p2);
+                    }
                 }
             }
             

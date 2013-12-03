@@ -20,8 +20,22 @@ namespace OPMedia.UI.Controls.Dialogs
     public delegate List<string> FillFavoriteFoldersHandler();
     public delegate bool AddToFavoriteFoldersHandler(string path);
 
+    public class OpenOption
+    {
+        public string OptionTitle { get; protected set; }
+        public object OptionTag { get; protected set; }
+
+        public OpenOption(string s, object o)
+        {
+            OptionTag = o;
+            OptionTitle = s;
+        }
+    }
+
     public partial class OPMFileDialog : ToolForm
     {
+        ContextMenuStrip _cmsDynamic = new ContextMenuStrip();
+
         OPMToolTipManager _tt = null;
         OPMToolTipManager _tt2 = null;
 
@@ -36,6 +50,34 @@ namespace OPMedia.UI.Controls.Dialogs
 
         public bool ShowAddToFavorites { get; set; }
         public bool ShowNewFolder { get; set; }
+
+        List<OpenOption> _openDropDownOptions = null;
+        public List<OpenOption> OpenDropDownOptions 
+        {
+            get
+            {
+                return ((this is OPMOpenFileDialog) && btnOK.ShowDropDown) ? _openDropDownOptions : null;
+            }
+
+            set
+            {
+                if ((this is OPMOpenFileDialog) && value != null && value.Count > 0)
+                {
+                    _openDropDownOptions = value;
+                }
+
+                btnOK.ShowDropDown = ((this is OPMOpenFileDialog) && _openDropDownOptions != null && _openDropDownOptions.Count > 0);
+            }
+        }
+
+        object _openOption = null;
+        public object OpenOption
+        {
+            get
+            {
+                return _openOption;
+            }
+        }
 
         public string FileName 
         {
@@ -106,6 +148,34 @@ namespace OPMedia.UI.Controls.Dialogs
 
             _tt = new OPMToolTipManager(btnAddToFavorites);
             _tt2 = new OPMToolTipManager(btnNewFolder);
+
+            btnOK.OnDropDownClicked += new EventHandler(btnOK_OnDropDownClicked);
+        }
+
+        void btnOK_OnDropDownClicked(object sender, EventArgs e)
+        {
+            _cmsDynamic.Items.Clear();
+            foreach (OpenOption opt in _openDropDownOptions)
+            {
+                OPMToolStripMenuItem tsmi = new OPMToolStripMenuItem(opt.OptionTitle);
+                tsmi.Tag = opt.OptionTag;
+                tsmi.Click += new EventHandler(tsmi_Click);
+                _cmsDynamic.Items.Add(tsmi);
+            }
+
+            Point p = new Point(0, btnOK.Height);
+            _cmsDynamic.Show(btnOK, p, ToolStripDropDownDirection.Default);
+        }
+
+        void tsmi_Click(object sender, EventArgs e)
+        {
+            OPMToolStripMenuItem tsmi = sender as OPMToolStripMenuItem;
+            if (tsmi != null)
+            {
+                _openOption = tsmi.Tag;
+                OnOK(sender, e);
+                return;
+            }
         }
 
         bool lvExplorer_LaunchMultipleItems(object sender, EventArgs e)

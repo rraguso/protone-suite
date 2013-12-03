@@ -44,6 +44,7 @@ using OPMedia.UI.ProTONE.Properties;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 using System.Net;
 using OPMedia.Core.Utilities;
+using OPMedia.Runtime.ProTONE.RemoteControl;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -531,12 +532,31 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
-
             dlg.ShowAddToFavorites = true;
+
+            dlg.OpenDropDownOptions = new List<OpenOption>(new OpenOption[]
+            {
+                new MediaPlayerOpenOption(CommandType.PlayFiles),
+                new MediaPlayerOpenOption(CommandType.EnqueueFiles)
+            });
 
             if (dlg.ShowDialog() == DialogResult.OK && dlg.FileNames.Length > 0)
             {
-                LoadFiles(dlg.FileNames);
+                CommandType openOption = CommandType.PlayFiles;
+                try
+                {
+                    openOption = (CommandType)dlg.OpenOption;
+                }
+                catch
+                {
+                    openOption = CommandType.PlayFiles;
+                }
+
+                if (openOption == CommandType.EnqueueFiles)
+                    EnqueueFiles(dlg.FileNames);
+                else
+                    LoadFiles(dlg.FileNames);
+
                 AppSettings.LastFilterIndex = dlg.FilterIndex;
 
                 try
@@ -1070,6 +1090,17 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
             
 
+        }
+    }
+
+    public class MediaPlayerOpenOption : OpenOption
+    {
+        public MediaPlayerOpenOption(CommandType cmd)
+            : base(string.Empty, null)
+        {
+            OPMedia.UI.ProTONE.Configuration.FileTypesPanel.ExplorerLaunchType elt = new FileTypesPanel.ExplorerLaunchType(cmd);
+            base.OptionTag = cmd;
+            base.OptionTitle = elt.ToString();
         }
     }
 }
