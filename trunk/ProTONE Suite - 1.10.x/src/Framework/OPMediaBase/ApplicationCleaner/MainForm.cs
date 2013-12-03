@@ -134,28 +134,19 @@ namespace OPMedia.Utility
         {
             try
             {
-                string crtUserAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                string crtUserName = Environment.GetEnvironmentVariable("USERNAME");
-                string userAppDataTemplate = crtUserAppData.ToLowerInvariant().Replace(crtUserName.ToLowerInvariant(), "{0}");
-
-                SelectQuery query = new SelectQuery("Win32_UserAccount");
+                string userAppDataTemplate = @"{0}\AppData\Local";
+                SelectQuery query = new SelectQuery("Select LocalPath from Win32_UserProfile");
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
 
                 foreach (ManagementObject mo in searcher.Get())
                 {
                     try
                     {
-                        bool disabled = (bool)mo["Disabled"];
-                        bool lockout = (bool)mo["Lockout"];
-                        string name = mo["Name"] as string;
-
-                        if (disabled || lockout)
-                            continue;
-
-                        string userAppDatapath = string.Format(userAppDataTemplate, name);
+                        string path = mo["LocalPath"] as string;
+                        string userAppDatapath = string.Format(userAppDataTemplate, path);
                         if (Directory.Exists(userAppDatapath))
                         {
-                            ProcessUserAppDataPath(name, userAppDatapath);
+                            ProcessUserAppDataPath(userAppDatapath);
                         }
                     }
                     catch
@@ -172,7 +163,7 @@ namespace OPMedia.Utility
             }
         }
 
-        private void ProcessUserAppDataPath(string userName, string userAppDatapath)
+        private void ProcessUserAppDataPath(string userAppDatapath)
         {
             string[] appSubfolders = new string[]
             {
