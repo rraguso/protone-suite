@@ -28,8 +28,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public event ValueChangedEventHandler PositionChanged = null;
         public event ValueChangedEventHandler VolumeChanged = null;
 
-        private bool compactView = false;
-
         public double ElapsedSeconds
         {
             get
@@ -126,13 +124,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             get
             {
-                return compactView;
+                return playbackPanel.CompactView;
             }
 
             set
             {
-                compactView = value; 
-                UpdateButtons();
+                playbackPanel.CompactView = value; 
             }
         }
 
@@ -185,43 +182,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         internal void FilterStateChanged(FilterState filterState, string mediaName,
             MediaTypes mediaType)
         {
-            mediaInfo.MediaName = mediaName;
-            mediaInfo.FilterState = filterState;
-            mediaInfo.MediaType = mediaType;
-        }
-
-        private void UpdateButtons()
-        {
-            if (compactView)
-            {
-                PlaybackButtonData[] buttonsData = new PlaybackButtonData[9];
-
-                buttonsData[0].buttonType = PlaybackButtonType.FullScreen;
-                buttonsData[1].buttonType = PlaybackButtonType.Load;
-                buttonsData[2].buttonType = PlaybackButtonType.Next;
-                buttonsData[3].buttonType = PlaybackButtonType.Prev;
-                buttonsData[4].buttonType = PlaybackButtonType.OpenDisk;
-                buttonsData[5].buttonType = PlaybackButtonType.OpenSettings;
-                buttonsData[6].buttonType = PlaybackButtonType.LoopPlay;
-                buttonsData[7].buttonType = PlaybackButtonType.PlaylistEnd;
-                buttonsData[8].buttonType = PlaybackButtonType.ToggleShuffle;
-
-                buttonsData[0].buttonState = PlaybackButtonState.Hidden;
-                buttonsData[1].buttonState = PlaybackButtonState.Hidden;
-                buttonsData[2].buttonState = PlaybackButtonState.Hidden;
-                buttonsData[3].buttonState = PlaybackButtonState.Hidden;
-                buttonsData[4].buttonState = PlaybackButtonState.Hidden;
-                buttonsData[5].buttonState = PlaybackButtonState.Hidden;
-                buttonsData[6].buttonState = PlaybackButtonState.Hidden;
-                buttonsData[7].buttonState = PlaybackButtonState.Hidden;
-                buttonsData[8].buttonState = PlaybackButtonState.Hidden;
-
-                playbackPanel.SetButtonsData(buttonsData, true);
-            }
-            else
-            {
-                playbackPanel.SetDefaultButtonsData();
-            }
+            playbackPanel.MediaName = mediaName;
+            playbackPanel.FilterState = filterState;
+            playbackPanel.MediaType = mediaType;
         }
     }
 }

@@ -86,11 +86,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
 
             bookmarkManagerCtl.ShowSeparator(true);
-
             bookmarkManagerCtl.Visible = false;
-            playlistControlPanel.Visible = false;
-
-            playlistControlPanel.MouseUp += new MouseEventHandler(OnMouseUp);
            
             AdjustWidth();
             UpdateTotalTime(0);
@@ -790,15 +786,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void UpdateButtonsState()
         {
-            SuspendLayout();
-
             bool singleItemSelected = (lvPlaylist.SelectedItems.Count == 1);
             bool itemsSelected = (lvPlaylist.SelectedItems.Count > 0);
             bool itemsPresent = (lvPlaylist.Items.Count > 0);
-
-            UpdateButtonsState(singleItemSelected, itemsSelected, itemsPresent);
-
-            ResumeLayout();
 
             if (singleItemSelected)
             {
@@ -949,53 +939,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 h, ts.Minutes, ts.Seconds);
         }
 
-        public void UpdateButtonsState(bool singleItemSelected, bool itemsSelected, bool itemsPresent)
-        {
-            SuspendLayout();
-
-            PlaylistButtonData[] buttonsData = new PlaylistButtonData[5];
-
-            buttonsData[0].buttonType = PlaylistButtonType.MoveUp;
-            buttonsData[1].buttonType = PlaylistButtonType.MoveDown;
-            buttonsData[2].buttonType = PlaylistButtonType.Delete;
-            buttonsData[3].buttonType = PlaylistButtonType.Clear;
-            buttonsData[4].buttonType = PlaylistButtonType.SavePlaylist;
-
-            buttonsData[0].buttonCommand = OPMShortcut.CmdMoveUp;
-            buttonsData[1].buttonCommand = OPMShortcut.CmdMoveDown;
-            buttonsData[2].buttonCommand = OPMShortcut.CmdDelete;
-            buttonsData[3].buttonCommand = OPMShortcut.CmdClear;
-            buttonsData[4].buttonCommand = OPMShortcut.CmdSavePlaylist;
-
-            buttonsData[0].buttonState =
-                (itemsSelected) ? PlaylistButtonState.Enabled : PlaylistButtonState.Disabled;
-            buttonsData[1].buttonState =
-                (itemsSelected) ? PlaylistButtonState.Enabled : PlaylistButtonState.Disabled;
-            buttonsData[2].buttonState =
-                (itemsSelected) ? PlaylistButtonState.Enabled : PlaylistButtonState.Disabled;
-            buttonsData[3].buttonState =
-                (itemsPresent) ? PlaylistButtonState.Enabled : PlaylistButtonState.Disabled;
-            buttonsData[4].buttonState =
-                (itemsPresent) ? PlaylistButtonState.Enabled : PlaylistButtonState.Disabled;
-
-            playlistControlPanel.SetButtonsData(buttonsData, true);
-
-            ResumeLayout();
-        }
-
         private void lblTotal_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void OnShowHidePLControls(object sender, EventArgs e)
-        {
-            playlistControlPanel.Visible ^= true;
-
-            if (playlistControlPanel.Visible)
-                btnShowHidePLControls.Text = "<";
-            else
-                btnShowHidePLControls.Text = ">";
         }
 
         private void OnShowHideBM(object sender, EventArgs e)

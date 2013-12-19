@@ -31,6 +31,7 @@ using OPMedia.UI.Themes;
 using OPMedia.UI.ProTONE.Properties;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 using OPMedia.Core.Utilities;
+using System.Windows.Forms.Design;
 
 #endregion
 
@@ -79,103 +80,35 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         #region Implementation
         PlaylistItem pli = null;
 
-        private void UpdateFileType()
-        {
-            Image img = null, imgSmall = null;
-            if (!string.IsNullOrEmpty(_mediaName))
-            {
-                img = ImageProvider.GetIcon(_mediaName, true);
-                imgSmall = ImageProvider.GetIcon(_mediaName, false);
-
-                try
-                {
-                    if (DvdMedia.FromPath(_mediaName) != null)
-                    {
-                        pli = new DvdPlaylistItem(_mediaName);
-                    }
-                    else
-                    {
-                        pli = new PlaylistItem(_mediaName, false);
-                    }
-                }
-                catch
-                {
-                }
-
-                if (pli != null)
-                {
-                    _tip.SetToolTip(pbFileType, StringUtils.Limit(pli.DisplayName, 60), pli.MediaInfo, img, pli.MediaFileInfo.CustomImage);
-                }
-                else
-                {
-                    _tip.SetSimpleToolTip(pbFileType, _mediaName, img);
-                }
-            }
-            else
-            {
-                _tip.SetSimpleToolTip(pbFileType, null);
-            }
-
-            if (imgSmall != null)
-            {
-                pbFileType.SizeMode = (imgSmall.Height > pbFileType.Height) ?
-                    PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
-            }
-            
-            pbFileType.Image = imgSmall;
-        }
-
-        private void UpdateFilterState()
-        {
-            Image img = null;
-            if (!string.IsNullOrEmpty(_mediaName))
-            {
-                img = Resources.ResourceManager.GetImage(_FilterState.ToString().ToLowerInvariant());
-            }
-            
-            pbFilterState.Image = img;
-            string tip = Translator.Translate("TXT_MEDIA_STATE", MediaRenderer.DefaultInstance.TranslatedFilterState);
-
-            _tip.SetSimpleToolTip(pbFilterState, tip, img);
-        }
-
-        private void UpdateMediaType()
-        {
-            string tipAudio = Translator.Translate("TXT_AUDIO_AVAILABLE");
-            string tipVideo = Translator.Translate("TXT_VIDEO_AVAILABLE");
-
-            if (string.IsNullOrEmpty(_mediaName))
-            {
-                _mediaType = MediaTypes.None;
-            }
-
-            switch (_mediaType)
-            {
-                case MediaTypes.None:
-                    pbAudioOn.Image = null;
-                    pbVideoOn.Image = null;
-                    break;
-
-                case MediaTypes.Audio:
-                    pbAudioOn.Image = Resources.btnCfgAudio;
-                    pbVideoOn.Image = null;
-                    break;
-
-                case MediaTypes.Video:
-                    pbAudioOn.Image = null;
-                    pbAudioOn.Image = Resources.btnCfgVideo;
-                    break;
-
-                case MediaTypes.Both:
-                    pbAudioOn.Image = Resources.btnCfgAudio;
-                    pbVideoOn.Image = Resources.btnCfgVideo;
-                    break;
-            }
-
-            _tip.SetSimpleToolTip(pbAudioOn, tipAudio, pbAudioOn.Image);
-            _tip.SetSimpleToolTip(pbVideoOn, tipVideo, pbVideoOn.Image);
-        }
+        
         #endregion
+    }
+
+    [DesignerCategory("code")]
+    [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.All)]
+    public class ToolStripMediaInfo : ToolStripControlHost
+    {
+        public string MediaName
+        { get { return MediaInfo.MediaName; } set { MediaInfo.MediaName = value; } }
+
+        public FilterState FilterState
+        { get { return MediaInfo.FilterState; } set { MediaInfo.FilterState = value; } }
+
+        public MediaTypes MediaType
+        { get { return MediaInfo.MediaType; } set { MediaInfo.MediaType = value; } }
+
+        public MediaInfo MediaInfo
+        {
+            get
+            {
+                return this.Control as MediaInfo;
+            }
+        }
+
+        public ToolStripMediaInfo()
+            : base(new MediaInfo())
+        {
+        }
     }
 }
 

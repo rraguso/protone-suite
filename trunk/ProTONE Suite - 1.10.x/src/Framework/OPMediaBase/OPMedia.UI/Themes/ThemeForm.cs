@@ -164,8 +164,8 @@ namespace OPMedia.UI.Themes
             if (this.WindowState != FormWindowState.Minimized)
             {
                 int th = TitleBarVisible ? DefaultTitleBarHeight : 0;
-                pnlContent.SetLocation(new Point(5, th + 2));
-                pnlContent.SetSize(new Size(this.Width - 10, this.Height - th - 7));
+                pnlContent.SetLocation(new Point(2, th + 2));
+                pnlContent.SetSize(new Size(this.Width - 5, this.Height - th - 6));
             }
         }
 

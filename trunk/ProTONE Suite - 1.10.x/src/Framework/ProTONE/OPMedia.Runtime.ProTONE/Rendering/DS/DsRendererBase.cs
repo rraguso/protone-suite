@@ -171,6 +171,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     mediaEvent = null;
                 }
 
+                rotEntry.Dispose();
+                rotEntry = null;
+
                 GC.Collect();
             }
             catch (Exception ex)

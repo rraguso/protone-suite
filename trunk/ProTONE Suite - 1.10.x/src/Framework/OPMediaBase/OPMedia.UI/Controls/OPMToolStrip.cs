@@ -347,7 +347,7 @@ namespace OPMedia.UI.Controls
                         }
                     }
 
-                    int xpos = this.ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2;
+                    int xpos = this.ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 + 1;
 
                     if (Image != null)
                     {
@@ -364,11 +364,14 @@ namespace OPMedia.UI.Controls
 
                         if (string.IsNullOrEmpty(this.Text))
                         {
-                            ypos += (this.Height - img.Height) / 2;
+                            ypos += (this.Height - img.Height) / 2 - 2;
                         }
 
-                        e.Graphics.DrawImage(ImageProvider.ScaleImage(img, Owner.ImageScalingSize, true),
-                            new Point(xpos, ypos));
+                        if ((this.DisplayStyle & ToolStripItemDisplayStyle.Image) == ToolStripItemDisplayStyle.Image)
+                        {
+                            e.Graphics.DrawImage(ImageProvider.ScaleImage(img, Owner.ImageScalingSize, true),
+                                new Point(xpos, ypos));
+                        }
                     }
 
                     StringFormat sf = new StringFormat();
@@ -397,9 +400,12 @@ namespace OPMedia.UI.Controls
                         rect.Height -= this.Owner.ImageScalingSize.Height;
                     }
 
-                    using (Brush b = new SolidBrush(clText))
+                    if ((this.DisplayStyle & ToolStripItemDisplayStyle.Text) == ToolStripItemDisplayStyle.Text)
                     {
-                        e.Graphics.DrawString(this.Text, this.Font, b, rect, sf);
+                        using (Brush b = new SolidBrush(clText))
+                        {
+                            e.Graphics.DrawString(this.Text, this.Font, b, rect, sf);
+                        }
                     }
                 }
             }
