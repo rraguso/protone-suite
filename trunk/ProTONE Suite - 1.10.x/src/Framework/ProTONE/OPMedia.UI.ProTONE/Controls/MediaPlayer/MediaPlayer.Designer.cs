@@ -102,14 +102,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlRendering.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlRendering_DragEnter);
             this.pnlRendering.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlRendering_DragOver);
             this.pnlRendering.DragLeave += new System.EventHandler(this.pnlRendering_DragLeave);
-            //
-            //
-            //
-            this.cmsOpenFiles.Items.AddRange(new ToolStripMenuItem[] 
-            {
-                
-            });
-
             // 
             // MediaPlayer
             // 
@@ -130,7 +122,5 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         private OPMTableLayoutPanel layoutPanel;
         private PlaylistPanel pnlPlaylist;
         private ContextMenuStrip cmsOpenFiles;
-        private OPMToolStripMenuItem tsmiSimpleOpen;
-        private OPMToolStripMenuItem tsmiEnqueueOpen;
     }
 }
