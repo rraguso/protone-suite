@@ -39,7 +39,7 @@ namespace OPMedia.UI.Dialogs
             InitializeComponent();
         }
 
-        protected override bool AllowCloseOnEnterOrEscape()
+        protected override bool AllowCloseOnKeyDown(Keys key)
         {
             return false;
         }

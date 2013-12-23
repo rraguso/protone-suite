@@ -76,11 +76,6 @@ namespace OPMedia.UI.HelpSupport
             this.Height = Screen.GetWorkingArea(this).Height - 20;
         }
 
-        protected override bool AllowCloseOnEnterOrEscape()
-        {
-            return true;
-        }
-
         string _uri = string.Empty;
 
         protected override void OnThemeUpdatedInternal()
@@ -209,7 +204,7 @@ namespace OPMedia.UI.HelpSupport
         private void wbHelpDisplay_PreviewKeyDown(object sender, System.Windows.Forms.PreviewKeyDownEventArgs e)
         {
             // TODO identify which keys should be allowed and which not
-            base.ProcessKeyDown(e.KeyCode, e.Modifiers);
+            base.ProcessKeyDown(sender as Control, e.KeyCode, e.Modifiers);
         }
     }
 }

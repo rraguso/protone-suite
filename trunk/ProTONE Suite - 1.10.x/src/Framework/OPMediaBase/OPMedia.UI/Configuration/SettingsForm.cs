@@ -98,10 +98,6 @@ namespace OPMedia.UI
             return NetworkConfig;
         }
 
-        protected override bool AllowCloseOnEnterOrEscape()
-        {
-            return true;
-        }
 
         void SettingsForm_HandleDestroyed(object sender, EventArgs e)
         {

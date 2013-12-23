@@ -199,11 +199,6 @@ namespace OPMedia.Runtime.Addons
                 ShortcutMapper.GetShortcutString(OPMShortcut.CmdOpenSettings);
         }
 
-        protected override bool  AllowCloseOnEnterOrEscape()
-        {
-            return false;
-        }
-
         void MainForm_Load(object sender, EventArgs e)
         {
             tsmiAbout.ToolTipText = string.Empty;

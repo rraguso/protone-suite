@@ -510,10 +510,6 @@ namespace OPMedia.UI.Wizards
         #endregion
 
         #region Implementation
-        protected override bool AllowCloseOnEnterOrEscape()
-        {
-            return true;
-        }
 
         /// <summary>
         /// Display the wizard page that corresponds to the current

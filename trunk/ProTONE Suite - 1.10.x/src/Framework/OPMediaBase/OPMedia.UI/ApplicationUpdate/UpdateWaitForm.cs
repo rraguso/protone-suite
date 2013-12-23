@@ -107,11 +107,6 @@ namespace OPMedia.UI.ApplicationUpdate
                 _wfr = null;
             }
         }
-        
-        protected override bool AllowCloseOnEnterOrEscape()
-        {
-            return true;
-        }
-
+      
     }
 }

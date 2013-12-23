@@ -47,11 +47,6 @@ namespace OPMedia.ProTONE
 
         OPMToolTip _tip = new OPMToolTip();
 
-        protected override bool AllowCloseOnEnterOrEscape()
-        {
-            return false;
-        }
-
         public void EnqueueCommand(BasicCommand cmd)
         {
             if (cmd != null)

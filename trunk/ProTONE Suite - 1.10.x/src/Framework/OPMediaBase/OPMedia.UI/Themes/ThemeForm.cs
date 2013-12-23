@@ -245,19 +245,26 @@ namespace OPMedia.UI.Themes
         {
             if (SuppressKeyPress == false)
             {
-                ProcessKeyDown(e.KeyData, e.Modifiers);
+                ProcessKeyDown(sender as Control, e.KeyData, e.Modifiers);
             }
         }
 
-        protected bool ProcessKeyDown(Keys key, Keys modifiers)
+        protected virtual bool AllowCloseOnKeyDown(Keys keyDown)
         {
-            if (modifiers == Keys.None &&
-                (key == Keys.Escape || key == Keys.Enter) &&
-                AllowCloseOnEnterOrEscape())
-            {
-                DialogResult = (key == Keys.Escape) ?
-                    DialogResult.Cancel : DialogResult.OK;
+            return (keyDown == Keys.Escape || keyDown == Keys.Enter);
+        }
 
+        protected DialogResult MapDialogResult(Keys keyDown)
+        {
+            return (keyDown == Keys.Escape) ?
+                DialogResult.Cancel : DialogResult.OK;
+        }
+
+        protected bool ProcessKeyDown(Control ctlSender, Keys key, Keys modifiers)
+        {
+            if (modifiers == Keys.None && AllowCloseOnKeyDown(key))
+            {
+                DialogResult = MapDialogResult(key);
                 Close();
                 return false;
             }
@@ -301,11 +308,6 @@ namespace OPMedia.UI.Themes
             }
 
             base.Text = Translator.Translate(title);
-        }
-
-        protected virtual bool AllowCloseOnEnterOrEscape()
-        {
-            return true;
         }
 
         protected virtual bool CanUpdateInterfaceStyle()
@@ -606,6 +608,10 @@ namespace OPMedia.UI.Themes
             _trayStateRestored = true;
         }
 
+        protected override bool AllowCloseOnKeyDown(Keys keyDown)
+        {
+            return false;
+        }
         
     }
 

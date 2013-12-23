@@ -149,11 +149,6 @@ namespace OPMedia.RCCManager
             }
         }
 
-        protected override bool AllowCloseOnEnterOrEscape()
-        {
-            return false;
-        }
-
         string _cfgPath = PathUtils.CurrentDir;
         void MainForm_Load(object sender, EventArgs e)
         {

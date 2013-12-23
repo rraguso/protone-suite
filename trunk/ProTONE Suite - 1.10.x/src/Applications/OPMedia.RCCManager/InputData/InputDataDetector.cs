@@ -30,11 +30,6 @@ namespace OPMedia.RCCManager.InputData
             this.FormClosing += new FormClosingEventHandler(InputDataDetector_FormClosing);
         }
 
-        protected override bool AllowCloseOnEnterOrEscape()
-        {
-            return true;
-        }
-
         void InputDataDetector_FormClosing(object sender, FormClosingEventArgs e)
         {
             ThreadPool.QueueUserWorkItem((c) =>

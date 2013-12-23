@@ -69,7 +69,7 @@ namespace OPMedia.UI.FileTasks
             }
         }
 
-        protected override bool AllowCloseOnEnterOrEscape()
+        protected override bool AllowCloseOnKeyDown(Keys key)
         {
             // This will issue a task abort request
             OnCancel(null, null);

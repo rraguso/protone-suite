@@ -247,10 +247,10 @@ namespace OPMedia.UI.Controls.Dialogs
 
         private void ShowFileNames()
         {
+            string s = string.Empty;
+
             if (FileNames != null)
             {
-                string s = string.Empty;
-
                 if (FileNames.Length == 1)
                 {
                     s = Path.GetFileName(FileNames[0]);
@@ -263,21 +263,32 @@ namespace OPMedia.UI.Controls.Dialogs
                         s += string.Format("\"{0}\"", name);
                     }
                 }
-
-                try
-                {
-                    _enableTextChange = false;
-                    txtFileNames.Text = s;
-                }
-                finally
-                {
-                    _enableTextChange = true;
-                }
+            }
+                
+            try
+            {
+                _enableTextChange = false;
+                txtFileNames.Text = s;
+            }
+            finally
+            {
+                _enableTextChange = true;
             }
         }
 
-        protected override bool AllowCloseOnEnterOrEscape()
+        protected override bool AllowCloseOnKeyDown(Keys key)
         {
+            if (key == Keys.Escape)
+                return true;
+
+            if (key == Keys.Enter)
+            {
+                if (this.ActiveControl != lvExplorer)
+                {
+                    return CanCloseOnEnter();
+                }
+            }
+
             return false;
         }
 
