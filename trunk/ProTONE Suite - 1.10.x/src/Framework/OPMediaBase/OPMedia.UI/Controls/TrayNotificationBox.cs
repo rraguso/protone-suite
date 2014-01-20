@@ -14,6 +14,7 @@ using System.Drawing.Text;
 using System.Timers;
 using System.Diagnostics;
 using OPMedia.Core.Logging;
+using System.Threading;
 
 namespace OPMedia.UI.Controls
 {
@@ -65,6 +66,8 @@ namespace OPMedia.UI.Controls
         {
             AssignData(title, values, img);
             User32.ShowWindow(Handle, ShowWindowStyles.SW_SHOWNOACTIVATE);
+            User32.SetWindowOnTop(Handle, false);
+            //User32.BringWindowToTop(Handle);
         }
 
         int showLocation = 0;
