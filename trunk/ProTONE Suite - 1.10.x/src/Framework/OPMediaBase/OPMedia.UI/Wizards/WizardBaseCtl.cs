@@ -202,36 +202,43 @@ namespace OPMedia.UI.Wizards
         private delegate void ShowWaitDialogDG(string message);
         protected void ShowWaitDialog(string message)
         {
-            if (InvokeRequired)
+            //if (InvokeRequired)
+            //{
+            //    Invoke(new ShowWaitDialogDG(ShowWaitDialog), message);
+            //    return;
+            //}
+
+            MainThread.Post((d) =>
             {
-                Invoke(new ShowWaitDialogDG(ShowWaitDialog), message);
-                return;
-            }
+                Application.DoEvents();
 
-            Application.DoEvents();
+                CloseWaitDialog();
 
-            CloseWaitDialog();
-
-            this.Enabled = false;
-
-            _waitDialog = GenericWaitDialog.Show(message);
+                this.Enabled = false; 
+                _waitDialog = new GenericWaitDialog();
+                _waitDialog.ShowDialog(message);
+            });
         }
 
         protected void CloseWaitDialog()
         {
-            if (InvokeRequired)
-            {
-                Invoke(new MethodInvoker(CloseWaitDialog));
-                return;
-            }
+            //if (InvokeRequired)
+            //{
+            //    Invoke(new MethodInvoker(CloseWaitDialog));
+            //    return;
+            //}
 
-            this.Enabled = true;
+            MainThread.Post((d) =>
+                {
+                    this.Enabled = true;
 
-            if (_waitDialog != null && _waitDialog.Handle != IntPtr.Zero)
-            {
-                _waitDialog.Close();
-                _waitDialog = null;
-            }
+                    if (_waitDialog != null)
+                    {
+                        _waitDialog.Close();
+                        _waitDialog = null;
+                    }
+
+                });
         }
 
         /// <summary>

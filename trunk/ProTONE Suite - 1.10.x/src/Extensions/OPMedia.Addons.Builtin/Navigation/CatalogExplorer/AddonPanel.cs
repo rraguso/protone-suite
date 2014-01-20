@@ -745,7 +745,6 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             try
             {
                 ShowWaitDialog("TXT_WAIT_LOADING_CATALOG");
-
                 _cat = new Catalog(state as string);
             }
             catch (CatalogException ex)
@@ -759,10 +758,9 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             }
             finally
             {
+                DisplayCatalog();
                 CloseWaitDialog();
             }
-
-            DisplayCatalog();
         }
 
         private void MergeCatalog()
@@ -801,41 +799,46 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             }
             finally
             {
+                DisplayCatalog();
                 CloseWaitDialog();
             }
-
-            DisplayCatalog();
         }
 
         private delegate void ShowWaitDialogDG(string message);
         private void ShowWaitDialog(string message)
         {
-            if (InvokeRequired)
-            {
-                Invoke(new ShowWaitDialogDG(ShowWaitDialog), message);
-                return;
-            }
+            //if (InvokeRequired)
+            //{
+            //    Invoke(new ShowWaitDialogDG(ShowWaitDialog), message);
+            //    return;
+            //}
 
-            CloseWaitDialog();
-            _waitDialog = GenericWaitDialog.Show(message);
-            
+            MainThread.Post((d) =>
+                {
+                    CloseWaitDialog();
+                    _waitDialog = new GenericWaitDialog();
+                    _waitDialog.ShowDialog(message);
+                });
         }
 
         private void CloseWaitDialog()
         {
-            if (InvokeRequired)
-            {
-                Invoke(new MethodInvoker(CloseWaitDialog));
-                return;
-            }
-            
-            if (_waitDialog != null)
-            {
-                _waitDialog.Close();
-                _waitDialog = null;
-            }
+            //if (InvokeRequired)
+            //{
+            //    Invoke(new MethodInvoker(CloseWaitDialog));
+            //    return;
+            //}
 
-            _operationInProgress = false;
+            MainThread.Post((d) =>
+                {
+                    if (_waitDialog != null)
+                    {
+                        _waitDialog.Close();
+                        _waitDialog = null;
+                    }
+
+                    _operationInProgress = false;
+                });
         }
 
         private void DisplayCatalog()
@@ -1166,7 +1169,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
                         tvCatalog.SelectedNode = tn;
                         tn.Expand();
 
-
+                        lvCatalogFolder.FindNode(ci);
                     }
                 }
             }

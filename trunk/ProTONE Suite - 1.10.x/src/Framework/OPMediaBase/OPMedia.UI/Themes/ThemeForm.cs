@@ -125,6 +125,18 @@ namespace OPMedia.UI.Themes
             }
         }
 
+        public void Center(bool centerToParent)
+        {
+            if (centerToParent)
+            {
+                CenterToParent();
+            }
+            else
+            {
+                CenterToScreen();
+            }
+        }
+
         void ThemeForm_Shown(object sender, EventArgs e)
         {
             if (!DesignMode)
@@ -144,14 +156,7 @@ namespace OPMedia.UI.Themes
                          User32.IsWindow(owner.Handle) &&
                          User32.IsWindowVisible(owner.Handle));
 
-                    if (centerParent)
-                    {
-                        CenterToParent();
-                    }
-                    else
-                    {
-                        CenterToScreen();
-                    }
+                    Center(centerParent);
 
                     this.BringToFront();
                     this.Activate();

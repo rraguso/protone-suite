@@ -36,6 +36,11 @@ namespace OPMedia.UI.ApplicationUpdate
             this.FormClosing += new FormClosingEventHandler(UpdateWaitForm_FormClosing);
         }
 
+        protected override bool AllowCloseOnKeyDown(Keys key)
+        {
+            return (key == Keys.Escape);
+        }
+
         void UpdateWaitForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_wfr != null)

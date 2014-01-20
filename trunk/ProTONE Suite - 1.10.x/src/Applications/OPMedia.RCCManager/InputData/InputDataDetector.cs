@@ -45,6 +45,11 @@ namespace OPMedia.RCCManager.InputData
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        protected override bool AllowCloseOnKeyDown(Keys key)
+        {
+            return (key == Keys.Escape || key == Keys.Enter);
+        }
     }
 }
 
