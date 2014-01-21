@@ -52,7 +52,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                 {
                     if (value == null && _plItem != null)
                     {
-                        SaveBookmarks();
+                        SaveBookmarksToFile();
                     }
                 }
                 catch
@@ -126,8 +126,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
         void lvBookmarks_SubItemEdited(object sender, ListViewSubItemEventArgs args)
         {
-            SaveBookmarks();
-            LoadBookmarks();
+            SaveBookmarksToPlaylistItem();
+            //LoadBookmarks();
         }
 
         void lvBookmarks_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -326,8 +326,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             {
                 lvBookmarks.Items.Remove(lvBookmarks.SelectedItems[0]);
 
-                SaveBookmarks();
-                LoadBookmarks();
+                SaveBookmarksToPlaylistItem();
+                //LoadBookmarks();
 
                 lvBookmarks.Select();
                 lvBookmarks.Focus();
@@ -340,7 +340,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             }
         }
 
-        public void SaveBookmarks()
+        public void SaveBookmarksToPlaylistItem()
         {
             if (_plItem != null)
             {
@@ -360,10 +360,13 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                         _plItem.MediaFileInfo.Bookmarks.Add(ts, bmk);
                     }
                 }
-
-                _plItem.MediaFileInfo.SaveBookmarks();
             }
+        }
 
+        public void SaveBookmarksToFile()
+        {
+            _plItem.MediaFileInfo.SaveBookmarks();
+            LoadBookmarks();
         }
 
         private void lvBookmarks_MouseDoubleClick(object sender, MouseEventArgs e)

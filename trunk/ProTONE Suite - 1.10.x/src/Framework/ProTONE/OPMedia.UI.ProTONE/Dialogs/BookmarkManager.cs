@@ -42,7 +42,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
         {
             if (DialogResult == DialogResult.OK)
             {
-                bookmarkManagerCtl.SaveBookmarks();
+                bookmarkManagerCtl.SaveBookmarksToFile();
             }
         }
     }

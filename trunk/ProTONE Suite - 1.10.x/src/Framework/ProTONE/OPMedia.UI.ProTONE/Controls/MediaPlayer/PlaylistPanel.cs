@@ -890,7 +890,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             if (isBMVisible)
             {
-                bookmarkManagerCtl.SaveBookmarks();
+                bookmarkManagerCtl.SaveBookmarksToFile();
             }
 
             isBMVisible ^= true;

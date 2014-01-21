@@ -167,7 +167,8 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
             {
                 LoadBookmarks(true, true);
             }
-            else if (BookmarkCollectionChanged != null)
+            
+            if (BookmarkCollectionChanged != null)
             {
                 BookmarkCollectionChanged(null, null);
             }
