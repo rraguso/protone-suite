@@ -98,12 +98,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
                 foreach (string file in list)
                 {
                     string lowercaseFile = file.ToLowerInvariant();
-                    while (_recentFiles.Contains(lowercaseFile))
+                    if (File.Exists(lowercaseFile) && !_recentFiles.Contains(lowercaseFile) 
+                        && lowercaseFile.EndsWith(".ctx"))
                     {
-                        _recentFiles.Remove(lowercaseFile);
+                        _recentFiles.Add(lowercaseFile);
                     }
-
-                    _recentFiles.Add(lowercaseFile);
                 }
             }
         }
@@ -207,10 +206,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
             DisplayCurrentPath();
 
-            if (!string.IsNullOrEmpty(launchCatalogPath))
-            {
-                ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadedOpen), launchCatalogPath);
-            }
+            OpenFileWithCheck(launchCatalogPath, true);
         }
 
         void tvCatalog_AfterSelect(object sender, TreeViewEventArgs e)
@@ -735,8 +731,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 AppSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
-
-                ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadedOpen), dlg.FileName);
+                OpenFileWithCheck(dlg.FileName, false);
             }
         }
 
@@ -1179,14 +1174,39 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
         {
             return new CatalogExplorerCfgPanel();
         }
-       
-        private void OnOpenRecentFile(object sender, ToolStripItemClickedEventArgs e)
+
+        private void OpenFileWithCheck(string fileName, bool openRecent)
         {
-            string fileName = e.ClickedItem.Text;
-            if (!string.IsNullOrEmpty(fileName))
+            if (string.IsNullOrEmpty(fileName))
+                return;
+
+            fileName = fileName.ToLowerInvariant();
+
+            if (File.Exists(fileName))
             {
                 ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadedOpen), fileName);
             }
+            else
+            {
+                if (_recentFiles.Contains(fileName))
+                {
+                    _recentFiles.Remove(fileName);
+                }
+
+                string mainMessage = Translator.Translate("TXT_FILE_NOT_FOUND", fileName);
+                if (openRecent)
+                {
+                    mainMessage += "\r\n";
+                    mainMessage += Translator.Translate("TXT_RECENT_FILE_REMOVED");
+                }
+
+                ErrorDispatcher.DispatchError(mainMessage, Translator.Translate("TXT_CAUTION"));
+            }
+        }
+       
+        private void OnOpenRecentFile(object sender, ToolStripItemClickedEventArgs e)
+        {
+            OpenFileWithCheck(e.ClickedItem.Text, true);
         }
 
         private void OnPrepareRecentFileList(object sender, EventArgs e)
@@ -1211,21 +1231,24 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
         {
             if (AppSettings.MCRememberRecentFiles || AppSettings.MCOpenLastCatalog)
             {
-                while (_recentFiles.Contains(_cat.Path.ToLowerInvariant()))
+                if (!_cat.IsInDefaultLocation)
                 {
-                    _recentFiles.Remove(_cat.Path.ToLowerInvariant());
+                    while (_recentFiles.Contains(_cat.Path.ToLowerInvariant()))
+                    {
+                        _recentFiles.Remove(_cat.Path.ToLowerInvariant());
+                    }
+
+                    while (_recentFiles.Count >= AppSettings.MCRecentFilesCount)
+                    {
+                        _recentFiles.RemoveAt(0); // Remove oldest file in recent file list
+                    }
+
+                    _recentFiles.Add(_cat.Path.ToLowerInvariant());
+
+                    AppSettings.MCRecentFiles =
+                        StringUtils.FromStringArray(_recentFiles.ToArray(), '?');
+                    AppSettings.Save();
                 }
-
-                while (_recentFiles.Count >= AppSettings.MCRecentFilesCount)
-                {
-                    _recentFiles.RemoveAt(0); // Remove oldest file in recent file list
-                }
-
-                _recentFiles.Add(_cat.Path.ToLowerInvariant());
-
-                AppSettings.MCRecentFiles =
-                    StringUtils.FromStringArray(_recentFiles.ToArray(), '?');
-                AppSettings.Save();
             }
         }
 

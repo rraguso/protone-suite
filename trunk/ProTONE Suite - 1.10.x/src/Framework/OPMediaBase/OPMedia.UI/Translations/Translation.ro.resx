@@ -1052,5 +1052,11 @@ Doriţi să fie creat ?</value>
 <data name="TXT_USE_LINKEDFILES">
   <value>Manipulează fișierele înlănţuite ca un singur element</value>
 </data>
+<data name="TXT_FILE_NOT_FOUND">
+  <value>Fișierul nu a fost găsit: {0}</value>
+</data>
+<data name="TXT_RECENT_FILE_REMOVED">
+  <value>Fișierul va fi eliminat din lista de fișiere recent deschise.</value>
+</data>
     
 </root>

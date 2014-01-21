@@ -1053,5 +1053,11 @@ Do you want to create it ?</value>
 <data name="TXT_USE_LINKEDFILES">
   <value>Manipulate linked files as a single item</value>
 </data>
+<data name="TXT_FILE_NOT_FOUND">
+  <value>File not found: {0}</value>
+</data>
+<data name="TXT_RECENT_FILE_REMOVED">
+  <value>The file will be removed from recent opened files list.</value>
+</data>
     
 </root>

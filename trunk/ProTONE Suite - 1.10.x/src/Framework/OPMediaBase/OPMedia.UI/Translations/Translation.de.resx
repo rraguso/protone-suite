@@ -1053,5 +1053,11 @@ Wollen Sie es schaffen?</value>
 <data name="TXT_USE_LINKEDFILES">
   <value>Manipulieren verknüpften Dateien als ein einzelnes Element</value>
 </data>
+<data name="TXT_FILE_NOT_FOUND">
+  <value>Datei nicht gefunden: {0}</value>
+</data>
+<data name="TXT_RECENT_FILE_REMOVED">
+  <value>Die Datei wird aus den jüngsten Liste geöffneten Dateien entfernt werden.</value>
+</data>
     
 </root>

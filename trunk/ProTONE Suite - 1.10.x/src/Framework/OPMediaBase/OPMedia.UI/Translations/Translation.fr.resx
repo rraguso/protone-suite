@@ -1055,5 +1055,11 @@ Voulez-vous le créer?</value>
 <data name="TXT_USE_LINKEDFILES">
   <value>Manipuler des fichiers liés comme un seul élément</value>
 </data>
+<data name="TXT_FILE_NOT_FOUND">
+  <value>Fichier introuvable: {0}</value>
+</data>
+<data name="TXT_RECENT_FILE_REMOVED">
+  <value>Le fichier sera supprimé de la liste des fichiers récemment ouverts.</value>
+</data>
     
 </root>
