@@ -12,6 +12,7 @@ using System.Windows.Forms.Design;
 using System.IO;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.FileInformation;
+using System.Reflection;
 
 namespace OPMedia.UI.Controls
 {
@@ -102,7 +103,7 @@ namespace OPMedia.UI.Controls
             return value;
         }
 
-        public static void SuppressNonBrowsableAttributes(List<object> lObjects)
+        public static void ProcessObjectAttributes(List<object> lObjects)
         {
             if (lObjects.Count > 0)
             {
@@ -116,8 +117,11 @@ namespace OPMedia.UI.Controls
                         {
                             UIExtensions.SetAttribute(pd.Name, "browsable", typeof(NativeFileInfo), singleSelection);
                         }
-                       
 
+                        if (attr is ITranslatableAttribute)
+                        {
+                            (attr as ITranslatableAttribute).PerformTranslation(pd);
+                        }
                     }
                 }
             }

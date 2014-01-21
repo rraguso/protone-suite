@@ -67,7 +67,7 @@ namespace OPMedia.Addons.Builtin.__DefaultProp
                 }
             }
 
-            FileAttributesBrowser.SuppressNonBrowsableAttributes(lofi);
+            FileAttributesBrowser.ProcessObjectAttributes(lofi);
 
             pgProperties.SelectedObjects = lofi.ToArray();
         }

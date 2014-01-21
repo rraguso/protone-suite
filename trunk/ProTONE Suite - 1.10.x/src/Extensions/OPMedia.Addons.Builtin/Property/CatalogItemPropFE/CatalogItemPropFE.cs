@@ -67,7 +67,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.CatalogItemPropFE
                 }
             }
 
-            FileAttributesBrowser.SuppressNonBrowsableAttributes(lcat);
+            FileAttributesBrowser.ProcessObjectAttributes(lcat);
 
             pgProperties.SelectedObjects = lcat.ToArray();
         }

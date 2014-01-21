@@ -159,7 +159,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop
                 }
             }
 
-            FileAttributesBrowser.SuppressNonBrowsableAttributes(lii);
+            FileAttributesBrowser.ProcessObjectAttributes(lii);
 
             pgProperties.SelectedObjects = lii.ToArray();
             base.Modified = false;

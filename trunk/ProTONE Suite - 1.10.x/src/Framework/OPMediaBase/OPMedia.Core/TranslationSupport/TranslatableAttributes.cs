@@ -9,56 +9,42 @@ using OPMedia.Core.GlobalEvents;
 
 namespace OPMedia.Core.TranslationSupport
 {
-    public class TranslatableCategoryAttribute : CategoryAttribute
+    public interface ITranslatableAttribute
     {
-        string _tag = string.Empty;
+        string Tag { get; }
+        void PerformTranslation(PropertyDescriptor pd);
+    }
 
-        public TranslatableCategoryAttribute(string tag)
+    public class TranslatableCategoryAttribute : CategoryAttribute, ITranslatableAttribute
+    {
+        public string Tag { get; private set; }
+
+        public TranslatableCategoryAttribute(string tag) : base(tag)
         {
-            _tag = tag;
-            EventDispatch.RegisterHandler(this);
-            UpdateLanguage();
+            this.Tag = tag;
         }
 
-        [EventSink(EventNames.PerformTranslation)]
-        public void UpdateLanguage()
+        public void PerformTranslation(PropertyDescriptor pd)
         {
             BindingFlags hidden = BindingFlags.NonPublic | BindingFlags.Instance;
-            typeof(CategoryAttribute).GetField("categoryValue", hidden).SetValue(this, Translator.Translate(_tag));
-        }
 
-        //protected override string GetLocalizedString(string value)
-        //{
-        //    return Translator.Translate(_tag);
-            //return base.GetLocalizedString(value);
-        //}
-
-        ~TranslatableCategoryAttribute()
-        {
-            EventDispatch.UnregisterHandler(this);
+            typeof(MemberDescriptor).GetField("category", hidden).SetValue(pd,
+                Translator.Translate(Tag));
         }
     }
 
-    public class TranslatableDisplayNameAttribute : DisplayNameAttribute
+    public class TranslatableDisplayNameAttribute : DisplayNameAttribute, ITranslatableAttribute
     {
-        string _tag = string.Empty;
+        public string Tag { get; private set; }
 
         public TranslatableDisplayNameAttribute(string tag)
         {
-            _tag = tag;
-            EventDispatch.RegisterHandler(this);
-            UpdateLanguage();
+            Tag = tag;
         }
 
-        [EventSink(EventNames.PerformTranslation)]
-        public void UpdateLanguage()
+        public void PerformTranslation(PropertyDescriptor pd)
         {
-            base.DisplayNameValue = Translator.Translate(_tag) + ":";
-        }
-
-        ~TranslatableDisplayNameAttribute()
-        {
-            EventDispatch.UnregisterHandler(this);
+            base.DisplayNameValue = Translator.Translate(Tag) + ":";
         }
     }
 }
