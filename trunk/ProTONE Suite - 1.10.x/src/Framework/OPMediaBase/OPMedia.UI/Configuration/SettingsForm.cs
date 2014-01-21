@@ -26,6 +26,8 @@ namespace OPMedia.UI
 
         protected BaseCfgPanel selectedPanel = null;
 
+        private string _titleToOpen = "";
+
         public new static DialogResult Show()
         {
             SettingsForm _instance = new SettingsForm();
@@ -40,18 +42,7 @@ namespace OPMedia.UI
         protected SettingsForm(string titleToOpen)
             : this()
         {
-            if (!string.IsNullOrEmpty(titleToOpen))
-            {
-                foreach (TabPage tp in tabOptions.TabPages)
-                {
-                    if (tp.Text == titleToOpen)
-                    {
-                        ShowPanel(tp.Controls[0] as BaseCfgPanel);
-                        break;
-                    }
-                }
-
-            }
+            _titleToOpen = Translator.Translate(titleToOpen);
         }
 
         public SettingsForm() : base("TXT_CONFIGUREAPP")
@@ -83,6 +74,19 @@ namespace OPMedia.UI
             AddPanel(typeof(LoggingSettingsPanel), !logFullyDisabled);
             
             RemoveUnneededPanels();
+            SelectTitleToOpen();
+        }
+
+        private void SelectTitleToOpen()
+        {
+            foreach (TabPage tp in tabOptions.TabPages)
+            {
+                if (tp.Text == _titleToOpen)
+                {
+                    ShowPanel(tp.Controls[0] as BaseCfgPanel);
+                    break;
+                }
+            }
         }
 
         public virtual void RemoveUnneededPanels()
