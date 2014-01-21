@@ -194,19 +194,22 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.Controls
         /// </summary>
         private void OnDoubleClick(object sender, System.EventArgs e)
         {
-            CatalogItem ci = this.SelectedItems[0].Tag as CatalogItem;
-            if (ci == null)
+            if (this.SelectedItems != null && this.SelectedItems.Count > 0)
             {
-                return;
-            }
+                CatalogItem ci = this.SelectedItems[0].Tag as CatalogItem;
+                if (ci == null)
+                {
+                    return;
+                }
 
-            if (ci.IsFolder)
-            {
-                OnDoubleClickDirectory(ci.VPath);
-            }
-            else
-            {
-                OnDoubleClickFile(ci.VPath);
+                if (ci.IsFolder)
+                {
+                    OnDoubleClickDirectory(ci.VPath);
+                }
+                else
+                {
+                    OnDoubleClickFile(ci.VPath);
+                }
             }
         }
 
