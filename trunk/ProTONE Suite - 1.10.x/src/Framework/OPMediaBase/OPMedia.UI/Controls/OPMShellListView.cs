@@ -34,6 +34,7 @@ using System.Linq;
 using System.Globalization;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.FileTasks;
+using OPMedia.Core.NetworkAccess;
 
 #endregion
 
@@ -232,12 +233,15 @@ namespace OPMedia.UI.Controls
                         fsw = null;
                     }
 
-                    fsw = new FileSystemWatcher(m_strDirPath);
-                    fsw.EnableRaisingEvents = true;
-                    fsw.Created += new FileSystemEventHandler(OnFolderContentsUpdated);
-                    fsw.Deleted += new FileSystemEventHandler(OnFolderContentsUpdated);
-                    fsw.Renamed += new RenamedEventHandler(fsw_Renamed);
-                    //fsw.Changed += new FileSystemEventHandler(OnFolderContentsUpdated);
+                    if (Directory.Exists(m_strDirPath))
+                    {
+                        fsw = new FileSystemWatcher(m_strDirPath);
+                        fsw.EnableRaisingEvents = true;
+                        fsw.Created += new FileSystemEventHandler(OnFolderContentsUpdated);
+                        fsw.Deleted += new FileSystemEventHandler(OnFolderContentsUpdated);
+                        fsw.Renamed += new RenamedEventHandler(fsw_Renamed);
+                        //fsw.Changed += new FileSystemEventHandler(OnFolderContentsUpdated);
+                    }
 
                     bckPaths.Push(m_strPrevDirPath);
 
@@ -789,56 +793,75 @@ namespace OPMedia.UI.Controls
                 {
                     ignoreEvents = true;
 
+                    bool isUncPathRoot = false;
+
                     CursorHelper.ShowWaitCursor(this, true);
 
                     // Check if current path is valid.
                     if (!Directory.Exists(m_strDirPath))
                     {
-                        m_strDirPath = FindFirstUsablePath(m_strDirPath);
+                        m_strDirPath = FindFirstUsablePath(m_strDirPath, ref isUncPathRoot);
                     }
 
                     AppSettings.LastExploredFolder = m_strDirPath;
 
-
-                    if (PathUtils.IsRootPath(m_strDirPath))
+                    if (!isUncPathRoot && PathUtils.IsRootPath(m_strDirPath))
                     {
                         m_strDirPath = m_strDirPath.TrimEnd(string.Copy(PathUtils.DirectorySeparator).ToCharArray()) + PathUtils.DirectorySeparator;
                     }
 
                     CreateParentFolderRow();
 
-                    IEnumerable<string> strDirs = Directory.EnumerateDirectories(m_strDirPath);
-                    if (strDirs != null)
+                    if (isUncPathRoot)
                     {
-                        foreach (string dir in strDirs)
+                        ShareCollection shares = ShareCollection.GetShares(m_strDirPath);
+                        foreach(Share share in shares)
                         {
-                            DirectoryInfo di = new DirectoryInfo(dir);
+                            if (!share.IsFileSystem)
+                                continue;
+
+                            DirectoryInfo di = share.Root;
                             if (!di.Exists)
                                 continue;
 
                             CreateNewRow(di);
                         }
                     }
-
-                    IEnumerable<string> strFiles = null;
-                    if (string.IsNullOrEmpty(this.SearchPattern))
-                    {
-                        strFiles = Directory.EnumerateFiles(m_strDirPath);
-                    }
                     else
                     {
-                        strFiles = EnumerateFiles(m_strDirPath, this.SearchPattern, SearchOption.TopDirectoryOnly);
-                    }
-
-                    if (strFiles != null)
-                    {
-                        foreach (string file in strFiles)
+                        IEnumerable<string> strDirs = Directory.EnumerateDirectories(m_strDirPath);
+                        if (strDirs != null)
                         {
-                            FileInfo fi = new FileInfo(file);
-                            if (!fi.Exists)
-                                continue;
+                            foreach (string dir in strDirs)
+                            {
+                                DirectoryInfo di = new DirectoryInfo(dir);
+                                if (!di.Exists)
+                                    continue;
 
-                            CreateNewRow(fi);
+                                CreateNewRow(di);
+                            }
+                        }
+
+                        IEnumerable<string> strFiles = null;
+                        if (string.IsNullOrEmpty(this.SearchPattern))
+                        {
+                            strFiles = Directory.EnumerateFiles(m_strDirPath);
+                        }
+                        else
+                        {
+                            strFiles = EnumerateFiles(m_strDirPath, this.SearchPattern, SearchOption.TopDirectoryOnly);
+                        }
+
+                        if (strFiles != null)
+                        {
+                            foreach (string file in strFiles)
+                            {
+                                FileInfo fi = new FileInfo(file);
+                                if (!fi.Exists)
+                                    continue;
+
+                                CreateNewRow(fi);
+                            }
                         }
                     }
                 }
@@ -1066,22 +1089,33 @@ namespace OPMedia.UI.Controls
         /// </summary>
         /// <param name="path">the given path</param>
         /// <returns>a physically existing, valid path</returns>
-        private string FindFirstUsablePath(string path)
+        private string FindFirstUsablePath(string path, ref bool isUNCPathRoot)
         {
             string usablePath = path;
-            DirectoryInfo di = new DirectoryInfo(path);
-            if (!di.Exists)
+
+            if (!Directory.Exists(path) && path.StartsWith("\\\\"))
             {
-                if (di.Parent != null)
+                isUNCPathRoot = true;
+            }
+            else
+            {
+                isUNCPathRoot = false;
+
+                DirectoryInfo di = new DirectoryInfo(path);
+                if (!di.Exists)
                 {
-                    usablePath = FindFirstUsablePath(di.Parent.FullName);
-                }
-                else
-                {
-                    di = new DirectoryInfo(Environment.SystemDirectory);
-                    usablePath = di.Root.FullName;
+                    if (di.Parent != null)
+                    {
+                        usablePath = FindFirstUsablePath(di.Parent.FullName, ref isUNCPathRoot);
+                    }
+                    else
+                    {
+                        di = new DirectoryInfo(Environment.SystemDirectory);
+                        usablePath = di.Root.FullName;
+                    }
                 }
             }
+
             return usablePath;
         }
         #endregion

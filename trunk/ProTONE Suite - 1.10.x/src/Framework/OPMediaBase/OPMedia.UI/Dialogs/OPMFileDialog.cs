@@ -578,7 +578,7 @@ namespace OPMedia.UI.Controls.Dialogs
         private void TestForFolder(string x)
         {
             string path = string.Empty;
-            if (Directory.Exists(x))
+            if (VerifyFolder(x))
             {
                 path = x;
             }
@@ -587,7 +587,7 @@ namespace OPMedia.UI.Controls.Dialogs
                 path = Path.Combine(lvExplorer.Path, x);
             }
 
-            if (Directory.Exists(path))
+            if (VerifyFolder(path))
             {
                 SelectDrive(path);
                 lvExplorer.Path = path;
@@ -595,9 +595,9 @@ namespace OPMedia.UI.Controls.Dialogs
             else
             {
                 // This will cause throwing FileNotFoundException
-                File.Open(x, FileMode.Open);
+                //File.Open(x, FileMode.Open);
 
-                //throw new FileNotFoundException(Translator.Translate("TXT_FILE_NOT_FOUND", x));
+                throw new FileNotFoundException(Translator.Translate("TXT_FILE_NOT_FOUND", x));
             }
         }
 
@@ -625,6 +625,18 @@ namespace OPMedia.UI.Controls.Dialogs
                     return true;
                 }
             }
+
+            return false;
+        }
+
+        private bool VerifyFolder(string path)
+        {
+            if (Directory.Exists(path))
+                return true;
+
+            if (path.StartsWith("\\\\"))
+                // UNC root path
+                return true;
 
             return false;
         }

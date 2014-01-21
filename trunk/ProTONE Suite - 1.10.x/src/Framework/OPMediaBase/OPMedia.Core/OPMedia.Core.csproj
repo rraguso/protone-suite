@@ -59,6 +59,7 @@
     <Compile Include="ApplicationSettings\ConfigFileManager.cs" />
     <None Include="VersionTemplate.cs" />
     <Compile Include="MainThread.cs" />
+    <Compile Include="NetworkAccess\Shares.cs" />
     <Compile Include="NetworkAccess\WebClientWithTimeout.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -91,6 +92,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="TranslationSupport\TranslatableAttributes.cs" />
     <Compile Include="TranslationSupport\Translator.cs" />
+    <Compile Include="Win32\UncUtilities.cs" />
     <Compile Include="Win32\User32.cs" />
     <Compile Include="Win32\Kernel32.cs" />
     <Compile Include="Utilities\StringUtils.cs" />
