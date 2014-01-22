@@ -28,7 +28,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 {
     public partial class BookmarkManagerCtl : OPMBaseControl
     {
-        readonly int[] widths = new int[] { 0, 75, 120 };
+        readonly int[] widths = new int[] { 1, 75, 110 };
 
         PlaylistItem _plItem = null;
         ToolTip _tip = new ToolTip();
@@ -52,7 +52,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                 {
                     if (value == null && _plItem != null)
                     {
-                        SaveBookmarksToFile();
+                        SaveBookmarks();
                     }
                 }
                 catch
@@ -126,8 +126,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
         void lvBookmarks_SubItemEdited(object sender, ListViewSubItemEventArgs args)
         {
-            SaveBookmarksToPlaylistItem();
-            //LoadBookmarks();
+            SaveBookmarks();
         }
 
         void lvBookmarks_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -165,7 +164,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                     w += ch.Width;
                 }
             }
-            w += 1;
+            w += 5;
 
             colText.Width = (lvBookmarks.Width - w);
         }
@@ -228,6 +227,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                         int i = 0;
                         ListViewItem item = new ListViewItem(subItems[i++]);
                         item.Tag = bmk;
+                        item.ImageIndex = 0;
 
                         OPMListViewSubItem si = new OPMListViewSubItem(_dtpEditTime, item, subItems[i++]);
                         si.ReadOnly = false;
@@ -265,12 +265,13 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             string[] subItems = new string[]
             {
                 string.Empty,
-                "00:00:00",
+                CalculateNewBookmarkTime(0),
                 Translator.Translate("TXT_NEW_BOOKMARK")
             };
 
             int i = 0;
             ListViewItem item = new ListViewItem(subItems[i++]);
+            item.ImageIndex = 0;
             //item.Tag = bmk;
 
             OPMListViewSubItem si = new OPMListViewSubItem(_dtpEditTime, item, subItems[i++]);
@@ -282,6 +283,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             item.SubItems.Add(si);
 
             item = lvBookmarks.Items.Add(item);
+
+            SaveBookmarks();
 
             item.Selected = true;
 
@@ -292,17 +295,16 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         {
             MediaRenderer.DefaultInstance.PauseRenderer();
 
-            TimeSpan ts = TimeSpan.FromSeconds((int)MediaRenderer.DefaultInstance.MediaPosition);
-
             string[] subItems = new string[]
             {
                 string.Empty,
-                ts.ToString(),
+                CalculateNewBookmarkTime((int)MediaRenderer.DefaultInstance.MediaPosition),
                 Translator.Translate("TXT_NEW_BOOKMARK")
             };
 
             int i = 0;
             ListViewItem item = new ListViewItem(subItems[i++]);
+            item.ImageIndex = 0;
             //item.Tag = bmk;
 
             OPMListViewSubItem si = new OPMListViewSubItem(_dtpEditTime, item, subItems[i++]);
@@ -314,6 +316,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             item.SubItems.Add(si);
 
             item = lvBookmarks.Items.Add(item);
+
+            SaveBookmarks();
 
             item.Selected = true;
 
@@ -326,8 +330,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             {
                 lvBookmarks.Items.Remove(lvBookmarks.SelectedItems[0]);
 
-                SaveBookmarksToPlaylistItem();
-                //LoadBookmarks();
+                SaveBookmarks();
 
                 lvBookmarks.Select();
                 lvBookmarks.Focus();
@@ -340,9 +343,11 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             }
         }
 
-        public void SaveBookmarksToPlaylistItem()
+        public void SaveBookmarks()
         {
-            if (_plItem != null)
+            if (_plItem != null &&
+                _plItem.MediaFileInfo != null &&
+                _plItem.MediaFileInfo.Bookmarks != null)
             {
                 _plItem.MediaFileInfo.Bookmarks.Clear();
 
@@ -357,16 +362,20 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                             //- Bookmark.MinimumDate;
                         
                         Bookmark bmk = new Bookmark(desc, ts);
-                        _plItem.MediaFileInfo.Bookmarks.Add(ts, bmk);
+                        if (_plItem.MediaFileInfo.Bookmarks.ContainsKey(ts))
+                        {
+                            _plItem.MediaFileInfo.Bookmarks[ts] = bmk;
+                        }
+                        else
+                        {
+                            _plItem.MediaFileInfo.Bookmarks.Add(ts, bmk);
+                        }
                     }
                 }
-            }
-        }
 
-        public void SaveBookmarksToFile()
-        {
-            _plItem.MediaFileInfo.SaveBookmarks();
-            LoadBookmarks();
+                _plItem.MediaFileInfo.SaveBookmarks();
+                LoadBookmarks();
+            }
         }
 
         private void lvBookmarks_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -380,6 +389,28 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                     EventDispatch.DispatchEvent(LocalEventNames.JumpToBookmark, subItem);
                 }
             }
+        }
+
+        private string CalculateNewBookmarkTime(int secondsStart)
+        {
+            if (_plItem != null &&
+               _plItem.MediaFileInfo != null &&
+               _plItem.MediaFileInfo.Bookmarks != null)
+            {
+                int sec = secondsStart;
+                for(;;)
+                {
+                    TimeSpan ts = TimeSpan.FromSeconds(sec);
+
+                    if (!_plItem.MediaFileInfo.Bookmarks.ContainsKey(ts))
+                        return ts.ToString();
+
+                    sec++;
+                }
+            }
+
+            TimeSpan timePart = DateTime.Now.Subtract(DateTime.Today);
+            return new TimeSpan((int)timePart.TotalSeconds).ToString();
         }
     }
 }

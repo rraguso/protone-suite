@@ -883,7 +883,9 @@ namespace OPMedia.UI.Controls
                         }
                     }
                 }
-
+            }
+            finally
+            {
                 // Nothing is edited right now.
                 row = column = -1;
 
@@ -904,13 +906,11 @@ namespace OPMedia.UI.Controls
                     // Set activeEditControl as null
                     activeEditControl = null;
                 }
+
                 // Focus back to the list.
                 Focus();
-            }
-            finally
-            {
-                Interlocked.Exchange(ref endEditingPending, 0);
 
+                Interlocked.Exchange(ref endEditingPending, 0);
                 Invalidate();
             }
         }

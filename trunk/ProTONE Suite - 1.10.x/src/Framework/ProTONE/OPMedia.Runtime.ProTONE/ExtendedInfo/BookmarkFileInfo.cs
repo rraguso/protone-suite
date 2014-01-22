@@ -69,33 +69,33 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
 
         internal void LoadBookmarks(bool raiseEvent, bool throwException)
         {
-            StreamReader sr = null;
-
             _bookmarks.Clear();
 
             try
             {
-                sr = new StreamReader(_path);
-                string line = sr.ReadLine();
-                while (line != null)
+                using (StreamReader sr = new StreamReader(_path))
                 {
-                    if (!line.StartsWith("#"))
+                    string line = sr.ReadLine();
+                    while (line != null)
                     {
-                        Bookmark bmk = Bookmark.FromString(line);
-                        if (bmk != null)
+                        if (!line.StartsWith("#"))
                         {
-                            if (_bookmarks.ContainsKey(bmk.PlaybackTime))
+                            Bookmark bmk = Bookmark.FromString(line);
+                            if (bmk != null)
                             {
-                                _bookmarks[bmk.PlaybackTime] = bmk;
-                            }
-                            else
-                            {
-                                _bookmarks.Add(bmk.PlaybackTime, bmk);
+                                if (_bookmarks.ContainsKey(bmk.PlaybackTime))
+                                {
+                                    _bookmarks[bmk.PlaybackTime] = bmk;
+                                }
+                                else
+                                {
+                                    _bookmarks.Add(bmk.PlaybackTime, bmk);
+                                }
                             }
                         }
-                    }
 
-                    line = sr.ReadLine();
+                        line = sr.ReadLine();
+                    }
                 }
 
                 if (raiseEvent && BookmarkCollectionChanged != null)
@@ -114,31 +114,24 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
                     Logger.LogException(ex);
                 }
             }
-            finally
-            {
-                if (sr != null)
-                {
-                    sr.Close();
-                }
-            }
         }
 
         internal void SaveBookmarks()
         {
-            StreamWriter sw = null;
-
             try
             {
                 if (_bookmarks.Count > 0)
                 {
-                    sw = new StreamWriter(_path);
-                    sw.WriteLine("#BOOKMARK[TIME|TITLE]");
-                    sw.WriteLine("#BEGIN");
-                    foreach (KeyValuePair<TimeSpan, Bookmark> item in _bookmarks)
+                    using (StreamWriter sw = new StreamWriter(_path))
                     {
-                        sw.WriteLine(item.Value.ToString());
+                        sw.WriteLine("#BOOKMARK[TIME|TITLE]");
+                        sw.WriteLine("#BEGIN");
+                        foreach (KeyValuePair<TimeSpan, Bookmark> item in _bookmarks)
+                        {
+                            sw.WriteLine(item.Value.ToString());
+                        }
+                        sw.WriteLine("#END");
                     }
-                    sw.WriteLine("#END");
                 }
                 else
                 {
@@ -154,13 +147,6 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
             catch (Exception ex)
             {
                 ErrorDispatcher.DispatchError(ex);
-            }
-            finally
-            {
-                if (sw != null)
-                {
-                    sw.Close();
-                }
             }
 
             if (File.Exists(_path))

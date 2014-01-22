@@ -33,7 +33,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         {
             this.lblItem = new OPMedia.UI.Controls.OPMLabel();
             this.lvBookmarks = new OPMedia.UI.Controls.OPMListView();
-            this.colEmpty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colIcon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblDesc = new OPMedia.UI.Controls.OPMLabel();
@@ -61,7 +61,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.lblItem.Name = "lblItem";
             this.lblItem.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblItem.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblItem.Size = new System.Drawing.Size(266, 13);
+            this.lblItem.Size = new System.Drawing.Size(302, 13);
             this.lblItem.TabIndex = 1;
             this.lblItem.Text = "[ item ]";
             this.lblItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -69,7 +69,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             // lvBookmarks
             // 
             this.lvBookmarks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colEmpty,
+            this.colIcon,
             this.colTime,
             this.colText});
             this.lvBookmarks.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,7 +79,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.lvBookmarks.MultiSelect = false;
             this.lvBookmarks.Name = "lvBookmarks";
             this.lvBookmarks.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvBookmarks.Size = new System.Drawing.Size(266, 195);
+            this.lvBookmarks.Size = new System.Drawing.Size(302, 236);
             this.lvBookmarks.TabIndex = 2;
             this.lvBookmarks.UseCompatibleStateImageBehavior = false;
             this.lvBookmarks.View = System.Windows.Forms.View.Details;
@@ -87,9 +87,9 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             // 
             // colEmpty
             // 
-            this.colEmpty.Name = "colEmpty";
-            this.colEmpty.Text = "-";
-            this.colEmpty.Width = 0;
+            this.colIcon.Name = "colEmpty";
+            this.colIcon.Text = "";
+            this.colIcon.Width = 0;
             // 
             // colTime
             // 
@@ -108,12 +108,12 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.lblDesc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblDesc.FontSize = OPMedia.UI.Themes.FontSizes.Small;
-            this.lblDesc.Location = new System.Drawing.Point(5, 214);
+            this.lblDesc.Location = new System.Drawing.Point(5, 255);
             this.lblDesc.Margin = new System.Windows.Forms.Padding(0);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblDesc.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblDesc.Size = new System.Drawing.Size(266, 12);
+            this.lblDesc.Size = new System.Drawing.Size(302, 12);
             this.lblDesc.TabIndex = 4;
             this.lblDesc.Text = "TXT_CLICK_LIST_TO_EDIT";
             this.lblDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,7 +176,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(291, 226);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(327, 267);
             this.opmTableLayoutPanel1.TabIndex = 1;
             // 
             // lblSep
@@ -191,7 +191,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.lblSep.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblSep.OverrideForeColor = System.Drawing.Color.Empty;
             this.opmTableLayoutPanel1.SetRowSpan(this.lblSep, 3);
-            this.lblSep.Size = new System.Drawing.Size(2, 226);
+            this.lblSep.Size = new System.Drawing.Size(2, 267);
             this.lblSep.TabIndex = 0;
             this.lblSep.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -204,11 +204,11 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.opmFlowLayoutPanel1.Controls.Add(this.pbDelete);
             this.opmFlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.opmFlowLayoutPanel1.Location = new System.Drawing.Point(271, 19);
+            this.opmFlowLayoutPanel1.Location = new System.Drawing.Point(307, 19);
             this.opmFlowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.opmFlowLayoutPanel1.Name = "opmFlowLayoutPanel1";
             this.opmFlowLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmFlowLayoutPanel1.Size = new System.Drawing.Size(20, 195);
+            this.opmFlowLayoutPanel1.Size = new System.Drawing.Size(20, 236);
             this.opmFlowLayoutPanel1.TabIndex = 3;
             // 
             // BookmarkManagerCtl
@@ -216,7 +216,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.Controls.Add(this.opmTableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "BookmarkManagerCtl";
-            this.Size = new System.Drawing.Size(291, 226);
+            this.Size = new System.Drawing.Size(327, 267);
             ((System.ComponentModel.ISupportInitialize)(this.pbAddCurrent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
@@ -236,7 +236,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         private PictureBox pbAddCurrent;
         private PictureBox pbAdd;
         private PictureBox pbDelete;
-        private ColumnHeader colEmpty;
+        private ColumnHeader colIcon;
         private ColumnHeader colTime;
         private ColumnHeader colText;
         private OPMTableLayoutPanel opmTableLayoutPanel1;
