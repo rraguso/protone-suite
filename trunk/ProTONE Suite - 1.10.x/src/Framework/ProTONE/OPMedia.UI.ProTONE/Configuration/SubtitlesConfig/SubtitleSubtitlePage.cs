@@ -57,6 +57,11 @@ namespace OPMedia.UI.ProTONE.Configuration
         {
             InitializeComponent();
 
+            _cmbEditServerType.Items.Add(SubtitleServerType.Osdb);
+            _cmbEditServerType.Items.Add(SubtitleServerType.BSP_V1);
+            _cmbEditServerType.Items.Add(SubtitleServerType.NuSoap);
+            _cmbEditServerType.DropDownHeight = 30;
+
             btnAdd.Image = OPMedia.UI.Properties.Resources.Add;
             btnDelete.Image = OPMedia.UI.Properties.Resources.Del;
             btnMoveUp.Image = Resources.MoveUp;
