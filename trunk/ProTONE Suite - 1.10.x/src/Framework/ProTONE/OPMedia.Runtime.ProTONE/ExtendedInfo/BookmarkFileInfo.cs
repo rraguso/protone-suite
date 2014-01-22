@@ -42,6 +42,7 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
         public PlaylistItem BookmarkManager
         {
             get { return new BoormarkEditablePlaylistItem(this.ParentMediaFile); }
+            set { /* dummy setter just to enable drop down editing in property grids */ }
         }
 
         public BookmarkFileInfo()

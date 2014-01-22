@@ -23,11 +23,17 @@ using OPMedia.Core.GlobalEvents;
 
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
+using System.Windows.Forms.Design;
+using System.Security.Permissions;
+using System.Drawing.Design;
+using OPMedia.Runtime.ProTONE.FileInformation;
 
 namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 {
     public partial class BookmarkManagerCtl : OPMBaseControl
     {
+        IWindowsFormsEditorService _wfes = null;
+
         readonly int[] widths = new int[] { 1, 75, 110 };
 
         PlaylistItem _plItem = null;
@@ -36,8 +42,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
         DateTimePicker _dtpEditTime = new DateTimePicker();
         TextBox _txtEditComment = new TextBox();
-
-        public bool CanAddToCurrent { get; set; }
+        bool _showFilePath;
+        bool _canAddToCurrent;
 
         public PlaylistItem PlaylistItem
         { 
@@ -78,9 +84,20 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             lblSep.Visible = visible;
         }
 
+        public BookmarkManagerCtl(IWindowsFormsEditorService wfes, PlaylistItem plItem) : this()
+        {
+            _wfes = wfes;
+            _showFilePath = false;
+            _canAddToCurrent = false;
+            this.PlaylistItem = plItem;
+        }
+
         public BookmarkManagerCtl()
         {
             InitializeComponent();
+
+            _showFilePath = true;
+            _canAddToCurrent = true;
 
             ThemeManager.SetFont(lblItem, FontSizes.Large);
 
@@ -122,6 +139,13 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             lvBookmarks.ColumnWidthChanging += new ColumnWidthChangingEventHandler(lvBookmarks_ColumnWidthChanging);
             lvBookmarks.Resize += new EventHandler(lvBookmarks_Resize);
             lvBookmarks.SubItemEdited += new OPMListView.EditableListViewEventHandler(lvBookmarks_SubItemEdited);
+
+            this.Load += new EventHandler(BookmarkManagerCtl_Load);
+        }
+
+        void BookmarkManagerCtl_Load(object sender, EventArgs e)
+        {
+            lblItem.Visible = _showFilePath;
         }
 
         void lvBookmarks_SubItemEdited(object sender, ListViewSubItemEventArgs args)
@@ -179,7 +203,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             try
             {
                 // Add to current possible only if we are currently playing this item.
-                pbAddCurrent.Visible = CanAddToCurrent &&
+                pbAddCurrent.Visible = _canAddToCurrent &&
                     _plItem != null &&
                     MediaRenderer.DefaultInstance.RenderedMediaInfo != null &&
                     MediaRenderer.DefaultInstance.RenderedMediaInfo.Equals(_plItem.MediaFileInfo) &&
@@ -411,6 +435,47 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
             TimeSpan timePart = DateTime.Now.Subtract(DateTime.Today);
             return new TimeSpan((int)timePart.TotalSeconds).ToString();
+        }
+    }
+
+
+
+    [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+    [PermissionSetAttribute(SecurityAction.LinkDemand, Name = "FullTrust")]
+    [PermissionSetAttribute(SecurityAction.InheritanceDemand, Name = "FullTrust")]
+    public class BookmarkPropertyBrowser : UITypeEditor
+    {
+        public BookmarkPropertyBrowser()
+            : base()
+        {
+        }
+
+        public override UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context)
+        {
+            if (context != null)
+            {
+                if (context.Instance != null &&
+                    context.Instance is MediaFileInfo)
+                {
+                    return UITypeEditorEditStyle.DropDown;
+                }
+            }
+
+            return base.GetEditStyle(context);
+        }
+
+        public override object EditValue(System.ComponentModel.ITypeDescriptorContext context, IServiceProvider provider, object value)
+        {
+            PlaylistItem plItem = value as PlaylistItem;
+
+            IWindowsFormsEditorService edSvc = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
+            if (edSvc != null)
+            {
+                BookmarkManagerCtl ctl = new BookmarkManagerCtl(edSvc, plItem);
+                edSvc.DropDownControl(ctl);
+            }
+
+            return plItem;
         }
     }
 }

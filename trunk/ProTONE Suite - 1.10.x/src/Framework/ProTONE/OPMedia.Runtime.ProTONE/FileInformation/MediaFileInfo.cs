@@ -136,7 +136,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [SingleSelectionBrowsable]
         public PlaylistItem BookmarkManager
         {
-            get { return new BoormarkEditablePlaylistItem(this.Path); }
+            get {  return new BoormarkEditablePlaylistItem(this.Path); }
+            set { /* dummy setter just to enable drop down editing in property grids */ }
         }
 
         [Browsable(false)]

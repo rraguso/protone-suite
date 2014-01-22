@@ -136,7 +136,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // bookmarkManagerCtl
             // 
             this.bookmarkManagerCtl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bookmarkManagerCtl.CanAddToCurrent = true;
             this.bookmarkManagerCtl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bookmarkManagerCtl.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.bookmarkManagerCtl.Location = new System.Drawing.Point(155, 0);
