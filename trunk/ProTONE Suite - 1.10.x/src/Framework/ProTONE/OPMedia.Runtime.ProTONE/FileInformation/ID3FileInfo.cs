@@ -16,6 +16,7 @@ using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using TagLib.Mpeg;
 using TagLib;
 using OPMedia.Runtime.FileInformation;
+using OPMedia.Runtime.ProTONE.FileInformation;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -26,6 +27,31 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         Tag _tag = null;
         Properties _prop = null;
+
+        static string[] _audioGenres = null;
+        static object _genresLock = new object();
+        public static string[] AudioGenres
+        {
+            get
+            {
+                if (_audioGenres == null)
+                {
+                    lock (_genresLock)
+                    {
+                        if (_audioGenres == null)
+                        {
+                            List<string> genres = new List<string>();
+                            genres.AddRange(Genres.Audio);
+                            genres.Sort();
+
+                            _audioGenres = genres.ToArray();
+                        }
+                    }
+                }
+
+                return _audioGenres;
+            }
+        }
 
         [Browsable(false)]
         public bool HasID3
@@ -525,7 +551,8 @@ namespace OPMedia.Runtime.ProTONE
 
                 lb.SelectedIndexChanged += new EventHandler(lb_SelectedIndexChanged);
 
-                foreach (string gi in Genres.Audio)
+                lb.Items.Add(string.Empty); // no genre
+                foreach (string gi in ID3FileInfo.AudioGenres)
                 {
                     lb.Items.Add(gi);
                 }

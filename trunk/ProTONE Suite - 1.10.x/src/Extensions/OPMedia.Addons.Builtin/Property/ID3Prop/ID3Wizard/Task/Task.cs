@@ -12,6 +12,7 @@ using OPMedia.Runtime;
 using OPMedia.Core.Utilities;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
 using OPMedia.UI.FileTasks;
+using System.Drawing.Design;
 
 namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
 {
@@ -57,6 +58,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
         [Browsable(true)]
         [TranslatableDisplayName("TXT_GENRE")]
         [TranslatableCategory("TXT_ID3INFO_PATTERNS")]
+        [Editor("OPMedia.Runtime.ProTONE.GenrePropertyBrowser, OPMedia.Runtime.ProTONE", typeof(UITypeEditor))]
         public string Genre
         { get { return genre; } set { genre = value; } }
 

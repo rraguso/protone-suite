@@ -43,7 +43,8 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
         {
             InitializeComponent();
 
-            foreach (string gi in Genres.Audio)
+            cmbEditgenre.Items.Add(string.Empty); // no genre
+            foreach (string gi in ID3FileInfo.AudioGenres)
             {
                 cmbEditgenre.Items.Add(gi);
             }

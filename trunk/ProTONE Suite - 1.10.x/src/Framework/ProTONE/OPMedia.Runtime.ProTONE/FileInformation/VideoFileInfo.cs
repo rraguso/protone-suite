@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Drawing;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.FileInformation;
+using TagLib;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -13,6 +14,31 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         TimeSpan duration;
         VSize videoSize = new VSize();
         FrameRate frameRate;
+
+        static string[] _videoGenres = null;
+        static object _genresLock = new object();
+        public static string[] VideoGenres
+        {
+            get
+            {
+                if (_videoGenres == null)
+                {
+                    lock (_genresLock)
+                    {
+                        if (_videoGenres == null)
+                        {
+                            List<string> genres = new List<string>();
+                            genres.AddRange(Genres.Video);
+                            genres.Sort();
+
+                            _videoGenres = genres.ToArray();
+                        }
+                    }
+                }
+
+                return _videoGenres;
+            }
+        }
 
         [Browsable(false)]
         public override Dictionary<string, string> ExtendedInfo
