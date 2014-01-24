@@ -221,12 +221,14 @@ namespace OPMedia.UI.Controls
 
         private Point CalculateLocation()
         {
-            int x = SystemInformation.WorkingArea.Right - base.Size.Width - 1;
-            int y = SystemInformation.WorkingArea.Bottom - base.Size.Height - 1;
+            Point mousePosition = MousePosition;
+
+            int x = Screen.FromPoint(mousePosition).WorkingArea.Right - base.Size.Width - 1;
+            int y = Screen.FromPoint(mousePosition).WorkingArea.Bottom - base.Size.Height - 1;
 
             if (AnimationType == UI.Controls.AnimationType.Slide)
             {
-                y = SystemInformation.WorkingArea.Bottom;
+                y = Screen.FromPoint(mousePosition).WorkingArea.Bottom;
                 showLocation = y;
             }
 
