@@ -455,7 +455,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             if (context != null)
             {
                 if (context.Instance != null &&
-                    context.Instance is MediaFileInfo)
+                    (context.Instance is MediaFileInfo || context.Instance is BookmarkFileInfo))
                 {
                     return UITypeEditorEditStyle.DropDown;
                 }
