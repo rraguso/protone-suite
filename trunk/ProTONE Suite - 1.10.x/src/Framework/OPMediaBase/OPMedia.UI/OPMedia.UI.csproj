@@ -159,7 +159,6 @@
     <Compile Include="Controls\OPMShellTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\PlaylistItem.cs" />
     <Compile Include="Controls\SelfValidableCollection.cs" />
     <Compile Include="Controls\OPMToolStrip.cs">
       <SubType>Component</SubType>
