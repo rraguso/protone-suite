@@ -35,10 +35,8 @@ namespace OPMedia.UI.Configuration
             this.colPFT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCFT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel2 = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
             this.btnAdd = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +64,7 @@ namespace OPMedia.UI.Configuration
             this.lvConnFiles.MultiSelect = false;
             this.lvConnFiles.Name = "lvConnFiles";
             this.lvConnFiles.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvConnFiles.Size = new System.Drawing.Size(380, 307);
+            this.lvConnFiles.Size = new System.Drawing.Size(378, 307);
             this.lvConnFiles.TabIndex = 10;
             this.lvConnFiles.UseCompatibleStateImageBehavior = false;
             this.lvConnFiles.View = System.Windows.Forms.View.Details;
@@ -88,10 +86,10 @@ namespace OPMedia.UI.Configuration
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.chkUseLinkedFiles, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lvConnFiles, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnAdd, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -101,29 +99,17 @@ namespace OPMedia.UI.Configuration
             this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 330);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.AccessibleName = "flowLayoutPanel2";
-            this.flowLayoutPanel2.AutoSize = true;
-            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel2.Controls.Add(this.btnAdd);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(380, 23);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.OverrideBackColor = System.Drawing.Color.Empty;
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(20, 307);
-            this.flowLayoutPanel2.TabIndex = 11;
-            // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(3, 2);
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdd.Location = new System.Drawing.Point(381, 25);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.btnAdd.MaximumSize = new System.Drawing.Size(16, 16);
+            this.btnAdd.MinimumSize = new System.Drawing.Size(16, 16);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(16, 16);
             this.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 11;
             this.btnAdd.TabStop = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -136,7 +122,6 @@ namespace OPMedia.UI.Configuration
             this.Size = new System.Drawing.Size(400, 330);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             this.ResumeLayout(false);
 
@@ -150,7 +135,6 @@ namespace OPMedia.UI.Configuration
         private ColumnHeader colPFT;
         private ColumnHeader colCFT;
         private TableLayoutPanel tableLayoutPanel1;
-        private Controls.OPMFlowLayoutPanel flowLayoutPanel2;
         private PictureBox btnAdd;
     }
 }

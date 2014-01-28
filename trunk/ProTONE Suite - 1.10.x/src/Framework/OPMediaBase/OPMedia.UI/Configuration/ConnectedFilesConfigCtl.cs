@@ -51,6 +51,7 @@ namespace OPMedia.UI.Configuration
         {
             chkUseLinkedFiles.Checked = SuiteConfiguration.UseLinkedFiles;
             lvConnFiles.Visible = chkUseLinkedFiles.Checked;
+            btnAdd.Visible = chkUseLinkedFiles.Checked;
             chkUseLinkedFiles.CheckedChanged += new System.EventHandler(this.chkUseLinkedFiles_CheckedChanged);
 
             _tableConnFiles = SuiteConfiguration.LinkedFilesTable;
@@ -147,6 +148,7 @@ namespace OPMedia.UI.Configuration
         void chkUseLinkedFiles_CheckedChanged(object sender, System.EventArgs e)
         {
             lvConnFiles.Visible = chkUseLinkedFiles.Checked;
+            btnAdd.Visible = chkUseLinkedFiles.Checked;
             Modified = true;
         }
 
