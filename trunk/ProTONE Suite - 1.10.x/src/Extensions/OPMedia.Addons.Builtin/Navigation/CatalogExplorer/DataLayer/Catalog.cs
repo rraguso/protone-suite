@@ -269,6 +269,7 @@ namespace OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer
 
                 _dataset = new CatalogDataset();
                 _dataset.ReadXml(zipStream);
+
                 MigrateDataToLatestVersion();
             }
             finally
@@ -305,6 +306,38 @@ namespace OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer
             _info = new CatalogInfo(this);
 
             _isDefaultLocation = false;
+        }
+
+        private void ConsistencyCheck()
+        {
+            List<CatalogDataset.CatalogItemsRow> orphanedRows = new List<CatalogDataset.CatalogItemsRow>();
+            foreach(CatalogDataset.CatalogItemsRow row in this.CatalogItems.Rows)
+            {
+                if (CheckRowAncestorship(row) == false)
+                    orphanedRows.Add(row);
+            }
+
+            foreach (CatalogDataset.CatalogItemsRow row in orphanedRows)
+            {
+                row.Delete();
+            }
+
+            this.CatalogItems.AcceptChanges();
+        }
+
+        private bool CheckRowAncestorship(CatalogDataset.CatalogItemsRow row)
+        {
+            if (row != null)
+            {
+                if (row.IsRoot)
+                    return true;
+
+                CatalogDataset.CatalogItemsRow parentRow = this.CatalogItems.FindByItemID(row.ParentItemID);
+                if (parentRow != null)
+                    return CheckRowAncestorship(parentRow);
+            }
+
+            return false;
         }
 
         public void Save()
@@ -349,6 +382,8 @@ namespace OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer
 
         private void MigrateDataToLatestVersion()
         {
+            ConsistencyCheck();
+
             if (CatalogInfoTable.Rows.Count < 1)
             {
                 // If catalog info does not exist, we create it.

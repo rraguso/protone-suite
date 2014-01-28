@@ -210,11 +210,8 @@ namespace OPMedia.UI.Wizards
 
             MainThread.Post((d) =>
             {
-                Application.DoEvents();
-
+                this.Enabled = false;
                 CloseWaitDialog();
-
-                this.Enabled = false; 
                 _waitDialog = new GenericWaitDialog();
                 _waitDialog.ShowDialog(message);
             });
@@ -229,16 +226,15 @@ namespace OPMedia.UI.Wizards
             //}
 
             MainThread.Post((d) =>
+            {
+                this.Enabled = true;
+
+                if (_waitDialog != null)
                 {
-                    this.Enabled = true;
-
-                    if (_waitDialog != null)
-                    {
-                        _waitDialog.Close();
-                        _waitDialog = null;
-                    }
-
-                });
+                    _waitDialog.Close();
+                    _waitDialog = null;
+                }
+            });
         }
 
         /// <summary>

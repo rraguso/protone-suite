@@ -92,14 +92,13 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
 
         private void DisplayCatalogContents(object state)
         {
+            Catalog cat = null;
+
             try
             {
                 ShowWaitDialog("TXT_WAIT_LOADING_CATALOG");
 
                 string path = (BkgTask as Task).CatalogPath;
-
-                Catalog cat = null;
-
                 NativeFileInfo nfi = new NativeFileInfo(path, false);
                 if (nfi.IsValid)
                 {
@@ -110,11 +109,6 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
                     cat = new Catalog();
                     cat.Save(path);
                 }
-
-                if (cat != null && cat.IsValid)
-                {
-                    DisplayCatalog(cat);
-                }
             }
             catch (Exception ex)
             {
@@ -122,6 +116,10 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
             }
             finally
             {
+                if (cat != null && cat.IsValid)
+                {
+                    DisplayCatalog(cat);
+                }
                 CloseWaitDialog();
             }
         }
