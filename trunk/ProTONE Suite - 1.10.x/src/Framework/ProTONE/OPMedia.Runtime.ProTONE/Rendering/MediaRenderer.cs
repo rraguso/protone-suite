@@ -57,6 +57,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
     public delegate void MediaRenderingExceptionHandler(RenderingExceptionEventArgs args);
     
+    public delegate void RenderedStreamTitleChangedHandler(string newTitle);
 
     public sealed class MediaRenderer : IDisposable
     {
@@ -67,6 +68,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         private int _hash = DateTime.Now.GetHashCode();
         private double _position = 0;
+
+        public event RenderedStreamTitleChangedHandler RenderedStreamTitleChanged = null;
 
         public class SupportedFileProvider : ISupportedFileProvider
         {
@@ -290,6 +293,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         #endregion
 
         #region Methods
+
+        public bool IsStreamedMedia { get { return renderingTechnology.IsStreamedMedia; } } 
+
+        public string StreamTitle { get; private set; }
+
+        internal void FireStreamTitleChanged(string newTitle)
+        {
+            if (renderingTechnology.IsStreamedMedia && RenderedStreamTitleChanged != null)
+            {
+                this.StreamTitle = newTitle;
+                RenderedStreamTitleChanged(newTitle);
+            }
+        }
 
         public static SupportedFileProvider GetSupportedFileProvider()
         {

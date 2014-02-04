@@ -102,6 +102,7 @@ namespace OPMedia.ProTONE
                 OnPerformTranslation();
 
                 MediaRenderer.DefaultInstance.FilterStateChanged += new FilterStateChangedHandler(OnMediaStateChanged);
+                MediaRenderer.DefaultInstance.RenderedStreamTitleChanged += new RenderedStreamTitleChangedHandler(OnStreamTitleChanged);
             }
         }
 
@@ -152,6 +153,14 @@ namespace OPMedia.ProTONE
         void MainForm_Resize(object sender, EventArgs e)
         {
             mediaPlayer.DoLayout();
+        }
+
+        void OnStreamTitleChanged(string newTitle)
+        {
+            MainThread.Post((d) =>
+            {
+                SetTitle(mediaPlayer.BuildTitle());
+            });
         }
 
         void OnMediaStateChanged(FilterState oldState, string oldMedia, FilterState newState, string newMedia)

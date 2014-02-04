@@ -184,7 +184,14 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                 info.Add("TXT_FILENAME:", StringUtils.Limit(mi.Name, maxLen));
                 info.Add("TXT_FILE_TYPE:", mi.MediaType.ToUpperInvariant());
 
-                if (mi.ExtendedInfo != null && mi.ExtendedInfo.Count > 0)
+                if (MediaRenderer.DefaultInstance.GetRenderFile() == mi.Name &&
+                    (MediaRenderer.DefaultInstance.FilterState == Rendering.DS.BaseClasses.FilterState.Running ||
+                    MediaRenderer.DefaultInstance.FilterState == Rendering.DS.BaseClasses.FilterState.Paused) &&
+                    mi.MediaType == "URL")
+                {
+                    info.Add("TXT_TITLE:", MediaRenderer.DefaultInstance.StreamTitle);
+                }
+                else if (mi.ExtendedInfo != null && mi.ExtendedInfo.Count > 0)
                 {
                     info.Add(" ", null); // separator
                     foreach (KeyValuePair<string, string> kvp in mi.ExtendedInfo)

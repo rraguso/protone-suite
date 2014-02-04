@@ -61,7 +61,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public bool compactView = false;
         public bool Autoplay = true;
-        string playedFileTitle = string.Empty;
+        //string playedFileTitle = string.Empty;
         int playlistWidth = 0;
         #endregion
 
@@ -87,7 +87,15 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public string PlayedFileTitle
         {
-            get { return playedFileTitle; }
+            get 
+            {
+                if (MediaRenderer.DefaultInstance.IsStreamedMedia)
+                {
+                    return MediaRenderer.DefaultInstance.StreamTitle;
+                }
+
+                return pnlPlaylist.GetSelectedFileTitle();
+            }
         }
 
         #region Public methods
@@ -404,11 +412,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             string title = Translator.Translate("TXT_APP_NAME");
             try
             {
-                if (playedFileTitle.Length > 0)
+                if (this.PlayedFileTitle.Length > 0)
                 {
                     title = string.Format("{1} - [{2}] - {0}",
                         Translator.Translate("TXT_APP_NAME"),
-                        playedFileTitle, MediaRenderer.DefaultInstance.TranslatedFilterState);
+                        this.PlayedFileTitle, MediaRenderer.DefaultInstance.TranslatedFilterState);
                 }
                 else
                 {
@@ -662,14 +670,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 }
 
                 SetVolume(pnlRendering.ProjectedVolume);
-
-                try
-                {
-                    playedFileTitle = pnlPlaylist.GetSelectedFileTitle();
-                }
-                catch
-                {
-                }
 
                 if (subItem != null && subItem.StartHint != null)
                 {

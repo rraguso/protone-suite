@@ -27,11 +27,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
 
         private string streamTitle;
 
-        /// <summary>
-        /// Is fired, when a new StreamTitle is received
-        /// </summary>
-        public event EventHandler StreamTitleChanged;
-
         public bool Connected { get { return connected; } }
 
         public int Bitrate { get { return bitrate; } }
@@ -130,23 +125,16 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
         /// <param name="metaInfo"></param>
         private void ParseMetaInfo(byte[] metaInfo)
         {
-            string metaString = Encoding.Unicode.GetString(metaInfo);
+            string metaString = Encoding.ASCII.GetString(metaInfo);
 
             string newStreamTitle = Regex.Match(metaString, "(StreamTitle=')(.*)(';StreamUrl)").Groups[2].Value.Trim();
             if (!newStreamTitle.Equals(streamTitle))
             {
                 streamTitle = newStreamTitle;
-                OnStreamTitleChanged();
-            }
-        }
+                //OnStreamTitleChanged();
 
-        /// <summary>
-        /// Fires the StreamTitleChanged event
-        /// </summary>
-        protected virtual void OnStreamTitleChanged()
-        {
-            if (StreamTitleChanged != null)
-                StreamTitleChanged(this, EventArgs.Empty);
+                MediaRenderer.DefaultInstance.FireStreamTitleChanged(newStreamTitle);
+            }
         }
 
         /// <summary>

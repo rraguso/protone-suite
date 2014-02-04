@@ -80,6 +80,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         protected override void DoSetRenderMedia(string streamName)
         {
+            if (streamRenderer != null)
+            {
+                streamRenderer.Dispose();
+                streamRenderer = null;
+            }
+
             this.streamName = streamName;
 
             // Select the proper renderer for the specified media
