@@ -20,15 +20,9 @@ using OPMedia.Runtime.ProTONE.Rendering.DS.DsFilters;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
 {
-    public class DSAudioCDRenderer : DsRendererBase
+    public class DSAudioCDRenderer : DsCustomRenderer
     {
         DSBaseSourceFilter _source = null;
-
-        protected override void DoStartRenderer()
-        {
-            // Start rendering from the beginning of DVD media
-            DoStartRendererWithHint(DvdRenderingStartHint.Beginning);
-        }
 
         protected override void DoStartRendererWithHint(RenderingStartHint startHint)
         {
@@ -87,27 +81,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 isAudioAvailable = false;
             }
-        }
-
-        protected override void HandleGraphEvent(EventCode code, int p1, int p2)
-        {
-            Logger.LogHeavyTrace("GraphEvent: {0} : {1} : {2}", code, p1, p2);
-        }
-
-        protected override double GetDurationScaleFactor()
-        {
-            return 1;
-        }
-
-        protected override int DoGetSubtitleStream()
-        {
-            // Not required at this point for file renderers.
-            return -1;
-        }
-
-        protected override void DoSetSubtitleStream(int sid)
-        {
-            // Not required at this point for file renderers.
         }
     }
 

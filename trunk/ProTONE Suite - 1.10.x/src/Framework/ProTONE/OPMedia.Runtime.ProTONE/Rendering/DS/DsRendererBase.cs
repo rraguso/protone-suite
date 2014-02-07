@@ -171,8 +171,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     mediaEvent = null;
                 }
 
-                rotEntry.Dispose();
-                rotEntry = null;
+                if (rotEntry != null)
+                {
+                    rotEntry.Dispose();
+                    rotEntry = null;
+                }
 
                 GC.Collect();
             }
@@ -739,6 +742,67 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             }
 
             base.WndProc(ref m);
+        }
+    }
+
+    public class DsCustomRenderer : DsRendererBase
+    {
+        protected override void DoStartRenderer()
+        {
+            DoStartRendererWithHint(DvdRenderingStartHint.Beginning);
+        }
+
+        protected override void DoStopInternal(object state)
+        {
+            IFilterGraph graph = mediaControl as IFilterGraph;
+            if (graph != null)
+            {
+                mediaControl.Stop();
+
+                IEnumFilters pEnum = null;
+                if (COMHelper.SUCCEEDED(graph.EnumFilters(out pEnum)) && pEnum != null)
+                {
+                    List<IBaseFilter> allFilters = new List<IBaseFilter>();
+
+                    IBaseFilter[] aFilters = new IBaseFilter[1];
+                    while (COMHelper.S_OK == pEnum.Next(1, aFilters, IntPtr.Zero))
+                    {
+                        allFilters.Add(aFilters[0]);
+                    }
+                    Marshal.ReleaseComObject(pEnum);
+
+                    foreach (var f in allFilters)
+                    {
+                        if (f != null)
+                        {
+                            graph.RemoveFilter(f);
+                        }
+                    }
+                }
+            }
+
+            base.DoStopInternal(state);
+        }
+
+        protected override void HandleGraphEvent(EventCode code, int p1, int p2)
+        {
+            Logger.LogHeavyTrace("GraphEvent: {0} : {1} : {2}", code, p1, p2);
+        }
+
+        protected override double GetDurationScaleFactor()
+        {
+            return 1;
+        }
+
+        protected override int DoGetSubtitleStream()
+        {
+            // Not required at this point for file renderers.
+            return -1;
+        }
+
+        protected override void DoSetSubtitleStream(int sid)
+        {
+            // Not required at this point for file renderers.
         }
     }
 
