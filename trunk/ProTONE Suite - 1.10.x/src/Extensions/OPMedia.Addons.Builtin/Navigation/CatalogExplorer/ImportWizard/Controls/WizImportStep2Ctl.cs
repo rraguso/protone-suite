@@ -32,12 +32,12 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
             return base.ProcessDialogKey(keyData);
         }
 
-        protected override void OnWizardMovingNext()
+        protected override void OnPageEnter_MovingNext()
         {
             DisplaySourcePath();
         }
 
-        protected override void OnWizardMovingBack()
+        protected override void OnPageEnter_MovingBack()
         {
             DisplaySourcePath();
         }

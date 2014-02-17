@@ -37,20 +37,18 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             cmbWordCasing.Items.Add(Translator.Translate("TXT_" + WordCasing.CapitalizeWords.ToString().ToUpperInvariant()));
         }
 
-        protected override void OnWizardFinishing()
+        protected override void OnPageEnter_Finishing()
         {
             BkgTask = panels[selectedPanel].GetTask();
         }
 
-        protected override void OnWizardMovingBack()
+        protected override void OnPageEnter_MovingBack()
         {
-            base.OnWizardMovingBack();
             Display();
         }
 
-        protected override void OnWizardMovingNext()
+        protected override void OnPageEnter_MovingNext()
         {
-            base.OnWizardMovingNext();
             Display();
         }
 

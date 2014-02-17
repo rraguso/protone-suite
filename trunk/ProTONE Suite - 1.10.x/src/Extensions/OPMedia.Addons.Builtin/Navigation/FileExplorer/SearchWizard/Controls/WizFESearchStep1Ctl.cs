@@ -145,9 +145,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         }
 
 
-        protected override void OnWizardInitializing()
+        protected override void OnPageEnter_Initializing()
         {
-            base.OnWizardInitializing();
+            base.OnPageEnter_Initializing();
 
             Wizard.AllowResize = true;
 

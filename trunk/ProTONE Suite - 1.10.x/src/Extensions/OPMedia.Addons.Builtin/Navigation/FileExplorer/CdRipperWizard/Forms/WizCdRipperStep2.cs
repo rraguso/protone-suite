@@ -33,7 +33,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             InitializeComponent();
         }
 
-        protected override void OnWizardMovingNext()
+        protected override void OnPageEnter_MovingNext()
         {
             cmbOutputFormat.Items.Clear();
 

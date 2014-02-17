@@ -523,10 +523,13 @@ namespace OPMedia.UI.Wizards
 
             this.SuspendLayout();
 
+            WizardBaseCtl previousPage = null;
+
             // Check if there was a previous wizard page.
             if (wizardPage != null)
             {
                 task = wizardPage.BkgTask;
+                previousPage = wizardPage;
             }
 
             wizardPage = wizardPages[wizardStep] as WizardBaseCtl;
@@ -570,12 +573,19 @@ namespace OPMedia.UI.Wizards
 
             this.ResumeLayout();
 
+            if (previousPage != null)
+            {
+                // Set the wizard direction
+                previousPage.Direction = wizardDirection;
+                previousPage.ExecutePageLeaveActions();
+            }
+
             if (this.wizardPage != null)
             {
                 // Execute the custom actions for the wizard page.
                 // This is necessary because different actions might
                 // be needed when moving next or back.
-                wizardPage.ExecuteCustomActions();
+                wizardPage.ExecutePageEnterActions();
             }
         }
 
@@ -628,10 +638,13 @@ namespace OPMedia.UI.Wizards
         {
             this.SuspendLayout();
 
+            WizardBaseCtl previousPage = null;
+
             // Check if there was a previous wizard page.
             if (wizardPage != null)
             {
                 task = wizardPage.BkgTask;
+                previousPage = wizardPage;
 
                 // Remove the previous wizard page.
                 pnlContent.Controls.Remove(wizardPage);
@@ -656,8 +669,15 @@ namespace OPMedia.UI.Wizards
 
             // Set the wizard direction
             wizardPage.Direction = wizardDirection;
+
+            if (previousPage != null)
+            {
+                // Set the wizard direction
+                previousPage.Direction = wizardDirection;
+                previousPage.ExecutePageLeaveActions();
+            }
             
-            wizardPage.ExecuteCustomActions();
+            wizardPage.ExecutePageEnterActions();
             wizardPage.Focus();
 
             this.ResumeLayout();

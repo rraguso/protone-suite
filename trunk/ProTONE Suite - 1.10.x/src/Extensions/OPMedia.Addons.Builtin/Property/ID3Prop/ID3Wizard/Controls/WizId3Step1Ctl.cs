@@ -29,9 +29,11 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             _ilFiles.ColorDepth = ColorDepth.Depth32Bit;
             _ilFiles.ImageSize = new Size(16, 16);
             lvFiles.SmallImageList = _ilFiles;
+
+            
         }
 
-        protected override void OnWizardMovingNext()
+        protected override void  OnPageLeave_MovingNext()
         {
             (BkgTask as Task).Files = new List<string>();
             foreach (ListViewItem item in lvFiles.Items)
@@ -40,14 +42,14 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             }
         }
 
-        protected override void OnWizardMovingBack()
+        protected override void OnPageEnter_MovingBack()
         {
-            OnWizardInitializing();
+            OnPageEnter_Initializing();
         }
 
-        protected override void OnWizardInitializing()
+        protected override void OnPageEnter_Initializing()
         {
-            base.OnWizardInitializing();
+            base.OnPageEnter_Initializing();
 
             lvFiles.Items.Clear();
             _ilFiles.Images.Clear();

@@ -171,28 +171,50 @@ namespace OPMedia.UI.Wizards
         #region Implementation
 
         #region Wizard flow related implementation
-     
-        /// <summary>
-        /// Called by the container form after the wizard page is shown.
-        /// </summary>
-        public void ExecuteCustomActions()
+
+        public void ExecutePageLeaveActions()
         {
             // Depending on wizard direction, call the proper
             // custom action handler.
             switch (Direction)
             {
                 case WizardDirection.Initializing:
-                    OnWizardInitializing();
+                    OnPageLeave_Initializing();
                     break;
                 case WizardDirection.MovingBack:
-                    OnWizardMovingBack();
+                    OnPageLeave_MovingBack();
                     break;
                 case WizardDirection.MovingNext:
-                    OnWizardMovingNext();
+                    OnPageLeave_MovingNext();
                     break;
 
                 case WizardDirection.Finishing:
-                    OnWizardFinishing();
+                    OnPageLeave_Finishing();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Called by the container form after the wizard page is shown.
+        /// </summary>
+        public void ExecutePageEnterActions()
+        {
+            // Depending on wizard direction, call the proper
+            // custom action handler.
+            switch (Direction)
+            {
+                case WizardDirection.Initializing:
+                    OnPageEnter_Initializing();
+                    break;
+                case WizardDirection.MovingBack:
+                    OnPageEnter_MovingBack();
+                    break;
+                case WizardDirection.MovingNext:
+                    OnPageEnter_MovingNext();
+                    break;
+
+                case WizardDirection.Finishing:
+                    OnPageEnter_Finishing();
                     break;
             }
         }
@@ -238,36 +260,23 @@ namespace OPMedia.UI.Wizards
         }
 
         /// <summary>
-        /// Default custom action handler at wizard initialization.
+        /// Default custom action handler when entering the wizard page
         /// Override it to define your custom behaviour.
         /// </summary>
-        protected virtual void OnWizardInitializing()
-        {
-        }
+        protected virtual void OnPageEnter_Initializing() { }
+        protected virtual void OnPageEnter_Finishing() { }
+        protected virtual void OnPageEnter_MovingNext() { }
+        protected virtual void OnPageEnter_MovingBack() { }
 
         /// <summary>
-        /// Default custom action handler at wizard finishing.
+        /// Default custom action handler when leaving the wizard page
         /// Override it to define your custom behaviour.
         /// </summary>
-        protected virtual void OnWizardFinishing()
-        {
-        }
+        protected virtual void OnPageLeave_Initializing() { }
+        protected virtual void OnPageLeave_Finishing() { }
+        protected virtual void OnPageLeave_MovingNext() { }
+        protected virtual void OnPageLeave_MovingBack() { }
 
-        /// <summary>
-        /// Default custom action handler at wizard moving next step.
-        /// Override it to define your custom behaviour.
-        /// </summary>
-        protected virtual void OnWizardMovingNext()
-        {
-        }
-
-        /// <summary>
-        /// Default custom action handler at wizard moving one step back.
-        /// Override it to define your custom behaviour.
-        /// </summary>
-        protected virtual void OnWizardMovingBack()
-        {
-        }
         #endregion
 
        

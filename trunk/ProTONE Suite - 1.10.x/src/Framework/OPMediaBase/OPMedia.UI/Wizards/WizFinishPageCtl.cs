@@ -110,7 +110,7 @@ namespace OPMedia.UI.Wizards
             e.Cancel = !mustClose;
         }
 
-        protected override void OnWizardFinishing()
+        protected override void OnPageEnter_Finishing()
         {
             // OK button does Cancel until processing finished.
             Wizard.OKButtonText = Translator.Translate("TXT_CANCEL");

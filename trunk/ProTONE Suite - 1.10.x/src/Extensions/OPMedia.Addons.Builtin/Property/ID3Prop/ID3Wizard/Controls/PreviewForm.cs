@@ -10,6 +10,7 @@ using OPMedia.Core.TranslationSupport;
 using System.IO;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.UI.Controls;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard.Controls
 {
@@ -71,22 +72,29 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard.Controls
 
             label1.Text = Translator.Translate("TXT_PREVIEW_DESC_" + _task.TaskType.ToString().ToUpperInvariant());
 
-            switch (_task.TaskType)
+            try
             {
-                case TaskType.EditID3:
-                    FillID3Columns();
-                    FillID3Fields_1();
-                    break;
+                switch (_task.TaskType)
+                {
+                    case TaskType.EditID3:
+                        FillID3Columns();
+                        FillID3Fields_1();
+                        break;
 
-                case TaskType.FillID3ByFS:
-                    FillID3Columns();
-                    FillID3Fields_2();
-                    break;
+                    case TaskType.FillID3ByFS:
+                        FillID3Columns();
+                        FillID3Fields_2();
+                        break;
 
-                case TaskType.MultiRename:
-                    FillFileNameColumns();
-                    FillNewFileNames();
-                    break;
+                    case TaskType.MultiRename:
+                        FillFileNameColumns();
+                        FillNewFileNames();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
             }
 
             ThemeManager.SetFont(lvPreview, FontSizes.Small);
@@ -122,22 +130,29 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard.Controls
         {
             foreach (string file in _task.Files)
             {
-                ID3FileInfo ifi = new ID3Tagger(file, _task).PreviewUpdateTag(_task.WordCasing);
+                try
+                {
+                    ID3FileInfo ifi = new ID3Tagger(file, _task).PreviewUpdateTag(_task.WordCasing);
 
-                string[] data = new string[] 
-                { 
-                    Path.GetFileName(file), 
-                    ifi.Artist,
-                    ifi.Album,
-                    ifi.Title,
-                    ifi.Comments,
-                    ifi.Genre,
-                    ifi.Track.GetValueOrDefault().ToString(),
-                    ifi.Year.GetValueOrDefault().ToString()
-                };
+                    string[] data = new string[] 
+                    { 
+                        Path.GetFileName(file), 
+                        ifi.Artist,
+                        ifi.Album,
+                        ifi.Title,
+                        ifi.Comments,
+                        ifi.Genre,
+                        ifi.Track.GetValueOrDefault().ToString(),
+                        ifi.Year.GetValueOrDefault().ToString()
+                    };
 
-                ListViewItem item = new ListViewItem(data);
-                lvPreview.Items.Add(item);
+                    ListViewItem item = new ListViewItem(data);
+                    lvPreview.Items.Add(item);
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogException(ex);
+                }
             }
         }
 
@@ -145,22 +160,29 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard.Controls
         {
             foreach (string file in _task.Files)
             {
-                ID3FileInfo ifi = new ID3Tagger(file, _task).PreviewTagFromFileFolderName(_task.WordCasing);
+                try
+                {
+                    ID3FileInfo ifi = new ID3Tagger(file, _task).PreviewTagFromFileFolderName(_task.WordCasing);
 
-                string[] data = new string[] 
-                { 
-                    Path.GetFileName(file), 
-                    ifi.Artist,
-                    ifi.Album,
-                    ifi.Title,
-                    ifi.Comments,
-                    ifi.Genre,
-                    ifi.Track.GetValueOrDefault().ToString(),
-                    ifi.Year.GetValueOrDefault().ToString()
-                };
-                
-                ListViewItem item = new ListViewItem(data);
-                lvPreview.Items.Add(item);
+                    string[] data = new string[] 
+                    { 
+                        Path.GetFileName(file), 
+                        ifi.Artist,
+                        ifi.Album,
+                        ifi.Title,
+                        ifi.Comments,
+                        ifi.Genre,
+                        ifi.Track.GetValueOrDefault().ToString(),
+                        ifi.Year.GetValueOrDefault().ToString()
+                    };
+
+                    ListViewItem item = new ListViewItem(data);
+                    lvPreview.Items.Add(item);
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogException(ex);
+                }
             }
         }
 
@@ -168,12 +190,19 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard.Controls
         {
             foreach (string oldFile in _task.Files)
             {
-                string newFile = new ID3FileRenamer(oldFile, _task.RemamePattern).GetNewPath(_task.WordCasing);
-                string oldFileName = Path.GetFileName(oldFile);
-                string newFileName = Path.GetFileName(newFile);
+                try
+                {
+                    string newFile = new ID3FileRenamer(oldFile, _task.RemamePattern).GetNewPath(_task.WordCasing);
+                    string oldFileName = Path.GetFileName(oldFile);
+                    string newFileName = Path.GetFileName(newFile);
 
-                ListViewItem item = new ListViewItem(new string[] { oldFileName, newFileName });
-                lvPreview.Items.Add(item);
+                    ListViewItem item = new ListViewItem(new string[] { oldFileName, newFileName });
+                    lvPreview.Items.Add(item);
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogException(ex);
+                }
             }
         }
 

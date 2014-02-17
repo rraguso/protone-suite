@@ -130,10 +130,6 @@
       <Project>{0A0114C0-4409-42F3-940C-31038104261C}</Project>
       <Name>OPMedia.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OPMedia.UI\OPMedia.UI.csproj">
-      <Project>{3405ACFC-77F4-470D-BF75-4754A8214998}</Project>
-      <Name>OPMedia.UI</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Persistence.sdf">

@@ -33,7 +33,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
             //btnBrowse.Image = bmp;
         }
 
-        protected override void  OnWizardMovingNext()
+        protected override void  OnPageEnter_MovingNext()
         {
             long insertionPointID = -1;
 
@@ -54,7 +54,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
             return base.ProcessDialogKey(keyData);
         }
 
-        protected override void OnWizardInitializing()
+        protected override void OnPageEnter_Initializing()
         {
             if (BkgTask == null)
             {
@@ -66,9 +66,9 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
             }
         }
 
-        protected override void OnWizardMovingBack()
+        protected override void OnPageEnter_MovingBack()
         {
-            OnWizardInitializing();
+            OnPageEnter_Initializing();
         }
 
         private void OnBrowseCatalog(object sender, EventArgs e)

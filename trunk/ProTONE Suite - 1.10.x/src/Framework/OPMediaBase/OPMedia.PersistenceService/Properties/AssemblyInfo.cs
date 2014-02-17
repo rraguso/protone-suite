@@ -2,7 +2,6 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using OPMedia.Core;
-using OPMedia.Runtime;
 
 [assembly: ComVisible(false)]
 [assembly: AssemblyCompany(Constants.CompanyName)]

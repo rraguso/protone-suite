@@ -92,7 +92,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             }
         }
 
-        protected override void OnWizardInitializing()
+        protected override void OnPageEnter_Initializing()
         {
             Wizard.CanMoveNext = false;
             PopulateAudioCDDrives();

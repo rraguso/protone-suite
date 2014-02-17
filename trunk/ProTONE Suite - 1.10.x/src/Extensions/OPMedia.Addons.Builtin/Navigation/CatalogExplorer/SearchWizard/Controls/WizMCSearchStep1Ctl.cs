@@ -92,9 +92,9 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
 
         
 
-        protected override void OnWizardInitializing()
+        protected override void OnPageEnter_Initializing()
         {
-            base.OnWizardInitializing();
+            base.OnPageEnter_Initializing();
 
             Wizard.AllowResize = true;
 
