@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ACT_HIBERNATE">
+  <value>Entrez en veille prolongée</value>
+</data>
+<data name="TXT_ACT_LAUNCHPROGRAM">
+  <value>Lancer un programme</value>
+</data>
+<data name="TXT_ACT_NONE">
+  <value>Ignorer l'événement</value>
+</data>
+<data name="TXT_ACT_SHUTDOWN">
+  <value>Eteignez le PC</value>
+</data>
+<data name="TXT_ACT_STANDBY">
+  <value>Entrez en mode de veille</value>
+</data>
+<data name="TXT_NEWNOW">
+  <value>Nouveau aujourd'hui</value>
+</data>
+<data name="TXT_NEWNOW_BMDESC">
+  <value>Ajouter un nouveau signet au moment de la lecture en cours</value>
+</data>
+<data name="TXT_NEW_BMDESC">
+  <value>Ajouter un nouveau signet</value>
+</data>
+<data name="TXT_DELETE_BMDESC">
+  <value>Supprimer le favori</value>
+</data>
+<data name="TXT_ADD_BOOKMARK">
+  <value>Ajouter un signet</value>
+</data>
+<data name="TXT_AUDIOSETTINGS">
+  <value>Paramètres audio</value>
+</data>
+<data name="TXT_AUDIO_AVAILABLE">
+  <value>Flux audio disponibles.</value>
+</data>
+<data name="TXT_AUDIO_FILES">
+  <value>Les fichiers audio</value>
+</data>
+<data name="TXT_AVAILABLE_DVD_MEDIA">
+  <value>ou, ouvrez l'un des médias de DVD disponibles dans le système:</value>
+</data>
+<data name="TXT_BOOKMARK_DEFAULT_TEXT">
+  <value>Par défaut signet texte (utiliser le Gestionnaire des signets pour changer)</value>
+</data>
+<data name="TXT_BOOKMARK_DESC">
+  <value>Bookmark description:</value>
+</data>
+<data name="TXT_BOOKMARK_MANAGER">
+  <value>Bookmark Manager</value>
+</data>
+<data name="TXT_BOOKMARK_TIME">
+  <value>Bookmark temps:</value>
+</data>
+<data name="TXT_BTNCLEAR">
+  <value>Effacer toute la liste de lecture
+Raccourci:. {0}</value>
+</data>
+<data name="TXT_BTNDELETE">
+  <value>Supprimer les éléments sélectionnés
+Raccourci:. {0}</value>
+</data>
+<data name="TXT_BTNFULLSCREEN">
+  <value>Basculer plein écran
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNFWD">
+  <value>Avance rapide. Avec 5 secondes
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNJUMPTOITEM">
+  <value>Ouvrez le 'Saut au playlist article' dialogue
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNLOAD">
+  <value>Chargez nouveau fichier (s)
+Raccourci:. {0}</value>
+</data>
+<data name="TXT_BTNLOADPLAYLIST">
+  <value>Chargez une nouvelle playlist
+Raccourci:. {0}</value>
+</data>
+<data name="TXT_BTNLOOPPLAY">
+  <value>Active / désactive la lecture en boucle
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNMOVEDOWN">
+  <value>Déplacez les éléments sélectionnés avec une position basse dans la playlist
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNMOVEUP">
+  <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la playlist
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNNEXT">
+  <value>Aller à l'image suivante dans la playlist
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNOPENDISK">
+  <value>Ouvre la boîte de dialogue Charger un support DVD
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNOPENSETTINGS">
+  <value>Affiche la boîte de dialogue Paramètres de
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNPAUSE">
+  <value>Pause de la lecture
+Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNPLAY">
+  <value>Lire le fichier
+Raccourci:.{0}</value>
+</data>
+<data name="TXT_BTNPLAYLISTEND">
+  <value>Active l''action playlist fin »
+ Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNPREV">
+  <value>Aller à l'image précédente dans la playlist
+ Raccourci:. {0}</value>
+</data>
+<data name="TXT_BTNREW">
+  <value>. Rembobinez de 5 secondes
+ Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNSAVEPLAYLIST">
+  <value>Enregistrer la liste de lecture
+ Raccourci:. {0}</value>
+</data>
+<data name="TXT_BTNSTOP">
+  <value>Arrêt de la lecture
+ Raccourci:. {0}</value>
+</data>
+<data name="TXT_BTNTOGGLESHUFFLE">
+  <value>. Active le mode aléatoire playlist
+ Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNVOLDN">
+  <value>. Réduction de volume de 5%
+ Raccourci: {0}</value>
+</data>
+<data name="TXT_BTNVOLUP">
+  <value>. Volume en hausse de 5%
+ Raccourci: {0}</value>
+</data>
+<data name="TXT_CMDADDBOOKMARK">
+  <value>Ajouter un signet</value>
+</data>
+<data name="TXT_CMDBOOKMARKMANAGER">
+  <value>Ouvrir le gestionnaire de marque-</value>
+</data>
+<data name="TXT_CMDCFGAUDIO">
+  <value>Affiche de configuration Audio</value>
+</data>
+<data name="TXT_CMDCFGREMOTE">
+  <value>Affiche Configuration de la télécommande</value>
+</data>
+<data name="TXT_CMDCFGSUBTITLES">
+  <value>Sous-titres affichages et de configuration OSD</value>
+</data>
+<data name="TXT_CMDCFGTIMER">
+  <value>Affiche les options de temporisation</value>
+</data>
+<data name="TXT_CMDCFGVIDEO">
+  <value>Affiche la configuration vidéo</value>
+</data>
+<data name="TXT_CMDCLEAR">
+  <value>Effacer toute la liste de lecture.</value>
+</data>
+<data name="TXT_CMDDELETE">
+  <value>Supprimer les éléments sélectionnés.</value>
+</data>
+<data name="TXT_CMDFULLSCREEN">
+  <value>Basculer Plein écran</value>
+</data>
+<data name="TXT_CMDFWD">
+  <value>Avance rapide de 5 secondes.</value>
+</data>
+<data name="TXT_CMDJUMPTOITEM">
+  <value>Ouvrez le 'Saut au playlist article «dialogue</value>
+</data>
+<data name="TXT_CMDLOAD">
+  <value>Chargez nouveau fichier (s).</value>
+</data>
+<data name="TXT_CMDLOADPLAYLIST">
+  <value>Chargez une nouvelle liste de lecture.</value>
+</data>
+<data name="TXT_CMDLOOPPLAY">
+  <value>Active ou désactive la lecture en boucle.</value>
+</data>
+<data name="TXT_CMDMOVEDOWN">
+  <value>Déplacez les éléments sélectionnés avec une position basse dans la playlist.</value>
+</data>
+<data name="TXT_CMDMOVEUP">
+  <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la playlist.</value>
+</data>
+<data name="TXT_CMDNEXT">
+  <value>Aller à l'image suivante dans la playlist.</value>
+</data>
+<data name="TXT_CMDOPENDISK">
+  <value>Ouvre la boîte de dialogue Charger un support DVD</value>
+</data>
+<data name="TXT_CMDOPENURL">
+  <value>Ouvrir une URL</value>
+</data>
+<data name="TXT_CMDPAUSE">
+  <value>Pause de la lecture.</value>
+</data>
+<data name="TXT_CMDPLAY">
+  <value>Lire le fichier.</value>
+</data>
+<data name="TXT_CMDPLAYLISTEND">
+  <value>Active l''action sur la fin playlist'</value>
+</data>
+<data name="TXT_CMDPREV">
+  <value>Aller à l'image précédente dans la playlist.</value>
+</data>
+<data name="TXT_CMDREW">
+  <value>Rembobinez avec 5 secondes.</value>
+</data>
+<data name="TXT_CMDSAVEPLAYLIST">
+  <value>Enregistrer la liste de lecture.</value>
+</data>
+<data name="TXT_CMDSEARCHSUBTITLES">
+  <value>Recherches les sous-titres des clips</value>
+</data>
+<data name="TXT_CMDSTOP">
+  <value>Arrêt de la lecture.</value>
+</data>
+<data name="TXT_CMDTOGGLESHUFFLE">
+  <value>Active le mode Lecture aléatoire.</value>
+</data>
+<data name="TXT_CMDVOLDN">
+  <value>Réduction de volume de 5%.</value>
+</data>
+<data name="TXT_CMDVOLUP">
+  <value>Volume en hausse de 5%.</value>
+</data>
+<data name="TXT_CONFIGUREAUDIO">
+  <value>Paramètres audio</value>
+</data>
+<data name="TXT_CONFIGUREPLAYLIST">
+  <value>Playlist</value>
+</data>
+<data name="TXT_CONFIGURESUBTITLES">
+  <value>Réglages sous-titres</value>
+</data>
+<data name="TXT_CONFIGUREVIDEO">
+  <value>Paramètres vidéo</value>
+</data>
+<data name="TXT_CONFIRM_OVERWRITE_SUBTITLE">
+  <value>Confirmer écraser sous-titres</value>
+</data>
+<data name="TXT_EDITID3ARTWORK">
+  <value>ID3 Editor Création</value>
+</data>
+<data name="TXT_ELAPSED_TIME">
+  <value>Temps écoulé.
+ Double click to toggle temps restant</value>
+</data>
+<data name="TXT_ENABLEREMOTECONTROL">
+  <value>Laissez Lecteur ProTone être contrôlé à distance.</value>
+</data>
+<data name="TXT_ENABLE_PLAYLISTEVT">
+  <value>D'action «playlist terminée 'événement</value>
+</data>
+<data name="TXT_ENABLE_SCHEDULEDEVT">
+  <value>D'action sur le moment prévu</value>
+</data>
+<data name="TXT_NOTOPENED">
+  <value>Terminé</value>
+</data>
+<data name="TXT_ENQUEUEFILES">
+  <value>Enqueue fichiers à la fin de la liste de lecture actuelle</value>
+</data>
+<data name="TXT_ENTER_KEYWORD">
+  <value>Entrer un mot clé de recherche (s), séparés par des espaces:</value>
+</data>
+<data name="TXT_FFDSHOW_SUBTITLES">
+  <value>Ouvert FFDShow Réglages sous-titres ...</value>
+</data>
+<data name="TXT_S_FILETYPES">
+  <value>Fichiers</value>
+</data>
+<data name="TXT_S_FILETYPES_ASSOCIATIONS">
+  <value>Lecteur ProTone associé à ces types de fichiers:</value>
+</data>
+<data name="TXT_HANDLEEXPLORERLAUNCH">
+  <value>Lorsque des fichiers sont lancées à partir de l'Explorateur Windows:</value>
+</data>
+<data name="TXT_HIBERNATE_PC">
+  <value>mettre l'ordinateur en mode Veille prolongée</value>
+</data>
+<data name="TXT_IGNOREMOUSEMOVE">
+  <value>Ignorer les mouvements de la souris en mode plein écran</value>
+</data>
+<data name="TXT_JUMP_TO_ITEM">
+  <value>Aller à la rubrique playlist</value>
+</data>
+<data name="TXT_LAUNCH_PROGRAM">
+  <value>lancer un programme personnalisé</value>
+</data>
+<data name="TXT_LAUNCH_RCCMANAGER">
+  <value>Lancement ProTone RCC Manager ...</value>
+</data>
+<data name="TXT_LEFTVOL">
+  <value>Lvol</value>
+</data>
+<data name="TXT_LOADMEDIAFILES">
+  <value>Charger des fichiers multimédia ...</value>
+</data>
+<data name="TXT_LOADPLAYLIST">
+  <value>Chargez une liste de lecture ...</value>
+</data>
+<data name="TXT_LOAD_DVD_FOLDER">
+  <value>S'il vous plaît sélectionner un dossier de contenu DVD vidéo
+ (Soit un dossier VIDEO_TS, ou son parent):</value>
+</data>
+<data name="TXT_MATCHING_ITEMS">
+  <value>Articles assortis (double-clic ou appuyez sur Entrée pour lire un élément):</value>
+</data>
+<data name="TXT_MEDIA_NAME">
+  <value>Nom du média:</value>
+</data>
+<data name="TXT_MEDIA_STATE">
+  <value>Media est aujourd'hui {0}</value>
+</data>
+<data name="TXT_MEDIA_TIME">
+  <value>Heure:</value>
+</data>
+<data name="TXT_NOTIFICATIONSENABLED">
+  <value>Afficher les info-bulles de notification près de la zone de notification lorsque des médias changements d'état</value>
+</data>
+<data name="TXT_MINMOVIEDURATION">
+  <value>Ne pas télécharger les sous-titres si le clip est plus courte que
+ (0 = toujours télécharger)</value>
+</data>
+<data name="TXT_MNUAUDIO">
+  <value>Paramètres audio ...</value>
+</data>
+<data name="TXT_MNULOADPLAYLIST">
+  <value>Chargez Playlist ...</value>
+</data>
+<data name="TXT_MNULOOPPLAY">
+  <value>Lecture en boucle</value>
+</data>
+<data name="TXT_MNUSAVEPLAYLIST">
+  <value>Enregistrer la liste ...</value>
+</data>
+<data name="TXT_MNUSCHEDULER">
+  <value>Options de minuterie ...</value>
+</data>
+<data name="TXT_MNUSETTINGS">
+  <value>Paramètres ...</value>
+</data>
+<data name="TXT_MNUSUBTITLE">
+  <value>Sous-titres et OSD ...</value>
+</data>
+<data name="TXT_MNUTOOLS">
+  <value>Paramètres et options</value>
+</data>
+<data name="TXT_MNUVIDEO">
+  <value>Paramètres vidéo ...</value>
+</data>
+<data name="TXT_MOVEDOWN">
+  <value>Descendre</value>
+</data>
+<data name="TXT_MOVEUP">
+  <value>Déplacer vers le haut</value>
+</data>
+<data name="TXT_NEW_BOOKMARK">
+  <value>Nouveau signet</value>
+</data>
+<data name="TXT_NEW_BOOKMARK_ADDED">
+  <value>Un nouveau signet a été ajouté: {0}</value>
+</data>
+<data name="TXT_NOT_CONFIGURABLE">
+  <value>Cette option n'est pas disponible en ce moment.</value>
+</data>
+<data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
+  <value>Cette option n'est pas disponible en ce moment.
+ Vous devez installer l'ensemble des codecs FFDShow afin d'avoir des actions à cette option.</value>
+</data>
+<data name="TXT_NO_LANG">
+  <value>Aucune langue</value>
+</data>
+<data name="TXT_NO_SUBS_FOUND">
+  <value>Désolé, aucun sous-titre ont été trouvés pour ce clip.</value>
+</data>
+<data name="TXT_ONDAYS">
+  <value>en semaine:</value>
+</data>
+<data name="TXT_OSD">
+  <value>Affichage à l'écran (OSD)</value>
+</data>
+<data name="TXT_OSDCFG">
+  <value>Paramètres OSD</value>
+</data>
+<data name="TXT_OSDCOLOR">
+  <value>Couleur du texte OSD</value>
+</data>
+<data name="TXT_OSDENABLED">
+  <value>Activer l'affichage sur écran (OSD)</value>
+</data>
+<data name="TXT_OSDFONT">
+  <value>Police de texte OSD</value>
+</data>
+<data name="TXT_OSDSAMPLETEXT">
+  <value>Exemple de texte OSD</value>
+</data>
+<data name="TXT_OSDTIMER">
+  <value>Visibilité minuterie OSD (en secondes):</value>
+</data>
+<data name="TXT_OSD_FULLSCREEN">
+  <value>Le mode plein écran est {0}</value>
+</data>
+<data name="TXT_OSD_PAUSED">
+  <value>Pause</value>
+</data>
+<data name="TXT_OSD_PLAY">
+  <value>Jeu: {0}</value>
+</data>
+<data name="TXT_OSD_SEEKTO">
+  <value>La lecture reprend à partir de: {0}</value>
+</data>
+<data name="TXT_OSD_VOL">
+  <value>Volume: {0}%</value>
+</data>
+<data name="TXT_OVERWRITE_SUBTITLE">
+  <value>Le clip sélectionné possède déjà un sous-titre.
+ Si un autre sous-titres est disponible sur Internet, il remplacera celui existant.
+
+Etes-vous sûr que vous voulez rechercher une autre sous-titre?</value>
+</data>
+<data name="TXT_PAUSED">
+  <value>Pause</value>
+</data>
+<data name="TXT_PLAYFILES">
+  <value>Lecture de fichiers (remplacement de liste de lecture)</value>
+</data>
+<data name="TXT_RUNNING">
+  <value>Jouer</value>
+</data>
+<data name="TXT_PLAYLIST">
+  <value>Playlist</value>
+</data>
+<data name="TXT_PLAYLISTEND_EVT">
+  <value>Lorsque la playlist se termine ...</value>
+</data>
+<data name="TXT_PLAYLISTEVT_DESC">
+  <value>Attention: ce paramètre n'est pas persistant entre les sessions du programme
+ Lorsque les listes de lecture se termine:</value>
+</data>
+<data name="TXT_PLAYLISTS">
+  <value>Playlists</value>
+</data>
+<data name="TXT_PLAYLIST_END_MSG">
+  <value>la liste de lecture est terminée</value>
+</data>
+<data name="TXT_PLAY_FROM">
+  <value>à partir de: {0}</value>
+</data>
+<data name="TXT_PREFFEREDSUBTITLELANG">
+  <value>Langue de sous-favorite:</value>
+</data>
+<data name="TXT_PROCEED_SCHEDULED_ACTION">
+  <value>ProTone joueur tente de {0}. Ce qui se passe parce que vous avez configuré le joueur à le faire lorsque {1}. Voulez-vous continuer?
+
+Vous pouvez annuler cette opération si vous cliquez sur Annuler dans le délai restant (voir ci-dessous contre). Si ce temps s'écoule et que vous n'avez pas choisi une action, il sera considéré que vous avez choisi de procéder.</value>
+</data>
+<data name="TXT_PROTONE_ENQUEUE">
+  <value>Enqueue dans ProTone joueur</value>
+</data>
+<data name="TXT_PROTONE_PLAY">
+  <value>Jouer dans ProTone joueur</value>
+</data>
+<data name="TXT_REMAINING_TIME">
+  <value>Le temps restant.
+Double click to toggle temps écoulé</value>
+</data>
+<data name="TXT_REMOTECONTROLCFG">
+  <value>Télécommande</value>
+</data>
+<data name="TXT_REMOTECONTROLDEFINITION">
+  <value>Pour définir les programmes et les dispositifs qui sont autorisés à contrôler Lecteur ProTone, vous devez utiliser le programme Gestionnaire ProTone RCC.
+ Cliquez sur le bouton ci-dessous pour lancer ProTone RCC Manager ...</value>
+</data>
+<data name="TXT_RIGHTVOL">
+  <value>RVOL</value>
+</data>
+<data name="TXT_SAVEPLAYLIST">
+  <value>Enregistrer la sélection sous ...</value>
+</data>
+<data name="TXT_SCHEDULEDEVT_DESC">
+  <value>Quand le moment prévu se produit:</value>
+</data>
+<data name="TXT_SCHEDULEDEVT_TIME">
+  <value>Programmer événement de minuterie à:</value>
+</data>
+<data name="TXT_SCHEDULED_ACTION_PROCEED">
+  <value>Procéder à exécution de l'action?</value>
+</data>
+<data name="TXT_SCHEDULED_EVENT_MSG">
+  <value>le moment prévu s'est produite</value>
+</data>
+<data name="TXT_S_SCHEDULERSETTINGS">
+  <value>Minuteur</value>
+</data>
+<data name="TXT_SCHEDULERWAITTIMERPROCEED">
+  <value>Combien de minutes à attendre confirmation avant de procéder
+ (0 = ne demande pas de confirmation, passez directement):</value>
+</data>
+<data name="TXT_SEARCH_SUBTITLES">
+  <value>Recherche sous-titres ...</value>
+</data>
+<data name="TXT_SELECT_ALLAUDIO">
+  <value>Tous les fichiers audio</value>
+</data>
+<data name="TXT_SELECT_ALLPLAYLISTS">
+  <value>Toutes les playlists</value>
+</data>
+<data name="TXT_SELECT_ALLVIDEO">
+  <value>Tous les fichiers vidéo</value>
+</data>
+<data name="TXT_SELECT_DVD">
+  <value>Chargez du DVD</value>
+</data>
+<data name="TXT_SERIALDEVICE">
+  <value>Dispositif de contrôle à distance</value>
+</data>
+<data name="TXT_SERVERTYPE">
+  <value>Type de serveur</value>
+</data>
+<data name="TXT_SERVERURL">
+  <value>URL</value>
+</data>
+<data name="TXT_SHELL_INTEGRATION">
+  <value>Intégration avec l'Explorateur Windows</value>
+</data>
+<data name="TXT_SHUFFLE">
+  <value>Battage</value>
+</data>
+<data name="TXT_SHUTDOWN_PC">
+  <value>l'arrêt du PC</value>
+</data>
+<data name="TXT_SKIP_DVD_MENU">
+  <value>Ignorer le menu du DVD (lire le titre directement en premier)</value>
+</data>
+<data name="TXT_STANDBY_PC">
+  <value>mettre l'ordinateur en mode veille</value>
+</data>
+<data name="TXT_STOPPED">
+  <value>Arrêté</value>
+</data>
+<data name="TXT_SUBTITLEDOWNLOADNOTIFY">
+  <value>{0} sous-titres ont été trouvés pour {1}:</value>
+</data>
+<data name="TXT_SUBTITLES">
+  <value>Sous-titres</value>
+</data>
+<data name="TXT_SUBTITLESCFG">
+  <value>Réglages sous-titres</value>
+</data>
+<data name="TXT_S_SUBTITLESETTINGS">
+  <value>Sous-titres</value>
+</data>
+<data name="TXT_SUBTITLE_DOWNLOAD">
+  <value>Autoriser les téléchargements à partir d'Internet sous-titres</value>
+</data>
+<data name="TXT_SUB_DOWNLOAD_ERROR">
+  <value>Recherche sous-titre a été abandonnée en raison d'une erreur s'est produite.</value>
+</data>
+<data name="TXT_SUB_HINTS">
+  <value>Remarque: Les résultats sont triés en utilisant ces critères (dans cet ordre): la colonne sélectionnée, la langue (langue préférée en haut),
+ prio (serveur order = ordre de serveurs de sous-titres Sous-titres en / page Paramètres OSD). Cliquez sur un en-tête de colonne pour sélectionner une autre citeria sorte.</value>
+</data>
+<data name="TXT_SUB_LOAD">
+  <value>Chargez le sous-titre sélectionné</value>
+</data>
+<data name="TXT_SUB_LOADED">
+  <value>Le sous-titre sélectionné a été chargé avec succès! Amusez-vous!</value>
+</data>
+<data name="TXT_SYSTEMDIAGNOSTICS">
+  <value>Diagnostics</value>
+</data>
+<data name="TXT_SYSTEM_NOT_OK">
+  <value>Codecs multimédias ne sont pas installés et configurés sur OK.</value>
+</data>
+<data name="TXT_SYSTEM_OK">
+  <value>Codecs multimédias sont installés et configurés sur OK.</value>
+</data>
+<data name="TXT_TIMESCALE">
+  <value>Échelle de temps
+Cliquez pour jouer à partir de la position: {0}</value>
+</data>
+<data name="TXT_TIMESCALE_BOOKMARK">
+  <value>Échelle de temps
+Cliquez pour jouer à partir de signet: "{1}"
+temps Marque page: {0}</value>
+</data>
+<data name="TXT_TOTAL_TIME">
+  <value>Temps total.</value>
+</data>
+<data name="TXT_UNSELECT_ALLAUDIO">
+  <value>Pas de fichiers audio</value>
+</data>
+<data name="TXT_UNSELECT_ALLPLAYLISTS">
+  <value>Pas de listes de lecture</value>
+</data>
+<data name="TXT_UNSELECT_ALLVIDEO">
+  <value>Pas de fichiers vidéo</value>
+</data>
+<data name="TXT_VIDEOSETTINGS">
+  <value>Paramètres vidéo</value>
+</data>
+<data name="TXT_VIDEO_AVAILABLE">
+  <value>Flux vidéo disponibles.</value>
+</data>
+<data name="TXT_VIDEO_FILES">
+  <value>Les fichiers vidéo</value>
+</data>
+<data name="TXT_VIDEO_HD_FILES">
+  <value>Des fichiers vidéo haute définition</value>
+</data>
+<data name="TXT_VOLSCALE">
+  <value>. Échelle de volume
+ Cliquez pour régler le volume d': {0}%</value>
+</data>
+<data name="TXT_INSTALLCOMPONENT">
+  <value>Installer le composant ...</value>
+</data>
+<data name="TXT_PRIO">
+  <value>Priorité</value>
+</data>
+<data name="TXT_MINUTES">
+  <value>minute (s).</value>
+</data>
+<data name="TXT_S_MISC_SETTINGS">
+  <value>Divers</value>
+</data>
+<data name="TXT_METADATAPATTERNS">
+  <value>Les modèles disponibles pour le formatage élément de la playlist sont basées sur des combinaisons de ces mots-clés:
+
+&lt;A&gt; = nom de l'artiste que dans les métadonnées;
+&lt;B&gt; = nom de l'album comme dans les métadonnées; 
+&lt;T&gt; = titre comme dans les métadonnées;
+&lt;C&gt; = commentaires que dans les métadonnées;
+&lt;G&gt; = genre comme dans les métadonnées;
+&lt;#&gt; = track # comme dans les métadonnées;
+&lt;Y&gt; = année comme dans les métadonnées.</value>
+</data>
+<data name="TXT_DISPLAY_FILENAME">
+  <value>Pas options de formatage sont spécifiées.
+ Le programme affiche le nom du fichier en entrée playlist.</value>
+</data>
+<data name="TXT_FILENAME_FORMAT">
+  <value>Si les métadonnées sont manquantes, utilisez le nom du fichier analysé comme:</value>
+</data>
+<data name="TXT_USE_METADATA">
+  <value>Utiliser fichier de métadonnées (par exemple champs ID3)</value>
+</data>
+<data name="TXT_FALLBACKMONITOR">
+  <value>Moniteur de repli:</value>
+</data>
+<data name="TXT_FALLBACKMONITORDESC">
+  <value>Le moniteur de repli sera utilisé pour afficher le contenu vidéo lorsque le moniteur est preffered pas connecté au système.</value>
+</data>
+<data name="TXT_MONITORAFFINITY">
+  <value>Moniteurs</value>
+</data>
+<data name="TXT_PREFERREDMONITOR">
+  <value>Moniteur Preffered:</value>
+</data>
+<data name="TXT_PREFERREDMONITORDESC">
+  <value>Le moniteur preffered sera utilisé pour afficher le contenu vidéo à chaque fois qu'il est connecté au système.</value>
+</data>
+<data name="TXT_RESTOREDEFAULTSDESC">
+  <value>Utilisation de 'Restore Defaults' sera mis à la fois le moniteur préféré et de repli vers le moniteur principal attaché au système.</value>
+</data>
+<data name="TXT_PLAYLISTOPTIONS">
+  <value>Playlist</value>
+</data>
+<data name="TXT_PREFERREDMONITORDETACHED">
+  <value>Le moniteur préférée n'est plus connecté au système. Pour choisir un autre moniteur preffered, utilisez «Paramètres par défaut», puis sélectionnez de nouveau le moniteur préféré.</value>
+</data>
+<data name="TXT_PLAYLIST_FORMAT">
+  <value>Format playlist entrées comme suit:</value>
+</data>
+<data name="TXT_INVALIDDVDVOLUME">
+  <value>Vous avez spécifié un volume DVD invalide. S'il vous plaît sélectionnez de nouveau.</value>
+</data>
+<data name="TXT_PANELSHIDDEN_NOADMIN">
+  <value>Parce que votre compte d'utilisateur ne dispose pas des droits d'administrateur, vous ne serez pas en mesure d'afficher les fichiers pris en charge et les paramètres de contrôle à distance.
+
+Pour accéder à ces paramètres, vous devez lancer ProTone Joueur sous un compte d'utilisateur qui a des privilèges d'administrateur</value>
+</data>
+<data name="TXT_MNUCLEAR">
+  <value>Effacer playlist</value>
+</data>
+<data name="TXT_MNUDELETE">
+  <value>Supprimer l'élément playlist</value>
+</data>
+<data name="TXT_MNUJUMPTOITEM">
+  <value>Aller à la rubrique playlist ...</value>
+</data>
+<data name="TXT_MNUMOVEDOWN">
+  <value>Descendre</value>
+</data>
+<data name="TXT_MNUMOVEUP">
+  <value>Déplacer vers le haut</value>
+</data>
+<data name="TXT_MNUPLAYLISTEND">
+  <value>Événement de fin playlist</value>
+</data>
+<data name="TXT_MNUTOGGLESHUFFLE">
+  <value>Lecture aléatoire</value>
+</data>
+<data name="TXT_MNUFULLSCREEN">
+  <value>Basculer Plein écran</value>
+</data>
+<data name="TXT_MNUFWD">
+  <value>Avant 5 secondes</value>
+</data>
+<data name="TXT_MNULOAD">
+  <value>Charger les fichiers ...</value>
+</data>
+<data name="TXT_MNUNEXT">
+  <value>Jouer prochaine</value>
+</data>
+<data name="TXT_MNUOPENDISK">
+  <value>Chargez DVD ...</value>
+</data>
+<data name="TXT_MNUOPENURL">
+  <value>Ouvrir une URL ...</value>
+</data>
+<data name="TXT_MNUPAUSE">
+  <value>Pause</value>
+</data>
+<data name="TXT_MNUPLAY">
+  <value>Jouer</value>
+</data>
+<data name="TXT_MNUPREV">
+  <value>Jouer précédente</value>
+</data>
+<data name="TXT_MNUREW">
+  <value>Rembobinez 5 secondes</value>
+</data>
+<data name="TXT_MNUSTOP">
+  <value>Stop</value>
+</data>
+<data name="TXT_MNUVOLDN">
+  <value>Réduction de volume de 5%</value>
+</data>
+<data name="TXT_MNUVOLUP">
+  <value>Volume en hausse de 5%</value>
+</data>
+<data name="TXT_MNUCFGAUDIO">
+  <value>Paramètres audio ...</value>
+</data>
+<data name="TXT_MNUCFGSUBTITLES">
+  <value>Réglages sous-titres ...</value>
+</data>
+<data name="TXT_MNUCFGTIMER">
+  <value>Réglages Scheduler ...</value>
+</data>
+<data name="TXT_MNUCFGVIDEO">
+  <value>Paramètres vidéo ...</value>
+</data>
+<data name="TXT_MNUOPENSETTINGS">
+  <value>Paramètres ...</value>
+</data>
+<data name="TXT_MNUSHOWLOGCONSOLE">
+  <value>Afficher le fichier journal ...</value>
+</data>
+<data name="TXT_CMDHIDEBOOKMARKMANAGER">
+  <value>Masquer Bookmark Manager</value>
+</data>
+<data name="TXT_SUBFONTS">
+  <value>Polices et couleurs</value>
+</data>
+<data name="TXT_SUBSAMPLETEXT">
+  <value>Exemple de texte des sous-titres</value>
+</data>
+<data name="TXT_SUBFONT">
+  <value>Police du texte des sous-titres</value>
+</data>
+<data name="TXT_SUBCOLOR">
+  <value>Couleur du texte des sous-titres</value>
+</data>
+<data name="TXT_SUBENABLED">
+  <value>Activer sous-titres</value>
+</data>
+<data name="TXT_NOTIFYSUBDOWNLOADED">
+  <value>Afficher les info-bulles de notification près de la zone de notification lorsque des sous-titres téléchargement terminé</value>
+</data>
+<data name="TXT_RESTORE_DEFAULTSERVERS">
+  <value>Charge des serveurs par défaut</value>
+</data>
+<data name="TXT_ALBUM">
+  <value>Nom de l'album</value>
+</data>
+<data name="TXT_ARTIST">
+  <value>Artiste</value>
+</data>
+<data name="TXT_ARTWORK">
+  <value>Les images incorporées</value>
+</data>
+<data name="TXT_BITRATE">
+  <value>Débit binaire</value>
+</data>
+<data name="TXT_CHANNELS">
+  <value>Mode audio</value>
+</data>
+<data name="TXT_COMMENTS">
+  <value>Commentaires</value>
+</data>
+<data name="TXT_DURATION">
+  <value>Durée</value>
+</data>
+<data name="TXT_FRAME_RATE">
+  <value>Frame rate</value>
+</data>
+<data name="TXT_FREQUENCY">
+  <value>Fréquence d'échantillonnage</value>
+</data>
+<data name="TXT_GENRE">
+  <value>Genre musical</value>
+</data>
+<data name="TXT_ID3INFO">
+  <value>ID3 information sur le terrain</value>
+</data>
+<data name="TXT_TITLE">
+  <value>Titre</value>
+</data>
+<data name="TXT_TRACK">
+  <value>Suivre index</value>
+</data>
+<data name="TXT_VIDEO_SIZE">
+  <value>Taille de la vidéo</value>
+</data>
+<data name="TXT_YEAR">
+  <value>Année</value>
+</data>
+<data name="TXT_PICTURE">
+  <value>Image</value>
+</data>
+<data name="TXT_PICTURE_TEXT">
+  <value>Description de l'image</value>
+</data>
+<data name="TXT_PICTURE_TYPE">
+  <value>ID3 type d'image</value>
+</data>
+<data name="TXT_ID3PATTERNS">
+  <value>Les ID3 modèles sont basés sur des combinaisons de ces mots-clés:
+
+&lt;N&gt; = nom de fichier
+&lt;F&gt; = nom de dossier
+&lt;A&gt; = nom de l'artiste comme dans ID3 Info;
+&lt;B&gt; nom de l'album = comme dans ID3 Info;
+&lt;T&gt; = titre comme dans ID3 Info;
+&lt;C&gt; = commentaires à la manière ID3 Info;
+&lt;G&gt; = genre comme dans ID3 Info;
+&lt;#&gt; = track # comme dans ID3 Info;.
+&lt;Y&gt; = année ID3 Infos
+
+Plages de caractères tels que &lt;N2-12,14-20&gt; sont également autorisés.</value>
+</data>
+<data name="TXT_RESETVIDEOPOSITION">
+  <value>Réinitialiser position 
+de la fenêtre vidéo</value>
+</data>
+<data name="TXT_RESETVIDEOPOSITION_HINT">
+  <value>Utilisez cette commande pour afficher la fenêtre de rendu vidéo dans l'écran actif.</value>
+</data>
+<data name="TXT_SUBTITLE_AVAILABLE">
+  <value>Sous-titres disponibile</value>
+</data>
+<data name="TXT_SUBTITLE_DOWNLOADING">
+  <value>Téléchargement sous-titres, s'il vous plaît patienter ...</value>
+</data>
+<data name="TXT_DISKS_OPTIONS">
+  <value>CD/DVD</value>
+</data>
+<data name="TXT_OPT_NONE">
+  <value>Ne pas lire Audio CD info</value>
+</data>
+<data name="TXT_OPT_CDTEXT">
+  <value>CD-Text seulement</value>
+</data>
+<data name="TXT_OPT_CDDB">
+  <value>Serveur CDDB seulement</value>
+</data>
+<data name="TXT_OPT_CDTEXT_CDDB">
+  <value>Premier sur CD-Text, puis sur serveur CDDB</value>
+</data>
+<data name="TXT_OPT_CDDB_CDTEXT">
+  <value>Premier sur CDDB serveur, puis sur CD-Text</value>
+</data>
+<data name="TXT_AUDIOCDINFO_SOURCE">
+  <value>Lire Audio CD info sur:</value>
+</data>
+<data name="TXT_CDDB_SERVERNAME">
+  <value>Adresse du serveur CDDB:</value>
+</data>
+<data name="TXT_CDDB_SERVERPORT">
+  <value>Port du serveur CDDB:</value>
+</data>
+<data name="TXT_OPT_RELOAD_CDINFO">
+  <value>Recharger informations sur le CD</value>
+</data>
+<data name="TXT_CDTRACKINFO">
+  <value>CD Piste Info:</value>
+</data>
+<data name="TXT_S_AUDIOSETTINGS">
+  <value>Audio</value>
+</data>
+<data name="TXT_S_VIDEOSETTINGS">
+  <value>Vidéo</value>
+</data>
+<data name="TXT_CAUTION_REALTIME">
+  <value>ATTENTION: Ces paramètres sont appliqués en temps réel. Vous n'avez pas besoin d'appuyer sur OK pour appliquer ces paramètres</value>
+</data>
+<data name="TXT_SELECT_RADIO_STATION">
+  <value>Sélectionnez une station de radio:</value>
+</data>
+<data name="TXT_URLPART">
+  <value>URL du serveur (correspondance partielle):</value>
+</data>
+<data name="TXT_SERVERTITLE">
+  <value>Nom du serveur (correspondance partielle):</value>
+</data>
+<data name="TXT_SEARCH_BY">
+  <value>Recherche par:</value>
+</data>
+    
+</root>

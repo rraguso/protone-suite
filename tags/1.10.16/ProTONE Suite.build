@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<project name="ProTONE Suite - 1.10" default="build" basedir=".">
+    <description>ProTONE Suite Release 1.10</description>
+
+    <property name="svnuser" value="octavian.paraschiv" />
+    <property name="svnpass" value="Cx9yE2EX3QH7" />
+
+    <property name="debug" value="true" overwrite="false" />
+    <property name="dotnet40.framework.dir" value="c:\windows\microsoft.net\framework\v4.0.30319" />
+    <property name="msbuild40.executable" value="c:\windows\microsoft.net\framework\v4.0.30319\msbuild.exe" />
+    <property name="istool.executable" value="c:\Program Files (x86)\ISTool\istool.exe" />
+    <property name="root" value="." />
+
+    <target name="build" description="Rebuild ProTONE Suite">
+        <loadtasks assembly="f:\Programs\nantcontrib-0.92\bin\NAnt.Contrib.Tasks.dll" />
+
+        <echo message=" BUILD STARTED !!" />
+
+        <call target="cleanup" />
+        <call target="SvnCheckout" />
+        <call target="VersionInfoUpdate" />
+        <call target="BuildVSSolution" />
+        <call target="BuildInstaller" />
+        <call target="PostBuildResults" />
+
+        <echo message=" BUILD DONE !!" />
+
+    </target>
+
+
+    <target name="cleanup">
+            <!-- Delete folders -->
+            <echo message="Source code cleanup ..." /> 
+            <delete dir="${root}\src" failonerror="false" />
+            <echo message="Source code cleanup done" />
+        </target>
+
+        <target name="SvnCheckout">
+            <!-- ReGet files from SVN -->
+            <echo message="Source code check out ..." /> 
+            <svn-checkout
+                destination="${root}\src" 
+                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.10.x/src" 
+                recursive="true"
+                quiet="false"
+                verbose="true"
+                username="${svnuser}"
+                password="${svnpass}" 
+                revision="HEAD"
+                cache-auth="false"
+            />
+            <echo message="Source code check out done" />
+        </target>
+
+        <target name="VersionInfoUpdate">
+            <!-- Version info increment -->
+            <iniread property="oldversion" filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" default="1.10.0" />
+            <property name="oldversion.build" value="${string::substring(oldversion, 5, string::get-length(oldversion) - 5)}" />
+            <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
+            <property name="newversion" value="${string::substring(oldversion, 0, 5) + newversion.build}" />
+
+            <echo message="Old version: ${oldversion}" />
+            <echo message="New version: ${newversion}" />
+
+            <loadfile file="${root}\src\Framework\OPMediaBase\OPMedia.Core\VersionTemplate.cs" property="file.contents" />
+            <property name="file.contents" value="${string::replace(file.contents, 'VERSION', newversion)}" />
+
+            <echo message="${file.contents}" file="${root}\src\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
+
+        </target>
+
+        <target name="BuildVSSolution">
+            <!-- Build solution -->
+            <echo message="Building ProTONE Suite solution in VS2010 ..." /> 
+            <exec 
+                program="${msbuild40.executable}" 
+                verbose="true" 
+                workingdir="${root}\src" 
+                commandline="/p:Configuration=Debug /t:Rebuild &quot;ProTONE Suite.sln&quot; /v:normal" 
+            />
+        </target>
+
+        <target name="BuildInstaller">
+            <!-- Build installation -->
+            <echo message="Building ProTONE Suite installer ..." />
+            <exec
+                program="${istool.executable}"
+                workingdir="${root}\src\Installers"
+                verbose="true">
+                <arg value="-compile" />
+                <arg value=".\ProtoneSuite.iss" />
+            </exec>
+        </target>
+
+        <target name="PostBuildResults">
+            <!-- Post build results -->
+            <echo message="Upload build results to SVN ..." />
+            <svn 
+                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+                quiet="false"
+                verbose="true"
+                username="${svnuser}" 
+                password="${svnpass}"
+                failonerror="false">
+                
+                <arg value="add" />
+                <arg path="${'${root}\..\..\..\publish\1.10\ProTONE Suite ' + newversion + '.exe'}" />
+                
+            </svn>
+            
+            <svn 
+                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+                quiet="false"
+                verbose="true"
+                username="${svnuser}"
+                password="${svnpass}"
+                failonerror="false">
+                
+                <arg value="delete" />
+                <arg path="${'${root}\..\..\..\publish\1.10\ProTONE Suite ' + oldversion + '.exe'}" />
+                
+            </svn>
+
+            <svn
+                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+                quiet="false"
+                verbose="true"
+                username="${svnuser}"
+                password="${svnpass}">
+                
+                <arg line="commit -m build_${newversion}" />
+                <arg line="${'${root}\..\..\..\publish\1.10'}" />
+                
+            </svn>
+
+            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" value="${newversion}" />
+
+            <svn
+                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.10.x"
+                quiet="false"
+                verbose="true"
+                username="${svnuser}"
+                password="${svnpass}">
+                
+                <arg line="commit -m build_${newversion}" />
+                <arg line="${root}" />
+
+            </svn>
+            
+        </target>
+       
+</project>
