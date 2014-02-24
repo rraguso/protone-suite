@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using OPMedia.Runtime.Addons;
 using OPMedia.Runtime.Addons.AddonsBase;
 using OPMedia.Core.TranslationSupport;
+using OPMedia.Core;
 #endregion
 
 namespace OPMedia.Runtime.Addons
@@ -164,6 +165,9 @@ namespace OPMedia.Runtime.Addons
         private AddonsCore()
         {
             Translator.RegisterTranslationAssembly(GetType().Assembly);
+
+            Logger.LogTrace("Checking default addons configuration ...");
+            ApplicationInfo.CreateDefaultAddonsConfig();
 
             // Init addons config first
             AddonsConfig.Init();
