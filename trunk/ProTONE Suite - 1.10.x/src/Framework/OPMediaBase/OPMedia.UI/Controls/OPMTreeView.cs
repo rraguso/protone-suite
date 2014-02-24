@@ -9,6 +9,8 @@ using System.Drawing;
 using System.ComponentModel;
 using OPMedia.Core;
 using OPMedia.Core.GlobalEvents;
+using System.Runtime.InteropServices;
+using OPMedia.UI.Properties;
 
 namespace OPMedia.UI.Controls
 {
@@ -27,6 +29,9 @@ namespace OPMedia.UI.Controls
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new Color ForeColor { get { return base.ForeColor; } }
 
+        ImageList _sil = new ImageList();
+
+
         public OPMTreeView()
             : base()
         {
@@ -36,6 +41,11 @@ namespace OPMedia.UI.Controls
             this.ResizeRedraw = true;
             this.DoubleBuffered = true;
             this.DrawMode = TreeViewDrawMode.OwnerDrawText;
+
+            _sil.TransparentColor = Color.Magenta;
+            _sil.Images.Add(Resources.TVState0);
+            _sil.Images.Add(Resources.TVState1);
+            this.StateImageList = _sil;
 
             OnThemeUpdated();
 
@@ -133,7 +143,46 @@ namespace OPMedia.UI.Controls
             return null;
         }
 
-        
+        private const int TVIF_STATE = 0x8;
+        private const int TVIS_STATEIMAGEMASK = 0xF000;
+        private const int TV_FIRST = 0x1100;
+        private const int TVM_SETITEM = TV_FIRST + 63;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam,
+                                                 ref TVITEM lParam);
+
+
+        /// <summary>
+        /// Hides the checkbox for the specified node on a TreeView control.
+        /// </summary>
+        public void HideCheckBox(TreeNode tn)
+        {
+            if (base.CheckBoxes)
+            {
+                TVITEM tvi = new TVITEM();
+                tvi.hItem = tn.Handle;
+                tvi.mask = TVIF_STATE;
+                tvi.stateMask = TVIS_STATEIMAGEMASK;
+                tvi.state = 0;
+                SendMessage(this.Handle, TVM_SETITEM, IntPtr.Zero, ref tvi);
+            }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            // Suppress WM_LBUTTONDBLCLK
+            if (base.CheckBoxes)
+            {
+                if (m.Msg == (int)Messages.WM_LBUTTONDBLCLK) 
+                { 
+                    m.Result = IntPtr.Zero;
+                    return;
+                }
+            }
+
+            base.WndProc(ref m);
+        }   
     }
 
 }

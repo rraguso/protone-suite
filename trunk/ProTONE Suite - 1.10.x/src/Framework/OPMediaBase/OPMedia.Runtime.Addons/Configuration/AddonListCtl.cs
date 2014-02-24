@@ -15,6 +15,7 @@ using OPMedia.Core;
 using OPMedia.UI.Generic;
 using OPMedia.Runtime.Addons.Properties;
 using System.Runtime.InteropServices;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.Runtime.Addons.Configuration
 {
@@ -72,6 +73,8 @@ namespace OPMedia.Runtime.Addons.Configuration
 
         void AddonListCtl_Load(object sender, EventArgs e)
         {
+            tvAddons.KeyDown += new KeyEventHandler(tvAddons_KeyDown);
+
             tvAddons.Font = ThemeManager.NormalBoldFont;
             tvAddons.Nodes.Clear();
             
@@ -111,7 +114,11 @@ namespace OPMedia.Runtime.Addons.Configuration
                 tn.NodeFont = ThemeManager.SmallestFont;
                 tn.Tag = ai;
                 tn.Checked = ai.Selected || ai.IsRequired;
+                
                 catNode.Nodes.Add(tn);
+
+                if (ai.IsRequired)
+                    tvAddons.HideCheckBox(tn);
             }
             foreach (AddonInfo ai in PropertyAddons)
             {
@@ -123,6 +130,9 @@ namespace OPMedia.Runtime.Addons.Configuration
                 tn.Tag = ai;
                 tn.Checked = ai.Selected || ai.IsRequired;
                 catNode.Nodes.Add(tn);
+
+                if (ai.IsRequired)
+                    tvAddons.HideCheckBox(tn);
             }
             foreach (AddonInfo ai in PreviewAddons)
             {
@@ -134,6 +144,9 @@ namespace OPMedia.Runtime.Addons.Configuration
                 tn.Tag = ai;
                 tn.Checked = ai.Selected || ai.IsRequired;
                 catNode.Nodes.Add(tn);
+
+                if (ai.IsRequired)
+                    tvAddons.HideCheckBox(tn);
             }
 
             tvAddons.AfterCheck -= new TreeViewEventHandler(OnNodeChecked);
@@ -146,6 +159,16 @@ namespace OPMedia.Runtime.Addons.Configuration
             tvAddons.AfterSelect += new TreeViewEventHandler(tvAddons_AfterSelect);
 
             tvAddons.ExpandAll();
+            tvAddons.SelectedNode = tvAddons.Nodes[0];
+        }
+
+        void tvAddons_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Space)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
         }
 
         void tvAddons_AfterSelect(object sender, TreeViewEventArgs e)
@@ -172,14 +195,48 @@ namespace OPMedia.Runtime.Addons.Configuration
                 e.Action == TreeViewAction.Expand)
                 return;
 
-            tvAddons.AfterCheck -= new TreeViewEventHandler(OnNodeChecked);
+            Logger.LogTrace("OnNodeChecked: " + e);
 
-            CheckAddon(e.Node);
+            try
+            {
+                tvAddons.AfterCheck -= new TreeViewEventHandler(OnNodeChecked);
 
-            CheckNodeParent(e.Node, e.Node.Checked);
-            CheckNodeTree(e.Node, e.Node.Checked);
+                if (IsRequiredNode(e.Node))
+                {
+                    e.Node.Checked = true;
+                }
+                else
+                {
+                    CheckAddon(e.Node);
+                    CheckNodeParent(e.Node, e.Node.Checked);
+                    CheckNodeTree(e.Node, e.Node.Checked);
+                }
+            }
+            finally
+            {
+                tvAddons.AfterCheck += new TreeViewEventHandler(OnNodeChecked);
+            }
+        }
 
-            tvAddons.AfterCheck += new TreeViewEventHandler(OnNodeChecked);
+        private bool IsRequiredNode(TreeNode tn)
+        {
+            if (tn != null)
+            {
+                AddonInfo ai = tn.Tag as AddonInfo;
+                if (ai != null && ai.IsRequired)
+                    return true;
+
+                foreach (TreeNode child in tn.Nodes)
+                {
+                    AddonInfo aiChild = child.Tag as AddonInfo;
+                    if (aiChild != null && aiChild.IsRequired)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         private void CheckNodeParent(TreeNode tn, bool check)
@@ -189,7 +246,8 @@ namespace OPMedia.Runtime.Addons.Configuration
                 bool siblingChecked = false;
                 foreach (TreeNode sibling in tn.Parent.Nodes)
                 {
-                    siblingChecked |= sibling.Checked;
+                    siblingChecked |= sibling.Checked | IsRequiredNode(sibling);
+
                 }
 
                 tn.Parent.Checked = check || siblingChecked;
@@ -238,6 +296,7 @@ namespace OPMedia.Runtime.Addons.Configuration
             }
         }
 
+        
     }
 
     public class AddonInfo
