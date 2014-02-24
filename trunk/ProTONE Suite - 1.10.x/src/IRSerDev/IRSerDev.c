@@ -1,8 +1,4 @@
-#include <windows.h>
-
-#define WIN32_LEAN_AND_MEAN
-
-typedef void (__stdcall *CallbackProc)(__int64);
+#include "IRSerDev.h"
 
 HANDLE hThread    = INVALID_HANDLE_VALUE;
 HANDLE hPort      = INVALID_HANDLE_VALUE;
