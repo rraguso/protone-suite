@@ -91,6 +91,18 @@
                 <arg value=".\ProtoneSuite.iss" />
             </exec>
         </target>
+        
+        <target name="BuildSDKInstaller">
+	            <!-- Build installation -->
+	            <echo message="Building OPMedia SDK installer ..." />
+	            <exec
+	                program="${istool.executable}"
+	                workingdir="${root}\src\Installers"
+	                verbose="true">
+	                <arg value="-compile" />
+	                <arg value=".\OPMediaSDK.iss" />
+	            </exec>
+        </target>
 
         <target name="PostBuildResults">
             <!-- Post build results -->
@@ -119,6 +131,32 @@
                 <arg value="delete" />
                 <arg path="${'${root}\..\..\..\publish\1.10\ProTONE Suite ' + oldversion + '.exe'}" />
                 
+            </svn>
+            
+            <svn 
+		    uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+		    quiet="false"
+		    verbose="true"
+		    username="${svnuser}" 
+		    password="${svnpass}"
+		    failonerror="false">
+
+		    <arg value="add" />
+		    <arg path="${'${root}\..\..\..\publish\1.10\OPMedia SDK ' + newversion + '.exe'}" />
+
+		</svn>
+
+		<svn 
+		    uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+		    quiet="false"
+		    verbose="true"
+		    username="${svnuser}"
+		    password="${svnpass}"
+		    failonerror="false">
+
+		    <arg value="delete" />
+		    <arg path="${'${root}\..\..\..\publish\1.10\OPMedia SDK ' + oldversion + '.exe'}" />
+	                    
             </svn>
 
             <svn
