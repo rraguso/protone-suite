@@ -1,2 +1,2 @@
 [ProTONE Suite]
-Version=1.10.20
+Version=1.10.21
