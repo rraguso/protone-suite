@@ -70,41 +70,73 @@ Name: en; MessagesFile: compiler:Default.isl
 ; you can also use Microsoft Visual Styles (*.msstyles) resources.
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: {#BINDIR}\ICSharpCode.SharpZipLib.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\XmlRpc.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\taglib-sharp.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.Core.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.Utility.exe; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.Runtime.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.Runtime.ProTONE.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.UI.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.UI.ProTONE.dll; DestDir: {app}; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\player.ico; DestDir: {app}\Resources; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\bookmark.ico; DestDir: {app}\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\AudioFile.ico; DestDir: {app}\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\VideoFile.ico; DestDir: {app}\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\Playlist.ico; DestDir: {app}\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\Subtitle.ico; DestDir: {app}\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\ro\OPMedia.ProTONE.resources.dll; DestDir: {app}\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\ro\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\ro\OPMedia.UI.resources.dll; DestDir: {app}\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\ro\OPMedia.Utility.resources.dll; DestDir: {app}\ro; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\de\OPMedia.ProTONE.resources.dll; DestDir: {app}\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\de\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\de\OPMedia.UI.resources.dll; DestDir: {app}\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\de\OPMedia.Utility.resources.dll; DestDir: {app}\de; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\fr\OPMedia.ProTONE.resources.dll; DestDir: {app}\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\fr\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\fr\OPMedia.UI.resources.dll; DestDir: {app}\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\fr\OPMedia.Utility.resources.dll; DestDir: {app}\fr; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.Runtime.Addons.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\Resources\catalog.ico; DestDir: {app}\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\ro\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\ro\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\de\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\de\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\fr\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\fr\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\IRSerDev.dll; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\IRSerDev.h; DestDir: {app}; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\Templates\Catalog\Default Catalog; DestDir: {app}\Templates\Catalog; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace
+Source: {#BINDIR}\ICSharpCode.SharpZipLib.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\XmlRpc.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\taglib-sharp.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\OPMedia.Core.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\OPMedia.Utility.exe; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\OPMedia.Runtime.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\OPMedia.Runtime.ProTONE.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\OPMedia.UI.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\OPMedia.UI.ProTONE.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\Resources\player.ico; DestDir: {app}\DLL\Resources; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\Resources\bookmark.ico; DestDir: {app}\DLL\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\Resources\AudioFile.ico; DestDir: {app}\DLL\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\Resources\VideoFile.ico; DestDir: {app}\DLL\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\Resources\Playlist.ico; DestDir: {app}\DLL\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\Resources\Subtitle.ico; DestDir: {app}\DLL\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
+Source: {#BINDIR}\ro\OPMedia.ProTONE.resources.dll; DestDir: {app}\DLL\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\ro\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\DLL\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\ro\OPMedia.UI.resources.dll; DestDir: {app}\DLL\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\ro\OPMedia.Utility.resources.dll; DestDir: {app}\DLL\ro; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\de\OPMedia.ProTONE.resources.dll; DestDir: {app}\DLL\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\de\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\DLL\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\de\OPMedia.UI.resources.dll; DestDir: {app}\DLL\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\de\OPMedia.Utility.resources.dll; DestDir: {app}\DLL\de; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\fr\OPMedia.ProTONE.resources.dll; DestDir: {app}\DLL\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\fr\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\DLL\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\fr\OPMedia.UI.resources.dll; DestDir: {app}\DLL\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\fr\OPMedia.Utility.resources.dll; DestDir: {app}\DLL\fr; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
+Source: {#BINDIR}\OPMedia.Runtime.Addons.dll; DestDir: {app}\DLL; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
+Source: {#BINDIR}\Resources\catalog.ico; DestDir: {app}\DLL\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
+Source: {#BINDIR}\ro\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\DLL\ro\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
+Source: {#BINDIR}\de\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\DLL\de\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
+Source: {#BINDIR}\fr\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\DLL\fr\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
+Source: {#BINDIR}\IRSerDev.dll; DestDir: {app}\DLL; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
+Source: {#BINDIR}\IRSerDev.h; DestDir: {app}\DLL; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
+Source: {#BINDIR}\Templates\Catalog\Default Catalog; DestDir: {app}\DLL\Templates\Catalog; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace
+Source: ..\SDK\Tools\TranslationEditor\GoogleTranslateAPI.dll; DestDir: {app}\Tools\TranslationEditor
+Source: ..\SDK\Tools\TranslationEditor\RoboTranslator.dll; DestDir: {app}\Tools\TranslationEditor
+Source: ..\SDK\Tools\TranslationEditor\TranslationEditor.exe; DestDir: {app}\Tools\TranslationEditor
+Source: ..\SDK\VS2010\GenerateDbmlFromSdf.dll; DestDir: {app}\VS2010\
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\AddonPanel.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\AddonPanel.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\AddonPanel.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\SampleCfgPanel.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\SampleCfgPanel.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\SampleCfgPanel.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Preview\AddonPanel.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Preview
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Preview\AddonPanel.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Preview
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Preview\AddonPanel.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Preview
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Properties\AssemblyInfo.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Properties
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Property\AddonPanel.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Property
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Property\AddonPanel.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Property
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Property\AddonPanel.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Property
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Translations\Translation.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Translations
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Translations\Translation.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Translations
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\SampleAddon.Builtin.csproj; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properties\AssemblyInfo.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properties
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properties\Resources.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properties
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properties\Resources.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properties
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Translations\Translation.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Translations
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Translations\Translation.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Translations
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\DefaultAddons.config; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\MainForm.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\MainForm.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Program.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\SampleAddonApplication.csproj; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication.sln; DestDir: {app}\SDKSamples\SampleAddonApplication
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication.suo; DestDir: {app}\SDKSamples\SampleAddonApplication; Attribs: hidden
 
 [Icons]
 
@@ -115,15 +147,18 @@ Name: default; Description: default; Flags: iscustom
 
 [Dirs]
 
-Name: {app}\ro; Flags: uninsalwaysuninstall
-Name: {app}\de; Flags: uninsalwaysuninstall
-Name: {app}\fr; Flags: uninsalwaysuninstall
-Name: {app}\Resources; Flags: uninsalwaysuninstall
-Name: {app}\Templates
-Name: {app}\Templates\Catalog
+Name: {app}\DLL\ro; Flags: uninsalwaysuninstall
+Name: {app}\DLL\de; Flags: uninsalwaysuninstall
+Name: {app}\DLL\fr; Flags: uninsalwaysuninstall
+Name: {app}\DLL\Resources; Flags: uninsalwaysuninstall
+Name: {app}\DLL\Templates
+Name: {app}\DLL\Templates\Catalog
+Name: {app}\Tools
+Name: {app}\VS2010
+Name: {app}\SDKSamples
 
 [Run]
-;Filename: {app}\OPMedia.MediaLibrary.exe; Parameters: ConfigAddons {language}; WorkingDir: {app}; StatusMsg: {cm:cfgMediaLibrary}; Flags: hidewizard runascurrentuser; Components: itemPlayer\itemLibrary
+;Filename: {app}\DLL\OPMedia.MediaLibrary.exe; Parameters: ConfigAddons {language}; WorkingDir: {app}\DLL; StatusMsg: {cm:cfgMediaLibrary}; Flags: hidewizard runascurrentuser; Components: itemPlayer\itemLibrary
 
 [UninstallRun]
 
