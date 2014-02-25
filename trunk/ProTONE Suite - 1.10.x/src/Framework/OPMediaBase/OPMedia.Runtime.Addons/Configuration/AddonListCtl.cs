@@ -75,31 +75,32 @@ namespace OPMedia.Runtime.Addons.Configuration
         {
             tvAddons.KeyDown += new KeyEventHandler(tvAddons_KeyDown);
 
+            //tvAddons.ForeColor = ThemeManager.LinkColor;
             tvAddons.Font = ThemeManager.NormalBoldFont;
             tvAddons.Nodes.Clear();
-            
+
             foreach (AddonInfo ai in AllAddons)
             {
                 if (!_libNodes.ContainsKey(ai.LibraryName))
                 {
                     TreeNode tnLibrary = new TreeNode(ai.LibraryName);
-                    tnLibrary.NodeFont = ThemeManager.NormalBoldFont;
+                    tnLibrary.NodeFont = ThemeManager.LargeFont;
                     tnLibrary.Tag = new AddonLibraryInfo(ai);
                     tvAddons.Nodes.Add(tnLibrary);
                     _libNodes.Add(ai.LibraryName, tnLibrary);
 
                     TreeNode tnCategory = new TreeNode(Translator.Translate("TXT_NAV_ADDONS"));
-                    tnCategory.NodeFont = ThemeManager.SmallFont;
+                    tnCategory.NodeFont = ThemeManager.NormalBoldFont;
                     tnCategory.Tag = "nav";
                     tnLibrary.Nodes.Add(tnCategory);
 
                     tnCategory = new TreeNode(Translator.Translate("TXT_PROP_ADDONS"));
-                    tnCategory.NodeFont = ThemeManager.SmallFont;
+                    tnCategory.NodeFont = ThemeManager.NormalBoldFont;
                     tnCategory.Tag = "prop";
                     tnLibrary.Nodes.Add(tnCategory);
 
                     tnCategory = new TreeNode(Translator.Translate("TXT_PREVIEW_ADDONS"));
-                    tnCategory.NodeFont = ThemeManager.SmallFont;
+                    tnCategory.NodeFont = ThemeManager.NormalBoldFont;
                     tnCategory.Tag = "preview";
                     tnLibrary.Nodes.Add(tnCategory);
                 }
@@ -111,14 +112,9 @@ namespace OPMedia.Runtime.Addons.Configuration
                 TreeNode catNode = libNode.Nodes[0];
 
                 TreeNode tn = new TreeNode(ai.TranslatedName);
-                tn.NodeFont = ThemeManager.SmallestFont;
+                tn.NodeFont = ThemeManager.SmallFont;
                 tn.Tag = ai;
-                tn.Checked = ai.Selected || ai.IsRequired;
-                
                 catNode.Nodes.Add(tn);
-
-                if (ai.IsRequired)
-                    tvAddons.HideCheckBox(tn);
             }
             foreach (AddonInfo ai in PropertyAddons)
             {
@@ -126,13 +122,9 @@ namespace OPMedia.Runtime.Addons.Configuration
                 TreeNode catNode = libNode.Nodes[1];
 
                 TreeNode tn = new TreeNode(ai.TranslatedName);
-                tn.NodeFont = ThemeManager.SmallestFont; 
+                tn.NodeFont = ThemeManager.SmallFont; 
                 tn.Tag = ai;
-                tn.Checked = ai.Selected || ai.IsRequired;
                 catNode.Nodes.Add(tn);
-
-                if (ai.IsRequired)
-                    tvAddons.HideCheckBox(tn);
             }
             foreach (AddonInfo ai in PreviewAddons)
             {
@@ -140,26 +132,69 @@ namespace OPMedia.Runtime.Addons.Configuration
                 TreeNode catNode = libNode.Nodes[2];
 
                 TreeNode tn = new TreeNode(ai.TranslatedName);
-                tn.NodeFont = ThemeManager.SmallestFont;
+                tn.NodeFont = ThemeManager.SmallFont;
                 tn.Tag = ai;
-                tn.Checked = ai.Selected || ai.IsRequired;
                 catNode.Nodes.Add(tn);
-
-                if (ai.IsRequired)
-                    tvAddons.HideCheckBox(tn);
             }
 
-            tvAddons.AfterCheck -= new TreeViewEventHandler(OnNodeChecked);
-            foreach (TreeNode tn in tvAddons.Nodes)
-            {
-                CheckNodeState(tn);
-            }
-            tvAddons.AfterCheck += new TreeViewEventHandler(OnNodeChecked);
-
+            UpdateTreeNodes(); 
+           
             tvAddons.AfterSelect += new TreeViewEventHandler(tvAddons_AfterSelect);
 
             tvAddons.ExpandAll();
             tvAddons.SelectedNode = tvAddons.Nodes[0];
+        }
+
+        protected override void OnThemeUpdatedInternal()
+        {
+            UpdateTreeNodes();
+        }
+
+        private void UpdateTreeNodes()
+        {
+            tvAddons.AfterCheck -= new TreeViewEventHandler(OnNodeChecked);
+            foreach (TreeNode tn in tvAddons.Nodes)
+            {
+                UpdateTreeNode(tn);
+            }
+            tvAddons.AfterCheck += new TreeViewEventHandler(OnNodeChecked);
+        }
+
+        private bool UpdateTreeNode(TreeNode tn)
+        {
+            tn.ForeColor = ThemeManager.ForeColor;
+
+            AddonInfo ai = tn.Tag as AddonInfo;
+            if (ai != null)
+            {
+                tn.Checked = (ai.Selected || ai.IsRequired);
+                if (ai.IsRequired)
+                    HighlightNode(tn);
+
+                return (ai.Selected || ai.IsRequired);
+            }
+
+            bool check = false;
+            foreach (TreeNode child in tn.Nodes)
+            {
+                check |= UpdateTreeNode(child);
+            }
+
+            tn.Checked = check;
+
+            if (IsRequiredNode(tn))
+                HighlightNode(tn);
+
+            return check;
+        }
+
+        public void HighlightNode(TreeNode tn)
+        {
+            if (!tn.Text.StartsWith("* "))
+                tn.Text = "* " + tn.Text;
+
+            tn.ForeColor = ThemeManager.BorderColor;
+            //tn.NodeFont = ThemeManager.NormalBoldFont;
         }
 
         void tvAddons_KeyDown(object sender, KeyEventArgs e)
@@ -194,7 +229,7 @@ namespace OPMedia.Runtime.Addons.Configuration
             if (e.Action == TreeViewAction.Collapse ||
                 e.Action == TreeViewAction.Expand)
                 return;
-
+            
             Logger.LogTrace("OnNodeChecked: " + e);
 
             try
@@ -223,21 +258,39 @@ namespace OPMedia.Runtime.Addons.Configuration
             if (tn != null)
             {
                 AddonInfo ai = tn.Tag as AddonInfo;
-                if (ai != null && ai.IsRequired)
-                    return true;
+                if (ai != null)
+                    return ai.IsRequired;
 
                 foreach (TreeNode child in tn.Nodes)
                 {
-                    AddonInfo aiChild = child.Tag as AddonInfo;
-                    if (aiChild != null && aiChild.IsRequired)
-                    {
+                    if (IsRequiredNode(child))
                         return true;
-                    }
                 }
             }
 
             return false;
         }
+
+        private bool AnySubNodesChecked(TreeNode treeNode)
+        {
+            bool anyChildrenChecked = false;
+            if (treeNode.Nodes != null && treeNode.Nodes.Count > 0)
+            {
+                foreach (TreeNode child in treeNode.Nodes)
+                {
+                    bool nephewChecked = AnySubNodesChecked(child);
+                    if (nephewChecked || child.Checked)
+                    {
+                        anyChildrenChecked = true;
+                    }
+                }
+
+                treeNode.Checked = anyChildrenChecked;
+            }
+
+            return anyChildrenChecked;
+        }
+
 
         private void CheckNodeParent(TreeNode tn, bool check)
         {
@@ -271,21 +324,7 @@ namespace OPMedia.Runtime.Addons.Configuration
             }
         }
 
-        private void CheckNodeState(TreeNode treeNode)
-        {
-            if (treeNode.Nodes != null && treeNode.Nodes.Count > 0)
-            {
-                bool anyChildChecked = false;
-
-                foreach (TreeNode child in treeNode.Nodes)
-                {
-                    CheckNodeState(child);
-                    anyChildChecked |= child.Checked;
-                }
-
-                treeNode.Checked = anyChildChecked;
-            }
-        }
+        
 
         private void CheckAddon(TreeNode tn)
         {
@@ -313,12 +352,6 @@ namespace OPMedia.Runtime.Addons.Configuration
             get
             {
                 string tagName = string.Format("TXT_{0}", Name.Replace(".", "").ToUpperInvariant());
-                
-                if (IsRequired)
-                {
-                    return "* " + Translator.Translate(tagName);
-                }
-
                 return Translator.Translate(tagName);
             }
         }
@@ -341,15 +374,24 @@ namespace OPMedia.Runtime.Addons.Configuration
 
     public class AddonLibraryInfo
     {
+        public bool IsRequired { get; private set; }
         public bool IsNative { get; private set; }
         public string CodeBase { get; private set; }
         public string LibraryName { get; private set; }
+
+        public List<AddonInfo> NavigationAddons { get; private set; }
+        public List<AddonInfo> PropertyAddons { get; private set; }
+        public List<AddonInfo> PreviewAddons { get; private set; }
 
         public AddonLibraryInfo(AddonInfo ai)
         {
             this.IsNative = ai.IsNative;
             this.CodeBase = ai.CodeBase;
             this.LibraryName = ai.LibraryName;
+
+            this.NavigationAddons = new List<AddonInfo>();
+            this.PropertyAddons = new List<AddonInfo>();
+            this.PreviewAddons = new List<AddonInfo>();
         }
     }
 }

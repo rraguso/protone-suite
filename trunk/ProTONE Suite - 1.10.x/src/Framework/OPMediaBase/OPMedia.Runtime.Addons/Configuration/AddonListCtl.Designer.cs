@@ -42,7 +42,6 @@ namespace OPMedia.Runtime.Addons.Configuration
             this.tvAddons.Name = "tvAddons";
             this.tvAddons.Size = new System.Drawing.Size(668, 411);
             this.tvAddons.TabIndex = 0;
-            this.tvAddons.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.OnNodeChecked);
             // 
             // AddonListCtl
             // 

@@ -128,8 +128,8 @@
   <value>Wählen Sie eine OPMedia Addon Bibliothek zu installieren:</value>
 </data>
 <data name="TXT_INVALID_ADDON">
-  <value>Die DLL-Datei, die Sie ausgewählt haben, ist keine gültige OPMedia Erweiterungsbibliothek.
-
+  <value>Die DLL-Datei, die Sie ausgewählt haben, ist keine gültige OPMedia Erweiterungsbibliothek.&#xD;
+&#xD;
 Hinweis: Wenn Sie glauben jedoch, dass die jeweilige Datei sollte eine gültige Erweiterung haben, Ihnen wird geraten, den Hersteller oder den Lieferanten von dieser DLL zu kontaktieren.</value>
 </data>
 <data name="TXT_ADDON_NAME">
@@ -139,7 +139,7 @@ Hinweis: Wenn Sie glauben jedoch, dass die jeweilige Datei sollte eine gültige 
   <value>Konfiguration</value>
 </data>
 <data name="TXT_ADDONS_CHANGED_RESTART">
-  <value>Um die neuen Addons Konfiguration zu ändern, muss das Programm neu gestartet werden.
+  <value>Um die neuen Addons Konfiguration zu ändern, muss das Programm neu gestartet werden.&#xD;
 Ist es OK, um jetzt neu starten?</value>
 </data>
 <data name="TXT_ADDONS_NOT_CHANGED">
@@ -155,18 +155,17 @@ Ist es OK, um jetzt neu starten?</value>
   <value>Geprüft werden derzeit Addons aktiviert. Verwenden Sie die Kontrollkästchen zum Aktivieren / Deaktivieren Addons. Addons mit * müssen ausgefüllt werden und kann nicht deaktiviert werden.</value>
 </data>
 <data name="TXT_CANT_INSTALL_BUILTIN">
-  <value>Das Addon Bibliothek, die Sie ausgewählt haben, können nicht installiert werden, weil es eine eingebaute Bibliothek ist.
-
-Wenn Sie zum Aktivieren / Deaktivieren der Addons von beabsichtigen die integrierte Bibliothek, verwenden Sie bitte die Addons Checkboxen.</value>
+  <value>Der von Ihnen gewählte Bibliothek kann nicht installiert werden, weil es eine native Bibliothek. &#xD;
+Eine native Bibliothek encaspulates die Kernfunktionen einer erweiterbaren Anwendung, und es kann nicht installiert oder deinstalliert werden.</value>
 </data>
 <data name="TXT_CANT_UNINSTALL_BUILTIN">
-  <value>Das Addon Bibliothek, die Sie angegeben haben, kann nicht deinstalliert werden, weil es eine eingebaute Bibliothek ist.
-
-Wenn Sie zum Aktivieren / Deaktivieren der Addons von beabsichtigen die integrierte Bibliothek, verwenden Sie bitte die Addons Checkboxen.</value>
+  <value>Der von Ihnen gewählte Bibliothek kann nicht deinstalliert werden, weil es eine native Bibliothek. Eine native Bibliothek encaspulates die Kernfunktionen einer erweiterbaren Anwendung, und es kann nicht installiert oder deinstalliert werden.&#xD;
+&#xD;
+Statt deinstallieren, sollten Sie die passende Kontrollkästchen, um verschiedene Anwendungsfunktionen aktivieren oder deaktivieren. Achten, dass einige Funktionalitäten sind erforderlich und können nicht deaktiviert werden.</value>
 </data>
 <data name="TXT_INVALID_NAME">
-  <value>Die DLL-Datei, die Sie ausgewählt haben, ist keine gültige OPMedia Addon Bibliothek.
-
+  <value>Die DLL-Datei, die Sie ausgewählt haben, ist keine gültige OPMedia Addon Bibliothek.&#xD;
+&#xD;
 Eine gültige OPMedia Addon-Bibliothek Dateiname sollte die Konvention folgen: &lt;Bibliothek-Name&gt; Extension.dll.</value>
 </data>
 <data name="TXT_NAV_ADDONS">
@@ -179,29 +178,29 @@ Eine gültige OPMedia Addon-Bibliothek Dateiname sollte die Konvention folgen: &
   <value>Datei-Property-Interaktion</value>
 </data>
 <data name="TXT_SHAREDADDONS">
-  <value>All diese Addons sind in der Addon-Bibliothek Sie versuchen, zu deinstallieren sind integriert:
-
-{0}
-
+  <value>All diese Addons sind in der Addon-Bibliothek Sie versuchen, zu deinstallieren sind integriert:&#xD;
+&#xD;
+{0}&#xD;
+&#xD;
 Wenn Sie fortfahren, werden alle diese Addons nicht mehr verfügbar sein. Ist es OK, um fortzufahren?</value>
 </data>
 <data name="TXT_NO_NAV_ADDONS">
-  <value>Keine Navigation Addons sind derzeit konfiguriert. Die Anwendung kann ohne sie nicht laufen.
+  <value>Keine Navigation Addons sind derzeit konfiguriert. Die Anwendung kann ohne sie nicht laufen.&#xD;
 Sie müssen zu wählen und damit mindestens ein Navigations-Addon, um fortzufahren.</value>
 </data>
 <data name="TXT_NOTIFY_NON_PREVIEW">
-  <value>Das ausgewählte Produkt kann keine Vorschau angezeigt werden.
+  <value>Das ausgewählte Produkt kann keine Vorschau angezeigt werden.&#xD;
 Sie müssen ein externes Programm, um es anzuzeigen.</value>
 </data>
 <data name="TXT_NOTIFY_PREVIEW">
   <value>Um das ausgewählte Element anzuzeigen, doppelklicken Sie darauf oder drücken Sie die Eingabetaste.</value>
 </data>
 <data name="TXT_PREPARE_PREVIEW">
-  <value>Automatische Vorschau des ausgewählten Elements wird in ein paar Sekunden ab.
+  <value>Automatische Vorschau des ausgewählten Elements wird in ein paar Sekunden ab.&#xD;
 Drücken Sie Escape, um abzubrechen ...</value>
 </data>
 <data name="TXT_PREVIEW_CANCELED">
-  <value>Automatische Vorschau des ausgewählten Elements wurde abgebrochen. 
+  <value>Automatische Vorschau des ausgewählten Elements wurde abgebrochen. &#xD;
 Wählen Sie ein anderes Element, oder drücken Sie die Eingabetaste, um den aktuellen Titel Vorschau.</value>
 </data>
 <data name="TXT_SELECTALLADDONS">
