@@ -39,6 +39,8 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Width + 4,
                 ContentRectangle.Height + 4);
 
+            int ddw = DropDownButtonWidth;
+
             using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
             {
                 using (Pen p2 = new Pen(ThemeManager.ForeColor))
@@ -60,18 +62,18 @@ namespace OPMedia.UI.Controls
                             e.Graphics.DrawPath(p2, gp);
                         }
 
-                        if (DropDownItems != null && DropDownItems.Count >= 0)
+                        if (DropDownItems != null && DropDownItems.Count >= 0 && ddw > 2)
                         {
-                            Point pt1 = new Point(clientRectangle.Right - DropDownButtonWidth,
+                            Point pt1 = new Point(clientRectangle.Right - ddw,
                                 clientRectangle.Top);
-                            Point pt2 = new Point(clientRectangle.Right - DropDownButtonWidth,
+                            Point pt2 = new Point(clientRectangle.Right - ddw,
                                 clientRectangle.Bottom - 4);
 
                             e.Graphics.DrawLine(p2, pt1, pt2);
                         }
                     }
 
-                    int xpos = ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 - DropDownButtonWidth / 2;
+                    int xpos = ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 - ddw / 2;
 
                     if (Image != null)
                     {
@@ -96,7 +98,7 @@ namespace OPMedia.UI.Controls
                     StringFormat sf = new StringFormat();
 
                     rect = clientRectangle;
-                    rect.Width -= DropDownButtonWidth;
+                    rect.Width -= ddw;
 
                     switch (TextDirection)
                     {
@@ -127,11 +129,11 @@ namespace OPMedia.UI.Controls
                 }
             }
 
-            if (DropDownItems != null && DropDownItems.Count >= 0)
+            if (DropDownItems != null && DropDownItems.Count >= 0 &&  ddw > 2)
             {
-                Rectangle rcArrow = new Rectangle(clientRectangle.Right - DropDownButtonWidth - 2,
+                Rectangle rcArrow = new Rectangle(clientRectangle.Right - ddw - 2,
                     clientRectangle.Top + (clientRectangle.Height - 20) / 2,
-                        DropDownButtonWidth, 15);
+                        ddw, 15);
 
                 using (GraphicsPath gp = ImageProcessing.GenerateCenteredArrow(rcArrow))
                 using (Brush b = new SolidBrush(clText))
@@ -320,7 +322,7 @@ namespace OPMedia.UI.Controls
             bool isHighlight = Enabled && (Selected || Checked);
             Color clText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
 
-            Rectangle clientRectangle = new Rectangle(ContentRectangle.X - 2,
+            Rectangle clientRectangle = new Rectangle(ContentRectangle.X + 1,
                 ContentRectangle.Y - 2,
                 ContentRectangle.Width + 2,
                 ContentRectangle.Height + 4);

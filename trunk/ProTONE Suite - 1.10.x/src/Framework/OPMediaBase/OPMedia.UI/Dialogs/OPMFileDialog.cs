@@ -20,18 +20,6 @@ namespace OPMedia.UI.Controls.Dialogs
     public delegate List<string> FillFavoriteFoldersHandler();
     public delegate bool AddToFavoriteFoldersHandler(string path);
 
-    public class OpenOption
-    {
-        public string OptionTitle { get; protected set; }
-        public object OptionTag { get; protected set; }
-
-        public OpenOption(string s, object o)
-        {
-            OptionTag = o;
-            OptionTitle = s;
-        }
-    }
-
     public partial class OPMFileDialog : ToolForm
     {
         ContextMenuStrip _cmsDynamic = new ContextMenuStrip();
@@ -918,6 +906,18 @@ namespace OPMedia.UI.Controls.Dialogs
         public OPMOpenFileDialog() : base()
         {
             this.Title = "Open file:";
+        }
+    }
+
+    public class OpenOption
+    {
+        public string OptionTitle { get; protected set; }
+        public object OptionTag { get; protected set; }
+
+        public OpenOption(string s, object o)
+        {
+            OptionTag = o;
+            OptionTitle = s;
         }
     }
 }
