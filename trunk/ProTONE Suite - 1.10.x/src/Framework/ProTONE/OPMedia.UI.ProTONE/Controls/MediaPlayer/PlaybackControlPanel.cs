@@ -37,6 +37,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
     public partial class PlaybackControlPanel : OPMBaseControl
     {
         OPMToolTipManager _tip = null;
+        ToolStripItem _hoveredItem = null;
 
         private string _mediaName = string.Empty;
         private FilterState _FilterState = FilterState.Stopped;
@@ -140,6 +141,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             ToolStripButton btn = sender as ToolStripButton;
             if (btn != null)
             {
+                _hoveredItem = btn;
+
                 OPMShortcut cmd = (OPMShortcut)btn.Tag;
                 string resourceTag = string.Format("TXT_{0}", cmd.ToString().ToUpperInvariant()).Replace("CMD", "BTN");
                 string tipText = Translator.Translate(resourceTag, ShortcutMapper.GetShortcutString(cmd));
@@ -150,7 +153,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void OnMouseLeave(object sender, EventArgs e)
         {
-            _tip.RemoveAll();
+            if (sender == _hoveredItem)
+            {
+                _hoveredItem = null;
+                _tip.RemoveAll();
+            }
         }
 
         private void UpdateFileType()
@@ -237,6 +244,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             ToolStripLabel lbl = sender as ToolStripLabel;
             if (lbl != null)
             {
+                _hoveredItem = lbl;
+
                 if (lbl == tslAudioOn || lbl == tslVideoOn || lbl == tslFilterState)
                 {
                     _tip.ShowSimpleToolTip(lbl.Tag as string, lbl.Image);

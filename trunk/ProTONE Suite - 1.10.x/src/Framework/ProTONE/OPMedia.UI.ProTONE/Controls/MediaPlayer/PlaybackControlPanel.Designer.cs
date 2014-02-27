@@ -289,7 +289,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tslFileType.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
             this.tslFileType.Name = "tslFileType";
             this.tslFileType.Size = new System.Drawing.Size(0, 22);
-            this.tslFileType.Text = "toolStripLabel1";
+            this.tslFileType.Text = "tslFileType";
             this.tslFileType.MouseLeave += new System.EventHandler(this.OnMouseLeave);
             this.tslFileType.MouseHover += new System.EventHandler(this.OnLabelMouseHover);
             // 
@@ -300,7 +300,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tslFilterState.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
             this.tslFilterState.Name = "tslFilterState";
             this.tslFilterState.Size = new System.Drawing.Size(0, 22);
-            this.tslFilterState.Text = "toolStripLabel2";
+            this.tslFilterState.Text = "tslFilterState";
             this.tslFilterState.MouseLeave += new System.EventHandler(this.OnMouseLeave);
             this.tslFilterState.MouseHover += new System.EventHandler(this.OnLabelMouseHover);
             // 
@@ -311,7 +311,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tslAudioOn.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
             this.tslAudioOn.Name = "tslAudioOn";
             this.tslAudioOn.Size = new System.Drawing.Size(0, 22);
-            this.tslAudioOn.Text = "toolStripLabel3";
+            this.tslAudioOn.Text = "tslAudioOn";
             this.tslAudioOn.MouseLeave += new System.EventHandler(this.OnMouseLeave);
             this.tslAudioOn.MouseHover += new System.EventHandler(this.OnLabelMouseHover);
             // 
@@ -322,7 +322,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tslVideoOn.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
             this.tslVideoOn.Name = "tslVideoOn";
             this.tslVideoOn.Size = new System.Drawing.Size(0, 22);
-            this.tslVideoOn.Text = "toolStripLabel1";
+            this.tslVideoOn.Text = "tslVideoOn";
             this.tslVideoOn.MouseLeave += new System.EventHandler(this.OnMouseLeave);
             this.tslVideoOn.MouseHover += new System.EventHandler(this.OnLabelMouseHover);
             // 
