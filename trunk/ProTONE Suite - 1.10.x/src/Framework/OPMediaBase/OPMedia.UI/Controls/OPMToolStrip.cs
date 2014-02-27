@@ -322,7 +322,9 @@ namespace OPMedia.UI.Controls
             bool isHighlight = Enabled && (Selected || Checked);
             Color clText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
 
-            Rectangle clientRectangle = new Rectangle(ContentRectangle.X + 1,
+            int offset = 3;
+
+            Rectangle clientRectangle = new Rectangle(ContentRectangle.X - 2 + offset,
                 ContentRectangle.Y - 2,
                 ContentRectangle.Width + 2,
                 ContentRectangle.Height + 4);
@@ -349,7 +351,7 @@ namespace OPMedia.UI.Controls
                         }
                     }
 
-                    int xpos = this.ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 + 1;
+                    int xpos = this.ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 + 1 + offset;
 
                     if (Image != null)
                     {
