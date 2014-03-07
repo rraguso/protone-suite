@@ -1,4 +1,4 @@
 [ProTONE Suite]
-Version=1.10.25
+Version=1.10.26
 [OPMedia SDK]
-Version=1.10.25
+Version=1.10.26
