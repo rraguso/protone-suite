@@ -19,6 +19,9 @@ namespace OPMedia.UI.HelpSupport
         {
             string helpUri = string.Empty;
 
+            // Help base URI should be something like:
+            // http://protone-suite.googlecode.com/svn/wiki/ProTONE Suite - #VERSION#
+
             if (string.IsNullOrEmpty(topicName))
             {
                 helpUri = string.Format("{0}/{1}/{2}.htm", 
@@ -32,6 +35,10 @@ namespace OPMedia.UI.HelpSupport
                        sectionName, topicName);
             }
 
+            Version v = new Version(SuiteVersion.Version);
+            string verStr = string.Format("{0}.{1}", v.Major, v.Minor);
+            helpUri = helpUri.Replace("\\", "/").Replace("#VERSION#", verStr);
+
             Logger.LogHelpTrace(helpUri);
 
             if (_helpViewer == null)
@@ -41,7 +48,7 @@ namespace OPMedia.UI.HelpSupport
                 _helpViewer.FormClosed += new FormClosedEventHandler(_helpViewer_FormClosed);
             }
             
-            _helpViewer.OpenURL(helpUri.Replace("\\", "/"));
+            _helpViewer.OpenURL(helpUri);
         }
 
         static void _helpViewer_FormClosed(object sender, FormClosedEventArgs e)
