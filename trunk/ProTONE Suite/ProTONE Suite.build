@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<project name="ProTONE Suite - 1.10" default="build" basedir=".">
-    <description>ProTONE Suite Release 1.10</description>
+<project name="ProTONE Suite" default="build" basedir=".">
+    <description>ProTONE Suite</description>
 
     <property name="svnuser" value="octavian.paraschiv" />
     <property name="svnpass" value="Cx9yE2EX3QH7" />
