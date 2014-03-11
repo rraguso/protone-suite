@@ -352,7 +352,6 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             0,
             0,
             0});
-            this.nudSchedulerWaitTimerProceed.ValueChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // opmLayoutPanel1
             // 

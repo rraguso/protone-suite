@@ -99,7 +99,6 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.chkUseMetadata.Size = new System.Drawing.Size(315, 19);
             this.chkUseMetadata.TabIndex = 0;
             this.chkUseMetadata.Text = "TXT_USE_METADATA";
-            this.chkUseMetadata.CheckedChanged += new System.EventHandler(this.chkUseMetadata_CheckedChanged);
             // 
             // lblDisplayFileName
             // 
@@ -127,7 +126,6 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.chkFileNameFormat.Size = new System.Drawing.Size(315, 19);
             this.chkFileNameFormat.TabIndex = 1;
             this.chkFileNameFormat.Text = "TXT_FILENAME_FORMAT";
-            this.chkFileNameFormat.CheckedChanged += new System.EventHandler(this.chkFileNameFormat_CheckedChanged);
             // 
             // lblPlaylistFormat
             // 
@@ -158,8 +156,6 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.cmbFileNameFormat.Name = "cmbFileNameFormat";
             this.cmbFileNameFormat.Size = new System.Drawing.Size(315, 21);
             this.cmbFileNameFormat.TabIndex = 2;
-            this.cmbFileNameFormat.SelectedIndexChanged += new System.EventHandler(this.OnFileNameFormatChanged);
-            this.cmbFileNameFormat.TextChanged += new System.EventHandler(this.OnFileNameFormatChanged);
             // 
             // cmbPlaylistEntryFormat
             // 
@@ -176,8 +172,6 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.cmbPlaylistEntryFormat.Name = "cmbPlaylistEntryFormat";
             this.cmbPlaylistEntryFormat.Size = new System.Drawing.Size(315, 21);
             this.cmbPlaylistEntryFormat.TabIndex = 4;
-            this.cmbPlaylistEntryFormat.SelectedIndexChanged += new System.EventHandler(this.OnPlaylistEntryFormatChanged);
-            this.cmbPlaylistEntryFormat.TextUpdate += new System.EventHandler(this.OnPlaylistEntryFormatChanged);
             // 
             // buttonSpecAny3
             // 

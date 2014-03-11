@@ -57,6 +57,16 @@ namespace OPMedia.UI.Configuration
             txtLogPath.Text = LoggingConfiguration.LogFilePath;
 
             nudDaysToKeepLogs.Value = LoggingConfiguration.DaysToKeepLogs;
+
+
+            this.nudDaysToKeepLogs.ValueChanged += new System.EventHandler(this.OnSettingsChanged);
+            this.txtLogPath.TextChanged += new System.EventHandler(this.OnSettingsChanged);
+            this.chkHeavyTrace.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
+            this.chkError.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
+            this.chkWarning.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
+            this.chkInfo.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
+            this.chkTrace.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
+            this.chkLogEnabled.CheckedChanged += new System.EventHandler(this.chkLogEnabled_CheckedChanged);
         }
 
         protected override void SaveInternal()

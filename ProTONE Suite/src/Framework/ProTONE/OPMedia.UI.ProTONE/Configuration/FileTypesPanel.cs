@@ -88,9 +88,8 @@ namespace OPMedia.UI.ProTONE.Configuration
             FillExplorerLaunchTypes();
 
             cbShellIntegration.Checked = SuiteRegistrationSupport.IsContextMenuHandlerRegistered();
-            cmbExplorerLaunchType.Enabled = cbShellIntegration.Checked;
-            tableLayoutPanel1.Enabled = cbShellIntegration.Checked;
-            pnlButtons.Enabled = cbShellIntegration.Checked;
+            ActivateShellIntegration();
+            this.cbShellIntegration.CheckStateChanged += new System.EventHandler(this.cbShellIntegration_CheckStateChanged);
 
             this.Enabled = SuiteConfiguration.CurrentUserIsAdministrator;
 
@@ -107,7 +106,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             }
 
             FillFileTypeAssociations();
-            Modified = false;
         }
 
         private OPMCheckBox CreateCheckBox(string fileType, bool isChecked)
@@ -148,6 +146,13 @@ namespace OPMedia.UI.ProTONE.Configuration
             catch
             {
             }
+
+            cmbExplorerLaunchType.SelectedIndexChanged += new EventHandler(cmbExplorerLaunchType_SelectedIndexChanged);
+        }
+
+        void cmbExplorerLaunchType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Modified = true;
         }
 
         private void FillFileTypeAssociations()
@@ -224,7 +229,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.cbShellIntegration.Size = new System.Drawing.Size(567, 17);
             this.cbShellIntegration.TabIndex = 0;
             this.cbShellIntegration.Text = "TXT_SHELL_INTEGRATION";
-            this.cbShellIntegration.CheckStateChanged += new System.EventHandler(this.cbShellIntegration_CheckStateChanged);
             // 
             // label3
             // 
@@ -511,6 +515,12 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         private void cbShellIntegration_CheckStateChanged(object sender, EventArgs e)
         {
+            ActivateShellIntegration();
+            Modified = true;
+        }
+
+        private void ActivateShellIntegration()
+        {
             lblFileTypes.Enabled = cbShellIntegration.Checked;
 
             cmbExplorerLaunchType.Enabled = cbShellIntegration.Checked;
@@ -518,7 +528,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             pnlButtons.Enabled = cbShellIntegration.Checked;
 
             cmbExplorerLaunchType.SelectedIndex = 0;
-            Modified = true;
         }
 
         protected override void SaveInternal()
