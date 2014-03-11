@@ -97,12 +97,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="GoogleTranslateAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Externals\GoogleTranslateAPI.dll</HintPath>
+    <Reference Include="GoogleTranslateAPI">
+      <HintPath>..\..\..\..\..\..\externals\GoogleTranslateAPI.dll</HintPath>
     </Reference>
     <Reference Include="RoboTranslator">
-      <HintPath>..\..\..\..\Externals\RoboTranslator.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\externals\RoboTranslator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
