@@ -80,6 +80,7 @@ namespace OPMedia.UI.Configuration
             labelCopyright.Text = AssemblyInfo.GetCopyright(Assembly.GetEntryAssembly());
 
             chkAllowAutoUpdates.Checked = SuiteConfiguration.AllowAutomaticUpdates;
+            this.chkAllowAutoUpdates.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
         }
 
         [EventSink(EventNames.PerformTranslation)]

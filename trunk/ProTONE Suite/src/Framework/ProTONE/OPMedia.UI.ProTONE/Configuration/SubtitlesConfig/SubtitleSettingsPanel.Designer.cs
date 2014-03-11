@@ -74,7 +74,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageSubtitles.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.pageSubtitles.Location = new System.Drawing.Point(5, 10);
             this.pageSubtitles.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageSubtitles.Modified = true;
             this.pageSubtitles.Name = "pageSubtitles";
             this.pageSubtitles.OverrideBackColor = System.Drawing.Color.Empty;
             this.pageSubtitles.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -100,7 +99,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageOsd.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.pageOsd.Location = new System.Drawing.Point(5, 10);
             this.pageOsd.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageOsd.Modified = true;
             this.pageOsd.Name = "pageOsd";
             this.pageOsd.OverrideBackColor = System.Drawing.Color.Empty;
             this.pageOsd.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
