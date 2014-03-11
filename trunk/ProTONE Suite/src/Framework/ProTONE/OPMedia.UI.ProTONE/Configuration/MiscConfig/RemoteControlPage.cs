@@ -15,8 +15,17 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
     public partial class RemoteControlPage : BaseCfgPanel
     {
+        public override Image Image
+        {
+            get
+            {
+                return OPMedia.Core.Properties.Resources.ir_remote.ToBitmap();
+            }
+        }
+
         public RemoteControlPage()
         {
+            this.Title = "TXT_REMOTECONTROLCFG";
             InitializeComponent();
             this.HandleCreated += new EventHandler(OnLoad);
         }
@@ -29,8 +38,13 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
         protected override void SaveInternal()
         {
-            ProTONERemoteConfig.EnableRemoteControl = chkEnableRemoting.Checked;
-            ProTONERemoteConfig.ReconfigureRCCService();
+
+            if (SuiteConfiguration.CurrentUserIsAdministrator &&
+                            SuiteConfiguration.IsRCCServiceInstalled)
+            {
+                ProTONERemoteConfig.EnableRemoteControl = chkEnableRemoting.Checked;
+                ProTONERemoteConfig.ReconfigureRCCService();
+            }
             Modified = false;
         }
 

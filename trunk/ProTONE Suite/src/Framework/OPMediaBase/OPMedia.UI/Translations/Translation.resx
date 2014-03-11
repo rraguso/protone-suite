@@ -1059,5 +1059,11 @@ Do you want to create it ?</value>
 <data name="TXT_RECENT_FILE_REMOVED">
   <value>The file will be removed from recent opened files list.</value>
 </data>
+<data name="TXT_S_CONTROL">
+  <value>Control</value>
+</data>
+<data name="TXT_S_TROUBLESHOOTING">
+  <value>Support</value>
+</data>
     
 </root>

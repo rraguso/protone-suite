@@ -7,6 +7,7 @@ using OPMedia.Core;
 using System.Windows.Forms;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.Addons.Configuration;
+using OPMedia.UI.ProTONE.Configuration.MiscConfig;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
@@ -63,12 +64,32 @@ namespace OPMedia.UI.ProTONE.Configuration
                 AddPanel(typeof(MiscellaneousSettingsPanel));
             }
 
-            AddPanel(typeof(KeyMapCfgPanel));
+            AddPanel(typeof(ControlAppPanel));
         }
 
         public override bool RequiresNetworkConfig()
         {
             return true;
+        }
+
+        public override List<BaseCfgPanel> GetControlSubPages()
+        {
+            if (!SuiteConfiguration.CurrentUserIsAdministrator ||
+                !SuiteConfiguration.IsRCCServiceInstalled)
+                return null;
+
+            return new List<BaseCfgPanel> 
+            { 
+                new RemoteControlPage() 
+            };
+        }
+
+        public override List<BaseCfgPanel> GetTroubleshootingSubPages()
+        {
+            return new List<BaseCfgPanel> 
+            { 
+                new DiagnosticsPage() 
+            };
         }
     }
 }
