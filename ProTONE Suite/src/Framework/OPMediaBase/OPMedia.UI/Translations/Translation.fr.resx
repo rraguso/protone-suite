@@ -1061,5 +1061,11 @@ Voulez-vous le créer?</value>
 <data name="TXT_RECENT_FILE_REMOVED">
   <value>Le fichier sera supprimé de la liste des fichiers récemment ouverts.</value>
 </data>
+<data name="TXT_S_CONTROL">
+  <value>Contrôle</value>
+</data>
+<data name="TXT_S_TROUBLESHOOTING">
+  <value>Secours</value>
+</data>
     
 </root>

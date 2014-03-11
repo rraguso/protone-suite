@@ -71,7 +71,7 @@ namespace OPMedia.UI
             AddPanel(typeof(GeneralSettingsPanel));
             AddAditionalPanels();
             AddPanel(typeof(NetworkSettingsPanel), RequiresNetworkConfig());
-            AddPanel(typeof(LoggingSettingsPanel), !logFullyDisabled);
+            AddPanel(typeof(TroubleshootingPanel));
             
             RemoveUnneededPanels();
             SelectTitleToOpen();
@@ -211,7 +211,37 @@ namespace OPMedia.UI
 
                 if (panel != null)
                 {
-                    AddPanel(panel, condition, alignRight);
+                    if (AddPanel(panel, condition, alignRight))
+                    {
+                        if (panel is MultiPageCfgPanel)
+                        {
+                            List<BaseCfgPanel> subPagesToAdd = new List<BaseCfgPanel>();
+
+                            if (panel is TroubleshootingPanel)
+                            {
+                                List<BaseCfgPanel> pages = GetTroubleshootingSubPages();
+                                if (pages != null)
+                                {
+                                    subPagesToAdd.AddRange(pages);
+                                }
+                                subPagesToAdd.Add(new LoggingSettingsPanel());
+                            }
+                            else if (panel is ControlAppPanel)
+                            {
+                                subPagesToAdd.Add(new KeyMapCfgPanel());
+                                List<BaseCfgPanel> pages = GetControlSubPages();
+                                if (pages != null)
+                                {
+                                    subPagesToAdd.AddRange(pages);
+                                }
+                            }
+
+                            foreach(var page in subPagesToAdd)
+                            {
+                                (panel as MultiPageCfgPanel).AddSubPage(page);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -221,7 +251,7 @@ namespace OPMedia.UI
             AddPanel(panel, condition, false);
         }
 
-        protected void AddPanel(BaseCfgPanel panel, bool condition, bool alignRight)
+        protected bool AddPanel(BaseCfgPanel panel, bool condition, bool alignRight)
         {
             if (condition)
             {
@@ -236,9 +266,12 @@ namespace OPMedia.UI
                         tabOptions.ImageList.Images.Add(panel.Image);
 
                         tabOptions.TabPages.Add(tp);
+                        return true;
                     }
                 }
             }
+
+            return false;
         }
 
         private void ShowPanel(BaseCfgPanel panel)
@@ -264,7 +297,17 @@ namespace OPMedia.UI
             else
                 base.FireHelpRequest();
         }
-       
+
+        public virtual List<BaseCfgPanel> GetTroubleshootingSubPages()
+        {
+            return null;
+        }
+
+        public virtual List<BaseCfgPanel> GetControlSubPages()
+        {
+            return null;
+        }
+
     }
 
     public class SettingsSaveException : Exception
