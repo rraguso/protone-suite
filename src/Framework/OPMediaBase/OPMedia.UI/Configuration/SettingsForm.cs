@@ -24,8 +24,6 @@ namespace OPMedia.UI
 
         protected static bool _restart = false;
 
-        protected BaseCfgPanel selectedPanel = null;
-
         private string _titleToOpen = "";
 
         public new static DialogResult Show()
@@ -243,22 +241,29 @@ namespace OPMedia.UI
 
         private void ShowPanel(BaseCfgPanel panel)
         {
-            if (selectedPanel != panel)
+            foreach (TabPage tp in tabOptions.TabPages)
             {
-                foreach (TabPage tp in tabOptions.TabPages)
+                BaseCfgPanel crtPanel = tp.Controls[0] as BaseCfgPanel;
+                if (panel == crtPanel)
                 {
-                    BaseCfgPanel crtPanel = tp.Controls[0] as BaseCfgPanel;
-                    if (panel == crtPanel)
-                    {
-                        tabOptions.SelectedTab = tp;
-                        break;
-                    }
+                    tabOptions.SelectedTab = tp;
+                    break;
                 }
             }
         }
 
         public override void FireHelpRequest()
         {
+            BaseCfgPanel selectedPanel = null;
+            try
+            {
+                selectedPanel = tabOptions.SelectedTab.Controls[0] as BaseCfgPanel;
+            }
+            catch
+            {
+                selectedPanel = null;
+            }
+
             if (selectedPanel != null)
                 HelpTarget.HelpRequest(this.Name, selectedPanel.GetHelpTopic());
             else
