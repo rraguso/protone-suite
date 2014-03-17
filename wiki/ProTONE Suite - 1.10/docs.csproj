@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\trunk\ProTONE Suite - 1.9.x\src\bin\docs\</OutputPath>
+    <OutputPath>c:\Program Files %28x86%29\OPMedia Research\ProTONE Suite\docs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

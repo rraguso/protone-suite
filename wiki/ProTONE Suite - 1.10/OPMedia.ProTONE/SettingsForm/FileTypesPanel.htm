@@ -1,1 +1,57 @@
-<html><body>FileTypesPanel</body></html>
+<html>
+<!-- INSERT STYLESHEET HERE -->
+<head>
+    <title>File Types Panel</title>
+    </head>
+    <body>
+        <p>
+            This page of the Settings Dialog is used to configure 
+            (activate/deactivate) the integration with the Windows Explorer. </p>
+        <p>
+            When the integration is activated, the user can also be used to define which file types are handled by the application:</p>
+        <ul>
+            <li>Audio files: The user can select/deselect individual audio files, or all audio 
+                files can be selected/deselected by using the buttons at the bottom of this 
+                panel</li>
+            <li>Video files: The user can select/deselect individual video files, or all video 
+                files can be selected/deselected by using the buttons at the bottom of this 
+                panel</li>
+            <li>Playlist files: The user can select/deselect individual playlist files, or all 
+                playlist files can be selected/deselected by using the buttons at the bottom of 
+                this panel</li>
+        </ul>
+        <p>
+            <img src="images/FileTypesPanel.png" style="height: 318px; width: 423px"/>
+        </p>
+        <p>
+            When the Windows Explorer Integration is activated, the Windows Explorer (or any 
+            other application that implements the Windows Shell interfaces, e.g. Total 
+            Commander or Free Commander) will add the options &quot;Play with ProTONE player&quot; or 
+            &quot;Enqueue in ProTONE player&quot; to the context menu shown when a file system entry 
+            is right-clicked in Windows Explorer, like in the screenshot below:</p>
+        <p>
+            <img src="images/FileTypesPanel_ExplorerCM.png" 
+                style="height: 528px; width: 358px"/></p>
+        <p>
+            These context menu entries are hence shown:
+            <ul>
+                <li>When the Windows Explorer Integration is activated, AND ...</li>
+                <li>The selected entries represent valid media entries, meaning that:
+                    <ul>
+                        <li>The entry is a valid media file (i.e. it is checked in the corresponding list in this panel)</li>
+                        <li>The entry is a disk or a folder that contain valid media files, or one of its subfolders (at most 3 levels deep) contains valid media files</li>
+                        <li>The entry is an Audio CD disk, or a Video DVD disk</li>
+                    </ul>
+                </li>
+                    
+            </ul>
+        Also, the user can define how should the application open the media files that 
+        are launched (that is - double clicked with mouse, or selected then pressed 
+        Enter key) from Windows Explorer. The options are to:
+        <ul>
+                <li>Enqueue the files at the end of current playlist (default option)</li>
+                <li>Play the files, replacing current playlist</li>
+            </ul>
+        </p>
+    </body>
+</html>
