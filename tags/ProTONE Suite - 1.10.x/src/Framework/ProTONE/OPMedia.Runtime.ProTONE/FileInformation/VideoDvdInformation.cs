@@ -34,13 +34,20 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 return string.IsNullOrEmpty(_label) ? _defaultLabel : _label;
             } 
         }
+
+        public override string MediaType
+        {
+            get
+            {
+                return "DVD";
+            }
+        }
         
         public new string Path
         { get { return _dvdPath; } }
 
         public new string Name
         { get { return Label; } }
-
 
         public List<int> ChaptersPerTitle
         { get { return _chaptersPerTitle; } }
