@@ -41,7 +41,7 @@
             <echo message="Source code check out ..." /> 
             <svn-checkout
                 destination="${root}\src" 
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.10.x/src" 
+                uri="https://protone-suite.googlecode.com/svn/tags/ProTONE%20Suite%20-%201.10.x/src" 
                 recursive="true"
                 quiet="false"
                 verbose="true"
@@ -109,7 +109,7 @@
             <!-- Post build results -->
             <echo message="Upload build results to SVN ..." />
             <svn 
-                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+                uri="https://protone-suite.googlecode.com/svn/publish/legacy"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}" 
@@ -117,12 +117,12 @@
                 failonerror="false">
                 
                 <arg value="add" />
-                <arg path="${'${root}\..\..\..\publish\1.10\ProTONE Suite ' + newversion + '.exe'}" />
+                <arg path="${'${root}\..\..\..\publish\legacy\ProTONE Suite ' + newversion + '.exe'}" />
                 
             </svn>
             
             <svn 
-                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+                uri="https://protone-suite.googlecode.com/svn/publish/legacy"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}"
@@ -130,12 +130,12 @@
                 failonerror="false">
                 
                 <arg value="delete" />
-                <arg path="${'${root}\..\..\..\publish\1.10\ProTONE Suite ' + oldversion + '.exe'}" />
+                <arg path="${'${root}\..\..\..\publish\legacy\ProTONE Suite ' + oldversion + '.exe'}" />
                 
             </svn>
             
             <svn 
-		    uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+		    uri="https://protone-suite.googlecode.com/svn/publish/legacy"
 		    quiet="false"
 		    verbose="true"
 		    username="${svnuser}" 
@@ -143,12 +143,12 @@
 		    failonerror="false">
 
 		    <arg value="add" />
-		    <arg path="${'${root}\..\..\..\publish\1.10\OPMedia SDK ' + newversion + '.exe'}" />
+		    <arg path="${'${root}\..\..\..\publish\legacy\OPMedia SDK ' + newversion + '.exe'}" />
 
 		</svn>
 
 		<svn 
-		    uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+		    uri="https://protone-suite.googlecode.com/svn/publish/legacy"
 		    quiet="false"
 		    verbose="true"
 		    username="${svnuser}"
@@ -156,26 +156,26 @@
 		    failonerror="false">
 
 		    <arg value="delete" />
-		    <arg path="${'${root}\..\..\..\publish\1.10\OPMedia SDK ' + oldversion + '.exe'}" />
+		    <arg path="${'${root}\..\..\..\publish\legacy\OPMedia SDK ' + oldversion + '.exe'}" />
 	                    
             </svn>
 
             <svn
-                uri="https://protone-suite.googlecode.com/svn/publish/1.10"
+                uri="https://protone-suite.googlecode.com/svn/publish/legacy"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}"
                 password="${svnpass}">
                 
                 <arg line="commit -m build_${newversion}" />
-                <arg line="${'${root}\..\..\..\publish\1.10'}" />
+                <arg line="${'${root}\..\..\..\publish\legacy'}" />
                 
             </svn>
 
             <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" value="${newversion}" />
 
             <svn
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite%20-%201.10.x"
+                uri="https://protone-suite.googlecode.com/svn/tags/ProTONE%20Suite%20-%201.10.x"
                 quiet="false"
                 verbose="true"
                 username="${svnuser}"
