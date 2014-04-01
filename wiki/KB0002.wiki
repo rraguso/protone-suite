@@ -1,0 +1,27 @@
+==KB-0002==
+
+*Affected Versions:* All
+
+*Affected Operating Systems:* All
+
+*Symptoms:*
+
+When attempting to play video DVD contents, the wideo window may remain blank as described in [http://code.google.com/p/protone-suite/issues/detail?id=184 Issue 184]
+
+*Possible Workarounds:*
+
+*Option 1*. Download and install ProTONE Suite 1.10.28 or higher.
+
+or
+
+*Option 2*. While playing DVD and seeing the blank video window: 
+
+a. Right click on the time scale, then choose Settings and Options -> Video Settings, or press Ctrl + Alt + V
+
+b. in 'Ffdshow video decoder configuration' window, select the Codecs node from the left tree. Find the MPEG1 and MPEG2 entries in the right codecs list, and:
+
+- Make sure that "Decoder" is set to "disabled" for both these two entries. 
+
+- Make sure that "DVD Decoding" is checked for MPEG2
+
+[https://protone-suite.googlecode.com/svn/wiki/KB/KB-0002.png]
