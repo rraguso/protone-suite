@@ -312,8 +312,8 @@ Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: dvsd; Val
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: fps1; ValueData: $00000001; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: loco; ValueData: $00000001; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpegAVI; ValueData: $00000005; Components: itemCodecs\itemFFDShow
-Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpg1; ValueData: $00000001; Components: itemCodecs\itemFFDShow
-Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpg2; ValueData: $00000001; Components: itemCodecs\itemFFDShow
+Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpg1; ValueData: $00000000; Components: itemCodecs\itemFFDShow
+Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpg2; ValueData: $00000000; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mss1; ValueData: $0000000c; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mss2; ValueData: $0000000c; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: qpeg; ValueData: $00000001; Components: itemCodecs\itemFFDShow
@@ -1004,8 +1004,8 @@ Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: dvsd; Val
 Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: fps1; ValueData: $00000001; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: loco; ValueData: $00000001; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpegAVI; ValueData: $00000005; Components: itemCodecs\itemFFDShow
-Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpg1; ValueData: $00000005; Components: itemCodecs\itemFFDShow
-Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpg2; ValueData: $00000005; Components: itemCodecs\itemFFDShow
+Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpg1; ValueData: $00000000; Components: itemCodecs\itemFFDShow
+Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mpg2; ValueData: $00000000; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mss1; ValueData: $0000000c; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: mss2; ValueData: $0000000c; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: qpeg; ValueData: $00000001; Components: itemCodecs\itemFFDShow
