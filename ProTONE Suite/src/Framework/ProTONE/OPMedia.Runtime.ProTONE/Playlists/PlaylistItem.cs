@@ -181,8 +181,15 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
                 const int maxLen = 90;
 
-                info.Add("TXT_FILENAME:", StringUtils.Limit(mi.Name, maxLen));
-                info.Add("TXT_FILE_TYPE:", mi.MediaType.ToUpperInvariant());
+                if (!string.IsNullOrEmpty(mi.Name))
+                {
+                    info.Add("TXT_FILENAME:", StringUtils.Limit(mi.Name, maxLen));
+                }
+
+                if (!string.IsNullOrEmpty(mi.MediaType))
+                {
+                    info.Add("TXT_FILE_TYPE:", mi.MediaType.ToUpperInvariant());
+                }
 
                 if (MediaRenderer.DefaultInstance.GetRenderFile() == mi.Name &&
                     (MediaRenderer.DefaultInstance.FilterState == Rendering.DS.BaseClasses.FilterState.Running ||

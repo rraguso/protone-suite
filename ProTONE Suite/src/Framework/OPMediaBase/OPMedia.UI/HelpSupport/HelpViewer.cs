@@ -148,7 +148,8 @@ namespace OPMedia.UI.HelpSupport
                     }
                 }
 
-                wbHelpDisplay.DocumentText = sb.ToString();
+                string docText = sb.ToString();
+                wbHelpDisplay.DocumentText = docText;
             }
         }
 
