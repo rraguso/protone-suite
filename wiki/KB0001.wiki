@@ -1,8 +1,8 @@
 ==KB-0001==
 
-*Affected Operating Systems:*
+*Affected Products and Versions:* ProTONE Suite version 1.9.90 and older
 
-Windows XP SP3 and Windows 2003 SP1
+*Affected Operating Systems:*: Windows XP SP3 and Windows 2003 SP1
 
 *Condition:*
 
