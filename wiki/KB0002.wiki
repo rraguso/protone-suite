@@ -1,5 +1,3 @@
-==KB-0002==
-
 *Affected Products and Versions:* ProTONE Suite version 1.10.27 and older
 
 *Affected Operating Systems:* All
