@@ -63,7 +63,19 @@ namespace OPMedia.Runtime.Addons.AddonsBase.Navigation
             }
         }
 
+        public virtual bool EditDisplayedPathAllowed
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         public virtual void OnActiveStateChanged(bool isActive)
+        {
+        }
+
+        public virtual void TryCommitNewPath(string newPath)
         {
         }
     }

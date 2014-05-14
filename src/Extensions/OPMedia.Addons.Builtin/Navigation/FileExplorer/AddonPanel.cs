@@ -48,6 +48,7 @@ using OPMedia.Addons.Builtin.FileExplorer.FileOperations.Forms;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms;
 using OPMedia.Runtime.ProTONE.Rendering.Cdda;
+using OPMedia.Core.NetworkAccess;
 
 #endregion
 
@@ -1138,6 +1139,42 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         {
             return new FileExplorerCfgPanel();
         }
+
+        public override bool EditDisplayedPathAllowed
+        {
+            get
+            {
+                return true;
+            }
+        }
+
+        public override void TryCommitNewPath(string newPath)
+        {
+            if (ValidatePath(newPath))
+            {
+                opmShellList.Path = newPath;
+            }
+            
+        }
+
+        private bool ValidatePath(string path)
+        {
+            try
+            {
+                if (Directory.Exists(path))
+                    return true;
+
+                if (path.StartsWith("\\\\"))
+                {
+                    ShareCollection shares = ShareCollection.GetShares(path);
+                    return (shares != null && shares.Count > 0);
+                }
+            }
+            catch { }
+
+            return false;
+        }
+
     }
 
     #region Tool actions

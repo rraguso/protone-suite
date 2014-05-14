@@ -1058,5 +1058,8 @@ Doriţi să fie creat ?</value>
 <data name="TXT_RECENT_FILE_REMOVED">
   <value>Fișierul va fi eliminat din lista de fișiere recent deschise.</value>
 </data>
+<data name="TXT_S_CONTROL">
+  <value>Control</value>
+</data>
     
 </root>

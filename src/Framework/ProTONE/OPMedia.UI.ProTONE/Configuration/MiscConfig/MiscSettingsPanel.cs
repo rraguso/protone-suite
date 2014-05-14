@@ -67,15 +67,7 @@ namespace OPMedia.UI.ProTONE.Configuration
                 tp.ImageIndex = i++;
             }
 
-            if (!SuiteConfiguration.CurrentUserIsAdministrator ||
-                !SuiteConfiguration.IsRCCServiceInstalled)
-            {
-                tabMisc.TabPages.Remove(tpRemote);
-            }
-
             pagePlaylist.ModifiedActive += new EventHandler(OnModifiedActive);
-            pageRemote.ModifiedActive += new EventHandler(OnModifiedActive);
-            pageDiagnostics.ModifiedActive += new EventHandler(OnModifiedActive);
             pageFavoriteFolders.ModifiedActive += new EventHandler(OnModifiedActive);
             pageDisksOptions.ModifiedActive += new EventHandler(OnModifiedActive);
             pageScheduler.ModifiedActive += new EventHandler(OnModifiedActive);
@@ -98,19 +90,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             pageDisksOptions.Save();
             pagePlaylist.Save();
             pageScheduler.Save();
-            
-            if (SuiteConfiguration.CurrentUserIsAdministrator &&
-                SuiteConfiguration.IsRCCServiceInstalled)
-            {
-                pageRemote.Save();
-            }
-
-            // Diagnostics page does not interact with app settings.
-            // No need to call Save for it.
-            //pageDiagnostics.Save();
-
             pageFavoriteFolders.Save();
-
             Modified = false;
         }
     }

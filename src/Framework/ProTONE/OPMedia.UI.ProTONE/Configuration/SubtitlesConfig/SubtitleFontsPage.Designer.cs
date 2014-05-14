@@ -66,7 +66,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.chkFilterStateNotificationsEnabled.Size = new System.Drawing.Size(470, 18);
             this.chkFilterStateNotificationsEnabled.TabIndex = 8;
             this.chkFilterStateNotificationsEnabled.Text = "TXT_NOTIFICATIONSENABLED";
-            this.chkFilterStateNotificationsEnabled.CheckedChanged += new System.EventHandler(this.chkFilterStateNotificationsEnabled_CheckedChanged);
             // 
             // lblOsdFont
             // 
@@ -109,7 +108,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.nudOsdTmr.Size = new System.Drawing.Size(48, 22);
             this.nudOsdTmr.TabIndex = 2;
             this.nudOsdTmr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudOsdTmr.ValueChanged += new System.EventHandler(this.nudOsdTmr_ValueChanged);
             // 
             // label2
             // 
@@ -175,7 +173,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.chkSubEnabled.Size = new System.Drawing.Size(470, 17);
             this.chkSubEnabled.TabIndex = 0;
             this.chkSubEnabled.Text = "TXT_SUBENABLED";
-            this.chkSubEnabled.CheckedChanged += new System.EventHandler(this.chkSubEnabled_CheckedChanged);
             // 
             // lblOsdText
             // 
@@ -321,7 +318,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.chkOsdEnabled.Size = new System.Drawing.Size(114, 22);
             this.chkOsdEnabled.TabIndex = 0;
             this.chkOsdEnabled.Text = "TXT_OSDENABLED";
-            this.chkOsdEnabled.CheckedChanged += new System.EventHandler(this.chkOsdEnabled_CheckedChanged);
             // 
             // SubtitleOsdPage
             // 

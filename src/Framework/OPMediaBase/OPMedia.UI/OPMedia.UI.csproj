@@ -68,6 +68,18 @@
     <Compile Include="Configuration\ConnectedFilesConfigCtl.Designer.cs">
       <DependentUpon>ConnectedFilesConfigCtl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuration\ControlAppPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\ControlAppPanel.designer.cs">
+      <DependentUpon>ControlAppPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\MultiPageCfgPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MultiPageCfgPanel.designer.cs">
+      <DependentUpon>MultiPageCfgPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\GeneralSettingsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +128,12 @@
     <Compile Include="Configuration\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuration\TroubleshootingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\TroubleshootingPanel.designer.cs">
+      <DependentUpon>TroubleshootingPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\UrlCfgDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +175,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\OPMShellTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\OPMStatusStrip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\SelfValidableCollection.cs" />
@@ -425,6 +446,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\ConnectedFilesConfigCtl.resx">
       <DependentUpon>ConnectedFilesConfigCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\ControlAppPanel.resx">
+      <DependentUpon>ControlAppPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MultiPageCfgPanel.resx">
+      <DependentUpon>MultiPageCfgPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\TroubleshootingPanel.resx">
+      <DependentUpon>TroubleshootingPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\FileAttributesBrowserCtl.resx">
       <DependentUpon>FileAttributesBrowserCtl.cs</DependentUpon>
@@ -735,6 +765,9 @@
     <None Include="Resources\delete3.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Assistance.png" />
+    <Content Include="Resources\ControlPanel.png" />
+    <Content Include="Resources\Troubleshooting.png" />
     <Content Include="Resources\TVState0.bmp" />
     <Content Include="Resources\TVState1.bmp" />
   </ItemGroup>

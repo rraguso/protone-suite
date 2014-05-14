@@ -145,13 +145,14 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             BuildListFromSubtitleDownloadURIs();
 
-            nudMinMovieDuration.ValueChanged += new EventHandler(nudMinMovieDuration_ValueChanged);
-
             ThemeManager.SetFont(lblClickHint, FontSizes.Small);
 
             pnlOnlineSubtitles.Enabled = _subtitleDownloadEnabled;
 
             chkNotifySubDownloaded.Checked = AppSettings.SubDownloadedNotificationsEnabled;
+            this.chkNotifySubDownloaded.CheckedChanged += new System.EventHandler(this.chkNotifySubDownloaded_CheckedChanged);
+
+            this.cmbLanguages.SelectedIndexChanged += new System.EventHandler(this.cmbLanguages_SelectedIndexChanged);
         }
 
         private void OnAdd(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -83,9 +83,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CurrentTime.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Configuration\SubtitleEditorCfgPanel.resx">
       <DependentUpon>SubtitleEditorCfgPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +95,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Property\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>

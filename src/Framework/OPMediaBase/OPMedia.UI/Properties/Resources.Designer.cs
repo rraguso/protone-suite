@@ -91,6 +91,16 @@ namespace OPMedia.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Assistance {
+            get {
+                object obj = ResourceManager.GetObject("Assistance", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         public static System.Drawing.Icon blank {
@@ -107,6 +117,16 @@ namespace OPMedia.UI.Properties {
             get {
                 object obj = ResourceManager.GetObject("CloseButton", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ControlPanel {
+            get {
+                object obj = ResourceManager.GetObject("ControlPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -357,6 +377,16 @@ namespace OPMedia.UI.Properties {
             get {
                 object obj = ResourceManager.GetObject("Stop", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Troubleshooting {
+            get {
+                object obj = ResourceManager.GetObject("Troubleshooting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

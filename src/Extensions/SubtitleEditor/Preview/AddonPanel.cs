@@ -19,6 +19,7 @@ using OPMedia.Runtime.ProTONE.Rendering.Base;
 using System.Threading;
 using SubtitleEditor.Rendering;
 using OPMedia.Core;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 namespace SubtitleEditor.Preview
 {
@@ -80,9 +81,11 @@ namespace SubtitleEditor.Preview
                     sb.AppendLine(line);
                 }
 
-                MediaRendererInstance.Instance.ResumeRenderer(elem.StartTime.TotalSeconds - 0.2);
+                double seekTime = elem.StartTime.TotalSeconds / MediaRendererInstance.Instance.DurationScaleFactor;
+
+                MediaRendererInstance.Instance.ResumeRenderer(seekTime);
                 MediaRendererInstance.Instance.DisplayOsdMessage(sb.ToString());
-                //Thread.Sleep(500);
+                Thread.Sleep(500);
                 MediaRendererInstance.Instance.PauseRenderer();
             }
         }
@@ -94,9 +97,9 @@ namespace SubtitleEditor.Preview
             renderingPanel1.ProjectedVolume = MediaRendererInstance.Instance.AudioVolume;
         }
 
-        //[EventSink(RenderEventNames.MediaStateChanged)]
-        //public void OnMediaStateChanged(MediaState oldState, string oldMedia, 
-        //    MediaState newState, string newMedia)
+        //[EventSink(RenderEventNames.FilterStateChanged)]
+        //public void OnFilterStateChanged(FilterState oldState, string oldMedia, 
+        //    FilterState newState, string newMedia)
         //{
         //}
 
@@ -123,13 +126,13 @@ namespace SubtitleEditor.Preview
 
                 case OPMShortcut.CmdPause:
                     {
-                        switch (MediaRendererInstance.Instance.MediaState)
+                        switch (MediaRendererInstance.Instance.FilterState)
                         {
-                            case MediaState.Playing:
+                            case FilterState.Running:
                                 MediaRendererInstance.Instance.PauseRenderer();
                                 break;
 
-                            case MediaState.Paused:
+                            case FilterState.Paused:
                                 MediaRendererInstance.Instance.ResumeRenderer(MediaRendererInstance.Instance.MediaPosition);
                                 break;
                         }

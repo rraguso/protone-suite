@@ -61,7 +61,6 @@ namespace OPMedia.UI.Configuration
             this.chkLogEnabled.Size = new System.Drawing.Size(110, 17);
             this.chkLogEnabled.TabIndex = 0;
             this.chkLogEnabled.Text = "TXT_ENABLE_LOG";
-            this.chkLogEnabled.CheckedChanged += new System.EventHandler(this.chkLogEnabled_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -120,7 +119,6 @@ namespace OPMedia.UI.Configuration
             this.chkTrace.Size = new System.Drawing.Size(311, 19);
             this.chkTrace.TabIndex = 0;
             this.chkTrace.Text = "TXT_TRACE";
-            this.chkTrace.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // chkInfo
             // 
@@ -132,7 +130,6 @@ namespace OPMedia.UI.Configuration
             this.chkInfo.Size = new System.Drawing.Size(311, 19);
             this.chkInfo.TabIndex = 1;
             this.chkInfo.Text = "TXT_INFO";
-            this.chkInfo.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // label2
             // 
@@ -159,7 +156,6 @@ namespace OPMedia.UI.Configuration
             this.chkWarning.Size = new System.Drawing.Size(311, 19);
             this.chkWarning.TabIndex = 2;
             this.chkWarning.Text = "TXT_WARNING";
-            this.chkWarning.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // chkError
             // 
@@ -171,7 +167,6 @@ namespace OPMedia.UI.Configuration
             this.chkError.Size = new System.Drawing.Size(311, 19);
             this.chkError.TabIndex = 3;
             this.chkError.Text = "TXT_ERRORS";
-            this.chkError.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // chkHeavyTrace
             // 
@@ -183,7 +178,6 @@ namespace OPMedia.UI.Configuration
             this.chkHeavyTrace.Size = new System.Drawing.Size(311, 19);
             this.chkHeavyTrace.TabIndex = 4;
             this.chkHeavyTrace.Text = "TXT_HEAVY_TRACE";
-            this.chkHeavyTrace.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // txtLogPath
             // 
@@ -198,7 +192,6 @@ namespace OPMedia.UI.Configuration
             this.txtLogPath.ReadOnly = true;
             this.txtLogPath.Size = new System.Drawing.Size(334, 22);
             this.txtLogPath.TabIndex = 6;
-            this.txtLogPath.TextChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // label1
             // 
@@ -266,7 +259,6 @@ namespace OPMedia.UI.Configuration
             0,
             0,
             0});
-            this.nudDaysToKeepLogs.ValueChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // LoggingSettingsPanel
             // 

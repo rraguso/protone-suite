@@ -24,6 +24,8 @@ namespace OPMedia.UI
 
         protected static bool _restart = false;
 
+        protected BaseCfgPanel selectedPanel = null;
+
         private string _titleToOpen = "";
 
         public new static DialogResult Show()
@@ -69,7 +71,7 @@ namespace OPMedia.UI
             AddPanel(typeof(GeneralSettingsPanel));
             AddAditionalPanels();
             AddPanel(typeof(NetworkSettingsPanel), RequiresNetworkConfig());
-            AddPanel(typeof(LoggingSettingsPanel), !logFullyDisabled);
+            AddPanel(typeof(TroubleshootingPanel));
             
             RemoveUnneededPanels();
             SelectTitleToOpen();
@@ -209,7 +211,37 @@ namespace OPMedia.UI
 
                 if (panel != null)
                 {
-                    AddPanel(panel, condition, alignRight);
+                    if (AddPanel(panel, condition, alignRight))
+                    {
+                        if (panel is MultiPageCfgPanel)
+                        {
+                            List<BaseCfgPanel> subPagesToAdd = new List<BaseCfgPanel>();
+
+                            if (panel is TroubleshootingPanel)
+                            {
+                                List<BaseCfgPanel> pages = GetTroubleshootingSubPages();
+                                if (pages != null)
+                                {
+                                    subPagesToAdd.AddRange(pages);
+                                }
+                                subPagesToAdd.Add(new LoggingSettingsPanel());
+                            }
+                            else if (panel is ControlAppPanel)
+                            {
+                                subPagesToAdd.Add(new KeyMapCfgPanel());
+                                List<BaseCfgPanel> pages = GetControlSubPages();
+                                if (pages != null)
+                                {
+                                    subPagesToAdd.AddRange(pages);
+                                }
+                            }
+
+                            foreach(var page in subPagesToAdd)
+                            {
+                                (panel as MultiPageCfgPanel).AddSubPage(page);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -219,7 +251,7 @@ namespace OPMedia.UI
             AddPanel(panel, condition, false);
         }
 
-        protected void AddPanel(BaseCfgPanel panel, bool condition, bool alignRight)
+        protected bool AddPanel(BaseCfgPanel panel, bool condition, bool alignRight)
         {
             if (condition)
             {
@@ -234,42 +266,48 @@ namespace OPMedia.UI
                         tabOptions.ImageList.Images.Add(panel.Image);
 
                         tabOptions.TabPages.Add(tp);
+                        return true;
                     }
                 }
             }
+
+            return false;
         }
 
         private void ShowPanel(BaseCfgPanel panel)
         {
-            foreach (TabPage tp in tabOptions.TabPages)
+            if (selectedPanel != panel)
             {
-                BaseCfgPanel crtPanel = tp.Controls[0] as BaseCfgPanel;
-                if (panel == crtPanel)
+                foreach (TabPage tp in tabOptions.TabPages)
                 {
-                    tabOptions.SelectedTab = tp;
-                    break;
+                    BaseCfgPanel crtPanel = tp.Controls[0] as BaseCfgPanel;
+                    if (panel == crtPanel)
+                    {
+                        tabOptions.SelectedTab = tp;
+                        break;
+                    }
                 }
             }
         }
 
         public override void FireHelpRequest()
         {
-            BaseCfgPanel selectedPanel = null;
-            try
-            {
-                selectedPanel = tabOptions.SelectedTab.Controls[0] as BaseCfgPanel;
-            }
-            catch
-            {
-                selectedPanel = null;
-            }
-
             if (selectedPanel != null)
                 HelpTarget.HelpRequest(this.Name, selectedPanel.GetHelpTopic());
             else
                 base.FireHelpRequest();
         }
-       
+
+        public virtual List<BaseCfgPanel> GetTroubleshootingSubPages()
+        {
+            return null;
+        }
+
+        public virtual List<BaseCfgPanel> GetControlSubPages()
+        {
+            return null;
+        }
+
     }
 
     public class SettingsSaveException : Exception

@@ -21,6 +21,7 @@ using OPMedia.Core.GlobalEvents;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Runtime.ProTONE.Rendering.Base;
 using SubtitleEditor.Rendering;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 namespace SubtitleEditor.Property
 {
@@ -55,13 +56,13 @@ namespace SubtitleEditor.Property
         public AddonPanel()
         {
             InitializeComponent();
-            btnColor.Image = OPMedia.UI.Properties.Resources.Colors.ToBitmap();
+            btnColor.Image = OPMedia.UI.Properties.Resources.Assistance;
 
             rtbContents.Font = AppSettings.SubFont;
             rtbContents.BackColor = Color.Black;
             rtbContents.ForeColor = AppSettings.SubColor;
 
-            btnStartNow.Image = btnEndNow.Image = ImageProvider.ScaleImage(OPMedia.Core.Properties.Resources.Clock.ToBitmap(),
+            btnStartNow.Image = btnEndNow.Image = ImageProvider.ScaleImage(OPMedia.Core.Properties.Resources.catalog.ToBitmap(),
                 new Size(16, 16), true);
 
             btnStartNow.Enabled = btnEndNow.Enabled = false;
@@ -75,8 +76,8 @@ namespace SubtitleEditor.Property
         public void OnMediaRendererClock()
         {
             btnStartNow.Enabled = btnEndNow.Enabled =
-                (MediaRenderer.DefaultInstance.MediaState == MediaState.Paused ||
-                    MediaRenderer.DefaultInstance.MediaState == MediaState.Playing);
+                (MediaRenderer.DefaultInstance.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused ||
+                    MediaRenderer.DefaultInstance.FilterState == FilterState.Running);
         }
 
         public override List<string> HandledFileTypes
@@ -273,7 +274,7 @@ namespace SubtitleEditor.Property
             // 
             // tbContents
             // 
-            this.tbContents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this.tbContents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.tableLayoutPanel1.SetColumnSpan(this.tbContents, 8);
             this.tbContents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbContents.Location = new System.Drawing.Point(3, 48);
@@ -362,6 +363,7 @@ namespace SubtitleEditor.Property
             this.btnStartNow.Name = "btnStartNow";
             this.btnStartNow.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnStartNow.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnStartNow.ShowDropDown = false;
             this.btnStartNow.Size = new System.Drawing.Size(21, 21);
             this.btnStartNow.TabIndex = 2;
             this.toolTip1.SetToolTip(this.btnStartNow, "Use current playback time as start time");
@@ -413,6 +415,7 @@ namespace SubtitleEditor.Property
             this.btnSave.Name = "btnSave";
             this.btnSave.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnSave.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnSave.ShowDropDown = false;
             this.btnSave.Size = new System.Drawing.Size(72, 24);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "TXT_APPLY";
@@ -427,6 +430,7 @@ namespace SubtitleEditor.Property
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnUndo.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnUndo.ShowDropDown = false;
             this.btnUndo.Size = new System.Drawing.Size(72, 24);
             this.btnUndo.TabIndex = 1;
             this.btnUndo.Text = "TXT_UNDO";
@@ -568,6 +572,7 @@ namespace SubtitleEditor.Property
             this.btnEndNow.Name = "btnEndNow";
             this.btnEndNow.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnEndNow.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnEndNow.ShowDropDown = false;
             this.btnEndNow.Size = new System.Drawing.Size(21, 21);
             this.btnEndNow.TabIndex = 16;
             this.toolTip1.SetToolTip(this.btnEndNow, "Use current playback time as end time");

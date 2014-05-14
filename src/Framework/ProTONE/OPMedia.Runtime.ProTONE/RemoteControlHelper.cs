@@ -22,6 +22,7 @@ namespace OPMedia.Runtime.ProTONE
     {
         public const int RccService = 10202;
         public const int EmulatorInputPin = 10203;
+        public const int SmartPhoneInputPin = 10204;
     }
   
     public static class RemoteControlHelper
