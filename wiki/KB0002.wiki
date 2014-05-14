@@ -1,3 +1,5 @@
+#summary When attempting to play video DVD contents, the wideo window remains blank.
+
 *Affected Products and Versions:* ProTONE Suite version 1.10.27 and older
 
 *Affected Operating Systems:* All

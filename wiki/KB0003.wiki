@@ -1,3 +1,5 @@
+#summary When attempting to play MP3 contents, you may hear a small glitch or hiccup at the beginning of playback.
+
 *Affected Products and Versions:* ProTONE Suite version 1.10.28 and older
 
 *Affected Operating Systems:* All

@@ -1,3 +1,5 @@
+#summary ProTONE Suite version 1.9.90 and older cannot complete installation because of Windows Imaging Component (WIC) needs to be installed first.
+
 *Affected Products and Versions:* ProTONE Suite version 1.9.90 and older
 
 *Affected Operating Systems:*: Windows XP SP3 and Windows 2003 SP1
