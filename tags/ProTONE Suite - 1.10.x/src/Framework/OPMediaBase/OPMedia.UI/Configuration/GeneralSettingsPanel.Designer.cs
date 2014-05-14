@@ -54,7 +54,6 @@ namespace OPMedia.UI.Configuration
             this.cmbLanguages.OverrideForeColor = System.Drawing.Color.Empty;
             this.cmbLanguages.Size = new System.Drawing.Size(407, 23);
             this.cmbLanguages.TabIndex = 4;
-            this.cmbLanguages.SelectedIndexChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // labelProductName
             // 
@@ -208,7 +207,6 @@ namespace OPMedia.UI.Configuration
             this.chkAllowAutoUpdates.Size = new System.Drawing.Size(287, 25);
             this.chkAllowAutoUpdates.TabIndex = 8;
             this.chkAllowAutoUpdates.Text = "TXT_ALLOWAUTOUPDATES";
-            this.chkAllowAutoUpdates.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // GeneralSettingsPanel
             // 

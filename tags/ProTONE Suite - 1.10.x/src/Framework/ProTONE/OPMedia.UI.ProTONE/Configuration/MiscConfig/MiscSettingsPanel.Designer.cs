@@ -35,21 +35,15 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageDisksOptions = new OPMedia.UI.ProTONE.Configuration.MiscConfig.DisksOptionsPage();
             this.tpPlaylist = new OPMedia.UI.Controls.OPMTabPage();
             this.pagePlaylist = new OPMedia.UI.ProTONE.Configuration.MiscConfig.PlaylistOptionsPage();
-            this.tpFavoriteFolders = new OPMedia.UI.Controls.OPMTabPage();
-            this.pageFavoriteFolders = new OPMedia.UI.ProTONE.Configuration.MiscConfig.FavoriteFoldersPage();
-            this.tpRemote = new OPMedia.UI.Controls.OPMTabPage();
-            this.pageRemote = new OPMedia.UI.ProTONE.Configuration.MiscConfig.RemoteControlPage();
-            this.tpDiagnostics = new OPMedia.UI.Controls.OPMTabPage();
-            this.pageDiagnostics = new OPMedia.UI.ProTONE.Configuration.MiscConfig.DiagnosticsPage();
             this.tpScheduler = new OPMedia.UI.Controls.OPMTabPage();
             this.pageScheduler = new OPMedia.UI.ProTONE.Configuration.MiscConfig.SchedulerSettingsPage();
+            this.tpFavoriteFolders = new OPMedia.UI.Controls.OPMTabPage();
+            this.pageFavoriteFolders = new OPMedia.UI.ProTONE.Configuration.MiscConfig.FavoriteFoldersPage();
             this.tabMisc.SuspendLayout();
             this.tpDisksOptions.SuspendLayout();
             this.tpPlaylist.SuspendLayout();
-            this.tpFavoriteFolders.SuspendLayout();
-            this.tpRemote.SuspendLayout();
-            this.tpDiagnostics.SuspendLayout();
             this.tpScheduler.SuspendLayout();
+            this.tpFavoriteFolders.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMisc
@@ -59,8 +53,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tabMisc.Controls.Add(this.tpPlaylist);
             this.tabMisc.Controls.Add(this.tpScheduler);
             this.tabMisc.Controls.Add(this.tpFavoriteFolders);
-            this.tabMisc.Controls.Add(this.tpRemote);
-            this.tabMisc.Controls.Add(this.tpDiagnostics);
             this.tabMisc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMisc.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabMisc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -89,7 +81,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageDisksOptions.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.pageDisksOptions.Location = new System.Drawing.Point(5, 10);
             this.pageDisksOptions.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageDisksOptions.Modified = false;
             this.pageDisksOptions.Name = "pageDisksOptions";
             this.pageDisksOptions.OverrideBackColor = System.Drawing.Color.Empty;
             this.pageDisksOptions.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -115,11 +106,33 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pagePlaylist.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.pagePlaylist.Location = new System.Drawing.Point(5, 10);
             this.pagePlaylist.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pagePlaylist.Modified = false;
             this.pagePlaylist.Name = "pagePlaylist";
             this.pagePlaylist.OverrideBackColor = System.Drawing.Color.Empty;
             this.pagePlaylist.Size = new System.Drawing.Size(637, 351);
             this.pagePlaylist.TabIndex = 0;
+            // 
+            // tpScheduler
+            // 
+            this.tpScheduler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.tpScheduler.Controls.Add(this.pageScheduler);
+            this.tpScheduler.Location = new System.Drawing.Point(4, 23);
+            this.tpScheduler.Name = "tpScheduler";
+            this.tpScheduler.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tpScheduler.Size = new System.Drawing.Size(647, 366);
+            this.tpScheduler.TabIndex = 5;
+            this.tpScheduler.Text = "TXT_S_SCHEDULERSETTINGS";
+            // 
+            // pageScheduler
+            // 
+            this.pageScheduler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageScheduler.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.pageScheduler.Location = new System.Drawing.Point(5, 10);
+            this.pageScheduler.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pageScheduler.Name = "pageScheduler";
+            this.pageScheduler.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pageScheduler.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.pageScheduler.Size = new System.Drawing.Size(637, 351);
+            this.pageScheduler.TabIndex = 0;
             // 
             // tpFavoriteFolders
             // 
@@ -140,88 +153,11 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.pageFavoriteFolders.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.pageFavoriteFolders.Location = new System.Drawing.Point(5, 10);
             this.pageFavoriteFolders.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageFavoriteFolders.Modified = false;
             this.pageFavoriteFolders.Name = "pageFavoriteFolders";
             this.pageFavoriteFolders.OverrideBackColor = System.Drawing.Color.Empty;
             this.pageFavoriteFolders.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.pageFavoriteFolders.Size = new System.Drawing.Size(637, 351);
             this.pageFavoriteFolders.TabIndex = 0;
-            // 
-            // tpRemote
-            // 
-            this.tpRemote.AccessibleName = "TXT_REMOTECONTROLCFG";
-            this.tpRemote.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
-            this.tpRemote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.tpRemote.Controls.Add(this.pageRemote);
-            this.tpRemote.Location = new System.Drawing.Point(4, 23);
-            this.tpRemote.Name = "tpRemote";
-            this.tpRemote.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.tpRemote.Size = new System.Drawing.Size(647, 366);
-            this.tpRemote.TabIndex = 1;
-            this.tpRemote.Text = "TXT_REMOTECONTROLCFG";
-            // 
-            // pageRemote
-            // 
-            this.pageRemote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageRemote.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pageRemote.Location = new System.Drawing.Point(5, 10);
-            this.pageRemote.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageRemote.Modified = true;
-            this.pageRemote.Name = "pageRemote";
-            this.pageRemote.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pageRemote.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.pageRemote.Size = new System.Drawing.Size(637, 351);
-            this.pageRemote.TabIndex = 0;
-            // 
-            // tpDiagnostics
-            // 
-            this.tpDiagnostics.AccessibleName = "TXT_SYSTEMDIAGNOSTICS";
-            this.tpDiagnostics.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
-            this.tpDiagnostics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.tpDiagnostics.Controls.Add(this.pageDiagnostics);
-            this.tpDiagnostics.Location = new System.Drawing.Point(4, 23);
-            this.tpDiagnostics.Name = "tpDiagnostics";
-            this.tpDiagnostics.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.tpDiagnostics.Size = new System.Drawing.Size(647, 366);
-            this.tpDiagnostics.TabIndex = 3;
-            this.tpDiagnostics.Text = "TXT_ASSISTANCE";
-            // 
-            // pageDiagnostics
-            // 
-            this.pageDiagnostics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageDiagnostics.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pageDiagnostics.Location = new System.Drawing.Point(5, 10);
-            this.pageDiagnostics.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageDiagnostics.Modified = false;
-            this.pageDiagnostics.Name = "pageDiagnostics";
-            this.pageDiagnostics.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pageDiagnostics.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.pageDiagnostics.Size = new System.Drawing.Size(637, 351);
-            this.pageDiagnostics.TabIndex = 0;
-            // 
-            // tpScheduler
-            // 
-            this.tpScheduler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.tpScheduler.Controls.Add(this.pageScheduler);
-            this.tpScheduler.Location = new System.Drawing.Point(4, 23);
-            this.tpScheduler.Name = "tpScheduler";
-            this.tpScheduler.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.tpScheduler.Size = new System.Drawing.Size(647, 366);
-            this.tpScheduler.TabIndex = 5;
-            this.tpScheduler.Text = "TXT_S_SCHEDULERSETTINGS";
-            // 
-            // pageScheduler
-            // 
-            this.pageScheduler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageScheduler.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pageScheduler.Location = new System.Drawing.Point(5, 10);
-            this.pageScheduler.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pageScheduler.Modified = false;
-            this.pageScheduler.Name = "pageScheduler";
-            this.pageScheduler.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pageScheduler.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.pageScheduler.Size = new System.Drawing.Size(637, 351);
-            this.pageScheduler.TabIndex = 0;
             // 
             // MiscellaneousSettingsPanel
             // 
@@ -233,10 +169,8 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tabMisc.ResumeLayout(false);
             this.tpDisksOptions.ResumeLayout(false);
             this.tpPlaylist.ResumeLayout(false);
-            this.tpFavoriteFolders.ResumeLayout(false);
-            this.tpRemote.ResumeLayout(false);
-            this.tpDiagnostics.ResumeLayout(false);
             this.tpScheduler.ResumeLayout(false);
+            this.tpFavoriteFolders.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,14 +178,10 @@ namespace OPMedia.UI.ProTONE.Configuration
         #endregion
 
         private UI.Controls.OPMTabControl tabMisc;
-        private UI.Controls.OPMTabPage tpRemote;
-        private UI.Controls.OPMTabPage tpDiagnostics;
         private UI.Controls.OPMTabPage tpPlaylist;
         private UI.Controls.OPMTabPage tpFavoriteFolders;
         private UI.Controls.OPMTabPage tpDisksOptions;
         private UI.Controls.OPMTabPage tpScheduler;
-        private MiscConfig.RemoteControlPage pageRemote;
-        private MiscConfig.DiagnosticsPage pageDiagnostics;
         private MiscConfig.PlaylistOptionsPage pagePlaylist;
         private MiscConfig.FavoriteFoldersPage pageFavoriteFolders;
         private MiscConfig.DisksOptionsPage pageDisksOptions;

@@ -1059,5 +1059,11 @@ Wollen Sie es schaffen?</value>
 <data name="TXT_RECENT_FILE_REMOVED">
   <value>Die Datei wird aus den jüngsten Liste geöffneten Dateien entfernt werden.</value>
 </data>
+<data name="TXT_S_CONTROL">
+  <value>Kontrolle</value>
+</data>
+<data name="TXT_S_TROUBLESHOOTING">
+  <value>Stützen</value>
+</data>
     
 </root>

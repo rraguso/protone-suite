@@ -221,6 +221,7 @@ namespace OPMedia.Core
                     new Theme(ThemeEnum.Silver),
                     new Theme(ThemeEnum.Blue),
                     new Theme(ThemeEnum.Black),
+                    new Theme(ThemeEnum.Emerald),
                 });
 
             try
@@ -271,7 +272,10 @@ namespace OPMedia.Core
                     this.Name = "Black theme (Default)";
                     this.IsDefault = true;
                     break;
-
+                case ThemeEnum.Emerald:
+                    this.Name = "Emerald theme";
+                    this.IsDefault = true;
+                    break;
                 default:
                     throw new NotSupportedException(string.Format("Value {0} is not supported.", value));
             }
@@ -283,6 +287,7 @@ namespace OPMedia.Core
         Silver = 0,
         Blue,
         Black,
+        Emerald,
 
         NofThemes
     }

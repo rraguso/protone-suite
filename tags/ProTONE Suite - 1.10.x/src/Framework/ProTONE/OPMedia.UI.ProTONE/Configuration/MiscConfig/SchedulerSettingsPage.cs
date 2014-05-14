@@ -155,6 +155,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             psiScheduledEvtData.InfoChanged += new System.EventHandler(this.OnSettingsChanged);
             chkEnableScheduledEvt.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             cmbScheduledEvtHandler.SelectedIndexChanged += new System.EventHandler(this.OnSettingsChanged);
+            nudSchedulerWaitTimerProceed.ValueChanged += new System.EventHandler(this.OnSettingsChanged);
         }
 
         private void UnsubscribeAll()
@@ -167,6 +168,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             psiScheduledEvtData.InfoChanged -= new System.EventHandler(this.OnSettingsChanged);
             chkEnableScheduledEvt.CheckedChanged -= new System.EventHandler(this.OnSettingsChanged);
             cmbScheduledEvtHandler.SelectedIndexChanged -= new System.EventHandler(this.OnSettingsChanged);
+            nudSchedulerWaitTimerProceed.ValueChanged -= new System.EventHandler(this.OnSettingsChanged);
         }
     }
 }

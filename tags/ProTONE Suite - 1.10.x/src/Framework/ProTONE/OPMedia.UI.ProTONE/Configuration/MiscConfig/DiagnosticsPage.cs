@@ -20,8 +20,17 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
     public partial class DiagnosticsPage : BaseCfgPanel
     {
+        public override Image Image
+        {
+            get
+            {
+                return Resources.Assistance;
+            }
+        }
+
         public DiagnosticsPage()
         {
+            this.Title = "TXT_ASSISTANCE";
             InitializeComponent();
             this.HandleCreated += new EventHandler(SystemDiagnosticsPanel_Load);
         }

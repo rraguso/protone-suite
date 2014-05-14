@@ -71,11 +71,10 @@ namespace OPMedia.UI.ProTONE.Configuration
             chkOsdEnabled.CheckedChanged += new EventHandler(chkOsdEnabled_CheckedChanged);
             nudOsdTmr.ValueChanged += new EventHandler(nudOsdTmr_ValueChanged);
 
-            chkOsdEnabled.CheckedChanged += new EventHandler(chkOsdEnabled_CheckedChanged);
-            nudOsdTmr.ValueChanged += new EventHandler(nudOsdTmr_ValueChanged);
-
             chkFilterStateNotificationsEnabled.Checked = AppSettings.MediaStateNotificationsEnabled;
             chkFilterStateNotificationsEnabled.CheckedChanged += new EventHandler(chkFilterStateNotificationsEnabled_CheckedChanged);
+
+            this.chkSubEnabled.CheckedChanged += new System.EventHandler(this.chkSubEnabled_CheckedChanged);
 
         }
         

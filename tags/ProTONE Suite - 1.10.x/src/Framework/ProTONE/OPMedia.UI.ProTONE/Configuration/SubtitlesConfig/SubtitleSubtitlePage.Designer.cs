@@ -153,7 +153,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.cmbLanguages.OverrideForeColor = System.Drawing.Color.Empty;
             this.cmbLanguages.Size = new System.Drawing.Size(304, 23);
             this.cmbLanguages.TabIndex = 1;
-            this.cmbLanguages.SelectedIndexChanged += new System.EventHandler(this.cmbLanguages_SelectedIndexChanged);
             // 
             // chkSubtitleDownload
             // 
@@ -168,7 +167,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.chkSubtitleDownload.Size = new System.Drawing.Size(468, 17);
             this.chkSubtitleDownload.TabIndex = 1;
             this.chkSubtitleDownload.Text = "TXT_SUBTITLE_DOWNLOAD";
-            this.chkSubtitleDownload.CheckedChanged += new System.EventHandler(this.chkSubtitleDownload_CheckedChanged);
             // 
             // pnlOnlineSubtitles
             // 
@@ -379,7 +377,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             0,
             0,
             0});
-            this.nudMinMovieDuration.ValueChanged += new System.EventHandler(this.nudMinMovieDuration_ValueChanged);
             // 
             // kryptonLabel2
             // 
@@ -407,7 +404,6 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.chkNotifySubDownloaded.Size = new System.Drawing.Size(468, 15);
             this.chkNotifySubDownloaded.TabIndex = 2;
             this.chkNotifySubDownloaded.Text = "TXT_NOTIFYSUBDOWNLOADED";
-            this.chkNotifySubDownloaded.CheckedChanged += new System.EventHandler(this.chkNotifySubDownloaded_CheckedChanged);
             // 
             // tableLayoutPanel1
             // 
