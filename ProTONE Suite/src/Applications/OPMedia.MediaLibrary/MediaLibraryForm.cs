@@ -41,6 +41,10 @@ namespace OPMedia.MediaLibrary
                         ProTONESettingsForm.Show();
                         args.Handled = true;
                         break;
+
+                    case OPMShortcut.CmdEditPath:
+                        EnterEditPathMode();
+                        break;
                 }
             }
         }
