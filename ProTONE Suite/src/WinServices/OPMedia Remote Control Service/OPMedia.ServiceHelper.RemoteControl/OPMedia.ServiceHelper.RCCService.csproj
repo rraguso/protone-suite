@@ -73,6 +73,7 @@
     <Compile Include="InputPins\SerialDeviceInputPin.cs">
     </Compile>
     <Compile Include="InputPins\SerialRemoteDeviceDriver.cs" />
+    <Compile Include="InputPins\UnifiedRemoteInputPin.cs" />
     <Compile Include="OutputPins\HotkeyOutputPin.cs" />
     <Compile Include="OutputPins\LircOutputPin.cs">
     </Compile>
