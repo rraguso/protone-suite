@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.Core.Utilities;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 namespace SubtitleEditor.Rendering
 {
@@ -36,21 +37,23 @@ namespace SubtitleEditor.Rendering
 
         private MediaRendererInstance()
         {
-            _renderer = MediaRenderer.NewInstance();
+            //_renderer = MediaRenderer.NewInstance();
+
+            _renderer = MediaRenderer.DefaultInstance;
             _renderer.MediaRendererClock += new MediaRendererEventHandler(_renderer_MediaRendererClock);
             _renderer.MediaRendererHeartbeat += new MediaRendererEventHandler(_renderer_MediaRendererHeartbeat);
             _renderer.MediaRenderingException += new MediaRenderingExceptionHandler(_renderer_MediaRenderingException);
-            _renderer.MediaStateChanged += new MediaStateChangedHandler(_renderer_MediaStateChanged);
+            _renderer.FilterStateChanged += new FilterStateChangedHandler(_renderer_FilterStateChanged);
+        }
+
+        void _renderer_FilterStateChanged(OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState oldState, string oldMedia, OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState newState, string newMedia)
+        {
+            FireFilterStateChanged(oldState, oldMedia, newState, newMedia);
         }
 
         ~MediaRendererInstance()
         {
             Dispose();
-        }
-
-        void _renderer_MediaStateChanged(OPMedia.Runtime.ProTONE.Rendering.Base.MediaState oldState, string oldMedia, OPMedia.Runtime.ProTONE.Rendering.Base.MediaState newState, string newMedia)
-        {
-            FireMediaStateChanged(oldState, oldMedia, newState, newMedia);
         }
 
         void _renderer_MediaRenderingException(OPMedia.Runtime.ProTONE.Rendering.Base.RenderingExceptionEventArgs args)
@@ -87,12 +90,12 @@ namespace SubtitleEditor.Rendering
             }
         }
 
-        public event MediaStateChangedHandler MediaStateChanged = null;
-        private void FireMediaStateChanged(MediaState oldState, string oldMedia, MediaState newState, string newMedia)
+        public event FilterStateChangedHandler FilterStateChanged = null;
+        private void FireFilterStateChanged(FilterState oldState, string oldMedia, FilterState newState, string newMedia)
         {
-            if (MediaStateChanged != null)
+            if (FilterStateChanged != null)
             {
-                MediaStateChanged(oldState, oldMedia, newState, newMedia);
+                FilterStateChanged(oldState, oldMedia, newState, newMedia);
             }
         }
 
@@ -160,9 +163,14 @@ namespace SubtitleEditor.Rendering
             set { _renderer.AudioVolume = value; }
         }
 
-        public MediaState MediaState
+        public FilterState FilterState
         {
-            get { return _renderer.MediaState; }
+            get { return _renderer.FilterState; }
+        }
+
+        public double DurationScaleFactor
+        {
+            get { return _renderer.DurationScaleFactor; }
         }
 
         internal VideoFileInfo QueryVideoMediaInfo(string p)
