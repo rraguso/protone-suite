@@ -384,25 +384,6 @@ namespace OPMedia.UI.Themes
 
             ColorMap(ColorMapElement.SpecialListColor,  te, 125, 125, 125);
             //---------------------------------------------------------------------------------------
-
-            //---------------------------------------------------------------------------------------
-            te = ThemeEnum.Emerald;
-            ColorMap(ColorMapElement.ForeColor, te, 030, 091, 057);
-            ColorMap(ColorMapElement.BackColor, te, 200, 235, 216);
-            ColorMap(ColorMapElement.SelectedColor, te, 169, 222, 193);
-            ColorMap(ColorMapElement.WndValidColor, te, 240, 255, 250);
-            ColorMap(ColorMapElement.GradientLTColor, te, 185, 230, 206);
-            ColorMap(ColorMapElement.GradientRBColor, te, 145, 201, 171);
-            ColorMap(ColorMapElement.GradientMColor, te, 179, 216, 196);
-            ColorMap(ColorMapElement.BorderColor, te, 092, 150, 119);
-            ColorMap(ColorMapElement.HighlightColor, te, 135, 080, 110);
-            ColorMap(ColorMapElement.WndTextColor, te, 030, 091, 057);
-
-            ColorMap(ColorMapElement.LinkColor, te, 018, 226, 097);
-            ColorMap(ColorMapElement.CheckedMenuColor, te, 255, 024, 209);
-
-            ColorMap(ColorMapElement.SpecialListColor, te, 205, 240, 221);       
-            //---------------------------------------------------------------------------------------
         }
 
         private static void ColorMap(ColorMapElement cme, ThemeEnum te, int r, int g, int b)
