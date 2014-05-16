@@ -105,8 +105,6 @@ Source: {#BINDIR}\fr\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\DLL\fr
 Source: {#BINDIR}\IRSerDev.dll; DestDir: {app}\DLL; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
 Source: {#BINDIR}\IRSerDev.h; DestDir: {app}\DLL; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
 Source: {#BINDIR}\Templates\Catalog\Default Catalog; DestDir: {app}\DLL\Templates\Catalog; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace
-Source: {#EXTDIR}\GoogleTranslateAPI.dll; DestDir: {app}\Tools\TranslationEditor
-Source: {#EXTDIR}\RoboTranslator.dll; DestDir: {app}\Tools\TranslationEditor
 Source: {#EXTDIR}\TranslationEditor.exe; DestDir: {app}\Tools\TranslationEditor
 Source: {#EXTDIR}\GenerateDbmlFromSdf.dll; DestDir: {app}\VS2010\
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\AddonPanel.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
