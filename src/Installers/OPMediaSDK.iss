@@ -134,7 +134,6 @@ Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\MainForm
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Program.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\SampleAddonApplication.csproj; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication.sln; DestDir: {app}\SDKSamples\SampleAddonApplication
-Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication.suo; DestDir: {app}\SDKSamples\SampleAddonApplication; Attribs: hidden
 
 [Icons]
 
