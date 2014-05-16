@@ -37,7 +37,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\..\bin\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;USE_SKINNED_SCROLLBARS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -175,6 +175,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\OPMShellTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\OPMStatusStrip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\SelfValidableCollection.cs" />

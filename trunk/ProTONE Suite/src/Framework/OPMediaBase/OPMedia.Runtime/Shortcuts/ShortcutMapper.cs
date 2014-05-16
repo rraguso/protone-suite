@@ -321,8 +321,9 @@ namespace OPMedia.Runtime.Shortcuts
                     new KeyEventArgs(Keys.Control | Keys.D3),//CmdID3Wizard,
                     new KeyEventArgs(Keys.Control | Keys.G),//CmdCatalogWizard,
                     new KeyEventArgs(Keys.Control | Keys.Alt | Keys.M),//CmdCatalogMerge,
-
                     new KeyEventArgs(Keys.Control | Keys.Alt | Keys.A),//CmdCdRipperWizard,
+
+                    new KeyEventArgs(Keys.Control | Keys.Alt | Keys.F2),//CmdEditPath,
                 };
 
             KeyEventArgs[] actionKeys2 = new KeyEventArgs[]
@@ -404,8 +405,9 @@ namespace OPMedia.Runtime.Shortcuts
                 new KeyEventArgs(Keys.Control | Keys.NumPad3),//CmdID3Wizard,
                 new KeyEventArgs(Keys.Control | Keys.G),//CmdCatalogWizard,
                 new KeyEventArgs(Keys.Control | Keys.Alt | Keys.M),//CmdCatalogMerge,
-
                 new KeyEventArgs(Keys.Control | Keys.Alt | Keys.A),//CmdCdRipperWizard,
+
+                new KeyEventArgs(Keys.Control | Keys.Alt | Keys.F2),//CmdEditPath,
             };
 
             keyCommands.Clear();
@@ -518,6 +520,8 @@ namespace OPMedia.Runtime.Shortcuts
         CmdCatalogWizard,
         CmdCatalogMerge,
         CmdCdRipperWizard,
+
+        CmdEditPath,
         
         CmdOutOfRange,
     };

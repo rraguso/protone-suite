@@ -115,7 +115,7 @@ namespace OPMedia.Runtime.Addons
 
             SetColors();
 
-
+            ExitEditPathMode(false);
         }
 
         protected override void  OnThemeUpdatedInternal()
@@ -805,7 +805,90 @@ namespace OPMedia.Runtime.Addons
             LogFileConsoleDialog.ShowLogConsole();
         }
 
-       
+        protected void EnterEditPathMode()
+        {
+            NavBaseCtl ctl = GetNavigationControl();
+            if (ctl != null && ctl.EditDisplayedPathAllowed)
+            {
+                lblStatusMain.Visible = false;
+                txtStatusMain.Visible = true;
+
+                string realPath = lblStatusMain.Text.Replace(Translator.Translate("TXT_CURRENT_PATH", string.Empty), string.Empty);
+                txtStatusMain.Text = realPath;
+
+                txtStatusMain.Select();
+                txtStatusMain.Focus();
+            }
+        }
+
+        protected void ExitEditPathMode(bool commitPath)
+        {
+            lblStatusMain.Visible = true;
+            txtStatusMain.Visible = false;
+
+            Application.DoEvents();
+
+            if (commitPath)
+            {
+                string previousPath = lblStatusMain.Text.Replace(Translator.Translate("TXT_CURRENT_PATH", string.Empty), string.Empty);
+                string newPath = txtStatusMain.Text;
+
+                lblStatusMain.Text = "Looking up " + newPath;
+                Application.DoEvents();
+
+                if (previousPath != newPath)
+                {
+                    TryCommitNewPath(newPath);
+                }
+            }
+        }
+
+        private void TryCommitNewPath(string newPath)
+        {
+            NavBaseCtl ctl = GetNavigationControl();
+            if (ctl != null && ctl.EditDisplayedPathAllowed)
+            {
+                ctl.TryCommitNewPath(newPath);
+            }
+        }
+
+        private void statusBar_Click(object sender, EventArgs e)
+        {
+            ExitEditPathMode(false);
+        }
+
+        private void lblStatusMain_Click(object sender, EventArgs e)
+        {
+            EnterEditPathMode();
+        }
+
+        private void txtStatusMain_Leave(object sender, EventArgs e)
+        {
+            ExitEditPathMode(false);
+        }
+
+        void txtStatusMain_LostFocus(object sender, System.EventArgs e)
+        {
+            ExitEditPathMode(false);
+        }
+
+        void txtStatusMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.None)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Enter:
+                        ExitEditPathMode(true);
+                        break;
+
+                    case Keys.Escape:
+                        ExitEditPathMode(false);
+                        break;
+                }
+            }
+        }
 
     }
+
 }
