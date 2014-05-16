@@ -15,6 +15,7 @@ using OPMedia.UI.Properties;
 using OPMedia.Runtime.ProTONE.Haali;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.Core.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.DirectX;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -97,31 +98,22 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         {
             bool isOk = false;
 
-            string dxRegPath = @"SOFTWARE\Microsoft\DirectX";
+            string dxFriendlyName = "";
+            
+            Version actualVersion = DirectXConfig.GetDirectXVersion(out dxFriendlyName);
+            Version minimumVersion = DirectXConfig.Dx9cVersion;
 
-            using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(dxRegPath))
+            isOk = (actualVersion.CompareTo(minimumVersion) >= 0);
+
+            lblDirectX.Text = string.Format("Detected: {0} [{1}]", dxFriendlyName, actualVersion);
+            if (!isOk)
             {
-                if (key != null)
-                {
-                    string dxVersion = key.GetValue("Version") as string;
-                    key.Close();
-
-                    Version actualVersion = new Version(dxVersion);
-                    Version minimumVersion = new Version("4.9.0.904");
-
-                    isOk = (actualVersion.CompareTo(minimumVersion) >= 0);
-
-                    lblDirectX.Text = "Detected: DirectX v." + actualVersion.ToString();
-                    if (!isOk)
-                    {
-                        lblDirectX.Text += "\nRequired: DirectX v." + minimumVersion.ToString();
-                        lblActDirectX.Visible = true;
-                    }
-                    else
-                    {
-                        lblActDirectX.Visible = false;
-                    }
-                }
+                lblDirectX.Text += "\nRequired: DirectX 9.0c [" + minimumVersion.ToString() + "]";
+                lblActDirectX.Visible = true;
+            }
+            else
+            {
+                lblActDirectX.Visible = false;
             }
 
             pbDirectX.Image = GetStatusImage(isOk);

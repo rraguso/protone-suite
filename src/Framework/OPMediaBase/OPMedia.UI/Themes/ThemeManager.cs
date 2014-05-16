@@ -216,14 +216,13 @@ namespace OPMedia.UI.Themes
                 {
                     SetDoubleBufferControl(c);
                 }
-
-                #if USE_SKINNED_SCROLLBARS
-                ScrollBarSkinner.SkinWindow(c);
-                #endif
             }
         }
 
-        const string ThemeFontFamily = "Segoe UI";
+        private readonly static string ThemeFontFamily = 
+            SuiteConfiguration.OSVersion < SuiteConfiguration.VerWinVista ?
+            "Trebuchet MS" : "Segoe UI";
+
 
         public static void RecreateFonts()
         {
@@ -247,14 +246,6 @@ namespace OPMedia.UI.Themes
                         new Font(ThemeFontFamily, 15 * step, FontStyle.Bold, GraphicsUnit.Point);
                 }
             }
-            /*
-            ScrollBarSkinner.BackColor = ThemeManager.BackColor;
-            ScrollBarSkinner.NormalColor = ThemeManager.BackColor;
-            ScrollBarSkinner.TrackColor = ControlPaint.Light(ThemeManager.BorderColor, .2f);
-            ScrollBarSkinner.PressedColor = ControlPaint.Dark(ThemeManager.SelectedColor, .2f);
-            ScrollBarSkinner.HoverColor = ThemeManager.SelectedColor;
-            ScrollBarSkinner.TrackPressedColor = ControlPaint.Dark(ThemeManager.SelectedColor, .2f);
-            */
         }
 
         public static void SetFont(Control ctl, FontSizes size, bool recursive = false)
@@ -392,25 +383,6 @@ namespace OPMedia.UI.Themes
             ColorMap(ColorMapElement.CheckedMenuColor,  te, 255, 209, 024);
 
             ColorMap(ColorMapElement.SpecialListColor,  te, 125, 125, 125);
-            //---------------------------------------------------------------------------------------
-
-            //---------------------------------------------------------------------------------------
-            te = ThemeEnum.Emerald;
-            ColorMap(ColorMapElement.ForeColor, te, 030, 091, 057);
-            ColorMap(ColorMapElement.BackColor, te, 200, 235, 216);
-            ColorMap(ColorMapElement.SelectedColor, te, 169, 222, 193);
-            ColorMap(ColorMapElement.WndValidColor, te, 240, 255, 250);
-            ColorMap(ColorMapElement.GradientLTColor, te, 185, 230, 206);
-            ColorMap(ColorMapElement.GradientRBColor, te, 145, 201, 171);
-            ColorMap(ColorMapElement.GradientMColor, te, 179, 216, 196);
-            ColorMap(ColorMapElement.BorderColor, te, 092, 150, 119);
-            ColorMap(ColorMapElement.HighlightColor, te, 135, 080, 110);
-            ColorMap(ColorMapElement.WndTextColor, te, 030, 091, 057);
-
-            ColorMap(ColorMapElement.LinkColor, te, 018, 226, 097);
-            ColorMap(ColorMapElement.CheckedMenuColor, te, 255, 024, 209);
-
-            ColorMap(ColorMapElement.SpecialListColor, te, 205, 240, 221);       
             //---------------------------------------------------------------------------------------
         }
 
