@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compression\LameEncoder.cs" />
+    <Compile Include="DirectX\DirectXConfig.cs" />
     <Compile Include="ExtendedInfo\ID3ArtworkInfo.cs" />
     <Compile Include="ExtendedInfo\Bookmark.cs" />
     <Compile Include="ExtendedInfo\BookmarkFileInfo.cs" />
