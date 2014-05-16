@@ -154,7 +154,7 @@ namespace SubtitleEditor.Navigation
             lvSubtitles.Subtitle = _sub;
         }
 
-        protected override OPMedia.UI.Configuration.SettingsTabPage GetSettingsTabPage()
+        protected override OPMedia.UI.Configuration.BaseCfgPanel GetBaseCfgPanel()
         {
             return new SubtitleEditorCfgPanel();
         }

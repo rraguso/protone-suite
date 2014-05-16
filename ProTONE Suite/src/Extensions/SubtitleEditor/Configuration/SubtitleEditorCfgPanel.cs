@@ -9,7 +9,7 @@ using OPMedia.Core.TranslationSupport;
 
 namespace SubtitleEditor.extension.Configuration
 {
-    public class SubtitleEditorCfgPanel : SettingsTabPage
+    public class SubtitleEditorCfgPanel : BaseCfgPanel
     {
         private OPMedia.UI.Controls.OPMLabel opmLabel1;
     
