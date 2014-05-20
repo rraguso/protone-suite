@@ -127,14 +127,8 @@
 <data name="TXT_ADDON_MC_SETTINGS">
   <value>Katalog-Browser</value>
 </data>
-<data name="TXT_ARTWORK_COUNT">
-  <value>{0} Kunstwerk Bild (er) (Klicken Sie zum Bearbeiten).</value>
-</data>
 <data name="TXT_ATTRIBUTESEARCH">
   <value>Die Ergebnisse filtern durch Dateiattribute</value>
-</data>
-<data name="TXT_BOOKMARK_COUNT">
-  <value>{0} bookmark (s) (Klicken Sie zum Bearbeiten).</value>
 </data>
 <data name="TXT_CAPITALIZEWORDS">
   <value>Wandelt alle Wörter</value>
@@ -462,12 +456,6 @@ Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entferne
 <data name="TXT_WORDHANDLING">
   <value>Ändern Worte Fall:</value>
 </data>
-<data name="TXT_BOOKMARKINFO">
-  <value>Bookmark Information</value>
-</data>
-<data name="TXT_BOOKMARKLIST">
-  <value>Bookmark-Liste</value>
-</data>
 <data name="TXT_CATALOG_DESC">
   <value>Katalog Beschreibung</value>
 </data>
@@ -488,9 +476,6 @@ Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entferne
 </data>
 <data name="TXT_ITEMTYPE_DESC">
   <value> Ursprüngliche Element-Typ</value>
-</data>
-<data name="TXT_MEDIAINFO">
-  <value>Medieninformation</value>
 </data>
 <data name="TXT_MEDIAPATH_SHORT">
   <value>Ursprünglichen Pfad innerhalb Medien</value>

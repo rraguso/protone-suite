@@ -103,25 +103,58 @@ namespace OPMedia.UI.Controls
             return value;
         }
 
-        public static void ProcessObjectAttributes(List<object> lObjects)
+        public static void ProcessObjectAttributes(List<object> lObjects, 
+            List<Type> attributeTypesToIgnore = null,
+            List<string> categoriesToIgnore = null)
         {
+            if (categoriesToIgnore != null)
+            {
+                for (int i = 0; i < categoriesToIgnore.Count; i++)
+                {
+                    categoriesToIgnore[i] = Translator.Translate(categoriesToIgnore[i]);
+                }
+            }
+
             if (lObjects.Count > 0)
             {
                 bool singleSelection = (lObjects.Count == 1);
 
-                foreach (PropertyDescriptor pd in TypeDescriptor.GetProperties(lObjects[0].GetType()))
+                Type targetType = lObjects[0].GetType();
+
+                foreach (PropertyDescriptor pd in TypeDescriptor.GetProperties(targetType))
                 {
+                    bool? shouldPropertyBeSeen = default(bool?);
+
+                    // translation
                     foreach (Attribute attr in pd.Attributes)
                     {
-                        if (typeof(SingleSelectionBrowsableAttribute) == attr.GetType())
-                        {
-                            UIExtensions.SetAttribute(pd.Name, "browsable", typeof(NativeFileInfo), singleSelection);
-                        }
-
                         if (attr is ITranslatableAttribute)
                         {
                             (attr as ITranslatableAttribute).PerformTranslation(pd);
                         }
+                    }
+
+                    // identify attributes that would indicate that the property should be hidden
+                    foreach (Attribute attr in pd.Attributes)
+                    {
+                        if (attr is SingleSelectionBrowsableAttribute)
+                        {
+                            shouldPropertyBeSeen = singleSelection;
+                            shouldPropertyBeSeen &= (attributeTypesToIgnore == null || !attributeTypesToIgnore.Contains(attr.GetType()));
+                            break;
+                        }
+
+                        if (categoriesToIgnore != null && categoriesToIgnore.Contains(Translator.Translate(pd.Category)))
+                        {
+                            shouldPropertyBeSeen = false;
+                            break;
+                        }
+                    }
+
+                    // hide the property if needed
+                    if (shouldPropertyBeSeen == false)
+                    {
+                        UIExtensions.SetAttribute(pd.Name, "browsable", targetType, false);
                     }
                 }
             }

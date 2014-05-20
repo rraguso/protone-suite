@@ -20,6 +20,7 @@ using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
 using OPMedia.UI.Controls;
 using OPMedia.Addons.Builtin.Properties;
+using OPMedia.Runtime.FileInformation;
 
 namespace OPMedia.Addons.Builtin.ID3Prop
 {

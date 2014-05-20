@@ -127,14 +127,8 @@
 <data name="TXT_ADDON_MC_SETTINGS">
   <value>Explorator Cataloage</value>
 </data>
-<data name="TXT_ARTWORK_COUNT">
-  <value>{0} imagini (click pentru editare).</value>
-</data>
 <data name="TXT_ATTRIBUTESEARCH">
   <value>Filtrează rezultatele după atributele fişierelor</value>
-</data>
-<data name="TXT_BOOKMARK_COUNT">
-  <value>{0} Bookmark-uri (click pentru editare).</value>
 </data>
 <data name="TXT_CAPITALIZEWORDS">
   <value>Toate Cuvintele Cu Majuscule</value>
@@ -463,12 +457,6 @@ Scurtătură: {0}</value>
 <data name="TXT_WORDHANDLING">
   <value>Schimbare majuscule/minuscule:</value>
 </data>
-<data name="TXT_BOOKMARKINFO">
-  <value>Informaţie Bookmark-uri</value>
-</data>
-<data name="TXT_BOOKMARKLIST">
-  <value>Listă Bookmark-uri</value>
-</data>
 <data name="TXT_CATALOG_DESC">
   <value>Descriere catalog</value>
 </data>
@@ -489,9 +477,6 @@ Scurtătură: {0}</value>
 </data>
 <data name="TXT_ITEMTYPE_DESC">
   <value> Tipul obiectului</value>
-</data>
-<data name="TXT_MEDIAINFO">
-  <value>Informaţii mediu</value>
 </data>
 <data name="TXT_MEDIAPATH_SHORT">
   <value>Cale originală în cadrul mediului</value>

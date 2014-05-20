@@ -11,6 +11,7 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using OPMedia.Core.Logging;
 using System.Runtime.Serialization.Formatters.Binary;
+using OPMedia.Runtime.FileInformation;
 
 namespace OPMedia.Runtime.ProTONE.ExtendedInfo
 {
