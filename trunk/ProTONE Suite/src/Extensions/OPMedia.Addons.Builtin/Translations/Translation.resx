@@ -127,14 +127,8 @@
 <data name="TXT_ADDON_MC_SETTINGS">
   <value>Catalog Browser</value>
 </data>
-<data name="TXT_ARTWORK_COUNT">
-  <value>{0} artwork image(s) (click to edit).</value>
-</data>
 <data name="TXT_ATTRIBUTESEARCH">
   <value>Filter results by file attributes</value>
-</data>
-<data name="TXT_BOOKMARK_COUNT">
-  <value>{0} bookmark(s) (click to edit).</value>
 </data>
 <data name="TXT_CAPITALIZEWORDS">
   <value>Capitalize All Words</value>
@@ -458,12 +452,6 @@ Use the 'Add Files', 'Add Folder',  'Remove Files' buttons to configure the file
 <data name="TXT_WORDHANDLING">
   <value>Change words case:</value>
 </data>
-<data name="TXT_BOOKMARKINFO">
-  <value>Bookmark Information</value>
-</data>
-<data name="TXT_BOOKMARKLIST">
-  <value>Bookmark List</value>
-</data>
 <data name="TXT_CATALOG_DESC">
   <value>Catalog description</value>
 </data>
@@ -484,9 +472,6 @@ Use the 'Add Files', 'Add Folder',  'Remove Files' buttons to configure the file
 </data>
 <data name="TXT_ITEMTYPE_DESC">
   <value> Original item type</value>
-</data>
-<data name="TXT_MEDIAINFO">
-  <value>Media Information</value>
 </data>
 <data name="TXT_MEDIAPATH_SHORT">
   <value>Original path within media</value>

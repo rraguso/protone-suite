@@ -27,10 +27,11 @@ using System.Windows.Forms.Design;
 using System.Security.Permissions;
 using System.Drawing.Design;
 using OPMedia.Runtime.ProTONE.FileInformation;
+using OPMedia.UI.ProTONE.Controls.MediaPlayer;
 
 namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 {
-    public partial class BookmarkManagerCtl : OPMBaseControl
+    public partial class BookmarkScreen : OPMBaseControl
     {
         IWindowsFormsEditorService _wfes = null;
 
@@ -45,6 +46,20 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         bool _showFilePath;
         bool _canAddToCurrent;
 
+        public void CopyPlaylist(PlaylistScreen source)
+        {
+            this.playlistScreen.CopyPlaylist(source);
+        }
+
+        public bool ShowPlaylist
+        {
+            get { return playlistScreen.Visible; }
+            set
+            {
+                playlistScreen.Visible = value;
+            }
+        }
+
         public PlaylistItem PlaylistItem
         { 
             get 
@@ -54,37 +69,40 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             
             set 
             {
-                try
-                {
-                    if (value == null && _plItem != null)
-                    {
-                        SaveBookmarks();
-                    }
-                }
-                catch
-                {
-                }
-
-                _plItem = value;
-
-                if (_plItem != null && _plItem.MediaFileInfo != null)
-                {
-                    _plItem.MediaFileInfo.BookmarkCollectionChanged -=
-                        new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
-                    _plItem.MediaFileInfo.BookmarkCollectionChanged +=
-                        new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
-                }
-
-                LoadBookmarks();
+                LoadnewPlaylistItem(value, true);
             } 
         }
 
-        public void ShowSeparator(bool visible)
+        public void LoadnewPlaylistItem(PlaylistItem plItem, bool callFromProperty)
         {
-            lblSep.Visible = visible;
+            try
+            {
+                if (plItem == null && _plItem != null)
+                {
+                    SaveBookmarks();
+                }
+            }
+            catch
+            {
+            }
+
+            _plItem = plItem;
+
+            if (_plItem != null && _plItem.MediaFileInfo != null)
+            {
+                _plItem.MediaFileInfo.BookmarkCollectionChanged -=
+                    new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
+                _plItem.MediaFileInfo.BookmarkCollectionChanged +=
+                    new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
+            }
+
+            LoadBookmarks();
+
+            if (callFromProperty)
+                playlistScreen.SetFirstSelectedPlaylistItem(_plItem);
         }
 
-        public BookmarkManagerCtl(IWindowsFormsEditorService wfes, PlaylistItem plItem) : this()
+        public BookmarkScreen(IWindowsFormsEditorService wfes, PlaylistItem plItem) : this()
         {
             _wfes = wfes;
             _showFilePath = false;
@@ -92,7 +110,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.PlaylistItem = plItem;
         }
 
-        public BookmarkManagerCtl()
+        public BookmarkScreen()
         {
             InitializeComponent();
 
@@ -103,10 +121,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
             Translator.TranslateControl(this, DesignMode);
 
-            lblSep.Visible = false;
-            lblSep.OverrideBackColor = ThemeManager.GradientLTColor;
-
-            lblItem.FontSize = (ApplicationInfo.IsPlayer) ?
+           lblItem.FontSize = (ApplicationInfo.IsPlayer) ?
                 FontSizes.Small : FontSizes.NormalBold;
             
             lblItem.Text = string.Empty;
@@ -141,6 +156,13 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             lvBookmarks.SubItemEdited += new OPMListView.EditableListViewEventHandler(lvBookmarks_SubItemEdited);
 
             this.Load += new EventHandler(BookmarkManagerCtl_Load);
+
+            playlistScreen.SelectedItemChanged += new SelectedItemChangedHandler(playlistScreen_SelectedItemChanged);
+        }
+
+        void playlistScreen_SelectedItemChanged(PlaylistItem newSelectedItem)
+        {
+            LoadnewPlaylistItem(newSelectedItem, false);
         }
 
         void BookmarkManagerCtl_Load(object sender, EventArgs e)
@@ -222,8 +244,17 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
             if (_plItem == null)
             {
-                this.Enabled = false;
-                return;
+                List<PlaylistItem> plItems = playlistScreen.GetPlaylistItems();
+                if (plItems != null && plItems.Count > 0)
+                {
+                    _plItem = plItems[0];
+                }
+
+                if (_plItem == null)
+                {
+                    this.Enabled = false;
+                    return;
+                }
             }
 
             try
@@ -471,7 +502,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             IWindowsFormsEditorService edSvc = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
             if (edSvc != null)
             {
-                BookmarkManagerCtl ctl = new BookmarkManagerCtl(edSvc, plItem);
+                BookmarkScreen ctl = new BookmarkScreen(edSvc, plItem);
                 edSvc.DropDownControl(ctl);
             }
 

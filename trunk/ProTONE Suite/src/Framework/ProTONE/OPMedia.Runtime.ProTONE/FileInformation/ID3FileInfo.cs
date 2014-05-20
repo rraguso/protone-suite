@@ -146,6 +146,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableDisplayName("TXT_DURATION")]
         [TranslatableCategory("TXT_MEDIAINFO")]
         [SingleSelectionBrowsable]
+        [Browsable(true)]
         public override TimeSpan? Duration
         {
             get
@@ -317,6 +318,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         [TranslatableDisplayName("TXT_BITRATE")]
         [TranslatableCategory("TXT_MEDIAINFO")]
+        [Browsable(true)]
         public Bitrate? Bitrate
         {
             get
@@ -333,6 +335,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         [TranslatableDisplayName("TXT_CHANNELS")]
         [TranslatableCategory("TXT_MEDIAINFO")]
+        [Browsable(true)]
         public ChannelMode? Channels
         {
             get
@@ -348,6 +351,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         [TranslatableDisplayName("TXT_FREQUENCY")]
         [TranslatableCategory("TXT_MEDIAINFO")]
+        [Browsable(true)]
         public int? Frequency
         {
             get
@@ -399,7 +403,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             }
         }
 
-        public void Save()
+        public override void Save()
         {
             if (_tag != null)
             {
@@ -412,7 +416,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             }
         }
 
-        public void Clear()
+        public override void Clear()
         {
             if (af != null)
             {

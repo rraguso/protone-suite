@@ -39,8 +39,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
     public delegate void LaunchFileEventHandler(string path);
     public delegate void StopRequestEventHandler();
+    public delegate void TotalTimeChangedHandler(TimeSpan tsTotalTime);
+    public delegate void SelectedItemChangedHandler(PlaylistItem newSelectedItem);
 
-    public partial class PlaylistPanel : OPMBaseControl
+    public partial class PlaylistScreen : OPMBaseControl
     {
         OPMToolTipManager _ttm = null;
         OPMToolTip _tip = new OPMToolTip();
@@ -49,9 +51,26 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         
         public event LaunchFileEventHandler LaunchFile = null;
         public event EventHandler PlaylistItemMenuClick = null;
+        public event TotalTimeChangedHandler TotalTimeChanged = null;
+        public event SelectedItemChangedHandler SelectedItemChanged = null;
 
         public bool IsPlaylistAtEnd
         { get { return playlist.IsAtEnd; } }
+
+        private bool _compactView = false;
+        public bool CompactView
+        {
+            get { return _compactView; }
+            set 
+            { 
+                _compactView = value;
+                lvPlaylist.MultiSelect = !_compactView;
+
+                lvPlaylist.ContextMenuStrip = _compactView ? null : cmsPlaylist;
+
+                lvPlaylist_Resize(this, null); 
+            }
+        }
 
         public void FocusOnList()
         {
@@ -59,7 +78,19 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             lvPlaylist.Focus();
         }
 
-        public PlaylistPanel() : base()
+        public void CopyPlaylist(PlaylistScreen source)
+        {
+            this.Clear();
+            foreach (PlaylistItem pi in source.playlist)
+            {
+                this.playlist.Add(pi);
+                int i = this.playlist.Count - 1;
+
+                playlist_PlaylistUpdated(i, 0, UpdateType.Added);
+            }
+        }
+
+        public PlaylistScreen() : base()
         {
             InitializeComponent();
 
@@ -77,7 +108,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             playlist.PlaylistUpdated += 
                 new PlaylistUpdatedEventHandler(playlist_PlaylistUpdated);
 
-            this.HandleCreated += new EventHandler(PlaylistPanel_HandleCreated);
             this.HandleDestroyed += new EventHandler(PlaylistPanel_HandleDestroyed);
 
             if (MainThread.MainWindow != null)
@@ -85,10 +115,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 MainThread.MainWindow.Shown += new EventHandler(MainWindow_Shown);
             }
 
-            bookmarkManagerCtl.ShowSeparator(true);
-            bookmarkManagerCtl.Visible = false;
-           
-            AdjustWidth();
             UpdateTotalTime(0);
 
             if (!DesignMode)
@@ -101,7 +127,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             //ScrollBars.ScrollBarSkinner.SkinWindow(lvPlaylist);
 
-            if (!DesignMode && initialState)
+            if (!DesignMode && initialState && !_compactView)
             {
                 initialState = false;
                 PersistentPlaylist.Load(ref playlist);
@@ -115,6 +141,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void OnMediaRendererHeartbeat()
         {
+            if (_compactView)
+                return;
+
             try
             {
                 ListViewItem lvi = lvPlaylist.Items[playlist.PlayIndex];
@@ -213,22 +242,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         }
 
         bool initialState = true;
-        void PlaylistPanel_HandleCreated(object sender, EventArgs e)
-        {
-            try
-            {
-                UpdateButtonsState();
-                
-            }
-            catch (Exception ex)
-            {
-                ErrorDispatcher.DispatchError(ex);
-            }
-            finally
-            {
-                Invalidate(true);
-            }
-        }
+        
 
         internal List<PlaylistItem> GetPlaylistItems()
         {
@@ -240,7 +254,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             ilImages.Images.Clear();
             lvPlaylist.Items.Clear();
             playlist.ClearAll();
-            UpdateButtonsState();
         }
 
         internal void AddFiles(IEnumerable<string> files)
@@ -324,7 +337,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (playlist.MoveNext())
             {
-                retVal = GetSelectedFile();
+                retVal = GetActiveFile();
             }
 
             return retVal;
@@ -336,13 +349,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (playlist.MovePrevious())
             {
-                retVal = GetSelectedFile();
+                retVal = GetActiveFile();
             }
 
             return retVal;
         }
 
-        internal string GetSelectedFile()
+        internal string GetActiveFile()
         {
             if (playlist.Count <= 0)
                 return null;
@@ -350,7 +363,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             return GetActivePlaylistItem().Path;
         }
 
-        internal string GetSelectedFileTitle()
+        internal string GetActiveFileTitle()
         {
             if (playlist.Count <= 0)
                 return null;
@@ -364,6 +377,37 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 return null;
 
             return playlist.ActivePlaylistItem;
+        }
+
+        internal void SetFirstSelectedPlaylistItem(PlaylistItem plItem)
+        {
+            if (lvPlaylist.Items.Count > 0)
+            {
+                lvPlaylist.SelectedItems.Clear();
+                foreach (ListViewItem lvItem in lvPlaylist.Items)
+                {
+                    if (lvItem.Tag == plItem)
+                    {
+                        lvItem.Selected = true;
+                        lvItem.Focused = true;
+                        lvPlaylist.EnsureVisible(lvItem.Index);
+                        break;
+                    }
+                }
+            }
+        }
+
+        internal PlaylistItem GetFirstSelectedPlaylistItem()
+        {
+            if (lvPlaylist.SelectedItems.Count > 0)
+            {
+                foreach (ListViewItem lvItem in lvPlaylist.SelectedItems)
+                {
+                    return lvItem.Tag as PlaylistItem;
+                }
+            }
+
+            return null;
         }
 
         internal void Delete()
@@ -615,7 +659,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
             }
 
-            UpdateButtonsState();
             UpdateTotalTime(playlist.TotalPlaylistTime);
         }
 
@@ -665,6 +708,17 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             return ilImages.Images.Count - 1;
         }
 
+        void lvPlaylist_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (SelectedItemChanged != null)
+            {
+                if (lvPlaylist.SelectedItems.Count > 0)
+                    SelectedItemChanged(lvPlaylist.SelectedItems[0].Tag as PlaylistItem);
+                else
+                    SelectedItemChanged(null);
+            }
+        }
+
         private void lvPlaylist_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left &&
@@ -673,7 +727,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 int sel = lvPlaylist.SelectedItems[0].Index;
                 if (playlist.MoveToItem(sel) && LaunchFile != null)
                 {
-                    LaunchFile(GetSelectedFile());
+                    LaunchFile(GetActiveFile());
                 }
             }
         }
@@ -703,7 +757,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             OnDragOver(e);
         }
 
-        [EventSink(EventNames.ExecuteShortcut)]
         public void OnExecuteShortcut(OPMShortcutEventArgs args)
         {
             if (args.Handled)
@@ -779,32 +832,32 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 if (dlg.SelectedItem != null)
                 {
                     JumpToPlaylistItem(dlg.SelectedItem);
-                    LaunchFile(GetSelectedFile());
+                    LaunchFile(GetActiveFile());
                 }
             }
         }
 
-        private void UpdateButtonsState()
-        {
-            bool singleItemSelected = (lvPlaylist.SelectedItems.Count == 1);
-            bool itemsSelected = (lvPlaylist.SelectedItems.Count > 0);
-            bool itemsPresent = (lvPlaylist.Items.Count > 0);
+        //private void UpdateButtonsState()
+        //{
+        //    bool singleItemSelected = (lvPlaylist.SelectedItems.Count == 1);
+        //    bool itemsSelected = (lvPlaylist.SelectedItems.Count > 0);
+        //    bool itemsPresent = (lvPlaylist.Items.Count > 0);
 
-            if (singleItemSelected)
-            {
-                PlaylistItem plItem = lvPlaylist.SelectedItems[0].Tag as PlaylistItem;
-                if (plItem != null)
-                {
-                    bookmarkManagerCtl.PlaylistItem = plItem;
-                }
-            }
-        }
+        //    if (singleItemSelected)
+        //    {
+        //        PlaylistItem plItem = lvPlaylist.SelectedItems[0].Tag as PlaylistItem;
+        //        if (plItem != null)
+        //        {
+        //            bookmarkManagerCtl.PlaylistItem = plItem;
+        //        }
+        //    }
+        //}
 
-        private void lvPlaylist_SelectionChanged(object sender, EventArgs e)
-        {
-            bookmarkManagerCtl.PlaylistItem = null;
-            UpdateButtonsState();
-        }
+        //private void lvPlaylist_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    bookmarkManagerCtl.PlaylistItem = null;
+        //    UpdateButtonsState();
+        //}
 
         internal bool JumpToPlaylistItem(PlaylistItem plItem)
         {
@@ -840,6 +893,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         void lvPlaylist_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
         {
+            if (_compactView)
+                return;
+
             ListViewItem item = e.Item;
             bool set = false;
             Point p = lvPlaylist.PointToClient(MousePosition);
@@ -885,32 +941,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
         }
 
-        bool isBMVisible = false;
-        private void plDisplay_ShowHideBM(object sender, EventArgs e)
-        {
-            if (isBMVisible)
-            {
-                bookmarkManagerCtl.SaveBookmarks();
-            }
-
-            isBMVisible ^= true;
-            AdjustWidth();
-        }
-
-        private void AdjustWidth()
-        {
-            layoutPanel.ColumnStyles[0].Width = isBMVisible ? 50f : 100f;
-            layoutPanel.ColumnStyles[1].Width = isBMVisible ? 50f : 0f;
-        }
-
-        internal void OpenBM()
-        {
-            plDisplay_ShowHideBM(this, EventArgs.Empty);
-        }
+        
 
         private void cmsPlaylist_Opening(object sender, CancelEventArgs e)
         {
             cmsPlaylist.Items.Clear();
+
+            if (_compactView)
+                return;
 
             PlaylistItem plItem = GetPlaylistItemForEditing();
 
@@ -923,48 +961,21 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         private void lvPlaylist_Resize(object sender, EventArgs e)
         {
             colDummy.Width = 0;
-            colIcon.Width = 18;
-            colMisc.Width = 18;
-            colTime.Width = 50;
+            colIcon.Width = _compactView ? 0 : 18;
+            colMisc.Width = _compactView ? 0 : 18;
+            colTime.Width = _compactView ? 0 : 50;
             colFile.Width = lvPlaylist.Width - colIcon.Width - colMisc.Width - colTime.Width - 
                 SystemInformation.VerticalScrollBarWidth;
         }
 
         private void UpdateTotalTime(double totalSeconds)
         {
-            TimeSpan ts = TimeSpan.FromSeconds((int)totalSeconds);
-            int h = ts.Days * 24 + ts.Hours;
-
-            lblTotal.Text = string.Format("Total: {0}:{1:d2}:{2:d2}",
-                h, ts.Minutes, ts.Seconds);
-        }
-
-        private void lblTotal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OnShowHideBM(object sender, EventArgs e)
-        {
-            bookmarkManagerCtl.Visible ^= true;
-
-            if (bookmarkManagerCtl.Visible)
+            if (TotalTimeChanged != null)
             {
-                bookmarkManagerCtl.Width = 220;
-                btnShowHideBM.Text = "<";
+                TotalTimeChanged(TimeSpan.FromSeconds((int)totalSeconds));
             }
-            else
-                btnShowHideBM.Text = ">";
 
-            string text = (bookmarkManagerCtl.Visible) ?
-                "TXT_CMDHIDEBOOKMARKMANAGER" : "TXT_CMDBOOKMARKMANAGER";
-
-            _tip.SetSimpleToolTip(btnShowHideBM, Translator.Translate(text));
         }
 
-        private void OnMouseUp(object sender, MouseEventArgs e)
-        {
-            lvPlaylist.Focus();
-        }
     }
 }

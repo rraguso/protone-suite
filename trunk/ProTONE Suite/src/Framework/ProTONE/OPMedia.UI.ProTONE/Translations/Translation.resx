@@ -173,95 +173,95 @@
   <value>Bookmark time:</value>
 </data>
 <data name="TXT_BTNCLEAR">
-  <value>Delete entire playlist.
+  <value>Delete entire playlist.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNDELETE">
-  <value>Delete selected items.
+  <value>Delete selected items.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNFULLSCREEN">
-  <value>Toggle Full Screen
+  <value>Toggle Full Screen&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNFWD">
-  <value>Fast forward with 5 seconds.
+  <value>Fast forward with 5 seconds.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNJUMPTOITEM">
-  <value>Open the 'Jump to playlist item' dialog.
+  <value>Open the 'Jump to playlist item' dialog.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNLOAD">
-  <value>Load new file(s).
+  <value>Load new file(s).&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNLOADPLAYLIST">
-  <value>Load a new playlist.
+  <value>Load a new playlist.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNLOOPPLAY">
-  <value>Toggles on/off playing in loop.
+  <value>Toggles on/off playing in loop.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNMOVEDOWN">
-  <value>Move selected items with one position down in playlist.
+  <value>Move selected items with one position down in playlist.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNMOVEUP">
-  <value>Move selected items with one position up in playlist.
+  <value>Move selected items with one position up in playlist.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNNEXT">
-  <value>Move to next file in playlist.
+  <value>Move to next file in playlist.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNOPENDISK">
-  <value>Opens the Load DVD media dialog.
+  <value>Opens the Load DVD media dialog.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNOPENSETTINGS">
-  <value>Displays the Settings dialog.
+  <value>Displays the Settings dialog.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNPAUSE">
-  <value>Pause playback.
+  <value>Pause playback.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNPLAY">
-  <value>Play file.
+  <value>Play file.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNPLAYLISTEND">
-  <value>Activates the 'action on playlist end'
+  <value>Activates the 'action on playlist end'&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNPREV">
-  <value>Move to previous file in playlist.
+  <value>Move to previous file in playlist.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNREW">
-  <value>Rewind  with 5 seconds.
+  <value>Rewind  with 5 seconds.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNSAVEPLAYLIST">
-  <value>Save the current playlist.
+  <value>Save the current playlist.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNSTOP">
-  <value>Stop playback.
+  <value>Stop playback.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNTOGGLESHUFFLE">
-  <value>Activates playlist shuffle mode.
+  <value>Activates playlist shuffle mode.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNVOLDN">
-  <value>Volume down by 5%.
+  <value>Volume down by 5%.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_BTNVOLUP">
-  <value>Volume up by 5%.
+  <value>Volume up by 5%.&#xD;
 Shortcut: {0}</value>
 </data>
 <data name="TXT_CMDADDBOOKMARK">
@@ -376,7 +376,7 @@ Shortcut: {0}</value>
   <value>ID3 Artwork Editor</value>
 </data>
 <data name="TXT_ELAPSED_TIME">
-  <value>Elapsed time.
+  <value>Elapsed time.&#xD;
 Double click to toggle remaining time</value>
 </data>
 <data name="TXT_ENABLEREMOTECONTROL">
@@ -434,7 +434,7 @@ Double click to toggle remaining time</value>
   <value>Load a playlist ...</value>
 </data>
 <data name="TXT_LOAD_DVD_FOLDER">
-  <value>Please select a video DVD content folder
+  <value>Please select a video DVD content folder&#xD;
 (Either a VIDEO_TS folder, or its parent):</value>
 </data>
 <data name="TXT_MATCHING_ITEMS">
@@ -453,7 +453,7 @@ Double click to toggle remaining time</value>
   <value>Display notification tooltips near system tray when media state changes</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
-  <value>Do not download a subtitle if the clip is shorter than
+  <value>Do not download a subtitle if the clip is shorter than&#xD;
 (0 = always download)</value>
 </data>
 <data name="TXT_MNUAUDIO">
@@ -499,7 +499,7 @@ Double click to toggle remaining time</value>
   <value>This option is not available at this moment.</value>
 </data>
 <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
-  <value>This option is not available at this moment.
+  <value>This option is not available at this moment.&#xD;
 You must install the FFDShow codec suite in order to have actions to this option.</value>
 </data>
 <data name="TXT_NO_LANG">
@@ -548,9 +548,9 @@ You must install the FFDShow codec suite in order to have actions to this option
   <value>Volume: {0}%</value>
 </data>
 <data name="TXT_OVERWRITE_SUBTITLE">
-  <value>The selected movie clip already has a subtitle. 
-If another subtitle is found on Internet, it will overwrite the existing one.
-
+  <value>The selected movie clip already has a subtitle. &#xD;
+If another subtitle is found on Internet, it will overwrite the existing one.&#xD;
+&#xD;
 Are you sure you want to search another subtitle ?</value>
 </data>
 <data name="TXT_PAUSED">
@@ -569,8 +569,8 @@ Are you sure you want to search another subtitle ?</value>
   <value>When the playlist ends ... </value>
 </data>
 <data name="TXT_PLAYLISTEVT_DESC">
-  <value>Caution: this setting is not persistent across program sessions !
-
+  <value>Caution: this setting is not persistent across program sessions !&#xD;
+&#xD;
                     When the playlists ends:</value>
 </data>
 <data name="TXT_PLAYLISTS">
@@ -586,8 +586,8 @@ Are you sure you want to search another subtitle ?</value>
   <value>Preffered subtitle language:</value>
 </data>
 <data name="TXT_PROCEED_SCHEDULED_ACTION">
-  <value>ProTONE Player is attempting to {0}. This is happening because you have configured the player to do so when {1}. Do you want to proceed ?
-
+  <value>ProTONE Player is attempting to {0}. This is happening because you have configured the player to do so when {1}. Do you want to proceed ?&#xD;
+&#xD;
 You can abort this operation if you click Abort within the remaining time frame (see counter below). If this time elapses and you have not chosen any action, it will be assumed you have chosen to proceed.</value>
 </data>
 <data name="TXT_PROTONE_ENQUEUE">
@@ -597,14 +597,14 @@ You can abort this operation if you click Abort within the remaining time frame 
   <value>Play in ProTONE Player</value>
 </data>
 <data name="TXT_REMAINING_TIME">
-  <value>Remaining time. 
+  <value>Remaining time. &#xD;
 Double click to toggle elapsed time</value>
 </data>
 <data name="TXT_REMOTECONTROLCFG">
   <value>Remote Control</value>
 </data>
 <data name="TXT_REMOTECONTROLDEFINITION">
-  <value>To define the programs and devices that are allowed to control ProTONE Player, you must use the ProTONE RCC Manager program.
+  <value>To define the programs and devices that are allowed to control ProTONE Player, you must use the ProTONE RCC Manager program.&#xD;
 Click on the button below to launch ProTONE RCC Manager ...</value>
 </data>
 <data name="TXT_RIGHTVOL">
@@ -629,7 +629,7 @@ Click on the button below to launch ProTONE RCC Manager ...</value>
   <value>Timer</value>
 </data>
 <data name="TXT_SCHEDULERWAITTIMERPROCEED">
-  <value>How many minutes to wait confirmation before proceeding 
+  <value>How many minutes to wait confirmation before proceeding &#xD;
 (0 = do not ask for confirmation, proceed directly):</value>
 </data>
 <data name="TXT_SEARCH_SUBTITLES">
@@ -693,7 +693,7 @@ Click on the button below to launch ProTONE RCC Manager ...</value>
   <value>Subtitle search has been aborted because an error has occured.</value>
 </data>
 <data name="TXT_SUB_HINTS">
-  <value>Hint: The results are sorted using these criteria (in this order): selected column, language (Preferred language on top), 
+  <value>Hint: The results are sorted using these criteria (in this order): selected column, language (Preferred language on top), &#xD;
 prio (server order = order of subtitle servers in Subtitles/OSD Settings page). Click on a column header to select another sort citeria.</value>
 </data>
 <data name="TXT_SUB_LOAD">
@@ -712,12 +712,12 @@ prio (server order = order of subtitle servers in Subtitles/OSD Settings page). 
   <value>Multimedia codecs are installed and configured OK.</value>
 </data>
 <data name="TXT_TIMESCALE">
-  <value>Time scale.
+  <value>Time scale.&#xD;
 Click to play from position: {0}</value>
 </data>
 <data name="TXT_TIMESCALE_BOOKMARK">
-  <value>Time scale.
-Click to play from bookmark: "{1}"
+  <value>Time scale.&#xD;
+Click to play from bookmark: "{1}"&#xD;
 Bookmark time: {0}</value>
 </data>
 <data name="TXT_TOTAL_TIME">
@@ -745,7 +745,7 @@ Bookmark time: {0}</value>
   <value>High Definition video files</value>
 </data>
 <data name="TXT_VOLSCALE">
-  <value>Volume scale.
+  <value>Volume scale.&#xD;
 Click to set volume to: {0} %</value>
 </data>
 <data name="TXT_INSTALLCOMPONENT">
@@ -761,18 +761,18 @@ Click to set volume to: {0} %</value>
   <value>Misc</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
-  <value>The patterns available for playlist item formatting are based on combinations of these keywords:
-    
-&lt;A&gt; = artist name as in metadata;
-&lt;B&gt; = album name as in metadata;
-&lt;T&gt; = title as in metadata;
-&lt;C&gt; = comments as in metadata;
-&lt;G&gt; = genre as in metadata;
-&lt;#&gt; = track # as in metadata;
+  <value>The patterns available for playlist item formatting are based on combinations of these keywords:&#xD;
+    &#xD;
+&lt;A&gt; = artist name as in metadata;&#xD;
+&lt;B&gt; = album name as in metadata;&#xD;
+&lt;T&gt; = title as in metadata;&#xD;
+&lt;C&gt; = comments as in metadata;&#xD;
+&lt;G&gt; = genre as in metadata;&#xD;
+&lt;#&gt; = track # as in metadata;&#xD;
 &lt;Y&gt; = year as in metadata.    </value>
 </data>
 <data name="TXT_DISPLAY_FILENAME">
-  <value>No formatting options are specified.
+  <value>No formatting options are specified.&#xD;
 The program will display the file name in playlist entry.</value>
 </data>
 <data name="TXT_FILENAME_FORMAT">
@@ -812,8 +812,8 @@ The program will display the file name in playlist entry.</value>
   <value>You have specified an invalid DVD volume. Please reselect.</value>
 </data>
 <data name="TXT_PANELSHIDDEN_NOADMIN">
-  <value>Because your user account does not have administrator rights, you won't be able to view the Supported Files and the Remote Control settings.
-
+  <value>Because your user account does not have administrator rights, you won't be able to view the Supported Files and the Remote Control settings.&#xD;
+&#xD;
 In order to access these settings, you must launch ProTONE Player under a user account that has admin priviledges</value>
 </data>
 <data name="TXT_MNUCLEAR">
@@ -913,7 +913,7 @@ In order to access these settings, you must launch ProTONE Player under a user a
   <value>Enable Subtitle</value>
 </data>
 <data name="TXT_NOTIFYSUBDOWNLOADED">
-  <value>Display notification tooltips near system tray when subtitle download 
+  <value>Display notification tooltips near system tray when subtitle download &#xD;
 is completed</value>
 </data>
 <data name="TXT_RESTORE_DEFAULTSERVERS">
@@ -974,22 +974,22 @@ is completed</value>
   <value>ID3 Image Type</value>
 </data>
 <data name="TXT_ID3PATTERNS">
-  <value>The ID3 patterns are based on combinations of these keywords:
-
-&lt;N&gt; = file name;
-&lt;F&gt; = folder name;
-&lt;A&gt; = artist name as in ID3 Info;
-&lt;B&gt; = album name as in ID3 Info;
-&lt;T&gt; = title as in ID3 Info;
-&lt;C&gt; = comments as in ID3 Info;
-&lt;G&gt; = genre as in ID3 Info;
-&lt;#&gt; = track # as in ID3 Info;
-&lt;Y&gt; = year as in ID3 Info.
-
+  <value>The ID3 patterns are based on combinations of these keywords:&#xD;
+&#xD;
+&lt;N&gt; = file name;&#xD;
+&lt;F&gt; = folder name;&#xD;
+&lt;A&gt; = artist name as in ID3 Info;&#xD;
+&lt;B&gt; = album name as in ID3 Info;&#xD;
+&lt;T&gt; = title as in ID3 Info;&#xD;
+&lt;C&gt; = comments as in ID3 Info;&#xD;
+&lt;G&gt; = genre as in ID3 Info;&#xD;
+&lt;#&gt; = track # as in ID3 Info;&#xD;
+&lt;Y&gt; = year as in ID3 Info.&#xD;
+&#xD;
 Character ranges such as &lt;N2-12,14-20&gt; are also allowed.</value>
 </data>
 <data name="TXT_RESETVIDEOPOSITION">
-  <value>Reset video 
+  <value>Reset video &#xD;
 window position</value>
 </data>
 <data name="TXT_RESETVIDEOPOSITION_HINT">
@@ -1054,6 +1054,21 @@ window position</value>
 </data>
 <data name="TXT_SEARCH_BY">
   <value>Search by:</value>
+</data>
+<data name="TXT_ARTWORK_COUNT">
+  <value>{0} artwork image(s) (click to edit).</value>
+</data>
+<data name="TXT_BOOKMARK_COUNT">
+  <value>{0} bookmark(s) (click to edit).</value>
+</data>
+<data name="TXT_BOOKMARKINFO">
+  <value>Bookmark Information</value>
+</data>
+<data name="TXT_BOOKMARKLIST">
+  <value>Bookmark List</value>
+</data>
+<data name="TXT_MEDIAINFO">
+  <value>Media Information</value>
 </data>
     
 </root>

@@ -28,9 +28,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
     public class MenuBuilder<T>
     {
-        PlaylistPanel _pnlPlaylist = null;
+        PlaylistScreen _pnlPlaylist = null;
 
-        public MenuBuilder(PlaylistPanel pnlPlaylist)
+        public MenuBuilder(PlaylistScreen pnlPlaylist)
         {
             _pnlPlaylist = pnlPlaylist;
         }

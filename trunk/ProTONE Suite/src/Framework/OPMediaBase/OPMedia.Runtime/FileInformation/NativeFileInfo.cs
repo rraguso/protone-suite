@@ -232,17 +232,10 @@ namespace OPMedia.Runtime.FileInformation
 
     public class SingleSelectionBrowsableAttribute : Attribute
     {
-        public SingleSelectionBrowsableAttribute()
-            : base()
-        {
-        }
     }
 
-    public class NotBrowsableAttribute : Attribute
+
+    public class BookmarksNodeAttribute : SingleSelectionBrowsableAttribute
     {
-        public NotBrowsableAttribute()
-            : base()
-        {
-        }
     }
 }

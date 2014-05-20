@@ -79,7 +79,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             get { return CompactView ? 
                 pnlRendering.MinimumSize : 
-                new Size(pnlRendering.MinimumSize.Width + pnlPlaylist.MinimumSize.Width, 
+                new Size(pnlRendering.MinimumSize.Width + pnlScreens.MinimumSize.Width, 
                 pnlRendering.MinimumSize.Height); }
                 
             set { base.MinimumSize = value; }
@@ -94,7 +94,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     return MediaRenderer.DefaultInstance.StreamTitle;
                 }
 
-                return pnlPlaylist.GetSelectedFileTitle();
+                return pnlScreens.PlaylistScreen.GetActiveFileTitle();
             }
         }
 
@@ -113,11 +113,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void EnqueueFiles(string[] fileNames)
         {
-            int initialCount = pnlPlaylist.GetFileCount();
-            pnlPlaylist.AddFiles(fileNames);
+            int initialCount = pnlScreens.PlaylistScreen.GetFileCount();
+            pnlScreens.PlaylistScreen.AddFiles(fileNames);
             if (initialCount < 1 && Autoplay)
             {
-                PlayFile(pnlPlaylist.GetSelectedFile(), null);
+                PlayFile(pnlScreens.PlaylistScreen.GetActiveFile(), null);
             }
         }
 
@@ -127,12 +127,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void DoLayout()
         {
-            pnlPlaylist.Visible = !compactView;
+            pnlScreens.Visible = !compactView;
 
             layoutPanel.Controls.Clear();
             if (!compactView)
             {
-                layoutPanel.Controls.Add(pnlPlaylist, 0, 0);
+                layoutPanel.Controls.Add(pnlScreens, 0, 0);
             }
             layoutPanel.Controls.Add(pnlRendering, 0, layoutPanel.Controls.Count);
 
@@ -158,8 +158,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.HandleCreated += new EventHandler(MediaPlayer_HandleCreated);
             this.HandleDestroyed += new EventHandler(MediaPlayer_HandleDestroyed);
 
-            pnlPlaylist.LaunchFile += new LaunchFileEventHandler(pnlPlaylist_LaunchFile);
-            pnlPlaylist.PlaylistItemMenuClick += new EventHandler(HandlePlaylistItemMenuClick);
+            pnlScreens.PlaylistScreen.LaunchFile += new LaunchFileEventHandler(pnlPlaylist_LaunchFile);
+            pnlScreens.PlaylistScreen.PlaylistItemMenuClick += new EventHandler(HandlePlaylistItemMenuClick);
 
             if (!DesignMode)
             {
@@ -240,15 +240,15 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 string[] droppedFiles = GetRelevantDragDropData(e);
                 if (droppedFiles != null)
                 {
-                    int initialCount = pnlPlaylist.GetFileCount();
+                    int initialCount = pnlScreens.PlaylistScreen.GetFileCount();
 
                     e.Effect = DragDropEffects.Move;
 
-                    pnlPlaylist.AddFiles(droppedFiles);
+                    pnlScreens.PlaylistScreen.AddFiles(droppedFiles);
 
                     if (initialCount < 1 && Autoplay)
                     {
-                        PlayFile(pnlPlaylist.GetFirstFile(), null);
+                        PlayFile(pnlScreens.PlaylistScreen.GetFirstFile(), null);
                     }
                 }
             }
@@ -298,7 +298,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
         {
-            playlistWidth = pnlPlaylist.Width;
+            playlistWidth = pnlScreens.Width;
         }
 
         void pnlPlaylist_LaunchFile(string path)
@@ -356,9 +356,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             pnlRendering.FilterStateChanged(newState, newMedia, MediaRenderer.DefaultInstance.RenderedMediaType);
 
-            if (newState == FilterState.NotOpened && Autoplay && pnlPlaylist.GetFileCount() >= 1)
+            if (newState == FilterState.NotOpened && Autoplay && pnlScreens.PlaylistScreen.GetFileCount() >= 1)
             {
-                MediaRenderer.DefaultInstance.PlaylistAtEnd = pnlPlaylist.IsPlaylistAtEnd;
+                MediaRenderer.DefaultInstance.PlaylistAtEnd = pnlScreens.PlaylistScreen.IsPlaylistAtEnd;
                 MoveNext();
             }
             else
@@ -447,7 +447,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void Play()
         {
-            string fileToPlay = pnlPlaylist.GetSelectedFile();
+            string fileToPlay = pnlScreens.PlaylistScreen.GetActiveFile();
             PlayFile(fileToPlay, null);
         }
 
@@ -483,13 +483,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void MoveNext()
         {
-            string strFile = pnlPlaylist.GetNextFile();
+            string strFile = pnlScreens.PlaylistScreen.GetNextFile();
             PlayFile(strFile, null);
         }
 
         private void MovePrevious()
         {
-            string strFile = pnlPlaylist.GetPreviousFile();
+            string strFile = pnlScreens.PlaylistScreen.GetPreviousFile();
             PlayFile(strFile, null);
         }
 
@@ -502,12 +502,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 {
                     string[] dvdDrive = new string[] { dlg.SelectedMedia.DvdPath };
 
-                    pnlPlaylist.Clear();
-                    pnlPlaylist.AddFiles(dvdDrive);
+                    pnlScreens.PlaylistScreen.Clear();
+                    pnlScreens.PlaylistScreen.AddFiles(dvdDrive);
 
                     if (Autoplay)
                     {
-                        PlayFile(pnlPlaylist.GetFirstFile(), null);
+                        PlayFile(pnlScreens.PlaylistScreen.GetFirstFile(), null);
                     }
 
                 }
@@ -592,12 +592,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void LoadFiles(string[] fileNames)
         {
-            pnlPlaylist.Clear();
-            pnlPlaylist.AddFiles(fileNames);
+            pnlScreens.PlaylistScreen.Clear();
+            pnlScreens.PlaylistScreen.AddFiles(fileNames);
 
             if (Autoplay)
             {
-                PlayFile(pnlPlaylist.GetFirstFile(), null);
+                PlayFile(pnlScreens.PlaylistScreen.GetFirstFile(), null);
             }
         }
 
@@ -738,7 +738,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (_renderingFrame == null || !_renderingFrame.Visible)
             {
-                pnlPlaylist.Focus();
+                pnlScreens.Focus();
             }
 
             switch (args.cmd)
@@ -859,7 +859,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 case OPMShortcut.CmdBookmarkManager:
                     {
                         args.Handled = true;
-                        pnlPlaylist.OpenBM();
+
+                        // TODO
+                        //pnlScreens.OpenBM();
+                        MessageBox.Show("CmdBookmarkManager: to be implemented");
                     }
                     break;
 
@@ -867,7 +870,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     {
                         args.Handled = true;
 
-                        PlaylistItem plItem = pnlPlaylist.GetPlaylistItemForEditing();
+                        PlaylistItem plItem = pnlScreens.PlaylistScreen.GetPlaylistItemForEditing();
                         if (plItem != null &&
                             plItem.MediaFileInfo is VideoFileInfo)
                         {
@@ -877,7 +880,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
                     
                 default:
-                    pnlPlaylist.OnExecuteShortcut(args);
+                    pnlScreens.OnExecuteShortcut(args);
                     break;
             }
 
@@ -972,7 +975,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public void SetRenderingMenu(ContextMenuStrip renderingMenu)
         {
             _menuRendering = renderingMenu;
-            pnlPlaylist.ContextMenuStrip = renderingMenu;
+            pnlScreens.ContextMenuStrip = renderingMenu;
             pnlRendering.ContextMenuStrip = renderingMenu;
         }
 
@@ -980,9 +983,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             if (plItem != null)
             {
-                if (pnlPlaylist.JumpToPlaylistItem(plItem))
+                if (pnlScreens.PlaylistScreen.JumpToPlaylistItem(plItem))
                 {
-                    string strFile = pnlPlaylist.GetSelectedFile();
+                    string strFile = pnlScreens.PlaylistScreen.GetActiveFile();
                     PlayFile(strFile, null);
                 }
             }
@@ -994,9 +997,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (subItem != null && subItem.Parent != null)
             {
-                if (subItem.Parent != pnlPlaylist.GetActivePlaylistItem())
+                if (subItem.Parent != pnlScreens.PlaylistScreen.GetActivePlaylistItem())
                 {
-                    if (pnlPlaylist.JumpToPlaylistItem(subItem.Parent))
+                    if (pnlScreens.PlaylistScreen.JumpToPlaylistItem(subItem.Parent))
                     {
                         Stop(true);
                         doJump = true;
@@ -1009,7 +1012,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 
                 if (doJump)
                 {
-                    string strFile = pnlPlaylist.GetSelectedFile();
+                    string strFile = pnlScreens.PlaylistScreen.GetActiveFile();
                     if (!string.IsNullOrEmpty(strFile))
                     {
                         PlayFile(strFile, subItem);
@@ -1082,9 +1085,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void BuildPlaylistMenu(OPMToolStripMenuItem tsmiPlaceholder, EventHandler eventHandler)
         {
-            foreach (PlaylistItem plItem in pnlPlaylist.GetPlaylistItems())
+            foreach (PlaylistItem plItem in pnlScreens.PlaylistScreen.GetPlaylistItems())
             {
-                new MenuBuilder<OPMToolStripMenuItem>(pnlPlaylist).AttachPlaylistItemMenu(plItem,
+                new MenuBuilder<OPMToolStripMenuItem>(pnlScreens.PlaylistScreen).AttachPlaylistItemMenu(plItem,
                        new MenuWrapper<OPMToolStripMenuItem>(tsmiPlaceholder),
                        MenuType.Playlist, eventHandler);
             }

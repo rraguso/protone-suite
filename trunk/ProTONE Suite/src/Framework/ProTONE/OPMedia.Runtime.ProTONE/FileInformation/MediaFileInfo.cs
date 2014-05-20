@@ -116,7 +116,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             set { }
         }
 
-        //[Browsable(false)]
+        [Browsable(false)]
         [ReadOnly(true)]
         public virtual TimeSpan? Duration
         {
@@ -133,7 +133,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [Editor("OPMedia.UI.ProTONE.Controls.BookmarkManagement.BookmarkPropertyBrowser, OPMedia.UI.ProTONE", typeof(UITypeEditor))]
         [TranslatableDisplayName("TXT_BOOKMARKLIST")]
         [TranslatableCategory("TXT_BOOKMARKINFO")]
-        [SingleSelectionBrowsable]
+        [BookmarksNode]
+        [Browsable(true)]
         public PlaylistItem BookmarkManager
         {
             get {  return new BoormarkEditablePlaylistItem(this.Path); }
@@ -344,6 +345,15 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         public virtual void Rebuild()
         {
         }
+
+        public virtual void Save()
+        {
+        }
+
+        public virtual void Clear()
+        {
+        }
+
     }
 
 }

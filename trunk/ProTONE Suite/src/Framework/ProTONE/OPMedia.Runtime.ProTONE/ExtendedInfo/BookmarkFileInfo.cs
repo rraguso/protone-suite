@@ -26,12 +26,14 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
         [Browsable(true)]
         [TranslatableCategory("TXT_BOOKMARKINFO")]
         [TranslatableDisplayName("TXT_ISORPHAN")]
+        [BookmarksNode]
         public bool IsOrphan
         { get { return !File.Exists(ParentMediaFile); } }
 
         [Browsable(true)]
         [TranslatableDisplayName("TXT_PARENTMEDIAFILE")]
         [TranslatableCategory("TXT_BOOKMARKINFO")]
+        [BookmarksNode]
         public string ParentMediaFile
         { get { return base.Path.ToLowerInvariant().Replace(".bmk", string.Empty); } }
 
@@ -39,6 +41,7 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
         [Editor("OPMedia.UI.ProTONE.Controls.BookmarkManagement.BookmarkPropertyBrowser, OPMedia.UI.ProTONE", typeof(UITypeEditor))]
         [TranslatableDisplayName("TXT_BOOKMARKLIST")]
         [TranslatableCategory("TXT_BOOKMARKINFO")]
+        [BookmarksNode]
         public PlaylistItem BookmarkManager
         {
             get { return new BoormarkEditablePlaylistItem(this.ParentMediaFile); }

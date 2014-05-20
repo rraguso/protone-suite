@@ -34,10 +34,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutPanel = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.pnlPlaylist = new OPMedia.UI.ProTONE.Controls.MediaPlayer.PlaylistPanel();
+            this.pnlScreens = new OPMedia.UI.ProTONE.Controls.MediaPlayer.MediaScreens();
             this.pnlRendering = new OPMedia.UI.ProTONE.Controls.MediaPlayer.RenderingPanel();
-            this.cmsOpenFiles = new ContextMenuStrip();
+            this.cmsOpenFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.layoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             this.layoutPanel.ColumnCount = 1;
             this.layoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.layoutPanel.Controls.Add(this.pnlPlaylist, 0, 0);
+            this.layoutPanel.Controls.Add(this.pnlScreens, 0, 0);
             this.layoutPanel.Controls.Add(this.pnlRendering, 0, 1);
             this.layoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -58,22 +59,22 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.layoutPanel.Size = new System.Drawing.Size(365, 303);
             this.layoutPanel.TabIndex = 0;
             // 
-            // pnlPlaylist
+            // pnlScreens
             // 
-            this.pnlPlaylist.AllowDrop = true;
-            this.pnlPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPlaylist.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.pnlPlaylist.Location = new System.Drawing.Point(3, 0);
-            this.pnlPlaylist.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.pnlPlaylist.MinimumSize = new System.Drawing.Size(160, 160);
-            this.pnlPlaylist.Name = "pnlPlaylist";
-            this.pnlPlaylist.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pnlPlaylist.Size = new System.Drawing.Size(359, 220);
-            this.pnlPlaylist.TabIndex = 0;
-            this.pnlPlaylist.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragDrop);
-            this.pnlPlaylist.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragEnter);
-            this.pnlPlaylist.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragOver);
-            this.pnlPlaylist.DragLeave += new System.EventHandler(this.pnlPlaylist_DragLeave);
+            this.pnlScreens.AllowDrop = true;
+            this.pnlScreens.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlScreens.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.pnlScreens.Location = new System.Drawing.Point(3, 0);
+            this.pnlScreens.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.pnlScreens.MinimumSize = new System.Drawing.Size(160, 160);
+            this.pnlScreens.Name = "pnlScreens";
+            this.pnlScreens.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlScreens.Size = new System.Drawing.Size(359, 220);
+            this.pnlScreens.TabIndex = 0;
+            this.pnlScreens.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragDrop);
+            this.pnlScreens.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragEnter);
+            this.pnlScreens.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragOver);
+            this.pnlScreens.DragLeave += new System.EventHandler(this.pnlPlaylist_DragLeave);
             // 
             // pnlRendering
             // 
@@ -103,6 +104,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlRendering.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlRendering_DragOver);
             this.pnlRendering.DragLeave += new System.EventHandler(this.pnlRendering_DragLeave);
             // 
+            // cmsOpenFiles
+            // 
+            this.cmsOpenFiles.Name = "cmsOpenFiles";
+            this.cmsOpenFiles.Size = new System.Drawing.Size(61, 4);
+            // 
             // MediaPlayer
             // 
             this.Controls.Add(this.layoutPanel);
@@ -120,7 +126,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private RenderingPanel pnlRendering;
         private OPMTableLayoutPanel layoutPanel;
-        private PlaylistPanel pnlPlaylist;
+        private MediaScreens pnlScreens;
         private ContextMenuStrip cmsOpenFiles;
     }
 }

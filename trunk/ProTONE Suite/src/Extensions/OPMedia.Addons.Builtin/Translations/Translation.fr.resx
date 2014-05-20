@@ -127,14 +127,8 @@
 <data name="TXT_ADDON_MC_SETTINGS">
   <value>Parcourir le catalogue</value>
 </data>
-<data name="TXT_ARTWORK_COUNT">
-  <value>{0} image de la pochette (s) (cliquer pour modifier).</value>
-</data>
 <data name="TXT_ATTRIBUTESEARCH">
   <value>Filtrer les résultats par attributs de fichier</value>
-</data>
-<data name="TXT_BOOKMARK_COUNT">
-  <value>{0} signet (s) (cliquer pour modifier).</value>
 </data>
 <data name="TXT_CAPITALIZEWORDS">
   <value>Tous les mots en majuscule</value>
@@ -455,12 +449,6 @@
 <data name="TXT_WORDHANDLING">
   <value>Changer la casse des mots:</value>
 </data>
-<data name="TXT_BOOKMARKINFO">
-  <value>Bookmark information</value>
-</data>
-<data name="TXT_BOOKMARKLIST">
-  <value>Liste de signets</value>
-</data>
 <data name="TXT_CATALOG_DESC">
   <value>Le catalogue</value>
 </data>
@@ -481,9 +469,6 @@
 </data>
 <data name="TXT_ITEMTYPE_DESC">
   <value>Type d'élément d'origine</value>
-</data>
-<data name="TXT_MEDIAINFO">
-  <value>Renseignements pour les médias</value>
 </data>
 <data name="TXT_MEDIAPATH_SHORT">
   <value>Chemin d'origine dans les médias</value>
