@@ -140,12 +140,6 @@
     <Compile Include="Configuration\UrlCfgDlg.Designer.cs">
       <DependentUpon>UrlCfgDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ScreenSlider.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ScreenSlider.Designer.cs">
-      <DependentUpon>ScreenSlider.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\MultilineEditTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -461,9 +455,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\TroubleshootingPanel.resx">
       <DependentUpon>TroubleshootingPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ScreenSlider.resx">
-      <DependentUpon>ScreenSlider.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\FileAttributesBrowserCtl.resx">
       <DependentUpon>FileAttributesBrowserCtl.cs</DependentUpon>

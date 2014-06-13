@@ -1069,5 +1069,14 @@ fereastră video</value>
 <data name="TXT_MEDIAINFO">
   <value>Informaţii mediu</value>
 </data>
+<data name="TXT_BOOKMARKS">
+  <value>Bookmark-uri</value>
+</data>
+<data name="TXT_TRACKINFO">
+  <value>Info Piesă</value>
+</data>
+<data name="TXT_VISUALEFFECTS">
+  <value>Efecte vizuale</value>
+</data>
     
 </root>

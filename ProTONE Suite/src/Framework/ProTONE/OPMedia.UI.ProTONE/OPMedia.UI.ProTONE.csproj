@@ -84,10 +84,7 @@
       <DependentUpon>TenBandEqualizer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\MediaPlayer\MediaScreens.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\MediaPlayer\MediaScreens.Designer.cs">
-      <DependentUpon>MediaScreens.cs</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\MediaPlayer\MenuBuilder.cs" />
     <Compile Include="Controls\MediaPlayer\Screens\TrackInfoScreen.cs">

@@ -57,17 +57,15 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public bool IsPlaylistAtEnd
         { get { return playlist.IsAtEnd; } }
 
-        private bool _compactView = false;
-        public bool CompactView
+        private bool _compactMode = false;
+        public bool CompactMode
         {
-            get { return _compactView; }
+            get { return _compactMode; }
             set 
             { 
-                _compactView = value;
-                lvPlaylist.MultiSelect = !_compactView;
-
-                lvPlaylist.ContextMenuStrip = _compactView ? null : cmsPlaylist;
-
+                _compactMode = value;
+                lvPlaylist.MultiSelect = !_compactMode;
+                lvPlaylist.ContextMenuStrip = _compactMode ? null : cmsPlaylist;
                 lvPlaylist_Resize(this, null); 
             }
         }
@@ -127,7 +125,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             //ScrollBars.ScrollBarSkinner.SkinWindow(lvPlaylist);
 
-            if (!DesignMode && initialState && !_compactView)
+            if (!DesignMode && initialState && !_compactMode)
             {
                 initialState = false;
                 PersistentPlaylist.Load(ref playlist);
@@ -141,7 +139,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void OnMediaRendererHeartbeat()
         {
-            if (_compactView)
+            if (_compactMode)
                 return;
 
             try
@@ -227,8 +225,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             try
             {
-                _abortLoad = true;
-                PersistentPlaylist.Save(playlist);
+                if (!_compactMode)
+                {
+                    _abortLoad = true;
+                    PersistentPlaylist.Save(playlist);
+                }
 
                 if (!DesignMode)
                 {
@@ -893,7 +894,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         void lvPlaylist_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
         {
-            if (_compactView)
+            if (_compactMode)
                 return;
 
             ListViewItem item = e.Item;
@@ -947,7 +948,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             cmsPlaylist.Items.Clear();
 
-            if (_compactView)
+            if (_compactMode)
                 return;
 
             PlaylistItem plItem = GetPlaylistItemForEditing();
@@ -961,9 +962,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         private void lvPlaylist_Resize(object sender, EventArgs e)
         {
             colDummy.Width = 0;
-            colIcon.Width = _compactView ? 0 : 18;
-            colMisc.Width = _compactView ? 0 : 18;
-            colTime.Width = _compactView ? 0 : 50;
+            colIcon.Width = _compactMode ? 0 : 18;
+            colMisc.Width = _compactMode ? 0 : 18;
+            colTime.Width = _compactMode ? 0 : 50;
             colFile.Width = lvPlaylist.Width - colIcon.Width - colMisc.Width - colTime.Width - 
                 SystemInformation.VerticalScrollBarWidth;
         }

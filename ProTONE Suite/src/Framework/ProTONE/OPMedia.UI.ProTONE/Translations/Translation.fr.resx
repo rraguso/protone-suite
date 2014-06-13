@@ -954,7 +954,7 @@ Pour accéder à ces paramètres, vous devez lancer ProTone Joueur sous un compt
   <value>Titre</value>
 </data>
 <data name="TXT_TRACK">
-  <value>Suivre index</value>
+  <value>Index de piste</value>
 </data>
 <data name="TXT_VIDEO_SIZE">
   <value>Taille de la vidéo</value>
@@ -1067,6 +1067,15 @@ de la fenêtre vidéo</value>
 </data>
 <data name="TXT_MEDIAINFO">
   <value>Renseignements pour les médias</value>
+</data>
+<data name="TXT_BOOKMARKS">
+  <value>Signets</value>
+</data>
+<data name="TXT_TRACKINFO">
+  <value>Info de Piste</value>
+</data>
+<data name="TXT_VISUALEFFECTS">
+  <value>Effets Visuels</value>
 </data>
     
 </root>

@@ -15,29 +15,41 @@ using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 using OPMedia.UI.Themes;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
+using OPMedia.Core.TranslationSupport;
+using OPMedia.Core;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
-    public partial class MediaScreens : ScreenSlider
+    public class MediaScreens : OPMTabControl
     {
-        public PlaylistScreen PlaylistScreen { get { return base.Screens[0] as PlaylistScreen; } }
-        public TrackInfoScreen TrackInfoScreen { get { return base.Screens[1] as TrackInfoScreen; } }
-        public VisualEffectsScreen VisualEffectsScreen { get { return base.Screens[2] as VisualEffectsScreen; } }
-        public BookmarkScreen BookmarkScreen { get { return base.Screens[3] as BookmarkScreen; } }
+        public PlaylistScreen PlaylistScreen { get { return base.TabPages[0].Controls[0] as PlaylistScreen; } }
+        public TrackInfoScreen TrackInfoScreen { get { return base.TabPages[1].Controls[0] as TrackInfoScreen; } }
+        public VisualEffectsScreen VisualEffectsScreen { get { return base.TabPages[2].Controls[0] as VisualEffectsScreen; } }
+        public BookmarkScreen BookmarkScreen { get { return base.TabPages[3].Controls[0] as BookmarkScreen; } }
 
         public Control _activeScreen = null;
         public Control _oldActiveScreen = null;
             
-        public MediaScreens()
+        public MediaScreens() : base()
         {
-            InitializeComponent();
+            Control c = new PlaylistScreen();
+            c.Dock = DockStyle.Fill;
+            base.TabPages.Add(new OPMTabPage("TXT_PLAYLIST", c));
+            
+            c = new TrackInfoScreen();
+            c.Dock = DockStyle.Fill;
+            base.TabPages.Add(new OPMTabPage("TXT_TRACKINFO", c));
+            
+            c = new VisualEffectsScreen();
+            c.Dock = DockStyle.Fill;
+            base.TabPages.Add(new OPMTabPage("TXT_VISUALEFFECTS", c));
+            
+            c = new BookmarkScreen();
+            c.Dock = DockStyle.Fill;
+            base.TabPages.Add(new OPMTabPage("TXT_BOOKMARKS", c));
 
-            AddScreen(new PlaylistScreen());
-            AddScreen(new TrackInfoScreen());
-            AddScreen(new VisualEffectsScreen());
-            AddScreen(new BookmarkScreen());
+            base.SelectedIndexChanged += new EventHandler(MediaScreens_SelectedIndexChanged);
 
-            this.ScreenChanged += new ScreenChangedHandler(MediaScreens_ScreenChanged);
             this.PlaylistScreen.TotalTimeChanged += new TotalTimeChangedHandler(PlaylistScreen_TotalTimeChanged);
 
             // TODO - maybe active screen will need to be persisted ?
@@ -45,10 +57,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             _activeScreen = this.PlaylistScreen;
 
             this.HandleCreated += new EventHandler(MediaScreens_HandleCreated);
+            this.HandleDestroyed += new EventHandler(MediaScreens_HandleDestroyed);
         }
 
+        void MediaScreens_HandleDestroyed(object sender, EventArgs e)
+        {
+            EventDispatch.UnregisterHandler(this);
+        }
         void MediaScreens_HandleCreated(object sender, EventArgs e)
         {
+            EventDispatch.RegisterHandler(this);
             ThemeManager.SetDoubleBuffer(this);
         }
 
@@ -60,10 +78,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             DoSetDesc(_activeScreen);
         }
 
-        void MediaScreens_ScreenChanged(Control currentScreen)
+        void MediaScreens_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DoScreenSelectionTasks(currentScreen);
-            //DoSetDesc(currentScreen);
+            Control currentScreen = null;
+            if (base.SelectedTab != null)
+            {
+                currentScreen = base.SelectedTab.Controls[0];
+                DoScreenSelectionTasks(currentScreen);
+            }
         }
 
         private void DoSetDesc(Control c)
@@ -85,7 +107,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             {
             }
 
-            this.Description = desc;
+            //this.Description = desc;
         }
 
         private void DoScreenSelectionTasks(Control c)
@@ -150,10 +172,25 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 this.TrackInfoScreen.SaveData();
             }
 
-            this.Description = desc;
         }
 
-        [EventSink(EventNames.ExecuteShortcut)]
+        [EventSink(OPMedia.UI.ProTONE.GlobalEvents.EventNames.PerformTranslation)]
+        public void OnPerformTranslation()
+        {
+            Translator.TranslateControl(this, DesignMode);
+
+            TabPages[0].Text = Translator.Translate("TXT_PLAYLIST");
+            TabPages[1].Text = Translator.Translate("TXT_TRACKINFO");
+            TabPages[2].Text = Translator.Translate("TXT_VISUALEFFECTS");
+            TabPages[3].Text = Translator.Translate("TXT_BOOKMARKS");
+
+           
+           
+           
+           
+        }
+
+        [EventSink(OPMedia.UI.ProTONE.GlobalEvents.EventNames.ExecuteShortcut)]
         public void OnExecuteShortcut(Runtime.Shortcuts.OPMShortcutEventArgs args)
         {
             // Dispatch shortcut to active screen
