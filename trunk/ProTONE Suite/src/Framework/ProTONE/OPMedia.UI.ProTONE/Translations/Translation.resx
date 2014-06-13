@@ -1070,5 +1070,14 @@ window position</value>
 <data name="TXT_MEDIAINFO">
   <value>Media Information</value>
 </data>
+<data name="TXT_BOOKMARKS">
+  <value>Bookmarks</value>
+</data>
+<data name="TXT_TRACKINFO">
+  <value>Track Info</value>
+</data>
+<data name="TXT_VISUALEFFECTS">
+  <value>Visual Effects</value>
+</data>
     
 </root>

@@ -198,7 +198,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             // playlistScreen
             // 
             this.playlistScreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.playlistScreen.CompactView = true;
+            this.playlistScreen.CompactMode = true;
             this.playlistScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playlistScreen.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.playlistScreen.Location = new System.Drawing.Point(0, 0);

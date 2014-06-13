@@ -1069,5 +1069,14 @@ Videofenster Position</value>
 <data name="TXT_MEDIAINFO">
   <value>Medieninformation</value>
 </data>
+<data name="TXT_BOOKMARKS">
+  <value>Bookmarks</value>
+</data>
+<data name="TXT_TRACKINFO">
+  <value>Titel-Info</value>
+</data>
+<data name="TXT_VISUALEFFECTS">
+  <value>Visuelle Effekte</value>
+</data>
     
 </root>
