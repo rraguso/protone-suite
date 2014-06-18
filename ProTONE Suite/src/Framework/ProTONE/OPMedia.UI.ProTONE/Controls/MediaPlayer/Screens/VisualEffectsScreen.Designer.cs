@@ -28,37 +28,120 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualEffectsScreen));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ggLeft = new OPMedia.UI.Controls.GradientGauge();
+            this.ggRight = new OPMedia.UI.Controls.GradientGauge();
+            this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.gpWaveform = new OPMedia.UI.Controls.GraphPlotter();
+            this.gpSpectrogram = new OPMedia.UI.Controls.GraphPlotter();
+            this.opmTableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // ggLeft
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(257, 177);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ggLeft.AllowDragging = false;
+            this.ggLeft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ggLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ggLeft.Enabled = false;
+            this.ggLeft.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.ggLeft.Location = new System.Drawing.Point(3, 3);
+            this.ggLeft.Maximum = 32767D;
+            this.ggLeft.Name = "ggLeft";
+            this.ggLeft.NrTicks = 20;
+            this.ggLeft.OverrideBackColor = System.Drawing.Color.Empty;
+            this.ggLeft.ShowTicks = true;
+            this.ggLeft.Size = new System.Drawing.Size(303, 14);
+            this.ggLeft.TabIndex = 0;
+            this.ggLeft.Value = 0D;
+            this.ggLeft.Vertical = false;
+            // 
+            // ggRight
+            // 
+            this.ggRight.AllowDragging = false;
+            this.ggRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ggRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ggRight.Enabled = false;
+            this.ggRight.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.ggRight.Location = new System.Drawing.Point(3, 23);
+            this.ggRight.Maximum = 32767D;
+            this.ggRight.Name = "ggRight";
+            this.ggRight.NrTicks = 20;
+            this.ggRight.OverrideBackColor = System.Drawing.Color.Empty;
+            this.ggRight.ShowTicks = true;
+            this.ggRight.Size = new System.Drawing.Size(303, 14);
+            this.ggRight.TabIndex = 1;
+            this.ggRight.Value = 0D;
+            this.ggRight.Vertical = false;
+            // 
+            // opmTableLayoutPanel1
+            // 
+            this.opmTableLayoutPanel1.ColumnCount = 1;
+            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.opmTableLayoutPanel1.Controls.Add(this.ggLeft, 0, 0);
+            this.opmTableLayoutPanel1.Controls.Add(this.ggRight, 0, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.gpWaveform, 0, 2);
+            this.opmTableLayoutPanel1.Controls.Add(this.gpSpectrogram, 0, 3);
+            this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
+            this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
+            this.opmTableLayoutPanel1.RowCount = 4;
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(309, 187);
+            this.opmTableLayoutPanel1.TabIndex = 2;
+            // 
+            // gpWaveform
+            // 
+            this.gpWaveform.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpWaveform.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.gpWaveform.Location = new System.Drawing.Point(3, 43);
+            this.gpWaveform.Name = "gpWaveform";
+            this.gpWaveform.OverrideBackColor = System.Drawing.Color.Empty;
+            this.gpWaveform.ShowXAxis = true;
+            this.gpWaveform.ShowYAxis = false;
+            this.gpWaveform.LogarithmicXAxis = false;
+            this.gpWaveform.LogarithmicYAxis = false;
+            this.gpSpectrogram.IsHistogram = false;
+            this.gpWaveform.Size = new System.Drawing.Size(303, 67);
+            this.gpWaveform.TabIndex = 2;
+            // 
+            // gpSpectrogram
+            // 
+            this.gpSpectrogram.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpSpectrogram.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.gpSpectrogram.Location = new System.Drawing.Point(3, 116);
+            this.gpSpectrogram.Name = "gpSpectrogram";
+            this.gpSpectrogram.OverrideBackColor = System.Drawing.Color.Empty;
+            this.gpSpectrogram.ShowXAxis = false;
+            this.gpSpectrogram.ShowYAxis = false;
+            this.gpSpectrogram.LogarithmicXAxis = true;
+            this.gpSpectrogram.LogarithmicYAxis = false;
+            this.gpSpectrogram.IsHistogram = true;
+            this.gpSpectrogram.Size = new System.Drawing.Size(303, 68);
+            this.gpSpectrogram.TabIndex = 3;
             // 
             // VisualEffectsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.opmTableLayoutPanel1);
             this.Name = "VisualEffectsScreen";
-            this.Size = new System.Drawing.Size(257, 177);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Size = new System.Drawing.Size(309, 187);
+            this.opmTableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private UI.Controls.GradientGauge ggLeft;
+        private UI.Controls.GradientGauge ggRight;
+        private UI.Controls.OPMTableLayoutPanel opmTableLayoutPanel1;
+        private UI.Controls.GraphPlotter gpWaveform;
+        private UI.Controls.GraphPlotter gpSpectrogram;
+
 
     }
 }

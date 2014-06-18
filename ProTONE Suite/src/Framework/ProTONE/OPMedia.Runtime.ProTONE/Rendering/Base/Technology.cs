@@ -29,11 +29,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
         internal object GraphFilter
         { get { return (streamRenderer == null) ? null : streamRenderer.GraphFilter; } }
 
-        internal int VolumeAvgR { get { return streamRenderer.VolumeAvgR; } }
-        internal int VolumeAvgL { get { return streamRenderer.VolumeAvgL; } }
-        internal int VolumePeakR { get { return streamRenderer.VolumePeakR; } }
-        internal int VolumePeakL { get { return streamRenderer.VolumePeakL; } }
-
         public static List<string> SupportedHDVideoMediaTypes
         { get { return supportedHDVideoMediaTypes; } }
 

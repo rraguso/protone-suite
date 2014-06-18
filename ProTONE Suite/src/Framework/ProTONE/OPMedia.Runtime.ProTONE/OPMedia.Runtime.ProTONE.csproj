@@ -37,7 +37,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\..\bin\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;HAVE_DSHOW; UNICODE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;HAVE_DSHOW; UNICODE; HAVE_SAMPLES</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

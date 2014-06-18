@@ -22,7 +22,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 {
     public abstract class DsRendererBase : StreamRenderer
 #if HAVE_SAMPLES
-        , DS.ISampleGrabberCB
+        , ISampleGrabberCB
 #endif
     {
         protected IMediaControl mediaControl = null;
@@ -469,8 +469,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         #region Sample analisys
 #if HAVE_SAMPLES
 
-        protected DS.ISampleGrabber sampleGrabber = null;
-        DsROTEntry rotEntry = null;
+        protected ISampleGrabber sampleGrabber = null;
         Thread sampleAnalyzerThread = null;
         Queue<AudioSample> samples = new Queue<AudioSample>();
         ManualResetEvent sampleAnalyzerMustStop = new ManualResetEvent(false);
@@ -484,9 +483,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             
             try
             {
-                droppedSamples = 0;
-                totalSamples = 1;
-
                 // Build the sample grabber
                 sampleGrabber = Activator.CreateInstance(Type.GetTypeFromCLSID(Filters.SampleGrabber, true))
                             as ISampleGrabber;
@@ -524,9 +520,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             try
             {
-                droppedSamples = 0;
-                totalSamples = 1;
-
                 sampleAnalyzerMustStop.Set(); // This will cause the thread to stop
                 sampleAnalyzerThread.Join(200);
 
@@ -558,11 +551,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             smp.SampleTime = SampleTime;
             smp.samples = new short[BufferLen];
 
-            //Marshal.Copy(pBuffer, smp.samples, 0, BufferLen);
+            Marshal.Copy(pBuffer, smp.samples, 0, BufferLen);
 
             // This is a callback from the DirectShow rendering thread.
             // We process on other thread, to make sure we don't block the rendering thread.
-            //lock (_sync)
+            lock (_sync)
             {
                 samples.Enqueue(smp);
             }
@@ -570,20 +563,20 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             return 0;
         }
 
-        public int SampleCB(double SampleTime, IMediaSample pSample)
+        public int SampleCB(double SampleTime, IntPtr pSample)
         {
             return 0; 
         }
       
         private void SampleAnalyzerLoop()
         {
-            while (!sampleAnalyzerMustStop.WaitOne(1))
+            while (!sampleAnalyzerMustStop.WaitOne(5))
             {
                 AudioSample smp = null;
 
-                //Logger.LogHeavyTrace("AnalyzeSamples: loop");
+                //Logger.LogToConsole("AnalyzeSamples: loop");
 
-                //lock (_sync)
+                lock (_sync)
                 {
                     if (samples.Count > 0)
                     {
@@ -597,18 +590,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 }
                 else
                 {
-                    Thread.Sleep(10);
-                    //Logger.LogHeavyTrace("AnalyzeSamples:no samples to analyze");
+                    //Logger.LogToConsole("AnalyzeSamples: no samples to analyze");
                 }
             }
-
-            ResetVolumeLevels();
         }
-
-        const int MAXSAMPLES = 250; // Number of samples to be checked
-
-        int droppedSamples = 0;
-        int totalSamples = 1;
 
         private void AnalyzeSamples(AudioSample smp)
         {
@@ -617,8 +602,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             short[] samples = smp.samples;
             double sampleTime = smp.SampleTime;
 
-            totalSamples++;
-
             double diff = sampleTime - this.MediaPosition;
             if (diff > 0 && diff < 2)
             {
@@ -626,26 +609,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             }
             else if (Math.Abs(diff) > 0.5)
             {
-                droppedSamples++;
                 return; // The sample is too delayed or too early
             }
 
-            if (totalSamples % 100 == 0)
-            {
-                //Logger.LogToConsole("AnalyzeSamples: dropped samples:{0} out of {1} ({2}%)",
-                    //droppedSamples, totalSamples, (100 * droppedSamples) / totalSamples);
-            }
-
-            diff = sampleTime - this.MediaPosition;
-            //Logger.LogToConsole("AnalyzeSamples: SampleTime:{0} adjusted diff:{1}", sampleTime, diff);
 
             if (samples != null)
             {
                 FilterState ms = GetFilterState();
 
-                if (samples.Length <= 0 || 
+                if (samples.Length <= 0 ||
                     ms != FilterState.Running)
+                {
                     return;
+                }
 
                 try
                 {
@@ -653,8 +629,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     double rightS = 0;
                     double avgR = 0;
                     double avgL = 0;
-                    double peakR = 0;
-                    double peakL = 0;
 
                     int size = samples.GetLength(0) / 2; // Assume this is 2 channel audio
                     if (size > (samples.Length / 2))
@@ -667,36 +641,26 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                         return;
                     }
 
-                    int step = (int)((double)samples.Length / (double)MAXSAMPLES);
-                    double countedSamples = (int)((double)samples.Length / (double)step);
-
                     // Check array contents
-                    for (int i = 0; i < size; i += step)
+                    for (int i = 0; i < size; i++)
                     {
-                        leftS = Math.Abs((int)samples[i]);
-                        avgL += (leftS * leftS / countedSamples);
+                        leftS =  (double)samples[i];
+                        rightS = (double)samples[i + 1];
 
-                        if (leftS > peakL)
-                        {
-                            peakL = leftS;
-                        }
-                        rightS = Math.Abs((int)samples[i + 1]);
-                        avgR += (rightS * rightS / countedSamples);
+                        avgL += leftS * leftS;
+                        avgR += rightS * rightS;
 
-                        if (rightS > peakR)
-                        {
-                            peakR = rightS;
-                        }
+                        MediaRenderer.DefaultInstance.ProvideMomentaryAudioSample(
+                            leftS,
+                            rightS,
+                            sampleTime);
 
-                    } // for
+                    }
 
-                    VolumeAvgR = (VolumeAvgR + (int)Math.Sqrt(avgR)) / 2;
-                    VolumeAvgL = (VolumeAvgL + (int)Math.Sqrt(avgL)) / 2;
-
-                    VolumePeakR = (int)peakR;
-                    VolumePeakL = (int)peakL;
-
-                    //Logger.LogToConsole("AnalyzeSamples: L:{0} R:{0}", VolumeAvgL, VolumeAvgR);
+                    MediaRenderer.DefaultInstance.ProvideAveragedAudioSample(
+                        Math.Sqrt(avgL / size),
+                        Math.Sqrt(avgR / size), 
+                        sampleTime);
                 }
                 catch(Exception ex)
                 {
@@ -704,6 +668,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 }
             }
         }
+
 #endif // HAVE_SAMPLES
         #endregion Sample analisys
     }

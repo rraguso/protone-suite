@@ -149,11 +149,18 @@ namespace OPMedia.Core.Logging
             }
         }
 
+        public static void LogToConsole(string format, params object[] args)
+        {
+            string message = string.Format(format, args);
+            Debug.WriteLine(message);
+            Debug.Flush();
+        }
+
         [Conditional("HAVE_HEAVY_TRACE")]
         public static void LogHeavyTrace(string format, params object[] args)
         {
             string message = string.Format(format, args);
-            Debug.WriteLine("HWY: " + message);
+            Debug.WriteLine("HTRC: " + message);
 
             if (LoggingConfiguration.HeavyTraceLevelEnabled)
             {
@@ -442,7 +449,15 @@ namespace OPMedia.Core.Logging
 
         internal static void WriteLogEntry(LogEntry entry)
         {
-            WriteLogString(entry.AppName, entry.ToString());
+            if (entry.SeverityLevel == SeverityLevels.HeavyTrace)
+            {
+                Debug.WriteLine("HTRC: " + entry.Message);
+                Debug.Flush();
+            }
+            else
+            {
+                WriteLogString(entry.AppName, entry.ToString());
+            }
         }
 
         private static void WriteLogSessionStart()
