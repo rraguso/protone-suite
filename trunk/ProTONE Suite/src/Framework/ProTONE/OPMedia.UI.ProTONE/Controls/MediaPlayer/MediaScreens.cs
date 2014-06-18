@@ -50,8 +50,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             base.SelectedIndexChanged += new EventHandler(MediaScreens_SelectedIndexChanged);
 
-            this.PlaylistScreen.TotalTimeChanged += new TotalTimeChangedHandler(PlaylistScreen_TotalTimeChanged);
-
             // TODO - maybe active screen will need to be persisted ?
             _oldActiveScreen = null;
             _activeScreen = this.PlaylistScreen;
@@ -70,14 +68,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             ThemeManager.SetDoubleBuffer(this);
         }
 
-        TimeSpan _totalTime = new TimeSpan(0);
-
-        void PlaylistScreen_TotalTimeChanged(TimeSpan tsTotalTime)
-        {
-            _totalTime = tsTotalTime;
-            DoSetDesc(_activeScreen);
-        }
-
         void MediaScreens_SelectedIndexChanged(object sender, EventArgs e)
         {
             Control currentScreen = null;
@@ -86,28 +76,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 currentScreen = base.SelectedTab.Controls[0];
                 DoScreenSelectionTasks(currentScreen);
             }
-        }
-
-        private void DoSetDesc(Control c)
-        {
-            string desc = string.Empty;
-
-            if (c == this.PlaylistScreen)
-            {
-                int h = _totalTime.Days * 24 + _totalTime.Hours;
-                desc = string.Format("Total: {0}:{1:d2}:{2:d2}", h, _totalTime.Minutes, _totalTime.Seconds);
-            }
-            else if (c == this.BookmarkScreen)
-            {
-            }
-            else if (c == this.TrackInfoScreen)
-            {
-            }
-            else if (c == this.VisualEffectsScreen)
-            {
-            }
-
-            //this.Description = desc;
         }
 
         private void DoScreenSelectionTasks(Control c)
@@ -119,8 +87,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (_activeScreen == this.PlaylistScreen)
             {
-                int h = _totalTime.Days * 24 + _totalTime.Hours;
-                desc = string.Format("Total: {0}:{1:d2}:{2:d2}", h, _totalTime.Minutes, _totalTime.Seconds);
             }
             else if (_activeScreen == this.BookmarkScreen)
             {
@@ -183,11 +149,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             TabPages[1].Text = Translator.Translate("TXT_TRACKINFO");
             TabPages[2].Text = Translator.Translate("TXT_VISUALEFFECTS");
             TabPages[3].Text = Translator.Translate("TXT_BOOKMARKS");
-
-           
-           
-           
-           
         }
 
         [EventSink(OPMedia.UI.ProTONE.GlobalEvents.EventNames.ExecuteShortcut)]

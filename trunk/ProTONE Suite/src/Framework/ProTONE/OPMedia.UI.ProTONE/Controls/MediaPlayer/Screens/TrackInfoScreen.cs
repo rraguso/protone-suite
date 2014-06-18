@@ -18,6 +18,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 {
     public partial class TrackInfoScreen : OPMBaseControl
     {
+        bool _canSaveData = false;
+
         public PlaylistItem PlaylistItem 
         {
             set
@@ -53,7 +55,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 
         void playlistScreen_SelectedItemChanged(PlaylistItem newSelectedItem)
         {
-            SaveData();
+            if (_canSaveData)
+            {
+                SaveData();
+            }
+
             ShowPlaylistItem(newSelectedItem, false);
         }
 
@@ -89,7 +95,17 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             }
 
             if (callByProperty)
-                playlistScreen.SetFirstSelectedPlaylistItem(plItem);
+            {
+                try
+                {
+                    _canSaveData = false;
+                    playlistScreen.SetFirstSelectedPlaylistItem(plItem);
+                }
+                finally
+                {
+                    _canSaveData = true;
+                }
+            }
         }
 
         public void CopyPlaylist(PlaylistScreen source)

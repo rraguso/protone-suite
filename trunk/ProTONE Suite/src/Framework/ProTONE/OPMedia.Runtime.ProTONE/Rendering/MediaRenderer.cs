@@ -59,6 +59,22 @@ namespace OPMedia.Runtime.ProTONE.Rendering
     
     public delegate void RenderedStreamTitleChangedHandler(string newTitle);
 
+    public delegate void AudioSampleProvidedHandler(AudioSampleData sampleData);
+
+    public class AudioSampleData
+    {
+        public double LVOL { get; private set; }
+        public double RVOL { get; private set; }
+        public double SampleTime { get; private set; } 
+
+        public AudioSampleData(double lVol, double rVol, double sampleTime)
+        {
+            LVOL = lVol;
+            RVOL = rVol;
+            SampleTime = sampleTime;
+        }
+    }
+
     public sealed class MediaRenderer : IDisposable
     {
         public const int VolumeFull = 0;
@@ -70,6 +86,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         private double _position = 0;
 
         public event RenderedStreamTitleChangedHandler RenderedStreamTitleChanged = null;
+
+        public event AudioSampleProvidedHandler AveragedAudioSampleProvided = null;
+        public event AudioSampleProvidedHandler MomentarySampleProvided = null;
 
         public class SupportedFileProvider : ISupportedFileProvider
         {
@@ -116,11 +135,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         }
 
         internal object GraphFilter { get { return renderingTechnology.GraphFilter; } }
-
-        public int VolumeAvgR { get { return renderingTechnology.VolumeAvgR; } }
-        public int VolumeAvgL { get { return renderingTechnology.VolumeAvgL; } }
-        public int VolumePeakR { get { return renderingTechnology.VolumePeakR; } }
-        public int VolumePeakL { get { return renderingTechnology.VolumePeakL; } }
 
 
         public double[] EqFrequencies
@@ -962,6 +976,22 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         }
 
         #endregion
+
+        internal void ProvideAveragedAudioSample(double lVol, double rVol, double sampleTime)
+        {
+            if (AveragedAudioSampleProvided != null)
+            {
+                AveragedAudioSampleProvided(new AudioSampleData(lVol, rVol, sampleTime));
+            }
+        }
+
+        internal void ProvideMomentaryAudioSample(double lVol, double rVol, double sampleTime)
+        {
+            if (MomentarySampleProvided != null)
+            {
+                MomentarySampleProvided(new AudioSampleData(lVol, rVol, sampleTime));
+            }
+        }
     }
 
    

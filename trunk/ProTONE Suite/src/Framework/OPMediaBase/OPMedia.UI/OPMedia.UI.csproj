@@ -140,6 +140,9 @@
     <Compile Include="Configuration\UrlCfgDlg.Designer.cs">
       <DependentUpon>UrlCfgDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GraphPlotter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\MultilineEditTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

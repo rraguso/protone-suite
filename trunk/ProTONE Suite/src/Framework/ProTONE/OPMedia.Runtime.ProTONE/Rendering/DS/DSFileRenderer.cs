@@ -120,7 +120,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                         as IMediaControl;
 
 #if HAVE_SAMPLES
-            //SetupAudioSampleGrabber();
+            SetupAudioSampleGrabber();
 #endif
             
             if ((mediaControl as IGraphBuilder) == null)

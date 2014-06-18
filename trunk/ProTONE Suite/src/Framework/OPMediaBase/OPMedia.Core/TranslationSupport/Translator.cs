@@ -246,8 +246,9 @@ namespace OPMedia.Core.TranslationSupport
 
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                string s = ex.Message;
             }
         }
 

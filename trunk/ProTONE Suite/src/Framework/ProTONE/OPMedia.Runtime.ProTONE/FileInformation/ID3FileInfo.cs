@@ -17,6 +17,9 @@ using TagLib.Mpeg;
 using TagLib;
 using OPMedia.Runtime.FileInformation;
 using OPMedia.Runtime.ProTONE.FileInformation;
+using OPMedia.Runtime.ProTONE.Rendering;
+using System.Threading;
+using OPMedia.Core.ApplicationSettings;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -30,6 +33,9 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         static string[] _audioGenres = null;
         static object _genresLock = new object();
+
+        bool _tagModified = false;
+
         public static string[] AudioGenres
         {
             get
@@ -77,6 +83,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 try
                 {
                     _tag.Performers = new string[] { value };
+                    _tagModified = true;
                 }
                 catch (Exception ex)
                 {
@@ -96,6 +103,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 try
                 {
                     _tag.Album = value;
+                    _tagModified = true;
                 }
                 catch (Exception ex)
                 {
@@ -115,6 +123,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 try
                 {
                     _tag.Title = value;
+                    _tagModified = true;
                 }
                 catch (Exception ex)
                 {
@@ -135,6 +144,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 try
                 {
                     _tag.Comment = value;
+                    _tagModified = true;
                 }
                 catch (Exception ex)
                 {
@@ -172,6 +182,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 try
                 {
                     _tag.Genres = new string[] { value };
+                    _tagModified = true;
                 }
                 catch (Exception ex)
                 {
@@ -209,6 +220,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     {
                         _tag.Track = 0;
                     }
+
+                    _tagModified = true;
                 }
                 catch (Exception ex)
                 {
@@ -245,6 +258,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     {
                         _tag.Year = 0;
                     }
+
+                    _tagModified = true;
                 }
                 catch (Exception ex)
                 {
@@ -385,6 +400,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             {
                 artworkInfo = value;
                 artworkInfo.Save();
+
+                _tagModified = true;
             }
         }
 
@@ -403,16 +420,40 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             }
         }
 
+        object _saveLock = new object();
+
         public override void Save()
         {
-            if (_tag != null)
+            lock (_saveLock)
             {
-                if (IsEmpty)
+                if (_tag != null && _tagModified)
                 {
-                    af.RemoveTags(TagTypes.AllTags);
-                }
+                    double resumePosition = -1;
+                    if (this.Equals(MediaRenderer.DefaultInstance.RenderedMediaInfo))
+                    {
+                        MediaRenderer.DefaultInstance.PauseRenderer();
+                        resumePosition = MediaRenderer.DefaultInstance.MediaPosition;
+                        MediaRenderer.DefaultInstance.StopRenderer();
+                        Thread.Sleep(100);
+                    }
 
-                af.Save();
+                    if (IsEmpty)
+                    {
+                        af.RemoveTags(TagTypes.AllTags);
+                    }
+
+                    af.Save();
+                    _tagModified = false;
+
+                    if (resumePosition > 0)
+                    {
+                        BookmarkStartHint hint = new BookmarkStartHint(
+                            new Bookmark("default", (int)resumePosition));
+
+                        MediaRenderer.DefaultInstance.StartRendererWithHint(hint);
+                        MediaRenderer.DefaultInstance.AudioVolume = AppSettings.LastVolume;
+                    }
+                }
             }
         }
 
@@ -421,6 +462,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             if (af != null)
             {
                 af.RemoveTags(TagTypes.AllTags);
+                _tagModified = true;
             }
         }
 
@@ -459,6 +501,8 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 catch
                 {
                 }
+
+                _tagModified = false;
             }
         }
 
