@@ -8,7 +8,7 @@ using OPMedia.UI.Themes;
 
 namespace OPMedia.UI.Controls
 {
-    public class GraphPlotter : OPMBaseControl
+    public class GraphPlotter : OPMDoubleBufferedControl
     {
         private List<double[]> _dataSets = new List<double[]>();
         private List<Color> _dataSetsColors = new List<Color>();
@@ -21,10 +21,17 @@ namespace OPMedia.UI.Controls
 
         public bool IsHistogram { get; set; }
 
-        public void Reset()
+        public void Reset(bool redraw)
         {
+            bool wasEmpty = (_dataSets.Count < 1);
+
             _dataSets.Clear();
             _dataSetsColors.Clear();
+
+            if (redraw && !wasEmpty)
+            {
+                Invalidate();
+            }
         }
 
         public void AddDataRange(double[] data, Color color)
@@ -48,6 +55,11 @@ namespace OPMedia.UI.Controls
 
             using (Pen p = new Pen(ThemeManager.BorderColor))
             {
+                for (int i = 0; i < _dataSets.Count; i++)
+                {
+                    DrawDataSet(g, rc, _dataSets[i], _dataSetsColors[i]);
+                }
+
                 g.DrawRectangle(p, rc);
 
                 if (ShowXAxis)
@@ -55,11 +67,6 @@ namespace OPMedia.UI.Controls
                     g.DrawLine(p,
                         rc.Left, rc.Top + rc.Height / 2,
                         rc.Right, rc.Top + rc.Height / 2);
-                }
-
-                for (int i = 0; i < _dataSets.Count; i++)
-                {
-                    DrawDataSet(g, rc, _dataSets[i], _dataSetsColors[i]);
                 }
 
                 if (ShowYAxis)
@@ -106,21 +113,25 @@ namespace OPMedia.UI.Controls
                             rc.Left + (int)(i * rc.Width / data.Length),
                             rc.Bottom - (int)((data[(int)i] - min) * rc.Height / (max - min)));
                     }
-                    
-                    using (Pen pen = new Pen(color))
+
+                    if (IsHistogram)
                     {
-                        if (IsHistogram)
+                        using (Brush b = new SolidBrush(color))
                         {
-                            Point ptAlt = new Point(pt.X, rc.Bottom);
-                            g.DrawLine(pen, ptAlt, pt);
+                            int w = 3;
+                            Rectangle rcBar = new Rectangle(pt.X, pt.Y, w, rc.Bottom - pt.Y);
+                            g.FillRectangle(b, rcBar);
                         }
-                        else
+                    }
+                    else
+                    {
+                        using (Pen pen = new Pen(color))
                         {
                             g.DrawLine(pen, last, pt);
                         }
-                    }
 
-                    last = pt;
+                        last = pt;
+                    }
                 }
                 catch (Exception ex)
                 {

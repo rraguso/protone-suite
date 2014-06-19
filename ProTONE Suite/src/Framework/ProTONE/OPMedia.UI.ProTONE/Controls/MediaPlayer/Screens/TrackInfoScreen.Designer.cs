@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pgProperties = new OPMedia.UI.Controls.OPMPropertyGrid();
-            this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.pnlLayout = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.lblItem = new OPMedia.UI.Controls.OPMLabel();
             this.playlistScreen = new OPMedia.UI.ProTONE.Controls.MediaPlayer.PlaylistScreen();
-            this.opmTableLayoutPanel1.SuspendLayout();
+            this.pnlLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // pgProperties
@@ -48,34 +48,36 @@
             // 
             // opmTableLayoutPanel1
             // 
-            this.opmTableLayoutPanel1.ColumnCount = 2;
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.opmTableLayoutPanel1.Controls.Add(this.lblItem, 1, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.pgProperties, 1, 1);
-            this.opmTableLayoutPanel1.Controls.Add(this.playlistScreen, 0, 0);
-            this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
-            this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.RowCount = 2;
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(316, 293);
-            this.opmTableLayoutPanel1.TabIndex = 2;
+            this.pnlLayout.ColumnCount = 2;
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pnlLayout.Controls.Add(this.lblItem, 0, 0);
+            this.pnlLayout.Controls.Add(this.pgProperties, 1, 1);
+            this.pnlLayout.Controls.Add(this.playlistScreen, 0, 1);
+            this.pnlLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLayout.Location = new System.Drawing.Point(0, 0);
+            this.pnlLayout.Name = "opmTableLayoutPanel1";
+            this.pnlLayout.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlLayout.RowCount = 2;
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlLayout.Size = new System.Drawing.Size(316, 293);
+            this.pnlLayout.TabIndex = 2;
             // 
             // lblItem
             // 
             this.lblItem.AutoSize = true;
+            this.pnlLayout.SetColumnSpan(this.lblItem, 2);
             this.lblItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblItem.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
-            this.lblItem.Location = new System.Drawing.Point(158, 3);
+            this.lblItem.Location = new System.Drawing.Point(0, 3);
             this.lblItem.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.lblItem.Name = "lblItem";
             this.lblItem.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblItem.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblItem.Size = new System.Drawing.Size(158, 13);
+            this.lblItem.Size = new System.Drawing.Size(316, 13);
             this.lblItem.TabIndex = 1;
             this.lblItem.Text = "[ item ]";
             this.lblItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,23 +88,22 @@
             this.playlistScreen.CompactMode = true;
             this.playlistScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playlistScreen.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.playlistScreen.Location = new System.Drawing.Point(0, 0);
+            this.playlistScreen.Location = new System.Drawing.Point(0, 19);
             this.playlistScreen.Margin = new System.Windows.Forms.Padding(0);
             this.playlistScreen.Name = "playlistScreen";
             this.playlistScreen.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.SetRowSpan(this.playlistScreen, 2);
-            this.playlistScreen.Size = new System.Drawing.Size(158, 293);
+            this.playlistScreen.Size = new System.Drawing.Size(158, 274);
             this.playlistScreen.TabIndex = 5;
             // 
             // TrackInfoScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.opmTableLayoutPanel1);
+            this.Controls.Add(this.pnlLayout);
             this.Name = "TrackInfoScreen";
             this.Size = new System.Drawing.Size(316, 293);
-            this.opmTableLayoutPanel1.ResumeLayout(false);
-            this.opmTableLayoutPanel1.PerformLayout();
+            this.pnlLayout.ResumeLayout(false);
+            this.pnlLayout.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -110,7 +111,7 @@
         #endregion
 
         private UI.Controls.OPMPropertyGrid pgProperties;
-        private UI.Controls.OPMTableLayoutPanel opmTableLayoutPanel1;
+        private UI.Controls.OPMTableLayoutPanel pnlLayout;
         private UI.Controls.OPMLabel lblItem;
         private PlaylistScreen playlistScreen;
     }

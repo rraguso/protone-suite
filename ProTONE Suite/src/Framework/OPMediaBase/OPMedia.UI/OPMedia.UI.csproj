@@ -149,6 +149,9 @@
     <Compile Include="Controls\OPMCheckedListBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\OPMDoubleBufferControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\OPMPropertyGrid.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -13,6 +13,7 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Core.Logging;
 using TagLib.Riff;
 using OPMedia.Runtime.FileInformation;
+using OPMedia.UI.Themes;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 {
@@ -25,6 +26,21 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             set
             {
                 ShowPlaylistItem(value, true);
+            }
+        }
+
+        bool _showEmbeddedPlaylist = true;
+        public bool ShowEmbeddedPlaylist
+        {
+            get
+            {
+                return _showEmbeddedPlaylist;
+            }
+
+            set
+            {
+                _showEmbeddedPlaylist = value;
+                ShowPlaylist();
             }
         }
 
@@ -50,19 +66,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
         public TrackInfoScreen()
         {
             InitializeComponent();
+
+            ThemeManager.SetFont(lblItem, FontSizes.Small);
+            ShowPlaylist();
+
             playlistScreen.SelectedItemChanged += new SelectedItemChangedHandler(playlistScreen_SelectedItemChanged);
+
         }
-
-        void playlistScreen_SelectedItemChanged(PlaylistItem newSelectedItem)
-        {
-            if (_canSaveData)
-            {
-                SaveData();
-            }
-
-            ShowPlaylistItem(newSelectedItem, false);
-        }
-
+        
         public void ShowPlaylistItem(PlaylistItem plItem, bool callByProperty)
         {
             if (plItem == null)
@@ -111,6 +122,33 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
         public void CopyPlaylist(PlaylistScreen source)
         {
             this.playlistScreen.CopyPlaylist(source);
+        }
+
+        private void ShowPlaylist()
+        {
+            this.pnlLayout.ColumnStyles.Clear();
+            if (_showEmbeddedPlaylist)
+            {
+                this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+                this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            }
+            else
+            {
+                this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
+                this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            }
+
+            playlistScreen.Visible = _showEmbeddedPlaylist;
+        }
+
+        void playlistScreen_SelectedItemChanged(PlaylistItem newSelectedItem)
+        {
+            if (_canSaveData)
+            {
+                SaveData();
+            }
+
+            ShowPlaylistItem(newSelectedItem, false);
         }
     }
 }

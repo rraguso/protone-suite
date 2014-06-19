@@ -24,7 +24,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
     {
         public PlaylistScreen PlaylistScreen { get { return base.TabPages[0].Controls[0] as PlaylistScreen; } }
         public TrackInfoScreen TrackInfoScreen { get { return base.TabPages[1].Controls[0] as TrackInfoScreen; } }
-        public VisualEffectsScreen VisualEffectsScreen { get { return base.TabPages[2].Controls[0] as VisualEffectsScreen; } }
+        public SignalAnalysisScreen SignalAnalysisScreen { get { return base.TabPages[2].Controls[0] as SignalAnalysisScreen; } }
         public BookmarkScreen BookmarkScreen { get { return base.TabPages[3].Controls[0] as BookmarkScreen; } }
 
         public Control _activeScreen = null;
@@ -40,9 +40,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             c.Dock = DockStyle.Fill;
             base.TabPages.Add(new OPMTabPage("TXT_TRACKINFO", c));
             
-            c = new VisualEffectsScreen();
+            c = new SignalAnalysisScreen();
             c.Dock = DockStyle.Fill;
-            base.TabPages.Add(new OPMTabPage("TXT_VISUALEFFECTS", c));
+            base.TabPages.Add(new OPMTabPage("TXT_SIGNALANALYSIS", c));
             
             c = new BookmarkScreen();
             c.Dock = DockStyle.Fill;
@@ -125,7 +125,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 this.TrackInfoScreen.PlaylistItem = plItem;
             }
-            else if (_activeScreen == this.VisualEffectsScreen)
+            else if (_activeScreen == this.SignalAnalysisScreen)
             {
             }
 
@@ -147,7 +147,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             TabPages[0].Text = Translator.Translate("TXT_PLAYLIST");
             TabPages[1].Text = Translator.Translate("TXT_TRACKINFO");
-            TabPages[2].Text = Translator.Translate("TXT_VISUALEFFECTS");
+            TabPages[2].Text = Translator.Translate("TXT_SIGNALANALYSIS");
             TabPages[3].Text = Translator.Translate("TXT_BOOKMARKS");
         }
 
@@ -155,22 +155,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public void OnExecuteShortcut(Runtime.Shortcuts.OPMShortcutEventArgs args)
         {
             // Dispatch shortcut to active screen
-
             if (_activeScreen == this.PlaylistScreen)
             {
                 this.PlaylistScreen.OnExecuteShortcut(args);
             }
             else if (_activeScreen == this.BookmarkScreen)
             {
-                //this.BookmarkScreen.OnE
             }
             else if (_activeScreen == this.TrackInfoScreen)
             {
-                //this.TrackInfoScreen.OnE
             }
-            else if (_activeScreen == this.VisualEffectsScreen)
+            else if (_activeScreen == this.SignalAnalysisScreen)
             {
-                //this.VisualEffectsScreen.OnE
             }
         }
     }

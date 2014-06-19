@@ -51,15 +51,6 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.playlistScreen.CopyPlaylist(source);
         }
 
-        public bool ShowPlaylist
-        {
-            get { return playlistScreen.Visible; }
-            set
-            {
-                playlistScreen.Visible = value;
-            }
-        }
-
         public PlaylistItem PlaylistItem
         { 
             get 
@@ -71,6 +62,21 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             {
                 LoadnewPlaylistItem(value, true);
             } 
+        }
+
+        bool _showEmbeddedPlaylist = true;
+        public bool ShowEmbeddedPlaylist
+        {
+            get
+            {
+                return _showEmbeddedPlaylist;
+            }
+
+            set
+            {
+                _showEmbeddedPlaylist = value;
+                ShowPlaylist();
+            }
         }
 
         public void LoadnewPlaylistItem(PlaylistItem plItem, bool callFromProperty)
@@ -117,13 +123,10 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             _showFilePath = true;
             _canAddToCurrent = true;
 
-            ThemeManager.SetFont(lblItem, FontSizes.Large);
+            ThemeManager.SetFont(lblItem, FontSizes.Small);
 
             Translator.TranslateControl(this, DesignMode);
 
-           lblItem.FontSize = (ApplicationInfo.IsPlayer) ?
-                FontSizes.Small : FontSizes.NormalBold;
-            
             lblItem.Text = string.Empty;
 
             pbAdd.Text = pbAddCurrent.Text = pbDelete.Text = string.Empty;
@@ -158,6 +161,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.Load += new EventHandler(BookmarkManagerCtl_Load);
 
             playlistScreen.SelectedItemChanged += new SelectedItemChangedHandler(playlistScreen_SelectedItemChanged);
+
+            ShowPlaylist();
         }
 
         void playlistScreen_SelectedItemChanged(PlaylistItem newSelectedItem)
@@ -467,6 +472,24 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             TimeSpan timePart = DateTime.Now.Subtract(DateTime.Today);
             return new TimeSpan((int)timePart.TotalSeconds).ToString();
         }
+
+        private void ShowPlaylist()
+        {
+            this.pnlLayout.ColumnStyles.Clear();
+            if (_showEmbeddedPlaylist)
+            {
+                this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+                this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            }
+            else
+            {
+                this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0F));
+                this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            }
+
+            playlistScreen.Visible = _showEmbeddedPlaylist;
+        }
+
     }
 
 
@@ -503,6 +526,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             if (edSvc != null)
             {
                 BookmarkScreen ctl = new BookmarkScreen(edSvc, plItem);
+                ctl.ShowEmbeddedPlaylist = false;
+                ctl.BorderStyle = BorderStyle.Fixed3D;
                 edSvc.DropDownControl(ctl);
             }
 

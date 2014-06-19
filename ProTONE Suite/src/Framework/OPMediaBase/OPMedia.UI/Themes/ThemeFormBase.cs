@@ -269,7 +269,6 @@ namespace OPMedia.UI.Themes
             this.MouseDoubleClick += new MouseEventHandler(ThemeForm_MouseDoubleClick);
             this.MouseHover += new EventHandler(OnMouseHover);
             
-            this.Shown += new EventHandler(ThemeFormBase_Shown);
 
             this.Activated += new EventHandler(ThemeFormBase_Activated);
             this.Deactivate += new EventHandler(ThemeFormBase_Deactivate);
@@ -291,9 +290,15 @@ namespace OPMedia.UI.Themes
             _btnImgList.Images.Add(bmp);
             _btnImgList.Images.Add(bmp);
 
+            this.HandleCreated += new EventHandler(ThemeFormBase_HandleCreated);
             this.HandleDestroyed += new EventHandler(ThemeFormBase_HandleDestroyed);
             this.FormClosing += new FormClosingEventHandler(ThemeFormBase_FormClosing);
             this.FormClosed += new FormClosedEventHandler(ThemeFormBase_FormClosed);
+        }
+
+        void ThemeFormBase_HandleCreated(object sender, EventArgs e)
+        {
+            ThemeManager.SetDoubleBuffer(this);
         }
 
         void ThemeFormBase_FormClosed(object sender, FormClosedEventArgs e)
@@ -337,29 +342,6 @@ namespace OPMedia.UI.Themes
             IsActive = true;
             Logger.LogHeavyTrace("{0} - Activated", Name);
             Logger.LogHeavyTrace("{0} - IsActive: {1}", Name, IsActive);
-        }
-
-        void ThemeFormBase_Shown(object sender, EventArgs e)
-        {
-            ThemeManager.SetDoubleBuffer(this);
-
-            //if (!DesignMode && !(this is MainFrame))
-            //{
-            //    switch (StartPosition)
-            //    {
-            //        case FormStartPosition.CenterParent:
-            //            CenterToParent();
-            //            break;
-
-            //        case FormStartPosition.CenterScreen:
-            //        default:
-            //            CenterToScreen();
-            //            break;
-            //    }
-
-            //    Activate();
-            //    BringToFront();
-            //}
         }
 
         protected virtual void OnThemeUpdatedInternal()

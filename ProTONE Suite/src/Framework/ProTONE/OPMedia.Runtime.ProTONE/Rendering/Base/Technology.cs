@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Runtime.ProTONE.Rendering.DS;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 #endregion
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Base
@@ -109,6 +110,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
                 { 
                     streamRenderer.SetSubtitleStream(value); 
                 } 
+            }
+        }
+
+        public WaveFormatEx ActualAudioFormat
+        {
+            get
+            {
+                return streamRenderer.ActualAudioFormat;
             }
         }
 

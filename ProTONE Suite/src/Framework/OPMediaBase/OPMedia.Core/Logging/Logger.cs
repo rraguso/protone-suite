@@ -119,34 +119,34 @@ namespace OPMedia.Core.Logging
             }
         }
 
-        //[Conditional("HAVE_TRACE_UNTRANSLATED")]
+        [Conditional("HAVE_TRACE_UNTRANSLATED")]
         public static void LogTranslationTrace(string format, params object[] args)
         {
             string message = string.Format(format, args);
-
             Debug.WriteLine("UNTRANSLATED: " + message);
+            Debug.Flush();
 
-            if (LoggingConfiguration.HeavyTraceLevelEnabled)
-            {
-                LogEntry entry = new LogEntry(SeverityLevels.HeavyTrace, message,
-                    Assembly.GetCallingAssembly().GetName().Name);
-                instance.EnqueueLogEntry(entry);
-            }
+            //if (LoggingConfiguration.HeavyTraceLevelEnabled)
+            //{
+            //    LogEntry entry = new LogEntry(SeverityLevels.HeavyTrace, message,
+            //        Assembly.GetCallingAssembly().GetName().Name);
+            //    instance.EnqueueLogEntry(entry);
+            //}
         }
 
-        //[Conditional("HAVE_TRACE_HELP")]
+        [Conditional("HAVE_TRACE_HELP")]
         public static void LogHelpTrace(string format, params object[] args)
         {
             string message = string.Format(format, args);
-
             Debug.WriteLine("HELP: " + message);
+            Debug.Flush();
 
-            if (LoggingConfiguration.HeavyTraceLevelEnabled)
-            {
-                LogEntry entry = new LogEntry(SeverityLevels.HeavyTrace, message,
-                    Assembly.GetCallingAssembly().GetName().Name);
-                instance.EnqueueLogEntry(entry);
-            }
+            //if (LoggingConfiguration.HeavyTraceLevelEnabled)
+            //{
+            //    LogEntry entry = new LogEntry(SeverityLevels.HeavyTrace, message,
+            //        Assembly.GetCallingAssembly().GetName().Name);
+            //    instance.EnqueueLogEntry(entry);
+            //}
         }
 
         public static void LogToConsole(string format, params object[] args)
