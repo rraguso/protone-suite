@@ -125,5 +125,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Mono
         {
             return null;
         }
+
+        protected override DS.BaseClasses.WaveFormatEx DoGetActualAudioFormat()
+        {
+            return null;
+        }
     }
 }

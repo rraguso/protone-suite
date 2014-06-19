@@ -40,28 +40,29 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.pbAddCurrent = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
-            this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.opmFlowLayoutPanel1 = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
+            this.pnlLayout = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.pnlButtons = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
             this.playlistScreen = new OPMedia.UI.ProTONE.Controls.MediaPlayer.PlaylistScreen();
             ((System.ComponentModel.ISupportInitialize)(this.pbAddCurrent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
-            this.opmTableLayoutPanel1.SuspendLayout();
-            this.opmFlowLayoutPanel1.SuspendLayout();
+            this.pnlLayout.SuspendLayout();
+            this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblItem
             // 
             this.lblItem.AutoSize = true;
+            this.pnlLayout.SetColumnSpan(this.lblItem, 3);
             this.lblItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblItem.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
-            this.lblItem.Location = new System.Drawing.Point(153, 3);
+            this.lblItem.Location = new System.Drawing.Point(0, 3);
             this.lblItem.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.lblItem.Name = "lblItem";
             this.lblItem.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblItem.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblItem.Size = new System.Drawing.Size(153, 13);
+            this.lblItem.Size = new System.Drawing.Size(327, 13);
             this.lblItem.TabIndex = 1;
             this.lblItem.Text = "[ item ]";
             this.lblItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,41 +160,41 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             // 
             // opmTableLayoutPanel1
             // 
-            this.opmTableLayoutPanel1.ColumnCount = 3;
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.opmTableLayoutPanel1.Controls.Add(this.lblItem, 1, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.lvBookmarks, 1, 1);
-            this.opmTableLayoutPanel1.Controls.Add(this.opmFlowLayoutPanel1, 2, 1);
-            this.opmTableLayoutPanel1.Controls.Add(this.lblDesc, 1, 2);
-            this.opmTableLayoutPanel1.Controls.Add(this.playlistScreen, 0, 0);
-            this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
-            this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.RowCount = 3;
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(327, 267);
-            this.opmTableLayoutPanel1.TabIndex = 1;
+            this.pnlLayout.ColumnCount = 3;
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.pnlLayout.Controls.Add(this.lblItem, 0, 0);
+            this.pnlLayout.Controls.Add(this.lvBookmarks, 1, 1);
+            this.pnlLayout.Controls.Add(this.pnlButtons, 2, 1);
+            this.pnlLayout.Controls.Add(this.lblDesc, 1, 2);
+            this.pnlLayout.Controls.Add(this.playlistScreen, 0, 1);
+            this.pnlLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLayout.Location = new System.Drawing.Point(0, 0);
+            this.pnlLayout.Name = "opmTableLayoutPanel1";
+            this.pnlLayout.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlLayout.RowCount = 3;
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlLayout.Size = new System.Drawing.Size(327, 267);
+            this.pnlLayout.TabIndex = 1;
             // 
             // opmFlowLayoutPanel1
             // 
-            this.opmFlowLayoutPanel1.AutoSize = true;
-            this.opmFlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.opmFlowLayoutPanel1.Controls.Add(this.pbAdd);
-            this.opmFlowLayoutPanel1.Controls.Add(this.pbAddCurrent);
-            this.opmFlowLayoutPanel1.Controls.Add(this.pbDelete);
-            this.opmFlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.opmFlowLayoutPanel1.Location = new System.Drawing.Point(306, 19);
-            this.opmFlowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.opmFlowLayoutPanel1.Name = "opmFlowLayoutPanel1";
-            this.opmFlowLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmFlowLayoutPanel1.Size = new System.Drawing.Size(21, 236);
-            this.opmFlowLayoutPanel1.TabIndex = 3;
+            this.pnlButtons.AutoSize = true;
+            this.pnlButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlButtons.Controls.Add(this.pbAdd);
+            this.pnlButtons.Controls.Add(this.pbAddCurrent);
+            this.pnlButtons.Controls.Add(this.pbDelete);
+            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.pnlButtons.Location = new System.Drawing.Point(306, 39);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pnlButtons.Name = "opmFlowLayoutPanel1";
+            this.pnlButtons.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlButtons.Size = new System.Drawing.Size(21, 216);
+            this.pnlButtons.TabIndex = 3;
             // 
             // playlistScreen
             // 
@@ -201,27 +202,27 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.playlistScreen.CompactMode = true;
             this.playlistScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playlistScreen.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.playlistScreen.Location = new System.Drawing.Point(0, 0);
+            this.playlistScreen.Location = new System.Drawing.Point(0, 19);
             this.playlistScreen.Margin = new System.Windows.Forms.Padding(0);
             this.playlistScreen.Name = "playlistScreen";
             this.playlistScreen.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.SetRowSpan(this.playlistScreen, 3);
-            this.playlistScreen.Size = new System.Drawing.Size(153, 267);
+            this.pnlLayout.SetRowSpan(this.playlistScreen, 2);
+            this.playlistScreen.Size = new System.Drawing.Size(153, 248);
             this.playlistScreen.TabIndex = 5;
             // 
             // BookmarkScreen
             // 
-            this.Controls.Add(this.opmTableLayoutPanel1);
+            this.Controls.Add(this.pnlLayout);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "BookmarkScreen";
             this.Size = new System.Drawing.Size(327, 267);
             ((System.ComponentModel.ISupportInitialize)(this.pbAddCurrent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
-            this.opmTableLayoutPanel1.ResumeLayout(false);
-            this.opmTableLayoutPanel1.PerformLayout();
-            this.opmFlowLayoutPanel1.ResumeLayout(false);
-            this.opmFlowLayoutPanel1.PerformLayout();
+            this.pnlLayout.ResumeLayout(false);
+            this.pnlLayout.PerformLayout();
+            this.pnlButtons.ResumeLayout(false);
+            this.pnlButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -237,8 +238,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         private ColumnHeader colIcon;
         private ColumnHeader colTime;
         private ColumnHeader colText;
-        private OPMTableLayoutPanel opmTableLayoutPanel1;
-        private OPMFlowLayoutPanel opmFlowLayoutPanel1;
+        private OPMTableLayoutPanel pnlLayout;
+        private OPMFlowLayoutPanel pnlButtons;
         private ColumnHeader colEmpty;
         private MediaPlayer.PlaylistScreen playlistScreen;
     }

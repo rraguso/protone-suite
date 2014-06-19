@@ -119,14 +119,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             mediaControl = Activator.CreateInstance(Type.GetTypeFromCLSID(Filters.FilterGraph, true))
                         as IMediaControl;
 
-#if HAVE_SAMPLES
-            SetupAudioSampleGrabber();
-#endif
-            
             if ((mediaControl as IGraphBuilder) == null)
                 throw new RenderingException("Unable to render the file: " + renderMediaName);
 
+#if HAVE_SAMPLES
+            InitAudioSampleGrabber();
+#endif
+            
             (mediaControl as IGraphBuilder).RenderFile(renderMediaName, null);
+
+#if HAVE_SAMPLES
+            AdjustAudioSampleGrabber();
+#endif
+
             mediaPosition = mediaControl as IMediaPosition;
             videoWindow = mediaControl as IVideoWindow;
             basicVideo = mediaControl as IBasicVideo;

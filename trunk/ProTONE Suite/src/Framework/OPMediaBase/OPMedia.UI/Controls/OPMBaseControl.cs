@@ -19,7 +19,7 @@ namespace OPMedia.UI.Controls
     
     public class OPMBaseControl : UserControl
     {
-        FontSizes _fontSize = FontSizes.Normal;
+        protected FontSizes _fontSize = FontSizes.Normal;
 
         [ReadOnly(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -27,7 +27,7 @@ namespace OPMedia.UI.Controls
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new Color BackColor { get { return base.BackColor; } }
 
-        Color _overrideBackColor = Color.Empty;
+        protected Color _overrideBackColor = Color.Empty;
         public Color OverrideBackColor 
         {
             get { return _overrideBackColor; }

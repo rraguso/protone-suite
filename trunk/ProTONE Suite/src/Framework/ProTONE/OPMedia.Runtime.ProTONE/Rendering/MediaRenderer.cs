@@ -32,6 +32,7 @@ using OPMedia.Runtime.ProTONE.SubtitleDownload;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.Core.ApplicationSettings;
 using OPMedia.UI.Generic;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 #endregion
 
@@ -65,7 +66,23 @@ namespace OPMedia.Runtime.ProTONE.Rendering
     {
         public double LVOL { get; private set; }
         public double RVOL { get; private set; }
-        public double SampleTime { get; private set; } 
+        public double SampleTime { get; private set; }
+
+        public double RmsLevel
+        {
+            get
+            {
+                return LVOL;// Math.Sqrt((LVOL * LVOL + RVOL * RVOL) / 2);
+            }
+        }
+
+        public double AvgLevel
+        {
+            get
+            {
+                return LVOL; // (LVOL + RVOL) / 2;
+            }
+        }
 
         public AudioSampleData(double lVol, double rVol, double sampleTime)
         {
@@ -135,6 +152,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         }
 
         internal object GraphFilter { get { return renderingTechnology.GraphFilter; } }
+
+        public WaveFormatEx ActualAudioFormat
+        {
+            get
+            {
+                return renderingTechnology.ActualAudioFormat;
+            }
+        }
 
 
         public double[] EqFrequencies

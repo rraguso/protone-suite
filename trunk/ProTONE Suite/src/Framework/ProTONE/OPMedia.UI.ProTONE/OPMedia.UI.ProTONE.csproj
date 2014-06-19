@@ -44,7 +44,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OPMedia.UI.ProTONE, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
@@ -94,11 +93,11 @@
     <Compile Include="Controls\MediaPlayer\Screens\TrackInfoScreen.Designer.cs">
       <DependentUpon>TrackInfoScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MediaPlayer\Screens\VisualEffectsScreen.cs">
+    <Compile Include="Controls\MediaPlayer\Screens\SignalAnalysisScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\MediaPlayer\Screens\VisualEffectsScreen.Designer.cs">
-      <DependentUpon>VisualEffectsScreen.cs</DependentUpon>
+    <Compile Include="Controls\MediaPlayer\Screens\SignalAnalysisScreen.Designer.cs">
+      <DependentUpon>SignalAnalysisScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\OSD\OSDLabel.cs">
       <SubType>Component</SubType>
@@ -316,8 +315,8 @@
     <EmbeddedResource Include="Controls\MediaPlayer\Screens\TrackInfoScreen.resx">
       <DependentUpon>TrackInfoScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\MediaPlayer\Screens\VisualEffectsScreen.resx">
-      <DependentUpon>VisualEffectsScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\MediaPlayer\Screens\SignalAnalysisScreen.resx">
+      <DependentUpon>SignalAnalysisScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MediaPlayer\TimeScale.resx">
       <DependentUpon>TimeScale.cs</DependentUpon>

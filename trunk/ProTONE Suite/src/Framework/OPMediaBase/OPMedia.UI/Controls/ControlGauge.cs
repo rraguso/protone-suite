@@ -33,7 +33,7 @@ namespace OPMedia.UI.Controls
         BandToEnd
     }
 
-    public class ControlGauge : OPMBaseControl
+    public class ControlGauge : OPMDoubleBufferedControl
     {
         #region Controls
         public event ValueChangedEventHandler PositionChanged = null;

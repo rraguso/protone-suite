@@ -322,7 +322,25 @@ namespace OPMedia.UI.Themes
         {
             Type t = typeof(Control);
             BindingFlags all = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
-            t.GetProperty("DoubleBuffered", all).SetValue(c, true, null);
+            
+            PropertyInfo pi = t.GetProperty("DoubleBuffered", all);
+            if (pi != null)
+            {
+                pi.SetValue(c, true, null);
+            }
+
+            ControlStyles doubleBufferStyles = ControlStyles.OptimizedDoubleBuffer | ControlStyles.DoubleBuffer;
+
+            FieldInfo fi = t.GetField("controlStyle", all);
+            if (fi != null)
+            {
+                ControlStyles cs = (ControlStyles)fi.GetValue(c);
+                if ((cs & doubleBufferStyles) != doubleBufferStyles)
+                {
+                    cs |= doubleBufferStyles;
+                    fi.SetValue(c, cs);
+                }
+            }
         }
         #endregion
 

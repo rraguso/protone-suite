@@ -470,11 +470,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 #if HAVE_SAMPLES
 
         protected ISampleGrabber sampleGrabber = null;
+        protected WaveFormatEx _actualAudioFormat = null;
         Thread sampleAnalyzerThread = null;
         Queue<AudioSample> samples = new Queue<AudioSample>();
         ManualResetEvent sampleAnalyzerMustStop = new ManualResetEvent(false);
 
-        protected void SetupAudioSampleGrabber()
+        protected void InitAudioSampleGrabber()
         {
             // Get the graph builder
             IGraphBuilder graphBuilder = (mediaControl as IGraphBuilder);
@@ -486,6 +487,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 // Build the sample grabber
                 sampleGrabber = Activator.CreateInstance(Type.GetTypeFromCLSID(Filters.SampleGrabber, true))
                             as ISampleGrabber;
+
                 if (sampleGrabber == null)
                     return;
 
@@ -496,7 +498,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 mtAudio.majorType = MediaType.Audio;
                 mtAudio.subType = MediaSubType.PCM;
                 mtAudio.formatPtr = IntPtr.Zero;
-                
+
+                _actualAudioFormat = null;
+
                 sampleGrabber.SetMediaType(mtAudio);
                 sampleGrabber.SetBufferSamples(true);
                 sampleGrabber.SetOneShot(false);
@@ -514,6 +518,25 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             }
 
             rotEntry = new DsROTEntry(graphBuilder as IFilterGraph);
+        }
+
+        protected void AdjustAudioSampleGrabber()
+        {
+            _actualAudioFormat = null;
+            if (sampleGrabber != null)
+            {
+                AMMediaType mtAudio = new AMMediaType();
+                if (HRESULT.SUCCEEDED(sampleGrabber.GetConnectedMediaType(mtAudio)))
+                {
+                    _actualAudioFormat = (WaveFormatEx)Marshal.PtrToStructure(mtAudio.formatPtr, typeof(WaveFormatEx));
+                    return;
+                }
+            }
+        }
+
+        protected override WaveFormatEx DoGetActualAudioFormat()
+        {
+            return _actualAudioFormat;
         }
 
         protected void ReleaseAudioSampleGrabber()
@@ -541,23 +564,28 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 rotEntry.Dispose();
                 rotEntry = null;
             }
+
+            _actualAudioFormat = null;
         }
 
         // ISampleGrabberCB Members
 
         public int BufferCB(double SampleTime, IntPtr pBuffer, int BufferLen)
         {
-            AudioSample smp = new AudioSample();
-            smp.SampleTime = SampleTime;
-            smp.samples = new short[BufferLen];
-
-            Marshal.Copy(pBuffer, smp.samples, 0, BufferLen);
-
-            // This is a callback from the DirectShow rendering thread.
-            // We process on other thread, to make sure we don't block the rendering thread.
-            lock (_sync)
+            if (_actualAudioFormat != null)
             {
-                samples.Enqueue(smp);
+                AudioSample smp = new AudioSample();
+                smp.SampleTime = SampleTime;
+                smp.samples = new short[BufferLen / _actualAudioFormat.nChannels];
+
+                Marshal.Copy(pBuffer, smp.samples, 0, BufferLen / _actualAudioFormat.nChannels);
+
+                // This is a callback from the DirectShow rendering thread.
+                // We process on other thread, to make sure we don't block the rendering thread.
+                lock (_sync)
+                {
+                    samples.Enqueue(smp);
+                }
             }
 
             return 0;
@@ -573,9 +601,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             while (!sampleAnalyzerMustStop.WaitOne(5))
             {
                 AudioSample smp = null;
-
-                //Logger.LogToConsole("AnalyzeSamples: loop");
-
                 lock (_sync)
                 {
                     if (samples.Count > 0)
@@ -588,30 +613,16 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 {
                     AnalyzeSamples(smp);
                 }
-                else
-                {
-                    //Logger.LogToConsole("AnalyzeSamples: no samples to analyze");
-                }
             }
         }
 
         private void AnalyzeSamples(AudioSample smp)
         {
-            if (smp == null) return;
+            if (smp == null || _actualAudioFormat == null) 
+                return;
 
             short[] samples = smp.samples;
             double sampleTime = smp.SampleTime;
-
-            double diff = sampleTime - this.MediaPosition;
-            if (diff > 0 && diff < 2)
-            {
-                Thread.Sleep((int)(1000 * diff));
-            }
-            else if (Math.Abs(diff) > 0.5)
-            {
-                return; // The sample is too delayed or too early
-            }
-
 
             if (samples != null)
             {
@@ -630,19 +641,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     double avgR = 0;
                     double avgL = 0;
 
-                    int size = samples.GetLength(0) / 2; // Assume this is 2 channel audio
-                    if (size > (samples.Length / 2))
-                    {
-                        size = samples.Length / 2;
-                    }
-
+                    int size = _actualAudioFormat.nChannels * (samples.Length / _actualAudioFormat.nChannels);
                     if (size < 2)
-                    {
                         return;
-                    }
 
                     // Check array contents
-                    for (int i = 0; i < size; i++)
+                    for (int i = 0; i < size; i += _actualAudioFormat.nChannels)
                     {
                         leftS =  (double)samples[i];
                         rightS = (double)samples[i + 1];

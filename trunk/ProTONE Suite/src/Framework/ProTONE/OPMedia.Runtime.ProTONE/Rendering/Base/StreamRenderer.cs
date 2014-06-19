@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.FileInformation;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 #endregion
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Base
@@ -139,6 +140,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
 
         internal object GraphFilter
         { get { return DoGetGraphFilter(); } }
+
+        public WaveFormatEx ActualAudioFormat
+        {
+            get
+            {
+                return DoGetActualAudioFormat();
+            }
+        }
 
         #endregion
 
@@ -284,6 +293,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
         protected abstract void DoSetFullScreen(bool fullScreen);
 
         protected abstract object DoGetGraphFilter();
+
+        protected abstract WaveFormatEx DoGetActualAudioFormat();
 
         #endregion
     }
