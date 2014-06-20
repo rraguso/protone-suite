@@ -222,79 +222,86 @@ namespace OPMedia.UI.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            ThemeManager.PrepareGraphics(g);
-
-            Rectangle rcMinor, rcMajor, rcDot = Rectangle.Empty;
-            Color c1 = ThemeManager.GradientLTColor;
-            Color c2 = ThemeManager.GradientRBColor;
-            float a;
-
-            if (_vert)
+            try
             {
-                rcMinor = new Rectangle(0, (int)(this.Height * (1 - _pos / _max)), Width, Height);
-                rcMajor = new Rectangle(0, 0, Width, (int)(this.Height * _pos / _max));
+                Graphics g = e.Graphics;
+                ThemeManager.PrepareGraphics(g);
 
-                rcDot = new Rectangle(0, (int)(this.Height * (1 - _pos / _max)) - 14, Width, 14);
+                Rectangle rcMinor, rcMajor, rcDot = Rectangle.Empty;
+                Color c1 = ThemeManager.GradientLTColor;
+                Color c2 = ThemeManager.GradientRBColor;
+                float a;
 
-                a = 0f;
-            }
-            else
-            {
-                rcMinor = new Rectangle(0, 0, (int)(this.Width * _pos / _max), Height);
-                rcMajor = new Rectangle((int)(this.Width * _pos / _max), 0,
-                    (int)(this.Width * (1 - _pos / _max)), Height);
-
-                rcDot = new Rectangle((int)(this.Width * _pos / _max) - 7, 0, 14, Height);
-
-                a = 90f;
-            }
-
-            AdjustRectangle(ref rcMinor);
-            AdjustRectangle(ref rcMajor);
-
-            switch (_gaugeMode)
-            {
-                case UI.Controls.GaugeMode.Point:
-                    using (Brush b = new LinearGradientBrush(rcDot, c2, ThemeManager.BorderColor, a))
-                    {
-                        g.FillRectangle(b, rcDot);
-                    }
-                    break;
-
-                default:
-                    using (Brush b = new LinearGradientBrush(rcMinor, c1, c2, a))
-                    {
-                        g.FillRectangle(b, rcMinor);
-                    }
-                    break;
-            }
-
-            if (_showTicks && _nrTicks > 1)
-            {
-                Point[] ptBegin = new Point[_nrTicks];
-                Point[] ptEnd = new Point[_nrTicks];
-
-                for (int i = 0; i < _nrTicks; i++)
+                if (_vert)
                 {
-                    int offset = i * (_vert ? this.Height : this.Width) / _nrTicks;
-                    ptBegin[i] = _vert ?
-                        new Point(3, offset) : new Point(offset, 2);
-                    ptEnd[i] = _vert ?
-                        new Point(this.Width - 3, offset) : new Point(offset, this.Height - 3);
+                    rcMinor = new Rectangle(0, (int)(this.Height * (1 - _pos / _max)), Width, Height);
+                    rcMajor = new Rectangle(0, 0, Width, (int)(this.Height * _pos / _max));
+
+                    rcDot = new Rectangle(0, (int)(this.Height * (1 - _pos / _max)) - 14, Width, 14);
+
+                    a = 0f;
+                }
+                else
+                {
+                    rcMinor = new Rectangle(0, 0, (int)(this.Width * _pos / _max), Height);
+                    rcMajor = new Rectangle((int)(this.Width * _pos / _max), 0,
+                        (int)(this.Width * (1 - _pos / _max)), Height);
+
+                    rcDot = new Rectangle((int)(this.Width * _pos / _max) - 7, 0, 14, Height);
+
+                    a = 90f;
                 }
 
-                using (Pen p = new Pen(ThemeManager.ForeColor, 1))
+                AdjustRectangle(ref rcMinor);
+                AdjustRectangle(ref rcMajor);
+
+                switch (_gaugeMode)
                 {
-                    for (int i = 1; i < _nrTicks; i++)
+                    case UI.Controls.GaugeMode.Point:
+                        using (Brush b = new LinearGradientBrush(rcDot, c2, ThemeManager.BorderColor, a))
+                        {
+                            g.FillRectangle(b, rcDot);
+                        }
+                        break;
+
+                    default:
+                        using (Brush b = new LinearGradientBrush(rcMinor, c1, c2, a))
+                        {
+                            g.FillRectangle(b, rcMinor);
+                        }
+                        break;
+                }
+
+                if (_showTicks && _nrTicks > 1)
+                {
+                    Point[] ptBegin = new Point[_nrTicks];
+                    Point[] ptEnd = new Point[_nrTicks];
+
+                    for (int i = 0; i < _nrTicks; i++)
                     {
-                        g.DrawLine(p, ptBegin[i], ptEnd[i]);
+                        int offset = i * (_vert ? this.Height : this.Width) / _nrTicks;
+                        ptBegin[i] = _vert ?
+                            new Point(3, offset) : new Point(offset, 2);
+                        ptEnd[i] = _vert ?
+                            new Point(this.Width - 3, offset) : new Point(offset, this.Height - 3);
+                    }
+
+                    using (Pen p = new Pen(ThemeManager.ForeColor, 1))
+                    {
+                        for (int i = 1; i < _nrTicks; i++)
+                        {
+                            g.DrawLine(p, ptBegin[i], ptEnd[i]);
+                        }
                     }
                 }
-            }
 
-            ControlPaint.DrawBorder(g, new Rectangle(0, 0, Width, Height),
-               ThemeManager.BorderColor, ButtonBorderStyle.Solid);
+                ControlPaint.DrawBorder(g, new Rectangle(0, 0, Width, Height),
+                   ThemeManager.BorderColor, ButtonBorderStyle.Solid);
+            }
+            catch (Exception ex)
+            {
+                string s = ex.Message;
+            }
         }
 
         public void AdjustRectangle(ref Rectangle rc)

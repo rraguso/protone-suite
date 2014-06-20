@@ -12,21 +12,35 @@ using OPMedia.Core.Logging;
 using System.Diagnostics;
 using OPMedia.Runtime.DSP;
 using OPMedia.UI.Themes;
+using OPMedia.Core;
+using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 {
     public partial class SignalAnalysisScreen : OPMBaseControl
     {
-        private System.Windows.Forms.Timer _tmrUpdate = null;
-
-        private object _avgSamplesLock = new object();
-        private List<AudioSampleData> _avgSamples = new List<AudioSampleData>();
+        #region Constants and members
 
         const int FFT_WINDOW_SIZE = 4096;
-        private object _momSamplesLock = new object();
-        
-        private Queue<double> _momSamplesAvg = new Queue<double>();
-        private Queue<double> _momSamplesRMS = new Queue<double>();
+
+        // VU-meter related members
+        private System.Windows.Forms.Timer _tmrUpdateVUMeter = null;
+        private object _vuMeterSamplesLock = new object();
+        private Queue<AudioSampleData> _vuMeterSamples = new Queue<AudioSampleData>();
+
+        // Waveform related members
+        private System.Windows.Forms.Timer _tmrUpdateWaveform = null;
+        private object _waveformSamplesLock = new object();
+        private Queue<double> _waveformSamples = new Queue<double>();
+
+        // Spectrogram related members
+        private System.Windows.Forms.Timer _tmrUpdateSpectrogram = null;
+        private object _spectrogramSamplesLock = new object();
+        private Queue<double> _spectrogramSamples = new Queue<double>();
+
+        #endregion
+
+        #region Constructor
 
         public SignalAnalysisScreen()
         {
@@ -35,107 +49,202 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             MediaRenderer.DefaultInstance.AveragedAudioSampleProvided += new AudioSampleProvidedHandler(OnAveragedAudioSampleProvided);
             MediaRenderer.DefaultInstance.MomentarySampleProvided += new AudioSampleProvidedHandler(OnMomentarySampleProvided);
 
-            _tmrUpdate = new Timer();
-            _tmrUpdate.Interval = 100;
-            _tmrUpdate.Tick += new EventHandler(_tmrUpdate_Tick);
-            _tmrUpdate.Start();
+            _tmrUpdateVUMeter = new Timer();
+            _tmrUpdateVUMeter.Interval = 100;
+            _tmrUpdateVUMeter.Tick += new EventHandler(OnUpdateVUMeter);
+            _tmrUpdateVUMeter.Start();
+
+            _tmrUpdateWaveform = new Timer();
+            _tmrUpdateWaveform.Interval = 100;
+            _tmrUpdateWaveform.Tick += new EventHandler(OnUpdateWaveform);
+            _tmrUpdateWaveform.Start();
+
+            _tmrUpdateSpectrogram = new Timer();
+            _tmrUpdateSpectrogram.Interval = 100;
+            _tmrUpdateSpectrogram.Tick += new EventHandler(OnUpdateSpectrogram);
+            _tmrUpdateSpectrogram.Start();
         }
 
-        void OnMomentarySampleProvided(AudioSampleData sampleData)
-        {
-            lock (_momSamplesLock)
-            {
-                while (_momSamplesAvg.Count >= FFT_WINDOW_SIZE)
-                {
-                    _momSamplesAvg.Dequeue();
-                }
-                while (_momSamplesRMS.Count >= FFT_WINDOW_SIZE)
-                {
-                    _momSamplesRMS.Dequeue();
-                }
+        #endregion
 
-                _momSamplesAvg.Enqueue(sampleData.AvgLevel);
-                _momSamplesRMS.Enqueue(sampleData.RmsLevel);
-            }
-        }
+        #region VU meter functionality
 
         void OnAveragedAudioSampleProvided(AudioSampleData sampleData)
         {
-            lock (_avgSamplesLock)
+            MainThread.Post((c) =>
             {
-                _avgSamples.Add(sampleData);
+                AnalyzeVUMeter(new AudioSampleData[] { sampleData });
+            });
+        }
+
+        void OnUpdateVUMeter(object sender, EventArgs e)
+        {
+            switch(MediaRenderer.DefaultInstance.FilterState)
+            {
+                case FilterState.Paused:
+                case FilterState.Running:
+                    break;
+
+                default:
+                    AnalyzeVUMeter(null);
+                    break;
             }
         }
 
-        void _tmrUpdate_Tick(object sender, EventArgs e)
+        private void AnalyzeVUMeter(AudioSampleData[] avgSamples)
         {
-            AudioSampleData[] avgSamplesClone = null;
-            double[] momSamplesAvgClone = null, momSamplesRMSClone = null;
+            double minLogLevel = Math.Log(1);
+            if (avgSamples != null && avgSamples.Length > 0)
+            {
+                double maxLevel = 
+                    (MediaRenderer.DefaultInstance.ActualAudioFormat != null) ?
+                    (1 << (MediaRenderer.DefaultInstance.ActualAudioFormat.wBitsPerSample - 1)) - 1 :
+                    short.MaxValue;
+
+                double maxLogLevel = Math.Log(maxLevel);
+
+                double lVol = 0, rVol = 0;
+
+                foreach (AudioSampleData sample in avgSamples)
+                {
+                    lVol += Math.Abs(sample.LVOL);
+                    rVol += Math.Abs(sample.RVOL);
+                }
+
+                double prevL = ggLeft.Value;
+                double prevR = ggLeft.Value;
+
+                // VU meters have logarithmic scale, don't they ?
+                ggLeft.Value = ggLeft.Maximum * Math.Log(lVol / avgSamples.Length) / maxLogLevel;
+                ggRight.Value = ggRight.Maximum * Math.Log(rVol / avgSamples.Length) / maxLogLevel;
+            }
+            else
+            {
+                ggLeft.Value = minLogLevel;
+                ggRight.Value = minLogLevel;
+            }
+        }
+
+        #endregion
+
+        #region Waveform/spectrogram functionality
+
+        #region Common
+
+        int _j = 0;
+
+        void OnMomentarySampleProvided(AudioSampleData sampleData)
+        {
+            lock (_waveformSamplesLock)
+            {
+                while (_waveformSamples.Count >= FFT_WINDOW_SIZE)
+                {
+                    _waveformSamples.Dequeue();
+                }
+                _waveformSamples.Enqueue(sampleData.AvgLevel);
+            }
+
+            lock(_spectrogramSamplesLock)
+            {
+                while (_spectrogramSamples.Count >= FFT_WINDOW_SIZE)
+                {
+                    _spectrogramSamples.Dequeue();
+                }
+                _spectrogramSamples.Enqueue(sampleData.RmsLevel);
+            }
+        }
+
+        #endregion
+
+        #region Waveform specific
+
+        void OnUpdateWaveform(object sender, EventArgs e)
+        {
+            double[] momSamplesAvgClone = null;
 
             try
             {
-                _tmrUpdate.Stop();
+                _tmrUpdateWaveform.Stop();
 
                 if (MediaRenderer.DefaultInstance.FilterState == Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
                 {
-                    lock (_avgSamplesLock)
+                    lock (_waveformSamplesLock)
                     {
-                        avgSamplesClone = _avgSamples.ToArray();
-                    }
-
-                    lock (_momSamplesLock)
-                    {
-                        if (_momSamplesAvg.Count == FFT_WINDOW_SIZE)
-                        {
-                            momSamplesAvgClone = _momSamplesAvg.ToArray();
-                        }
-                        if (_momSamplesRMS.Count == FFT_WINDOW_SIZE)
-                        {
-                            momSamplesRMSClone = _momSamplesRMS.ToArray();
-                        }
+                        momSamplesAvgClone = _waveformSamples.ToArray();
                     }
                 }
-
-                AnalyzeAveragedSamples(avgSamplesClone);
-                AnalyzeMomentarySamples(momSamplesAvgClone, momSamplesRMSClone);
             }
             catch
             {
-                avgSamplesClone = null;
                 momSamplesAvgClone = null;
-                momSamplesRMSClone = null;
             }
             finally
             {
-                AnalyzeAveragedSamples(avgSamplesClone);
-                AnalyzeMomentarySamples(momSamplesAvgClone, momSamplesRMSClone);
-
-                _avgSamples.Clear();
-                _tmrUpdate.Start();
+                AnalyzeWaveform(momSamplesAvgClone);
+                _tmrUpdateWaveform.Start();
             }
         }
 
-        private void AnalyzeMomentarySamples(double[] momSamplesAvgClone, double[] momSamplesRMSClone)
+        private void AnalyzeWaveform(double[] data)
         {
             gpWaveform.Reset(false);
             gpSpectrogram.Reset(false);
 
             // For waveform we don't have a restriction on the array length
-            if (momSamplesAvgClone != null && momSamplesAvgClone.Length > 0)
+            if (data != null && data.Length > 0)
             {
-                gpWaveform.AddDataRange(momSamplesAvgClone, ThemeManager.ColorValidationFailed);
+                gpWaveform.AddDataRange(data, ThemeManager.ColorValidationFailed);
             }
             else
             {
                 gpWaveform.Reset(true);
             }
+        }
 
-            if (momSamplesRMSClone != null && momSamplesRMSClone.Length == FFT_WINDOW_SIZE)
+        #endregion
+
+        #region Spectrogram specific
+
+        void OnUpdateSpectrogram(object sender, EventArgs e)
+        {
+            double[] momSamplesRMSClone = null;
+
+            try
+            {
+                _tmrUpdateSpectrogram.Stop();
+
+                if (MediaRenderer.DefaultInstance.FilterState == Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
+                {
+                    lock (_spectrogramSamplesLock)
+                    {
+                        if (_spectrogramSamples.Count == FFT_WINDOW_SIZE)
+                        {
+                            momSamplesRMSClone = _spectrogramSamples.ToArray();
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                momSamplesRMSClone = null;
+            }
+            finally
+            {
+                AnalyzeSpectrogram(momSamplesRMSClone);
+                _tmrUpdateSpectrogram.Start();
+            }
+        }
+
+        private void AnalyzeSpectrogram(double[] data)
+        {
+            gpSpectrogram.Reset(false);
+
+            if (data != null && data.Length == FFT_WINDOW_SIZE)
             {
                 double[] dataOut = new double[FFT_WINDOW_SIZE];
 
                 Array.Clear(dataOut, 0, FFT_WINDOW_SIZE);
-                FFT.Forward(momSamplesRMSClone, dataOut);
+                FFT.Forward(data, dataOut);
 
                 double[] dataForSpectrogram = dataOut
                     .Skip(1 /* First band represents the 'total energy' of the signal */ )
@@ -159,10 +268,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     }
                 }
 
-                //Array.Clear(dataForSpectrogram2, 0, dataForSpectrogram2.Length);
-                //dataForSpectrogram2[idx] = max;
+                Array.Clear(dataForSpectrogram2, 0, dataForSpectrogram2.Length);
+                dataForSpectrogram2[idx] = max;
 
-                ////gpSpectrogram.AddDataRange(dataForSpectrogram2, Color.Red);
+                gpSpectrogram.AddDataRange(dataForSpectrogram2, Color.Red);
 
                 int sampleFq = MediaRenderer.DefaultInstance.ActualAudioFormat != null ?
                     MediaRenderer.DefaultInstance.ActualAudioFormat.nSamplesPerSec : 44100;
@@ -175,34 +284,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             }
         }
 
-        private void AnalyzeAveragedSamples(AudioSampleData[] avgSamples)
-        {
-            if (avgSamples != null && avgSamples.Length > 0)
-            {
-                double lVol = 0, rVol = 0;
+        #endregion
 
-                foreach (AudioSampleData sample in avgSamples)
-                {
-                    lVol += sample.LVOL;
-                    rVol += sample.RVOL;
-                }
+        #endregion
 
-                ggLeft.Value = lVol / avgSamples.Length;
-                ggRight.Value = rVol / avgSamples.Length;
 
-                ggLeft.Maximum = ggRight.Maximum =
-                    (MediaRenderer.DefaultInstance.ActualAudioFormat != null) ?
-                    (1 << (MediaRenderer.DefaultInstance.ActualAudioFormat.wBitsPerSample - 1)) - 1 :
-                    short.MaxValue;
-            }
-            else
-            {
-                ggLeft.Value = 0;
-                ggRight.Value = 0;
-            }
-        }
-
-        
 
     }
 }

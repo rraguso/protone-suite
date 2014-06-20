@@ -67,6 +67,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         public double LVOL { get; private set; }
         public double RVOL { get; private set; }
         public double SampleTime { get; private set; }
+        public double PlaybackTime { get; private set; }
+        public DateTime RealTime { get; private set; }
 
         public double RmsLevel
         {
@@ -89,6 +91,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             LVOL = lVol;
             RVOL = rVol;
             SampleTime = sampleTime;
+            PlaybackTime = MediaRenderer.DefaultInstance.MediaPosition;
+            RealTime = DateTime.Now;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("AudioSample: SampleTime={0} PlaybackTime={1} RealTime={2:HH:mm:ss}.{3} L={4} R={5}", 
+                SampleTime, PlaybackTime, RealTime, RealTime.Millisecond, LVOL, RVOL);
         }
     }
 
