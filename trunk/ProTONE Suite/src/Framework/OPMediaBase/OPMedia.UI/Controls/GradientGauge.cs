@@ -25,88 +25,95 @@ namespace OPMedia.UI.Controls
         #region Implementation
         protected override void OnPaint(PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            ThemeManager.PrepareGraphics(g);
-
-            Point ptMin, ptCur, ptMax;
-            Point[] ptBegin = null;
-            Point[] ptEnd = null;
-
-            Color clStart1 = ControlPaint.Light(Color.Green, .2f);
-            Color clEnd1 = Color.LightCoral;
-
-            Color clStart2 = ThemeManager.GradientLTColor;
-            Color clEnd2 = ThemeManager.GradientLTColor;
-
-            Brush b1H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
-                clStart1, clEnd1, 0f);
-            Brush b2H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
-                clStart2, clEnd2, 0f);
-            Brush b1V = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
-                clStart1, clEnd1, -90f);
-            Brush b2V = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
-                clStart2, clEnd2, -90f);
-
-            Pen p1, p2;
-
-            if (_vert)
+            try
             {
-                p1 = new Pen(b1V, this.Width);
-                p2 = new Pen(b2V, this.Width);
-                
-                ptMax = new Point(this.Width/2, 0);
-                ptCur = new Point(this.Width/2, (int)(this.Height * (1 - _pos/_max)));
-                ptMin = new Point(this.Width/2, this.Height);
+                Graphics g = e.Graphics;
+                ThemeManager.PrepareGraphics(g);
 
-                if (_showTicks)
+                Point ptMin, ptCur, ptMax;
+                Point[] ptBegin = null;
+                Point[] ptEnd = null;
+
+                Color clStart1 = ControlPaint.Light(Color.Green, .2f);
+                Color clEnd1 = Color.LightCoral;
+
+                Color clStart2 = ThemeManager.GradientLTColor;
+                Color clEnd2 = ThemeManager.GradientLTColor;
+
+                Brush b1H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
+                    clStart1, clEnd1, 0f);
+                Brush b2H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
+                    clStart2, clEnd2, 0f);
+                Brush b1V = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
+                    clStart1, clEnd1, -90f);
+                Brush b2V = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
+                    clStart2, clEnd2, -90f);
+
+                Pen p1, p2;
+
+                if (_vert)
                 {
-                    ptBegin = new Point[_nrTicks];
-                    ptEnd = new Point[_nrTicks];
+                    p1 = new Pen(b1V, this.Width);
+                    p2 = new Pen(b2V, this.Width);
 
-                    for (int i = 0; i < _nrTicks; i++)
+                    ptMax = new Point(this.Width / 2, 0);
+                    ptCur = new Point(this.Width / 2, (int)(this.Height * (1 - _pos / _max)));
+                    ptMin = new Point(this.Width / 2, this.Height);
+
+                    if (_showTicks)
                     {
-                        int offset = i * this.Height / _nrTicks;
-                        ptBegin[i] = new Point(2, offset);
-                        ptEnd[i] = new Point(this.Width - 3, offset);
+                        ptBegin = new Point[_nrTicks];
+                        ptEnd = new Point[_nrTicks];
+
+                        for (int i = 0; i < _nrTicks; i++)
+                        {
+                            int offset = i * this.Height / _nrTicks;
+                            ptBegin[i] = new Point(2, offset);
+                            ptEnd[i] = new Point(this.Width - 3, offset);
+                        }
                     }
                 }
-            }
-            else
-            {
-                p1 = new Pen(b1H, this.Height);
-                p2 = new Pen(b2H, this.Height);
-                ptMin = new Point(0, this.Height/2);
-                ptCur = new Point((int)(this.Width * _pos/_max), this.Height/2);
-                ptMax = new Point(this.Width, this.Height/2);
-
-                if (_showTicks)
+                else
                 {
-                    ptBegin = new Point[_nrTicks];
-                    ptEnd = new Point[_nrTicks];
+                    p1 = new Pen(b1H, this.Height);
+                    p2 = new Pen(b2H, this.Height);
+                    ptMin = new Point(0, this.Height / 2);
+                    ptCur = new Point((int)(this.Width * _pos / _max), this.Height / 2);
+                    ptMax = new Point(this.Width, this.Height / 2);
 
-                    for (int i = 0; i < _nrTicks; i++)
+                    if (_showTicks)
                     {
-                        int offset = i * this.Width / _nrTicks;
-                        ptBegin[i] = new Point(offset, 2);
-                        ptEnd[i] = new Point(offset, this.Height - 3);
+                        ptBegin = new Point[_nrTicks];
+                        ptEnd = new Point[_nrTicks];
+
+                        for (int i = 0; i < _nrTicks; i++)
+                        {
+                            int offset = i * this.Width / _nrTicks;
+                            ptBegin[i] = new Point(offset, 2);
+                            ptEnd[i] = new Point(offset, this.Height - 3);
+                        }
                     }
                 }
-            }
-            
-            g.DrawLine(p1, ptMin, ptCur);
-            g.DrawLine(p2, ptCur, ptMax);
 
-            if (_showTicks && _nrTicks > 1)
-            {
-                for (int i = 1; i < _nrTicks; i++)
+                g.DrawLine(p1, ptMin, ptCur);
+                g.DrawLine(p2, ptCur, ptMax);
+
+                if (_showTicks && _nrTicks > 1)
                 {
-                    Pen p3 = new Pen(Color.Black, 1);
-                    g.DrawLine(p3, ptBegin[i], ptEnd[i]);
+                    for (int i = 1; i < _nrTicks; i++)
+                    {
+                        Pen p3 = new Pen(Color.Black, 1);
+                        g.DrawLine(p3, ptBegin[i], ptEnd[i]);
+                    }
                 }
-            }
 
-            ControlPaint.DrawBorder(g, new Rectangle(0, 0, Width, Height),
-                ThemeManager.BorderColor, ButtonBorderStyle.Solid);
+                ControlPaint.DrawBorder(g, new Rectangle(0, 0, Width, Height),
+                    ThemeManager.BorderColor, ButtonBorderStyle.Solid);
+            }
+            catch (Exception ex)
+            {
+                string s = ex.Message;
+            }
         }
         #endregion
     }

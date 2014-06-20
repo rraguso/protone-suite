@@ -44,7 +44,7 @@
             this.ggLeft.Enabled = false;
             this.ggLeft.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.ggLeft.Location = new System.Drawing.Point(3, 3);
-            this.ggLeft.Maximum = 32767D;
+            this.ggLeft.Maximum = 10000;
             this.ggLeft.Name = "ggLeft";
             this.ggLeft.NrTicks = 20;
             this.ggLeft.OverrideBackColor = System.Drawing.Color.Empty;
@@ -62,7 +62,7 @@
             this.ggRight.Enabled = false;
             this.ggRight.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.ggRight.Location = new System.Drawing.Point(3, 23);
-            this.ggRight.Maximum = 32767D;
+            this.ggRight.Maximum = 10000;
             this.ggRight.Name = "ggRight";
             this.ggRight.NrTicks = 20;
             this.ggRight.OverrideBackColor = System.Drawing.Color.Empty;

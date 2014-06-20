@@ -45,7 +45,7 @@ namespace OPMedia.UI.Controls
         {
         }
 
-        protected override void OnPaint(PaintEventArgs e)
+        protected override void OnRenderGraphics(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             ThemeManager.PrepareGraphics(g);
@@ -97,21 +97,21 @@ namespace OPMedia.UI.Controls
                 {
                     Point pt = Point.Empty;
 
+                    int y =
+                        (max == min) ? rc.Bottom - rc.Height / 2 :
+                        rc.Bottom - (int)((data[(int)i] - min) * rc.Height / (max - min));
+
 
                     if (LogarithmicXAxis)
                     {
                         double logXDomain = Math.Abs(Math.Log10((double)1 / data.Length));
                         int x = rc.Left + (int)((logXDomain + Math.Log10(i / data.Length)) * rc.Width / logXDomain);
 
-                        pt = new Point(
-                            x,
-                            rc.Bottom - (int)((data[(int)i] - min) * rc.Height / (max - min)));
+                        pt = new Point(x, y);
                     }
                     else
                     {
-                        pt = new Point(
-                            rc.Left + (int)(i * rc.Width / data.Length),
-                            rc.Bottom - (int)((data[(int)i] - min) * rc.Height / (max - min)));
+                        pt = new Point(rc.Left + (int)(i * rc.Width / data.Length), y);
                     }
 
                     if (IsHistogram)
