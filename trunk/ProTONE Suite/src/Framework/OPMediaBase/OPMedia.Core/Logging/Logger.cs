@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Globalization;
 using OPMedia.Core;
+using System.Collections.Concurrent;
 #endregion
 
 namespace OPMedia.Core.Logging
@@ -25,7 +26,7 @@ namespace OPMedia.Core.Logging
 
         #region Members
         private static Logger instance = new Logger();
-        private Queue<LogEntry> entries = new Queue<LogEntry>();
+        private ConcurrentQueue<LogEntry> entries = new ConcurrentQueue<LogEntry>();
         private System.Threading.Thread loggerThread = null;
         private bool loggerThreadMustRun = true;
         private static long sessionID;
@@ -333,29 +334,22 @@ namespace OPMedia.Core.Logging
         #region Implementation
         private void EnqueueLogEntry(LogEntry entry)
         {
-            lock (entries)
+            // Don't add any more entries after thread was requested to stop.
+            if (loggerThreadMustRun)
             {
-                // Don't add any more entries after thread was requested to stop.
-                if (loggerThreadMustRun)
-                {
-                    entries.Enqueue(entry);
-                }
+                entries.Enqueue(entry);
             }
         }
 
         private LogEntry DequeueLogEntry()
         {
-            lock (entries)
+            LogEntry entry = null;
+            if (entries.TryDequeue(out entry))
             {
-                if (entries.Count > 0)
-                {
-                    return entries.Dequeue();
-                }
-                else
-                {
-                    return null;
-                }
+                return entry;
             }
+
+            return null;
         }
 
         private static void ThreadLoop()

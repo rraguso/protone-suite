@@ -31,7 +31,7 @@ namespace OPMedia.UI.Controls
             _dataSets.Clear();
             _dataSetsColors.Clear();
 
-            if (redraw && !wasEmpty)
+            if (redraw)
             {
                 Invalidate();
             }
