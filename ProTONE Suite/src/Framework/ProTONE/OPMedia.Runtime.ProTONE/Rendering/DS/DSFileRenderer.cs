@@ -129,7 +129,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             (mediaControl as IGraphBuilder).RenderFile(renderMediaName, null);
 
 #if HAVE_SAMPLES
-            AdjustAudioSampleGrabber();
+            CompleteAudioSampleGrabberIntialization();
 #endif
 
             mediaPosition = mediaControl as IMediaPosition;

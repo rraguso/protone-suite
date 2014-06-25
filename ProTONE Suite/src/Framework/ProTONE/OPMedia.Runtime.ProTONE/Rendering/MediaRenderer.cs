@@ -60,15 +60,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering
     
     public delegate void RenderedStreamTitleChangedHandler(string newTitle);
 
-    public delegate void AudioSampleProvidedHandler(AudioSampleData sampleData);
-
     public class AudioSampleData
     {
         public double LVOL { get; private set; }
         public double RVOL { get; private set; }
-        public double SampleTime { get; private set; }
-        public double PlaybackTime { get; private set; }
-        public DateTime RealTime { get; private set; }
+
+        public double AvgLevel
+        {
+            get
+            {
+                return LVOL;// (LVOL + RVOL) / 2;
+            }
+        }
 
         public double RmsLevel
         {
@@ -78,28 +81,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             }
         }
 
-        public double AvgLevel
-        {
-            get
-            {
-                return LVOL; // (LVOL + RVOL) / 2;
-            }
-        }
-
-        public AudioSampleData(double lVol, double rVol, double sampleTime)
+        public AudioSampleData(double lVol, double rVol)
         {
             LVOL = lVol;
             RVOL = rVol;
-            SampleTime = sampleTime;
-            PlaybackTime = MediaRenderer.DefaultInstance.MediaPosition;
-            RealTime = DateTime.Now;
         }
 
-        public override string ToString()
-        {
-            return string.Format("AudioSample: SampleTime={0} PlaybackTime={1} RealTime={2:HH:mm:ss}.{3} L={4} R={5}", 
-                SampleTime, PlaybackTime, RealTime, RealTime.Millisecond, LVOL, RVOL);
-        }
+        //public override string ToString()
+        //{
+        //    return string.Format("AudioSample: SampleTime={0} PlaybackTime={1} RealTime={2:HH:mm:ss}.{3} L={4} R={5}", 
+        //        SampleTime, PlaybackTime, RealTime, RealTime.Millisecond, LVOL, RVOL);
+        //}
     }
 
     public sealed class MediaRenderer : IDisposable
@@ -113,9 +105,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         private double _position = 0;
 
         public event RenderedStreamTitleChangedHandler RenderedStreamTitleChanged = null;
-
-        public event AudioSampleProvidedHandler AveragedAudioSampleProvided = null;
-        public event AudioSampleProvidedHandler MomentarySampleProvided = null;
 
         public class SupportedFileProvider : ISupportedFileProvider
         {
@@ -339,6 +328,47 @@ namespace OPMedia.Runtime.ProTONE.Rendering
                 return allTypes;
             }
         }
+
+        public AudioSampleData VuMeterData
+        {
+            get
+            {
+                return renderingTechnology.VuMeterData;
+            }
+        }
+
+        public double[] WaveformData
+        {
+            get
+            {
+                return renderingTechnology.WaveformData;
+            }
+        }
+
+        public double[] SpectrogramData
+        {
+            get
+            {
+                return renderingTechnology.SpectrogramData;
+            }
+        }
+
+        public double MaxLevel
+        {
+            get
+            {
+                return renderingTechnology.MaxLevel;
+            }
+        }
+
+        public double FFTWindowSize
+        {
+            get
+            {
+                return renderingTechnology.FFTWindowSize;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -1012,21 +1042,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         #endregion
 
-        internal void ProvideAveragedAudioSample(double lVol, double rVol, double sampleTime)
-        {
-            if (AveragedAudioSampleProvided != null)
-            {
-                AveragedAudioSampleProvided(new AudioSampleData(lVol, rVol, sampleTime));
-            }
-        }
-
-        internal void ProvideMomentaryAudioSample(double lVol, double rVol, double sampleTime)
-        {
-            if (MomentarySampleProvided != null)
-            {
-                MomentarySampleProvided(new AudioSampleData(lVol, rVol, sampleTime));
-            }
-        }
+      
     }
 
    

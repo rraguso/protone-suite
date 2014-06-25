@@ -117,7 +117,53 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
         {
             get
             {
-                return streamRenderer.ActualAudioFormat;
+                return (streamRenderer != null) ?
+                    streamRenderer.ActualAudioFormat : null;
+            }
+        }
+
+        public AudioSampleData VuMeterData
+        {
+            get
+            {
+                return (streamRenderer != null) ?
+                    streamRenderer.VuMeterData : null;
+            }
+        }
+
+        public double[] WaveformData
+        {
+            get
+            {
+                return (streamRenderer != null) ?
+                    streamRenderer.WaveformData : null;
+            }
+        }
+
+        public double[] SpectrogramData
+        {
+            get
+            {
+                return (streamRenderer != null) ?
+                    streamRenderer.SpectrogramData : null;
+            }
+        }
+
+        public double MaxLevel
+        {
+            get
+            {
+                return (streamRenderer != null) ?
+                    streamRenderer.MaxLevel : 0;
+            }
+        }
+
+        public double FFTWindowSize
+        {
+            get
+            {
+                return (streamRenderer != null) ?
+                    streamRenderer.FFTWindowSize : 0;
             }
         }
 
@@ -218,5 +264,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
                  streamRenderer = null;
              }
          }
+
     }
 }

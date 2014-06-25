@@ -138,6 +138,7 @@
     <Compile Include="RemoteControlHelper.cs" />
     <Compile Include="RemoteControl\RemoteControllableApplication.cs" />
     <Compile Include="Rendering\SHOUTCast\ShoutCastStream.cs" />
+    <Compile Include="Rendering\ThreadScheduler.cs" />
     <Compile Include="ServiceHelpers\ProTONERemoteConfig.cs" />
     <Compile Include="SubtitleDownload\Base\SubtitleDataTypes.cs" />
     <Compile Include="SubtitleDownload\Base\SubtitleServerSession.cs" />

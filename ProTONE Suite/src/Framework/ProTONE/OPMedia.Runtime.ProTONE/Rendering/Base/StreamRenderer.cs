@@ -30,6 +30,21 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
         protected object _sync = new object();
         #endregion
 
+        protected object _vuLock = new object();
+        protected object _waveformLock = new object();
+        protected object _spectrogramLock = new object();
+        protected AudioSampleData _vuMeterData = null;
+        protected double[] _waveformData = null;
+        protected double[] _spectrogramData = null;
+
+        protected int _waveformWindowSize = 512;
+        protected int _vuMeterWindowSize = 64;
+        protected int _fftWindowSize = 4096;
+        protected double _maxLevel = short.MaxValue;
+        protected double _maxLogLevel = Math.Log((double)short.MaxValue);
+
+
+
         #region Properties
 
         internal Control RenderRegion
@@ -146,6 +161,55 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Base
             get
             {
                 return DoGetActualAudioFormat();
+            }
+        }
+
+        public AudioSampleData VuMeterData
+        {
+            get
+            {
+                lock (_vuLock)
+                {
+                    return _vuMeterData;
+                }
+            }
+        }
+
+        public double[] WaveformData
+        {
+            get
+            {
+                lock (_waveformLock)
+                {
+                    return _waveformData;
+                }
+            }
+        }
+
+        public double[] SpectrogramData
+        {
+            get
+            {
+                lock (_spectrogramLock)
+                {
+                    return _spectrogramData;
+                }
+            }
+        }
+
+        public double MaxLevel
+        {
+            get
+            {
+                return _maxLevel;
+            }
+        }
+
+        public double FFTWindowSize
+        {
+            get
+            {
+                return _fftWindowSize;
             }
         }
 
