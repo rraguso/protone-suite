@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections.Concurrent;
 
 namespace OPMedia.Runtime.Processors
 {
@@ -20,14 +21,11 @@ namespace OPMedia.Runtime.Processors
 
     public class QueuedProcessor : Processor
     {
-        private Queue<QueueRequest> requestQueue = new Queue<QueueRequest>();
+        private ConcurrentQueue<QueueRequest> requestQueue = new ConcurrentQueue<QueueRequest>();
 
         public void EnqueueRequest(QueueRequest req)
         {
-            lock (requestQueue)
-            {
-                requestQueue.Enqueue(req);
-            }
+            requestQueue.Enqueue(req);
         }
 
         public QueuedProcessor() : base()
@@ -36,16 +34,10 @@ namespace OPMedia.Runtime.Processors
 
         protected sealed override bool ProcessInternal()
         {
-            if (requestQueue.Count > 0)
+            QueueRequest req = null;
+            if (requestQueue.TryDequeue(out req) && req != null)
             {
-                lock (requestQueue)
-                {
-                    QueueRequest req = requestQueue.Dequeue();
-                    if (req != null)
-                    {
-                        req.Process();
-                    }
-                }
+                req.Process();
             }
 
             return true;
