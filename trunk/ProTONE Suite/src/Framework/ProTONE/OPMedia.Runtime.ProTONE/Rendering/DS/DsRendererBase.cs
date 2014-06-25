@@ -17,6 +17,10 @@ using DS = OPMedia.Runtime.ProTONE.Rendering.DS;
 using System.Threading;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 
+using System.Linq;
+using OPMedia.Runtime.DSP;
+using System.Collections.Concurrent;
+
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
 {
@@ -472,7 +476,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         protected ISampleGrabber sampleGrabber = null;
         protected WaveFormatEx _actualAudioFormat = null;
         Thread sampleAnalyzerThread = null;
-        Queue<AudioSample> samples = new Queue<AudioSample>();
+
+        ConcurrentQueue<AudioSample> samples = new ConcurrentQueue<AudioSample>();
+        
         ManualResetEvent sampleAnalyzerMustStop = new ManualResetEvent(false);
         ManualResetEvent sampleGrabberConfigured = new ManualResetEvent(false);
 
@@ -487,7 +493,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 // Build the sample grabber
                 sampleGrabber = Activator.CreateInstance(Type.GetTypeFromCLSID(Filters.SampleGrabber, true))
-                            as ISampleGrabber;
+                    as ISampleGrabber;
 
                 if (sampleGrabber == null)
                     return;
@@ -520,7 +526,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             rotEntry = new DsROTEntry(graphBuilder as IFilterGraph);
         }
 
-        protected void AdjustAudioSampleGrabber()
+        protected void CompleteAudioSampleGrabberIntialization()
         {
             _actualAudioFormat = null;
             if (sampleGrabber != null)
@@ -529,6 +535,48 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 if (HRESULT.SUCCEEDED(sampleGrabber.GetConnectedMediaType(mtAudio)))
                 {
                     _actualAudioFormat = (WaveFormatEx)Marshal.PtrToStructure(mtAudio.formatPtr, typeof(WaveFormatEx));
+
+                    const int WAVEFORM_WNDSIZEFACTOR = 128;
+                    const int VU_WNDSIZEFACTOR = 4096;
+                    const int FFT_WNDSIZEFACTOR = 16;
+
+                    int freq =
+                        (MediaRenderer.DefaultInstance.ActualAudioFormat == null) ? 44100 :
+                        MediaRenderer.DefaultInstance.ActualAudioFormat.nSamplesPerSec;
+
+                    try
+                    {
+                        int k1 = 0, k2 = 0, k3 = 0;
+
+                        while (freq / (1 << k1) > WAVEFORM_WNDSIZEFACTOR)
+                            k1++;
+                        while (freq / (1 << k2) > FFT_WNDSIZEFACTOR)
+                            k2++;
+                        while (freq / (1 << k3) > VU_WNDSIZEFACTOR)
+                            k3++;
+
+                        _waveformWindowSize = (1 << k1);
+                        _fftWindowSize = (1 << k2);
+                        _vuMeterWindowSize = (1 << k3);
+
+                        _maxLevel =
+                            (MediaRenderer.DefaultInstance.ActualAudioFormat != null) ?
+                            (1 << (MediaRenderer.DefaultInstance.ActualAudioFormat.wBitsPerSample - 1)) - 1 :
+                            short.MaxValue;
+                    }
+                    catch
+                    {
+                        _vuMeterWindowSize = 64;
+                        _waveformWindowSize = 512;
+                        _fftWindowSize = 4096;
+                        _maxLevel = short.MaxValue;
+                    }
+                    finally
+                    {
+                        _maxLogLevel = Math.Log(_maxLevel);
+                    }
+
+                    sampleGrabberConfigured.Set();
                     return;
                 }
             }
@@ -565,7 +613,21 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 rotEntry = null;
             }
 
+            lock (_vuLock)
+            {
+                _vuMeterData = null;
+            }
+            lock (_waveformLock)
+            {
+                _waveformData = null;
+            }
+            lock (_spectrogramLock)
+            {
+                _spectrogramData = null;
+            }
+
             _actualAudioFormat = null;
+            sampleGrabberConfigured.Reset();
         }
 
         // ISampleGrabberCB Members
@@ -584,10 +646,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
                     // This is a callback from the DirectShow rendering thread.
                     // We process on other thread, to make sure we don't block the rendering thread.
-                    lock (_sync)
-                    {
-                        samples.Enqueue(smp);
-                    }
+                    samples.Enqueue(smp);
                 }
             }
             catch { }
@@ -599,111 +658,128 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             return 0; 
         }
-      
+
         private void SampleAnalyzerLoop()
         {
-            sampleGrabberConfigured.Set();
-
-            while (!sampleAnalyzerMustStop.WaitOne(5))
+            while (sampleAnalyzerMustStop.WaitOne(1) == false)
             {
-                AudioSample smp = null;
-                lock (_sync)
+                if (sampleGrabberConfigured.WaitOne(1) == true)
                 {
-                    if (samples.Count > 0)
+                    AudioSample smp = null;
+                    if (samples.TryDequeue(out smp) && smp != null)
                     {
-                        smp = samples.Dequeue();
+                        ExtractSamples(smp);
                     }
-                }
-
-                if (smp != null)
-                {
-                    AnalyzeSamples(smp);
                 }
             }
         }
 
-        private Queue<AudioSampleData> _data = new Queue<AudioSampleData>();
+        private ConcurrentQueue<AudioSampleData> _sampleData = new ConcurrentQueue<AudioSampleData>();
 
-        int _k = 0;
-        const int AvgSampleWindow = 1024;
-
-        private void AnalyzeSamples(AudioSample smp)
+        private void ExtractSamples(AudioSample smp)
         {
-            if (smp == null || _actualAudioFormat == null) 
+            if (smp == null || _actualAudioFormat == null)
                 return;
 
             short[] samples = smp.samples;
-            double sampleTime = smp.SampleTime;
+            double mediaTime = this.MediaPosition;
+            double delay = smp.SampleTime - mediaTime;
 
-            //double diff = sampleTime - this.MediaPosition;
-            //if (diff > 0 && diff < 2)
-            //{
-            //    Thread.Sleep((int)(1000 * diff));
-            //}
-            ////else if (Math.Abs(diff) > 0.5)
-            ////{
-            ////    return; // The sample is too delayed or too early
-            ////}
+            if (delay > 0 && delay < 2)
+            {
+                Thread.Sleep((int)(1000 * delay));
+            }
 
             if (samples != null)
             {
                 FilterState ms = GetFilterState();
 
-                if (samples.Length <= 0 || ms != FilterState.Running)
+                if (samples.Length <= 0 || ms != FilterState.Running || _actualAudioFormat == null)
                     return;
 
-                try
+                int size = _actualAudioFormat.nChannels * (samples.Length / _actualAudioFormat.nChannels);
+                if (size < 2)
+                    return;
+
+                // Check array contents
+                for (int i = 0; i < size; i += _actualAudioFormat.nChannels)
                 {
-                    double leftS = 0;
-                    double rightS = 0;
-
-                    int size = _actualAudioFormat.nChannels * (samples.Length / _actualAudioFormat.nChannels);
-                    if (size < 2)
-                        return;
-
-                    // Check array contents
-                    for (int i = 0; i < size; i += _actualAudioFormat.nChannels)
+                    _sampleData.Enqueue(new AudioSampleData((double)samples[i], (double)samples[i + 1]));
+                    if (_sampleData.Count % _waveformWindowSize == 0)
                     {
-                        leftS =  (double)samples[i];
-                        rightS = (double)samples[i + 1];
-
-                        MediaRenderer.DefaultInstance.ProvideMomentaryAudioSample(
-                            leftS,
-                            rightS,
-                            sampleTime);
-
-                        _k++;
-
-                        while (_data.Count > 64)
-                        {
-                            _data.Dequeue();
-                        }
-                        _data.Enqueue(new AudioSampleData(leftS, rightS, smp.SampleTime));
-
-                        if (_k % 4 == 0)
-                        {
-                            double avgR = 0;
-                            double avgL = 0;
-
-                            foreach (AudioSampleData data in _data)
-                            {
-                                avgL += Math.Abs(data.LVOL);
-                                avgR += Math.Abs(data.RVOL);
-                            }
-
-                            MediaRenderer.DefaultInstance.ProvideAveragedAudioSample(
-                                (avgL / size),
-                                (avgR / size),
-                                sampleTime);
-                        }
+                        AnalyzeWaveform(_sampleData.Skip(_sampleData.Count - _waveformWindowSize).Take(_waveformWindowSize).ToArray(), 
+                            smp.SampleTime);
                     }
                 }
-                catch(Exception ex)
+
+                AudioSampleData lostSample = null;
+                while (_sampleData.Count > _fftWindowSize)
+                    _sampleData.TryDequeue(out lostSample);
+
+                AnalyzeFFT(_sampleData.ToArray());
+            }
+        }
+
+        private int _waveformCalls = 1;
+        private int _spectrogramCalls = 1;
+
+        private void AnalyzeWaveform(AudioSampleData[] data, double sampleTime)
+        {
+            double lVal = 0, rVal = 0;
+            double[] dataWaveform = new double[data.Length];
+
+            int i = 0;
+            for (i = 0; i < data.Length; i++)
+            {
+                lVal += data[i].LVOL * data[i].LVOL;
+                rVal += data[i].RVOL * data[i].RVOL;
+                dataWaveform[i] = data[i].AvgLevel;
+
+                if (i % 32 == 0)
                 {
-                    Logger.LogException(ex);
+                    lock (_vuLock)
+                    {
+                        _vuMeterData = new AudioSampleData(
+                            0.5 * Math.Log(lVal / data.Length) / _maxLogLevel,
+                            0.5 * Math.Log(rVal / data.Length) / _maxLogLevel);
+
+                        //_vuMeterData = new AudioSampleData(
+                          //  Math.Sqrt(lVal / data.Length) / _maxLevel,
+                            //Math.Sqrt(rVal / data.Length) / _maxLevel);
+                    }
+
+                    lVal = rVal = 0;
+                }
+            }
+
+            lock (_waveformLock)
+            {
+                _waveformData = dataWaveform;
+            }
+        }
+
+        private void AnalyzeFFT(AudioSampleData[] data)
+        {
+            if (data.Length == _fftWindowSize)
+            {
+                double[] dataIn = new double[data.Length];
+                double[] dataOut = new double[data.Length];
+
+                for (int i = 0; i < data.Length; i++)
+                {
+                    dataIn[i] = data[i].RmsLevel;
+                    dataOut[i] = 0;
                 }
 
+                FFT.Forward(dataIn, dataOut);
 
+                lock (_spectrogramLock)
+                {
+                    _spectrogramData = dataOut
+                        .Skip(1 /* First band represents the 'total energy' of the signal */ )
+                        .Take(_fftWindowSize / 2 /* The spectrum is 'mirrored' horizontally around the sample rate / 2 according to Nyquist theorem */ )
+                        .ToArray();
+                }
             }
         }
 

@@ -21,6 +21,9 @@ namespace OPMedia.UI.Controls
 
         public bool IsHistogram { get; set; }
 
+        public double? MinVal { get; set; }
+        public double? MaxVal { get; set; }
+
         public void Reset(bool redraw)
         {
             bool wasEmpty = (_dataSets.Count < 1);
@@ -80,7 +83,9 @@ namespace OPMedia.UI.Controls
 
         private void DrawDataSet(Graphics g, Rectangle rc, double[] data, Color color)
         {
-            double min = double.MaxValue, max = double.MinValue;
+            double min = MinVal.GetValueOrDefault();
+            double max = MaxVal.GetValueOrDefault();
+
             foreach (double d in data)
             {
                 if (min > d)
@@ -89,7 +94,9 @@ namespace OPMedia.UI.Controls
                     max = d;
             }
 
-            Point last = new Point(rc.Left, rc.Bottom - (int)((data[0] - min) * rc.Height / (max - min)));
+            Point last = new Point(rc.Left, 
+                (max == min) ? rc.Bottom - rc.Height / 2 :
+                rc.Bottom - (int)((data[0] - min) * rc.Height / (max - min)));
 
             for (double i = 1; i < data.Length; i++)
             {
