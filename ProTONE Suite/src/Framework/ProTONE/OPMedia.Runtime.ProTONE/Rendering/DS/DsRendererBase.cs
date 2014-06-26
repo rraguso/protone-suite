@@ -709,17 +709,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     int j = 0;
                     while (j < totalChannels)
                     {
-                        short channel = 0;
-
                         int k = 0;
                         while (k < bytesPerChannel)
                         {
-                            channel |= (short)(smp.RawSamples[i] << (8 * k));
+                            if (bytesPerChannel <= 2)
+                                channels[j] += (short)(smp.RawSamples[i] << (8 * k));
+                            else
+                                channels[j] += (int)(smp.RawSamples[i] << (8 * k));
+
                             i++;
                             k++;
                         }
 
-                        channels[j] = channel;
                         j++;
                     }
 
@@ -763,8 +764,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     lock (_vuLock)
                     {
                         _vuMeterData = new AudioSampleData(
-                            Math.Log(lVal) / _maxLogLevel,
-                            Math.Log(rVal) / _maxLogLevel);
+                            Math.Log(0.707 * lVal) / _maxLogLevel,
+                            Math.Log(0.707 * rVal) / _maxLogLevel);
 
                         //_vuMeterData = new AudioSampleData(
                         //    lVal / _maxLevel,
