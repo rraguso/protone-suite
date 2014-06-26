@@ -55,7 +55,10 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DSP\FFT.cs" />
+    <Compile Include="DSP\FFT.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DSP\NAudioFFT.cs" />
     <Compile Include="EventArgs.cs" />
     <Compile Include="FileInformation\FileHash.cs" />
     <Compile Include="FileInformation\FileRoutines.cs" />

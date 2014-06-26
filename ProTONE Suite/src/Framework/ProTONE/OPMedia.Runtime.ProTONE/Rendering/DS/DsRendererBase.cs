@@ -640,9 +640,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 {
                     AudioSample smp = new AudioSample();
                     smp.SampleTime = SampleTime;
-                    smp.samples = new short[BufferLen / _actualAudioFormat.nChannels];
+                    smp.RawSamples = new byte[BufferLen];
 
-                    Marshal.Copy(pBuffer, smp.samples, 0, BufferLen / _actualAudioFormat.nChannels);
+                    Marshal.Copy(pBuffer, smp.RawSamples, 0, BufferLen);
 
                     // This is a callback from the DirectShow rendering thread.
                     // We process on other thread, to make sure we don't block the rendering thread.
@@ -681,7 +681,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (smp == null || _actualAudioFormat == null)
                 return;
 
-            short[] samples = smp.samples;
             double mediaTime = this.MediaPosition;
             double delay = smp.SampleTime - mediaTime;
 
@@ -694,22 +693,43 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 FilterState ms = GetFilterState();
 
-                if (samples.Length <= 0 || ms != FilterState.Running || _actualAudioFormat == null)
+                if (smp.RawSamples.Length <= 0 || ms != FilterState.Running || _actualAudioFormat == null)
                     return;
 
-                int size = _actualAudioFormat.nChannels * (samples.Length / _actualAudioFormat.nChannels);
-                if (size < 2)
-                    return;
+                int bytesPerChannel = _actualAudioFormat.wBitsPerSample / 8;
+                int totalChannels = _actualAudioFormat.nChannels;
+                int totalChannelsInArray = Math.Max(2, totalChannels);
 
-                // Check array contents
-                for (int i = 0; i < size; i += _actualAudioFormat.nChannels)
+                int i = 0;
+                while (i < smp.RawSamples.Length)
                 {
-                    _sampleData.Enqueue(new AudioSampleData((double)samples[i], (double)samples[i + 1]));
+                    double[] channels = new double[totalChannelsInArray];
+                    Array.Clear(channels, 0, totalChannelsInArray);
+
+                    int j = 0;
+                    while (j < totalChannels)
+                    {
+                        short channel = 0;
+
+                        int k = 0;
+                        while (k < bytesPerChannel)
+                        {
+                            channel |= (short)(smp.RawSamples[i] << (8 * k));
+                            i++;
+                            k++;
+                        }
+
+                        channels[j] = channel;
+                        j++;
+                    }
+
+                    _sampleData.Enqueue(new AudioSampleData((double)channels[0], (double)channels[1]));
                     if (_sampleData.Count % _waveformWindowSize == 0)
                     {
-                        AnalyzeWaveform(_sampleData.Skip(_sampleData.Count - _waveformWindowSize).Take(_waveformWindowSize).ToArray(), 
+                        AnalyzeWaveform(_sampleData.Skip(_sampleData.Count - _waveformWindowSize).Take(_waveformWindowSize).ToArray(),
                             smp.SampleTime);
                     }
+
                 }
 
                 AudioSampleData lostSample = null;
@@ -720,9 +740,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             }
         }
 
-        private int _waveformCalls = 1;
-        private int _spectrogramCalls = 1;
-
         private void AnalyzeWaveform(AudioSampleData[] data, double sampleTime)
         {
             double lVal = 0, rVal = 0;
@@ -731,8 +748,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             int i = 0;
             for (i = 0; i < data.Length; i++)
             {
-                lVal += data[i].LVOL * data[i].LVOL;
-                rVal += data[i].RVOL * data[i].RVOL;
+                double absL = Math.Abs(data[i].LVOL);
+                double absR = Math.Abs(data[i].RVOL);
+
+                if (lVal < absL)
+                    lVal = absL;
+                if (rVal < absR)
+                    rVal = absR;
+
                 dataWaveform[i] = data[i].AvgLevel;
 
                 if (i % 32 == 0)
@@ -740,8 +763,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     lock (_vuLock)
                     {
                         _vuMeterData = new AudioSampleData(
-                            0.5 * Math.Log(lVal / data.Length) / _maxLogLevel,
-                            0.5 * Math.Log(rVal / data.Length) / _maxLogLevel);
+                            Math.Log(lVal) / _maxLogLevel,
+                            Math.Log(rVal) / _maxLogLevel);
+
+                        //_vuMeterData = new AudioSampleData(
+                        //    lVal / _maxLevel,
+                        //    rVal / _maxLevel);
 
                         //_vuMeterData = new AudioSampleData(
                           //  Math.Sqrt(lVal / data.Length) / _maxLevel,
@@ -764,14 +791,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 double[] dataIn = new double[data.Length];
                 double[] dataOut = new double[data.Length];
-
+                
                 for (int i = 0; i < data.Length; i++)
-                {
                     dataIn[i] = data[i].RmsLevel;
-                    dataOut[i] = 0;
-                }
 
-                FFT.Forward(dataIn, dataOut);
+                NAudioFFT.Forward(dataIn, dataOut);
 
                 lock (_spectrogramLock)
                 {
@@ -889,7 +913,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
     internal class AudioSample
     {
         public double SampleTime;
-        public short[] samples;
+        public byte[] RawSamples;
     }
 }
 
