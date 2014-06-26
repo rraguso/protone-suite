@@ -763,13 +763,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 {
                     lock (_vuLock)
                     {
-                        _vuMeterData = new AudioSampleData(
-                            Math.Log(0.707 * lVal) / _maxLogLevel,
-                            Math.Log(0.707 * rVal) / _maxLogLevel);
-
                         //_vuMeterData = new AudioSampleData(
-                        //    lVal / _maxLevel,
-                        //    rVal / _maxLevel);
+                          //  Math.Log(0.707 * lVal) / _maxLogLevel,
+                            //Math.Log(0.707 * rVal) / _maxLogLevel);
+
+                        _vuMeterData = new AudioSampleData(
+                            0.707 * lVal / _maxLevel,
+                            0.707 * rVal / _maxLevel);
 
                         //_vuMeterData = new AudioSampleData(
                           //  Math.Sqrt(lVal / data.Length) / _maxLevel,
