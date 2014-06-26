@@ -44,6 +44,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
 
             _ipcReceiver = new IPCRemoteControlHost(appName);
             _ipcReceiver.OnSendRequest += new OnSendRequestHandler(_receiver_OnSendRequest);
+            _ipcReceiver.OnPostRequest += new OnPostRequestHandler(_receiver_OnPostRequest);
         }
 
         protected override void DoTerminate()
