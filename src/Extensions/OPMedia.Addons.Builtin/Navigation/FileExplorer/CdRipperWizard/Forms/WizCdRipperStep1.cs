@@ -226,53 +226,59 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
                                         break;
                                 }
 
-                                // Cache the disk to persistent storage for retrieving it faster later on
-                                cdEntry.PersistDisc();
+                                if (cdEntry != null)
+                                {
+                                    // Cache the disk to persistent storage for retrieving it faster later on
+                                    cdEntry.PersistDisc();
+                                }
                             }
                         }
 
-                        for (int i = 1; i <= cdEntry.NumberOfTracks; i++)
+                        if (cdEntry != null)
                         {
-                            double size = cd.TrackSize(i);
-                            int duration = cd.GetSeconds(i);
-
-                            ListViewItem lvItem = new ListViewItem(i.ToString());
-
-                            lvItem.SubItems.Add(TimeSpan.FromSeconds(duration).ToString());
-                            lvItem.SubItems.Add(((size / (1024 * 1024)).ToString("F")) + " MB");
-
-                            OPMListViewSubItem subItem = new OPMListViewSubItem(tbEditAlbum, lvItem,
-                                cdEntry.Tracks[i - 1].Album ?? string.Empty);
-                            subItem.ReadOnly = false;
-                            lvItem.SubItems.Add(subItem);
-
-                            subItem = new OPMListViewSubItem(tbEditArtist, lvItem,
-                                cdEntry.Tracks[i - 1].Artist ?? string.Empty);
-                            subItem.ReadOnly = false;
-                            lvItem.SubItems.Add(subItem);
-
-                            subItem = new OPMListViewSubItem(tbEditTitle, lvItem,
-                                cdEntry.Tracks[i - 1].Title ?? string.Empty);
-                            subItem.ReadOnly = false;
-                            lvItem.SubItems.Add(subItem);
-
-                            subItem = new OPMListViewSubItem(cmbEditgenre, lvItem,
-                                cdEntry.Tracks[i - 1].Genre ?? string.Empty);
-                            subItem.ReadOnly = false;
-                            lvItem.SubItems.Add(subItem);
-
-                            if (Wizard.RepeatCount == 0)
+                            for (int i = 1; i <= cdEntry.NumberOfTracks; i++)
                             {
-                                lvItem.ImageIndex = 1;
-                            }
-                            else
-                            {
-                                //lvItem.ImageIndex = ((BkgTask as Task).Tracks.Contains(i)) ? 1 : 0;
-                            }
+                                double size = cd.TrackSize(i);
+                                int duration = cd.GetSeconds(i);
 
-                            lvItem.Tag = cdEntry.Tracks[i - 1];
+                                ListViewItem lvItem = new ListViewItem(i.ToString());
 
-                            lvTracks.Items.Add(lvItem);
+                                lvItem.SubItems.Add(TimeSpan.FromSeconds(duration).ToString());
+                                lvItem.SubItems.Add(((size / (1024 * 1024)).ToString("F")) + " MB");
+
+                                OPMListViewSubItem subItem = new OPMListViewSubItem(tbEditAlbum, lvItem,
+                                    cdEntry.Tracks[i - 1].Album ?? string.Empty);
+                                subItem.ReadOnly = false;
+                                lvItem.SubItems.Add(subItem);
+
+                                subItem = new OPMListViewSubItem(tbEditArtist, lvItem,
+                                    cdEntry.Tracks[i - 1].Artist ?? string.Empty);
+                                subItem.ReadOnly = false;
+                                lvItem.SubItems.Add(subItem);
+
+                                subItem = new OPMListViewSubItem(tbEditTitle, lvItem,
+                                    cdEntry.Tracks[i - 1].Title ?? string.Empty);
+                                subItem.ReadOnly = false;
+                                lvItem.SubItems.Add(subItem);
+
+                                subItem = new OPMListViewSubItem(cmbEditgenre, lvItem,
+                                    cdEntry.Tracks[i - 1].Genre ?? string.Empty);
+                                subItem.ReadOnly = false;
+                                lvItem.SubItems.Add(subItem);
+
+                                if (Wizard.RepeatCount == 0)
+                                {
+                                    lvItem.ImageIndex = 1;
+                                }
+                                else
+                                {
+                                    //lvItem.ImageIndex = ((BkgTask as Task).Tracks.Contains(i)) ? 1 : 0;
+                                }
+
+                                lvItem.Tag = cdEntry.Tracks[i - 1];
+
+                                lvTracks.Items.Add(lvItem);
+                            }
                         }
                     }
                 }

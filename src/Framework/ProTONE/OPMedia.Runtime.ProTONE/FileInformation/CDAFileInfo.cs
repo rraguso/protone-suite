@@ -41,7 +41,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         {
             get
             {
-                if (_cdEntry != null)
+                if (_cdEntry != null && _cdEntry.NumberOfTracks > 0)
                 {
                     Track tr = _cdEntry.Tracks[_track - 1];
                     return tr.Title;
@@ -58,10 +58,17 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         {
             get
             {
-                if (_cdEntry != null)
+                try
                 {
-                    Track tr = _cdEntry.Tracks[_track - 1];
-                    return tr.Artist;
+                    if (_cdEntry != null && _cdEntry.NumberOfTracks > 0)
+                    {
+                        Track tr = _cdEntry.Tracks[_track - 1];
+                        return tr.Artist;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string s = ex.Message;
                 }
                 return null;
             }
@@ -75,7 +82,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         {
             get
             {
-                if (_cdEntry != null)
+                if (_cdEntry != null && _cdEntry.NumberOfTracks > 0)
                 {
                     Track tr = _cdEntry.Tracks[_track - 1];
                     return tr.Album;
@@ -92,7 +99,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         {
             get
             {
-                if (_cdEntry != null)
+                if (_cdEntry != null && _cdEntry.NumberOfTracks > 0)
                 {
                     Track tr = _cdEntry.Tracks[_track - 1];
                     return tr.Genre;
@@ -129,7 +136,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             {
                 try
                 {
-                    if (_cdEntry != null)
+                    if (_cdEntry != null && _cdEntry.NumberOfTracks > 0)
                     {
                         Track tr = _cdEntry.Tracks[_track - 1];
                         if (!string.IsNullOrEmpty(tr.Year))
