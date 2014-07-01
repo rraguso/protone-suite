@@ -41,9 +41,9 @@ namespace OPMedia.UI.Controls
 
             int ddw = DropDownButtonWidth;
 
-            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientLTColor, ThemeManager.WndTextColor, 90f))
             {
-                using (Pen p2 = new Pen(ThemeManager.ForeColor))
+                using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
                     Rectangle rect = clientRectangle;
 
@@ -439,9 +439,10 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Width + 4,
                 ContentRectangle.Height + 4);
 
-            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
+            //using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientLTColor, ThemeManager.WndTextColor, 90f))
             {
-                using (Pen p2 = new Pen(ThemeManager.ForeColor))
+                using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
                     Rectangle rect = clientRectangle;
 
@@ -561,19 +562,11 @@ namespace OPMedia.UI.Controls
         {
             ThemeManager.PrepareGraphics(e.Graphics);
 
-            using (Pen pb = new Pen(ThemeManager.BackColor, 1))
-            using (Pen pf = new Pen(ThemeManager.ForeColor, 1))
+            using (Pen pf = new Pen(ThemeManager.BorderColor, 1))
             {
-                //int dy = e.ClipRectangle.Height / 2;
-                //int dx = 8;
-
                 Point p1 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2, e.ClipRectangle.Top + 5);
                 Point p2 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2, e.ClipRectangle.Bottom - 5);
-                Point p3 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2 + 1, e.ClipRectangle.Top + 5);
-                Point p4 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2 + 1, e.ClipRectangle.Bottom - 5);
-
                 e.Graphics.DrawLine(pf, p1, p2);
-                e.Graphics.DrawLine(pb, p3, p4);
             }
         }
     }
