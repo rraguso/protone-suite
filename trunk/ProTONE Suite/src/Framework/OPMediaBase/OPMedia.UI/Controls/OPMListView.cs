@@ -398,7 +398,7 @@ namespace OPMedia.UI.Controls
 
             using (Brush b = new LinearGradientBrush(e.Bounds, ThemeManager.GradientLTColor, ThemeManager.GradientRBColor, 90f))
             using (Brush bText = new SolidBrush(ThemeManager.ForeColor))
-            using (Pen p = new Pen(bText, 1))
+            using (Pen p = new Pen(ThemeManager.BorderColor, 1))
             {
                 e.Graphics.FillRectangle(b, e.Bounds);
                 e.Graphics.DrawRectangle(p, rc);

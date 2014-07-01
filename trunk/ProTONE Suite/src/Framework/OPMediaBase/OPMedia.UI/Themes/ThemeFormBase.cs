@@ -821,13 +821,15 @@ namespace OPMedia.UI.Themes
             Color cl1 = ThemeManager.BackColor;
             Color cl2 = ThemeManager.BorderColor;
             Color clPen = ThemeManager.BorderColor;
-            Color clText = ThemeManager.ForeColor;
+            Color clText = ThemeManager.WndValidColor;
 
             Color cl1Red = Color.FromArgb(210, 150, 160);
             Color cl2Red = Color.FromArgb(170, 30, 10);
 
             float percLight = 0.4f;
             string letter = "";
+
+            int pw = 2;
 
             int i = (int)index;
             switch (index)
@@ -840,7 +842,7 @@ namespace OPMedia.UI.Themes
                     letter = "0";
                     cl1 = ControlPaint.Light(cl1, percLight);
                     cl2 = ThemeManager.WndValidColor;
-                    clText = ThemeManager.BackColor;
+                    clText = ThemeManager.WndTextColor;
                     break;
 
                 case ButtonIcons.Maximize:
@@ -851,7 +853,7 @@ namespace OPMedia.UI.Themes
                     letter = "1";
                     cl1 = ControlPaint.Light(cl1, percLight);
                     cl2 = ThemeManager.WndValidColor;
-                    clText = ThemeManager.BackColor;
+                    clText = ThemeManager.WndTextColor;
                     break;
                 
                 case ButtonIcons.Restore:
@@ -862,20 +864,22 @@ namespace OPMedia.UI.Themes
                     letter = "2";
                     cl1 = ControlPaint.Light(cl1, percLight);
                     cl2 = ThemeManager.WndValidColor;
-                    clText = ThemeManager.BackColor;
+                    clText = ThemeManager.WndTextColor;
                     break;
 
                 case ButtonIcons.Close:
+                    pw = 1;
                     letter = "r";
                     cl1 = cl1Red;
                     cl2 = cl2Red;
                     break;
                 
                 case ButtonIcons.CloseHovered:
+                    pw = 1;
                     letter = "r";
                     cl1 = ControlPaint.Light(cl1Red, percLight);
                     cl2 = ControlPaint.Light(cl2Red, percLight);
-                    clText = ThemeManager.BackColor;
+                    clText = ThemeManager.WndTextColor;
                     break;
             }
 
@@ -971,12 +975,12 @@ namespace OPMedia.UI.Themes
 
             if (IsActive)
             {
-                _penBorder = new Pen(ThemeManager.BorderColor, 1);
+                _penBorder = new Pen(ThemeManager.BorderColor, 2);
             }
             else
             {
                 _penBorder = new Pen(
-                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), 1);
+                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), 2);
             }
         }
 
