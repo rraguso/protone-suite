@@ -323,12 +323,14 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Width + 2,
                 ContentRectangle.Height + 4);
 
-            using (Brush bSelect = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
+            using (Brush bSelect = new LinearGradientBrush(clientRectangle, ThemeManager.GradientLTColor, ThemeManager.WndTextColor, 90f))
             {
                 using (Brush bHighlight = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.HighlightColor, 90f))
-                using (Pen p2 = new Pen(ThemeManager.ForeColor))
+                using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
                     Rectangle rect = clientRectangle;
+                    rect.Width -= 2;
+                    rect.Height -= 2;
 
                     if (isHighlight)
                     {
@@ -337,8 +339,6 @@ namespace OPMedia.UI.Controls
                         else
                             e.Graphics.FillRectangle(bSelect, rect);
 
-                        rect.Width -= 2;
-                        rect.Height -= 2;
                         e.Graphics.DrawRectangle(p2, rect);
                     }
 

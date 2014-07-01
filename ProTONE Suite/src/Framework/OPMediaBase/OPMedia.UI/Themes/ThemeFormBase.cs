@@ -49,7 +49,6 @@ namespace OPMedia.UI.Themes
     {
         public const int IconOffset = 4;
         public static readonly Font CaptionButtonFont = new Font("Webdings", 10, FontStyle.Bold);
-        public Size ButtonSize = Size.Empty;
 
         const int HTLEFT           = 10;
         const int HTRIGHT          = 11;
@@ -192,6 +191,14 @@ namespace OPMedia.UI.Themes
                 Invalidate();
             }
         }
+
+        public Size CaptionButtonSize
+        {
+            get
+            {
+                return new Size(SystemInformation.CaptionButtonSize.Width, SystemInformation.CaptionButtonSize.Height - 2);
+            }
+        }
         
         public ThemeFormBase()
         {
@@ -200,8 +207,6 @@ namespace OPMedia.UI.Themes
             {
                 MainThread.Initialize(this);
             }
-
-            ButtonSize = SystemInformation.CaptionButtonSize;
 
             base.AutoScaleDimensions = new SizeF(1, 1);
             base.AutoScaleMode = AutoScaleMode.None;
@@ -909,7 +914,7 @@ namespace OPMedia.UI.Themes
             _rmLB.Location = new Point(0, Height - _rmLB.Height);
             _rmLT.Location = new Point(0, 0);
 
-            _rcTitleBar = (TitleBarVisible) ? new Rectangle(0, 0, Width, SystemInformation.CaptionHeight + 1) : Rectangle.Empty;
+            _rcTitleBar = (TitleBarVisible) ? new Rectangle(0, 0, Width, CaptionButtonSize.Height + 1) : Rectangle.Empty;
 
             Rectangle rcRegion = new Rectangle(-1, -1, Width + 2, Height + 2);
 
@@ -997,7 +1002,7 @@ namespace OPMedia.UI.Themes
 
             if ((FormButtons & FormButtons.Close) == FormButtons.Close)
             {
-                _btnCloseLeft = Width - 2 - ButtonSize.Width;
+                _btnCloseLeft = Width - 2 - CaptionButtonSize.Width;
             }
             if ((FormButtons & FormButtons.Maximize) == FormButtons.Maximize)
             {
@@ -1006,7 +1011,7 @@ namespace OPMedia.UI.Themes
                 else
                     start = Width;
 
-                _btnMaximizeLeft = start - ButtonSize.Width - 1;
+                _btnMaximizeLeft = start - CaptionButtonSize.Width - 1;
             }
             if ((FormButtons & FormButtons.Minimize) == FormButtons.Minimize)
             {
@@ -1017,7 +1022,7 @@ namespace OPMedia.UI.Themes
                 else
                     start = Width;
 
-                _btnMinimizeLeft = start - ButtonSize.Width - 1;
+                _btnMinimizeLeft = start - CaptionButtonSize.Width - 1;
             }
 
             start = Width;
@@ -1033,14 +1038,14 @@ namespace OPMedia.UI.Themes
             _rcIcon = (_iconLeft > 0) ?
                 new Rectangle(_iconLeft, IconOffset / 2, 16, 16) : Rectangle.Empty;
             _rcTitle = (_titleLeft > 0) ?
-                new Rectangle(_titleLeft, 0, _titleWidth, SystemInformation.CaptionHeight) : Rectangle.Empty;
+                new Rectangle(_titleLeft, 0, _titleWidth, CaptionButtonSize.Height) : Rectangle.Empty;
             
             _rcMinimize = (_btnMinimizeLeft > 0) ?
-                new Rectangle(_btnMinimizeLeft, 0, ButtonSize.Width, ButtonSize.Height) : Rectangle.Empty;
+                new Rectangle(_btnMinimizeLeft, 0, CaptionButtonSize.Width, CaptionButtonSize.Height - 1) : Rectangle.Empty;
             _rcMaximize = (_btnMaximizeLeft > 0) ?
-                new Rectangle(_btnMaximizeLeft, 0, ButtonSize.Width, ButtonSize.Height) : Rectangle.Empty;
+                new Rectangle(_btnMaximizeLeft, 0, CaptionButtonSize.Width, CaptionButtonSize.Height - 1) : Rectangle.Empty;
             _rcClose = (_btnCloseLeft > 0) ?
-                new Rectangle(_btnCloseLeft, 0, ButtonSize.Width, ButtonSize.Height) : Rectangle.Empty;
+                new Rectangle(_btnCloseLeft, 0, CaptionButtonSize.Width, CaptionButtonSize.Height - 1) : Rectangle.Empty;
         }
 
         #endregion
