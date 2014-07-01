@@ -337,8 +337,8 @@ namespace OPMedia.UI.Controls
                         else
                             e.Graphics.FillRectangle(bSelect, rect);
 
-                        rect.Width -= 1;
-                        rect.Height -= 1;
+                        rect.Width -= 2;
+                        rect.Height -= 2;
                         e.Graphics.DrawRectangle(p2, rect);
                     }
 
