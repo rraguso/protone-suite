@@ -160,21 +160,21 @@ namespace OPMedia.UI.Themes
 
         protected Region ContentRegion { get; set; }
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                int CS_DROPSHADOW = 0x00020000;
+        //protected override CreateParams CreateParams
+        //{
+        //    get
+        //    {
+        //        int CS_DROPSHADOW = 0x00020000;
 
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                //cp.ExStyle |= 0x02000000;
+        //        CreateParams cp = base.CreateParams;
+        //        cp.ClassStyle |= CS_DROPSHADOW;
+        //        //cp.ExStyle |= 0x02000000;
 
-                return cp;
-            }
-        }
+        //        return cp;
+        //    }
+        //}
 
-        GraphicsPath _borderPath = null;
+        //GraphicsPath _borderPath = null;
 
         Rectangle _rcTitleBar = Rectangle.Empty;
 
@@ -753,15 +753,15 @@ namespace OPMedia.UI.Themes
         {
             if (_rcTitleBar != Rectangle.Empty)
             {
-                g.FillPath(_brBackground, _borderPath);
-                g.DrawPath(_penBorder, _borderPath);
+                g.FillRectangle(_brBackground, ClientRectangle);
+                g.DrawRectangle(_penBorder, ClientRectangle);
 
                 if (_rcTitleBar != Rectangle.Empty)
                 {
                     g.FillRectangle(_brTitlebar, _rcTitleBar);
                 }
 
-                g.DrawPath(_penBorder, _borderPath);
+                g.DrawRectangle(_penBorder, ClientRectangle);
 
                 if (_rcTitleBar != Rectangle.Empty)
                 {
@@ -772,8 +772,8 @@ namespace OPMedia.UI.Themes
             }
             else
             {
-                g.FillPath(Brushes.Black, _borderPath);
-                g.DrawPath(Pens.Black, _borderPath);
+                g.FillRectangle(Brushes.Black, ClientRectangle);
+                g.DrawRectangle(Pens.Black, ClientRectangle);
             }
         }
 
@@ -880,12 +880,11 @@ namespace OPMedia.UI.Themes
             Rectangle rcBorder = new Rectangle(rc.Location, rc.Size);
             rcBorder.Inflate(1, 0);
 
-            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcBorder, 3))
             using (Pen p = new Pen(clPen, 1))
             using (Brush br = new LinearGradientBrush(rc, cl1, cl2, 90f))
             {
-                g.DrawPath(p, path);
-                g.FillPath(br, path);
+                g.DrawRectangle(p, rcBorder);
+                g.FillRectangle(br, rcBorder);
             }
 
             g.DrawImageUnscaled(_btnImgList.Images[(int)index], rc);
@@ -897,8 +896,6 @@ namespace OPMedia.UI.Themes
 
         private void ApplyWindowParams()
         {
-            _borderPath = ImageProcessing.GenerateRoundCornersBorder(ClientRectangle, CornerSize);
-
             _rmRT.Location = new Point(Width - _rmRT.Width, 0);
             _rmRB.Location = new Point(Width - _rmRB.Width, Height - _rmRB.Height);
             _rmLB.Location = new Point(0, Height - _rmLB.Height);
@@ -907,11 +904,10 @@ namespace OPMedia.UI.Themes
             _rcTitleBar = (TitleBarVisible) ? new Rectangle(0, 0, Width, DefaultTitleBarHeight + 1) : Rectangle.Empty;
 
             Rectangle rcRegion = new Rectangle(-1, -1, Width + 2, Height + 2);
-            GraphicsPath regionPath = ImageProcessing.GenerateRoundCornersBorder(rcRegion, CornerSize + 2);
 
             if (FormWindowState.Maximized != WindowState)
             {
-                base.Region = new Region(regionPath);
+                base.Region = new Region(rcRegion);
             }
             else
             {

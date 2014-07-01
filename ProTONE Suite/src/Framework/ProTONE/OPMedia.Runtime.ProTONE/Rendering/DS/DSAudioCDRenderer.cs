@@ -61,6 +61,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (_source.OutputPin == null)
                 throw new RenderingException("Unable to render the file: " + renderMediaName);
 
+            InitAudioSampleGrabber();
+
             // Render the output pin
             _source.OutputPin.Render();
 
@@ -76,6 +78,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 int hr = basicAudio.put_Volume((int)VolumeRange.Minimum);
                 isAudioAvailable = (hr >= 0);
+
+                CompleteAudioSampleGrabberIntialization();
             }
             catch
             {

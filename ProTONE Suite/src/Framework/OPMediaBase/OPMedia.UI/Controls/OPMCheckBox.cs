@@ -103,23 +103,14 @@ namespace OPMedia.UI.Controls
             Color cBack = Enabled ? Color.FromKnownColor(KnownColor.Window) : Color.FromKnownColor(KnownColor.Control);
             Color cText = Enabled ? GetForeColor() : Color.FromKnownColor(KnownColor.ControlDark);
             Color cb = Enabled ? ThemeManager.BorderColor : Color.FromKnownColor(KnownColor.ControlDark);
-            int bw = 1;
 
             ThemeManager.PrepareGraphics(e.Graphics);
 
             if (Enabled && (_isHovered || Focused))
             {
-                bw = 2;
-
+                cb = ThemeManager.HighlightColor;
                 if (Focused)
-                {
-                    cb = ThemeManager.HighlightColor;
                     cText = ThemeManager.HighlightColor;
-                }
-                else
-                {
-                    cb = ThemeManager.BorderColor;
-                }
             }
 
             Rectangle rcFill = new Rectangle(-1, 0, Width + 1, Height);
@@ -146,10 +137,8 @@ namespace OPMedia.UI.Controls
             int d = 2 * rcCheck.Width / 3;
 
             using (Brush b = new SolidBrush(cBack))
-            using (Pen p = new Pen(cb, bw))
+            using (Pen p = new Pen(cb))
             {
-                //e.Graphics.FillPath(b, gp);
-                //e.Graphics.DrawPath(p, gp);
                 e.Graphics.FillRectangle(b, rcGlyph);
                 e.Graphics.DrawRectangle(p, rcGlyph);
             }

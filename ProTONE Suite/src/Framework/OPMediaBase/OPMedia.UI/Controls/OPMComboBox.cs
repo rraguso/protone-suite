@@ -273,8 +273,6 @@ namespace OPMedia.UI.Controls
             Color c1 = Enabled ? Color.FromKnownColor(KnownColor.Window) : Color.FromKnownColor(KnownColor.Control);
             Color c2 = Enabled ? ThemeManager.WndValidColor : Color.FromKnownColor(KnownColor.ControlLight);
 
-            int bw = 1;
-
             if (Enabled && DroppedDown)
             {
                 c1 = ThemeManager.WndValidColor;
@@ -283,17 +281,9 @@ namespace OPMedia.UI.Controls
 
             if (Enabled && (_isHovered || Focused))
             {
-                bw = 2;
-
+                cBorder = ThemeManager.HighlightColor;
                 if (Focused)
-                {
-                    cBorder = ThemeManager.HighlightColor;
                     c2 = ThemeManager.HighlightColor;
-                }
-                else
-                {
-                    cBorder = ThemeManager.BorderColor;
-                }
             }
 
             Rectangle rc = ClientRectangle;
@@ -303,12 +293,15 @@ namespace OPMedia.UI.Controls
                 g.FillRectangle(b, rc);
             }
 
-            using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(ClientRectangle, 3))
-            using (Pen p = new Pen(cBorder, bw))
-            using (Brush b = new LinearGradientBrush(ClientRectangle, c1, c2, 90))
+            rc = ClientRectangle;
+            rc.Width -= 1;
+            rc.Height -= 1;
+
+            using (Pen p = new Pen(cBorder))
+            using (Brush b = new LinearGradientBrush(rc, c1, c2, 90))
             {
-                g.FillPath(b, gp);
-                g.DrawPath(p, gp);
+                g.FillRectangle(b, rc);
+                g.DrawRectangle(p, rc);
             }
 
             rc = new Rectangle(ClientRectangle.Left + 2, ClientRectangle.Top + 2,

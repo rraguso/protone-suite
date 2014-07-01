@@ -188,8 +188,6 @@ namespace OPMedia.UI.Controls
             Color cb = Enabled ? ThemeManager.BorderColor : Color.FromKnownColor(KnownColor.ControlDark);
             Color cText = Enabled ? GetForeColor() : Color.FromKnownColor(KnownColor.ControlDark);
 
-            int bw = 1;
-
             if (_overrideBackColor != Color.Empty)
             {
                 c1 = c2 = _overrideBackColor;
@@ -197,13 +195,11 @@ namespace OPMedia.UI.Controls
 
             if (_isHovered)
             {
-                c2 = ThemeManager.WndValidColor;
+                c2 = ThemeManager.WndTextColor;
             }
 
             if (Enabled && (_isHovered || Focused))
             {
-                bw = 2;
-
                 if (Focused)
                 {
                     cb = ThemeManager.HighlightColor;
@@ -227,18 +223,21 @@ namespace OPMedia.UI.Controls
             }
 
             Rectangle rc = ClientRectangle;
-            
+
             if (_isMouseDown || _isKeyDown)
             {
-                rc = new Rectangle(1, 1, Width, Height);
+                rc = new Rectangle(2, 2, Width - 4, Height - 4);
+            }
+            else
+            {
+                rc = new Rectangle(1, 1, Width - 2, Height - 2);
             }
 
-            using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rc, 4))
-            using (LinearGradientBrush b = new LinearGradientBrush(rc, c1, c2, 90f))
-            using (Pen p = new Pen(cb, bw))
+            using (Brush b = new LinearGradientBrush(rc, c1, c2, 90f))
+            using (Pen p = new Pen(cb))
             {
-                e.Graphics.FillPath(b, gp);
-                e.Graphics.DrawPath(p, gp);
+                e.Graphics.FillRectangle(b, rc);
+                e.Graphics.DrawRectangle(p, rc);
             }
 
             if (this.Image != null)
