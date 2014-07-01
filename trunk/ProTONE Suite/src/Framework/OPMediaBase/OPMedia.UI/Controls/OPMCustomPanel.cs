@@ -33,11 +33,6 @@ namespace OPMedia.UI.Controls
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
-        private new Region Region
-        {
-            get { return new Region(RegionPath); }
-        }
-
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -55,15 +50,11 @@ namespace OPMedia.UI.Controls
 
                 using (Brush b = new SolidBrush(this.BackColor))
                 using (Pen p = new Pen(cb, BorderWidth))
-                using (GraphicsPath gp = RegionPath)
                 {
-                    g.FillPath(b, gp);
-                    g.DrawPath(p, gp);
+                    g.FillRectangle(b, ClientRectangle);
+                    g.DrawRectangle(p, ClientRectangle);
                 }
             }
         }
-
-        private GraphicsPath RegionPath
-        { get { return ImageProcessing.GenerateRoundCornersBorder(ClientRectangle, 3); } }
     }
 }

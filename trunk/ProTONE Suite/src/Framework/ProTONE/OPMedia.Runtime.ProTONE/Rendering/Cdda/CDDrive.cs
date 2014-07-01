@@ -19,6 +19,7 @@ using OPMedia.Core.Logging;
 using System.Diagnostics;
 using System.IO;
 using OPMedia.Core;
+using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
 {
@@ -580,6 +581,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
       {
           cdTracks = null;
 
+          int numTracks = GetNumTracks();
+          if (numTracks == -1)
+              return false;
+
           Version version = Environment.OSVersion.Version;
           if (((Environment.OSVersion.Platform != PlatformID.Win32NT) || (version.Major < 5)) || ((version.Major == 5) && (version.Minor < 1)))
               return false;
@@ -609,11 +614,16 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
 
           Marshal.FreeHGlobal(ptr2);
           Marshal.FreeHGlobal(ptr);
-          return flag;
+
+          return (flag && cdTracks != null && cdTracks.Count > 0);
       }
 
       private List<Track> BuildCDTracks(Kernel32.CDROM_TOC_CD_TEXT_DATA Data)
       {
+          int numTracks = GetNumTracks();
+          if (numTracks == -1)
+              return null;
+
           List<Track> tracks = new List<Track>();
 
           List<string> titles = new List<string>();
@@ -685,29 +695,29 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
               
           }
 
-          int max = titles.Count;
-          if (artists.Count != 0 && max > artists.Count)
-              max = artists.Count;
-          if (genres.Count != 0 && max > genres.Count)
-              max = genres.Count;
+          //int max = titles.Count;
+          //if (artists.Count != 0 && max > artists.Count)
+          //    max = artists.Count;
+          //if (genres.Count != 0 && max > genres.Count)
+          //    max = genres.Count;
 
-          if (max > 0)
+          if (numTracks > 0)
           {
               string mainTitle = (titles.Count > 0) ? titles[0] : null;
               string mainArtist = (artists.Count > 0) ? artists[0] : null;
               string mainGenre = (genres.Count > 0) ? genres[0] : null;
 
-              for (int i = 1; i < max; i++)
+              for (int i = 1; i <= numTracks; i++)
               {
+                  Track track = new Track();
+                  track.Index = i;
+
                   try
                   {
                       if (titles.Count > i ||
                           titles.Count > i ||
                           titles.Count > i)
                       {
-                          Track track = new Track();
-                          track.Index = i;
-
                           if (titles.Count > i)
                               track.Title = titles[i];
                           if (artists.Count > i)
@@ -724,11 +734,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda
                           {
                               track.Artist = mainArtist;
                           }
-
-                          tracks.Add(track);
                       }
                   }
                   catch { }
+
+                  tracks.Add(track);
               }
           }
 

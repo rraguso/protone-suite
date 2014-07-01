@@ -478,6 +478,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         Thread sampleAnalyzerThread = null;
 
         ConcurrentQueue<AudioSample> samples = new ConcurrentQueue<AudioSample>();
+        ConcurrentQueue<AudioSample> samples2 = new ConcurrentQueue<AudioSample>();
         
         ManualResetEvent sampleAnalyzerMustStop = new ManualResetEvent(false);
         ManualResetEvent sampleGrabberConfigured = new ManualResetEvent(false);
@@ -515,7 +516,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
                 sampleAnalyzerMustStop.Reset();
                 sampleAnalyzerThread = new Thread(new ThreadStart(SampleAnalyzerLoop));
-                sampleAnalyzerThread.Priority = ThreadPriority.Normal;
+                sampleAnalyzerThread.Priority = ThreadPriority.Highest;
                 sampleAnalyzerThread.Start();
             }
             catch(Exception ex)
@@ -632,25 +633,44 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         // ISampleGrabberCB Members
 
-        public int BufferCB(double SampleTime, IntPtr pBuffer, int BufferLen)
+        public int BufferCB(double sampleTime, IntPtr pBuffer, int bufferLen)
         {
             try
             {
-                if (sampleGrabberConfigured.WaitOne(1) && _actualAudioFormat != null)
+                if (sampleGrabberConfigured.WaitOne(0) && _actualAudioFormat != null)
                 {
-                    AudioSample smp = new AudioSample();
-                    smp.SampleTime = SampleTime;
-                    smp.RawSamples = new byte[BufferLen];
+                    const int fraction = 128;
 
-                    Marshal.Copy(pBuffer, smp.RawSamples, 0, BufferLen);
+                    byte[] allBytes = new byte[bufferLen];
+                    Marshal.Copy(pBuffer, allBytes, 0, bufferLen);
+                    
+                    int pos = 0;
+                    
+                    double chunkTimeLen = (double)fraction / (double)_actualAudioFormat.nSamplesPerSec;
+                    int chunkSize = fraction * _actualAudioFormat.nBlockAlign;
+                    int i = 0;
 
-                    // This is a callback from the DirectShow rendering thread.
-                    // We process on other thread, to make sure we don't block the rendering thread.
-                    samples.Enqueue(smp);
+                    do
+                    {
+                        int size = Math.Min(chunkSize, bufferLen - pos);
+
+                        AudioSample smp = new AudioSample();
+                        smp.RawSamples = new byte[size];
+                        smp.SampleTime = sampleTime + i * chunkTimeLen;
+                        
+                        Array.Copy(allBytes, pos, smp.RawSamples, 0, size);
+
+                        samples.Enqueue(smp);
+
+                        pos += size;
+                        i++;
+                    }
+                    while (pos < bufferLen);
                 }
             }
             catch { }
 
+            Debug.Flush();
             return 0;
         }
 
@@ -661,20 +681,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         private void SampleAnalyzerLoop()
         {
-            while (sampleAnalyzerMustStop.WaitOne(1) == false)
+            while (sampleAnalyzerMustStop.WaitOne(0) == false)
             {
-                if (sampleGrabberConfigured.WaitOne(1) == true)
-                {
-                    AudioSample smp = null;
-                    if (samples.TryDequeue(out smp) && smp != null)
-                    {
-                        ExtractSamples(smp);
-                    }
-                }
+                AudioSample smp = null;
+                if (samples.TryDequeue(out smp) && smp != null)
+                    ExtractSamples(smp);
+
+                Thread.Yield();
             }
         }
 
         private ConcurrentQueue<AudioSampleData> _sampleData = new ConcurrentQueue<AudioSampleData>();
+        private int _gatheredSamples = 0;
 
         private void ExtractSamples(AudioSample smp)
         {
@@ -684,61 +702,63 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             double mediaTime = this.MediaPosition;
             double delay = smp.SampleTime - mediaTime;
 
-            if (delay > 0 && delay < 2)
+            // Sync the sample. 
+            // Use extended sleep since Thread.Sleep is too low-resolution.
+            //ThreadScheduler.SleepEx(delay);
+
+            if (delay > 0)
+                Thread.Sleep(TimeSpan.FromSeconds(delay));
+
+            FilterState ms = GetFilterState();
+
+            if (smp.RawSamples.Length <= 0 || ms != FilterState.Running || _actualAudioFormat == null)
+                return;
+
+            int bytesPerChannel = _actualAudioFormat.wBitsPerSample / 8;
+            int totalChannels = _actualAudioFormat.nChannels;
+            int totalChannelsInArray = Math.Max(2, totalChannels);
+
+            int i = 0;
+            while (i < smp.RawSamples.Length)
             {
-                Thread.Sleep((int)(1000 * delay));
-            }
+                double[] channels = new double[totalChannelsInArray];
+                Array.Clear(channels, 0, totalChannelsInArray);
 
-            if (samples != null)
-            {
-                FilterState ms = GetFilterState();
-
-                if (smp.RawSamples.Length <= 0 || ms != FilterState.Running || _actualAudioFormat == null)
-                    return;
-
-                int bytesPerChannel = _actualAudioFormat.wBitsPerSample / 8;
-                int totalChannels = _actualAudioFormat.nChannels;
-                int totalChannelsInArray = Math.Max(2, totalChannels);
-
-                int i = 0;
-                while (i < smp.RawSamples.Length)
+                int j = 0;
+                while (j < totalChannels)
                 {
-                    double[] channels = new double[totalChannelsInArray];
-                    Array.Clear(channels, 0, totalChannelsInArray);
-
-                    int j = 0;
-                    while (j < totalChannels)
+                    int k = 0;
+                    while (k < bytesPerChannel)
                     {
-                        int k = 0;
-                        while (k < bytesPerChannel)
-                        {
-                            if (bytesPerChannel <= 2)
-                                channels[j] += (short)(smp.RawSamples[i] << (8 * k));
-                            else
-                                channels[j] += (int)(smp.RawSamples[i] << (8 * k));
+                        if (bytesPerChannel <= 2)
+                            channels[j] += (short)(smp.RawSamples[i] << (8 * k));
+                        else
+                            channels[j] += (int)(smp.RawSamples[i] << (8 * k));
 
-                            i++;
-                            k++;
-                        }
-
-                        j++;
+                        i++;
+                        k++;
                     }
 
-                    _sampleData.Enqueue(new AudioSampleData((double)channels[0], (double)channels[1]));
-                    if (_sampleData.Count % _waveformWindowSize == 0)
-                    {
-                        AnalyzeWaveform(_sampleData.Skip(_sampleData.Count - _waveformWindowSize).Take(_waveformWindowSize).ToArray(),
-                            smp.SampleTime);
-                    }
-
+                    j++;
                 }
 
-                AudioSampleData lostSample = null;
-                while (_sampleData.Count > _fftWindowSize)
-                    _sampleData.TryDequeue(out lostSample);
+                _sampleData.Enqueue(new AudioSampleData((double)channels[0], (double)channels[1]));
+                _gatheredSamples++;
+                if (_gatheredSamples % _waveformWindowSize == 0)
+                {
+                    AnalyzeWaveform(_sampleData.Skip(_sampleData.Count - _waveformWindowSize).Take(_waveformWindowSize).ToArray(),
+                        smp.SampleTime);
+                }
 
-                AnalyzeFFT(_sampleData.ToArray());
+                Thread.Yield();
             }
+
+            AudioSampleData lostSample = null;
+            while (_sampleData.Count > _fftWindowSize)
+                _sampleData.TryDequeue(out lostSample);
+
+            AnalyzeFFT(_sampleData.ToArray());
+            Thread.Yield();
         }
 
         private void AnalyzeWaveform(AudioSampleData[] data, double sampleTime)
@@ -766,7 +786,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                         //_vuMeterData = new AudioSampleData(
                           //  Math.Log(0.707 * lVal) / _maxLogLevel,
                             //Math.Log(0.707 * rVal) / _maxLogLevel);
-
+                        
                         _vuMeterData = new AudioSampleData(
                             0.707 * lVal / _maxLevel,
                             0.707 * rVal / _maxLevel);

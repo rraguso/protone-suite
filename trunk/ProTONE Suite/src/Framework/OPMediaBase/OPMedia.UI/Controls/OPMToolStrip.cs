@@ -49,18 +49,12 @@ namespace OPMedia.UI.Controls
 
                     if (Enabled && (Selected || Pressed))
                     {
-                        using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
-                        {
-                            e.Graphics.FillPath(b1, gp);
-                        }
+                        e.Graphics.FillRectangle(b1, rect);
 
                         rect.Width -= 1;
                         rect.Height -= 1;
 
-                        using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
-                        {
-                            e.Graphics.DrawPath(p2, gp);
-                        }
+                        e.Graphics.DrawRectangle(p2, rect);
 
                         if (DropDownItems != null && DropDownItems.Count >= 0 && ddw > 2)
                         {
@@ -336,19 +330,16 @@ namespace OPMedia.UI.Controls
                 {
                     Rectangle rect = clientRectangle;
 
-                    using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
+                    if (isHighlight)
                     {
-                        if (isHighlight)
-                        {
-                            if (Checked && !Selected)
-                                e.Graphics.FillPath(bHighlight, gp);
-                            else
-                                e.Graphics.FillPath(bSelect, gp);
+                        if (Checked && !Selected)
+                            e.Graphics.FillRectangle(bHighlight, rect);
+                        else
+                            e.Graphics.FillRectangle(bSelect, rect);
 
-                            rect.Width -= 1;
-                            rect.Height -= 1;
-                            e.Graphics.DrawPath(p2, gp);
-                        }
+                        rect.Width -= 1;
+                        rect.Height -= 1;
+                        e.Graphics.DrawRectangle(p2, rect);
                     }
 
                     int xpos = this.ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 + 1 + offset;
@@ -456,18 +447,12 @@ namespace OPMedia.UI.Controls
 
                     if (Selected || Pressed)
                     {
-                        using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
-                        {
-                            e.Graphics.FillPath(b1, gp);
-                        }
+                        e.Graphics.FillRectangle(b1, rect);
 
                         rect.Width -= 1;
                         rect.Height -= 1;
 
-                        using (GraphicsPath gp = ImageProcessing.GenerateRoundCornersBorder(rect, 3))
-                        {
-                            e.Graphics.DrawPath(p2, gp);
-                        }
+                        e.Graphics.DrawRectangle(p2, rect);
                     }
 
                     int xpos = ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2;
