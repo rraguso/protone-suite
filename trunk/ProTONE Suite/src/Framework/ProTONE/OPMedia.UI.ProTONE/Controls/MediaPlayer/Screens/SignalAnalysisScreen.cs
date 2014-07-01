@@ -89,8 +89,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 
                     spectrogramData2[idx] = max;
 
-                    gpSpectrogram.AddDataRange(spectrogramData, ThemeManager.LinkColor);
-                    gpSpectrogram.AddDataRange(spectrogramData2, Color.Red);
+                    gpSpectrogram.AddDataRange(spectrogramData, Color.Transparent);
+                    gpSpectrogram.AddDataRange(spectrogramData2, ThemeManager.LinkColor);
                 }
                 else
                 {

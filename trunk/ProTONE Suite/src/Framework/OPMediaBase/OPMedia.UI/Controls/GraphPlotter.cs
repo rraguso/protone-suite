@@ -5,6 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using OPMedia.UI.Themes;
+using System.Drawing.Drawing2D;
 
 namespace OPMedia.UI.Controls
 {
@@ -123,11 +124,25 @@ namespace OPMedia.UI.Controls
 
                     if (IsHistogram)
                     {
-                        using (Brush b = new SolidBrush(color))
+                        if (color == Color.Transparent)
                         {
-                            int w = 3;
-                            Rectangle rcBar = new Rectangle(pt.X, pt.Y, w, rc.Bottom - pt.Y);
-                            g.FillRectangle(b, rcBar);
+                            Color clStart1 = Color.LightGreen;
+                            Color clEnd1 = ControlPaint.Light(Color.Red, .4f);
+                            using (Brush b = new LinearGradientBrush(rc, clStart1, clEnd1, -90f))
+                            {
+                                int w = 3;
+                                Rectangle rcBar = new Rectangle(pt.X, pt.Y, w, rc.Bottom - pt.Y);
+                                g.FillRectangle(b, rcBar);
+                            }
+                        }
+                        else
+                        {
+                            using (Brush b = new SolidBrush(color))
+                            {
+                                int w = 3;
+                                Rectangle rcBar = new Rectangle(pt.X, pt.Y, w, rc.Bottom - pt.Y);
+                                g.FillRectangle(b, rcBar);
+                            }
                         }
                     }
                     else
