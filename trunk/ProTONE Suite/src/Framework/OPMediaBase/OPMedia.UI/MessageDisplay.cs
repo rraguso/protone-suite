@@ -151,7 +151,7 @@ namespace OPMedia.UI
                 chkAdditionalCheck.Margin = new Padding(pbImage.Right + 15, 8, 3, 3);
             }
 
-            this.Height = pnlContentAll.Height + SystemInformation.CaptionHeight + pnlContentAll.Margin.Vertical;
+            this.Height = pnlContentAll.Height + CaptionButtonSize.Height + pnlContentAll.Margin.Vertical;
             this.Width = pnlContentAll.Width + pnlContentAll.Margin.Horizontal;
         }
 
