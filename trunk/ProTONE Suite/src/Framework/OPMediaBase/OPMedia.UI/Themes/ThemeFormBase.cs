@@ -253,6 +253,7 @@ namespace OPMedia.UI.Themes
             this.MouseMove += new MouseEventHandler(OnMouseMove);
             this.MouseDoubleClick += new MouseEventHandler(ThemeForm_MouseDoubleClick);
             this.MouseHover += new EventHandler(OnMouseHover);
+            this.MouseLeave += new EventHandler(OnMouseLeave);
             
 
             this.Activated += new EventHandler(ThemeFormBase_Activated);
@@ -676,6 +677,16 @@ namespace OPMedia.UI.Themes
                     _ttm.ShowSimpleToolTip(Translator.Translate("TXT_BTNCLOSE"));
                 }
             });
+        }
+
+        void OnMouseLeave(object sender, EventArgs e)
+        {
+            _hoveredButtons = Themes.FormButtons.None;
+            _ttm.RemoveAll();
+
+            Invalidate(_rcClose);
+            Invalidate(_rcMinimize);
+            Invalidate(_rcMaximize);
         }
 
         void OnMouseMove(object sender, MouseEventArgs e)
