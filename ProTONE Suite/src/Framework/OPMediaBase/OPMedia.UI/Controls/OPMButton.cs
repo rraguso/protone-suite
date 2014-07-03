@@ -72,14 +72,6 @@ namespace OPMedia.UI.Controls
             set { _overrideBackColor = value; Invalidate(true); }
         }
 
-        private Color GetForeColor()
-        {
-            if (_overrideForeColor != Color.Empty)
-                return _overrideForeColor;
-
-            return ThemeManager.ForeColor;
-        }
-
         #endregion
 
         public bool ShowDropDown { get; set; }
@@ -183,36 +175,46 @@ namespace OPMedia.UI.Controls
             ThemeManager.PrepareGraphics(e.Graphics);
             base.OnPaint(e);
 
-            Color c1 = Enabled ? ThemeManager.GradientLTColor : Color.FromKnownColor(KnownColor.ControlLight);
-            Color c2 = Enabled ? ThemeManager.GradientRBColor : Color.FromKnownColor(KnownColor.ControlLight);
-            Color cb = Enabled ? ThemeManager.BorderColor : Color.FromKnownColor(KnownColor.ControlDark);
-            Color cText = Enabled ? GetForeColor() : Color.FromKnownColor(KnownColor.ControlDark);
+            int pw = 1;
+            Color c1 = Color.Empty, c2 = Color.Empty, cb = Color.Empty, cText = Color.Empty;
+
+            c1 = Enabled ? ThemeManager.GradientNormalColor1 : ThemeManager.BackColor;
+            c2 = Enabled ? ThemeManager.GradientNormalColor2 : ThemeManager.BackColor;
+            cb = Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
+            cText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
+
+            if (Enabled && (_isHovered || Focused))
+            {
+                if (_isHovered && Focused)
+                {
+                    c1 = ThemeManager.GradientFocusHoverColor1;
+                    c2 = ThemeManager.GradientFocusHoverColor2;
+                    cb = ThemeManager.FocusBorderColor;
+                    pw = 2;
+                }
+                else if (Focused)
+                {
+                    c1 = ThemeManager.GradientFocusColor1;
+                    c2 = ThemeManager.GradientFocusColor2;
+                    cb = ThemeManager.FocusBorderColor;
+                    pw = 2;
+                }
+                else
+                {
+                    c1 = ThemeManager.GradientHoverColor1;
+                    c2 = ThemeManager.GradientHoverColor2;
+                }
+            }
 
             if (_overrideBackColor != Color.Empty)
             {
                 c1 = c2 = _overrideBackColor;
             }
-
-            if (_isHovered)
+            if (_overrideForeColor != Color.Empty)
             {
-                c2 = ThemeManager.WndTextColor;
+                cText = _overrideForeColor;
             }
-
-            if (Enabled && (_isHovered || Focused))
-            {
-                if (Focused)
-                {
-                    cb = ThemeManager.HighlightColor;
-                    c2 = ThemeManager.HighlightColor;
-                    c1 = ThemeManager.WndValidColor;
-                    cText = ThemeManager.WndTextColor;
-                }
-                else
-                {
-                    cb = ThemeManager.BorderColor;
-                }
-            }
-
+            
             Rectangle rcb = ClientRectangle;
             rcb.Inflate(1, 1);
 
@@ -234,10 +236,11 @@ namespace OPMedia.UI.Controls
             }
 
             using (Brush b = new LinearGradientBrush(rc, c1, c2, 90f))
-            using (Pen p = new Pen(cb))
+            using (Pen p = new Pen(cb, pw))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rc, ThemeManager.CornerSize))
             {
-                e.Graphics.FillRectangle(b, rc);
-                e.Graphics.DrawRectangle(p, rc);
+                e.Graphics.FillPath(b, path);
+                e.Graphics.DrawPath(p, path);
             }
 
             if (this.Image != null)

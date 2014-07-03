@@ -50,6 +50,8 @@ namespace OPMedia.UI.Themes
         public const int IconOffset = 4;
         public static readonly Font CaptionButtonFont = new Font("Webdings", 10, FontStyle.Bold);
 
+        protected const int BorderWidth = 4;
+
         const int HTLEFT           = 10;
         const int HTRIGHT          = 11;
         const int HTTOP            = 12;
@@ -196,7 +198,7 @@ namespace OPMedia.UI.Themes
         {
             get
             {
-                return new Size(SystemInformation.CaptionButtonSize.Width, SystemInformation.CaptionButtonSize.Height - 2);
+                return SystemInformation.CaptionButtonSize;
             }
         }
         
@@ -247,39 +249,15 @@ namespace OPMedia.UI.Themes
 
             this.Load += new EventHandler(ThemeForm_Load);
             this.Resize += new EventHandler(ThemeForm_Resize);
-
             this.MouseDown += new MouseEventHandler(OnMouseDown);
             this.MouseUp += new MouseEventHandler(OnMouseUp);
             this.MouseMove += new MouseEventHandler(OnMouseMove);
             this.MouseDoubleClick += new MouseEventHandler(ThemeForm_MouseDoubleClick);
             this.MouseHover += new EventHandler(OnMouseHover);
             this.MouseLeave += new EventHandler(OnMouseLeave);
-            
-
-            this.Activated += new EventHandler(ThemeFormBase_Activated);
-            this.Deactivate += new EventHandler(ThemeFormBase_Deactivate);
-
-            //_btnImgList = new ImageList();
-            //_btnImgList.ImageSize = new Size(ButtonSize, ButtonSize);
-            //_btnImgList.ColorDepth = ColorDepth.Depth24Bit;
-
-            //Bitmap bmp = Resources.MinimizeButton.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
-            //_btnImgList.Images.Add(bmp);
-            //_btnImgList.Images.Add(bmp);
-            //bmp = Resources.MaximizeButton.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
-            //_btnImgList.Images.Add(bmp);
-            //_btnImgList.Images.Add(bmp);
-            //bmp = Resources.RestoreButton.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
-            //_btnImgList.Images.Add(bmp);
-            //_btnImgList.Images.Add(bmp);
-            //bmp = Resources.CloseButton.ToBitmap(); bmp.MakeTransparent(Color.Magenta);
-            //_btnImgList.Images.Add(bmp);
-            //_btnImgList.Images.Add(bmp);
-
+            this.Activated += new EventHandler(OnActivated);
+            this.Deactivate += new EventHandler(OnDeactivated);
             this.HandleCreated += new EventHandler(ThemeFormBase_HandleCreated);
-            this.HandleDestroyed += new EventHandler(ThemeFormBase_HandleDestroyed);
-            this.FormClosing += new FormClosingEventHandler(ThemeFormBase_FormClosing);
-            this.FormClosed += new FormClosedEventHandler(ThemeFormBase_FormClosed);
         }
 
         void ThemeFormBase_HandleCreated(object sender, EventArgs e)
@@ -287,47 +265,14 @@ namespace OPMedia.UI.Themes
             ThemeManager.SetDoubleBuffer(this);
         }
 
-        void ThemeFormBase_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            
-        }
-
-        void ThemeFormBase_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
-
-        void ThemeFormBase_HandleDestroyed(object sender, EventArgs e)
-        {
-            
-        }
-
-        void ThemeFormBase_Leave(object sender, EventArgs e)
+        void OnDeactivated(object sender, EventArgs e)
         {
             IsActive = false;
-            Logger.LogHeavyTrace("{0} - Leave", Name);
-            Logger.LogHeavyTrace("{0} - IsActive: {1}", Name, IsActive);
         }
 
-        void ThemeFormBase_Enter(object sender, EventArgs e)
+        void OnActivated(object sender, EventArgs e)
         {
             IsActive = true;
-            Logger.LogHeavyTrace("{0} - Enter", Name);
-            Logger.LogHeavyTrace("{0} - IsActive: {1}", Name, IsActive);
-        }
-
-        void ThemeFormBase_Deactivate(object sender, EventArgs e)
-        {
-            IsActive = false;
-            Logger.LogHeavyTrace("{0} - Deactivate", Name);
-            Logger.LogHeavyTrace("{0} - IsActive: {1}", Name, IsActive);
-        }
-
-        void ThemeFormBase_Activated(object sender, EventArgs e)
-        {
-            IsActive = true;
-            Logger.LogHeavyTrace("{0} - Activated", Name);
-            Logger.LogHeavyTrace("{0} - IsActive: {1}", Name, IsActive);
         }
 
         protected virtual void OnThemeUpdatedInternal()
@@ -832,15 +777,13 @@ namespace OPMedia.UI.Themes
             Color cl1 = ThemeManager.BackColor;
             Color cl2 = ThemeManager.BorderColor;
             Color clPen = ThemeManager.BorderColor;
-            Color clText = ThemeManager.WndValidColor;
+            Color clText = ThemeManager.ForeColor;
 
             Color cl1Red = Color.FromArgb(210, 150, 160);
             Color cl2Red = Color.FromArgb(170, 30, 10);
 
             float percLight = 0.4f;
             string letter = "";
-
-            int pw = 2;
 
             int i = (int)index;
             switch (index)
@@ -879,14 +822,12 @@ namespace OPMedia.UI.Themes
                     break;
 
                 case ButtonIcons.Close:
-                    pw = 1;
                     letter = "r";
                     cl1 = cl1Red;
                     cl2 = cl2Red;
                     break;
                 
                 case ButtonIcons.CloseHovered:
-                    pw = 1;
                     letter = "r";
                     cl1 = ControlPaint.Light(cl1Red, percLight);
                     cl2 = ControlPaint.Light(cl2Red, percLight);
@@ -904,13 +845,13 @@ namespace OPMedia.UI.Themes
                 rcBorder.Top + (rcBorder.Height - szText.Height) / 2 - 2,
                 szText.Width, szText.Height);
 
-            using (Pen p = new Pen(clPen, 1))
+            using (Pen p = new Pen(_penBorder.Color, 1))
             using (Brush bt = new SolidBrush(clText))
             using (Brush br = new LinearGradientBrush(rc, cl1, cl2, 90f))
             {
                 g.FillRectangle(br, rcBorder);
                 g.DrawString(letter, CaptionButtonFont, bt, rcText);
-                g.DrawRectangle(p, rcBorder);
+                //g.DrawRectangle(p, rcBorder);
             }
 
 
@@ -954,7 +895,8 @@ namespace OPMedia.UI.Themes
 
         private void ApplyDrawingValues()
         {
-            float inactiveLightPercent = 0.6f;
+            float inactiveLightPercent = 0.8f;
+            float activeLightPercent = 0.6f;
 
             if (_brBackground != null)
                 _brBackground.Dispose();
@@ -969,14 +911,14 @@ namespace OPMedia.UI.Themes
                 if (IsActive)
                 {
                     _brTitlebar = new LinearGradientBrush(_rcTitleBar,
-                        ThemeManager.GradientLTColor, 
-                        ThemeManager.GradientRBColor, 90f);
+                        ThemeManager.GradientNormalColor1, 
+                        ThemeManager.GradientNormalColor2, 90f);
                 }
                 else
                 {
                     _brTitlebar = new LinearGradientBrush(_rcTitleBar,
-                        ControlPaint.Light(ThemeManager.GradientLTColor, inactiveLightPercent),
-                        ControlPaint.Light(ThemeManager.GradientRBColor, inactiveLightPercent), 
+                        ControlPaint.Light(ThemeManager.GradientNormalColor1, inactiveLightPercent),
+                        ControlPaint.Light(ThemeManager.GradientNormalColor2, inactiveLightPercent), 
                         90f);
                 }
             }
@@ -986,12 +928,13 @@ namespace OPMedia.UI.Themes
 
             if (IsActive)
             {
-                _penBorder = new Pen(ThemeManager.BorderColor, 2);
+                _penBorder = new Pen(
+                     ControlPaint.Light(ThemeManager.BorderColor, activeLightPercent), BorderWidth);
             }
             else
             {
                 _penBorder = new Pen(
-                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), 2);
+                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), BorderWidth);
             }
         }
 
@@ -1017,7 +960,7 @@ namespace OPMedia.UI.Themes
 
             if ((FormButtons & FormButtons.Close) == FormButtons.Close)
             {
-                _btnCloseLeft = Width - 2 - CaptionButtonSize.Width;
+                _btnCloseLeft = Width - CaptionButtonSize.Width - BorderWidth;
             }
             if ((FormButtons & FormButtons.Maximize) == FormButtons.Maximize)
             {
@@ -1051,16 +994,16 @@ namespace OPMedia.UI.Themes
             _titleWidth = start - IconOffset - _titleLeft;
 
             _rcIcon = (_iconLeft > 0) ?
-                new Rectangle(_iconLeft, IconOffset / 2, 16, 16) : Rectangle.Empty;
+                new Rectangle(_iconLeft, (CaptionButtonSize.Height + IconOffset - 16) / 2, 16, 16) : Rectangle.Empty;
             _rcTitle = (_titleLeft > 0) ?
                 new Rectangle(_titleLeft, 0, _titleWidth, CaptionButtonSize.Height) : Rectangle.Empty;
             
             _rcMinimize = (_btnMinimizeLeft > 0) ?
-                new Rectangle(_btnMinimizeLeft, 0, CaptionButtonSize.Width, CaptionButtonSize.Height - 1) : Rectangle.Empty;
+                new Rectangle(_btnMinimizeLeft, BorderWidth / 2, CaptionButtonSize.Width, CaptionButtonSize.Height - BorderWidth + 1) : Rectangle.Empty;
             _rcMaximize = (_btnMaximizeLeft > 0) ?
-                new Rectangle(_btnMaximizeLeft, 0, CaptionButtonSize.Width, CaptionButtonSize.Height - 1) : Rectangle.Empty;
+                new Rectangle(_btnMaximizeLeft, BorderWidth / 2, CaptionButtonSize.Width, CaptionButtonSize.Height - BorderWidth + 1) : Rectangle.Empty;
             _rcClose = (_btnCloseLeft > 0) ?
-                new Rectangle(_btnCloseLeft, 0, CaptionButtonSize.Width, CaptionButtonSize.Height - 1) : Rectangle.Empty;
+                new Rectangle(_btnCloseLeft, BorderWidth / 2, CaptionButtonSize.Width, CaptionButtonSize.Height - BorderWidth + 1) : Rectangle.Empty;
         }
 
         #endregion

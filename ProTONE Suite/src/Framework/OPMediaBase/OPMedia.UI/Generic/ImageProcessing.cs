@@ -149,34 +149,42 @@ namespace OPMedia.UI.Generic
             return gp;
         }
 
-        //public static GraphicsPath GenerateRoundCornersBorder(Rectangle rcSource, int cornerSize = 3)
-        //{
-        //    GraphicsPath borderPath = new GraphicsPath();
+        public static GraphicsPath GenerateRoundCornersBorder(Rectangle rcSource, int cornerSize = 3)
+        {
+            GraphicsPath borderPath = new GraphicsPath();
 
-        //    int c = 2 * cornerSize;
-        //    int l = rcSource.Left;
-        //    int t = rcSource.Top;
-        //    int r = rcSource.Right - 2;
-        //    int b = rcSource.Bottom - 2;
-            
-        //    // left, top corner
-        //    borderPath.AddArc(l, t, c, c, 180, 90);
+            cornerSize = cornerSize & 0x03;
+            if (cornerSize > 0)
+            {
+                int c = 2 * cornerSize;
+                int l = rcSource.Left;
+                int t = rcSource.Top;
+                int r = rcSource.Right - 2;
+                int b = rcSource.Bottom - 2;
 
-        //    // right, top corner
-        //    borderPath.AddArc(r - c, t, c, c, -90, 90);
+                // left, top corner
+                borderPath.AddArc(l, t, c, c, 180, 90);
 
-        //    // right, bottom corner
-        //    borderPath.AddArc(r - c, b - c, c, c, 0, 90);
+                // right, top corner
+                borderPath.AddArc(r - c, t, c, c, -90, 90);
 
-        //    // left, bottom corner
-        //    borderPath.AddArc(l, b - c, c, c, 90, 90);
+                // right, bottom corner
+                borderPath.AddArc(r - c, b - c, c, c, 0, 90);
 
-        //    // This will automatically add the missing lines
-        //    borderPath.CloseAllFigures();
-        //    borderPath.Flatten();
-            
-        //    return borderPath;
-        //}
+                // left, bottom corner
+                borderPath.AddArc(l, b - c, c, c, 90, 90);
+
+                // This will automatically add the missing lines
+                borderPath.CloseAllFigures();
+                borderPath.Flatten();
+            }
+            else
+            {
+                borderPath.AddRectangle(rcSource);
+            }
+
+            return borderPath;
+        }
 
         public static void AddGridToBitmap(Bitmap bmp, int hLineCount, int vLineCount, Color gridColor)
         {

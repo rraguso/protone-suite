@@ -100,17 +100,33 @@ namespace OPMedia.UI.Controls
 
         void OPMCheckBox_Paint(object sender, PaintEventArgs e)
         {
-            Color cBack = Enabled ? Color.FromKnownColor(KnownColor.Window) : Color.FromKnownColor(KnownColor.Control);
-            Color cText = Enabled ? GetForeColor() : Color.FromKnownColor(KnownColor.ControlDark);
-            Color cb = Enabled ? ThemeManager.BorderColor : Color.FromKnownColor(KnownColor.ControlDark);
-
             ThemeManager.PrepareGraphics(e.Graphics);
+
+            int pw = 1;
+            Color c1 = Color.Empty, c2 = Color.Empty, cb = Color.Empty, cText = Color.Empty;
+
+            c1 = Enabled ? ThemeManager.GradientNormalColor1 : ThemeManager.BackColor;
+            cb = Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
+            cText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
 
             if (Enabled && (_isHovered || Focused))
             {
-                cb = ThemeManager.HighlightColor;
-                if (Focused)
-                    cText = ThemeManager.HighlightColor;
+                if (_isHovered && Focused)
+                {
+                    c1 = ThemeManager.GradientFocusHoverColor1;
+                    cb = ThemeManager.FocusBorderColor;
+                    pw = 2;
+                }
+                else if (Focused)
+                {
+                    c1 = ThemeManager.GradientFocusColor1;
+                    cb = ThemeManager.FocusBorderColor;
+                    pw = 2;
+                }
+                else
+                {
+                    c1 = ThemeManager.GradientHoverColor1;
+                }
             }
 
             Rectangle rcFill = new Rectangle(-1, 0, Width + 1, Height);
@@ -125,10 +141,10 @@ namespace OPMedia.UI.Controls
 
             // Get the size of the checkbox glyph (depending on OS settings this may vary)
             Size sz = CheckBoxRenderer.GetGlyphSize(e.Graphics, CheckBoxState.UncheckedNormal);
-            sz = new System.Drawing.Size(sz.Width - 2, sz.Height - 2);
+            sz = new System.Drawing.Size(sz.Width, sz.Height);
 
             Rectangle rcGlyph = new Rectangle(1, (Height - sz.Height) / 2,
-                sz.Width, sz.Height);
+                sz.Width - 2, sz.Height - 2);
             Rectangle rcCheck = new Rectangle(rcGlyph.Left + 2, rcGlyph.Top + 2,
                 rcGlyph.Width - 4, rcGlyph.Width - 4);
             Rectangle rcText = new Rectangle(rcGlyph.Right + 2, 0, Width - rcGlyph.Width - 2,
@@ -136,14 +152,14 @@ namespace OPMedia.UI.Controls
 
             int d = 2 * rcCheck.Width / 3;
 
-            using (Brush b = new SolidBrush(cBack))
-            using (Pen p = new Pen(cb))
+            using (Brush b = new SolidBrush(c1))
+            using (Pen p = new Pen(cb, pw))
             {
                 e.Graphics.FillRectangle(b, rcGlyph);
                 e.Graphics.DrawRectangle(p, rcGlyph);
             }
 
-            using (Brush b = new SolidBrush(cb))
+            using (Brush b = new SolidBrush(cText))
             using (Pen p = new Pen(b, 2))
             {
                 switch (CheckState)

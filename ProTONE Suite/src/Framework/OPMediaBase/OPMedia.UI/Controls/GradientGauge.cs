@@ -37,8 +37,8 @@ namespace OPMedia.UI.Controls
                 Color clStart1 = ControlPaint.Light(Color.Green, .2f);
                 Color clEnd1 = Color.LightCoral;
 
-                Color clStart2 = ThemeManager.GradientLTColor;
-                Color clEnd2 = ThemeManager.GradientLTColor;
+                Color clStart2 = ThemeManager.GradientNormalColor1;
+                Color clEnd2 = ThemeManager.GradientNormalColor1;
 
                 Brush b1H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
                     clStart1, clEnd1, 0f);

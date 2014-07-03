@@ -480,7 +480,7 @@ namespace OPMedia.Runtime.Addons
 
                     //button.Image = null;
                     button.Checked = true;
-                    //button.BackColor = Color.FromArgb(150, ThemeManager.GradientRBColor);
+                    //button.BackColor = Color.FromArgb(150, ThemeManager.GradientNormalColor2);
                     AppSettings.LastNavAddon = button.Name;
 
                     SetTitle(string.Format("{0} - {1}",

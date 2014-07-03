@@ -146,9 +146,6 @@
     <Compile Include="Controls\MultilineEditTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\OPMCheckedListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\OPMDoubleBufferControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -221,9 +218,6 @@
       <SubType>UserControl</SubType>
     </None>
     <Compile Include="Controls\GradientGauge.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\GradientLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\NetworkStatusIndicator.cs">
@@ -643,10 +637,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ControlGauge.resx">
       <DependentUpon>ControlGauge.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\GradientLabel.resx">
-      <DependentUpon>GradientLabel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NetworkStatusIndicator.resx">

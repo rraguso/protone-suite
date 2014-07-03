@@ -38,14 +38,23 @@ namespace OPMedia.UI.Themes
     public enum ColorMapElement
     {
         BorderColor = 0,
-        
-        GradientLTColor,
-        GradientRBColor,
-        GradientMColor,
         BackColor,
+        ForeColor,
+        
+        GradientNormalColor1,
+        GradientNormalColor2,
+        GradientHoverColor1,
+        GradientHoverColor2,
+        GradientFocusColor1,
+        GradientFocusColor2,
+        GradientFocusHoverColor1,
+        GradientFocusHoverColor2,
+
+        FocusBorderColor,
+
+
         ColorValidationFailed,
         WndValidColor,
-        ForeColor,
         SelectedColor,
         
         TransparentColor,
@@ -58,6 +67,8 @@ namespace OPMedia.UI.Themes
         CheckedMenuColor,
 
         SpecialListColor,
+
+        CornerSize,
 
         NofElements,
     }
@@ -115,15 +126,35 @@ namespace OPMedia.UI.Themes
 
         public static Color BorderColor
         { get { return ColorMap(ColorMapElement.BorderColor); } }
+       
+          
+        public static Color GradientNormalColor1
+        { get { return ColorMap(ColorMapElement.GradientNormalColor1); } }
+       
+        public static Color GradientNormalColor2
+        { get { return ColorMap(ColorMapElement.GradientNormalColor2); } }
+       
+        public static Color GradientHoverColor1
+        { get { return ColorMap(ColorMapElement.GradientHoverColor1); } }
+       
+        public static Color GradientHoverColor2
+        { get { return ColorMap(ColorMapElement.GradientHoverColor2); } }
+       
+        public static Color GradientFocusColor1
+        { get { return ColorMap(ColorMapElement.GradientFocusColor1); } }
+       
+        public static Color GradientFocusColor2
+        { get { return ColorMap(ColorMapElement.GradientFocusColor2); } }
 
-        public static Color GradientLTColor
-        { get { return ColorMap(ColorMapElement.GradientLTColor); } }
+        public static Color GradientFocusHoverColor1
+        { get { return ColorMap(ColorMapElement.GradientFocusHoverColor1); } }
 
-        public static Color GradientRBColor
-        { get { return ColorMap(ColorMapElement.GradientRBColor); } }
+        public static Color GradientFocusHoverColor2
+        { get { return ColorMap(ColorMapElement.GradientFocusHoverColor2); } }
 
-        public static Color GradientMColor
-        { get { return ColorMap(ColorMapElement.GradientMColor); } }
+        public static Color FocusBorderColor
+        { get { return ColorMap(ColorMapElement.FocusBorderColor); } }
+       
 
         public static Color WndValidColor
         { get { return ColorMap(ColorMapElement.WndValidColor); } }
@@ -146,6 +177,9 @@ namespace OPMedia.UI.Themes
         public static Color SpecialListColor
         { get { return ColorMap(ColorMapElement.SpecialListColor); } }
 
+        public static int CornerSize
+        { get { return ColorMap(ColorMapElement.CornerSize).R & 0x03; } }
+        
 
         public static Font SmallFont
         { get { return _smallFont; } }
@@ -280,7 +314,6 @@ namespace OPMedia.UI.Themes
             {
             }
         }
-
         #endregion
 
         #region Construction
@@ -348,63 +381,91 @@ namespace OPMedia.UI.Themes
         {
             //---------------------------------------------------------------------------------------
             ThemeEnum te = ThemeEnum.Blue;
-            ColorMap(ColorMapElement.ForeColor,         te, 030, 057, 091);
-            ColorMap(ColorMapElement.BackColor,         te, 200, 216, 235);
-            ColorMap(ColorMapElement.SelectedColor,     te, 169, 193, 222);
-            ColorMap(ColorMapElement.WndValidColor,     te, 240, 250, 255);
-            ColorMap(ColorMapElement.GradientLTColor,   te, 185, 206, 230);
-            ColorMap(ColorMapElement.GradientRBColor,   te, 145, 171, 201);
-            ColorMap(ColorMapElement.GradientMColor,    te, 179, 196, 216);
-            ColorMap(ColorMapElement.BorderColor,       te, 092, 119, 150);
-            ColorMap(ColorMapElement.HighlightColor,    te, 135, 110, 080);
-            ColorMap(ColorMapElement.WndTextColor,      te, 030, 057, 091);
+            ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
+            ColorMap(te, 140, 170, 215, ColorMapElement.BorderColor);
+            ColorMap(te, 030, 055, 090, ColorMapElement.ForeColor);
+            ColorMap(te, 205, 220, 240, ColorMapElement.BackColor);
+            ColorMap(te, 185, 205, 230, ColorMapElement.GradientNormalColor1);
+            ColorMap(te, 165, 185, 210, ColorMapElement.GradientNormalColor2);
+            ColorMap(te, 200, 220, 245, ColorMapElement.GradientHoverColor1);
+            ColorMap(te, 180, 200, 230, ColorMapElement.GradientHoverColor2);
+            ColorMap(te, 200, 220, 245, ColorMapElement.GradientFocusColor1);
+            ColorMap(te, 180, 200, 230, ColorMapElement.GradientFocusColor2);
+            ColorMap(te, 205, 225, 250, ColorMapElement.GradientFocusHoverColor1);
+            ColorMap(te, 185, 205, 235, ColorMapElement.GradientFocusHoverColor2);
+            ColorMap(te, 110, 140, 185, ColorMapElement.FocusBorderColor);
 
-            ColorMap(ColorMapElement.LinkColor,         te, 018, 097, 226);
-            ColorMap(ColorMapElement.CheckedMenuColor,  te, 255, 209, 024);
+            // Not yet validated
+            ColorMap(te, 169, 193, 222, ColorMapElement.SelectedColor);
+            ColorMap(te, 240, 250, 255, ColorMapElement.WndValidColor);
+            ColorMap(te, 010, 110, 080, ColorMapElement.HighlightColor);
+            ColorMap(te, 030, 057, 091, ColorMapElement.WndTextColor);
+            ColorMap(te, 018, 097, 226, ColorMapElement.LinkColor);
+            ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
 
-            ColorMap(ColorMapElement.SpecialListColor,  te, 205, 221, 240);            
+            // Maybe will be removed
+            ColorMap(te, 205, 225, 255, ColorMapElement.SpecialListColor);
+            
             //---------------------------------------------------------------------------------------
             
             //---------------------------------------------------------------------------------------
             te = ThemeEnum.Silver;
-            ColorMap(ColorMapElement.ForeColor,         te, 091, 091, 091);
-            ColorMap(ColorMapElement.BackColor,         te, 235, 235, 235);
-            ColorMap(ColorMapElement.SelectedColor,     te, 197, 197, 197);
-            ColorMap(ColorMapElement.WndValidColor,     te, 250, 250, 250);
-            ColorMap(ColorMapElement.GradientLTColor,   te, 220, 220, 220);
-            ColorMap(ColorMapElement.GradientRBColor,   te, 191, 191, 191);
-            ColorMap(ColorMapElement.GradientMColor,    te, 206, 206, 206);
-            ColorMap(ColorMapElement.BorderColor,       te, 150, 150, 150);
-            ColorMap(ColorMapElement.HighlightColor,    te, 175, 150, 120);
-            ColorMap(ColorMapElement.WndTextColor,      te, 091, 091, 091);
+            ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
+            ColorMap(te, 150, 150, 150, ColorMapElement.BorderColor);
+            ColorMap(te, 090, 090, 090, ColorMapElement.ForeColor);
+            ColorMap(te, 235, 235, 235, ColorMapElement.BackColor);
+            ColorMap(te, 220, 220, 220, ColorMapElement.GradientNormalColor1);
+            ColorMap(te, 190, 190, 190, ColorMapElement.GradientNormalColor2);
+            ColorMap(te, 235, 235, 235, ColorMapElement.GradientHoverColor1);
+            ColorMap(te, 215, 215, 215, ColorMapElement.GradientHoverColor2);
+            ColorMap(te, 235, 235, 235, ColorMapElement.GradientFocusColor1);
+            ColorMap(te, 215, 215, 215, ColorMapElement.GradientFocusColor2);
+            ColorMap(te, 240, 240, 240, ColorMapElement.GradientFocusHoverColor1);
+            ColorMap(te, 220, 220, 220, ColorMapElement.GradientFocusHoverColor2);
+            ColorMap(te, 120, 120, 120, ColorMapElement.FocusBorderColor);
 
-            ColorMap(ColorMapElement.LinkColor,         te, 018, 097, 225);
-            ColorMap(ColorMapElement.CheckedMenuColor,  te, 255, 209, 024);
+            // Not yet validated
+            ColorMap(te, 197, 197, 197, ColorMapElement.SelectedColor);
+            ColorMap(te, 250, 250, 250, ColorMapElement.WndValidColor);
+            ColorMap(te, 175, 150, 120, ColorMapElement.HighlightColor);
+            ColorMap(te, 091, 091, 091, ColorMapElement.WndTextColor);
+            ColorMap(te, 018, 097, 225, ColorMapElement.LinkColor);
+            ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
 
-            ColorMap(ColorMapElement.SpecialListColor,  te, 240, 240, 240);
+            // Maybe will be removed
+            ColorMap(te, 245, 245, 245, ColorMapElement.SpecialListColor);
             //---------------------------------------------------------------------------------------
-
+            
             //---------------------------------------------------------------------------------------
             te = ThemeEnum.Black;
-            ColorMap(ColorMapElement.ForeColor,         te, 240, 240, 240);
-            ColorMap(ColorMapElement.BackColor,         te, 120, 120, 120);
-            ColorMap(ColorMapElement.SelectedColor,     te, 059, 059, 059);
-            ColorMap(ColorMapElement.WndValidColor,     te, 200, 200, 200);
-            ColorMap(ColorMapElement.GradientLTColor,   te, 106, 106, 106);
-            ColorMap(ColorMapElement.GradientRBColor,   te, 075, 075, 075);
-            ColorMap(ColorMapElement.GradientMColor,    te, 092, 092, 092);
-            ColorMap(ColorMapElement.BorderColor,       te, 036, 036, 036);
-            ColorMap(ColorMapElement.HighlightColor,    te, 200, 170, 150);
-            ColorMap(ColorMapElement.WndTextColor,      te, 036, 036, 036);
+            ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
+            ColorMap(te, 035, 035, 035, ColorMapElement.BorderColor);
+            ColorMap(te, 240, 240, 240, ColorMapElement.ForeColor);
+            ColorMap(te, 120, 120, 120, ColorMapElement.BackColor);
+            ColorMap(te, 100, 100, 100, ColorMapElement.GradientNormalColor1);
+            ColorMap(te, 080, 080, 080, ColorMapElement.GradientNormalColor2);
+            ColorMap(te, 115, 115, 115, ColorMapElement.GradientHoverColor1);
+            ColorMap(te, 092, 092, 095, ColorMapElement.GradientHoverColor2);
+            ColorMap(te, 115, 115, 115, ColorMapElement.GradientFocusColor1);
+            ColorMap(te, 092, 092, 095, ColorMapElement.GradientFocusColor2);
+            ColorMap(te, 120, 120, 120, ColorMapElement.GradientFocusHoverColor1);
+            ColorMap(te, 100, 100, 100, ColorMapElement.GradientFocusHoverColor2);
+            ColorMap(te, 065, 065, 065, ColorMapElement.FocusBorderColor);
 
-            ColorMap(ColorMapElement.LinkColor,         te, 114, 211, 255);
-            ColorMap(ColorMapElement.CheckedMenuColor,  te, 255, 209, 024);
+            // Not yet validated
+            ColorMap(te, 059, 059, 059, ColorMapElement.SelectedColor);
+            ColorMap(te, 200, 200, 200, ColorMapElement.WndValidColor);
+            ColorMap(te, 200, 170, 150, ColorMapElement.HighlightColor);
+            ColorMap(te, 036, 036, 036, ColorMapElement.WndTextColor);
+            ColorMap(te, 114, 211, 255, ColorMapElement.LinkColor);
+            ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
 
-            ColorMap(ColorMapElement.SpecialListColor,  te, 125, 125, 125);
+            // Maybe will be removed
+            ColorMap(te, 125, 125, 125, ColorMapElement.SpecialListColor);
             //---------------------------------------------------------------------------------------
         }
 
-        private static void ColorMap(ColorMapElement cme, ThemeEnum te, int r, int g, int b)
+        private static void ColorMap(ThemeEnum te, int r, int g, int b, ColorMapElement cme)
         {
             try
             {
