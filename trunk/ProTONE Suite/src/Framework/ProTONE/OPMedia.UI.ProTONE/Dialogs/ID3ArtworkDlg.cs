@@ -62,7 +62,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
             _tip.SetToolTip(pbAdd, Translator.Translate("TXT_ADD"));
             _tip.SetToolTip(pbDelete, Translator.Translate("TXT_DELETE"));
 
-            lblSep.OverrideBackColor = ThemeManager.GradientLTColor;
+            lblSep.OverrideBackColor = ThemeManager.GradientNormalColor1;
 
             _ilDummy = new ImageList();
             _ilDummy.ImageSize = new System.Drawing.Size(50, 50);

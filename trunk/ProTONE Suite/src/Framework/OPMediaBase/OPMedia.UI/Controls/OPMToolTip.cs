@@ -227,7 +227,7 @@ namespace OPMedia.UI.Controls
                 //e.DrawBorder(); 
                 
                 using (LinearGradientBrush b = new LinearGradientBrush(e.Bounds,
-                    ThemeManager.GradientLTColor, ThemeManager.GradientMColor, 90))
+                    ThemeManager.GradientHoverColor1, ThemeManager.GradientHoverColor2, 90))
                 {
                     e.Graphics.FillRectangle(b, e.Bounds);
                 }

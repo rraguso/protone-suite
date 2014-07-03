@@ -228,8 +228,8 @@ namespace OPMedia.UI.Controls
                 ThemeManager.PrepareGraphics(g);
 
                 Rectangle rcMinor, rcMajor, rcDot = Rectangle.Empty;
-                Color c1 = ThemeManager.GradientLTColor;
-                Color c2 = ThemeManager.GradientRBColor;
+                Color c1 = ThemeManager.GradientNormalColor1;
+                Color c2 = ThemeManager.GradientNormalColor2;
                 float a;
 
                 if (_vert)

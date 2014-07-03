@@ -41,7 +41,7 @@ namespace OPMedia.UI.Controls
 
             int ddw = DropDownButtonWidth;
 
-            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientLTColor, ThemeManager.WndTextColor, 90f))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientNormalColor1, ThemeManager.WndTextColor, 90f))
             {
                 using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
@@ -174,7 +174,7 @@ namespace OPMedia.UI.Controls
             float angle = VerticalGradient ? 90f : 0f;
 
             using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
-                ThemeManager.BackColor, ThemeManager.GradientRBColor, angle))
+                ThemeManager.BackColor, ThemeManager.GradientNormalColor2, angle))
             {
                 e.Graphics.FillRectangle(br, ClientRectangle);
             }
@@ -323,7 +323,7 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Width + 2,
                 ContentRectangle.Height + 4);
 
-            using (Brush bSelect = new LinearGradientBrush(clientRectangle, ThemeManager.GradientLTColor, ThemeManager.WndTextColor, 90f))
+            using (Brush bSelect = new LinearGradientBrush(clientRectangle, ThemeManager.GradientNormalColor1, ThemeManager.WndTextColor, 90f))
             {
                 using (Brush bHighlight = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.HighlightColor, 90f))
                 using (Pen p2 = new Pen(ThemeManager.BorderColor))
@@ -440,7 +440,7 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Height + 4);
 
             //using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
-            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientLTColor, ThemeManager.WndTextColor, 90f))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientNormalColor1, ThemeManager.WndTextColor, 90f))
             {
                 using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
@@ -626,7 +626,7 @@ namespace OPMedia.UI.Controls
             float angle = VerticalGradient ? 90f : 0f;
 
             using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
-                ThemeManager.BackColor, ThemeManager.GradientLTColor, angle))
+                ThemeManager.BackColor, ThemeManager.GradientNormalColor1, angle))
             {
                 e.Graphics.FillRectangle(br, ClientRectangle);
             }
@@ -671,7 +671,7 @@ namespace OPMedia.UI.Controls
         //    float angle = VerticalGradient ? 90f : 0f;
 
         //    using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
-        //        ThemeManager.BackColor, ThemeManager.GradientLTColor, angle))
+        //        ThemeManager.BackColor, ThemeManager.GradientNormalColor1, angle))
         //    {
         //        e.Graphics.FillRectangle(br, ClientRectangle);
         //    }

@@ -396,7 +396,7 @@ namespace OPMedia.UI.Controls
             Rectangle rcHeader = 
                 (rcFull == Rectangle.Empty) ? e.Bounds : rcFull;
 
-            using (Brush b = new LinearGradientBrush(e.Bounds, ThemeManager.GradientLTColor, ThemeManager.GradientRBColor, 90f))
+            using (Brush b = new LinearGradientBrush(e.Bounds, ThemeManager.GradientNormalColor1, ThemeManager.GradientNormalColor2, 90f))
             using (Brush bText = new SolidBrush(ThemeManager.ForeColor))
             using (Pen p = new Pen(ThemeManager.BorderColor, 1))
             {
@@ -582,7 +582,7 @@ namespace OPMedia.UI.Controls
 
                         if (isSelected)
                         {
-                            bColor = ThemeManager.GradientRBColor;
+                            bColor = ThemeManager.GradientNormalColor2;
                             fColor = ThemeManager.WndValidColor;
                         }
                     }
