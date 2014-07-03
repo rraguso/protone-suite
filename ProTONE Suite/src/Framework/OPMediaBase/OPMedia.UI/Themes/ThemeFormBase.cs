@@ -50,8 +50,6 @@ namespace OPMedia.UI.Themes
         public const int IconOffset = 4;
         public static readonly Font CaptionButtonFont = new Font("Webdings", 10, FontStyle.Bold);
 
-        protected const int BorderWidth = 4;
-
         const int HTLEFT           = 10;
         const int HTRIGHT          = 11;
         const int HTTOP            = 12;
@@ -693,8 +691,8 @@ namespace OPMedia.UI.Themes
         private void PaintToBuffer(Graphics g)
         {
             Rectangle rc = ClientRectangle;
-            rc.Width -= 1;
-            rc.Height -= 1;
+            rc.Width -= ThemeManager.FormBorderWidth - 1;
+            rc.Height -= ThemeManager.FormBorderWidth - 1;
 
             if (_rcTitleBar != Rectangle.Empty)
             {
@@ -705,13 +703,12 @@ namespace OPMedia.UI.Themes
                     g.FillRectangle(_brTitlebar, _rcTitleBar);
                 }
 
-                g.DrawRectangle(_penBorder, rc);
-
                 if (_rcTitleBar != Rectangle.Empty)
                 {
                     DrawTitleBar(g);
                 }
 
+                g.DrawRectangle(_penBorder, rc);
                 g.Flush();
             }
             else
@@ -774,13 +771,10 @@ namespace OPMedia.UI.Themes
 
         private void DrawButton(Graphics g, ButtonIcons index, Rectangle rc)
         {
-            Color cl1 = ThemeManager.BackColor;
-            Color cl2 = ThemeManager.BorderColor;
+            Color cl1 = ThemeManager.CaptionButtonColor1;
+            Color cl2 = ThemeManager.CaptionButtonColor2;
             Color clPen = ThemeManager.BorderColor;
             Color clText = ThemeManager.ForeColor;
-
-            Color cl1Red = Color.FromArgb(210, 150, 160);
-            Color cl2Red = Color.FromArgb(170, 30, 10);
 
             float percLight = 0.4f;
             string letter = "";
@@ -823,14 +817,14 @@ namespace OPMedia.UI.Themes
 
                 case ButtonIcons.Close:
                     letter = "r";
-                    cl1 = cl1Red;
-                    cl2 = cl2Red;
+                    cl1 = ThemeManager.CaptionButtonRedColor1;
+                    cl2 = ThemeManager.CaptionButtonRedColor2;
                     break;
                 
                 case ButtonIcons.CloseHovered:
                     letter = "r";
-                    cl1 = ControlPaint.Light(cl1Red, percLight);
-                    cl2 = ControlPaint.Light(cl2Red, percLight);
+                    cl1 = ControlPaint.Light(ThemeManager.CaptionButtonRedColor1, percLight);
+                    cl2 = ControlPaint.Light(ThemeManager.CaptionButtonRedColor2, percLight);
                     clText = ThemeManager.WndTextColor;
                     break;
             }
@@ -845,13 +839,13 @@ namespace OPMedia.UI.Themes
                 rcBorder.Top + (rcBorder.Height - szText.Height) / 2 - 2,
                 szText.Width, szText.Height);
 
-            using (Pen p = new Pen(_penBorder.Color, 1))
+            using (Pen p = new Pen(ThemeManager.BorderColor, 1))
             using (Brush bt = new SolidBrush(clText))
             using (Brush br = new LinearGradientBrush(rc, cl1, cl2, 90f))
             {
                 g.FillRectangle(br, rcBorder);
                 g.DrawString(letter, CaptionButtonFont, bt, rcText);
-                //g.DrawRectangle(p, rcBorder);
+                g.DrawRectangle(p, rcBorder);
             }
 
 
@@ -870,18 +864,22 @@ namespace OPMedia.UI.Themes
             _rmLB.Location = new Point(0, Height - _rmLB.Height);
             _rmLT.Location = new Point(0, 0);
 
-            _rcTitleBar = (TitleBarVisible) ? new Rectangle(0, 0, Width, CaptionButtonSize.Height + 1) : Rectangle.Empty;
+            _rcTitleBar = (TitleBarVisible) ? new Rectangle(
+                ClientRectangle.Left - ThemeManager.FormBorderWidth,
+                ClientRectangle.Top - ThemeManager.FormBorderWidth,
+                ClientRectangle.Width - 2 * ThemeManager.FormBorderWidth,
+                CaptionButtonSize.Height + ThemeManager.FormBorderWidth/2) : Rectangle.Empty;
 
-            Rectangle rcRegion = new Rectangle(-1, -1, Width + 2, Height + 2);
+            //Rectangle rcRegion = new Rectangle(-1, -1, Width + 2, Height + 2);
 
-            if (FormWindowState.Maximized != WindowState)
-            {
-                base.Region = new Region(rcRegion);
-            }
-            else
-            {
-                base.Region = null;
-            }
+            //if (FormWindowState.Maximized != WindowState)
+            //{
+            //    base.Region = new Region(rcRegion);
+            //}
+            //else
+            //{
+            //    base.Region = null;
+            //}
 
             ApplyDrawingValues();
             ApplyTitlebarValues();
@@ -911,14 +909,17 @@ namespace OPMedia.UI.Themes
                 if (IsActive)
                 {
                     _brTitlebar = new LinearGradientBrush(_rcTitleBar,
-                        ThemeManager.GradientNormalColor1, 
-                        ThemeManager.GradientNormalColor2, 90f);
+                        ThemeManager.CaptionBarColor1,
+                        ThemeManager.CaptionBarColor2, 90f);
+
+                    
+
                 }
                 else
                 {
                     _brTitlebar = new LinearGradientBrush(_rcTitleBar,
-                        ControlPaint.Light(ThemeManager.GradientNormalColor1, inactiveLightPercent),
-                        ControlPaint.Light(ThemeManager.GradientNormalColor2, inactiveLightPercent), 
+                        ControlPaint.Light(ThemeManager.CaptionBarColor1, inactiveLightPercent),
+                        ControlPaint.Light(ThemeManager.CaptionBarColor2, inactiveLightPercent), 
                         90f);
                 }
             }
@@ -929,12 +930,12 @@ namespace OPMedia.UI.Themes
             if (IsActive)
             {
                 _penBorder = new Pen(
-                     ControlPaint.Light(ThemeManager.BorderColor, activeLightPercent), BorderWidth);
+                     ControlPaint.Light(ThemeManager.BorderColor, activeLightPercent), ThemeManager.FormBorderWidth);
             }
             else
             {
                 _penBorder = new Pen(
-                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), BorderWidth);
+                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), ThemeManager.FormBorderWidth);
             }
         }
 
@@ -960,7 +961,7 @@ namespace OPMedia.UI.Themes
 
             if ((FormButtons & FormButtons.Close) == FormButtons.Close)
             {
-                _btnCloseLeft = Width - CaptionButtonSize.Width - BorderWidth;
+                _btnCloseLeft = Width - CaptionButtonSize.Width - ThemeManager.FormBorderWidth;
             }
             if ((FormButtons & FormButtons.Maximize) == FormButtons.Maximize)
             {
@@ -994,16 +995,19 @@ namespace OPMedia.UI.Themes
             _titleWidth = start - IconOffset - _titleLeft;
 
             _rcIcon = (_iconLeft > 0) ?
-                new Rectangle(_iconLeft, (CaptionButtonSize.Height + IconOffset - 16) / 2, 16, 16) : Rectangle.Empty;
+                new Rectangle(_iconLeft, (CaptionButtonSize.Height + IconOffset - 16) / 2 - ThemeManager.FormBorderWidth, 16, 16) : Rectangle.Empty;
             _rcTitle = (_titleLeft > 0) ?
                 new Rectangle(_titleLeft, 0, _titleWidth, CaptionButtonSize.Height) : Rectangle.Empty;
             
             _rcMinimize = (_btnMinimizeLeft > 0) ?
-                new Rectangle(_btnMinimizeLeft, BorderWidth / 2, CaptionButtonSize.Width, CaptionButtonSize.Height - BorderWidth + 1) : Rectangle.Empty;
+                new Rectangle(_btnMinimizeLeft, 0,
+                    CaptionButtonSize.Width, CaptionButtonSize.Height - ThemeManager.FormBorderWidth) : Rectangle.Empty;
             _rcMaximize = (_btnMaximizeLeft > 0) ?
-                new Rectangle(_btnMaximizeLeft, BorderWidth / 2, CaptionButtonSize.Width, CaptionButtonSize.Height - BorderWidth + 1) : Rectangle.Empty;
+                new Rectangle(_btnMaximizeLeft, 0,
+                    CaptionButtonSize.Width, CaptionButtonSize.Height - ThemeManager.FormBorderWidth) : Rectangle.Empty;
             _rcClose = (_btnCloseLeft > 0) ?
-                new Rectangle(_btnCloseLeft, BorderWidth / 2, CaptionButtonSize.Width, CaptionButtonSize.Height - BorderWidth + 1) : Rectangle.Empty;
+                new Rectangle(_btnCloseLeft, 0,
+                    CaptionButtonSize.Width, CaptionButtonSize.Height - ThemeManager.FormBorderWidth) : Rectangle.Empty;
         }
 
         #endregion

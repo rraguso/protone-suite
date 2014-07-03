@@ -55,21 +55,14 @@ namespace OPMedia.UI.Themes
         public ContentPanel()
             : base()
         {
-            base.BackColor = ThemeManager.BackColor;
-            EventDispatch.RegisterHandler(this);
-            base.HandleDestroyed += new EventHandler(OPMTableLayoutPanel_HandleDestroyed);
         }
 
-        void OPMTableLayoutPanel_HandleDestroyed(object sender, EventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
-            EventDispatch.UnregisterHandler(this);
         }
 
-        [EventSink(EventNames.ThemeUpdated)]
-        public void OnThemeUpdated()
+        protected override void OnPaintBackground(PaintEventArgs e)
         {
-            base.BackColor = ThemeManager.BackColor;
-            Invalidate(true);
         }
     }
 }

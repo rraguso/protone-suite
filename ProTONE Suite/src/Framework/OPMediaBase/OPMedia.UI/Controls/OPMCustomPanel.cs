@@ -41,7 +41,7 @@ namespace OPMedia.UI.Controls
             if (HasBorder)
             {
                 Color cb =
-                    Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
+                    Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
 
                 if (Highlight)
                 {

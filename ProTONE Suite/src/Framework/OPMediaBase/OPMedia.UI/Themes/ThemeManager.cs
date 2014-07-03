@@ -40,7 +40,6 @@ namespace OPMedia.UI.Themes
         BorderColor = 0,
         BackColor,
         ForeColor,
-        
         GradientNormalColor1,
         GradientNormalColor2,
         GradientHoverColor1,
@@ -49,9 +48,15 @@ namespace OPMedia.UI.Themes
         GradientFocusColor2,
         GradientFocusHoverColor1,
         GradientFocusHoverColor2,
-
         FocusBorderColor,
 
+        CaptionBarColor1,
+        CaptionBarColor2,
+
+        CaptionButtonColor1,
+        CaptionButtonColor2,
+        CaptionButtonRedColor1,
+        CaptionButtonRedColor2,
 
         ColorValidationFailed,
         WndValidColor,
@@ -66,9 +71,8 @@ namespace OPMedia.UI.Themes
         LinkColor,
         CheckedMenuColor,
 
-        SpecialListColor,
-
         CornerSize,
+        FormBorderWidth,
 
         NofElements,
     }
@@ -174,12 +178,31 @@ namespace OPMedia.UI.Themes
         public static Color CheckedMenuColor
         { get { return ColorMap(ColorMapElement.CheckedMenuColor); } }
 
-        public static Color SpecialListColor
-        { get { return ColorMap(ColorMapElement.SpecialListColor); } }
-
         public static int CornerSize
-        { get { return ColorMap(ColorMapElement.CornerSize).R & 0x03; } }
+        { get { return ColorMap(ColorMapElement.CornerSize).R & 0x07; } }
+
+        public static int FormBorderWidth
+        { get { return ColorMap(ColorMapElement.FormBorderWidth).R & 0x07; } }
         
+        public static Color CaptionBarColor1
+        { get { return ColorMap(ColorMapElement.CaptionBarColor1); } }
+
+        public static Color CaptionBarColor2
+        { get { return ColorMap(ColorMapElement.CaptionBarColor2); } }
+
+        public static Color CaptionButtonColor1
+        { get { return ColorMap(ColorMapElement.CaptionButtonColor1); } }
+
+        public static Color CaptionButtonColor2
+        { get { return ColorMap(ColorMapElement.CaptionButtonColor2); } }
+
+
+        public static Color CaptionButtonRedColor1
+        { get { return ColorMap(ColorMapElement.CaptionButtonRedColor1); } }
+
+        public static Color CaptionButtonRedColor2
+        { get { return ColorMap(ColorMapElement.CaptionButtonRedColor2); } }
+
 
         public static Font SmallFont
         { get { return _smallFont; } }
@@ -380,9 +403,44 @@ namespace OPMedia.UI.Themes
         private static void InitColorMap()
         {
             //---------------------------------------------------------------------------------------
-            ThemeEnum te = ThemeEnum.Blue;
+            ThemeEnum te = ThemeEnum.Metro;
+            ColorMap(te, 000, 000, 000, ColorMapElement.CornerSize);
+            ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
+
+            ColorMap(te, 010, 010, 010, ColorMapElement.BorderColor);
+            ColorMap(te, 000, 000, 000, ColorMapElement.ForeColor);
+            ColorMap(te, 252, 252, 252, ColorMapElement.BackColor);
+            ColorMap(te, 224, 227, 206, ColorMapElement.GradientNormalColor1);
+            ColorMap(te, 224, 227, 206, ColorMapElement.GradientNormalColor2);
+            ColorMap(te, 104, 211, 231, ColorMapElement.GradientHoverColor1);
+            ColorMap(te, 104, 211, 231, ColorMapElement.GradientHoverColor2);
+            ColorMap(te, 224, 227, 206, ColorMapElement.GradientFocusColor1);
+            ColorMap(te, 224, 227, 206, ColorMapElement.GradientFocusColor2);
+            ColorMap(te, 109, 216, 236, ColorMapElement.GradientFocusHoverColor1);
+            ColorMap(te, 109, 216, 236, ColorMapElement.GradientFocusHoverColor2);
+            ColorMap(te, 104, 211, 231, ColorMapElement.FocusBorderColor);
+
+            ColorMap(te, 200, 200, 200, ColorMapElement.CaptionBarColor1);
+            ColorMap(te, 200, 200, 200, ColorMapElement.CaptionBarColor2);
+            ColorMap(te, 224, 227, 206, ColorMapElement.CaptionButtonColor1);
+            ColorMap(te, 224, 227, 206, ColorMapElement.CaptionButtonColor2);
+            ColorMap(te, 225, 100, 100, ColorMapElement.CaptionButtonRedColor1);
+            ColorMap(te, 225, 100, 100, ColorMapElement.CaptionButtonRedColor2);
+
+            // Not yet validated
+            ColorMap(te, 104, 211, 231, ColorMapElement.SelectedColor);
+            ColorMap(te, 255, 255, 255, ColorMapElement.WndValidColor);
+            ColorMap(te, 010, 110, 080, ColorMapElement.HighlightColor);
+            ColorMap(te, 000, 000, 000, ColorMapElement.WndTextColor);
+            ColorMap(te, 084, 186, 201, ColorMapElement.LinkColor);
+            ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
+            //---------------------------------------------------------------------------------------
+
+            //---------------------------------------------------------------------------------------
+            te = ThemeEnum.Blue;
             ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
-            ColorMap(te, 140, 170, 215, ColorMapElement.BorderColor);
+            ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
+            ColorMap(te, 070, 085, 110, ColorMapElement.BorderColor);
             ColorMap(te, 030, 055, 090, ColorMapElement.ForeColor);
             ColorMap(te, 205, 220, 240, ColorMapElement.BackColor);
             ColorMap(te, 185, 205, 230, ColorMapElement.GradientNormalColor1);
@@ -393,7 +451,14 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 180, 200, 230, ColorMapElement.GradientFocusColor2);
             ColorMap(te, 205, 225, 250, ColorMapElement.GradientFocusHoverColor1);
             ColorMap(te, 185, 205, 235, ColorMapElement.GradientFocusHoverColor2);
-            ColorMap(te, 110, 140, 185, ColorMapElement.FocusBorderColor);
+            ColorMap(te, 040, 055, 080, ColorMapElement.FocusBorderColor);
+
+            ColorMap(te, 185, 205, 230, ColorMapElement.CaptionBarColor1);
+            ColorMap(te, 165, 185, 210, ColorMapElement.CaptionBarColor2);
+            ColorMap(te, 205, 220, 240, ColorMapElement.CaptionButtonColor1);
+            ColorMap(te, 140, 170, 215, ColorMapElement.CaptionButtonColor2);
+            ColorMap(te, 220, 160, 160, ColorMapElement.CaptionButtonRedColor1);
+            ColorMap(te, 230, 050, 020, ColorMapElement.CaptionButtonRedColor2);
 
             // Not yet validated
             ColorMap(te, 169, 193, 222, ColorMapElement.SelectedColor);
@@ -402,16 +467,13 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 030, 057, 091, ColorMapElement.WndTextColor);
             ColorMap(te, 018, 097, 226, ColorMapElement.LinkColor);
             ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
-
-            // Maybe will be removed
-            ColorMap(te, 205, 225, 255, ColorMapElement.SpecialListColor);
-            
             //---------------------------------------------------------------------------------------
             
             //---------------------------------------------------------------------------------------
             te = ThemeEnum.Silver;
             ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
-            ColorMap(te, 150, 150, 150, ColorMapElement.BorderColor);
+            ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
+            ColorMap(te, 075, 075, 075, ColorMapElement.BorderColor);
             ColorMap(te, 090, 090, 090, ColorMapElement.ForeColor);
             ColorMap(te, 235, 235, 235, ColorMapElement.BackColor);
             ColorMap(te, 220, 220, 220, ColorMapElement.GradientNormalColor1);
@@ -422,7 +484,15 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 215, 215, 215, ColorMapElement.GradientFocusColor2);
             ColorMap(te, 240, 240, 240, ColorMapElement.GradientFocusHoverColor1);
             ColorMap(te, 220, 220, 220, ColorMapElement.GradientFocusHoverColor2);
-            ColorMap(te, 120, 120, 120, ColorMapElement.FocusBorderColor);
+            ColorMap(te, 045, 045, 045, ColorMapElement.FocusBorderColor);
+
+            ColorMap(te, 220, 220, 220, ColorMapElement.CaptionBarColor1);
+            ColorMap(te, 190, 190, 190, ColorMapElement.CaptionBarColor2);
+            ColorMap(te, 235, 235, 235, ColorMapElement.CaptionButtonColor1);
+            ColorMap(te, 150, 150, 150, ColorMapElement.CaptionButtonColor2);
+            ColorMap(te, 220, 160, 160, ColorMapElement.CaptionButtonRedColor1);
+            ColorMap(te, 230, 050, 020, ColorMapElement.CaptionButtonRedColor2);
+
 
             // Not yet validated
             ColorMap(te, 197, 197, 197, ColorMapElement.SelectedColor);
@@ -431,14 +501,12 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 091, 091, 091, ColorMapElement.WndTextColor);
             ColorMap(te, 018, 097, 225, ColorMapElement.LinkColor);
             ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
-
-            // Maybe will be removed
-            ColorMap(te, 245, 245, 245, ColorMapElement.SpecialListColor);
             //---------------------------------------------------------------------------------------
             
             //---------------------------------------------------------------------------------------
             te = ThemeEnum.Black;
             ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
+            ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
             ColorMap(te, 035, 035, 035, ColorMapElement.BorderColor);
             ColorMap(te, 240, 240, 240, ColorMapElement.ForeColor);
             ColorMap(te, 120, 120, 120, ColorMapElement.BackColor);
@@ -452,6 +520,13 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 100, 100, 100, ColorMapElement.GradientFocusHoverColor2);
             ColorMap(te, 065, 065, 065, ColorMapElement.FocusBorderColor);
 
+            ColorMap(te, 100, 100, 100, ColorMapElement.CaptionBarColor1);
+            ColorMap(te, 035, 035, 035, ColorMapElement.CaptionBarColor2);
+            ColorMap(te, 120, 120, 120, ColorMapElement.CaptionButtonColor1);
+            ColorMap(te, 080, 080, 080, ColorMapElement.CaptionButtonColor2);
+            ColorMap(te, 220, 160, 160, ColorMapElement.CaptionButtonRedColor1);
+            ColorMap(te, 230, 050, 020, ColorMapElement.CaptionButtonRedColor2);
+
             // Not yet validated
             ColorMap(te, 059, 059, 059, ColorMapElement.SelectedColor);
             ColorMap(te, 200, 200, 200, ColorMapElement.WndValidColor);
@@ -459,9 +534,6 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 036, 036, 036, ColorMapElement.WndTextColor);
             ColorMap(te, 114, 211, 255, ColorMapElement.LinkColor);
             ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
-
-            // Maybe will be removed
-            ColorMap(te, 125, 125, 125, ColorMapElement.SpecialListColor);
             //---------------------------------------------------------------------------------------
         }
 

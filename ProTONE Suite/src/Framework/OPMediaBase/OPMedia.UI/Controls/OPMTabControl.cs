@@ -6,6 +6,7 @@ using OPMedia.UI.Themes;
 using System.ComponentModel;
 using OPMedia.Core.TranslationSupport;
 using System.Drawing.Text;
+using OPMedia.UI.Generic;
 
 namespace OPMedia.UI.Controls
 {
@@ -108,22 +109,30 @@ namespace OPMedia.UI.Controls
                 ClientRectangle.Top + ItemSize.Height + 2,
                 ClientRectangle.Width - 2, 
                 ClientRectangle.Height - ItemSize.Height - 4);
-            Rectangle rcx2 = new Rectangle(rcx.Location, rcx.Size);
-            rcx2.Inflate(-1, -1);
 
             using (Pen p = new Pen(ThemeManager.BorderColor))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcx, ThemeManager.CornerSize))
             {
-                e.Graphics.DrawRectangle(p, rcx);
+                //e.Graphics.DrawRectangle(p, rcx);
+                e.Graphics.DrawPath(p, path);
             }
 
-            for (int i = 0; i < base.TabPages.Count; i++)
-            {
-                PaintTabPageHeader(i, e.Graphics);
-            }
+            //for (int i = 0; i < base.TabPages.Count; i++)
+            //{
+            //    PaintTabPageHeader(i, e.Graphics);
+            //}
         }
 
         private void PaintTabPageHeader(int i, Graphics graphics)
         {
+            int pw = 1;
+            Color c1 = Color.Empty, c2 = Color.Empty, cb = Color.Empty, cText = Color.Empty;
+
+            c1 = Enabled ? ThemeManager.GradientNormalColor1 : ThemeManager.BackColor;
+            c2 = Enabled ? ThemeManager.GradientNormalColor2 : ThemeManager.BackColor;
+            cb = Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
+            cText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
+
             TabPage tp = TabPages[i];
 
             Rectangle rcDraw = base.GetTabRect(i);
@@ -143,17 +152,21 @@ namespace OPMedia.UI.Controls
                 rcDraw.Width - 2,
                 rcDraw.Height);
 
-            using (Brush b = new LinearGradientBrush(rcx, ThemeManager.BackColor, ThemeManager.BorderColor, 90))
-            using (Pen p = new Pen(ThemeManager.BorderColor))
+            using (Brush b = new LinearGradientBrush(rcx, c1, c2, 90))
+            using (Pen p = new Pen(cb))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcx, ThemeManager.CornerSize))
             {
-                graphics.FillRectangle(b, rcx);
-                graphics.DrawRectangle(p, rcx);
+                //graphics.FillRectangle(b, rcx);
+                //graphics.DrawRectangle(p, rcx);
+                graphics.FillPath(b, path);
+                graphics.DrawPath(p, path);
             }
 
             if (selected)
             {
                 using (Brush b = new SolidBrush(ThemeManager.BackColor))
                 {
+                    rcx2.Width += 1;
                     graphics.FillRectangle(b, rcx2);
                 }
             }
@@ -164,8 +177,8 @@ namespace OPMedia.UI.Controls
                 Point p3 = new Point(rcDraw.Right - 2, rcDraw.Top + 2);
                 Point p4 = new Point(rcDraw.Right - 2, rcDraw.Bottom - 2);
                 
-                using (Pen pen1 = new Pen(ThemeManager.ForeColor))
-                using (Pen pen2 = new Pen(ThemeManager.WndValidColor))
+                using (Pen pen1 = new Pen(cText))
+                using (Pen pen2 = new Pen(cb))
                 {
                     graphics.DrawLine(pen1, p1, p2);
                     graphics.DrawLine(pen2, p3, p4);
@@ -232,7 +245,7 @@ namespace OPMedia.UI.Controls
                     break;
             }
 
-            using (Brush tb = new SolidBrush(ThemeManager.ForeColor))
+            using (Brush tb = new SolidBrush(cText))
             {
                 if (selected)
                 {

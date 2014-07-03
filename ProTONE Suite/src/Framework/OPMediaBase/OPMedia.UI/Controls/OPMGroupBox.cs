@@ -94,8 +94,11 @@ namespace OPMedia.UI.Controls
             int offsetX = 8;
             int offsetY = 1 + textSize.Height / 2;
 
+            Color cb = Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
+            Color cText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
+
             // Careful not to give a "strikethrough" effect on the text.
-            using (Pen pen = new Pen(ThemeManager.ForeColor))
+            using (Pen pen = new Pen(cb))
             {
                 e.Graphics.DrawLine(pen, 0, offsetY, 0, base.Height - 2);
                 e.Graphics.DrawLine(pen, 0, base.Height - 2, base.Width - 2, base.Height - 2);
@@ -105,7 +108,7 @@ namespace OPMedia.UI.Controls
             }
 
             // Draw the text
-            using (Brush b = new SolidBrush(ThemeManager.ForeColor))
+            using (Brush b = new SolidBrush(cText))
             {
                 e.Graphics.DrawString(realText, Font, b, offsetX + 4, 0);
             }

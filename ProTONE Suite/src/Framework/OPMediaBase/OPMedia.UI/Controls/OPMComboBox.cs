@@ -270,8 +270,8 @@ namespace OPMedia.UI.Controls
             int pw = 1;
             Color c1 = Color.Empty, c2 = Color.Empty, cb = Color.Empty, cText = Color.Empty;
 
-            c1 = Enabled ? ThemeManager.GradientHoverColor1 : ThemeManager.BackColor;
-            c2 = Enabled ? ThemeManager.GradientHoverColor2 : ThemeManager.BackColor;
+            c1 = Enabled ? ThemeManager.GradientNormalColor1 : ThemeManager.BackColor;
+            c2 = Enabled ? ThemeManager.GradientNormalColor2 : ThemeManager.BackColor;
             cb = Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
             cText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
 
@@ -286,15 +286,15 @@ namespace OPMedia.UI.Controls
                 }
                 else if (Focused)
                 {
-                    c1 = ThemeManager.GradientFocusHoverColor1;
-                    c2 = ThemeManager.GradientFocusHoverColor2;
+                    c1 = ThemeManager.GradientFocusColor1;
+                    c2 = ThemeManager.GradientFocusColor2;
                     cb = ThemeManager.FocusBorderColor;
                     pw = 2;
                 }
                 else
                 {
-                    c1 = ThemeManager.GradientFocusHoverColor1;
-                    c2 = ThemeManager.GradientFocusHoverColor2;
+                    c1 = ThemeManager.GradientHoverColor1;
+                    c2 = ThemeManager.GradientHoverColor2;
                 }
             }
            

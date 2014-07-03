@@ -168,7 +168,7 @@ namespace OPMedia.UI.Themes
         {
             if (this.WindowState != FormWindowState.Minimized)
             {
-                int spacing = BorderWidth - 1;
+                int spacing = ThemeManager.FormBorderWidth;
 
                 int th = TitleBarVisible ? CaptionButtonSize.Height : 0;
                 pnlContent.SetLocation(new Point(spacing, th + spacing));

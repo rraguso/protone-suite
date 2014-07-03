@@ -99,7 +99,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             lvPlaylist.MultiSelect = true;
             lvPlaylist.Items.Clear();
             lvPlaylist.SmallImageList = ilImages;
-            //lvPlaylist.OverrideBackColor = ThemeManager.SpecialListColor;
 
             lvPlaylist.ItemMouseHover += new ListViewItemMouseHoverEventHandler(lvPlaylist_ItemMouseHover);
             
@@ -130,11 +129,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 initialState = false;
                 PersistentPlaylist.Load(ref playlist);
             }
-        }
-
-        protected override void OnThemeUpdatedInternal()
-        {
-            //lvPlaylist.OverrideBackColor = ThemeManager.SpecialListColor;
         }
 
         public void OnMediaRendererHeartbeat()
