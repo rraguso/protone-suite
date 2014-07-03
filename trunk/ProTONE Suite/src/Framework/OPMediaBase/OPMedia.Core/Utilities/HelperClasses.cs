@@ -218,6 +218,7 @@ namespace OPMedia.Core
         {
             List<Theme> themes = new List<Theme>(new Theme[]
                 {
+                    new Theme(ThemeEnum.Metro),
                     new Theme(ThemeEnum.Silver),
                     new Theme(ThemeEnum.Blue),
                     new Theme(ThemeEnum.Black),
@@ -261,6 +262,9 @@ namespace OPMedia.Core
 
             switch (value)
             {
+                case ThemeEnum.Metro:
+                    this.Name = "Metro theme (Default)";
+                    break;
                 case ThemeEnum.Silver:
                     this.Name = "Silver theme";
                     break;
@@ -268,7 +272,7 @@ namespace OPMedia.Core
                     this.Name = "Blue theme";
                     break;
                 case ThemeEnum.Black:
-                    this.Name = "Black theme (Default)";
+                    this.Name = "Black theme";
                     this.IsDefault = true;
                     break;
 
@@ -280,7 +284,8 @@ namespace OPMedia.Core
 
     public enum ThemeEnum
     {
-        Silver = 0,
+        Metro = 0,
+        Silver,
         Blue,
         Black,
 

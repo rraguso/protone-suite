@@ -41,7 +41,7 @@ namespace OPMedia.UI.Controls
 
             int ddw = DropDownButtonWidth;
 
-            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientNormalColor1, ThemeManager.WndTextColor, 90f))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientHoverColor1, ThemeManager.GradientHoverColor2, 90f))
             {
                 using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
@@ -59,7 +59,7 @@ namespace OPMedia.UI.Controls
                         if (DropDownItems != null && DropDownItems.Count >= 0 && ddw > 2)
                         {
                             Point pt1 = new Point(clientRectangle.Right - ddw,
-                                clientRectangle.Top);
+                                clientRectangle.Top + 2);
                             Point pt2 = new Point(clientRectangle.Right - ddw,
                                 clientRectangle.Bottom - 4);
 
@@ -174,7 +174,7 @@ namespace OPMedia.UI.Controls
             float angle = VerticalGradient ? 90f : 0f;
 
             using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
-                ThemeManager.BackColor, ThemeManager.GradientNormalColor2, angle))
+                ThemeManager.GradientNormalColor1, ThemeManager.GradientNormalColor2, angle))
             {
                 e.Graphics.FillRectangle(br, ClientRectangle);
             }
@@ -323,9 +323,9 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Width + 2,
                 ContentRectangle.Height + 4);
 
-            using (Brush bSelect = new LinearGradientBrush(clientRectangle, ThemeManager.GradientNormalColor1, ThemeManager.WndTextColor, 90f))
+            using (Brush bSelect = new LinearGradientBrush(clientRectangle, ThemeManager.GradientHoverColor1, ThemeManager.GradientHoverColor2, 90f))
             {
-                using (Brush bHighlight = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.HighlightColor, 90f))
+                using (Brush bHighlight = new LinearGradientBrush(clientRectangle, ThemeManager.SelectedColor, ThemeManager.SelectedColor, 90f))
                 using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
                     Rectangle rect = clientRectangle;
@@ -440,7 +440,7 @@ namespace OPMedia.UI.Controls
                 ContentRectangle.Height + 4);
 
             //using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
-            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientNormalColor1, ThemeManager.WndTextColor, 90f))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientHoverColor1, ThemeManager.GradientHoverColor2, 90f))
             {
                 using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
