@@ -4,6 +4,8 @@ using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace OPMedia.UI.Generic
 {
@@ -149,30 +151,44 @@ namespace OPMedia.UI.Generic
             return gp;
         }
 
-        public static GraphicsPath GenerateRoundCornersBorder(Rectangle rcSource, int cornerSize = 3)
+
+
+        public static GraphicsPath GenerateRoundCornersBorder(Rectangle rcSource, int cornerSize = 3, CornersPosition corners = CornersPosition.All)
         {
             GraphicsPath borderPath = new GraphicsPath();
 
-            cornerSize = cornerSize & 0x03;
+            cornerSize = cornerSize & 0x0F;
             if (cornerSize > 0)
             {
                 int c = 2 * cornerSize;
                 int l = rcSource.Left;
                 int t = rcSource.Top;
-                int r = rcSource.Right - 2;
-                int b = rcSource.Bottom - 2;
+                int r = rcSource.Right;
+                int b = rcSource.Bottom;
 
                 // left, top corner
-                borderPath.AddArc(l, t, c, c, 180, 90);
+                if ((corners & CornersPosition.LeftTop) == CornersPosition.LeftTop)
+                    borderPath.AddArc(l, t, c, c, 180, 90);
+                else
+                    borderPath.AddLine(l, t, l, t);
 
                 // right, top corner
-                borderPath.AddArc(r - c, t, c, c, -90, 90);
+                if ((corners & CornersPosition.RightTop) == CornersPosition.RightTop) 
+                    borderPath.AddArc(r - c, t, c, c, -90, 90);
+                else
+                    borderPath.AddLine(r, t, r, t);
 
                 // right, bottom corner
-                borderPath.AddArc(r - c, b - c, c, c, 0, 90);
+                if ((corners & CornersPosition.RightBottom) == CornersPosition.RightBottom)
+                    borderPath.AddArc(r - c, b - c, c, c, 0, 90);
+                else
+                    borderPath.AddLine(r, b, r, b);
 
                 // left, bottom corner
-                borderPath.AddArc(l, b - c, c, c, 90, 90);
+                if ((corners & CornersPosition.LeftBottom) == CornersPosition.LeftBottom)
+                    borderPath.AddArc(l, b - c, c, c, 90, 90);
+                else
+                    borderPath.AddLine(l, b, l, b);
 
                 // This will automatically add the missing lines
                 borderPath.CloseAllFigures();
@@ -221,6 +237,30 @@ namespace OPMedia.UI.Generic
                         bmp.SetPixel(i, j, gridColor);
                     }
                 }
+            }
+        }
+
+        public static void ReplaceColor(Bitmap bmp, Color oldColor, Color newColor)
+        {
+            int sizeX = bmp.Width;
+            int sizeY = bmp.Height;
+
+            for (int i = 0; i < sizeX; i++)
+            {
+                Debug.Write("[");
+
+                for (int j = 0; j < sizeY; j++)
+                {
+                    Color c = bmp.GetPixel(i, j);
+                    Debug.Write(c.ToString() + ",");
+
+                    if (c.ToArgb() == oldColor.ToArgb())
+                    {
+                        bmp.SetPixel(i, j, newColor);
+                    }
+                }
+
+                Debug.WriteLine("]");
             }
         }
 

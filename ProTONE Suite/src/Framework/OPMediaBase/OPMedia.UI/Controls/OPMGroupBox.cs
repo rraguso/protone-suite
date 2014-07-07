@@ -6,6 +6,8 @@ using OPMedia.UI.Themes;
 using OPMedia.Core;
 using OPMedia.Core.GlobalEvents;
 using System.ComponentModel;
+using System.Drawing.Drawing2D;
+using OPMedia.UI.Generic;
 
 namespace OPMedia.UI.Controls
 {
@@ -91,26 +93,37 @@ namespace OPMedia.UI.Controls
                 ClientRectangle.Width, format));
 
             // How far from the margins is the text drawn.
-            int offsetX = 8;
+            int offsetX = 16;
             int offsetY = 1 + textSize.Height / 2;
 
             Color cb = Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
             Color cText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
 
-            // Careful not to give a "strikethrough" effect on the text.
+            Rectangle rcBorder = new Rectangle
+            (
+                ClientRectangle.Left,
+                ClientRectangle.Top + offsetY,
+                ClientRectangle.Width - ThemeManager.CornerSize,
+                ClientRectangle.Height - ThemeManager.CornerSize - offsetY
+            );
+
             using (Pen pen = new Pen(cb))
+            using (Pen penEraser = new Pen(ThemeManager.BackColor))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcBorder, ThemeManager.CornerSize))
             {
-                e.Graphics.DrawLine(pen, 0, offsetY, 0, base.Height - 2);
-                e.Graphics.DrawLine(pen, 0, base.Height - 2, base.Width - 2, base.Height - 2);
-                e.Graphics.DrawLine(pen, 0, offsetY - 1, offsetX, offsetY - 1);
-                e.Graphics.DrawLine(pen, offsetX + textSize.Width, offsetY - 1, base.Width - 2, offsetY - 1);
-                e.Graphics.DrawLine(pen, base.Width - 2, offsetY, base.Width - 2, base.Height - 2);
+                e.Graphics.DrawPath(pen, path);
+
+                // Careful not to give a "strikethrough" effect on the text.
+                e.Graphics.DrawLine(penEraser, offsetX, offsetY, offsetX + textSize.Width, offsetY);
             }
+
+          
+
 
             // Draw the text
             using (Brush b = new SolidBrush(cText))
             {
-                e.Graphics.DrawString(realText, Font, b, offsetX + 4, 0);
+                e.Graphics.DrawString(realText, Font, b, offsetX, 0);
             }
         }
         #endregion
