@@ -49,6 +49,7 @@ namespace OPMedia.UI.Themes
         GradientFocusHoverColor1,
         GradientFocusHoverColor2,
         FocusBorderColor,
+        SelectedTextColor,
 
         CaptionBarColor1,
         CaptionBarColor2,
@@ -179,10 +180,21 @@ namespace OPMedia.UI.Themes
         { get { return ColorMap(ColorMapElement.CheckedMenuColor); } }
 
         public static int CornerSize
-        { get { return ColorMap(ColorMapElement.CornerSize).R & 0x07; } }
+        { get { return ColorMap(ColorMapElement.CornerSize).R & 0x0F; } }
+
+        public static int FormCornerSize
+        { 
+            get 
+            {
+                if (CornerSize > 0)
+                    return CornerSize + FormBorderWidth;
+
+                return 0;
+            } 
+        }
 
         public static int FormBorderWidth
-        { get { return ColorMap(ColorMapElement.FormBorderWidth).R & 0x07; } }
+        { get { return ColorMap(ColorMapElement.FormBorderWidth).R & 0x0F; } }
         
         public static Color CaptionBarColor1
         { get { return ColorMap(ColorMapElement.CaptionBarColor1); } }
@@ -202,6 +214,9 @@ namespace OPMedia.UI.Themes
 
         public static Color CaptionButtonRedColor2
         { get { return ColorMap(ColorMapElement.CaptionButtonRedColor2); } }
+
+        public static Color SelectedTextColor
+        { get { return ColorMap(ColorMapElement.SelectedTextColor); } }
 
 
         public static Font SmallFont
@@ -412,13 +427,14 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 252, 252, 252, ColorMapElement.BackColor);
             ColorMap(te, 224, 227, 206, ColorMapElement.GradientNormalColor1);
             ColorMap(te, 224, 227, 206, ColorMapElement.GradientNormalColor2);
-            ColorMap(te, 104, 211, 231, ColorMapElement.GradientHoverColor1);
-            ColorMap(te, 104, 211, 231, ColorMapElement.GradientHoverColor2);
+            ColorMap(te, 051, 153, 255, ColorMapElement.GradientHoverColor1);
+            ColorMap(te, 051, 153, 255, ColorMapElement.GradientHoverColor2);
             ColorMap(te, 224, 227, 206, ColorMapElement.GradientFocusColor1);
             ColorMap(te, 224, 227, 206, ColorMapElement.GradientFocusColor2);
-            ColorMap(te, 109, 216, 236, ColorMapElement.GradientFocusHoverColor1);
-            ColorMap(te, 109, 216, 236, ColorMapElement.GradientFocusHoverColor2);
-            ColorMap(te, 104, 211, 231, ColorMapElement.FocusBorderColor);
+            ColorMap(te, 060, 155, 255, ColorMapElement.GradientFocusHoverColor1);
+            ColorMap(te, 060, 155, 255, ColorMapElement.GradientFocusHoverColor2);
+            ColorMap(te, 051, 153, 255, ColorMapElement.FocusBorderColor);
+            ColorMap(te, 252, 252, 252, ColorMapElement.SelectedTextColor);
 
             ColorMap(te, 200, 200, 200, ColorMapElement.CaptionBarColor1);
             ColorMap(te, 200, 200, 200, ColorMapElement.CaptionBarColor2);
@@ -428,7 +444,7 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 225, 100, 100, ColorMapElement.CaptionButtonRedColor2);
 
             // Not yet validated
-            ColorMap(te, 104, 211, 231, ColorMapElement.SelectedColor);
+            ColorMap(te, 051, 153, 255, ColorMapElement.SelectedColor);
             ColorMap(te, 255, 255, 255, ColorMapElement.WndValidColor);
             ColorMap(te, 010, 110, 080, ColorMapElement.HighlightColor);
             ColorMap(te, 000, 000, 000, ColorMapElement.WndTextColor);
@@ -438,7 +454,7 @@ namespace OPMedia.UI.Themes
 
             //---------------------------------------------------------------------------------------
             te = ThemeEnum.Blue;
-            ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
+            ColorMap(te, 003, 000, 000, ColorMapElement.CornerSize);
             ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
             ColorMap(te, 070, 085, 110, ColorMapElement.BorderColor);
             ColorMap(te, 030, 055, 090, ColorMapElement.ForeColor);
@@ -452,6 +468,7 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 205, 225, 250, ColorMapElement.GradientFocusHoverColor1);
             ColorMap(te, 185, 205, 235, ColorMapElement.GradientFocusHoverColor2);
             ColorMap(te, 040, 055, 080, ColorMapElement.FocusBorderColor);
+            ColorMap(te, 030, 055, 090, ColorMapElement.SelectedTextColor);
 
             ColorMap(te, 185, 205, 230, ColorMapElement.CaptionBarColor1);
             ColorMap(te, 165, 185, 210, ColorMapElement.CaptionBarColor2);
@@ -471,7 +488,7 @@ namespace OPMedia.UI.Themes
             
             //---------------------------------------------------------------------------------------
             te = ThemeEnum.Silver;
-            ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
+            ColorMap(te, 003, 000, 000, ColorMapElement.CornerSize);
             ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
             ColorMap(te, 075, 075, 075, ColorMapElement.BorderColor);
             ColorMap(te, 090, 090, 090, ColorMapElement.ForeColor);
@@ -485,6 +502,7 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 240, 240, 240, ColorMapElement.GradientFocusHoverColor1);
             ColorMap(te, 220, 220, 220, ColorMapElement.GradientFocusHoverColor2);
             ColorMap(te, 045, 045, 045, ColorMapElement.FocusBorderColor);
+            ColorMap(te, 090, 090, 090, ColorMapElement.SelectedTextColor);
 
             ColorMap(te, 220, 220, 220, ColorMapElement.CaptionBarColor1);
             ColorMap(te, 190, 190, 190, ColorMapElement.CaptionBarColor2);
@@ -505,7 +523,7 @@ namespace OPMedia.UI.Themes
             
             //---------------------------------------------------------------------------------------
             te = ThemeEnum.Black;
-            ColorMap(te, 002, 000, 000, ColorMapElement.CornerSize);
+            ColorMap(te, 003, 000, 000, ColorMapElement.CornerSize);
             ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
             ColorMap(te, 035, 035, 035, ColorMapElement.BorderColor);
             ColorMap(te, 240, 240, 240, ColorMapElement.ForeColor);
@@ -519,6 +537,7 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 120, 120, 120, ColorMapElement.GradientFocusHoverColor1);
             ColorMap(te, 100, 100, 100, ColorMapElement.GradientFocusHoverColor2);
             ColorMap(te, 065, 065, 065, ColorMapElement.FocusBorderColor);
+            ColorMap(te, 240, 240, 240, ColorMapElement.SelectedTextColor);
 
             ColorMap(te, 100, 100, 100, ColorMapElement.CaptionBarColor1);
             ColorMap(te, 035, 035, 035, ColorMapElement.CaptionBarColor2);

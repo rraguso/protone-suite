@@ -58,11 +58,26 @@ namespace OPMedia.UI.Controls
             base.Padding = new Point(1, 1);
 
             this.SelectedIndexChanged += new EventHandler(OPMTabControl_SelectedIndexChanged);
+            this.MouseMove += new MouseEventHandler(OPMTabControl_MouseMove);
+            this.MouseLeave += new EventHandler(OPMTabControl_MouseLeave);
 
             _tmr = new Timer();
             _tmr.Interval = 500;
             _tmr.Tick += new EventHandler(_tmr_Tick);
             _tmr.Start();
+        }
+
+        void OPMTabControl_MouseLeave(object sender, EventArgs e)
+        {
+            _mousePosition = Point.Empty;
+            Invalidate();
+        }
+
+        Point _mousePosition = Point.Empty;
+        void OPMTabControl_MouseMove(object sender, MouseEventArgs e)
+        {
+            _mousePosition = PointToClient(MousePosition);
+            Invalidate();
         }
 
         void _tmr_Tick(object sender, EventArgs e)
@@ -91,7 +106,7 @@ namespace OPMedia.UI.Controls
                 _tmr.Start();
             }
         }
-        
+
         void OPMTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             Invalidate(true);
@@ -111,16 +126,16 @@ namespace OPMedia.UI.Controls
                 ClientRectangle.Height - ItemSize.Height - 4);
 
             using (Pen p = new Pen(ThemeManager.BorderColor))
-            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcx, ThemeManager.CornerSize))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcx, ThemeManager.CornerSize, 
+                CornersPosition.LeftBottom | CornersPosition.RightBottom | CornersPosition.RightTop))
             {
-                //e.Graphics.DrawRectangle(p, rcx);
                 e.Graphics.DrawPath(p, path);
             }
 
-            //for (int i = 0; i < base.TabPages.Count; i++)
-            //{
-            //    PaintTabPageHeader(i, e.Graphics);
-            //}
+            for (int i = 0; i < base.TabPages.Count; i++)
+            {
+                PaintTabPageHeader(i, e.Graphics);
+            }
         }
 
         private void PaintTabPageHeader(int i, Graphics graphics)
@@ -137,9 +152,18 @@ namespace OPMedia.UI.Controls
 
             Rectangle rcDraw = base.GetTabRect(i);
 
+            bool isHovered = _mousePosition != Point.Empty && rcDraw.Contains(_mousePosition);
+
             bool selected = (SelectedTab == tp);
             bool isLast = (TabPages.Count - 1 <= i);
             bool isPrev = (SelectedIndex == (i + 1));
+
+            if (isHovered && !selected)
+            {
+                c1 = ThemeManager.GradientHoverColor1;
+                c2 = ThemeManager.GradientHoverColor2;
+                cText = ThemeManager.SelectedTextColor;
+            }
             
             Rectangle rcx = new Rectangle(
                 rcDraw.Left - 2, 
@@ -149,15 +173,14 @@ namespace OPMedia.UI.Controls
             Rectangle rcx2 = new Rectangle(
                 rcDraw.Left - 1,
                 rcDraw.Top + 1,
-                rcDraw.Width - 2,
+                rcDraw.Width - 1,
                 rcDraw.Height);
 
             using (Brush b = new LinearGradientBrush(rcx, c1, c2, 90))
             using (Pen p = new Pen(cb))
-            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcx, ThemeManager.CornerSize))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcx, ThemeManager.CornerSize, 
+                CornersPosition.LeftTop | CornersPosition.RightTop))
             {
-                //graphics.FillRectangle(b, rcx);
-                //graphics.DrawRectangle(p, rcx);
                 graphics.FillPath(b, path);
                 graphics.DrawPath(p, path);
             }
@@ -165,11 +188,13 @@ namespace OPMedia.UI.Controls
             if (selected)
             {
                 using (Brush b = new SolidBrush(ThemeManager.BackColor))
+                using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcx2, ThemeManager.CornerSize,
+                    CornersPosition.LeftTop | CornersPosition.RightTop))
                 {
-                    rcx2.Width += 1;
-                    graphics.FillRectangle(b, rcx2);
+                    graphics.FillPath(b, path);
                 }
             }
+            /*
             else if (!isLast && !isPrev)
             {
                 Point p1 = new Point(rcDraw.Right - 2, rcDraw.Top + 2);
@@ -180,10 +205,10 @@ namespace OPMedia.UI.Controls
                 using (Pen pen1 = new Pen(cText))
                 using (Pen pen2 = new Pen(cb))
                 {
-                    graphics.DrawLine(pen1, p1, p2);
-                    graphics.DrawLine(pen2, p3, p4);
+                    //graphics.DrawLine(pen1, p1, p2);
+                    //graphics.DrawLine(pen2, p3, p4);
                 }
-            }
+            }*/
 
             #region Draw image
 

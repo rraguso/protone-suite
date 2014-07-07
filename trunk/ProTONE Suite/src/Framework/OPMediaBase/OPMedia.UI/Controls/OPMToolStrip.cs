@@ -42,85 +42,82 @@ namespace OPMedia.UI.Controls
             int ddw = DropDownButtonWidth;
 
             using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientHoverColor1, ThemeManager.GradientHoverColor2, 90f))
+            using (Pen p2 = new Pen(ThemeManager.BorderColor))
+            using (Brush b = new SolidBrush(clText))
             {
-                using (Pen p2 = new Pen(ThemeManager.BorderColor))
+                Rectangle rect = clientRectangle;
+                rect.Width -= 1;
+                rect.Height -= 1;
+
+                if (Enabled && (Selected || Pressed))
                 {
-                    Rectangle rect = clientRectangle;
-
-                    if (Enabled && (Selected || Pressed))
+                    using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rect, ThemeManager.CornerSize))
                     {
-                        e.Graphics.FillRectangle(b1, rect);
-
-                        rect.Width -= 1;
-                        rect.Height -= 1;
-
-                        e.Graphics.DrawRectangle(p2, rect);
-
-                        if (DropDownItems != null && DropDownItems.Count >= 0 && ddw > 2)
-                        {
-                            Point pt1 = new Point(clientRectangle.Right - ddw,
-                                clientRectangle.Top + 2);
-                            Point pt2 = new Point(clientRectangle.Right - ddw,
-                                clientRectangle.Bottom - 4);
-
-                            e.Graphics.DrawLine(p2, pt1, pt2);
-                        }
+                        e.Graphics.FillPath(b1, path);
+                        e.Graphics.DrawPath(p2, path);
                     }
 
-                    int xpos = ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 - ddw / 2;
-
-                    if (Image != null)
+                    if (DropDownItems != null && DropDownItems.Count >= 0 && ddw > 2)
                     {
-                        Image img = this.Image;
-                        if (!Enabled)
-                        {
-                            Bitmap bmp = new Bitmap(this.Image);
-                            ImageProcessing.GrayscaleFilter(ref bmp);
-                            bmp.MakeTransparent(Color.Black);
-                            img = bmp;
-                        }
+                        Point pt1 = new Point(clientRectangle.Right - ddw,
+                            clientRectangle.Top + 2);
+                        Point pt2 = new Point(clientRectangle.Right - ddw,
+                            clientRectangle.Bottom - 4);
 
-                        if (string.IsNullOrEmpty(this.Text))
-                        {
-                            xpos += (this.Height - img.Height) / 2;
-                        }
-
-                        e.Graphics.DrawImage(ImageProvider.ScaleImage(img, Owner.ImageScalingSize, true),
-                            new Point(xpos, 2));
-                    }
-
-                    StringFormat sf = new StringFormat();
-
-                    rect = clientRectangle;
-                    rect.Width -= ddw;
-
-                    switch (TextDirection)
-                    {
-                        case ToolStripTextDirection.Inherit:
-                        case ToolStripTextDirection.Horizontal:
-                            sf.LineAlignment = StringAlignment.Near;
-                            sf.Alignment = StringAlignment.Center;
-                            break;
-
-                        default:
-                            sf.FormatFlags |= StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
-                            sf.LineAlignment = StringAlignment.Center;
-                            sf.Alignment = StringAlignment.Center;
-                            break;
-
-                    }
-
-                    if (Image != null)
-                    {
-                        rect.Y += this.Owner.ImageScalingSize.Height;
-                        rect.Height -= this.Owner.ImageScalingSize.Height;
-                    }
-
-                    using (Brush b = new SolidBrush(clText))
-                    {
-                        e.Graphics.DrawString(this.Text, this.Font, b, rect, sf);
+                        e.Graphics.DrawLine(p2, pt1, pt2);
                     }
                 }
+
+                int xpos = ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 - ddw / 2;
+
+                if (Image != null)
+                {
+                    Image img = this.Image;
+                    if (!Enabled)
+                    {
+                        Bitmap bmp = new Bitmap(this.Image);
+                        ImageProcessing.GrayscaleFilter(ref bmp);
+                        bmp.MakeTransparent(Color.Black);
+                        img = bmp;
+                    }
+
+                    if (string.IsNullOrEmpty(this.Text))
+                    {
+                        xpos += (this.Height - img.Height) / 2;
+                    }
+
+                    e.Graphics.DrawImage(ImageProvider.ScaleImage(img, Owner.ImageScalingSize, true),
+                        new Point(xpos, 2));
+                }
+
+                StringFormat sf = new StringFormat();
+
+                rect = clientRectangle;
+                rect.Width -= ddw;
+
+                switch (TextDirection)
+                {
+                    case ToolStripTextDirection.Inherit:
+                    case ToolStripTextDirection.Horizontal:
+                        sf.LineAlignment = StringAlignment.Near;
+                        sf.Alignment = StringAlignment.Center;
+                        break;
+
+                    default:
+                        sf.FormatFlags |= StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
+                        sf.LineAlignment = StringAlignment.Center;
+                        sf.Alignment = StringAlignment.Center;
+                        break;
+
+                }
+
+                if (Image != null)
+                {
+                    rect.Y += this.Owner.ImageScalingSize.Height;
+                    rect.Height -= this.Owner.ImageScalingSize.Height;
+                }
+
+                e.Graphics.DrawString(this.Text, this.Font, b, rect, sf);
             }
 
             if (DropDownItems != null && DropDownItems.Count >= 0 &&  ddw > 2)
@@ -332,14 +329,17 @@ namespace OPMedia.UI.Controls
                     rect.Width -= 2;
                     rect.Height -= 2;
 
-                    if (isHighlight)
+                    using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rect, ThemeManager.CornerSize))
                     {
-                        if (Checked && !Selected)
-                            e.Graphics.FillRectangle(bHighlight, rect);
-                        else
-                            e.Graphics.FillRectangle(bSelect, rect);
+                        if (isHighlight)
+                        {
+                            if (Checked && !Selected)
+                                e.Graphics.FillPath(bHighlight, path);
+                            else
+                                e.Graphics.FillPath(bSelect, path);
 
-                        e.Graphics.DrawRectangle(p2, rect);
+                            e.Graphics.DrawPath(p2, path);
+                        }
                     }
 
                     int xpos = this.ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2 + 1 + offset;
@@ -445,15 +445,16 @@ namespace OPMedia.UI.Controls
                 using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {
                     Rectangle rect = clientRectangle;
+                    rect.Width -= 1;
+                    rect.Height -= 1;
 
                     if (Selected || Pressed)
                     {
-                        e.Graphics.FillRectangle(b1, rect);
-
-                        rect.Width -= 1;
-                        rect.Height -= 1;
-
-                        e.Graphics.DrawRectangle(p2, rect);
+                        using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rect, ThemeManager.CornerSize))
+                        {
+                            e.Graphics.FillPath(b1, path);
+                            e.Graphics.DrawPath(p2, path);
+                        }
                     }
 
                     int xpos = ContentRectangle.Width / 2 - this.Owner.ImageScalingSize.Width / 2;

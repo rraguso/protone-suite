@@ -295,6 +295,7 @@ namespace OPMedia.UI.Controls
                 {
                     c1 = ThemeManager.GradientHoverColor1;
                     c2 = ThemeManager.GradientHoverColor2;
+                    cText = ThemeManager.SelectedTextColor;
                 }
             }
            

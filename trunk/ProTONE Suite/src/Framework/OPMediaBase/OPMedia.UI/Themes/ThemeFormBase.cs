@@ -18,6 +18,7 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Core.Logging;
 using System.Threading;
 using OPMedia.Core.GlobalEvents;
+using System.Drawing.Text;
 
 namespace OPMedia.UI.Themes
 {
@@ -66,6 +67,8 @@ namespace OPMedia.UI.Themes
         private ResizeMargin _rmRT;
         private ResizeMargin _rmLB;
         private ResizeMargin _rmRB;
+
+        private GraphicsPath _borderPath = null;
 
         string _text = "ABCDE";
         public new string Text
@@ -153,7 +156,22 @@ namespace OPMedia.UI.Themes
             set { _titleBarVisible = value; ApplyWindowParams(); Invalidate(true); }
         }
 
-        protected Region ContentRegion { get; set; }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+
+                if (ThemeManager.CornerSize > 0)
+                {
+                    const int CS_DROPSHADOW = 0x00020000;
+                    cp.ClassStyle |= CS_DROPSHADOW;
+                    //cp.ExStyle |= 0x02000000;
+                }
+
+                return cp;
+            }
+        }
 
         Rectangle _rcTitleBar = Rectangle.Empty;
         Rectangle _rcIcon = Rectangle.Empty;
@@ -163,8 +181,6 @@ namespace OPMedia.UI.Themes
         Rectangle _rcMinimize = Rectangle.Empty;
 
         Font _titleBarFont = ThemeManager.LargeFont;
-
-        ImageList _btnImgList = null;
 
         int _iconLeft = 0;
         int _titleLeft = 0;
@@ -281,6 +297,8 @@ namespace OPMedia.UI.Themes
         public void OnThemeUpdated()
         {
             base.BackColor = ThemeManager.BackColor;
+            ApplyWindowParams();
+            ApplyTitlebarValues();
             ApplyDrawingValues();
             Invalidate(true);
 
@@ -677,49 +695,12 @@ namespace OPMedia.UI.Themes
 
         #region Drawing code
 
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            //base.OnPaintBackground(e);
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            ThemeManager.PrepareGraphics(e.Graphics);
-            PaintToBuffer(e.Graphics);
-        }
-
-        private void PaintToBuffer(Graphics g)
-        {
-            Rectangle rc = ClientRectangle;
-            rc.Width -= ThemeManager.FormBorderWidth - 1;
-            rc.Height -= ThemeManager.FormBorderWidth - 1;
-
-            if (_rcTitleBar != Rectangle.Empty)
-            {
-                g.FillRectangle(_brBackground, rc);
-
-                if (_rcTitleBar != Rectangle.Empty)
-                {
-                    g.FillRectangle(_brTitlebar, _rcTitleBar);
-                }
-
-                if (_rcTitleBar != Rectangle.Empty)
-                {
-                    DrawTitleBar(g);
-                }
-
-                g.DrawRectangle(_penBorder, rc);
-                g.Flush();
-            }
-            else
-            {
-                g.FillRectangle(Brushes.Black, rc);
-                g.DrawRectangle(Pens.Black, rc);
-            }
-        }
+       
 
         private void DrawTitleBar(Graphics g)
         {
+            g.FillRectangle(_brTitlebar, _rcTitleBar);
+
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Near;
             sf.LineAlignment = StringAlignment.Center;
@@ -859,32 +840,66 @@ namespace OPMedia.UI.Themes
 
         private void ApplyWindowParams()
         {
+           
             _rmRT.Location = new Point(Width - _rmRT.Width, 0);
             _rmRB.Location = new Point(Width - _rmRB.Width, Height - _rmRB.Height);
             _rmLB.Location = new Point(0, Height - _rmLB.Height);
             _rmLT.Location = new Point(0, 0);
 
             _rcTitleBar = (TitleBarVisible) ? new Rectangle(
-                ClientRectangle.Left - ThemeManager.FormBorderWidth,
-                ClientRectangle.Top - ThemeManager.FormBorderWidth,
-                ClientRectangle.Width - 2 * ThemeManager.FormBorderWidth,
-                CaptionButtonSize.Height + ThemeManager.FormBorderWidth/2) : Rectangle.Empty;
+                ClientRectangle.Left,
+                ClientRectangle.Top,
+                ClientRectangle.Width,
+                CaptionButtonSize.Height) : Rectangle.Empty;
 
-            //Rectangle rcRegion = new Rectangle(-1, -1, Width + 2, Height + 2);
+            if (_borderPath != null)
+                _borderPath.Dispose();
 
-            //if (FormWindowState.Maximized != WindowState)
-            //{
-            //    base.Region = new Region(rcRegion);
-            //}
-            //else
-            //{
-            //    base.Region = null;
-            //}
+            Rectangle rcRegion = new Rectangle(0, 0, Width, Height);
+            GraphicsPath regionPath = ImageProcessing.GenerateRoundCornersBorder(rcRegion, ThemeManager.FormCornerSize);
+
+            Rectangle rcBorder = new Rectangle(0, 0, Width - 1, Height - 1);
+            _borderPath = ImageProcessing.GenerateRoundCornersBorder(rcBorder, ThemeManager.FormCornerSize);
+
+            if (FormWindowState.Maximized != WindowState)
+            {
+                base.Region = new Region(regionPath);
+            }
+            else
+            {
+                base.Region = new Region(ClientRectangle);
+            }
 
             ApplyDrawingValues();
             ApplyTitlebarValues();
 
             Invalidate(true);
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            ThemeManager.PrepareGraphics(g);
+
+            if (_rcTitleBar != Rectangle.Empty)
+            {
+                g.FillPath(_brBackground, _borderPath);
+
+                if (_rcTitleBar != Rectangle.Empty)
+                    DrawTitleBar(g);
+
+                g.DrawPath(_penBorder, _borderPath);
+                g.Flush();
+            }
+            else
+            {
+                g.FillPath(Brushes.Black, _borderPath);
+                g.DrawPath(Pens.Black, _borderPath);
+            }
         }
 
         Brush _brBackground = null;
@@ -930,12 +945,14 @@ namespace OPMedia.UI.Themes
             if (IsActive)
             {
                 _penBorder = new Pen(
-                     ControlPaint.Light(ThemeManager.BorderColor, activeLightPercent), ThemeManager.FormBorderWidth);
+                    ThemeManager.BorderColor, 
+                    ThemeManager.FormBorderWidth);
             }
             else
             {
                 _penBorder = new Pen(
-                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), ThemeManager.FormBorderWidth);
+                     ControlPaint.Light(ThemeManager.BorderColor, inactiveLightPercent), 
+                     ThemeManager.FormBorderWidth);
             }
         }
 
