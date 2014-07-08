@@ -155,7 +155,7 @@ namespace OPMedia.UI.Controls
             using (Brush b = new SolidBrush(c1))
             using (Pen p = new Pen(cb, pw))
             using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcGlyph, 
-                ThemeManager.CornerSize > 0 ? ThemeManager.CornerSize : 0))
+                ThemeManager.CornerSize > 0 ? 2 : 0))
             {
                 e.Graphics.FillPath(b, path);
                 e.Graphics.DrawPath(p, path);

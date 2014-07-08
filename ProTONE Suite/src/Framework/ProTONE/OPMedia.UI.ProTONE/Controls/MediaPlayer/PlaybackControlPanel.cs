@@ -92,8 +92,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             
             _tip = new OPMToolTipManager(opmToolStrip1);
 
-            GenerateImage(tsmPlay, false);
-
             this.HandleCreated += new EventHandler(PlaybackControlPanel_HandleCreated);
         }
 
@@ -148,31 +146,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 string resourceTag = string.Format("TXT_{0}", cmd.ToString().ToUpperInvariant()).Replace("CMD", "BTN");
                 string tipText = Translator.Translate(resourceTag, ShortcutMapper.GetShortcutString(cmd));
                 _tip.ShowSimpleToolTip(tipText, btn.Image);
-
-                GenerateImage(btn, true);
-                
             }
-        }
-
-        private void GenerateImage(ToolStripButton btn, bool isHighlighted)
-        {
-            OPMShortcut cmd = (OPMShortcut)btn.Tag;
-            string imageTag = "btn" + StringUtils.Capitalize(cmd.ToString().ToLowerInvariant().Replace("cmd", ""), WordCasing.CapitalizeWords);
-            Bitmap bmp = Resources.ResourceManager.GetImage(imageTag);
-
-            ImageProcessing.ReplaceColor(bmp, Color.Red, 
-                isHighlighted ? ThemeManager.BackColor : ThemeManager.ForeColor);
-
-            btn.Image = bmp;
         }
 
         private void OnMouseLeave(object sender, EventArgs e)
         {
             if (sender == _hoveredItem)
             {
-                if (_hoveredItem is ToolStripButton)
-                    GenerateImage(_hoveredItem as ToolStripButton, false);
-
                 _hoveredItem = null;
                 _tip.RemoveAll();
             }

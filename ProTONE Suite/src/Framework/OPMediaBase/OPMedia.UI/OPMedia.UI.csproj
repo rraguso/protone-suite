@@ -184,7 +184,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\SelfValidableCollection.cs" />
-    <Compile Include="Controls\OPMToolStrip.cs">
+    <Compile Include="Controls\ToolAndMenuStrips.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\OPMTreeView.cs">
