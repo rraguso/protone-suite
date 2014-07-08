@@ -57,7 +57,10 @@ namespace OPMedia.UI.Controls
 
         void OPMTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
-            if (e.State != TreeNodeStates.Selected || !e.Node.IsSelected)
+            bool isFocused = (e.State & TreeNodeStates.Focused) == TreeNodeStates.Focused;
+            bool isSelected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
+
+            if (isFocused == false && isSelected == false && e.Node.IsSelected == false)
             {
                 e.DrawDefault = true;
                 return;
@@ -76,7 +79,7 @@ namespace OPMedia.UI.Controls
             }
 
             SizeF sz = e.Graphics.MeasureString(e.Node.Text, f);
-            RectangleF rc = new RectangleF(e.Bounds.Left, e.Bounds.Top, sz.Width, sz.Height);
+            Rectangle rc = new Rectangle(e.Bounds.Left, e.Bounds.Top, (int)sz.Width + 4, e.Bounds.Height - 1);
 
             Rectangle rcx = e.Bounds;
             rcx.Inflate(2, 2);
