@@ -422,19 +422,24 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 000, 000, 000, ColorMapElement.CornerSize);
             ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
 
-            ColorMap(te, 010, 010, 010, ColorMapElement.BorderColor);
+            ColorMap(te, 150, 150, 150, ColorMapElement.BorderColor);
             ColorMap(te, 000, 000, 000, ColorMapElement.ForeColor);
             ColorMap(te, 252, 252, 252, ColorMapElement.BackColor);
+            
             ColorMap(te, 224, 227, 206, ColorMapElement.GradientNormalColor1);
             ColorMap(te, 224, 227, 206, ColorMapElement.GradientNormalColor2);
-            ColorMap(te, 051, 153, 255, ColorMapElement.GradientHoverColor1);
-            ColorMap(te, 051, 153, 255, ColorMapElement.GradientHoverColor2);
+           
+            ColorMap(te, 159, 207, 255, ColorMapElement.GradientHoverColor1);
+            ColorMap(te, 159, 207, 255, ColorMapElement.GradientHoverColor2);
+            
             ColorMap(te, 224, 227, 206, ColorMapElement.GradientFocusColor1);
             ColorMap(te, 224, 227, 206, ColorMapElement.GradientFocusColor2);
-            ColorMap(te, 060, 155, 255, ColorMapElement.GradientFocusHoverColor1);
-            ColorMap(te, 060, 155, 255, ColorMapElement.GradientFocusHoverColor2);
+
+            ColorMap(te, 170, 220, 255, ColorMapElement.GradientFocusHoverColor1);
+            ColorMap(te, 170, 220, 255, ColorMapElement.GradientFocusHoverColor2);
+
             ColorMap(te, 051, 153, 255, ColorMapElement.FocusBorderColor);
-            ColorMap(te, 252, 252, 252, ColorMapElement.SelectedTextColor);
+            ColorMap(te, 000, 000, 000, ColorMapElement.SelectedTextColor);
 
             ColorMap(te, 200, 200, 200, ColorMapElement.CaptionBarColor1);
             ColorMap(te, 200, 200, 200, ColorMapElement.CaptionBarColor2);
@@ -444,7 +449,7 @@ namespace OPMedia.UI.Themes
             ColorMap(te, 225, 100, 100, ColorMapElement.CaptionButtonRedColor2);
 
             // Not yet validated
-            ColorMap(te, 051, 153, 255, ColorMapElement.SelectedColor);
+            ColorMap(te, 159, 207, 255, ColorMapElement.SelectedColor);
             ColorMap(te, 255, 255, 255, ColorMapElement.WndValidColor);
             ColorMap(te, 010, 110, 080, ColorMapElement.HighlightColor);
             ColorMap(te, 000, 000, 000, ColorMapElement.WndTextColor);

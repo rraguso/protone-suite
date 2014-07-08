@@ -99,8 +99,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tslVideoOn});
             this.opmToolStrip1.Location = new System.Drawing.Point(0, 0);
             this.opmToolStrip1.Name = "opmToolStrip1";
-            this.opmToolStrip1.ShowBorder = true;
-            this.opmToolStrip1.Size = new System.Drawing.Size(371, 25);
+            this.opmToolStrip1.Padding = new System.Windows.Forms.Padding(0);
+            this.opmToolStrip1.ShowBorder = false;
+            this.opmToolStrip1.Size = new System.Drawing.Size(370, 25);
             this.opmToolStrip1.TabIndex = 11;
             this.opmToolStrip1.Text = "opmToolStrip1";
             this.opmToolStrip1.VerticalGradient = true;
@@ -336,7 +337,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(170, 25);
             this.Name = "PlaybackControlPanel";
-            this.Size = new System.Drawing.Size(371, 25);
+            this.Size = new System.Drawing.Size(370, 25);
             this.opmToolStrip1.ResumeLayout(false);
             this.opmToolStrip1.PerformLayout();
             this.ResumeLayout(false);

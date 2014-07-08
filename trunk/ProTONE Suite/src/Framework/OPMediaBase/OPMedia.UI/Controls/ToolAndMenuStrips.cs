@@ -15,6 +15,93 @@ using System.Data;
 
 namespace OPMedia.UI.Controls
 {
+    #region OPMToolStrip and related
+
+    #region OPMToolStrip
+    public class OPMToolStrip : ToolStrip
+    {
+        public new ToolStripRenderMode RenderMode { get { return base.RenderMode; } }
+        public new ToolStripRenderer Renderer { get { return base.Renderer; } }
+
+        public bool ShowBorder
+        {
+            get { return (Renderer as OPMToolStripRenderer).ShowBorder; }
+            set { (Renderer as OPMToolStripRenderer).ShowBorder = value; }
+        }
+
+        public bool VerticalGradient
+        {
+            get { return (Renderer as OPMToolStripRenderer).VerticalGradient; }
+            set { (Renderer as OPMToolStripRenderer).VerticalGradient = value; }
+        }
+
+
+        public OPMToolStrip()
+            : base()
+        {
+            this.ForeColor = ThemeManager.ForeColor;
+            this.BackColor = ThemeManager.BackColor;
+
+            base.Renderer = new OPMToolStripRenderer();
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            float angle = VerticalGradient ? 90f : 0f;
+
+            Rectangle rc = new Rectangle(0, 0, Width, Height);
+
+            using (LinearGradientBrush br = new LinearGradientBrush(rc, ThemeManager.GradientNormalColor1, ThemeManager.GradientNormalColor2, angle))
+            {
+                e.Graphics.FillRectangle(br, rc);
+            }
+        }
+    }
+    #endregion
+
+    #region OPMToolStripRenderer
+    public class OPMToolStripRenderer : ToolStripRenderer
+    {
+        public bool ShowBorder { get; set; }
+        public bool VerticalGradient { get; set; }
+
+        public OPMToolStripRenderer()
+            : base()
+        {
+            this.ShowBorder = true;
+            this.VerticalGradient = false;
+
+        }
+
+        protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
+        {
+            if (ShowBorder)
+            {
+                ThemeManager.PrepareGraphics(e.Graphics);
+
+                using (Pen p = new Pen(ThemeManager.SelectedColor, 1))
+                {
+                    Point p1, p2 = Point.Empty;
+
+                    if (VerticalGradient)
+                    {
+                        p1 = new Point(e.AffectedBounds.Left, e.AffectedBounds.Bottom - 1);
+                        p2 = new Point(e.AffectedBounds.Right, e.AffectedBounds.Bottom - 1);
+                    }
+                    else
+                    {
+                        p1 = new Point(e.AffectedBounds.Right - 1, e.AffectedBounds.Top);
+                        p2 = new Point(e.AffectedBounds.Right - 1, e.AffectedBounds.Bottom);
+                    }
+
+                    e.Graphics.DrawLine(p, p1, p2);
+                }
+            }
+        }
+    }
+    #endregion
+
+    #region OPMToolStripSplitButton
     public class OPMToolStripSplitButton : ToolStripSplitButton
     {
         public OPMToolStripSplitButton()
@@ -136,167 +223,13 @@ namespace OPMedia.UI.Controls
             }
         }
     }
-
-    #region OPMToolStrip
-
-    public class OPMToolStrip : ToolStrip
-    {
-        public new ToolStripRenderMode RenderMode { get { return base.RenderMode; } }
-        public new ToolStripRenderer Renderer { get { return base.Renderer; } }
-
-        public bool ShowBorder
-        {
-            get { return (Renderer as OPMToolStripRenderer).ShowBorder; }
-            set { (Renderer as OPMToolStripRenderer).ShowBorder = value; }
-        }
-
-        public bool VerticalGradient
-        {
-            get { return (Renderer as OPMToolStripRenderer).VerticalGradient; }
-            set { (Renderer as OPMToolStripRenderer).VerticalGradient = value; }
-        }
-
-
-        public OPMToolStrip()
-            : base()
-        {
-            this.ForeColor = ThemeManager.ForeColor;
-            this.BackColor = ThemeManager.BackColor;
-
-            base.Renderer = new OPMToolStripRenderer();
-        }
-
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            float angle = VerticalGradient ? 90f : 0f;
-
-            using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
-                ThemeManager.GradientNormalColor1, ThemeManager.GradientNormalColor2, angle))
-            {
-                e.Graphics.FillRectangle(br, ClientRectangle);
-            }
-        }
-    }
-
     #endregion
-
-    #region Renderers
-
-    public class OPMMenuStripRenderer : ToolStripRenderer
-    {
-        public bool ShowBorder { get; set; }
-        public bool VerticalGradient { get; set; }
-
-        public OPMMenuStripRenderer()
-            : base()
-        {
-            this.ShowBorder = true;
-            this.VerticalGradient = false;
-        }
-
-        protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
-        {
-            ThemeManager.PrepareGraphics(e.Graphics);
-
-            base.OnRenderToolStripBackground(e);
-
-            Rectangle rc = new Rectangle(
-                e.AffectedBounds.Left,
-                e.AffectedBounds.Top,
-                e.AffectedBounds.Width - 1,
-                e.AffectedBounds.Height - 1);
-
-            Rectangle rcLeft = new Rectangle(
-                e.AffectedBounds.Left,
-                e.AffectedBounds.Top,
-                24,
-                e.AffectedBounds.Height - 1);
-
-            Rectangle rcRight = new Rectangle(
-                e.AffectedBounds.Left + 24,
-                e.AffectedBounds.Top,
-                e.AffectedBounds.Width - 25,
-                e.AffectedBounds.Height - 1);
-
-            using (Brush b = new SolidBrush(ThemeManager.WndValidColor))
-            {
-                e.Graphics.FillRectangle(b, rcLeft);
-            }
-
-            using (Brush b = new SolidBrush(Color.White))
-            {
-                e.Graphics.FillRectangle(b, rcRight);
-            }
-            
-            using (Pen p = new Pen(ThemeManager.SelectedColor, 1))
-            {
-                e.Graphics.DrawRectangle(p, rc);
-            }
-
-            if (e.ToolStrip != null)
-            {
-                using (Pen p = new Pen(e.ToolStrip.BackColor, 1))
-                {
-                    Point p1 = new Point(e.ConnectedArea.Left, rc.Top);
-                    Point p2 = new Point(e.ConnectedArea.Right, rc.Top);
-
-                    e.Graphics.DrawLine(p, p1, p2);
-                }
-            }
-        }
-
-        
-    }
-
-
-    public class OPMToolStripRenderer : ToolStripRenderer
-    {
-        public bool ShowBorder { get; set; }
-        public bool VerticalGradient { get; set; }
-
-        public OPMToolStripRenderer()
-            : base()
-        {
-            this.ShowBorder = true;
-            this.VerticalGradient = false;
-
-        }
-
-        protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
-        {
-            if (ShowBorder)
-            {
-                ThemeManager.PrepareGraphics(e.Graphics);
-
-                using (Pen p = new Pen(ThemeManager.SelectedColor, 1))
-                {
-                    Point p1, p2 = Point.Empty;
-
-                    if (VerticalGradient)
-                    {
-                        p1 = new Point(e.AffectedBounds.Left, e.AffectedBounds.Bottom - 1);
-                        p2 = new Point(e.AffectedBounds.Right, e.AffectedBounds.Bottom - 1);
-                    }
-                    else
-                    {
-                        p1 = new Point(e.AffectedBounds.Right - 1, e.AffectedBounds.Top);
-                        p2 = new Point(e.AffectedBounds.Right - 1, e.AffectedBounds.Bottom);
-                    }
-
-                    e.Graphics.DrawLine(p, p1, p2);
-                }
-            }
-        }
-    }
-
-    #endregion
-
 
     #region OPMToolStripButton
-
     public class OPMToolStripButton : ToolStripButton
     {
-        public OPMToolStripButton() : base()
+        public OPMToolStripButton()
+            : base()
         {
         }
 
@@ -305,7 +238,7 @@ namespace OPMedia.UI.Controls
             : base(text)
         {
         }
-        
+
         protected override void OnPaint(PaintEventArgs e)
         {
             ThemeManager.PrepareGraphics(e.Graphics);
@@ -406,7 +339,6 @@ namespace OPMedia.UI.Controls
             }
         }
     }
-
     #endregion
 
     #region OPMToolStripDropDownButton
@@ -427,7 +359,7 @@ namespace OPMedia.UI.Controls
         {
             this.ImageScalingSize = new Size(16, 16);
         }
-        
+
         protected override void OnPaint(PaintEventArgs e)
         {
             ThemeManager.PrepareGraphics(e.Graphics);
@@ -507,7 +439,7 @@ namespace OPMedia.UI.Controls
                 }
             }
 
-            Rectangle rcArrow = new Rectangle(clientRectangle.Right - 18, 
+            Rectangle rcArrow = new Rectangle(clientRectangle.Right - 18,
                 clientRectangle.Top + (clientRectangle.Height - 25) / 2,
                     15, 15);
 
@@ -523,40 +455,7 @@ namespace OPMedia.UI.Controls
 
     #endregion
 
-    #region StatusStripButton
-
-    [DesignerCategory("code")]
-    [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.StatusStrip)]
-    public class StatusStripButton : ToolStripControlHost
-    {
-        public new event EventHandler Click = null;
-
-        public OPMButton Button
-        {
-            get
-            {
-                return this.Control as OPMButton;
-            }
-        }
-
-        public StatusStripButton()
-            : base(new OPMButton())
-        {
-            Button.Click += new EventHandler(Button_Click);
-        }
-
-        void Button_Click(object sender, EventArgs e)
-        {
-            if (Click != null)
-            {
-                Click(sender, e);
-            }
-
-        }
-    }
-
-    #endregion
-
+    #region OPMToolStripSeparator
     public class OPMToolStripSeparator : ToolStripSeparator
     {
         protected override void OnPaint(PaintEventArgs e)
@@ -571,134 +470,9 @@ namespace OPMedia.UI.Controls
             }
         }
     }
-    
-    public class OPMMenuStripSeparator : ToolStripSeparator
-    {
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            ThemeManager.PrepareGraphics(e.Graphics);
-
-            using (Pen p = new Pen(ThemeManager.BackColor, 1))
-            {
-                int dy = e.ClipRectangle.Height / 2;
-                int dx = 8;
-
-                Point p1 = new Point(e.ClipRectangle.Left + Owner.ImageScalingSize.Width + dx + 2, e.ClipRectangle.Top + dy);
-                Point p2 = new Point(e.ClipRectangle.Right - dx + 2, e.ClipRectangle.Top + dy);
-
-                e.Graphics.DrawLine(p, p1, p2);
-            }
-        }
-    }
-
-    #region OPMMenuStrip
-
-    public class OPMMenuStrip : MenuStrip
-    {
-        public new ToolStripRenderMode RenderMode { get { return base.RenderMode; } }
-        public new ToolStripRenderer Renderer { get { return base.Renderer; } }
-
-        private bool ShowBorder
-        {
-            get { try { return (Renderer as OPMMenuStripRenderer).ShowBorder; } catch { } return false; }
-            set { try { (Renderer as OPMMenuStripRenderer).ShowBorder = value; } catch { } }
-        }
-
-        private bool VerticalGradient
-        {
-            get { try { return (Renderer as OPMMenuStripRenderer).VerticalGradient; } catch { } return false; }
-            set { try { (Renderer as OPMMenuStripRenderer).VerticalGradient = value; } catch { } }
-        }
-
-        public OPMMenuStrip()
-            : base()
-        {
-            this.ForeColor = ThemeManager.ForeColor;
-            this.BackColor = ThemeManager.WndValidColor;
-
-            base.Renderer = new OPMMenuStripRenderer();
-
-            this.VerticalGradient = true;
-            this.ShowBorder = false;
-        }
-
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            float angle = VerticalGradient ? 90f : 0f;
-
-            using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
-                ThemeManager.BackColor, ThemeManager.GradientNormalColor1, angle))
-            {
-                e.Graphics.FillRectangle(br, ClientRectangle);
-            }
-        }
-    }
-
-    #endregion
-
-    #region OPMContextMenuStrip
-
-    public class OPMContextMenuStrip : ContextMenuStrip
-    {
-        public new ToolStripRenderMode RenderMode { get { return base.RenderMode; } }
-        public new ToolStripRenderer Renderer { get { return base.Renderer; } }
-
-        private bool ShowBorder
-        {
-            get { try { return (Renderer as OPMMenuStripRenderer).ShowBorder; } catch { } return false; }
-            set { try { (Renderer as OPMMenuStripRenderer).ShowBorder = value; } catch { } }
-        }
-
-        private bool VerticalGradient
-        {
-            get { try { return (Renderer as OPMMenuStripRenderer).VerticalGradient; } catch { } return false; }
-            set { try { (Renderer as OPMMenuStripRenderer).VerticalGradient = value; } catch { } }
-        }
-
-        public OPMContextMenuStrip()
-            : base()
-        {
-            this.ForeColor = ThemeManager.ForeColor;
-            this.BackColor = ThemeManager.BackColor;
-
-            base.Renderer = new OPMMenuStripRenderer();
-
-            this.VerticalGradient = true;
-            this.ShowBorder = false;
-        }
-
-        //protected override void OnPaintBackground(PaintEventArgs e)
-        //{
-        //    float angle = VerticalGradient ? 90f : 0f;
-
-        //    using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
-        //        ThemeManager.BackColor, ThemeManager.GradientNormalColor1, angle))
-        //    {
-        //        e.Graphics.FillRectangle(br, ClientRectangle);
-        //    }
-        //}
-    }
-
     #endregion
 
     #region OPMToolStripMenuItem
-
-    public class OPMToolStripDropDownMenuItem : OPMToolStripMenuItem
-    {
-        private OPMToolStripDropDownButton Button { get; set; }
-        public Size ImageScalingSize
-        {
-            get
-            {
-                return Button.ImageScalingSize;
-            }
-        }
-
-        public OPMToolStripDropDownMenuItem(OPMToolStripDropDownButton button)
-            : base()
-        {
-        }
-    }
 
     public class OPMToolStripMenuItem : ToolStripMenuItem
     {
@@ -717,7 +491,7 @@ namespace OPMedia.UI.Controls
         {
             bool header = (Parent is OPMMenuStrip);
             bool highlight = (Selected || Checked || Pressed);
-            
+
             Color clText = Color.Black;
             Color clBack = header ? ThemeManager.WndValidColor : ThemeManager.BackColor;
 
@@ -763,7 +537,7 @@ namespace OPMedia.UI.Controls
             }
             else
             {
-                clientRectangle = new Rectangle(ContentRectangle.X, ContentRectangle.Y - 1, 
+                clientRectangle = new Rectangle(ContentRectangle.X, ContentRectangle.Y - 1,
                     ContentRectangle.Width, ContentRectangle.Height + 2);
             }
 
@@ -772,7 +546,7 @@ namespace OPMedia.UI.Controls
                 using (SolidBrush b2 = new SolidBrush(ThemeManager.CheckedMenuColor))
                 {
                     Rectangle rect = clientRectangle;
-                    
+
                     if (Enabled && highlight)
                     {
                         if (Enabled)
@@ -788,7 +562,7 @@ namespace OPMedia.UI.Controls
                             rect.Height -= 1;
                         }
 
-                        using (Pen p = new Pen(ThemeManager.SelectedColor, 1))
+                        using (Pen p = new Pen(ThemeManager.BorderColor, 1))
                         {
                             e.Graphics.DrawRectangle(p, rect);
                         }
@@ -872,6 +646,250 @@ namespace OPMedia.UI.Controls
 
         }
     }
+
+    #endregion
+
+    #region OPMToolStripDropDownMenuItem
+
+    public class OPMToolStripDropDownMenuItem : OPMToolStripMenuItem
+    {
+        private OPMToolStripDropDownButton Button { get; set; }
+        public Size ImageScalingSize
+        {
+            get
+            {
+                return Button.ImageScalingSize;
+            }
+        }
+
+        public OPMToolStripDropDownMenuItem(OPMToolStripDropDownButton button)
+            : base()
+        {
+        }
+    }
+
+    #endregion
+
+    #endregion
+    
+    #region OPMMenuStrip and related
+
+    #region OPMMenuStrip
+
+    public class OPMMenuStrip : MenuStrip
+    {
+        public new ToolStripRenderMode RenderMode { get { return base.RenderMode; } }
+        public new ToolStripRenderer Renderer { get { return base.Renderer; } }
+
+        private bool ShowBorder
+        {
+            get { try { return (Renderer as OPMMenuStripRenderer).ShowBorder; } catch { } return false; }
+            set { try { (Renderer as OPMMenuStripRenderer).ShowBorder = value; } catch { } }
+        }
+
+        private bool VerticalGradient
+        {
+            get { try { return (Renderer as OPMMenuStripRenderer).VerticalGradient; } catch { } return false; }
+            set { try { (Renderer as OPMMenuStripRenderer).VerticalGradient = value; } catch { } }
+        }
+
+        public OPMMenuStrip()
+            : base()
+        {
+            this.ForeColor = ThemeManager.ForeColor;
+            this.BackColor = ThemeManager.WndValidColor;
+
+            base.Renderer = new OPMMenuStripRenderer();
+
+            this.VerticalGradient = true;
+            this.ShowBorder = false;
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            float angle = VerticalGradient ? 90f : 0f;
+
+            using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
+                ThemeManager.BackColor, ThemeManager.GradientNormalColor1, angle))
+            {
+                e.Graphics.FillRectangle(br, ClientRectangle);
+            }
+        }
+    }
+
+    #endregion
+
+    #region OPMMenuStripRenderer
+    public class OPMMenuStripRenderer : ToolStripRenderer
+    {
+        public bool ShowBorder { get; set; }
+        public bool VerticalGradient { get; set; }
+
+        public OPMMenuStripRenderer()
+            : base()
+        {
+            this.ShowBorder = true;
+            this.VerticalGradient = false;
+        }
+
+        protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
+        {
+            ThemeManager.PrepareGraphics(e.Graphics);
+
+            base.OnRenderToolStripBackground(e);
+
+            Rectangle rc = new Rectangle(
+                e.AffectedBounds.Left,
+                e.AffectedBounds.Top,
+                e.AffectedBounds.Width - 1,
+                e.AffectedBounds.Height - 1);
+
+            Rectangle rcLeft = new Rectangle(
+                e.AffectedBounds.Left,
+                e.AffectedBounds.Top,
+                24,
+                e.AffectedBounds.Height - 1);
+
+            Rectangle rcRight = new Rectangle(
+                e.AffectedBounds.Left + 24,
+                e.AffectedBounds.Top,
+                e.AffectedBounds.Width - 25,
+                e.AffectedBounds.Height - 1);
+
+            using (Brush b = new SolidBrush(ThemeManager.WndValidColor))
+            {
+                e.Graphics.FillRectangle(b, rcLeft);
+            }
+
+            using (Brush b = new SolidBrush(Color.White))
+            {
+                e.Graphics.FillRectangle(b, rcRight);
+            }
+
+            using (Pen p = new Pen(ThemeManager.BorderColor, 1))
+            {
+                e.Graphics.DrawRectangle(p, rc);
+            }
+
+            if (e.ToolStrip != null)
+            {
+                using (Pen p = new Pen(ThemeManager.WndValidColor, 1))
+                {
+                    Point p1 = new Point(e.ConnectedArea.Left, rc.Top);
+                    Point p2 = new Point(e.ConnectedArea.Right-1, rc.Top);
+
+                    e.Graphics.DrawLine(p, p1, p2);
+                }
+            }
+        }
+
+
+    }
+    #endregion
+
+    #region OPMContextMenuStrip
+
+    public class OPMContextMenuStrip : ContextMenuStrip
+    {
+        public new ToolStripRenderMode RenderMode { get { return base.RenderMode; } }
+        public new ToolStripRenderer Renderer { get { return base.Renderer; } }
+
+        private bool ShowBorder
+        {
+            get { try { return (Renderer as OPMMenuStripRenderer).ShowBorder; } catch { } return false; }
+            set { try { (Renderer as OPMMenuStripRenderer).ShowBorder = value; } catch { } }
+        }
+
+        private bool VerticalGradient
+        {
+            get { try { return (Renderer as OPMMenuStripRenderer).VerticalGradient; } catch { } return false; }
+            set { try { (Renderer as OPMMenuStripRenderer).VerticalGradient = value; } catch { } }
+        }
+
+        public OPMContextMenuStrip()
+            : base()
+        {
+            this.ForeColor = ThemeManager.ForeColor;
+            this.BackColor = ThemeManager.BackColor;
+
+            base.Renderer = new OPMMenuStripRenderer();
+
+            this.VerticalGradient = true;
+            this.ShowBorder = false;
+        }
+
+        //protected override void OnPaintBackground(PaintEventArgs e)
+        //{
+        //    float angle = VerticalGradient ? 90f : 0f;
+
+        //    using (LinearGradientBrush br = new LinearGradientBrush(ClientRectangle,
+        //        ThemeManager.BackColor, ThemeManager.GradientNormalColor1, angle))
+        //    {
+        //        e.Graphics.FillRectangle(br, ClientRectangle);
+        //    }
+        //}
+    }
+
+    #endregion
+
+    #region OPMMenuStripSeparator
+    public class OPMMenuStripSeparator : ToolStripSeparator
+    {
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ThemeManager.PrepareGraphics(e.Graphics);
+
+            using (Pen p = new Pen(ThemeManager.BackColor, 1))
+            {
+                int dy = e.ClipRectangle.Height / 2;
+                int dx = 8;
+
+                Point p1 = new Point(e.ClipRectangle.Left + Owner.ImageScalingSize.Width + dx + 2, e.ClipRectangle.Top + dy);
+                Point p2 = new Point(e.ClipRectangle.Right - dx + 2, e.ClipRectangle.Top + dy);
+
+                e.Graphics.DrawLine(p, p1, p2);
+            }
+        }
+    }
+    #endregion
+
+    #endregion
+
+    #region Status strip and related
+
+    #region StatusStripButton
+
+    [DesignerCategory("code")]
+    [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.StatusStrip)]
+    public class StatusStripButton : ToolStripControlHost
+    {
+        public new event EventHandler Click = null;
+
+        public OPMButton Button
+        {
+            get
+            {
+                return this.Control as OPMButton;
+            }
+        }
+
+        public StatusStripButton()
+            : base(new OPMButton())
+        {
+            Button.Click += new EventHandler(Button_Click);
+        }
+
+        void Button_Click(object sender, EventArgs e)
+        {
+            if (Click != null)
+            {
+                Click(sender, e);
+            }
+
+        }
+    }
+
+    #endregion
 
     #endregion
 }
