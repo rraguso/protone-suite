@@ -33,13 +33,13 @@ namespace OPMedia.UI.Configuration
             this.cmbLanguages = new OPMedia.UI.Controls.OPMComboBox();
             this.labelProductName = new OPMedia.UI.Controls.OPMLabel();
             this.layoutPanel = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.chkAllowAutoUpdates = new OPMedia.UI.Controls.OPMCheckBox();
             this.labelVersion = new OPMedia.UI.Controls.OPMLabel();
             this.labelCopyright = new OPMedia.UI.Controls.OPMLabel();
             this.lblSetLanguage = new OPMedia.UI.Controls.OPMLabel();
             this.cmbThemes = new OPMedia.UI.Controls.OPMComboBox();
-            this.kryptonLabel1 = new OPMedia.UI.Controls.OPMLabel();
+            this.lblSetSkin = new OPMedia.UI.Controls.OPMLabel();
             this.btnCheckUpdates = new OPMedia.UI.Controls.OPMButton();
-            this.chkAllowAutoUpdates = new OPMedia.UI.Controls.OPMCheckBox();
             this.layoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +84,7 @@ namespace OPMedia.UI.Configuration
             this.layoutPanel.Controls.Add(this.cmbLanguages, 0, 5);
             this.layoutPanel.Controls.Add(this.lblSetLanguage, 0, 4);
             this.layoutPanel.Controls.Add(this.cmbThemes, 0, 8);
-            this.layoutPanel.Controls.Add(this.kryptonLabel1, 0, 7);
+            this.layoutPanel.Controls.Add(this.lblSetSkin, 0, 7);
             this.layoutPanel.Controls.Add(this.btnCheckUpdates, 2, 12);
             this.layoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutPanel.Location = new System.Drawing.Point(3, 3);
@@ -109,6 +109,18 @@ namespace OPMedia.UI.Configuration
             this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.layoutPanel.Size = new System.Drawing.Size(413, 372);
             this.layoutPanel.TabIndex = 7;
+            // 
+            // chkAllowAutoUpdates
+            // 
+            this.layoutPanel.SetColumnSpan(this.chkAllowAutoUpdates, 2);
+            this.chkAllowAutoUpdates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkAllowAutoUpdates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkAllowAutoUpdates.Location = new System.Drawing.Point(3, 181);
+            this.chkAllowAutoUpdates.Name = "chkAllowAutoUpdates";
+            this.chkAllowAutoUpdates.OverrideForeColor = System.Drawing.Color.Empty;
+            this.chkAllowAutoUpdates.Size = new System.Drawing.Size(287, 25);
+            this.chkAllowAutoUpdates.TabIndex = 8;
+            this.chkAllowAutoUpdates.Text = "TXT_ALLOWAUTOUPDATES";
             // 
             // labelVersion
             // 
@@ -167,19 +179,19 @@ namespace OPMedia.UI.Configuration
             this.cmbThemes.Size = new System.Drawing.Size(407, 23);
             this.cmbThemes.TabIndex = 6;
             // 
-            // kryptonLabel1
+            // lblSetSkin
             // 
-            this.layoutPanel.SetColumnSpan(this.kryptonLabel1, 3);
-            this.kryptonLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.kryptonLabel1.Location = new System.Drawing.Point(3, 125);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.kryptonLabel1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.kryptonLabel1.Size = new System.Drawing.Size(407, 19);
-            this.kryptonLabel1.TabIndex = 5;
-            this.kryptonLabel1.Text = "TXT_SETSKIN";
-            this.kryptonLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.layoutPanel.SetColumnSpan(this.lblSetSkin, 3);
+            this.lblSetSkin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSetSkin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSetSkin.Location = new System.Drawing.Point(3, 125);
+            this.lblSetSkin.Name = "lblSetSkin";
+            this.lblSetSkin.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblSetSkin.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblSetSkin.Size = new System.Drawing.Size(407, 19);
+            this.lblSetSkin.TabIndex = 5;
+            this.lblSetSkin.Text = "TXT_SETSKIN";
+            this.lblSetSkin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnCheckUpdates
             // 
@@ -191,22 +203,11 @@ namespace OPMedia.UI.Configuration
             this.btnCheckUpdates.Name = "btnCheckUpdates";
             this.btnCheckUpdates.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnCheckUpdates.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnCheckUpdates.ShowDropDown = false;
             this.btnCheckUpdates.Size = new System.Drawing.Size(114, 25);
             this.btnCheckUpdates.TabIndex = 9;
             this.btnCheckUpdates.Text = "TXT_CHECKUPDATE";
             this.btnCheckUpdates.Click += new System.EventHandler(this.btnCheckUpdates_Click);
-            // 
-            // chkAllowAutoUpdates
-            // 
-            this.layoutPanel.SetColumnSpan(this.chkAllowAutoUpdates, 2);
-            this.chkAllowAutoUpdates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkAllowAutoUpdates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkAllowAutoUpdates.Location = new System.Drawing.Point(3, 181);
-            this.chkAllowAutoUpdates.Name = "chkAllowAutoUpdates";
-            this.chkAllowAutoUpdates.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkAllowAutoUpdates.Size = new System.Drawing.Size(287, 25);
-            this.chkAllowAutoUpdates.TabIndex = 8;
-            this.chkAllowAutoUpdates.Text = "TXT_ALLOWAUTOUPDATES";
             // 
             // GeneralSettingsPanel
             // 
@@ -229,7 +230,7 @@ namespace OPMedia.UI.Configuration
         private OPMLabel labelCopyright;
         private OPMLabel lblSetLanguage;
         private OPMComboBox cmbThemes;
-        private OPMLabel kryptonLabel1;
+        private OPMLabel lblSetSkin;
         private OPMCheckBox chkAllowAutoUpdates;
         private OPMButton btnCheckUpdates;
     }

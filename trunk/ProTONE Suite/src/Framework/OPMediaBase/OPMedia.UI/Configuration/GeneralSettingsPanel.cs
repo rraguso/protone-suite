@@ -67,6 +67,9 @@ namespace OPMedia.UI.Configuration
             cmbThemes.SelectedItem = SuiteConfiguration.SkinType;
             _initialSkinType = SuiteConfiguration.SkinType;
 
+            lblSetSkin.Visible = (cmbThemes.Items.Count > 1) ;
+            cmbThemes.Visible = (cmbThemes.Items.Count > 1);
+
             this.cmbThemes.SelectedIndexChanged += new System.EventHandler(this.OnThemeChanged);
             #endregion
 
