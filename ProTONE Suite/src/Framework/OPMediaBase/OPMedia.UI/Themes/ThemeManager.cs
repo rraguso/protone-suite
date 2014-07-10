@@ -456,6 +456,9 @@ namespace OPMedia.UI.Themes
                     if (string.IsNullOrEmpty(_defaultTheme))
                         _defaultTheme = lastThemeName;
                 }
+
+                // This is just to enforce reading theme settings from Registry
+                int sz = ThemeElement("CornerSize", 1);
             }
             catch (Exception ex)
             {

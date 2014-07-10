@@ -37,7 +37,7 @@ namespace OPMedia.Core
 
         public static void RegisterAppName(Assembly asm)
         {
-            if (!(IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsUtility))
+            if (!(IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsSuiteUtility))
             {
                 try
                 {
@@ -155,7 +155,7 @@ namespace OPMedia.Core
         {
             get
             {
-                return (IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsShellExtension || IsUtility);
+                return (IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsShellExtension || IsSuiteUtility);
             }
         }
 
@@ -199,11 +199,17 @@ namespace OPMedia.Core
             }
         }
 
-        public static bool IsUtility
+        public static bool IsSuiteUtility
         {
             get
             {
-                return string.Compare(ApplicationName, Constants.UtilityName, true) == 0;
+                if (string.Compare(ApplicationName, Constants.UtilityName, true) == 0)
+                    return true;
+
+                if (string.Compare(ApplicationName, "opmedia.remotecontrolemulator", true) == 0)
+                    return true;
+
+                return false;
             }
         }
     }
