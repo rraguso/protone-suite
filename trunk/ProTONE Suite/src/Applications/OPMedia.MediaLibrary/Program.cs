@@ -62,9 +62,8 @@ namespace OPMedia.MediaLibrary
                 {
                     Translator.SetInterfaceLanguage(cmdLineArgs[2]);
 
-                    ThemeEnum skin = SuiteConfiguration.SkinType;
                     AddonsConfig.IsInitialConfig = true;
-                    SuiteConfiguration.SkinType = Theme.Default.Value;
+                    SuiteConfiguration.SkinType = string.Empty;
 
                     try
                     {
@@ -72,7 +71,6 @@ namespace OPMedia.MediaLibrary
                     }
                     finally
                     {
-                        SuiteConfiguration.SkinType = skin;
                     }
                 }
                 else

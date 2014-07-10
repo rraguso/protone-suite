@@ -20,6 +20,9 @@ using System.Drawing.Text;
 using Microsoft.Win32;
 using System.ComponentModel;
 using OPMedia.UI.Properties;
+using System.Xml;
+using System.Xml.Linq;
+using System.Linq;
 
 #endregion
 
@@ -33,49 +36,6 @@ namespace OPMedia.UI.Themes
         NormalBold,
         Large,
         VeryLarge,
-    }
-
-    public enum ColorMapElement
-    {
-        BorderColor = 0,
-        BackColor,
-        ForeColor,
-        GradientNormalColor1,
-        GradientNormalColor2,
-        GradientHoverColor1,
-        GradientHoverColor2,
-        GradientFocusColor1,
-        GradientFocusColor2,
-        GradientFocusHoverColor1,
-        GradientFocusHoverColor2,
-        FocusBorderColor,
-        SelectedTextColor,
-
-        CaptionBarColor1,
-        CaptionBarColor2,
-
-        CaptionButtonColor1,
-        CaptionButtonColor2,
-        CaptionButtonRedColor1,
-        CaptionButtonRedColor2,
-
-        ColorValidationFailed,
-        WndValidColor,
-        SelectedColor,
-        
-        TransparentColor,
-
-        HighlightColor,
-
-        WndTextColor,
-
-        LinkColor,
-        CheckedMenuColor,
-
-        CornerSize,
-        FormBorderWidth,
-
-        NofElements,
     }
 
     public static class ResourceManagerExtension
@@ -103,7 +63,7 @@ namespace OPMedia.UI.Themes
 
     public static class ThemeManager
     {
-        static Color[,] __colorMap = new Color[(int)ColorMapElement.NofElements, (int)ThemeEnum.NofThemes];
+        static Dictionary<string, Dictionary<string, string>> _allThemesElements = null;
 
         #region Members
         private static Font _smallestFont = null;
@@ -113,74 +73,131 @@ namespace OPMedia.UI.Themes
         private static Font _largeFont = null;
         private static Font _veryLargeFont = null;
 
+        private static ColorConverter cc = new ColorConverter();
+
         #endregion
 
         #region Properties
 
+        static string _defaultTheme = "";
+        public static string DefaultTheme
+        {
+            get
+            {
+                return _defaultTheme;
+            }
+        }
+
+        public static List<string> Themes
+        {
+            get
+            {
+                if (_allThemesElements != null &&
+                    _allThemesElements.Count > 0)
+                {
+                    return new List<String>(_allThemesElements.Keys);
+                }
+
+                return new List<string> { string.Empty };
+            }
+        }
+
         public static Color BackColor
-        { get { return ColorMap(ColorMapElement.BackColor); } }
+        { get { return ThemeElement("BackColor", SafeColorFromString("252, 252, 252")); } }
 
         public static Color ForeColor
-        { get { return ColorMap(ColorMapElement.ForeColor); } }
+        { get { return ThemeElement("ForeColor", SafeColorFromString("000, 000, 000")); } }
 
         public static Color HighlightColor
-        { get { return ColorMap(ColorMapElement.HighlightColor); } }
+        { get { return ThemeElement("HighlightColor", SafeColorFromString("010, 110, 080")); } }
 
         public static Color SelectedColor
-        { get { return ColorMap(ColorMapElement.SelectedColor); } }
+        { get { return ThemeElement("SelectedColor", SafeColorFromString("159, 207, 255")); } }
 
         public static Color BorderColor
-        { get { return ColorMap(ColorMapElement.BorderColor); } }
-       
+        { get { return ThemeElement("BorderColor", SafeColorFromString("150, 150, 150")); } }
           
         public static Color GradientNormalColor1
-        { get { return ColorMap(ColorMapElement.GradientNormalColor1); } }
-       
+        { get { return ThemeElement("GradientNormalColor1", SafeColorFromString("224, 227, 206")); } }
+
         public static Color GradientNormalColor2
-        { get { return ColorMap(ColorMapElement.GradientNormalColor2); } }
-       
+        { get { return ThemeElement("GradientNormalColor2", SafeColorFromString("224, 227, 206")); } }
+
         public static Color GradientHoverColor1
-        { get { return ColorMap(ColorMapElement.GradientHoverColor1); } }
-       
+        { get { return ThemeElement("GradientHoverColor1", SafeColorFromString("159, 207, 255")); } }
+
         public static Color GradientHoverColor2
-        { get { return ColorMap(ColorMapElement.GradientHoverColor2); } }
-       
+        { get { return ThemeElement("GradientHoverColor2", SafeColorFromString("159, 207, 255")); } }
+
         public static Color GradientFocusColor1
-        { get { return ColorMap(ColorMapElement.GradientFocusColor1); } }
-       
+        { get { return ThemeElement("GradientFocusColor1", SafeColorFromString("224, 227, 206")); } }
+
         public static Color GradientFocusColor2
-        { get { return ColorMap(ColorMapElement.GradientFocusColor2); } }
+        { get { return ThemeElement("GradientFocusColor2", SafeColorFromString("224, 227, 206")); } }
 
         public static Color GradientFocusHoverColor1
-        { get { return ColorMap(ColorMapElement.GradientFocusHoverColor1); } }
+        { get { return ThemeElement("GradientFocusHoverColor1", SafeColorFromString("170, 220, 255")); } }
 
         public static Color GradientFocusHoverColor2
-        { get { return ColorMap(ColorMapElement.GradientFocusHoverColor2); } }
+        { get { return ThemeElement("GradientFocusHoverColor2", SafeColorFromString("170, 220, 255")); } }
 
         public static Color FocusBorderColor
-        { get { return ColorMap(ColorMapElement.FocusBorderColor); } }
-       
+        { get { return ThemeElement("FocusBorderColor", SafeColorFromString("051, 153, 255")); } }
 
         public static Color WndValidColor
-        { get { return ColorMap(ColorMapElement.WndValidColor); } }
-
-        public static Color ColorValidationFailed
-        { get { return Color.MistyRose; } }
-
-        public static Color TransparentColor
-        { get { return Color.White; } }
+        { get { return ThemeElement("WndValidColor", SafeColorFromString("255, 255, 255")); } }
 
         public static Color WndTextColor
-        { get { return ColorMap(ColorMapElement.WndTextColor); } }
+        { get { return ThemeElement("WndTextColor", SafeColorFromString("000, 000, 000")); } }
 
         public static Color LinkColor
-        { get { return ColorMap(ColorMapElement.LinkColor); } }
+        { get { return ThemeElement("LinkColor", SafeColorFromString("018, 097, 225")); } }
 
         public static Color CheckedMenuColor
-        { get { return ColorMap(ColorMapElement.CheckedMenuColor); } }
+        { get { return ThemeElement("CheckedMenuColor", SafeColorFromString("255, 209, 024")); } }
+
+        public static Color CaptionBarColor1
+        { get { return ThemeElement("CaptionBarColor1", SafeColorFromString("200, 200, 200")); } }
+
+        public static Color CaptionBarColor2
+        { get { return ThemeElement("CaptionBarColor2", SafeColorFromString("200, 200, 200")); } }
+
+        public static Color CaptionButtonColor1
+        { get { return ThemeElement("CaptionButtonColor1", SafeColorFromString("224, 227, 206")); } }
+
+        public static Color CaptionButtonColor2
+        { get { return ThemeElement("CaptionButtonColor2", SafeColorFromString("224, 227, 206")); } }
+
+        public static Color CaptionButtonRedColor1
+        { get { return ThemeElement("CaptionButtonRedColor1", SafeColorFromString("225, 100, 100")); } }
+
+        public static Color CaptionButtonRedColor2
+        { get { return ThemeElement("CaptionButtonRedColor2", SafeColorFromString("225, 100, 100")); } }
+
+        public static Color SelectedTextColor
+        { get { return ThemeElement("SelectedTextColor", SafeColorFromString("000, 000, 000")); } }
+
+        public static Color SeparatorColor
+        { get { return ThemeElement("SeparatorColor", SafeColorFromString("150, 150, 150")); } }
+
+        public static Color MenuTextColor
+        { get { return ThemeElement("MenuTextColor", SafeColorFromString("000, 000, 000")); } }
+
+        public static Color CheckedMenuTextColor
+        { get { return ThemeElement("CheckedMenuTextColor", SafeColorFromString("000, 000, 000")); } }
+
+        public static Color HeaderMenuTextColor
+        { get { return ThemeElement("HeaderMenuTextColor", SafeColorFromString("000, 000, 000")); } }
+
+        public static Color HighlightMenuTextColor
+        { get { return ThemeElement("HighlightMenuTextColor", SafeColorFromString("000, 000, 000")); } }
+
+        public static Color HighlightHeaderMenuTextColor
+        { get { return ThemeElement("HighlightHeaderMenuTextColor", SafeColorFromString("000, 000, 000")); } }
+
 
         public static int CornerSize
-        { get { return ColorMap(ColorMapElement.CornerSize).R & 0x0F; } }
+        { get { return ThemeElement("CornerSize", 0); } }
 
         public static int FormCornerSize
         { 
@@ -194,29 +211,14 @@ namespace OPMedia.UI.Themes
         }
 
         public static int FormBorderWidth
-        { get { return ColorMap(ColorMapElement.FormBorderWidth).R & 0x0F; } }
-        
-        public static Color CaptionBarColor1
-        { get { return ColorMap(ColorMapElement.CaptionBarColor1); } }
-
-        public static Color CaptionBarColor2
-        { get { return ColorMap(ColorMapElement.CaptionBarColor2); } }
-
-        public static Color CaptionButtonColor1
-        { get { return ColorMap(ColorMapElement.CaptionButtonColor1); } }
-
-        public static Color CaptionButtonColor2
-        { get { return ColorMap(ColorMapElement.CaptionButtonColor2); } }
+        { get { return ThemeElement("FormBorderWidth", 1); } }
 
 
-        public static Color CaptionButtonRedColor1
-        { get { return ColorMap(ColorMapElement.CaptionButtonRedColor1); } }
+        public static Color ColorValidationFailed
+        { get { return Color.MistyRose; } }
 
-        public static Color CaptionButtonRedColor2
-        { get { return ColorMap(ColorMapElement.CaptionButtonRedColor2); } }
-
-        public static Color SelectedTextColor
-        { get { return ColorMap(ColorMapElement.SelectedTextColor); } }
+        public static Color TransparentColor
+        { get { return Color.White; } }
 
 
         public static Font SmallFont
@@ -361,7 +363,7 @@ namespace OPMedia.UI.Themes
         /// </summary>
         static ThemeManager()
         {
-            InitColorMap();
+            InitThemeElements();
 
             try
             {
@@ -415,152 +417,140 @@ namespace OPMedia.UI.Themes
         }
         #endregion
 
-        private static void InitColorMap()
-        {
-            //---------------------------------------------------------------------------------------
-            ThemeEnum te = ThemeEnum.Metro;
-            ColorMap(te, 000, 000, 000, ColorMapElement.CornerSize);
-            ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
-            ColorMap(te, 150, 150, 150, ColorMapElement.BorderColor);
-            ColorMap(te, 000, 000, 000, ColorMapElement.ForeColor);
-            ColorMap(te, 252, 252, 252, ColorMapElement.BackColor);
-            ColorMap(te, 224, 227, 206, ColorMapElement.GradientNormalColor1);
-            ColorMap(te, 224, 227, 206, ColorMapElement.GradientNormalColor2);
-            ColorMap(te, 159, 207, 255, ColorMapElement.GradientHoverColor1);
-            ColorMap(te, 159, 207, 255, ColorMapElement.GradientHoverColor2);
-            ColorMap(te, 224, 227, 206, ColorMapElement.GradientFocusColor1);
-            ColorMap(te, 224, 227, 206, ColorMapElement.GradientFocusColor2);
-            ColorMap(te, 170, 220, 255, ColorMapElement.GradientFocusHoverColor1);
-            ColorMap(te, 170, 220, 255, ColorMapElement.GradientFocusHoverColor2);
-            ColorMap(te, 051, 153, 255, ColorMapElement.FocusBorderColor);
-            ColorMap(te, 000, 000, 000, ColorMapElement.SelectedTextColor);
-            ColorMap(te, 200, 200, 200, ColorMapElement.CaptionBarColor1);
-            ColorMap(te, 200, 200, 200, ColorMapElement.CaptionBarColor2);
-            ColorMap(te, 224, 227, 206, ColorMapElement.CaptionButtonColor1);
-            ColorMap(te, 224, 227, 206, ColorMapElement.CaptionButtonColor2);
-            ColorMap(te, 225, 100, 100, ColorMapElement.CaptionButtonRedColor1);
-            ColorMap(te, 225, 100, 100, ColorMapElement.CaptionButtonRedColor2);
-            ColorMap(te, 159, 207, 255, ColorMapElement.SelectedColor);
-            ColorMap(te, 255, 255, 255, ColorMapElement.WndValidColor);
-            ColorMap(te, 010, 110, 080, ColorMapElement.HighlightColor);
-            ColorMap(te, 000, 000, 000, ColorMapElement.WndTextColor);
-            ColorMap(te, 018, 097, 225, ColorMapElement.LinkColor);
-            ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
-            //---------------------------------------------------------------------------------------
-
-            //---------------------------------------------------------------------------------------
-            te = ThemeEnum.Blue;
-            ColorMap(te, 003, 000, 000, ColorMapElement.CornerSize);
-            ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
-            ColorMap(te, 070, 085, 110, ColorMapElement.BorderColor);
-            ColorMap(te, 030, 055, 090, ColorMapElement.ForeColor);
-            ColorMap(te, 205, 220, 240, ColorMapElement.BackColor);
-            ColorMap(te, 185, 205, 230, ColorMapElement.GradientNormalColor1);
-            ColorMap(te, 165, 185, 210, ColorMapElement.GradientNormalColor2);
-            ColorMap(te, 200, 220, 245, ColorMapElement.GradientHoverColor1);
-            ColorMap(te, 180, 200, 230, ColorMapElement.GradientHoverColor2);
-            ColorMap(te, 200, 220, 245, ColorMapElement.GradientFocusColor1);
-            ColorMap(te, 180, 200, 230, ColorMapElement.GradientFocusColor2);
-            ColorMap(te, 205, 225, 250, ColorMapElement.GradientFocusHoverColor1);
-            ColorMap(te, 185, 205, 235, ColorMapElement.GradientFocusHoverColor2);
-            ColorMap(te, 040, 055, 080, ColorMapElement.FocusBorderColor);
-            ColorMap(te, 030, 055, 090, ColorMapElement.SelectedTextColor);
-            ColorMap(te, 185, 205, 230, ColorMapElement.CaptionBarColor1);
-            ColorMap(te, 165, 185, 210, ColorMapElement.CaptionBarColor2);
-            ColorMap(te, 205, 220, 240, ColorMapElement.CaptionButtonColor1);
-            ColorMap(te, 140, 170, 215, ColorMapElement.CaptionButtonColor2);
-            ColorMap(te, 220, 160, 160, ColorMapElement.CaptionButtonRedColor1);
-            ColorMap(te, 230, 050, 020, ColorMapElement.CaptionButtonRedColor2);
-            ColorMap(te, 169, 193, 222, ColorMapElement.SelectedColor);
-            ColorMap(te, 240, 250, 255, ColorMapElement.WndValidColor);
-            ColorMap(te, 010, 110, 080, ColorMapElement.HighlightColor);
-            ColorMap(te, 030, 057, 091, ColorMapElement.WndTextColor);
-            ColorMap(te, 018, 097, 226, ColorMapElement.LinkColor);
-            ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
-            //---------------------------------------------------------------------------------------
-            
-            //---------------------------------------------------------------------------------------
-            te = ThemeEnum.Silver;
-            ColorMap(te, 003, 000, 000, ColorMapElement.CornerSize);
-            ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
-            ColorMap(te, 075, 075, 075, ColorMapElement.BorderColor);
-            ColorMap(te, 090, 090, 090, ColorMapElement.ForeColor);
-            ColorMap(te, 235, 235, 235, ColorMapElement.BackColor);
-            ColorMap(te, 220, 220, 220, ColorMapElement.GradientNormalColor1);
-            ColorMap(te, 190, 190, 190, ColorMapElement.GradientNormalColor2);
-            ColorMap(te, 235, 235, 235, ColorMapElement.GradientHoverColor1);
-            ColorMap(te, 215, 215, 215, ColorMapElement.GradientHoverColor2);
-            ColorMap(te, 235, 235, 235, ColorMapElement.GradientFocusColor1);
-            ColorMap(te, 215, 215, 215, ColorMapElement.GradientFocusColor2);
-            ColorMap(te, 240, 240, 240, ColorMapElement.GradientFocusHoverColor1);
-            ColorMap(te, 220, 220, 220, ColorMapElement.GradientFocusHoverColor2);
-            ColorMap(te, 045, 045, 045, ColorMapElement.FocusBorderColor);
-            ColorMap(te, 090, 090, 090, ColorMapElement.SelectedTextColor);
-            ColorMap(te, 220, 220, 220, ColorMapElement.CaptionBarColor1);
-            ColorMap(te, 190, 190, 190, ColorMapElement.CaptionBarColor2);
-            ColorMap(te, 235, 235, 235, ColorMapElement.CaptionButtonColor1);
-            ColorMap(te, 150, 150, 150, ColorMapElement.CaptionButtonColor2);
-            ColorMap(te, 220, 160, 160, ColorMapElement.CaptionButtonRedColor1);
-            ColorMap(te, 230, 050, 020, ColorMapElement.CaptionButtonRedColor2);
-            ColorMap(te, 197, 197, 197, ColorMapElement.SelectedColor);
-            ColorMap(te, 250, 250, 250, ColorMapElement.WndValidColor);
-            ColorMap(te, 175, 150, 120, ColorMapElement.HighlightColor);
-            ColorMap(te, 091, 091, 091, ColorMapElement.WndTextColor);
-            ColorMap(te, 018, 097, 225, ColorMapElement.LinkColor);
-            ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
-            //---------------------------------------------------------------------------------------
-            
-            //---------------------------------------------------------------------------------------
-            te = ThemeEnum.Black;
-            ColorMap(te, 003, 000, 000, ColorMapElement.CornerSize);
-            ColorMap(te, 002, 000, 000, ColorMapElement.FormBorderWidth);
-            ColorMap(te, 035, 035, 035, ColorMapElement.BorderColor);
-            ColorMap(te, 240, 240, 240, ColorMapElement.ForeColor);
-            ColorMap(te, 120, 120, 120, ColorMapElement.BackColor);
-            ColorMap(te, 100, 100, 100, ColorMapElement.GradientNormalColor1);
-            ColorMap(te, 080, 080, 080, ColorMapElement.GradientNormalColor2);
-            ColorMap(te, 115, 115, 115, ColorMapElement.GradientHoverColor1);
-            ColorMap(te, 092, 092, 095, ColorMapElement.GradientHoverColor2);
-            ColorMap(te, 115, 115, 115, ColorMapElement.GradientFocusColor1);
-            ColorMap(te, 092, 092, 095, ColorMapElement.GradientFocusColor2);
-            ColorMap(te, 120, 120, 120, ColorMapElement.GradientFocusHoverColor1);
-            ColorMap(te, 100, 100, 100, ColorMapElement.GradientFocusHoverColor2);
-            ColorMap(te, 065, 065, 065, ColorMapElement.FocusBorderColor);
-            ColorMap(te, 240, 240, 240, ColorMapElement.SelectedTextColor);
-            ColorMap(te, 100, 100, 100, ColorMapElement.CaptionBarColor1);
-            ColorMap(te, 035, 035, 035, ColorMapElement.CaptionBarColor2);
-            ColorMap(te, 120, 120, 120, ColorMapElement.CaptionButtonColor1);
-            ColorMap(te, 080, 080, 080, ColorMapElement.CaptionButtonColor2);
-            ColorMap(te, 220, 160, 160, ColorMapElement.CaptionButtonRedColor1);
-            ColorMap(te, 230, 050, 020, ColorMapElement.CaptionButtonRedColor2);
-            ColorMap(te, 059, 059, 059, ColorMapElement.SelectedColor);
-            ColorMap(te, 200, 200, 200, ColorMapElement.WndValidColor);
-            ColorMap(te, 200, 170, 150, ColorMapElement.HighlightColor);
-            ColorMap(te, 036, 036, 036, ColorMapElement.WndTextColor);
-            ColorMap(te, 114, 211, 255, ColorMapElement.LinkColor);
-            ColorMap(te, 255, 209, 024, ColorMapElement.CheckedMenuColor);
-            //---------------------------------------------------------------------------------------
-        }
-
-        private static void ColorMap(ThemeEnum te, int r, int g, int b, ColorMapElement cme)
+        private static void InitThemeElements()
         {
             try
             {
-                __colorMap[(int)cme, (int)te] = Color.FromArgb(r, g, b);
+                string themeFile = Path.Combine(SuiteConfiguration.InstallationPath, "Themes\\Themes.xml");
+                XDocument doc = XDocument.Load(themeFile);
+                if (doc != null)
+                {
+                    var allThemes = (from theme in doc.Descendants("Theme")
+                             select new
+                             {
+                                 Name = theme.Attribute("Name").Value,
+                                 IsDefault = theme.Attribute("IsDefault").Value.ToLowerInvariant() == "true"
+                             }).ToList();
+
+                    foreach (var theme in allThemes)
+                    {
+                        if (theme.IsDefault)
+                        {
+                            _defaultTheme = theme.Name;
+                        }
+
+                        var themeElements = (from themeElement in doc.Descendants("ThemeElement")
+                                                where themeElement.Parent.Attribute("Name").Value == theme.Name
+                                                select new
+                                                {
+                                                    Name = themeElement.Attribute("Name").Value,
+                                                    Value = themeElement.Attribute("Value").Value
+                                                }).ToList();
+
+                        foreach (var themeElement in themeElements)
+                            ThemeElement(theme.Name, themeElement.Name, themeElement.Value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+
+                if (_allThemesElements != null)
+                    _allThemesElements.Clear();
+            }
+        }
+
+        #region assignment
+        private static void ThemeElement(string themeName, string elementName, string value)
+        {
+            try
+            {
+                if (_allThemesElements == null)
+                    _allThemesElements = new Dictionary<string,Dictionary<string,string>>();
+
+                if (_allThemesElements.ContainsKey(themeName) == false)
+                    _allThemesElements.Add(themeName, new Dictionary<string, string>());
+
+                if (_allThemesElements[themeName].ContainsKey(elementName))
+                    _allThemesElements[themeName][elementName] = value;
+                else
+                    _allThemesElements[themeName].Add(elementName, value);
             }
             catch { }
         }
-        private static Color ColorMap(ColorMapElement cme)
+        #endregion
+
+        #region backwards conversion
+        private static int ThemeElement(string elementName, int defaultValue = -1)
+        {
+            int retVal = defaultValue;
+            try
+            {
+                string val = ThemeElement(elementName, defaultValue.ToString());
+                if (int.TryParse(val, out retVal) == false)
+                {
+                    retVal = defaultValue;
+                }
+            }
+            catch
+            {
+                retVal = defaultValue;
+            }
+
+            return retVal;
+        }
+
+        private static Color ThemeElement(string elementName, Color defaultValue = default(Color))
+        {
+            Color retVal = defaultValue;
+            try
+            {
+                string val = ThemeElement(elementName, cc.ConvertToString(defaultValue));
+                retVal = SafeColorFromString(val);
+            }
+            catch
+            {
+                retVal = defaultValue;
+            }
+
+            return retVal;
+        }
+
+        private static Color SafeColorFromString(string value)
         {
             try
             {
-                return __colorMap[(int)cme, (int)SuiteConfiguration.SkinType];
+                return (Color)cc.ConvertFromString(value);
             }
-            catch 
-            { 
+            catch
+            {
+                return Color.Empty;
+            }
+        }
+
+        private static string ThemeElement(string elementName, string defaultValue = null)
+        {
+            string currentTheme = SuiteConfiguration.SkinType;
+            string elementValue = defaultValue;
+
+            if (string.IsNullOrEmpty(currentTheme))
+            {
+                currentTheme = _defaultTheme;
+                SuiteConfiguration.SkinType = _defaultTheme;
             }
 
-            return Color.Empty;
+            try
+            {
+                elementValue = _allThemesElements[currentTheme][elementName];
+            }
+            catch
+            {
+                elementValue = defaultValue;
+            }
+            
+            return elementValue;
         }
+        #endregion
     }
 }

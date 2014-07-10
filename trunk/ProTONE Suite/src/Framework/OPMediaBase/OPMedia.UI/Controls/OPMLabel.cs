@@ -115,6 +115,7 @@ namespace OPMedia.UI.Controls
             Color cText = Enabled ? GetForeColor() : Color.FromKnownColor(KnownColor.ControlDark);
 
             Rectangle rc = ClientRectangle;
+            rc.Inflate(2, 2);
 
             using (Brush b = new SolidBrush(c1))
             {

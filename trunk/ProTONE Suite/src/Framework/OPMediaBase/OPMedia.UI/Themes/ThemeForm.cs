@@ -110,8 +110,7 @@ namespace OPMedia.UI.Themes
             this.Load += new EventHandler(ThemeForm_Load);
             this.HandleCreated += new EventHandler(ThemeForm_HandleCreated);
             this.FormClosed += new FormClosedEventHandler(ThemeForm_FormClosed);
-            this.Resize += new EventHandler(ThemeForm_Resize);
-
+            //this.Resize += new EventHandler(ThemeForm_Resize);
             this.Shown += new EventHandler(ThemeForm_Shown);
 
             this.ShowInTaskbar = false;
@@ -164,17 +163,17 @@ namespace OPMedia.UI.Themes
             }
         }
 
-        void ThemeForm_Resize(object sender, EventArgs e)
-        {
-            if (this.WindowState != FormWindowState.Minimized)
-            {
-                int spacing = ThemeManager.FormBorderWidth;
+        //void ThemeForm_Resize(object sender, EventArgs e)
+        //{
+        //    if (this.WindowState != FormWindowState.Minimized)
+        //    {
+        //        int spacing = ThemeManager.FormBorderWidth;
 
-                int th = TitleBarVisible ? CaptionButtonSize.Height : 0;
-                pnlContent.SetLocation(new Point(spacing, th + spacing));
-                pnlContent.SetSize(new Size(this.Width - 2 * spacing, this.Height - th - 2 * spacing));
-            }
-        }
+        //        int th = TitleBarVisible ? CaptionButtonSize.Height : 0;
+        //        pnlContent.SetLocation(new Point(spacing, th + spacing));
+        //        pnlContent.SetSize(new Size(this.Width - 2 * spacing, this.Height - th - 2 * spacing));
+        //    }
+        //}
 
         private void InitializeComponent()
         {
@@ -182,7 +181,6 @@ namespace OPMedia.UI.Themes
             // 
             // pnlContent
             // 
-            this.pnlContent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlContent.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             // 
             // ThemeForm

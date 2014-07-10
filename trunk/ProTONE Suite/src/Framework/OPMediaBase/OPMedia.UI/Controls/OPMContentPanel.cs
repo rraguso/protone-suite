@@ -17,6 +17,13 @@ namespace OPMedia.UI.Themes
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
+        public new AnchorStyles Anchor
+        { get { return base.Anchor; } }
+
+        [ReadOnly(true)]
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public new Point Location
         { get { return base.Location; } }
 
@@ -55,14 +62,21 @@ namespace OPMedia.UI.Themes
         public ContentPanel()
             : base()
         {
+            base.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            ThemeManager.PrepareGraphics(e.Graphics);
+            using (Brush b = new SolidBrush(ThemeManager.BackColor))
+            {
+                e.Graphics.FillRectangle(b, ClientRectangle);
+            }
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
+            
         }
     }
 }

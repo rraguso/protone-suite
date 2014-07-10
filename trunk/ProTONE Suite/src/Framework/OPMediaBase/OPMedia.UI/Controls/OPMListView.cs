@@ -387,7 +387,7 @@ namespace OPMedia.UI.Controls
             Rectangle rcFull = Rectangle.Empty;
             if (e.ColumnIndex == 0)
             {
-                rcFull = new Rectangle(e.Bounds.Left, e.Bounds.Top, this.Width, this.Height);
+                rcFull = new Rectangle(e.Bounds.Left, e.Bounds.Top, this.Width, 15);
             }
 
             Rectangle rc = new Rectangle(e.Bounds.Left - 2, e.Bounds.Top - 1,
@@ -400,7 +400,7 @@ namespace OPMedia.UI.Controls
             using (Brush bText = new SolidBrush(ThemeManager.ForeColor))
             using (Pen p = new Pen(ThemeManager.BorderColor, 1))
             {
-                e.Graphics.FillRectangle(b, e.Bounds);
+                e.Graphics.FillRectangle(b, rcHeader);
                 e.Graphics.DrawRectangle(p, rc);
 
                 StringFormat sf = new StringFormat();

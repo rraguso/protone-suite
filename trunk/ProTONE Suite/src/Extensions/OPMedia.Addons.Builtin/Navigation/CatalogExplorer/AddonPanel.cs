@@ -191,6 +191,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
         void AddonPanel_HandleCreated(object sender, EventArgs e)
         {
             pnlSplitter.SplitterDistance = AppSettings.SplitterDistanceMC;
+            pnlSplitter.SplitterWidth = 3;
 
             OnPerformTranslation();
 

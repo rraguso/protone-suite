@@ -25,8 +25,7 @@ namespace OPMedia.UI.Configuration
     public partial class GeneralSettingsPanel : BaseCfgPanel
     {
         string curLangID = string.Empty;
-
-        ThemeEnum _initialSkinType;
+        string _initialSkinType;
 
         public override Image Image
         {
@@ -64,8 +63,8 @@ namespace OPMedia.UI.Configuration
 
             #region Themes
 
-            cmbThemes.DataSource = Theme.AllThemes;
-            cmbThemes.SelectedItem = new Theme(SuiteConfiguration.SkinType);
+            cmbThemes.DataSource = ThemeManager.Themes;
+            cmbThemes.SelectedItem = SuiteConfiguration.SkinType;
             _initialSkinType = SuiteConfiguration.SkinType;
 
             this.cmbThemes.SelectedIndexChanged += new System.EventHandler(this.OnThemeChanged);
@@ -101,10 +100,10 @@ namespace OPMedia.UI.Configuration
 
         private void OnThemeChanged(object sender, EventArgs e)
         {
-            Theme t = cmbThemes.SelectedItem as Theme;
-            if (t != null)
+            string newTheme = cmbThemes.SelectedItem as string;
+            if (newTheme != null)
             {
-                SuiteConfiguration.SkinType = t.Value;
+                SuiteConfiguration.SkinType = newTheme;
             	Modified = true;
         	}
         }

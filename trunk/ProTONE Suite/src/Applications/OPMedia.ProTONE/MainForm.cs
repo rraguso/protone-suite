@@ -73,8 +73,7 @@ namespace OPMedia.ProTONE
 
             InitializeComponent();
 
-            mnuMediaState.ForeColor = (SuiteConfiguration.SkinType == ThemeEnum.Black) ?
-                ThemeManager.SelectedColor : ThemeManager.ForeColor;
+            mnuMediaState.ForeColor = ThemeManager.MenuTextColor;
 
             mediaPlayer.MinimumSize = new Size(0, 0);
 
@@ -501,8 +500,7 @@ namespace OPMedia.ProTONE
 
         protected override void OnThemeUpdatedInternal()
         {
-            mnuMediaState.ForeColor = (SuiteConfiguration.SkinType == ThemeEnum.Black) ? 
-                ThemeManager.SelectedColor : ThemeManager.ForeColor;
+            mnuMediaState.ForeColor = ThemeManager.MenuTextColor;
         }
     }
 }

@@ -36,7 +36,7 @@ namespace OPMedia.UI.Controls
         [EventSink(EventNames.ThemeUpdated)]
         public void ApplyTheme()
         {
-            base.BackColor = ThemeManager.SelectedColor;
+            base.BackColor = ThemeManager.SeparatorColor;
         }
 
     }

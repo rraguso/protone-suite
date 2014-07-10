@@ -84,7 +84,7 @@ namespace OPMedia.UI.Themes
                 }
                 catch { }
 
-                ApplyWindowParams();
+                ApplyWindowParams(false);
             } 
         }
 
@@ -153,7 +153,13 @@ namespace OPMedia.UI.Themes
         public bool TitleBarVisible 
         {
             get { return _titleBarVisible; }
-            set { _titleBarVisible = value; ApplyWindowParams(); Invalidate(true); }
+            
+            set 
+            { 
+                _titleBarVisible = value;
+                ApplyWindowParams(true); 
+                Invalidate(true); 
+            }
         }
 
         protected override CreateParams CreateParams
@@ -272,6 +278,8 @@ namespace OPMedia.UI.Themes
             this.Activated += new EventHandler(OnActivated);
             this.Deactivate += new EventHandler(OnDeactivated);
             this.HandleCreated += new EventHandler(ThemeFormBase_HandleCreated);
+
+            
         }
 
         void ThemeFormBase_HandleCreated(object sender, EventArgs e)
@@ -297,7 +305,7 @@ namespace OPMedia.UI.Themes
         public void OnThemeUpdated()
         {
             base.BackColor = ThemeManager.BackColor;
-            ApplyWindowParams();
+            ApplyWindowParams(false);
             ApplyTitlebarValues();
             ApplyDrawingValues();
             Invalidate(true);
@@ -318,12 +326,6 @@ namespace OPMedia.UI.Themes
             this._rmBottom = new OPMedia.UI.Themes.ResizeMargin();
             this._rmRight = new OPMedia.UI.Themes.ResizeMargin();
             this.SuspendLayout();
-            // 
-            // pnlContent
-            // 
-            this.pnlContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContent.Margin = new System.Windows.Forms.Padding(0);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.TabIndex = 8;
@@ -482,7 +484,7 @@ namespace OPMedia.UI.Themes
             int minH = Math.Max(100, this.MinimumSize.Height);
             this.MinimumSize = new Size(minW, minH);
 
-            ApplyWindowParams();
+            ApplyWindowParams(true);
         }
 
         FormWindowState _previousState = FormWindowState.Normal;
@@ -491,7 +493,7 @@ namespace OPMedia.UI.Themes
         {
             if (Handle != null)
             {
-                ApplyWindowParams();
+                ApplyWindowParams(false);
             }
 
             if (this.WindowState != _previousState)
@@ -838,13 +840,20 @@ namespace OPMedia.UI.Themes
 
         #region helper methods
 
-        private void ApplyWindowParams()
+        private void ApplyWindowParams(bool repositionContentPanel)
         {
-           
             _rmRT.Location = new Point(Width - _rmRT.Width, 0);
             _rmRB.Location = new Point(Width - _rmRB.Width, Height - _rmRB.Height);
             _rmLB.Location = new Point(0, Height - _rmLB.Height);
             _rmLT.Location = new Point(0, 0);
+
+            if (repositionContentPanel)
+            {
+                int spacing = ThemeManager.FormBorderWidth;
+                int th = TitleBarVisible ? CaptionButtonSize.Height : 0;
+                pnlContent.SetLocation(new Point(spacing, th + spacing));
+                pnlContent.SetSize(new Size(this.Width - 2 * spacing, this.Height - th - 2 * spacing));
+            }
 
             _rcTitleBar = (TitleBarVisible) ? new Rectangle(
                 ClientRectangle.Left,

@@ -114,10 +114,7 @@ namespace OPMedia.UI.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.CompositingMode = CompositingMode.SourceOver;
-            e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
-            e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            ThemeManager.PrepareGraphics(e.Graphics);
 
             Rectangle rcx = new Rectangle(
                 ClientRectangle.Left,
@@ -140,7 +137,6 @@ namespace OPMedia.UI.Controls
 
         private void PaintTabPageHeader(int i, Graphics graphics)
         {
-            int pw = 1;
             Color c1 = Color.Empty, c2 = Color.Empty, cb = Color.Empty, cText = Color.Empty;
 
             c1 = Enabled ? ThemeManager.GradientNormalColor1 : ThemeManager.BackColor;
@@ -312,10 +308,7 @@ namespace OPMedia.UI.Controls
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
-            pevent.Graphics.CompositingMode = CompositingMode.SourceOver;
-            pevent.Graphics.CompositingQuality = CompositingQuality.GammaCorrected;
-            pevent.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            ThemeManager.PrepareGraphics(pevent.Graphics);
 
             Rectangle rc = new Rectangle(-1, -1, Width + 2, Height + 2);
 
