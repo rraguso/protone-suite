@@ -462,7 +462,7 @@ namespace OPMedia.UI.Controls
         {
             ThemeManager.PrepareGraphics(e.Graphics);
 
-            using (Pen pf = new Pen(ThemeManager.BorderColor, 1))
+            using (Pen pf = new Pen(ThemeManager.SeparatorColor, 1))
             {
                 Point p1 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2, e.ClipRectangle.Top + 5);
                 Point p2 = new Point(e.ClipRectangle.Left + e.ClipRectangle.Width / 2, e.ClipRectangle.Bottom - 5);
@@ -499,25 +499,16 @@ namespace OPMedia.UI.Controls
             {
                 if (header)
                 {
-                    if (SuiteConfiguration.SkinType == ThemeEnum.Black)
-                    {
-                        clText = highlight ? ThemeManager.SelectedColor : ThemeManager.ForeColor;
-                    }
-                    else
-                    {
-                        clText = ThemeManager.ForeColor;
-                    }
+                    clText = highlight ? ThemeManager.HighlightHeaderMenuTextColor : ThemeManager.HeaderMenuTextColor;
                 }
                 else
                 {
-                    if (SuiteConfiguration.SkinType == ThemeEnum.Black)
-                    {
-                        clText = highlight ? ThemeManager.ForeColor : ThemeManager.SelectedColor;
-                    }
+                    if (Selected || Pressed)
+                        clText = ThemeManager.HighlightMenuTextColor;
+                    else if (Checked)
+                        clText = ThemeManager.CheckedMenuTextColor;
                     else
-                    {
-                        clText = ThemeManager.ForeColor;
-                    }
+                        clText = ThemeManager.MenuTextColor;
                 }
             }
             else

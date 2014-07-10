@@ -1332,11 +1332,11 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int SkinType
+        public static string SkinType
         {
             get
             {
-                return _config.GetValue("SkinType", (int)Theme.Default.Value);
+                return _config.GetValue("SkinType", string.Empty);
             }
 
             set

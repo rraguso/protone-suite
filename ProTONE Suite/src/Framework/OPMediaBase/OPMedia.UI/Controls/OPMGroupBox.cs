@@ -71,6 +71,8 @@ namespace OPMedia.UI.Controls
         /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
+            ThemeManager.PrepareGraphics(e.Graphics);
+
             // Let the control draw itself first.
             // (otherwise the control will overwrite our border !)
             //base.OnPaint(e);

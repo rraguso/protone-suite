@@ -169,7 +169,7 @@ namespace OPMedia.Runtime.Addons
             this.tableLayoutPanel1.Controls.Add(this.pnlOpMedia, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.statusBar, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblStatusBarSep, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 24);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 21);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
@@ -178,7 +178,7 @@ namespace OPMedia.Runtime.Addons
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(822, 541);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(822, 545);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // pnlOpMedia
@@ -197,8 +197,8 @@ namespace OPMedia.Runtime.Addons
             // pnlOpMedia.Panel2
             // 
             this.pnlOpMedia.Panel2.Controls.Add(this.pnlLocalContent);
-            this.pnlOpMedia.Size = new System.Drawing.Size(822, 496);
-            this.pnlOpMedia.SplitterDistance = 579;
+            this.pnlOpMedia.Size = new System.Drawing.Size(822, 500);
+            this.pnlOpMedia.SplitterDistance = 580;
             this.pnlOpMedia.SplitterWidth = 3;
             this.pnlOpMedia.TabIndex = 6;
             // 
@@ -209,7 +209,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlNavContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlNavContainer.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNavContainer.Name = "pnlNavContainer";
-            this.pnlNavContainer.Size = new System.Drawing.Size(579, 496);
+            this.pnlNavContainer.Size = new System.Drawing.Size(580, 500);
             this.pnlNavContainer.TabIndex = 0;
             // 
             // lblNoItems
@@ -222,7 +222,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoItems.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoItems.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoItems.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoItems.Size = new System.Drawing.Size(579, 60);
+            this.lblNoItems.Size = new System.Drawing.Size(580, 60);
             this.lblNoItems.TabIndex = 0;
             this.lblNoItems.Text = "aaaa";
             this.lblNoItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -243,8 +243,8 @@ namespace OPMedia.Runtime.Addons
             // pnlLocalContent.Panel2
             // 
             this.pnlLocalContent.Panel2.Controls.Add(this.pnlPreview);
-            this.pnlLocalContent.Size = new System.Drawing.Size(240, 496);
-            this.pnlLocalContent.SplitterDistance = 328;
+            this.pnlLocalContent.Size = new System.Drawing.Size(239, 500);
+            this.pnlLocalContent.SplitterDistance = 333;
             this.pnlLocalContent.SplitterWidth = 3;
             this.pnlLocalContent.TabIndex = 3;
             // 
@@ -256,7 +256,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlProperties.Location = new System.Drawing.Point(0, 0);
             this.pnlProperties.Margin = new System.Windows.Forms.Padding(0);
             this.pnlProperties.Name = "pnlProperties";
-            this.pnlProperties.Size = new System.Drawing.Size(240, 328);
+            this.pnlProperties.Size = new System.Drawing.Size(239, 333);
             this.pnlProperties.TabIndex = 0;
             // 
             // lblNoProperties
@@ -269,7 +269,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoProperties.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoProperties.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoProperties.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoProperties.Size = new System.Drawing.Size(240, 60);
+            this.lblNoProperties.Size = new System.Drawing.Size(239, 60);
             this.lblNoProperties.TabIndex = 0;
             this.lblNoProperties.Text = "aaaa";
             this.lblNoProperties.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -282,7 +282,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlPreview.Location = new System.Drawing.Point(0, 0);
             this.pnlPreview.Margin = new System.Windows.Forms.Padding(0);
             this.pnlPreview.Name = "pnlPreview";
-            this.pnlPreview.Size = new System.Drawing.Size(240, 165);
+            this.pnlPreview.Size = new System.Drawing.Size(239, 164);
             this.pnlPreview.TabIndex = 0;
             // 
             // lblNoPreview
@@ -295,7 +295,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoPreview.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoPreview.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoPreview.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoPreview.Size = new System.Drawing.Size(240, 60);
+            this.lblNoPreview.Size = new System.Drawing.Size(239, 60);
             this.lblNoPreview.TabIndex = 0;
             this.lblNoPreview.Text = "abcdef";
             this.lblNoPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -311,7 +311,7 @@ namespace OPMedia.Runtime.Addons
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatusMain,
             this.txtStatusMain});
-            this.statusBar.Location = new System.Drawing.Point(0, 526);
+            this.statusBar.Location = new System.Drawing.Point(0, 530);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(822, 15);
             this.statusBar.SizingGrip = false;
@@ -330,24 +330,22 @@ namespace OPMedia.Runtime.Addons
             // 
             // txtStatusMain
             // 
+            this.txtStatusMain.AutoSize = false;
             this.txtStatusMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.txtStatusMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.txtStatusMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.txtStatusMain.Name = "txtStatusMain";
-            this.txtStatusMain.Size = new System.Drawing.Size(84, 13);
+            this.txtStatusMain.Size = new System.Drawing.Size(696, 13);
             this.txtStatusMain.Text = "editModePath";
-            this.txtStatusMain.AutoSize = false;
-            this.txtStatusMain.Dock = DockStyle.Fill;
             this.txtStatusMain.Leave += new System.EventHandler(this.txtStatusMain_Leave);
-            this.txtStatusMain.LostFocus += new System.EventHandler(txtStatusMain_LostFocus);
-            this.txtStatusMain.KeyDown += new KeyEventHandler(txtStatusMain_KeyDown);
-
+            this.txtStatusMain.LostFocus += new System.EventHandler(this.txtStatusMain_LostFocus);
+            this.txtStatusMain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtStatusMain_KeyDown);
             // 
             // lblStatusBarSep
             // 
             this.lblStatusBarSep.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStatusBarSep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblStatusBarSep.Location = new System.Drawing.Point(0, 520);
+            this.lblStatusBarSep.Location = new System.Drawing.Point(0, 524);
             this.lblStatusBarSep.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.lblStatusBarSep.Name = "lblStatusBarSep";
             this.lblStatusBarSep.OverrideBackColor = System.Drawing.Color.Red;

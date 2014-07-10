@@ -51,6 +51,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUpdate\UpdateWaitForm.cs">
@@ -766,6 +767,9 @@
     <Content Include="Resources\Troubleshooting.png" />
     <Content Include="Resources\TVState0.bmp" />
     <Content Include="Resources\TVState1.bmp" />
+    <None Include="Themes\Themes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

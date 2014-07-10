@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Themes>
+  <Theme Name="Metro" IsDefault="true">
+    <ThemeElement Value="150, 150, 150" Name="BorderColor" />
+    <ThemeElement Value="000, 000, 000" Name="ForeColor" />
+    <ThemeElement Value="252, 252, 252" Name="BackColor" />
+    <ThemeElement Value="224, 227, 206" Name="GradientNormalColor1" />
+    <ThemeElement Value="224, 227, 206" Name="GradientNormalColor2" />
+    <ThemeElement Value="159, 207, 255" Name="GradientHoverColor1" />
+    <ThemeElement Value="159, 207, 255" Name="GradientHoverColor2" />
+    <ThemeElement Value="224, 227, 206" Name="GradientFocusColor1" />
+    <ThemeElement Value="224, 227, 206" Name="GradientFocusColor2" />
+    <ThemeElement Value="170, 220, 255" Name="GradientFocusHoverColor1" />
+    <ThemeElement Value="170, 220, 255" Name="GradientFocusHoverColor2" />
+    <ThemeElement Value="051, 153, 255" Name="FocusBorderColor" />
+    <ThemeElement Value="000, 000, 000" Name="SelectedTextColor" />
+    <ThemeElement Value="200, 200, 200" Name="CaptionBarColor1" />
+    <ThemeElement Value="200, 200, 200" Name="CaptionBarColor2" />
+    <ThemeElement Value="224, 227, 206" Name="CaptionButtonColor1" />
+    <ThemeElement Value="224, 227, 206" Name="CaptionButtonColor2" />
+    <ThemeElement Value="225, 100, 100" Name="CaptionButtonRedColor1" />
+    <ThemeElement Value="225, 100, 100" Name="CaptionButtonRedColor2" />
+    <ThemeElement Value="159, 207, 255" Name="SelectedColor" />
+    <ThemeElement Value="255, 255, 255" Name="WndValidColor" />
+    <ThemeElement Value="010, 110, 080" Name="HighlightColor" />
+    <ThemeElement Value="000, 000, 000" Name="WndTextColor" />
+    <ThemeElement Value="018, 097, 225" Name="LinkColor" />
+    <ThemeElement Value="255, 209, 024" Name="CheckedMenuColor" />
+    <ThemeElement Value="150, 150, 150" Name="SeparatorColor" />
+    <ThemeElement Value="000, 000, 000" Name="MenuTextColor" />
+    <ThemeElement Value="000, 000, 000" Name="HeaderMenuTextColor" />
+    <ThemeElement Value="000, 000, 000" Name="HighlightMenuTextColor" />
+    <ThemeElement Value="000, 000, 000" Name="HighlightHeaderMenuTextColor" />
+    <ThemeElement Value="000, 000, 000" Name="CheckedMenuTextColor" />
+    <ThemeElement Value="0" Name="CornerSize" />
+    <ThemeElement Value="2" Name="FormBorderWidth" />
+  </Theme>
+  <Theme Name="Silver" IsDefault="false">
+    <ThemeElement Value="075, 075, 075" Name="BorderColor" />
+    <ThemeElement Value="090, 090, 090" Name="ForeColor" />
+    <ThemeElement Value="235, 235, 235" Name="BackColor" />
+    <ThemeElement Value="220, 220, 220" Name="GradientNormalColor1" />
+    <ThemeElement Value="190, 190, 190" Name="GradientNormalColor2" />
+    <ThemeElement Value="235, 235, 235" Name="GradientHoverColor1" />
+    <ThemeElement Value="215, 215, 215" Name="GradientHoverColor2" />
+    <ThemeElement Value="235, 235, 235" Name="GradientFocusColor1" />
+    <ThemeElement Value="215, 215, 215" Name="GradientFocusColor2" />
+    <ThemeElement Value="240, 240, 240" Name="GradientFocusHoverColor1" />
+    <ThemeElement Value="220, 220, 220" Name="GradientFocusHoverColor2" />
+    <ThemeElement Value="045, 045, 045" Name="FocusBorderColor" />
+    <ThemeElement Value="090, 090, 090" Name="SelectedTextColor" />
+    <ThemeElement Value="220, 220, 220" Name="CaptionBarColor1" />
+    <ThemeElement Value="190, 190, 190" Name="CaptionBarColor2" />
+    <ThemeElement Value="235, 235, 235" Name="CaptionButtonColor1" />
+    <ThemeElement Value="150, 150, 150" Name="CaptionButtonColor2" />
+    <ThemeElement Value="220, 160, 160" Name="CaptionButtonRedColor1" />
+    <ThemeElement Value="230, 050, 020" Name="CaptionButtonRedColor2" />
+    <ThemeElement Value="197, 197, 197" Name="SelectedColor" />
+    <ThemeElement Value="250, 250, 250" Name="WndValidColor" />
+    <ThemeElement Value="175, 150, 120" Name="HighlightColor" />
+    <ThemeElement Value="091, 091, 091" Name="WndTextColor" />
+    <ThemeElement Value="018, 097, 225" Name="LinkColor" />
+    <ThemeElement Value="255, 209, 024" Name="CheckedMenuColor" />
+    <ThemeElement Value="075, 075, 075" Name="SeparatorColor" />
+    <ThemeElement Value="090, 090, 090" Name="MenuTextColor" />
+    <ThemeElement Value="090, 090, 090" Name="HeaderMenuTextColor" />
+    <ThemeElement Value="090, 090, 090" Name="HighlightMenuTextColor" />
+    <ThemeElement Value="090, 090, 090" Name="HighlightHeaderMenuTextColor" />
+    <ThemeElement Value="090, 090, 090" Name="CheckedMenuTextColor" />
+    <ThemeElement Value="3" Name="CornerSize" />
+    <ThemeElement Value="2" Name="FormBorderWidth" />
+  </Theme>
+  <Theme Name="Blue" IsDefault="false">
+    <ThemeElement Value="070, 085, 110" Name="BorderColor" />
+    <ThemeElement Value="030, 055, 090" Name="ForeColor" />
+    <ThemeElement Value="205, 220, 240" Name="BackColor" />
+    <ThemeElement Value="185, 205, 230" Name="GradientNormalColor1" />
+    <ThemeElement Value="165, 185, 210" Name="GradientNormalColor2" />
+    <ThemeElement Value="200, 220, 245" Name="GradientHoverColor1" />
+    <ThemeElement Value="180, 200, 230" Name="GradientHoverColor2" />
+    <ThemeElement Value="200, 220, 245" Name="GradientFocusColor1" />
+    <ThemeElement Value="180, 200, 230" Name="GradientFocusColor2" />
+    <ThemeElement Value="205, 225, 250" Name="GradientFocusHoverColor1" />
+    <ThemeElement Value="185, 205, 235" Name="GradientFocusHoverColor2" />
+    <ThemeElement Value="040, 055, 080" Name="FocusBorderColor" />
+    <ThemeElement Value="030, 055, 090" Name="SelectedTextColor" />
+    <ThemeElement Value="185, 205, 230" Name="CaptionBarColor1" />
+    <ThemeElement Value="165, 185, 210" Name="CaptionBarColor2" />
+    <ThemeElement Value="205, 220, 240" Name="CaptionButtonColor1" />
+    <ThemeElement Value="140, 170, 215" Name="CaptionButtonColor2" />
+    <ThemeElement Value="220, 160, 160" Name="CaptionButtonRedColor1" />
+    <ThemeElement Value="230, 050, 020" Name="CaptionButtonRedColor2" />
+    <ThemeElement Value="169, 193, 222" Name="SelectedColor" />
+    <ThemeElement Value="240, 250, 255" Name="WndValidColor" />
+    <ThemeElement Value="010, 110, 080" Name="HighlightColor" />
+    <ThemeElement Value="030, 057, 091" Name="WndTextColor" />
+    <ThemeElement Value="018, 097, 226" Name="LinkColor" />
+    <ThemeElement Value="255, 209, 024" Name="CheckedMenuColor" />
+    <ThemeElement Value="070, 085, 110" Name="SeparatorColor" />
+    <ThemeElement Value="030, 055, 090" Name="MenuTextColor" />
+    <ThemeElement Value="030, 055, 090" Name="HeaderMenuTextColor" />
+    <ThemeElement Value="030, 055, 090" Name="HighlightMenuTextColor" />
+    <ThemeElement Value="030, 055, 090" Name="HighlightHeaderMenuTextColor" />
+    <ThemeElement Value="030, 055, 090" Name="CheckedMenuTextColor" />
+    <ThemeElement Value="3" Name="CornerSize "/>
+    <ThemeElement Value="2" Name="FormBorderWidth" />
+  </Theme>
+  <Theme Name="Black" IsDefault="false">
+    <ThemeElement Value="035, 035, 035" Name="BorderColor" />
+    <ThemeElement Value="240, 240, 240" Name="ForeColor" />
+    <ThemeElement Value="120, 120, 120" Name="BackColor" />
+    <ThemeElement Value="100, 100, 100" Name="GradientNormalColor1" />
+    <ThemeElement Value="080, 080, 080" Name="GradientNormalColor2" />
+    <ThemeElement Value="115, 115, 115" Name="GradientHoverColor1" />
+    <ThemeElement Value="092, 092, 095" Name="GradientHoverColor2" />
+    <ThemeElement Value="115, 115, 115" Name="GradientFocusColor1" />
+    <ThemeElement Value="092, 092, 095" Name="GradientFocusColor2" />
+    <ThemeElement Value="120, 120, 120" Name="GradientFocusHoverColor1" />
+    <ThemeElement Value="100, 100, 100" Name="GradientFocusHoverColor2" />
+    <ThemeElement Value="065, 065, 065" Name="FocusBorderColor" />
+    <ThemeElement Value="240, 240, 240" Name="SelectedTextColor" />
+    <ThemeElement Value="100, 100, 100" Name="CaptionBarColor1" />
+    <ThemeElement Value="035, 035, 035" Name="CaptionBarColor2" />
+    <ThemeElement Value="120, 120, 120" Name="CaptionButtonColor1" />
+    <ThemeElement Value="080, 080, 080" Name="CaptionButtonColor2" />
+    <ThemeElement Value="220, 160, 160" Name="CaptionButtonRedColor1" />
+    <ThemeElement Value="230, 050, 020" Name="CaptionButtonRedColor2" />
+    <ThemeElement Value="059, 059, 059" Name="SelectedColor" />
+    <ThemeElement Value="200, 200, 200" Name="WndValidColor" />
+    <ThemeElement Value="200, 170, 150" Name="HighlightColor" />
+    <ThemeElement Value="036, 036, 036" Name="WndTextColor" />
+    <ThemeElement Value="114, 211, 255" Name="LinkColor" />
+    <ThemeElement Value="255, 209, 024" Name="CheckedMenuColor" />
+    <ThemeElement Value="035, 035, 035" Name="SeparatorColor" />
+    <ThemeElement Value="059, 059, 059" Name="MenuTextColor" />
+    <ThemeElement Value="240, 240, 240" Name="HeaderMenuTextColor" />
+    <ThemeElement Value="240, 240, 240" Name="HighlightMenuTextColor" />
+    <ThemeElement Value="059, 059, 059" Name="HighlightHeaderMenuTextColor" />
+    <ThemeElement Value="059, 059, 059" Name="CheckedMenuTextColor" />
+    <ThemeElement Value="3" Name="CornerSize" />
+    <ThemeElement Value="2" Name="FormBorderWidth" />
+  </Theme>
+</Themes>

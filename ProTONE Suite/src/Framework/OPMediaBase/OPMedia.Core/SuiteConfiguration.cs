@@ -90,17 +90,11 @@ namespace OPMedia.Core
                     {
                         if (key == null)
                         {
-                            _skinType = (int)Theme.Default.Value;
+                            _skinType = string.Empty;
                         }
                         else
                         {
-                            int skinType = (int)key.GetValue("SkinType", (int)Theme.Default.Value);
-                            if (!Theme.IsAllowedValue(skinType))
-                            {
-                                skinType = (int)Theme.Default.Value;
-                            }
-
-
+                            string skinType = key.GetValue("SkinType", string.Empty) as string;
                             if (skinType != _skinType)
                             {
                                 _skinType = skinType;
@@ -110,11 +104,11 @@ namespace OPMedia.Core
                 }
                 catch
                 {
-                    _skinType = (int)Theme.Default.Value;
+                    _skinType = string.Empty;
                 }
 
                 LanguageID = _languageId;
-                SkinType = (ThemeEnum)_skinType;
+                SkinType = _skinType;
             }
 
             _tmrReadRegistry = new System.Windows.Forms.Timer();
@@ -142,12 +136,7 @@ namespace OPMedia.Core
                                 Translator.SetInterfaceLanguage(_languageId);
                             }
 
-                            int skinType = (int)key.GetValue("SkinType", (int)Theme.Default.Value);
-                            if (!Theme.IsAllowedValue(skinType))
-                            {
-                                skinType = (int)Theme.Default.Value;
-                            }
-
+                            string skinType = key.GetValue("SkinType", string.Empty) as string;
                             if (skinType != _skinType)
                             {
                                 _skinType = skinType;
@@ -179,19 +168,19 @@ namespace OPMedia.Core
             }
         }
 
-        static int _skinType = (int)Theme.Default.Value;
-        public static ThemeEnum SkinType
+        static string _skinType = string.Empty;
+        public static string SkinType
         {
             get
             {
-                return (ThemeEnum)_skinType;
+                return _skinType;
             }
 
             set
             {
-                if ((int)value != _skinType)
+                if (value != _skinType)
                 {
-                    _skinType = (int)value;
+                    _skinType = value;
                     EventDispatch.DispatchEvent(EventNames.ThemeUpdated);
 
                     try
@@ -200,7 +189,7 @@ namespace OPMedia.Core
                         {
                             if (key != null)
                             {
-                                key.SetValue("SkinType", (int)value);
+                                key.SetValue("SkinType", value);
                             }
                         }
                     }
