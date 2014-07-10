@@ -432,8 +432,10 @@ namespace OPMedia.UI.Themes
                                  IsDefault = theme.Attribute("IsDefault").Value.ToLowerInvariant() == "true"
                              }).ToList();
 
+                    string lastThemeName = string.Empty;
                     foreach (var theme in allThemes)
                     {
+                        lastThemeName = theme.Name;
                         if (theme.IsDefault)
                         {
                             _defaultTheme = theme.Name;
@@ -450,6 +452,9 @@ namespace OPMedia.UI.Themes
                         foreach (var themeElement in themeElements)
                             ThemeElement(theme.Name, themeElement.Name, themeElement.Value);
                     }
+
+                    if (string.IsNullOrEmpty(_defaultTheme))
+                        _defaultTheme = lastThemeName;
                 }
             }
             catch (Exception ex)
@@ -534,7 +539,7 @@ namespace OPMedia.UI.Themes
             string currentTheme = SuiteConfiguration.SkinType;
             string elementValue = defaultValue;
 
-            if (string.IsNullOrEmpty(currentTheme))
+            if (string.IsNullOrEmpty(currentTheme) || _allThemesElements.ContainsKey(currentTheme) == false)
             {
                 currentTheme = _defaultTheme;
                 SuiteConfiguration.SkinType = _defaultTheme;
