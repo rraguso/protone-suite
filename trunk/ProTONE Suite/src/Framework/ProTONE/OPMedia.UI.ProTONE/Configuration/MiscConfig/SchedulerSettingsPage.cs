@@ -111,7 +111,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             AppSettings.ScheduledEventHandler = cmbScheduledEvtHandler.SelectedIndex;
             AppSettings.ScheduledEventData =    psiScheduledEvtData.GetProgramStartupInfo();
             AppSettings.ScheduledEventDays =    (int)wsScheduledEvtDays.Weekdays;
-            AppSettings.ScheduledEventTime =    dtpScheduledEvtTime.Value.TimeOfDay;
+            AppSettings.ScheduledEventTime =
+                new TimeSpan(dtpScheduledEvtTime.Value.TimeOfDay.Hours, dtpScheduledEvtTime.Value.TimeOfDay.Minutes, 0);
 
             AppSettings.SchedulerWaitTimerProceed = (int)nudSchedulerWaitTimerProceed.Value;
 
