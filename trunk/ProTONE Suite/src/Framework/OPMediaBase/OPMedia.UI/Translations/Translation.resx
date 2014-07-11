@@ -1065,5 +1065,8 @@ Do you want to create it ?</value>
 <data name="TXT_S_TROUBLESHOOTING">
   <value>Support</value>
 </data>
+<data name="TXT_EDIT_KEY">
+  <value>Configure shortcut</value>
+</data>
     
 </root>

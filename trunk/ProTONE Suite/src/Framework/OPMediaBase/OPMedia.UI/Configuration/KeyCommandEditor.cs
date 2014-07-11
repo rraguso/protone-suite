@@ -20,23 +20,35 @@ namespace OPMedia.UI.Configuration
         OPMShortcut _cmd = OPMShortcut.CmdOutOfRange;
         bool _primary = true;
 
-        public KeyCommandEditor(OPMShortcut cmd, bool primary)
+        public KeyCommandEditor(OPMShortcut cmd, bool primary) :
+            base("TXT_EDIT_KEY")
         {
             InitializeComponent();
             _cmd = cmd;
             _primary = primary;
 
+            this.TopMost = true;
+            this.ControlBox = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.IsToolWindow = true;
+
+            this.Load += new EventHandler(OnLoad);
             this.Shown += new EventHandler(KeyCommandEditor_Shown);
             this.KeyUp += new KeyEventHandler(KeyCommandEditor_KeyUp);
+
+            Application.DoEvents();
         }
 
-        void KeyCommandEditor_Shown(object sender, EventArgs e)
+        void OnLoad(object sender, EventArgs e)
         {
-            if (_cmd == OPMShortcut.CmdOutOfRange)
+            if (InvokeRequired)
             {
-                DialogResult = DialogResult.Cancel;
-                Close();
+                Invoke(new EventHandler(OnLoad), new object[] { sender, e });
+                return;
             }
+
+            Application.DoEvents();
 
             KeysConverter kc = new KeysConverter();
             string key = _primary ?
@@ -46,6 +58,20 @@ namespace OPMedia.UI.Configuration
 
             lblDesc.Text = Translator.Translate("TXT_EDITKEYDESC",
                 _cmd.ToString().Replace("Cmd", string.Empty), key);
+
+            this.Height = pnlContentAll.Height + CaptionButtonSize.Height + pnlContentAll.Margin.Vertical + 2;
+            this.Width = pnlContentAll.Width + pnlContentAll.Margin.Horizontal;
+        }
+
+        void KeyCommandEditor_Shown(object sender, EventArgs e)
+        {
+            User32.BringWindowToTop(this.Handle);
+
+            if (_cmd == OPMShortcut.CmdOutOfRange)
+            {
+                DialogResult = DialogResult.Cancel;
+                Close();
+            }
         }
 
         void KeyCommandEditor_KeyUp(object sender, KeyEventArgs e)
@@ -54,7 +80,9 @@ namespace OPMedia.UI.Configuration
             if (args != null &&
                 args.KeyData != Keys.Enter &&
                 args.KeyData != Keys.Escape &&
-                args.KeyData != Keys.Tab)
+                args.KeyData != Keys.Tab &&
+                args.KeyCode != Keys.PrintScreen &&
+                args.KeyData != Keys.F1)
             {
                 if (VerifyShortcut(args))
                 {

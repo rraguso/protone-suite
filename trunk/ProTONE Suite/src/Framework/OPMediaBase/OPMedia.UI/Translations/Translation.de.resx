@@ -1065,5 +1065,8 @@ Wollen Sie es schaffen?</value>
 <data name="TXT_S_TROUBLESHOOTING">
   <value>Stützen</value>
 </data>
+<data name="TXT_EDIT_KEY">
+  <value>Konfigurieren Verknüpfung</value>
+</data>
     
 </root>

@@ -15,7 +15,7 @@ using OPMedia.UI.Controls.Dialogs;
 
 namespace OPMedia.UI.Dialogs
 {
-    public partial class ProgramStartupInfoForm : ThemeForm
+    public partial class ProgramStartupInfoForm : ToolForm
     {
         ProgramStartupInfo _psi = null;
 
@@ -36,6 +36,10 @@ namespace OPMedia.UI.Dialogs
 
             _psi = psi;
             PopulateFields();
+        }
+
+        void ProgramStartupInfoForm_Load(object sender, EventArgs e)
+        {
         }
 
         private void PopulateFields()

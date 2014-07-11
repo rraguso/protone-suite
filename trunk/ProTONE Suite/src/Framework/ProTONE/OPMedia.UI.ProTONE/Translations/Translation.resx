@@ -453,7 +453,7 @@ Double click to toggle remaining time</value>
   <value>Display notification tooltips near system tray when media state changes</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
-  <value>Do not download a subtitle if the clip is shorter than&#xD;&#xD;
+  <value>Do not download a subtitle if the clip is shorter than:&#xD;&#xD;
 (0 = always download)</value>
 </data>
 <data name="TXT_MNUAUDIO">
@@ -565,13 +565,8 @@ Are you sure you want to search another subtitle ?</value>
 <data name="TXT_PLAYLIST">
   <value>Playlist</value>
 </data>
-<data name="TXT_PLAYLISTEND_EVT">
-  <value>When the playlist ends ... </value>
-</data>
 <data name="TXT_PLAYLISTEVT_DESC">
-  <value>Caution: this setting is not persistent across program sessions !&#xD;&#xD;
-&#xD;&#xD;
-                    When the playlists ends:</value>
+  <value>When the playlist ends:</value>
 </data>
 <data name="TXT_PLAYLISTS">
   <value>Playlists</value>
@@ -604,7 +599,8 @@ Double click to toggle elapsed time</value>
   <value>Remote Control</value>
 </data>
 <data name="TXT_REMOTECONTROLDEFINITION">
-  <value>To define the programs and devices that are allowed to control ProTONE Player, you must use the ProTONE RCC Manager program.&#xD;&#xD;
+  <value>To define the programs and devices that are allowed to control ProTONE Player, you must use the ProTONE RCC Manager program.&#xD;
+&#xD;&#xD;
 Click on the button below to launch ProTONE RCC Manager ...</value>
 </data>
 <data name="TXT_RIGHTVOL">
@@ -913,8 +909,7 @@ In order to access these settings, you must launch ProTONE Player under a user a
   <value>Enable Subtitle</value>
 </data>
 <data name="TXT_NOTIFYSUBDOWNLOADED">
-  <value>Display notification tooltips near system tray when subtitle download &#xD;&#xD;
-is completed</value>
+  <value>Display notification tooltips near system tray when subtitle download is completed</value>
 </data>
 <data name="TXT_RESTORE_DEFAULTSERVERS">
   <value>Load default servers</value>
@@ -1078,6 +1073,9 @@ window position</value>
 </data>
 <data name="TXT_SIGNALANALYSIS">
   <value>Signal Analysis</value>
+</data>
+<data name="TXT_PLAYLISTEVT_CAUTION">
+  <value>CAUTION: The program always starts with the "playlist ended" event deactivated!</value>
 </data>
     
 </root>

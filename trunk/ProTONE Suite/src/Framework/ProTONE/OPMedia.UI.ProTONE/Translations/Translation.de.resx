@@ -453,7 +453,7 @@ Doppelklick verbleibende Zeit zu wechseln</value>
   <value>Anzeigebenachrichtigung Tooltips in der Nähe der Taskleiste, wenn Medien Zustandsänderungen</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
-  <value>Laden Sie keine einen Untertitel, wenn der Clip kürzer ist als&#xD;&#xD;
+  <value>Laden Sie keine einen Untertitel, wenn der Clip kürzer ist als:&#xD;&#xD;
 (0 = immer zum Download)</value>
 </data>
 <data name="TXT_MNUAUDIO">
@@ -565,13 +565,8 @@ Sind Sie sicher, dass Sie einen anderen Untertitel zu suchen?</value>
 <data name="TXT_PLAYLIST">
   <value>Playlist</value>
 </data>
-<data name="TXT_PLAYLISTEND_EVT">
-  <value>Wenn die Wiedergabeliste endet ...</value>
-</data>
 <data name="TXT_PLAYLISTEVT_DESC">
-  <value>Achtung: Diese Einstellung ist nicht anhaltend über Programm-Sessions !&#xD;&#xD;
-&#xD;&#xD;
-        Wenn die Wiedergabelisten endet:</value>
+  <value>Wenn die Playlist endet:</value>
 </data>
 <data name="TXT_PLAYLISTS">
   <value>Wiedergabelisten</value>
@@ -605,6 +600,7 @@ Doppelklick verstrichene Zeit zu wechseln</value>
 </data>
 <data name="TXT_REMOTECONTROLDEFINITION">
   <value>Um die Programme und Geräte, die erlaubt, ProTONE Player steuern, sind zu definieren, müssen Sie die ProTONE RCC-Manager-Programm.&#xD;&#xD;
+&#xD;
 Klicken Sie auf die Taste unten, um ProTONE RCC Manager zu starten ...</value>
 </data>
 <data name="TXT_RIGHTVOL">
@@ -1077,6 +1073,9 @@ Videofenster Position</value>
 </data>
 <data name="TXT_SIGNALANALYSIS">
   <value>Signalanalyse</value>
+</data>
+<data name="TXT_PLAYLISTEVT_CAUTION">
+  <value>ACHTUNG: Das Programm startet immer mit der "Playlist beendet" Ereignis deaktiviert!</value>
 </data>
     
 </root>

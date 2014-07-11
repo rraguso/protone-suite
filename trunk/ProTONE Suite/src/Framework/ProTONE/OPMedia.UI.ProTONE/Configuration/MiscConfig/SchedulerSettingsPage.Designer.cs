@@ -55,7 +55,9 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.opmTableLayoutPanel2 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.lblSep2 = new OPMedia.UI.Controls.OPMLabel();
             this.lblSep3 = new OPMedia.UI.Controls.OPMLabel();
-            this.opmLayoutPanel2 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.pnlProceedTimerOptions = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.lblCaution = new OPMedia.UI.Controls.OPMLabel();
+            this.layoutPanel = new OPMedia.UI.Controls.OPMPanel();
             this.grpPlaylistEvt.SuspendLayout();
             this.opmLayoutPanel3.SuspendLayout();
             this.grpScheduledEvt.SuspendLayout();
@@ -64,7 +66,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.opmLayoutPanel1.SuspendLayout();
             this.opmTableLayoutPanel1.SuspendLayout();
             this.opmTableLayoutPanel2.SuspendLayout();
-            this.opmLayoutPanel2.SuspendLayout();
+            this.pnlProceedTimerOptions.SuspendLayout();
+            this.layoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // wsScheduledEvtDays
@@ -96,7 +99,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.grpPlaylistEvt.Margin = new System.Windows.Forms.Padding(0);
             this.grpPlaylistEvt.Name = "grpPlaylistEvt";
             this.grpPlaylistEvt.OverrideBackColor = System.Drawing.Color.Empty;
-            this.grpPlaylistEvt.Size = new System.Drawing.Size(535, 71);
+            this.grpPlaylistEvt.Size = new System.Drawing.Size(535, 88);
             this.grpPlaylistEvt.TabIndex = 1;
             this.grpPlaylistEvt.TabStop = false;
             // 
@@ -109,47 +112,52 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.opmLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.opmLayoutPanel3.Controls.Add(this.label1, 1, 1);
+            this.opmLayoutPanel3.Controls.Add(this.label1, 1, 0);
             this.opmLayoutPanel3.Controls.Add(this.cmbPlaylistEvtHandler, 2, 1);
-            this.opmLayoutPanel3.Controls.Add(this.psiPlaylistEvtData, 1, 2);
+            this.opmLayoutPanel3.Controls.Add(this.psiPlaylistEvtData, 1, 3);
+            this.opmLayoutPanel3.Controls.Add(this.lblCaution, 1, 2);
             this.opmLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLayoutPanel3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.opmLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.opmLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.opmLayoutPanel3.Name = "opmLayoutPanel3";
             this.opmLayoutPanel3.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmLayoutPanel3.RowCount = 4;
+            this.opmLayoutPanel3.RowCount = 5;
             this.opmLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.opmLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.opmLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.opmLayoutPanel3.Size = new System.Drawing.Size(535, 71);
+            this.opmLayoutPanel3.Size = new System.Drawing.Size(535, 88);
             this.opmLayoutPanel3.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(5, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Location = new System.Drawing.Point(5, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.OverrideBackColor = System.Drawing.Color.Empty;
             this.label1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.label1.Size = new System.Drawing.Size(351, 29);
+            this.opmLayoutPanel3.SetRowSpan(this.label1, 2);
+            this.label1.Size = new System.Drawing.Size(340, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "TXT_PLAYLISTEVT_DESC";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmbPlaylistEvtHandler
             // 
             this.cmbPlaylistEvtHandler.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbPlaylistEvtHandler.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbPlaylistEvtHandler.FormattingEnabled = true;
-            this.cmbPlaylistEvtHandler.Location = new System.Drawing.Point(356, 5);
+            this.cmbPlaylistEvtHandler.Location = new System.Drawing.Point(350, 5);
             this.cmbPlaylistEvtHandler.Margin = new System.Windows.Forms.Padding(0);
+            this.cmbPlaylistEvtHandler.MaximumSize = new System.Drawing.Size(180, 0);
+            this.cmbPlaylistEvtHandler.MinimumSize = new System.Drawing.Size(180, 0);
             this.cmbPlaylistEvtHandler.Name = "cmbPlaylistEvtHandler";
             this.cmbPlaylistEvtHandler.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cmbPlaylistEvtHandler.Size = new System.Drawing.Size(174, 23);
+            this.cmbPlaylistEvtHandler.Size = new System.Drawing.Size(180, 23);
             this.cmbPlaylistEvtHandler.TabIndex = 1;
             // 
             // psiPlaylistEvtData
@@ -159,7 +167,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.opmLayoutPanel3.SetColumnSpan(this.psiPlaylistEvtData, 2);
             this.psiPlaylistEvtData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.psiPlaylistEvtData.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.psiPlaylistEvtData.Location = new System.Drawing.Point(8, 37);
+            this.psiPlaylistEvtData.Location = new System.Drawing.Point(8, 54);
             this.psiPlaylistEvtData.Name = "psiPlaylistEvtData";
             this.psiPlaylistEvtData.OverrideBackColor = System.Drawing.Color.Empty;
             this.psiPlaylistEvtData.Size = new System.Drawing.Size(519, 26);
@@ -189,7 +197,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.grpScheduledEvt.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.grpScheduledEvt.HasBorder = true;
             this.grpScheduledEvt.Highlight = false;
-            this.grpScheduledEvt.Location = new System.Drawing.Point(0, 111);
+            this.grpScheduledEvt.Location = new System.Drawing.Point(0, 128);
             this.grpScheduledEvt.Margin = new System.Windows.Forms.Padding(0);
             this.grpScheduledEvt.Name = "grpScheduledEvt";
             this.grpScheduledEvt.OverrideBackColor = System.Drawing.Color.Empty;
@@ -249,6 +257,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.cmbScheduledEvtHandler.FormattingEnabled = true;
             this.cmbScheduledEvtHandler.Location = new System.Drawing.Point(350, 85);
             this.cmbScheduledEvtHandler.Margin = new System.Windows.Forms.Padding(0);
+            this.cmbScheduledEvtHandler.MaximumSize = new System.Drawing.Size(180, 0);
+            this.cmbScheduledEvtHandler.MinimumSize = new System.Drawing.Size(180, 0);
             this.cmbScheduledEvtHandler.Name = "cmbScheduledEvtHandler";
             this.cmbScheduledEvtHandler.OverrideForeColor = System.Drawing.Color.Empty;
             this.cmbScheduledEvtHandler.Size = new System.Drawing.Size(180, 23);
@@ -275,13 +285,14 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Location = new System.Drawing.Point(8, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.OverrideBackColor = System.Drawing.Color.Empty;
             this.label2.OverrideForeColor = System.Drawing.Color.Empty;
-            this.label2.Size = new System.Drawing.Size(339, 23);
+            this.label2.Size = new System.Drawing.Size(337, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "TXT_SCHEDULEDEVT_DESC";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dtpScheduledEvtTime
             // 
@@ -327,16 +338,17 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.label5.Name = "label5";
             this.label5.OverrideBackColor = System.Drawing.Color.Empty;
             this.label5.OverrideForeColor = System.Drawing.Color.Empty;
-            this.label5.Size = new System.Drawing.Size(483, 22);
+            this.label5.Size = new System.Drawing.Size(494, 32);
             this.label5.TabIndex = 0;
             this.label5.Text = "TXT_SCHEDULERWAITTIMERPROCEED";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // nudSchedulerWaitTimerProceed
             // 
+            this.nudSchedulerWaitTimerProceed.AutoSize = true;
             this.nudSchedulerWaitTimerProceed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudSchedulerWaitTimerProceed.Location = new System.Drawing.Point(489, 0);
-            this.nudSchedulerWaitTimerProceed.Margin = new System.Windows.Forms.Padding(0);
+            this.nudSchedulerWaitTimerProceed.Location = new System.Drawing.Point(500, 10);
+            this.nudSchedulerWaitTimerProceed.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.nudSchedulerWaitTimerProceed.Maximum = new decimal(new int[] {
             10,
             0,
@@ -344,7 +356,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             0});
             this.nudSchedulerWaitTimerProceed.Name = "nudSchedulerWaitTimerProceed";
             this.nudSchedulerWaitTimerProceed.ReadOnly = true;
-            this.nudSchedulerWaitTimerProceed.Size = new System.Drawing.Size(46, 22);
+            this.nudSchedulerWaitTimerProceed.Size = new System.Drawing.Size(35, 22);
             this.nudSchedulerWaitTimerProceed.TabIndex = 1;
             this.nudSchedulerWaitTimerProceed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudSchedulerWaitTimerProceed.Value = new decimal(new int[] {
@@ -355,6 +367,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             // 
             // opmLayoutPanel1
             // 
+            this.opmLayoutPanel1.AutoSize = true;
+            this.opmLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.opmLayoutPanel1.ColumnCount = 1;
             this.opmLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmLayoutPanel1.Controls.Add(this.opmTableLayoutPanel1, 0, 0);
@@ -362,8 +376,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.opmLayoutPanel1.Controls.Add(this.opmTableLayoutPanel2, 0, 2);
             this.opmLayoutPanel1.Controls.Add(this.grpScheduledEvt, 0, 3);
             this.opmLayoutPanel1.Controls.Add(this.lblSep3, 0, 4);
-            this.opmLayoutPanel1.Controls.Add(this.opmLayoutPanel2, 0, 5);
-            this.opmLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.opmLayoutPanel1.Controls.Add(this.pnlProceedTimerOptions, 0, 5);
+            this.opmLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.opmLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmLayoutPanel1.Name = "opmLayoutPanel1";
             this.opmLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
@@ -375,7 +389,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmLayoutPanel1.Size = new System.Drawing.Size(535, 354);
+            this.opmLayoutPanel1.Size = new System.Drawing.Size(535, 325);
             this.opmLayoutPanel1.TabIndex = 6;
             // 
             // opmTableLayoutPanel1
@@ -420,7 +434,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.opmTableLayoutPanel2.Controls.Add(this.lblSep2, 1, 0);
             this.opmTableLayoutPanel2.Controls.Add(this.chkEnableScheduledEvt, 0, 0);
             this.opmTableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmTableLayoutPanel2.Location = new System.Drawing.Point(0, 91);
+            this.opmTableLayoutPanel2.Location = new System.Drawing.Point(0, 108);
             this.opmTableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.opmTableLayoutPanel2.Name = "opmTableLayoutPanel2";
             this.opmTableLayoutPanel2.OverrideBackColor = System.Drawing.Color.Empty;
@@ -446,7 +460,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             // 
             this.lblSep3.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblSep3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblSep3.Location = new System.Drawing.Point(0, 266);
+            this.lblSep3.Location = new System.Drawing.Point(0, 283);
             this.lblSep3.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.lblSep3.Name = "lblSep3";
             this.lblSep3.OverrideBackColor = System.Drawing.Color.White;
@@ -455,30 +469,55 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.lblSep3.TabIndex = 4;
             this.lblSep3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // opmLayoutPanel2
+            // pnlProceedTimerOptions
             // 
-            this.opmLayoutPanel2.AutoSize = true;
-            this.opmLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.opmLayoutPanel2.ColumnCount = 2;
-            this.opmLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.opmLayoutPanel2.Controls.Add(this.nudSchedulerWaitTimerProceed, 1, 0);
-            this.opmLayoutPanel2.Controls.Add(this.label5, 0, 0);
-            this.opmLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmLayoutPanel2.Location = new System.Drawing.Point(0, 276);
-            this.opmLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.opmLayoutPanel2.Name = "opmLayoutPanel2";
-            this.opmLayoutPanel2.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmLayoutPanel2.RowCount = 1;
-            this.opmLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.opmLayoutPanel2.Size = new System.Drawing.Size(535, 22);
-            this.opmLayoutPanel2.TabIndex = 5;
+            this.pnlProceedTimerOptions.AutoSize = true;
+            this.pnlProceedTimerOptions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlProceedTimerOptions.ColumnCount = 2;
+            this.pnlProceedTimerOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlProceedTimerOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.pnlProceedTimerOptions.Controls.Add(this.nudSchedulerWaitTimerProceed, 1, 0);
+            this.pnlProceedTimerOptions.Controls.Add(this.label5, 0, 0);
+            this.pnlProceedTimerOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlProceedTimerOptions.Location = new System.Drawing.Point(0, 293);
+            this.pnlProceedTimerOptions.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlProceedTimerOptions.Name = "pnlProceedTimerOptions";
+            this.pnlProceedTimerOptions.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlProceedTimerOptions.RowCount = 1;
+            this.pnlProceedTimerOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlProceedTimerOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlProceedTimerOptions.Size = new System.Drawing.Size(535, 32);
+            this.pnlProceedTimerOptions.TabIndex = 5;
+            // 
+            // lblCaution
+            // 
+            this.lblCaution.AutoSize = true;
+            this.opmLayoutPanel3.SetColumnSpan(this.lblCaution, 2);
+            this.lblCaution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCaution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblCaution.FontSize = OPMedia.UI.Themes.FontSizes.Small;
+            this.lblCaution.Location = new System.Drawing.Point(8, 34);
+            this.lblCaution.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.lblCaution.Name = "lblCaution";
+            this.lblCaution.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblCaution.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblCaution.Size = new System.Drawing.Size(519, 12);
+            this.lblCaution.TabIndex = 3;
+            this.lblCaution.Text = "TXT_PLAYLISTEVT_CAUTION";
+            this.lblCaution.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // layoutPanel
+            // 
+            this.layoutPanel.Controls.Add(this.opmLayoutPanel1);
+            this.layoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.layoutPanel.Name = "layoutPanel";
+            this.layoutPanel.Size = new System.Drawing.Size(535, 354);
+            this.layoutPanel.TabIndex = 7;
             // 
             // SchedulerSettingsPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.Controls.Add(this.opmLayoutPanel1);
+            this.Controls.Add(this.layoutPanel);
             this.Name = "SchedulerSettingsPage";
             this.Size = new System.Drawing.Size(535, 354);
             this.grpPlaylistEvt.ResumeLayout(false);
@@ -496,8 +535,10 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.opmTableLayoutPanel1.PerformLayout();
             this.opmTableLayoutPanel2.ResumeLayout(false);
             this.opmTableLayoutPanel2.PerformLayout();
-            this.opmLayoutPanel2.ResumeLayout(false);
-            this.opmLayoutPanel2.PerformLayout();
+            this.pnlProceedTimerOptions.ResumeLayout(false);
+            this.pnlProceedTimerOptions.PerformLayout();
+            this.layoutPanel.ResumeLayout(false);
+            this.layoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -521,7 +562,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         private OPMNumericUpDown nudSchedulerWaitTimerProceed;
         private ProgramStartupInfoCtl psiPlaylistEvtData;
         private OPMTableLayoutPanel opmLayoutPanel1;
-        private OPMTableLayoutPanel opmLayoutPanel2;
+        private OPMTableLayoutPanel pnlProceedTimerOptions;
         private OPMTableLayoutPanel opmLayoutPanel3;
         private OPMTableLayoutPanel opmLayoutPanel4;
         private OPMTableLayoutPanel opmTableLayoutPanel1;
@@ -529,5 +570,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         private OPMTableLayoutPanel opmTableLayoutPanel2;
         private OPMLabel lblSep2;
         private OPMLabel lblSep3;
+        private OPMLabel lblCaution;
+        private OPMPanel layoutPanel;
     }
 }

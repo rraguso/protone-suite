@@ -38,6 +38,14 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             ApplyColors();
 
             this.HandleCreated += new EventHandler(SchedulerSettingsPanel_Load);
+            opmLayoutPanel1.Resize += new EventHandler(OnResize);
+        }
+
+        void OnResize(object sender, EventArgs e)
+        {
+            layoutPanel.AutoScrollMinSize = new Size(
+                opmLayoutPanel1.Width - SystemInformation.VerticalScrollBarWidth,
+                opmLayoutPanel1.Height - SystemInformation.HorizontalScrollBarHeight);
         }
 
         protected override void OnThemeUpdatedInternal()
@@ -52,6 +60,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             lblSep1.OverrideBackColor =
             lblSep2.OverrideBackColor = 
             lblSep3.OverrideBackColor = ThemeManager.ForeColor;
+            lblCaution.OverrideForeColor = ThemeManager.ColorValidationFailed;
         }
 
         void SchedulerSettingsPanel_Load(object sender, EventArgs e)
@@ -135,12 +144,21 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         private void ManageVisibility()
         {
             grpPlaylistEvt.Enabled = chkEnablePlaylistEvt.Checked;
+            grpPlaylistEvt.Visible = chkEnablePlaylistEvt.Checked;
+            lblSep1.Visible = chkEnablePlaylistEvt.Checked;
+
             psiPlaylistEvtData.Visible =
                (cmbPlaylistEvtHandler.SelectedIndex == (int)ScheduledActionType.LaunchProgram);
 
             grpScheduledEvt.Enabled = chkEnableScheduledEvt.Checked;
+            grpScheduledEvt.Visible = chkEnableScheduledEvt.Checked;
+            lblSep2.Visible = chkEnableScheduledEvt.Checked;
+
             psiScheduledEvtData.Visible =
                (cmbScheduledEvtHandler.SelectedIndex == (int)ScheduledActionType.LaunchProgram);
+
+            pnlProceedTimerOptions.Visible = (chkEnablePlaylistEvt.Checked || chkEnableScheduledEvt.Checked);
+            lblSep3.Visible = (chkEnablePlaylistEvt.Checked || chkEnableScheduledEvt.Checked);
         }
 
         private void SubscribeAll()

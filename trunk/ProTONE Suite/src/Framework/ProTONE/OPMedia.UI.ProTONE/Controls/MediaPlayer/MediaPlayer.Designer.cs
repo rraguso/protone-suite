@@ -63,11 +63,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             this.pnlScreens.AllowDrop = true;
             this.pnlScreens.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlScreens.Location = new System.Drawing.Point(3, 0);
-            this.pnlScreens.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.pnlScreens.Location = new System.Drawing.Point(0, 0);
+            this.pnlScreens.Margin = new System.Windows.Forms.Padding(0);
             this.pnlScreens.MinimumSize = new System.Drawing.Size(160, 160);
             this.pnlScreens.Name = "pnlScreens";
-            this.pnlScreens.Size = new System.Drawing.Size(359, 220);
+            this.pnlScreens.SelectedIndex = 0;
+            this.pnlScreens.Size = new System.Drawing.Size(365, 225);
             this.pnlScreens.TabIndex = 0;
             this.pnlScreens.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragDrop);
             this.pnlScreens.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragEnter);

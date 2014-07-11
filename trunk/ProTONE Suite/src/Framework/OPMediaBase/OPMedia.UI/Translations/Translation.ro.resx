@@ -1061,5 +1061,11 @@ Doriţi să fie creat ?</value>
 <data name="TXT_S_CONTROL">
   <value>Control</value>
 </data>
+<data name="TXT_S_TROUBLESHOOTING">
+  <value />
+</data>
+<data name="TXT_EDIT_KEY">
+  <value>Configurare scurtătură</value>
+</data>
     
 </root>

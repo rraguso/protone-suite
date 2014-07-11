@@ -49,13 +49,12 @@ namespace OPMedia.UI.Configuration
             // 
             // txtUri
             // 
-            this.txtUri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txtUri.BackColor = System.Drawing.Color.White;
             this.txtUri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUri.Location = new System.Drawing.Point(2, 0);
-            this.txtUri.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtUri.Location = new System.Drawing.Point(3, 3);
             this.txtUri.Name = "txtUri";
             this.txtUri.OverrideForeColor = System.Drawing.Color.Empty;
-            this.txtUri.Size = new System.Drawing.Size(271, 22);
+            this.txtUri.Size = new System.Drawing.Size(274, 22);
             this.txtUri.TabIndex = 1;
             this.txtUri.Text = "localhost:54321";
             // 
@@ -69,7 +68,7 @@ namespace OPMedia.UI.Configuration
             this.label1.Name = "label1";
             this.label1.OverrideBackColor = System.Drawing.Color.Empty;
             this.label1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.label1.Size = new System.Drawing.Size(297, 13);
+            this.label1.Size = new System.Drawing.Size(305, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "TXT_TCPIPURI";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -80,10 +79,11 @@ namespace OPMedia.UI.Configuration
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(228, 47);
+            this.btnCancel.Location = new System.Drawing.Point(236, 52);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnCancel.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnCancel.ShowDropDown = false;
             this.btnCancel.Size = new System.Drawing.Size(72, 24);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "TXT_CANCEL";
@@ -93,10 +93,11 @@ namespace OPMedia.UI.Configuration
             this.btnOk.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOk.Location = new System.Drawing.Point(150, 47);
+            this.btnOk.Location = new System.Drawing.Point(158, 52);
             this.btnOk.Name = "btnOk";
             this.btnOk.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnOk.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnOk.ShowDropDown = false;
             this.btnOk.Size = new System.Drawing.Size(72, 24);
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "TXT_OK";
@@ -122,7 +123,7 @@ namespace OPMedia.UI.Configuration
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(303, 74);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(311, 79);
             this.opmTableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -139,7 +140,7 @@ namespace OPMedia.UI.Configuration
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(303, 23);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(311, 28);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // btnOpenChooser
@@ -147,12 +148,13 @@ namespace OPMedia.UI.Configuration
             this.btnOpenChooser.AutoSize = true;
             this.btnOpenChooser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnOpenChooser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenChooser.Location = new System.Drawing.Point(275, 0);
-            this.btnOpenChooser.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOpenChooser.Location = new System.Drawing.Point(280, 3);
+            this.btnOpenChooser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btnOpenChooser.Name = "btnOpenChooser";
             this.btnOpenChooser.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnOpenChooser.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnOpenChooser.Size = new System.Drawing.Size(28, 23);
+            this.btnOpenChooser.ShowDropDown = false;
+            this.btnOpenChooser.Size = new System.Drawing.Size(28, 22);
             this.btnOpenChooser.TabIndex = 5;
             this.btnOpenChooser.Text = "...";
             this.btnOpenChooser.Click += new System.EventHandler(this.btnOpenChooser_Click);
@@ -160,6 +162,7 @@ namespace OPMedia.UI.Configuration
             // UrlCfgDlg
             // 
             this.ClientSize = new System.Drawing.Size(313, 102);
+            this.MinimumSize = new System.Drawing.Size(200, 100);
             this.Name = "UrlCfgDlg";
             this.pnlContent.ResumeLayout(false);
             this.opmTableLayoutPanel1.ResumeLayout(false);

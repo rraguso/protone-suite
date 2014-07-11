@@ -428,7 +428,7 @@ namespace OPMedia.UI.Themes
                     var allThemes = (from theme in doc.Descendants("Theme")
                              select new
                              {
-                                 Name = theme.Attribute("Name").Value,
+                                 Name = theme.Attribute("Name").Value.Trim(),
                                  IsDefault = theme.Attribute("IsDefault").Value.ToLowerInvariant() == "true"
                              }).ToList();
 
@@ -445,7 +445,7 @@ namespace OPMedia.UI.Themes
                                                 where themeElement.Parent.Attribute("Name").Value == theme.Name
                                                 select new
                                                 {
-                                                    Name = themeElement.Attribute("Name").Value,
+                                                    Name = themeElement.Attribute("Name").Value.Trim(),
                                                     Value = themeElement.Attribute("Value").Value
                                                 }).ToList();
 
@@ -529,7 +529,7 @@ namespace OPMedia.UI.Themes
         {
             try
             {
-                return (Color)cc.ConvertFromString(value);
+                return (Color)cc.ConvertFromInvariantString(value);
             }
             catch
             {

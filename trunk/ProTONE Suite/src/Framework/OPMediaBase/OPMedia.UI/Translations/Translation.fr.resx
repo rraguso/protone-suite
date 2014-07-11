@@ -1067,5 +1067,8 @@ Voulez-vous le créer?</value>
 <data name="TXT_S_TROUBLESHOOTING">
   <value>Secours</value>
 </data>
+<data name="TXT_EDIT_KEY">
+  <value>Configurez raccourci</value>
+</data>
     
 </root>
