@@ -85,7 +85,7 @@ namespace OPMedia.UI.Dialogs
             this.HandleDestroyed += new EventHandler(LogLineConsoleDialog_HandleDestroyed);
 
             Translator.TranslateControl(lvLogLines, DesignMode);
-            Translator.TranslateToolStrip(tsMain, DesignMode);
+            Translator.TranslateToolStrip(toolStripMain, DesignMode);
 
             tsbErrors.Image = ImageProvider.GetUser32Icon(User32Icon.Error, false);
             tsbInfo.Image = ImageProvider.GetUser32Icon(User32Icon.Information, false);
@@ -101,7 +101,18 @@ namespace OPMedia.UI.Dialogs
             tsbFreezeWindow.Image = Resources.Stop.ToBitmap();
             tsbClearLog.Image = Resources.Delete.Resize(false);
 
+            lblLogFileName.ForeColor = ThemeManager.ForeColor;
+            lblLogLineCount.ForeColor = ThemeManager.ForeColor;
+
+
             OnLanguageUpdated();
+        }
+
+
+        protected override void OnThemeUpdatedInternal()
+        {
+            lblLogFileName.ForeColor = ThemeManager.ForeColor;
+            lblLogLineCount.ForeColor = ThemeManager.ForeColor;
         }
 
         [EventSink(EventNames.PerformTranslation)]
