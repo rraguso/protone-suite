@@ -12,7 +12,7 @@ using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.ServiceHelper.RCCService.Configuration
 {
-    public partial class SerialDeviceTuningDlg : ThemeForm
+    public partial class SerialDeviceTuningDlg : ToolForm
     {
         protected SerialPort _port = null;
         protected SerialRemoteDeviceDriver _cfgData = null;
