@@ -20,9 +20,17 @@ namespace OPMedia.RCCManager
         { get { return _args; } }
 
         public KeyPressDefinitionForm()
+            : base("TXT_EDIT_KEY")
         {
             InitializeComponent();
             this.KeyUp += new KeyEventHandler(KeyCommandEditor_KeyUp);
+            this.Load += new EventHandler(KeyPressDefinitionForm_Load);
+        }
+
+        void KeyPressDefinitionForm_Load(object sender, EventArgs e)
+        {
+            this.Height = pnlContentAll.Height + CaptionButtonSize.Height + pnlContentAll.Margin.Vertical + 2;
+            this.Width = pnlContentAll.Width + pnlContentAll.Margin.Horizontal;
         }
 
         void KeyCommandEditor_KeyUp(object sender, KeyEventArgs e)

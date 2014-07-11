@@ -32,13 +32,10 @@ namespace OPMedia.RCCManager
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tmrUpdateUi = new System.Windows.Forms.Timer(this.components);
             this.ttMain = new OPMedia.UI.Controls.OPMToolTip(this.components);
-            this.btnApplyConfig = new OPMedia.UI.Controls.OPMButton();
-            this.btnModifyRemote = new OPMedia.UI.Controls.OPMButton();
-            this.btnDeleteRemote = new OPMedia.UI.Controls.OPMButton();
-            this.btnAddRemote = new OPMedia.UI.Controls.OPMButton();
-            this.cmsTree = new OPMContextMenuStrip();
+            this.cmsTree = new OPMedia.UI.Controls.OPMContextMenuStrip();
             this.tsmiChange = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
@@ -67,10 +64,17 @@ namespace OPMedia.RCCManager
             this.txtShowLogToolStripMenuItem = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.opmLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.tvRemotes = new OPMedia.UI.Controls.OPMTreeView();
+            this.toolStripMain = new OPMedia.UI.Controls.OPMToolStrip();
+            this.tsbAddRemote = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.tsbModifyRemote = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.tsbDeleteRemote = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.opmToolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
+            this.tsbApplyConfig = new OPMedia.UI.Controls.OPMToolStripButton();
             this.pnlContent.SuspendLayout();
             this.cmsTree.SuspendLayout();
             this.msMain.SuspendLayout();
             this.opmLayoutPanel1.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContent
@@ -88,93 +92,17 @@ namespace OPMedia.RCCManager
             // 
             this.ttMain.OwnerDraw = true;
             // 
-            // btnApplyConfig
-            // 
-            this.btnApplyConfig.AccessibleName = "btnApplyConfig";
-            this.btnApplyConfig.AutoSize = true;
-            this.btnApplyConfig.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnApplyConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnApplyConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnApplyConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApplyConfig.Location = new System.Drawing.Point(65, 6);
-            this.btnApplyConfig.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
-            this.btnApplyConfig.MaximumSize = new System.Drawing.Size(32, 32);
-            this.btnApplyConfig.MinimumSize = new System.Drawing.Size(20, 20);
-            this.btnApplyConfig.Name = "btnApplyConfig";
-            this.btnApplyConfig.OverrideBackColor = System.Drawing.Color.Empty;
-            this.btnApplyConfig.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnApplyConfig.Size = new System.Drawing.Size(20, 20);
-            this.btnApplyConfig.TabIndex = 6;
-            this.btnApplyConfig.Click += new System.EventHandler(this.btnApplyConfig_Click);
-            // 
-            // btnModifyRemote
-            // 
-            this.btnModifyRemote.AccessibleName = "btnModifyRemote";
-            this.btnModifyRemote.AutoSize = true;
-            this.btnModifyRemote.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnModifyRemote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnModifyRemote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnModifyRemote.Enabled = false;
-            this.btnModifyRemote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModifyRemote.Location = new System.Drawing.Point(20, 6);
-            this.btnModifyRemote.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.btnModifyRemote.MaximumSize = new System.Drawing.Size(32, 32);
-            this.btnModifyRemote.MinimumSize = new System.Drawing.Size(20, 20);
-            this.btnModifyRemote.Name = "btnModifyRemote";
-            this.btnModifyRemote.OverrideBackColor = System.Drawing.Color.Empty;
-            this.btnModifyRemote.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnModifyRemote.Size = new System.Drawing.Size(20, 20);
-            this.btnModifyRemote.TabIndex = 4;
-            this.btnModifyRemote.Click += new System.EventHandler(this.btnModifyRemote_Click);
-            // 
-            // btnDeleteRemote
-            // 
-            this.btnDeleteRemote.AccessibleName = "btnDeleteRemote";
-            this.btnDeleteRemote.AutoSize = true;
-            this.btnDeleteRemote.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDeleteRemote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDeleteRemote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDeleteRemote.Enabled = false;
-            this.btnDeleteRemote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteRemote.Location = new System.Drawing.Point(40, 6);
-            this.btnDeleteRemote.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.btnDeleteRemote.MaximumSize = new System.Drawing.Size(32, 32);
-            this.btnDeleteRemote.MinimumSize = new System.Drawing.Size(20, 20);
-            this.btnDeleteRemote.Name = "btnDeleteRemote";
-            this.btnDeleteRemote.OverrideBackColor = System.Drawing.Color.Empty;
-            this.btnDeleteRemote.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnDeleteRemote.Size = new System.Drawing.Size(20, 20);
-            this.btnDeleteRemote.TabIndex = 5;
-            this.btnDeleteRemote.Click += new System.EventHandler(this.btnDeleteRemote_Click);
-            // 
-            // btnAddRemote
-            // 
-            this.btnAddRemote.AccessibleName = "btnAddRemote";
-            this.btnAddRemote.AutoSize = true;
-            this.btnAddRemote.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddRemote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnAddRemote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddRemote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddRemote.Location = new System.Drawing.Point(0, 6);
-            this.btnAddRemote.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.btnAddRemote.MaximumSize = new System.Drawing.Size(32, 32);
-            this.btnAddRemote.MinimumSize = new System.Drawing.Size(20, 20);
-            this.btnAddRemote.Name = "btnAddRemote";
-            this.btnAddRemote.OverrideBackColor = System.Drawing.Color.Empty;
-            this.btnAddRemote.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnAddRemote.Size = new System.Drawing.Size(20, 20);
-            this.btnAddRemote.TabIndex = 3;
-            this.btnAddRemote.Click += new System.EventHandler(this.btnAddRemote_Click);
-            // 
             // cmsTree
             // 
+            this.cmsTree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.cmsTree.ForeColor = System.Drawing.Color.Black;
             this.cmsTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiChange,
             this.tsmiDelete,
             this.toolStripSeparator1,
             this.tsmiEnable});
             this.cmsTree.Name = "cmsTree";
-            this.cmsTree.Size = new System.Drawing.Size(142, 76);
+            this.cmsTree.Size = new System.Drawing.Size(149, 76);
             this.cmsTree.Opening += new System.ComponentModel.CancelEventHandler(this.cmsTree_Opening);
             // 
             // tsmiChange
@@ -182,7 +110,7 @@ namespace OPMedia.RCCManager
             this.tsmiChange.Image = global::OPMedia.RCCManager.Properties.Resources.Modify;
             this.tsmiChange.ImageTransparentColor = System.Drawing.Color.White;
             this.tsmiChange.Name = "tsmiChange";
-            this.tsmiChange.Size = new System.Drawing.Size(141, 22);
+            this.tsmiChange.Size = new System.Drawing.Size(148, 22);
             this.tsmiChange.Text = "TXT_CHANGE";
             this.tsmiChange.Click += new System.EventHandler(this.OnMenuChange);
             // 
@@ -191,19 +119,19 @@ namespace OPMedia.RCCManager
             this.tsmiDelete.Image = global::OPMedia.RCCManager.Properties.Resources.Delete;
             this.tsmiDelete.ImageTransparentColor = System.Drawing.Color.White;
             this.tsmiDelete.Name = "tsmiDelete";
-            this.tsmiDelete.Size = new System.Drawing.Size(141, 22);
+            this.tsmiDelete.Size = new System.Drawing.Size(148, 22);
             this.tsmiDelete.Text = "TXT_DELETE";
             this.tsmiDelete.Click += new System.EventHandler(this.OnMenuDelete);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // tsmiEnable
             // 
             this.tsmiEnable.Name = "tsmiEnable";
-            this.tsmiEnable.Size = new System.Drawing.Size(141, 22);
+            this.tsmiEnable.Size = new System.Drawing.Size(148, 22);
             this.tsmiEnable.Text = "TXT_ENABLE";
             this.tsmiEnable.Click += new System.EventHandler(this.OnMenuEnable);
             // 
@@ -214,12 +142,11 @@ namespace OPMedia.RCCManager
             this.opmLayoutPanel1.SetColumnSpan(this.label1, 5);
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(0, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(0, 5, 3, 0);
+            this.label1.Location = new System.Drawing.Point(3, 36);
             this.label1.Name = "label1";
             this.label1.OverrideBackColor = System.Drawing.Color.Empty;
             this.label1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.label1.Size = new System.Drawing.Size(487, 13);
+            this.label1.Size = new System.Drawing.Size(492, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "TXT_REMOTELIST";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -236,7 +163,8 @@ namespace OPMedia.RCCManager
             this.txtHelpToolStripMenuItem});
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
-            this.msMain.Size = new System.Drawing.Size(490, 21);
+            this.msMain.Padding = new System.Windows.Forms.Padding(6, 2, 0, 0);
+            this.msMain.Size = new System.Drawing.Size(498, 25);
             this.msMain.TabIndex = 0;
             this.msMain.Text = "menuStrip1";
             // 
@@ -248,7 +176,7 @@ namespace OPMedia.RCCManager
             this.toolStripSeparator2,
             this.tsmiExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(60, 17);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.fileToolStripMenuItem.Text = "TXT_FILE";
             // 
             // tsmiImport
@@ -326,7 +254,7 @@ namespace OPMedia.RCCManager
             this.toolStripSeparator3,
             this.tsmiMainEnable});
             this.txtEditToolStripMenuItem.Name = "txtEditToolStripMenuItem";
-            this.txtEditToolStripMenuItem.Size = new System.Drawing.Size(62, 17);
+            this.txtEditToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.txtEditToolStripMenuItem.Text = "TXT_EDIT";
             this.txtEditToolStripMenuItem.DropDownOpening += new System.EventHandler(this.msEdit_DropDownOpening);
             // 
@@ -382,7 +310,7 @@ namespace OPMedia.RCCManager
             this.toolStripSeparator4,
             this.txtShowLogToolStripMenuItem});
             this.txtHelpToolStripMenuItem.Name = "txtHelpToolStripMenuItem";
-            this.txtHelpToolStripMenuItem.Size = new System.Drawing.Size(65, 17);
+            this.txtHelpToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.txtHelpToolStripMenuItem.Text = "TXT_HELP";
             // 
             // txtAppHelpToolStripMenuItem
@@ -397,7 +325,6 @@ namespace OPMedia.RCCManager
             // 
             this.tsmiAbout.AutoToolTip = true;
             this.tsmiAbout.Name = "tsmiAbout";
-            this.tsmiAbout.ShortcutKeyDisplayString = "";
             this.tsmiAbout.Size = new System.Drawing.Size(176, 22);
             this.tsmiAbout.Text = "TXT_ABOUT";
             this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
@@ -423,22 +350,20 @@ namespace OPMedia.RCCManager
             this.opmLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmLayoutPanel1.Controls.Add(this.label1, 0, 1);
-            this.opmLayoutPanel1.Controls.Add(this.btnAddRemote, 0, 0);
-            this.opmLayoutPanel1.Controls.Add(this.btnModifyRemote, 1, 0);
-            this.opmLayoutPanel1.Controls.Add(this.btnDeleteRemote, 2, 0);
-            this.opmLayoutPanel1.Controls.Add(this.btnApplyConfig, 3, 0);
-            this.opmLayoutPanel1.Controls.Add(this.tvRemotes, 0, 2);
+            this.opmLayoutPanel1.Controls.Add(this.label1, 0, 2);
+            this.opmLayoutPanel1.Controls.Add(this.tvRemotes, 0, 3);
+            this.opmLayoutPanel1.Controls.Add(this.toolStripMain, 0, 0);
             this.opmLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmLayoutPanel1.Location = new System.Drawing.Point(0, 21);
+            this.opmLayoutPanel1.Location = new System.Drawing.Point(0, 25);
+            this.opmLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.opmLayoutPanel1.Name = "opmLayoutPanel1";
             this.opmLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.opmLayoutPanel1.RowCount = 3;
+            this.opmLayoutPanel1.RowCount = 4;
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.opmLayoutPanel1.Size = new System.Drawing.Size(490, 331);
+            this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.opmLayoutPanel1.Size = new System.Drawing.Size(498, 332);
             this.opmLayoutPanel1.TabIndex = 7;
             // 
             // tvRemotes
@@ -451,15 +376,85 @@ namespace OPMedia.RCCManager
             this.tvRemotes.FullRowSelect = true;
             this.tvRemotes.HideSelection = false;
             this.tvRemotes.ItemHeight = 20;
-            this.tvRemotes.Location = new System.Drawing.Point(0, 44);
-            this.tvRemotes.Margin = new System.Windows.Forms.Padding(0);
+            this.tvRemotes.Location = new System.Drawing.Point(3, 52);
             this.tvRemotes.Name = "tvRemotes";
             this.tvRemotes.ShowNodeToolTips = true;
-            this.tvRemotes.Size = new System.Drawing.Size(490, 287);
+            this.tvRemotes.Size = new System.Drawing.Size(492, 277);
             this.tvRemotes.TabIndex = 2;
             this.tvRemotes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvRemotes_AfterSelect);
             this.tvRemotes.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvRemotes_MouseClick);
             this.tvRemotes.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvRemotes_NodeMouseDoubleClick);
+            // 
+            // toolStripMain
+            // 
+            this.toolStripMain.AllowMerge = false;
+            this.toolStripMain.AutoSize = false;
+            this.toolStripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.opmLayoutPanel1.SetColumnSpan(this.toolStripMain, 5);
+            this.toolStripMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.toolStripMain.ForeColor = System.Drawing.Color.Black;
+            this.toolStripMain.GripMargin = new System.Windows.Forms.Padding(0);
+            this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripMain.ImageScalingSize = new System.Drawing.Size(30, 30);
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAddRemote,
+            this.tsbModifyRemote,
+            this.tsbDeleteRemote,
+            this.opmToolStripSeparator1,
+            this.tsbApplyConfig});
+            this.toolStripMain.Location = new System.Drawing.Point(0, 0);
+            this.toolStripMain.Name = "toolStripMain";
+            this.toolStripMain.ShowBorder = true;
+            this.toolStripMain.Size = new System.Drawing.Size(498, 36);
+            this.toolStripMain.TabIndex = 7;
+            this.toolStripMain.Text = "opmToolStrip1";
+            this.toolStripMain.VerticalGradient = true;
+            // 
+            // tsbAddRemote
+            // 
+            this.tsbAddRemote.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAddRemote.Image = ((System.Drawing.Image)(resources.GetObject("tsbAddRemote.Image")));
+            this.tsbAddRemote.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAddRemote.Name = "tsbAddRemote";
+            this.tsbAddRemote.Size = new System.Drawing.Size(34, 33);
+            this.tsbAddRemote.Text = "opmToolStripButton1";
+            this.tsbAddRemote.Click += new System.EventHandler(this.tsbAddRemote_Click);
+            // 
+            // tsbModifyRemote
+            // 
+            this.tsbModifyRemote.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbModifyRemote.Image = ((System.Drawing.Image)(resources.GetObject("tsbModifyRemote.Image")));
+            this.tsbModifyRemote.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModifyRemote.Name = "tsbModifyRemote";
+            this.tsbModifyRemote.Size = new System.Drawing.Size(29, 17);
+            this.tsbModifyRemote.Text = "opmToolStripButton2";
+            this.tsbModifyRemote.Click += new System.EventHandler(this.tsbModifyRemote_Click);
+            // 
+            // tsbDeleteRemote
+            // 
+            this.tsbDeleteRemote.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDeleteRemote.Image = ((System.Drawing.Image)(resources.GetObject("tsbDeleteRemote.Image")));
+            this.tsbDeleteRemote.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDeleteRemote.Name = "tsbDeleteRemote";
+            this.tsbDeleteRemote.Size = new System.Drawing.Size(29, 17);
+            this.tsbDeleteRemote.Text = "opmToolStripButton3";
+            this.tsbDeleteRemote.Click += new System.EventHandler(this.tsbDeleteRemote_Click);
+            // 
+            // opmToolStripSeparator1
+            // 
+            this.opmToolStripSeparator1.Name = "opmToolStripSeparator1";
+            this.opmToolStripSeparator1.Size = new System.Drawing.Size(6, 20);
+            // 
+            // tsbApplyConfig
+            // 
+            this.tsbApplyConfig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbApplyConfig.Image = ((System.Drawing.Image)(resources.GetObject("tsbApplyConfig.Image")));
+            this.tsbApplyConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbApplyConfig.Name = "tsbApplyConfig";
+            this.tsbApplyConfig.Size = new System.Drawing.Size(29, 17);
+            this.tsbApplyConfig.Text = "opmToolStripButton4";
+            this.tsbApplyConfig.Click += new System.EventHandler(this.tsbApplyConfig_Click);
             // 
             // MainForm
             // 
@@ -474,6 +469,8 @@ namespace OPMedia.RCCManager
             this.msMain.PerformLayout();
             this.opmLayoutPanel1.ResumeLayout(false);
             this.opmLayoutPanel1.PerformLayout();
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -482,10 +479,6 @@ namespace OPMedia.RCCManager
 
         private System.Windows.Forms.Timer tmrUpdateUi;
         private OPMToolTip ttMain;
-        private OPMButton btnApplyConfig;
-        private OPMButton btnModifyRemote;
-        private OPMButton btnDeleteRemote;
-        private OPMButton btnAddRemote;
         private OPMLabel label1;
         private OPMContextMenuStrip cmsTree;
         private OPMToolStripMenuItem tsmiChange;
@@ -515,5 +508,11 @@ namespace OPMedia.RCCManager
         private OPMToolStripMenuItem txtShowLogToolStripMenuItem;
         private OPMTableLayoutPanel opmLayoutPanel1;
         private OPMTreeView tvRemotes;
+        private OPMToolStrip toolStripMain;
+        private OPMToolStripButton tsbAddRemote;
+        private OPMToolStripButton tsbModifyRemote;
+        private OPMToolStripButton tsbDeleteRemote;
+        private OPMToolStripSeparator opmToolStripSeparator1;
+        private OPMToolStripButton tsbApplyConfig;
     }
 }
