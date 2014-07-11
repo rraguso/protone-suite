@@ -859,7 +859,7 @@ namespace OPMedia.UI.Themes
                 ClientRectangle.Left,
                 ClientRectangle.Top,
                 ClientRectangle.Width,
-                CaptionButtonSize.Height) : Rectangle.Empty;
+                Math.Min(ClientRectangle.Height, CaptionButtonSize.Height)) : Rectangle.Empty;
 
             if (_borderPath != null)
                 _borderPath.Dispose();
