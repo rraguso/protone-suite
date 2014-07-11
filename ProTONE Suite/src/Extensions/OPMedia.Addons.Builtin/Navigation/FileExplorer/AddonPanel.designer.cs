@@ -38,6 +38,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.ilAddon = new System.Windows.Forms.ImageList(this.components);
             this.opmShellList = new OPMedia.UI.Controls.OPMShellListView();
             this.contextMenuStrip = new OPMedia.UI.Controls.OPMContextMenuStrip();
+            this.tsmiNewFolder = new OPMedia.UI.Controls.OPMToolStripMenuItem();
+            this.tsmiSep0 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
             this.tsmiBack = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiFwd = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiUp = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -62,6 +64,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiProTONEPlay = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiProTONEEnqueue = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripMain = new OPMedia.UI.Controls.OPMToolStrip();
+            this.tsbNewFolder = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.tsbSep0 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsbBack = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbForward = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbUpLevel = new OPMedia.UI.Controls.OPMToolStripButton();
@@ -87,10 +91,6 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.tableLayoutPanel2 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.pnlHeader = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
-            this.tsbSep0 = new OPMedia.UI.Controls.OPMToolStripSeparator();
-            this.tsbNewFolder = new OPMedia.UI.Controls.OPMToolStripButton();
-            this.tsmiSep0 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
-            this.tsmiNewFolder = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -154,7 +154,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiProTONEPlay,
             this.tsmiProTONEEnqueue});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(212, 348);
+            this.contextMenuStrip.Size = new System.Drawing.Size(212, 376);
             // 
             // tsmiNewFolder
             // 
@@ -430,7 +430,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbNewFolder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbNewFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNewFolder.Name = "tsbNewFolder";
-            this.tsbNewFolder.Size = new System.Drawing.Size(91, 43);
+            this.tsbNewFolder.Size = new System.Drawing.Size(98, 43);
             this.tsbNewFolder.Tag = "ToolActionNewFolder";
             this.tsbNewFolder.Text = "TXT_NEWFOLDER";
             this.tsbNewFolder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

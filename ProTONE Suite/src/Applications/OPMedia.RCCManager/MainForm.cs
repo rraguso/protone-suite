@@ -72,24 +72,26 @@ namespace OPMedia.RCCManager
 
             Bitmap bmp = Resources.Add;
             bmp.MakeTransparent(Color.White);
-            btnAddRemote.Image = bmp;
+            tsbAddRemote.Image = bmp;
 
             bmp = Resources.Modify;
             bmp.MakeTransparent(Color.White);
-            btnModifyRemote.Image = bmp;
+            tsbModifyRemote.Image = bmp;
 
             bmp = Resources.Delete;
             bmp.MakeTransparent(Color.White);
-            btnDeleteRemote.Image = bmp;
+            tsbDeleteRemote.Image = bmp;
 
             bmp = Resources.Save;
             bmp.MakeTransparent(Color.White);
-            btnApplyConfig.Image = bmp;
+            tsbApplyConfig.Image = bmp;
 
+            SetToolTip(tsbAddRemote, "TXT_ADD_DEVICE");
+            SetToolTip(tsbDeleteRemote, "TXT_DEL_DEVICE");
+            SetToolTip(tsbModifyRemote, "TXT_MOD_DEVICE");
+            SetToolTip(tsbApplyConfig, "TXT_APPLYTIP");
 
-            SetToolTip(btnApplyConfig, "TXT_APPLYTIP");
-
-            btnApplyConfig.Enabled = false;
+            tsbApplyConfig.Enabled = false;
 
             if (!this.DesignMode)
             {
@@ -159,6 +161,8 @@ namespace OPMedia.RCCManager
 
             tvRemotes.Font = ThemeManager.LargeFont;
             ReadFromFile();
+
+
         }
 
         private void ReadFromFile()
@@ -175,6 +179,7 @@ namespace OPMedia.RCCManager
             
 
             DisplayRemotes(false);
+            BringToFront();
         }
 
         private void tmrUpdateUi_Tick(object sender, EventArgs e)
@@ -182,11 +187,11 @@ namespace OPMedia.RCCManager
             try
             {
                 ServiceController sc = new ServiceController(Constants.RCCServiceShortName);
-                btnApplyConfig.Enabled = true;
+                tsbApplyConfig.Enabled = true;
             }
             catch
             {
-                btnApplyConfig.Enabled = false;
+                tsbApplyConfig.Enabled = false;
             }
         }
 
@@ -316,11 +321,18 @@ namespace OPMedia.RCCManager
                     }
                 }
 
+                if (tvRemotes.SelectedNode == null &&
+                    tvRemotes.Nodes != null && 
+                    tvRemotes.Nodes.Count > 0)
+                {
+                    tvRemotes.SelectedNode = tvRemotes.Nodes[0];
+                }
+
                 tvRemotes.ResumeLayout();
             }
         }
 
-        private void btnAddRemote_Click(object sender, EventArgs e)
+        private void tsbAddRemote_Click(object sender, EventArgs e)
         {
             try
             {
@@ -379,7 +391,7 @@ namespace OPMedia.RCCManager
             BringToFront();
         }
 
-        private void btnModifyRemote_Click(object sender, EventArgs e)
+        private void tsbModifyRemote_Click(object sender, EventArgs e)
         {
             try
             {
@@ -424,7 +436,7 @@ namespace OPMedia.RCCManager
             BringToFront();
         }
 
-        private void btnDeleteRemote_Click(object sender, EventArgs e)
+        private void tsbDeleteRemote_Click(object sender, EventArgs e)
         {
             try
             {
@@ -456,7 +468,7 @@ namespace OPMedia.RCCManager
 
         }
 
-        private void btnApplyConfig_Click(object sender, EventArgs e)
+        private void tsbApplyConfig_Click(object sender, EventArgs e)
         {
             _config.WriteXml(_cfgPath);
             ReadFromFile();
@@ -464,8 +476,8 @@ namespace OPMedia.RCCManager
 
         private void tvRemotes_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            btnModifyRemote.Enabled = tvRemotes.SelectedNode != null;
-            btnDeleteRemote.Enabled = tvRemotes.SelectedNode != null;
+            tsbModifyRemote.Enabled = tvRemotes.SelectedNode != null;
+            tsbDeleteRemote.Enabled = tvRemotes.SelectedNode != null;
             ConstructTooltips();
             
         }
@@ -476,49 +488,49 @@ namespace OPMedia.RCCManager
             {
                 if (tvRemotes.SelectedNode.Tag is RCCServiceConfig.RemoteButtonsRow)
                 {
-                    SetToolTip(btnAddRemote, "TXT_ADD_BUTTON");
-                    SetToolTip(btnDeleteRemote, "TXT_DEL_BUTTON");
-                    SetToolTip(btnModifyRemote, "TXT_MOD_BUTTON");
+                    SetToolTip(tsbAddRemote, "TXT_ADD_BUTTON");
+                    SetToolTip(tsbDeleteRemote, "TXT_DEL_BUTTON");
+                    SetToolTip(tsbModifyRemote, "TXT_MOD_BUTTON");
                 }
                 else
                 {
                     if (tvRemotes.SelectedNode.ImageIndex == -2)
                     {
-                        SetToolTip(btnAddRemote, "TXT_ADD_BUTTON");
+                        SetToolTip(tsbAddRemote, "TXT_ADD_BUTTON");
                     }
                     else
                     {
-                        SetToolTip(btnAddRemote, "TXT_ADD_DEVICE");
+                        SetToolTip(tsbAddRemote, "TXT_ADD_DEVICE");
                     }
 
-                    SetToolTip(btnDeleteRemote, "TXT_DEL_DEVICE");
-                    SetToolTip(btnModifyRemote, "TXT_MOD_DEVICE");
+                    SetToolTip(tsbDeleteRemote, "TXT_DEL_DEVICE");
+                    SetToolTip(tsbModifyRemote, "TXT_MOD_DEVICE");
                 }
             }
             else
             {
-                SetToolTip(btnAddRemote, "TXT_ADD_DEVICE");
+                SetToolTip(tsbAddRemote, "TXT_ADD_DEVICE");
             }
         }
 
-        private void SetToolTip(OPMButton btn, string tag)
+        private void SetToolTip(OPMToolStripButton btn, string tag)
         {
-            ttMain.SetSimpleToolTip(btn, Translator.Translate(tag), btn.Image);
+            btn.ToolTipText = Translator.Translate(tag);
         }
         
         private void OnMenuAdd(object sender, EventArgs e)
         {
-            btnAddRemote_Click(sender, e);
+            tsbAddRemote_Click(sender, e);
         }
 
         private void OnMenuChange(object sender, EventArgs e)
         {
-            btnModifyRemote_Click(sender, e);
+            tsbModifyRemote_Click(sender, e);
         }
 
         private void OnMenuDelete(object sender, EventArgs e)
         {
-            btnDeleteRemote_Click(sender, e);
+            tsbDeleteRemote_Click(sender, e);
         }
 
         private void OnMenuEnable(object sender, EventArgs e)
@@ -759,7 +771,7 @@ namespace OPMedia.RCCManager
 
         private void tvRemotes_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            btnModifyRemote_Click(sender, e);
+            tsbModifyRemote_Click(sender, e);
         }
 
         
