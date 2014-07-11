@@ -120,6 +120,14 @@ namespace OPMedia.UI.Controls
             ThemeManager.PrepareGraphics(e.Graphics);
 
             Color clText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
+            Color c1 = ThemeManager.GradientHoverColor1;
+            Color c2 = ThemeManager.GradientHoverColor2;
+
+            if (Selected || Pressed)
+            {
+                c1 = c2 = ThemeManager.SelectedColor;
+                clText = ThemeManager.HighlightMenuTextColor;
+            }
 
             Rectangle clientRectangle = new Rectangle(ContentRectangle.X - 2,
                 ContentRectangle.Y - 2,
@@ -128,7 +136,7 @@ namespace OPMedia.UI.Controls
 
             int ddw = DropDownButtonWidth;
 
-            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientHoverColor1, ThemeManager.GradientHoverColor2, 90f))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, c1, c2, 90f))
             using (Pen p2 = new Pen(ThemeManager.BorderColor))
             using (Brush b = new SolidBrush(clText))
             {
@@ -244,33 +252,42 @@ namespace OPMedia.UI.Controls
             ThemeManager.PrepareGraphics(e.Graphics);
 
             bool isHighlight = Enabled && (Selected || Checked);
+
             Color clText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
+            Color c1 = ThemeManager.GradientHoverColor1;
+            Color c2 = ThemeManager.GradientHoverColor2;
 
             int offset = 3;
 
-            Rectangle clientRectangle = new Rectangle(ContentRectangle.X - 2 + offset,
-                ContentRectangle.Y - 2,
-                ContentRectangle.Width + 2,
-                ContentRectangle.Height + 4);
-
-            using (Brush bSelect = new LinearGradientBrush(clientRectangle, ThemeManager.GradientHoverColor1, ThemeManager.GradientHoverColor2, 90f))
+            if (Selected)
             {
-                using (Brush bHighlight = new LinearGradientBrush(clientRectangle, ThemeManager.SelectedColor, ThemeManager.SelectedColor, 90f))
-                using (Pen p2 = new Pen(ThemeManager.BorderColor))
+                c1 = c2 = ThemeManager.SelectedColor;
+                clText = ThemeManager.HighlightMenuTextColor;
+            }
+            else if (Checked)
+            {
+                c1 = c2 = ThemeManager.CheckedMenuColor;
+                clText = ThemeManager.CheckedMenuTextColor;
+            }
+
+            Rectangle clientRectangle = new Rectangle(ContentRectangle.X - 2 + offset,
+               ContentRectangle.Y - 2,
+               ContentRectangle.Width + 2,
+               ContentRectangle.Height + 4);
+            
+            using (Brush bBack = new LinearGradientBrush(clientRectangle, c1, c2, 90f))
+            using (Pen p2 = new Pen(ThemeManager.BorderColor))
+            {
                 {
                     Rectangle rect = clientRectangle;
                     rect.Width -= 2;
                     rect.Height -= 2;
 
-                    using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rect, ThemeManager.CornerSize))
+                    if (isHighlight)
                     {
-                        if (isHighlight)
+                        using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rect, ThemeManager.CornerSize))
                         {
-                            if (Checked && !Selected)
-                                e.Graphics.FillPath(bHighlight, path);
-                            else
-                                e.Graphics.FillPath(bSelect, path);
-
+                            e.Graphics.FillPath(bBack, path);
                             e.Graphics.DrawPath(p2, path);
                         }
                     }
@@ -365,14 +382,21 @@ namespace OPMedia.UI.Controls
             ThemeManager.PrepareGraphics(e.Graphics);
 
             Color clText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
+            Color c1 = ThemeManager.GradientHoverColor1;
+            Color c2 = ThemeManager.GradientHoverColor2;
 
+            if (Selected || Pressed)
+            {
+                c1 = c2 = ThemeManager.SelectedColor;
+                clText = ThemeManager.HighlightMenuTextColor;
+            }
+            
             Rectangle clientRectangle = new Rectangle(ContentRectangle.X - 2,
                 ContentRectangle.Y - 2,
                 ContentRectangle.Width + 4,
                 ContentRectangle.Height + 4);
 
-            //using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.WndValidColor, ThemeManager.SelectedColor, 90f))
-            using (Brush b1 = new LinearGradientBrush(clientRectangle, ThemeManager.GradientHoverColor1, ThemeManager.GradientHoverColor2, 90f))
+            using (Brush b1 = new LinearGradientBrush(clientRectangle, c1, c2, 90f))
             {
                 using (Pen p2 = new Pen(ThemeManager.BorderColor))
                 {

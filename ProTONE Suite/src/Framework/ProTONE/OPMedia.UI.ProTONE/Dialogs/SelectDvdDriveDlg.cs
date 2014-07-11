@@ -109,7 +109,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
             this.label1.Name = "label1";
             this.label1.OverrideBackColor = System.Drawing.Color.Empty;
             this.label1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.label1.Size = new System.Drawing.Size(300, 13);
+            this.label1.Size = new System.Drawing.Size(306, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "TXT_AVAILABLE_DVD_MEDIA";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -122,7 +122,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
             this.lbDvdMedias.FormattingEnabled = true;
             this.lbDvdMedias.Location = new System.Drawing.Point(3, 51);
             this.lbDvdMedias.Name = "lbDvdMedias";
-            this.lbDvdMedias.Size = new System.Drawing.Size(378, 70);
+            this.lbDvdMedias.Size = new System.Drawing.Size(384, 75);
             this.lbDvdMedias.TabIndex = 3;
             this.lbDvdMedias.SelectedIndexChanged += new System.EventHandler(this.lbDvdMedias_SelectedIndexChanged);
             // 
@@ -131,10 +131,11 @@ namespace OPMedia.UI.ProTONE.Dialogs
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(309, 127);
+            this.btnCancel.Location = new System.Drawing.Point(315, 132);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnCancel.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnCancel.ShowDropDown = false;
             this.btnCancel.Size = new System.Drawing.Size(72, 24);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "TXT_CANCEL";
@@ -144,10 +145,11 @@ namespace OPMedia.UI.ProTONE.Dialogs
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOk.Location = new System.Drawing.Point(231, 127);
+            this.btnOk.Location = new System.Drawing.Point(237, 132);
             this.btnOk.Name = "btnOk";
             this.btnOk.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnOk.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnOk.ShowDropDown = false;
             this.btnOk.Size = new System.Drawing.Size(72, 24);
             this.btnOk.TabIndex = 4;
             this.btnOk.Text = "TXT_OK";
@@ -166,7 +168,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
             this.label2.Name = "label2";
             this.label2.OverrideBackColor = System.Drawing.Color.Empty;
             this.label2.OverrideForeColor = System.Drawing.Color.Empty;
-            this.label2.Size = new System.Drawing.Size(300, 30);
+            this.label2.Size = new System.Drawing.Size(306, 30);
             this.label2.TabIndex = 0;
             this.label2.Text = "TXT_LOAD_DVD_FOLDER";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,10 +177,11 @@ namespace OPMedia.UI.ProTONE.Dialogs
             // 
             this.btnOpenDvdFolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOpenDvdFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenDvdFolder.Location = new System.Drawing.Point(309, 3);
+            this.btnOpenDvdFolder.Location = new System.Drawing.Point(315, 3);
             this.btnOpenDvdFolder.Name = "btnOpenDvdFolder";
             this.btnOpenDvdFolder.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnOpenDvdFolder.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnOpenDvdFolder.ShowDropDown = false;
             this.btnOpenDvdFolder.Size = new System.Drawing.Size(72, 24);
             this.btnOpenDvdFolder.TabIndex = 1;
             this.btnOpenDvdFolder.Text = "TXT_BROWSE";
@@ -205,12 +208,13 @@ namespace OPMedia.UI.ProTONE.Dialogs
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmLayoutPanel1.Size = new System.Drawing.Size(384, 154);
+            this.opmLayoutPanel1.Size = new System.Drawing.Size(390, 159);
             this.opmLayoutPanel1.TabIndex = 0;
             // 
             // SelectDvdMediaDlg
             // 
-            this.ClientSize = new System.Drawing.Size(394, 182);
+            this.ClientSize = new System.Drawing.Size(392, 182);
+            this.MinimumSize = new System.Drawing.Size(200, 100);
             this.Name = "SelectDvdMediaDlg";
             this.ShowIcon = false;
             this.pnlContent.ResumeLayout(false);

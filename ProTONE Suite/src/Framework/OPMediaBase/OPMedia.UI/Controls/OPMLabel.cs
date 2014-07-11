@@ -92,7 +92,6 @@ namespace OPMedia.UI.Controls
             : base()
         {
             base.FlatStyle = FlatStyle.Flat;
-            base.TextAlign = ContentAlignment.MiddleLeft;
 
             this.SetStyle(ControlStyles.UserPaint, true);
             this.SetStyle(ControlStyles.ResizeRedraw, true);

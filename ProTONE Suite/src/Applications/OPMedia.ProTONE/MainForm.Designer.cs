@@ -163,8 +163,8 @@ namespace OPMedia.ProTONE
             this.mediaPlayer.Margin = new System.Windows.Forms.Padding(0);
             this.mediaPlayer.MinimumSize = new System.Drawing.Size(160, 0);
             this.mediaPlayer.Name = "mediaPlayer";
-            this.mediaPlayer.OverrideBackColor = System.Drawing.Color.Empty;
-            this.mediaPlayer.Size = new System.Drawing.Size(415, 242);
+            this.mediaPlayer.OverrideBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.mediaPlayer.Size = new System.Drawing.Size(412, 241);
             this.mediaPlayer.TabIndex = 0;
             // 
             // MainForm

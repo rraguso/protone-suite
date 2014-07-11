@@ -565,12 +565,8 @@ Etes-vous sûr que vous voulez rechercher une autre sous-titre?</value>
 <data name="TXT_PLAYLIST">
   <value>Playlist</value>
 </data>
-<data name="TXT_PLAYLISTEND_EVT">
-  <value>Lorsque la playlist se termine ...</value>
-</data>
 <data name="TXT_PLAYLISTEVT_DESC">
-  <value>Attention: ce paramètre n'est pas persistant entre les sessions du programme&#xD;&#xD;
- Lorsque les listes de lecture se termine:</value>
+  <value>Quand la liste de lecture se termine:</value>
 </data>
 <data name="TXT_PLAYLISTS">
   <value>Playlists</value>
@@ -603,7 +599,8 @@ Double click to toggle temps écoulé</value>
   <value>Télécommande</value>
 </data>
 <data name="TXT_REMOTECONTROLDEFINITION">
-  <value>Pour définir les programmes et les dispositifs qui sont autorisés à contrôler Lecteur ProTone, vous devez utiliser le programme Gestionnaire ProTone RCC.&#xD;&#xD;
+  <value>Pour définir les programmes et les dispositifs qui sont autorisés à contrôler Lecteur ProTone, vous devez utiliser le programme Gestionnaire ProTone RCC.&#xD;
+&#xD;&#xD;
  Cliquez sur le bouton ci-dessous pour lancer ProTone RCC Manager ...</value>
 </data>
 <data name="TXT_RIGHTVOL">
@@ -1076,6 +1073,9 @@ de la fenêtre vidéo</value>
 </data>
 <data name="TXT_SIGNALANALYSIS">
   <value>Signal Analyse</value>
+</data>
+<data name="TXT_PLAYLISTEVT_CAUTION">
+  <value>ATTENTION: L'eveniment "termination de list de lecture" état marche / arrêt n'est pas mémorisée entre les sessions du programme!</value>
 </data>
     
 </root>

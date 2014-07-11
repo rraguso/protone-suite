@@ -565,13 +565,8 @@ Sunteţi sigur că vreti să cautati o altă subtitrare ?</value>
 <data name="TXT_PLAYLIST">
   <value>Listă de redare</value>
 </data>
-<data name="TXT_PLAYLISTEND_EVT">
-  <value>Când lista de redare ajunge la sfârşit ... </value>
-</data>
 <data name="TXT_PLAYLISTEVT_DESC">
-  <value>Atenţie: această setare nu se menţine de la o sesiune de program la alta !&#xD;&#xD;
-&#xD;&#xD;
-Când lista de redare ajunge la sfârşit:</value>
+  <value>Când lista de redare se încheie:</value>
 </data>
 <data name="TXT_PLAYLISTS">
   <value>Liste de redare</value>
@@ -604,7 +599,8 @@ Dublu click pentru a comuta pe timp scurs</value>
   <value>Telecomandă</value>
 </data>
 <data name="TXT_REMOTECONTROLDEFINITION">
-  <value>Pentru a defini programele şi dispozitivele ce pot controla ProTONE Player, trebuie să folosiţi ProTONE RCC Manager. &#xD;&#xD;
+  <value>Pentru a defini programele şi dispozitivele ce pot controla ProTONE Player, trebuie să folosiţi ProTONE RCC Manager.&#xD;
+&#xD;&#xD;
 Daţi click pe butonul de mai jos pentru a lansa ProTONE RCC Manager ...</value>
 </data>
 <data name="TXT_RIGHTVOL">
@@ -1077,6 +1073,9 @@ fereastră video</value>
 </data>
 <data name="TXT_SIGNALANALYSIS">
   <value>Analiză Semnal</value>
+</data>
+<data name="TXT_PLAYLISTEVT_CAUTION">
+  <value>ATENȚIE: Programul începe întotdeauna cu evenimentul "lista de redare la sfârşit" dezactivat!</value>
 </data>
     
 </root>

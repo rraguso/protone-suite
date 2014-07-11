@@ -102,7 +102,7 @@
     <ThemeElement Value="030, 055, 090" Name="HighlightMenuTextColor" />
     <ThemeElement Value="030, 055, 090" Name="HighlightHeaderMenuTextColor" />
     <ThemeElement Value="030, 055, 090" Name="CheckedMenuTextColor" />
-    <ThemeElement Value="3" Name="CornerSize "/>
+    <ThemeElement Value="3" Name="CornerSize"/>
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>
   <Theme Name="Black" IsDefault="false">
