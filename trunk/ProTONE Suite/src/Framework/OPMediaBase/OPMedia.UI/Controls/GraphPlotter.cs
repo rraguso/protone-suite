@@ -126,8 +126,8 @@ namespace OPMedia.UI.Controls
                     {
                         if (color == Color.Transparent)
                         {
-                            Color clStart1 = Color.LightGreen;
-                            Color clEnd1 = ControlPaint.Light(Color.Red, .4f);
+                            Color clStart1 = ThemeManager.GradientGaugeColor1;
+                            Color clEnd1 = ThemeManager.GradientGaugeColor2;
                             using (Brush b = new LinearGradientBrush(rc, clStart1, clEnd1, -90f))
                             {
                                 int w = 3;

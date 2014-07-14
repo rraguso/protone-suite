@@ -32,6 +32,8 @@
     <ThemeElement Value="000, 000, 000" Name="HighlightMenuTextColor" />
     <ThemeElement Value="000, 000, 000" Name="HighlightHeaderMenuTextColor" />
     <ThemeElement Value="000, 000, 000" Name="CheckedMenuTextColor" />
+    <ThemeElement Value="000, 255, 000" Name="GradientGaugeColor1" />
+    <ThemeElement Value="255, 000, 000" Name="GradientGaugeColor2" />
     <ThemeElement Value="0" Name="CornerSize" />
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>
@@ -67,6 +69,8 @@
     <ThemeElement Value="090, 090, 090" Name="HighlightMenuTextColor" />
     <ThemeElement Value="090, 090, 090" Name="HighlightHeaderMenuTextColor" />
     <ThemeElement Value="090, 090, 090" Name="CheckedMenuTextColor" />
+    <ThemeElement Value="000, 255, 000" Name="GradientGaugeColor1" />
+    <ThemeElement Value="255, 000, 000" Name="GradientGaugeColor2" />
     <ThemeElement Value="3" Name="CornerSize" />
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>
@@ -102,6 +106,8 @@
     <ThemeElement Value="030, 055, 090" Name="HighlightMenuTextColor" />
     <ThemeElement Value="030, 055, 090" Name="HighlightHeaderMenuTextColor" />
     <ThemeElement Value="030, 055, 090" Name="CheckedMenuTextColor" />
+    <ThemeElement Value="000, 255, 000" Name="GradientGaugeColor1" />
+    <ThemeElement Value="255, 000, 000" Name="GradientGaugeColor2" />
     <ThemeElement Value="3" Name="CornerSize"/>
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>
@@ -137,6 +143,8 @@
     <ThemeElement Value="240, 240, 240" Name="HighlightMenuTextColor" />
     <ThemeElement Value="059, 059, 059" Name="HighlightHeaderMenuTextColor" />
     <ThemeElement Value="059, 059, 059" Name="CheckedMenuTextColor" />
+    <ThemeElement Value="000, 255, 000" Name="GradientGaugeColor1" />
+    <ThemeElement Value="255, 000, 000" Name="GradientGaugeColor2" />
     <ThemeElement Value="3" Name="CornerSize" />
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>

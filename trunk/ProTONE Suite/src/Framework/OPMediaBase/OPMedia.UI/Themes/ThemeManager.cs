@@ -195,6 +195,12 @@ namespace OPMedia.UI.Themes
         public static Color HighlightHeaderMenuTextColor
         { get { return ThemeElement("HighlightHeaderMenuTextColor", SafeColorFromString("000, 000, 000")); } }
 
+        public static Color GradientGaugeColor1
+        { get { return ThemeElement("GradientGaugeColor1", SafeColorFromString("000, 255, 000")); } }
+
+        public static Color GradientGaugeColor2
+        { get { return ThemeElement("GradientGaugeColor2", SafeColorFromString("255, 000, 000")); } }
+
 
         public static int CornerSize
         { get { return ThemeElement("CornerSize", 0); } }
