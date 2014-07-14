@@ -34,8 +34,8 @@ namespace OPMedia.UI.Controls
                 Point[] ptBegin = null;
                 Point[] ptEnd = null;
 
-                Color clStart1 = ControlPaint.Light(Color.Green, .2f);
-                Color clEnd1 = Color.LightCoral;
+                Color clStart1 = ThemeManager.GradientGaugeColor1;
+                Color clEnd1 = ThemeManager.GradientGaugeColor2;
 
                 Color clStart2 = ThemeManager.GradientNormalColor1;
                 Color clEnd2 = ThemeManager.GradientNormalColor1;

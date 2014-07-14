@@ -66,7 +66,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     gpWaveform.Reset(true);
                 }
 
-
                 gpSpectrogram.Reset(false);
 
                 double[] spectrogramData = MediaRenderer.DefaultInstance.SpectrogramData;
@@ -89,7 +88,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 
                     spectrogramData2[idx] = max;
 
-                    gpSpectrogram.AddDataRange(spectrogramData, Color.Transparent);
+                    gpSpectrogram.AddDataRange(spectrogramData, ThemeManager.BorderColor);
                     gpSpectrogram.AddDataRange(spectrogramData2, ThemeManager.LinkColor);
                 }
                 else
