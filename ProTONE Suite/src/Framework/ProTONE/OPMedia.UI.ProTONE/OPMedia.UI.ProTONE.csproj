@@ -59,6 +59,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\MiscConfig\MediaScreensOptionsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MiscConfig\MediaScreensOptionsPage.Designer.cs">
+      <DependentUpon>MediaScreensOptionsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\MiscConfig\DisksOptionsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -251,6 +257,9 @@
       <DependentUpon>FileTypesPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MiscConfig\MediaScreensOptionsPage.resx">
+      <DependentUpon>MediaScreensOptionsPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\MiscConfig\DisksOptionsPage.resx">
       <DependentUpon>DisksOptionsPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,6 +422,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Tabs.png" />
     <None Include="Resources\Music_Note_Double_48.png" />
     <None Include="Resources\subtitles16.png" />
     <None Include="Resources\Playlist.png" />

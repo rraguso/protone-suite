@@ -196,8 +196,6 @@ namespace OPMedia.Core
                     catch
                     {
                     }
-
-                    AppSettings.SkinType = _skinType;
                 }
             }
         }
