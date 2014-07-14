@@ -181,8 +181,19 @@ namespace OPMedia.UI.Controls
         #endregion
 
         #region Properties
+        bool _allowEdit = true;
+        public bool AllowEditing
+        {
+            get
+            {
+                return _allowEdit;
+            }
 
-        
+            set
+            {
+                _allowEdit = value;
+            }
+        }
 
         /// <summary>
         /// Gets the 0-based index of the edited subitem row.
@@ -755,6 +766,9 @@ namespace OPMedia.UI.Controls
 		/// <param name="editedSubItem">The subitem to be edited.</param>
         public void StartEditing(ListViewItem editedItem, OPMListViewSubItem editedSubItem)
         {
+            if (_allowEdit == false)
+                return;
+
             row = editedItem.Index;
             column = editedItem.SubItems.IndexOf(editedSubItem);
 

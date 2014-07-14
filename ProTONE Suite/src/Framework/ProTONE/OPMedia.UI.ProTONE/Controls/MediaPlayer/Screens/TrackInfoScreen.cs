@@ -14,6 +14,7 @@ using OPMedia.Core.Logging;
 using TagLib.Riff;
 using OPMedia.Runtime.FileInformation;
 using OPMedia.UI.Themes;
+using OPMedia.Core;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 {
@@ -46,7 +47,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 
         public void SaveData()
         {
-            if (pgProperties.SelectedObjects != null)
+            PlaylistItem plItem = pgProperties.Tag as PlaylistItem;
+
+            if (plItem != null && plItem.IsTrackInfoEditable &&
+                pgProperties.SelectedObjects != null)
             {
                 foreach (MediaFileInfo mfi in pgProperties.SelectedObjects)
                 {
@@ -85,24 +89,31 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                 }
             }
 
+            pgProperties.Visible = false;
+            lblNoInfo.Visible = true;
+
+
             if (plItem != null)
             {
-                List<object> lii = new List<object>();
-                lii.Add(plItem.MediaFileInfo);
-
-                List<string> categoriesToIgnore = new List<string>();
-                categoriesToIgnore.Add("TXT_BOOKMARKINFO");
-                categoriesToIgnore.Add("TXT_FILESYSTEMINFO");
-
-                FileAttributesBrowser.ProcessObjectAttributes(lii, null, categoriesToIgnore);
-
-                pgProperties.SelectedObjects = lii.ToArray();
                 lblItem.Text = plItem.MediaFileInfo.Path;
-            }
-            else
-            {
-                pgProperties.SelectedObjects = null;
-                lblItem.Text = string.Empty;
+
+                if (plItem.SupportsTrackInfo)
+                {
+                    List<object> lii = new List<object>();
+                    lii.Add(plItem.MediaFileInfo);
+
+                    List<string> categoriesToIgnore = new List<string>();
+                    categoriesToIgnore.Add("TXT_BOOKMARKINFO");
+                    categoriesToIgnore.Add("TXT_FILESYSTEMINFO");
+
+                    FileAttributesBrowser.ProcessObjectAttributes(lii, null, categoriesToIgnore);
+
+                    pgProperties.Tag = plItem;
+                    pgProperties.SelectedObjects = lii.ToArray();
+                    pgProperties.Visible = true;
+                    lblNoInfo.Visible = false;
+
+                }
             }
 
             if (callByProperty)

@@ -20,6 +20,8 @@ using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using System.ComponentModel;
 using OPMedia.Core.ApplicationSettings;
 using OPMedia.Core.Utilities;
+using OPMedia.Core;
+using System.Linq;
 #endregion
 
 namespace OPMedia.Runtime.ProTONE.Playlists
@@ -42,6 +44,26 @@ namespace OPMedia.Runtime.ProTONE.Playlists
         {
             get { return mi; }
         }
+
+        public bool SupportsTrackInfo
+        {
+            get { return _SupportsTrackInfo(); }
+        }
+        public bool IsTrackInfoEditable
+        {
+            get { return _IsTrackInfoEditable(); }
+        }
+        
+        public bool SupportsBookmarkInfo
+        {
+            get { return _SupportsBookmarkInfo(); }
+        }
+        public bool IsBookmarkInfoEditable
+        {
+            get { return _IsBookmarkInfoEditable(); }
+        }
+
+
 
         public virtual string Path
         {
@@ -332,6 +354,44 @@ namespace OPMedia.Runtime.ProTONE.Playlists
             }
 
             return retVal;
+        }
+
+        protected virtual bool _SupportsTrackInfo()
+        {
+            return true;
+        }
+        protected virtual bool _SupportsBookmarkInfo()
+        {
+            return true;
+        }
+
+        protected virtual bool _IsTrackInfoEditable()
+        {
+            return IsOnAWritableDisk();
+        }
+
+        protected virtual bool _IsBookmarkInfoEditable()
+        {
+            return IsOnAWritableDisk();
+        }
+
+        protected bool IsOnAWritableDisk()
+        {
+            try
+            {
+                string rootPath = System.IO.Path.GetPathRoot(this.Path);
+                DriveInfo di = new DriveInfo(rootPath);
+
+                switch (di.DriveType)
+                {
+                    case DriveType.Fixed:
+                    case DriveType.Ram:
+                    case DriveType.Removable:
+                        return true;
+                }
+            }
+            catch { }
+            return false;
         }
     }
 

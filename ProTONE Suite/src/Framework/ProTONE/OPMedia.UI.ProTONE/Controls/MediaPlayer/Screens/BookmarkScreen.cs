@@ -231,7 +231,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             {
                 // Add to current possible only if we are currently playing this item.
                 pbAddCurrent.Visible = _canAddToCurrent &&
-                    _plItem != null &&
+                    _plItem != null && _plItem.IsBookmarkInfoEditable &&
                     MediaRenderer.DefaultInstance.RenderedMediaInfo != null &&
                     MediaRenderer.DefaultInstance.RenderedMediaInfo.Equals(_plItem.MediaFileInfo) &&
                     MediaRenderer.DefaultInstance.FilterState != FilterState.NotOpened &&
@@ -244,74 +244,104 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
         private void LoadBookmarks()
         {
-            lvBookmarks.Items.Clear();
-            lblItem.Text = string.Empty;
+            this.SuspendLayout();
 
-            if (_plItem == null)
-            {
-                List<PlaylistItem> plItems = playlistScreen.GetPlaylistItems();
-                if (plItems != null && plItems.Count > 0)
-                {
-                    _plItem = plItems[0];
-                }
-
-                if (_plItem == null)
-                {
-                    this.Enabled = false;
-                    return;
-                }
-            }
+            pnlBookmarkEdit.Visible = false;
+            lblNoInfo.Visible = true;
 
             try
             {
-                this.Enabled = true;
-                lblItem.Text = _plItem.MediaFileInfo.Path;
+                lvBookmarks.Items.Clear();
+                lblItem.Text = string.Empty;
 
-                if (_plItem.MediaFileInfo.Bookmarks != null)
+                if (_plItem == null)
                 {
-                    List<Bookmark> bmkList =
-                        new List<Bookmark>(_plItem.MediaFileInfo.Bookmarks.Values);
-
-                    bmkList.Sort(Bookmark.CompareByTime);
-
-                    foreach (Bookmark bmk in bmkList)
+                    List<PlaylistItem> plItems = playlistScreen.GetPlaylistItems();
+                    if (plItems != null && plItems.Count > 0)
                     {
-                        string[] subItems = new string[]
+                        _plItem = plItems[0];
+                    }
+
+                    if (_plItem == null)
+                    {
+                        this.Enabled = false;
+                        return;
+                    }
+                }
+
+                try
+                {
+                    this.Enabled = true;
+                    lblItem.Text = _plItem.MediaFileInfo.Path;
+
+                    if (_plItem.SupportsBookmarkInfo &&
+                        _plItem.MediaFileInfo.Bookmarks != null)
+                    {
+                        pnlBookmarkEdit.Visible = true;
+                        lblNoInfo.Visible = false;
+
+                        lvBookmarks.Enabled = true;
+                        pbAdd.Visible = pbDelete.Visible = _plItem.IsBookmarkInfoEditable;
+                        lvBookmarks.AllowEditing = _plItem.IsBookmarkInfoEditable;
+
+                        List<Bookmark> bmkList =
+                            new List<Bookmark>(_plItem.MediaFileInfo.Bookmarks.Values);
+
+                        bmkList.Sort(Bookmark.CompareByTime);
+
+                        foreach (Bookmark bmk in bmkList)
+                        {
+                            string[] subItems = new string[]
                         {
                             string.Empty,
                             bmk.PlaybackTime.ToString(),
                             bmk.Title
                         };
 
-                        
-                        int i = 0;
-                        ListViewItem item = new ListViewItem(subItems[i++]);
-                        item.Tag = bmk;
-                        item.ImageIndex = 0;
 
-                        OPMListViewSubItem si = new OPMListViewSubItem(_dtpEditTime, item, subItems[i++]);
-                        si.ReadOnly = false;
-                        item.SubItems.Add(si);
+                            int i = 0;
+                            ListViewItem item = new ListViewItem(subItems[i++]);
+                            item.Tag = bmk;
+                            item.ImageIndex = 0;
 
-                        si = new OPMListViewSubItem(_txtEditComment, item, subItems[i++]);
-                        si.ReadOnly = false;
-                        item.SubItems.Add(si);
+                            OPMListViewSubItem si = new OPMListViewSubItem(_dtpEditTime, item, subItems[i++]);
+                            si.ReadOnly = false;
+                            item.SubItems.Add(si);
 
-                        lvBookmarks.Items.Add(item);
+                            si = new OPMListViewSubItem(_txtEditComment, item, subItems[i++]);
+                            si.ReadOnly = false;
+                            item.SubItems.Add(si);
+
+                            lvBookmarks.Items.Add(item);
+                        }
+
+                        if (lvBookmarks.Items.Count > 0)
+                        {
+                            lvBookmarks.Select();
+                            lvBookmarks.Focus();
+                            lvBookmarks.Items[0].Selected = true;
+                        }
                     }
-
-                    if (lvBookmarks.Items.Count > 0)
+                    else
                     {
-                        lvBookmarks.Select();
-                        lvBookmarks.Focus();
-                        lvBookmarks.Items[0].Selected = true;
+                        pbAdd.Visible = pbDelete.Visible = pbAddCurrent.Visible = false;
+                        lvBookmarks.Enabled = false;
+                        lvBookmarks.AllowEditing = false;
+
                     }
                 }
-                
+                catch (Exception ex)
+                {
+                    pbAdd.Visible = pbDelete.Visible = pbAddCurrent.Visible = false;
+                    lvBookmarks.Enabled = false;
+                    lvBookmarks.AllowEditing = false;
+
+                    ErrorDispatcher.DispatchError(ex);
+                }
             }
-            catch(Exception ex)
+            finally
             {
-                ErrorDispatcher.DispatchError(ex);
+                this.ResumeLayout();
             }
         }
 
@@ -407,7 +437,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         {
             if (_plItem != null &&
                 _plItem.MediaFileInfo != null &&
-                _plItem.MediaFileInfo.Bookmarks != null)
+                _plItem.MediaFileInfo.Bookmarks != null && 
+                _plItem.IsBookmarkInfoEditable)
             {
                 _plItem.MediaFileInfo.Bookmarks.Clear();
 
