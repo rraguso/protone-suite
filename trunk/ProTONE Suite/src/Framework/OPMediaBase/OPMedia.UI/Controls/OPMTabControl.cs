@@ -30,6 +30,20 @@ namespace OPMedia.UI.Controls
             get { return base.Padding; }
         }
 
+        public TabPage GetPageContainingControl(OPMBaseControl contents)
+        {
+            if (this.TabPages != null && this.TabPages.Count > 0)
+            {
+                foreach (TabPage tp in this.TabPages)
+                {
+                    if (tp.Controls != null && tp.Controls.Contains(contents))
+                        return tp;
+                }
+            }
+
+            return null;
+        }
+
         private Timer _tmr = null;
 
         public OPMTabControl()

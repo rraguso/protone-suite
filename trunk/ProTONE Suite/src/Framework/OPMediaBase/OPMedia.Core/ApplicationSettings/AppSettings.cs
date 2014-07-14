@@ -1318,33 +1318,42 @@ namespace OPMedia.Core.ApplicationSettings
 
         #endregion
 
-        #region Non-Suite settings
-        public static string LanguageID
+        [Flags]
+        public enum MediaScreen
         {
-            get
-            {
-                return _config.GetValue("LanguageID", "en");
-            }
+            None = 0x00,
+            
+            Playlist = 0x01,
+            TrackInfo = 0x02,
+            SignalAnalisys = 0x04,
+            BookmarkInfo = 0x08,
 
-            set
-            {
-                _config.SetValue("LanguageID", value);
-            }
+            All = 0xFF
         }
 
-        public static string SkinType
+        [Flags]
+        public enum SignalAnalisysFunction
         {
-            get
-            {
-                return _config.GetValue("SkinType", string.Empty);
-            }
+            None = 0x00,
 
-            set
-            {
-                _config.SetValue("SkinType", value);
-            }
+            VUMeter = 0x01,
+            Waveform = 0x02,
+            Spectrogram = 0x04,
+
+            All = 0xFF
         }
-        #endregion
+
+        public static MediaScreen ShowMediaScreens
+        {
+            get { return (MediaScreen)_config.GetValue("ShowMediaScreens", (int)MediaScreen.All); }
+            set { _config.SetValue("ShowMediaScreens", (int)value); }
+        }
+
+        public static SignalAnalisysFunction SignalAnalisysFunctions
+        {
+            get { return (SignalAnalisysFunction)_config.GetValue("SignalAnalisysFunctions", (int)SignalAnalisysFunction.All); }
+            set { _config.SetValue("SignalAnalisysFunctions", (int)value); }
+        }
 
         public enum CddaInfoSource
         {

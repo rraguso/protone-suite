@@ -17,36 +17,34 @@ using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Core;
+using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
+using OPMedia.Core.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
     public class MediaScreens : OPMTabControl
     {
-        public PlaylistScreen PlaylistScreen { get { return base.TabPages[0].Controls[0] as PlaylistScreen; } }
-        public TrackInfoScreen TrackInfoScreen { get { return base.TabPages[1].Controls[0] as TrackInfoScreen; } }
-        public SignalAnalysisScreen SignalAnalysisScreen { get { return base.TabPages[2].Controls[0] as SignalAnalysisScreen; } }
-        public BookmarkScreen BookmarkScreen { get { return base.TabPages[3].Controls[0] as BookmarkScreen; } }
+        public PlaylistScreen PlaylistScreen { get; private set; }
+        public TrackInfoScreen TrackInfoScreen { get; private set; }
+        public SignalAnalysisScreen SignalAnalysisScreen { get; private set; }
+        public BookmarkScreen BookmarkScreen { get; private set; }
 
         public Control _activeScreen = null;
         public Control _oldActiveScreen = null;
             
         public MediaScreens() : base()
         {
-            Control c = new PlaylistScreen();
-            c.Dock = DockStyle.Fill;
-            base.TabPages.Add(new OPMTabPage("TXT_PLAYLIST", c));
-            
-            c = new TrackInfoScreen();
-            c.Dock = DockStyle.Fill;
-            base.TabPages.Add(new OPMTabPage("TXT_TRACKINFO", c));
-            
-            c = new SignalAnalysisScreen();
-            c.Dock = DockStyle.Fill;
-            base.TabPages.Add(new OPMTabPage("TXT_SIGNALANALYSIS", c));
-            
-            c = new BookmarkScreen();
-            c.Dock = DockStyle.Fill;
-            base.TabPages.Add(new OPMTabPage("TXT_BOOKMARKS", c));
+            this.PlaylistScreen = new PlaylistScreen();
+            this.PlaylistScreen.Dock = DockStyle.Fill;
+
+            this.TrackInfoScreen = new TrackInfoScreen();
+            this.TrackInfoScreen.Dock = DockStyle.Fill;
+
+            this.SignalAnalysisScreen = new SignalAnalysisScreen();
+            this.SignalAnalysisScreen.Dock = DockStyle.Fill;
+
+            this.BookmarkScreen = new BookmarkScreen();
+            this.BookmarkScreen.Dock = DockStyle.Fill;
 
             base.SelectedIndexChanged += new EventHandler(MediaScreens_SelectedIndexChanged);
 
@@ -56,6 +54,125 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             this.HandleCreated += new EventHandler(MediaScreens_HandleCreated);
             this.HandleDestroyed += new EventHandler(MediaScreens_HandleDestroyed);
+
+            OnUpdateMediaScreens();
+        }
+
+        [EventSink(LocalEventNames.UpdateMediaScreens)]
+        public void OnUpdateMediaScreens()
+        {
+            // playlist -------------------
+            AppSettings.MediaScreen mediaScreen = AppSettings.MediaScreen.Playlist;
+            bool show = ((AppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            TabPage tp = GetPageContainingControl(PlaylistScreen);
+
+            if (show == false && tp != null)
+                TabPages.Remove(tp);
+            else if (show == true && tp == null)
+            {
+                int idx = FindIndexForInsert(PlaylistScreen);
+
+                OPMTabPage otp = new OPMTabPage("TXT_PLAYLIST", this.PlaylistScreen);
+                if (idx >= TabPages.Count)
+                    TabPages.Add(otp);
+                else
+                    TabPages.Insert(idx, otp);
+            }
+            
+            // track info -------------------
+            mediaScreen = AppSettings.MediaScreen.TrackInfo;
+            show = ((AppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            tp = GetPageContainingControl(TrackInfoScreen);
+
+            if (show == false && tp != null)
+                TabPages.Remove(tp);
+            else if (show == true && tp == null)
+            {
+                int idx = FindIndexForInsert(TrackInfoScreen);
+
+                OPMTabPage otp = new OPMTabPage("TXT_TRACKINFO", this.TrackInfoScreen);
+                if (idx >= TabPages.Count)
+                    TabPages.Add(otp);
+                else
+                    base.TabPages.Insert(idx, otp);
+            }
+
+            // signal analisys -------------------
+            mediaScreen = AppSettings.MediaScreen.SignalAnalisys;
+            show = ((AppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            tp = GetPageContainingControl(SignalAnalysisScreen);
+
+            if (show == false && tp != null)
+                TabPages.Remove(tp);
+            else if (show == true && tp == null)
+            {
+                int idx = FindIndexForInsert(SignalAnalysisScreen);
+
+                OPMTabPage otp = new OPMTabPage("TXT_SIGNALANALYSIS", this.SignalAnalysisScreen);
+                if (idx >= TabPages.Count)
+                    TabPages.Add(otp);
+                else
+                    base.TabPages.Insert(idx, otp);
+            }
+
+            // bookmarks -------------------
+            mediaScreen = AppSettings.MediaScreen.BookmarkInfo;
+            show = ((AppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            tp = GetPageContainingControl(BookmarkScreen);
+
+            if (show == false && tp != null)
+                TabPages.Remove(tp);
+            else if (show == true && tp == null)
+            {
+                int idx = FindIndexForInsert(BookmarkScreen);
+
+                OPMTabPage otp = new OPMTabPage("TXT_BOOKMARKS", this.BookmarkScreen);
+                if (idx >= TabPages.Count)
+                    TabPages.Add(otp);
+                else
+                    base.TabPages.Insert(idx, otp);
+            }
+
+            Translator.TranslateControl(this, DesignMode);
+        }
+
+        private int FindIndexForInsert(OPMBaseControl screen)
+        {
+            int idx = 0;
+
+            if (screen == PlaylistScreen)
+            {
+                idx = 0; // Playlist always goes first
+            }
+            else
+            {
+                TabPage tpPlaylist = GetPageContainingControl(PlaylistScreen);
+                TabPage tpTrackInfo = GetPageContainingControl(TrackInfoScreen);
+
+                if (screen == TrackInfoScreen)
+                {
+                    if (tpPlaylist != null)
+                        idx = 1; // If playlist is shown, Track Info goes in second place
+                    else
+                        idx = 0; // Otherwise it goes first
+                }
+                else if (screen == SignalAnalysisScreen)
+                {
+                    if (tpTrackInfo != null &&
+                        tpPlaylist != null)
+                        idx = 2; // If both playlist and track info are shown, Signal Analisys goes in third place
+
+                    else if (tpTrackInfo != null || tpPlaylist != null)
+                        idx = 1; // If one of playlist and track info is shown (bit no both), Signal Analisys goes in second place
+
+                    else
+                        idx = 0; // Otherwise it goes first
+                }
+                else if (screen == BookmarkScreen)
+                    idx = (TabPages.Count); // Bookmark Info always goes last
+            }
+
+            return idx;
         }
 
         void MediaScreens_HandleDestroyed(object sender, EventArgs e)

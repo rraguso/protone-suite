@@ -12,5 +12,7 @@ namespace OPMedia.UI.ProTONE.GlobalEvents
         public const string JumpToBookmark = "JumpToBookmark";
         public const string UpdateStateButtons = "UpdateStateButtons";
         public const string RestoreRenderingRegionPosition = "RestoreRenderingRegionPosition";
+
+        public const string UpdateMediaScreens = "UpdateMediaScreens";
     }
 }

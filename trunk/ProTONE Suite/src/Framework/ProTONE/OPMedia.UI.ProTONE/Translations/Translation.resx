@@ -1077,5 +1077,41 @@ window position</value>
 <data name="TXT_PLAYLISTEVT_CAUTION">
   <value>CAUTION: The program always starts with the "playlist ended" event deactivated!</value>
 </data>
+<data name="TXT_SHOW_PLAYLIST">
+  <value>Show the "Playlist " tab</value>
+</data>
+<data name="TXT_SHOW_TRACKINFO">
+  <value>Show the "Track information" tab</value>
+</data>
+<data name="TXT_SHOW_SIGNALANALISYS">
+  <value>Show the "Signal Analisys" tab</value>
+</data>
+<data name="TXT_SHOW_BOOKMARKINFO">
+  <value>Show the "Bookmark Information" tab</value>
+</data>
+<data name="TXT_HINT_PLAYLISTTAB">
+  <value>This tab allows interaction with the playlist.</value>
+</data>
+<data name="TXT_HINT_TRACKINFOTAB">
+  <value>This tab displays the track information and allows editing some parts of this information, where applicable (e.g. the ID3 fields for MP3). It is disabled for streamed media (Shoutcast URL's).</value>
+</data>
+<data name="TXT_HINT_SIGNALANALISYSTAB">
+  <value>This tab displays signal diagrams such as VU-Meter, Waveform and Spectrogram. The signal analisys consumes some CPU so you may want to disable this feature (or some parts of it), if you have a slower CPU computer.</value>
+</data>
+<data name="TXT_HINT_BOOKMARKINFOTAB">
+  <value>This tab displays the bookmark information and allows editing it. It is disabled for media that does not support editing bookmarks (CD, DVD, streamed media).</value>
+</data>
+<data name="TXT_SHOW_VUMETER">
+  <value>Show VU-Meter</value>
+</data>
+<data name="TXT_SHOW_WAVEFORM">
+  <value>Show waveform</value>
+</data>
+<data name="TXT_SHOW_SPECTROGRAM">
+  <value>Show spectrogram</value>
+</data>
+<data name="TXT_MEDIA_SCREENS">
+  <value>Media Screens</value>
+</data>
     
 </root>
