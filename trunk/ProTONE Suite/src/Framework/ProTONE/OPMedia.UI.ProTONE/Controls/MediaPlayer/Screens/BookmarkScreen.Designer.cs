@@ -41,12 +41,15 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pnlLayout = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.pnlBookmarkEdit = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.pnlButtons = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
             this.playlistScreen = new OPMedia.UI.ProTONE.Controls.MediaPlayer.PlaylistScreen();
+            this.lblNoInfo = new OPMedia.UI.Controls.OPMLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbAddCurrent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             this.pnlLayout.SuspendLayout();
+            this.pnlBookmarkEdit.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,25 +65,27 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.lblItem.Name = "lblItem";
             this.lblItem.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblItem.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblItem.Size = new System.Drawing.Size(327, 13);
+            this.lblItem.Size = new System.Drawing.Size(343, 13);
             this.lblItem.TabIndex = 1;
             this.lblItem.Text = "[ item ]";
             this.lblItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvBookmarks
             // 
+            this.lvBookmarks.AllowEditing = true;
             this.lvBookmarks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colEmpty,
             this.colTime,
             this.colText});
             this.lvBookmarks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvBookmarks.Font = new System.Drawing.Font("Segoe UI", 6.75F);
-            this.lvBookmarks.Location = new System.Drawing.Point(153, 19);
+            this.lvBookmarks.Location = new System.Drawing.Point(0, 0);
             this.lvBookmarks.Margin = new System.Windows.Forms.Padding(0);
             this.lvBookmarks.MultiSelect = false;
             this.lvBookmarks.Name = "lvBookmarks";
             this.lvBookmarks.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvBookmarks.Size = new System.Drawing.Size(153, 236);
+            this.pnlBookmarkEdit.SetRowSpan(this.lvBookmarks, 3);
+            this.lvBookmarks.Size = new System.Drawing.Size(145, 192);
             this.lvBookmarks.TabIndex = 2;
             this.lvBookmarks.UseCompatibleStateImageBehavior = false;
             this.lvBookmarks.View = System.Windows.Forms.View.Details;
@@ -106,15 +111,16 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
+            this.pnlBookmarkEdit.SetColumnSpan(this.lblDesc, 2);
             this.lblDesc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblDesc.FontSize = OPMedia.UI.Themes.FontSizes.Small;
-            this.lblDesc.Location = new System.Drawing.Point(153, 255);
+            this.lblDesc.Location = new System.Drawing.Point(0, 192);
             this.lblDesc.Margin = new System.Windows.Forms.Padding(0);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblDesc.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblDesc.Size = new System.Drawing.Size(153, 12);
+            this.lblDesc.Size = new System.Drawing.Size(165, 12);
             this.lblDesc.TabIndex = 4;
             this.lblDesc.Text = "TXT_CLICK_LIST_TO_EDIT";
             this.lblDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -134,6 +140,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             // 
             // pbAdd
             // 
+            this.pbAdd.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbAdd.Location = new System.Drawing.Point(2, 2);
             this.pbAdd.Margin = new System.Windows.Forms.Padding(2);
             this.pbAdd.Name = "pbAdd";
@@ -158,29 +165,48 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.pbDelete.Text = "...";
             this.pbDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // opmTableLayoutPanel1
+            // pnlLayout
             // 
             this.pnlLayout.ColumnCount = 3;
             this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.pnlLayout.Controls.Add(this.pnlBookmarkEdit, 1, 2);
             this.pnlLayout.Controls.Add(this.lblItem, 0, 0);
-            this.pnlLayout.Controls.Add(this.lvBookmarks, 1, 1);
-            this.pnlLayout.Controls.Add(this.pnlButtons, 2, 1);
-            this.pnlLayout.Controls.Add(this.lblDesc, 1, 2);
             this.pnlLayout.Controls.Add(this.playlistScreen, 0, 1);
+            this.pnlLayout.Controls.Add(this.lblNoInfo, 1, 1);
             this.pnlLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLayout.Location = new System.Drawing.Point(0, 0);
-            this.pnlLayout.Name = "opmTableLayoutPanel1";
+            this.pnlLayout.Name = "pnlLayout";
             this.pnlLayout.OverrideBackColor = System.Drawing.Color.Empty;
             this.pnlLayout.RowCount = 3;
             this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlLayout.Size = new System.Drawing.Size(327, 267);
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlLayout.Size = new System.Drawing.Size(343, 242);
             this.pnlLayout.TabIndex = 1;
             // 
-            // opmFlowLayoutPanel1
+            // pnlBookmarkEdit
+            // 
+            this.pnlBookmarkEdit.ColumnCount = 2;
+            this.pnlBookmarkEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlBookmarkEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.pnlBookmarkEdit.Controls.Add(this.lvBookmarks, 0, 0);
+            this.pnlBookmarkEdit.Controls.Add(this.lblDesc, 0, 3);
+            this.pnlBookmarkEdit.Controls.Add(this.pnlButtons, 1, 1);
+            this.pnlBookmarkEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBookmarkEdit.Location = new System.Drawing.Point(174, 35);
+            this.pnlBookmarkEdit.Name = "pnlBookmarkEdit";
+            this.pnlBookmarkEdit.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlBookmarkEdit.RowCount = 4;
+            this.pnlBookmarkEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlBookmarkEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pnlBookmarkEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pnlBookmarkEdit.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlBookmarkEdit.Size = new System.Drawing.Size(165, 204);
+            this.pnlBookmarkEdit.TabIndex = 2;
+            // 
+            // pnlButtons
             // 
             this.pnlButtons.AutoSize = true;
             this.pnlButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -189,11 +215,12 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.pnlButtons.Controls.Add(this.pbDelete);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnlButtons.Location = new System.Drawing.Point(306, 39);
-            this.pnlButtons.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.pnlButtons.Name = "opmFlowLayoutPanel1";
+            this.pnlButtons.Location = new System.Drawing.Point(145, 20);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pnlButtons.Size = new System.Drawing.Size(21, 216);
+            this.pnlBookmarkEdit.SetRowSpan(this.pnlButtons, 2);
+            this.pnlButtons.Size = new System.Drawing.Size(20, 172);
             this.pnlButtons.TabIndex = 3;
             // 
             // playlistScreen
@@ -207,20 +234,34 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.playlistScreen.Name = "playlistScreen";
             this.playlistScreen.OverrideBackColor = System.Drawing.Color.Empty;
             this.pnlLayout.SetRowSpan(this.playlistScreen, 2);
-            this.playlistScreen.Size = new System.Drawing.Size(153, 248);
+            this.playlistScreen.Size = new System.Drawing.Size(171, 223);
             this.playlistScreen.TabIndex = 5;
+            // 
+            // lblNoInfo
+            // 
+            this.lblNoInfo.AutoSize = true;
+            this.lblNoInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblNoInfo.Location = new System.Drawing.Point(174, 19);
+            this.lblNoInfo.Name = "lblNoInfo";
+            this.lblNoInfo.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblNoInfo.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblNoInfo.Size = new System.Drawing.Size(127, 13);
+            this.lblNoInfo.TabIndex = 6;
+            this.lblNoInfo.Text = "TXT_THEREARENOITEMS";
             // 
             // BookmarkScreen
             // 
             this.Controls.Add(this.pnlLayout);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "BookmarkScreen";
-            this.Size = new System.Drawing.Size(327, 267);
+            this.Size = new System.Drawing.Size(343, 242);
             ((System.ComponentModel.ISupportInitialize)(this.pbAddCurrent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             this.pnlLayout.ResumeLayout(false);
             this.pnlLayout.PerformLayout();
+            this.pnlBookmarkEdit.ResumeLayout(false);
+            this.pnlBookmarkEdit.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
             this.pnlButtons.PerformLayout();
             this.ResumeLayout(false);
@@ -242,5 +283,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         private OPMFlowLayoutPanel pnlButtons;
         private ColumnHeader colEmpty;
         private MediaPlayer.PlaylistScreen playlistScreen;
+        private OPMTableLayoutPanel pnlBookmarkEdit;
+        private OPMLabel lblNoInfo;
     }
 }

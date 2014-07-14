@@ -32,31 +32,34 @@
             this.pnlLayout = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.lblItem = new OPMedia.UI.Controls.OPMLabel();
             this.playlistScreen = new OPMedia.UI.ProTONE.Controls.MediaPlayer.PlaylistScreen();
+            this.layoutPanelInner = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.lblNoInfo = new OPMedia.UI.Controls.OPMLabel();
             this.pnlLayout.SuspendLayout();
+            this.layoutPanelInner.SuspendLayout();
             this.SuspendLayout();
             // 
             // pgProperties
             // 
             this.pgProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pgProperties.HelpVisible = false;
-            this.pgProperties.Location = new System.Drawing.Point(163, 24);
+            this.pgProperties.Location = new System.Drawing.Point(5, 18);
             this.pgProperties.Margin = new System.Windows.Forms.Padding(5);
             this.pgProperties.Name = "pgProperties";
-            this.pgProperties.Size = new System.Drawing.Size(148, 264);
+            this.pgProperties.Size = new System.Drawing.Size(148, 251);
             this.pgProperties.TabIndex = 1;
             this.pgProperties.ToolbarVisible = false;
             // 
-            // opmTableLayoutPanel1
+            // pnlLayout
             // 
             this.pnlLayout.ColumnCount = 2;
             this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlLayout.Controls.Add(this.lblItem, 0, 0);
-            this.pnlLayout.Controls.Add(this.pgProperties, 1, 1);
             this.pnlLayout.Controls.Add(this.playlistScreen, 0, 1);
+            this.pnlLayout.Controls.Add(this.layoutPanelInner, 1, 1);
             this.pnlLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLayout.Location = new System.Drawing.Point(0, 0);
-            this.pnlLayout.Name = "opmTableLayoutPanel1";
+            this.pnlLayout.Name = "pnlLayout";
             this.pnlLayout.OverrideBackColor = System.Drawing.Color.Empty;
             this.pnlLayout.RowCount = 2;
             this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -95,6 +98,34 @@
             this.playlistScreen.Size = new System.Drawing.Size(158, 274);
             this.playlistScreen.TabIndex = 5;
             // 
+            // layoutPanelInner
+            // 
+            this.layoutPanelInner.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.layoutPanelInner.Controls.Add(this.lblNoInfo);
+            this.layoutPanelInner.Controls.Add(this.pgProperties);
+            this.layoutPanelInner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutPanelInner.Location = new System.Drawing.Point(158, 19);
+            this.layoutPanelInner.Margin = new System.Windows.Forms.Padding(0);
+            this.layoutPanelInner.Name = "layoutPanelInner";
+            this.layoutPanelInner.OverrideBackColor = System.Drawing.Color.Empty;
+            this.layoutPanelInner.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.layoutPanelInner.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.layoutPanelInner.Size = new System.Drawing.Size(158, 274);
+            this.layoutPanelInner.TabIndex = 6;
+            // 
+            // lblNoInfo
+            // 
+            this.lblNoInfo.AutoSize = true;
+            this.lblNoInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNoInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblNoInfo.Location = new System.Drawing.Point(3, 0);
+            this.lblNoInfo.Name = "lblNoInfo";
+            this.lblNoInfo.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblNoInfo.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblNoInfo.Size = new System.Drawing.Size(152, 13);
+            this.lblNoInfo.TabIndex = 0;
+            this.lblNoInfo.Text = "TXT_THEREARENOITEMS";
+            // 
             // TrackInfoScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +135,8 @@
             this.Size = new System.Drawing.Size(316, 293);
             this.pnlLayout.ResumeLayout(false);
             this.pnlLayout.PerformLayout();
+            this.layoutPanelInner.ResumeLayout(false);
+            this.layoutPanelInner.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -114,5 +147,7 @@
         private UI.Controls.OPMTableLayoutPanel pnlLayout;
         private UI.Controls.OPMLabel lblItem;
         private PlaylistScreen playlistScreen;
+        private UI.Controls.OPMTableLayoutPanel layoutPanelInner;
+        private UI.Controls.OPMLabel lblNoInfo;
     }
 }
