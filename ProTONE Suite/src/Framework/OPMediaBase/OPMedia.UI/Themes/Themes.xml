@@ -34,6 +34,7 @@
     <ThemeElement Value="000, 000, 000" Name="CheckedMenuTextColor" />
     <ThemeElement Value="000, 255, 000" Name="GradientGaugeColor1" />
     <ThemeElement Value="255, 000, 000" Name="GradientGaugeColor2" />
+    <ThemeElement Value="255, 000, 000" Name="ListHotItemColor" />
     <ThemeElement Value="0" Name="CornerSize" />
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>
@@ -71,6 +72,7 @@
     <ThemeElement Value="090, 090, 090" Name="CheckedMenuTextColor" />
     <ThemeElement Value="000, 255, 000" Name="GradientGaugeColor1" />
     <ThemeElement Value="255, 000, 000" Name="GradientGaugeColor2" />
+    <ThemeElement Value="255, 000, 000" Name="ListHotItemColor" />
     <ThemeElement Value="3" Name="CornerSize" />
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>
@@ -108,6 +110,7 @@
     <ThemeElement Value="030, 055, 090" Name="CheckedMenuTextColor" />
     <ThemeElement Value="000, 255, 000" Name="GradientGaugeColor1" />
     <ThemeElement Value="255, 000, 000" Name="GradientGaugeColor2" />
+    <ThemeElement Value="255, 000, 000" Name="ListHotItemColor" />
     <ThemeElement Value="3" Name="CornerSize"/>
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>
@@ -145,6 +148,7 @@
     <ThemeElement Value="059, 059, 059" Name="CheckedMenuTextColor" />
     <ThemeElement Value="000, 255, 000" Name="GradientGaugeColor1" />
     <ThemeElement Value="255, 000, 000" Name="GradientGaugeColor2" />
+    <ThemeElement Value="255, 000, 000" Name="ListHotItemColor" />
     <ThemeElement Value="3" Name="CornerSize" />
     <ThemeElement Value="2" Name="FormBorderWidth" />
   </Theme>

@@ -102,6 +102,9 @@ namespace OPMedia.UI.Themes
             }
         }
 
+        public static Color ListHotItemColor
+        { get { return ThemeElement("ListHotItemColor", SafeColorFromString("255, 000, 000")); } }
+
         public static Color BackColor
         { get { return ThemeElement("BackColor", SafeColorFromString("252, 252, 252")); } }
 
