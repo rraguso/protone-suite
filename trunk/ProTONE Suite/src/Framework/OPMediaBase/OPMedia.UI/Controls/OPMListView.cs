@@ -129,6 +129,8 @@ namespace OPMedia.UI.Controls
         int _sortColumn = -1;
         SortOrder _sortorder = SortOrder.Ascending;
 
+        int _hotItemRow = 0, _hotItemColumn = 0;
+
 		#region Delegates
 		/// <summary>
 		/// Type of delegate used to raise EditableListViewXXX events.
@@ -345,17 +347,39 @@ namespace OPMedia.UI.Controls
             this.HandleCreated += new EventHandler(OPMListView_HandleCreated);
             this.HandleDestroyed += new EventHandler(OPMListView_HandleDestroyed);
 
-            this.SelectedIndexChanged += new EventHandler(OPMListView_SelectedIndexChanged);
+            this.SelectedIndexChanged += new EventHandler(OnSelectedIndexChanged);
+            this.KeyDown += new KeyEventHandler(OnListViewKeyDown);
+            this.GotFocus += new EventHandler(OnEntered);
+            this.Enter += new EventHandler(OnEntered);
 
             EventDispatch.RegisterHandler(this);
+
+            OnSelectedIndexChanged(this, EventArgs.Empty);
         }
 
-        void OPMListView_SelectedIndexChanged(object sender, EventArgs e)
+        void OnEntered(object sender, EventArgs e)
         {
-            //if (GridLines)
+            if (Items != null && Items.Count > 0 && _allowEdit)
             {
-                Invalidate();
+                if (SelectedItems != null && SelectedItems.Count == 0)
+                {
+                    Items[0].Selected = true;
+                }
             }
+        }
+
+        void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_allowEdit && SelectedItems != null && SelectedItems.Count > 0)
+            {
+                _hotItemRow = this.SelectedItems[0].Index;
+                if (MoveHotItem(0, -1))
+                {
+                    MoveHotItem(0, 1);
+                }
+            }
+
+            Invalidate();
         }
 
         void OPMListView_HandleDestroyed(object sender, EventArgs e)
@@ -508,6 +532,16 @@ namespace OPMedia.UI.Controls
                 // Possibly not editable
                 return;
 
+            _hotItemRow = item.Index;
+            for (int i = 0; i < item.SubItems.Count; i++)
+            {
+                if (item.SubItems[i] == subItem)
+                {
+                    _hotItemColumn = i;
+                    break;
+                }
+            }
+
             StartEditing(item, subItem);
             base.OnMouseClick(e);
         }
@@ -523,6 +557,108 @@ namespace OPMedia.UI.Controls
                 return;
 
             EndEditing(true);
+        }
+
+        void OnListViewKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = false;
+
+            bool isHandled = false;
+
+            if (e.Modifiers == Keys.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Up:
+                        isHandled = MoveHotItem(-1, 0);
+                        break;
+
+                    case Keys.Down:
+                        isHandled = MoveHotItem(1, 0);
+                        break;
+
+                    case Keys.Right:
+                        isHandled = MoveHotItem(0, 1);
+                        break;
+
+                    case Keys.Left:
+                        isHandled = MoveHotItem(0, -1);
+                        break;
+
+                    case Keys.F2:
+                        {
+                            ListViewItem item = null;
+                            OPMListViewSubItem subItem = GetEditableSubItem(_hotItemRow, _hotItemColumn, out item);
+                            if (item != null && subItem != null && subItem.ReadOnly == false)
+                            {
+                                StartEditing(item, subItem);
+                                isHandled = true;
+                            }
+                        }
+                        break;
+                }
+            }
+
+            e.Handled = isHandled;
+            e.SuppressKeyPress = isHandled;
+        }
+
+        private bool MoveHotItem(int dRow, int dColumn)
+        {
+            int initialRow = _hotItemRow;
+            int initialColumn = _hotItemColumn;
+
+            if (_allowEdit &&
+                (Items.Count > 0 && Columns.Count > 0))
+            {
+                do
+                {
+                    _hotItemRow += dRow;
+                    _hotItemColumn += dColumn;
+
+                    if (_hotItemRow < 0)
+                        _hotItemRow = Items.Count - 1;
+                    if (_hotItemColumn < 0)
+                        _hotItemColumn = Columns.Count - 1;
+
+                    if (_hotItemRow >= Items.Count)
+                        _hotItemRow = 0;
+                    if (_hotItemColumn >= Columns.Count)
+                        _hotItemColumn = 0;
+
+                    ListViewItem item = null;
+                    OPMListViewSubItem subItem = GetEditableSubItem(_hotItemRow, _hotItemColumn, out item);
+                    if (item != null && subItem != null && subItem.ReadOnly == false)
+                    {
+                        Invalidate();
+                        return true;
+                    }
+                }
+                while ((dColumn == 0 || _hotItemColumn != initialColumn) && (dRow == 0 || _hotItemRow != initialRow));
+            }
+
+            return false;
+        }
+
+        private OPMListViewSubItem GetEditableSubItem(int row, int column, out ListViewItem item)
+        {
+            OPMListViewSubItem subItem = null;
+
+            try
+            {
+                item = this.Items[row];
+                if (item != null)
+                {
+                    subItem = item.SubItems[column] as OPMListViewSubItem;
+                }
+            }
+            catch
+            {
+                item = null;
+                subItem = null;
+            }
+
+            return subItem;
         }
 
         /// <summary>
@@ -560,6 +696,7 @@ namespace OPMedia.UI.Controls
             bool isSelected = e.Item.Selected;
             bool drawBorder = false;
             bool isValid = true;
+            bool isHotItem = false;
 
             Font drawFont = e.SubItem.Font;
 
@@ -576,6 +713,10 @@ namespace OPMedia.UI.Controls
             OPMListViewSubItem osi = e.SubItem as OPMListViewSubItem;
             if (osi != null && !osi.ReadOnly)
             {
+                isHotItem = this.Focused && 
+                    endEditingPending == 0 &&
+                    (e.ColumnIndex == _hotItemColumn && e.ItemIndex == _hotItemRow);
+
                 if (osi.EditControl is LinkLabel)
                 {
                     fColor = ThemeManager.LinkColor;
@@ -617,15 +758,17 @@ namespace OPMedia.UI.Controls
                 }
             }
 
-            Rectangle rc1 = new Rectangle(e.Bounds.Left + d, e.Bounds.Top, e.Bounds.Width - d, e.Bounds.Height);
+            Rectangle rc1 =   new Rectangle(e.Bounds.Left + d, e.Bounds.Top, e.Bounds.Width - d, e.Bounds.Height);
+            Rectangle rc2 =   new Rectangle(e.Bounds.Left + d - 1, e.Bounds.Top, e.Bounds.Width - d, e.Bounds.Height);
+            rc2.Inflate(1, 0);
 
-            Rectangle rc2 = rc1;
-            rc2.Inflate(2, 1);
-
+            Rectangle rcHot = new Rectangle(e.Bounds.Left + d - 1, e.Bounds.Top + 1, e.Bounds.Width - d - 2, e.Bounds.Height - 2);
+            
             using (Brush b1 = new SolidBrush(bColor))
             using (Brush b2 = new SolidBrush(GetBackColor()))
             using (Brush bt = new SolidBrush(fColor))
-            using (Pen pEditableItems = new Pen(ThemeManager.BorderColor))
+            using (Pen pEditableItemsBorder = new Pen(ThemeManager.BorderColor))
+            using (Pen pHotItemsBorder = new Pen(ThemeManager.ListHotItemColor, 2))
             using (Pen pGridLines = new Pen(ThemeManager.ForeColor))
             {
                 ThemeManager.PrepareGraphics(e.Graphics);
@@ -643,9 +786,15 @@ namespace OPMedia.UI.Controls
                 {
                     e.Graphics.DrawRectangle(pGridLines, rc1);
                 }
+
                 if (drawBorder)
                 {
-                    e.Graphics.DrawRectangle(pEditableItems, rc1);
+                    e.Graphics.DrawRectangle(pEditableItemsBorder, rc2);
+                }
+
+                if (isHotItem)
+                {
+                    e.Graphics.DrawRectangle(pHotItemsBorder, rcHot);
                 }
                 
 
@@ -715,6 +864,7 @@ namespace OPMedia.UI.Controls
         /// </param>
         public void RegisterEditControl(Control editControl)
         {
+
             // Check the in-place edit control is a supported in-place
             // edit control.
             if (!(editControl is TextBox ||
@@ -991,7 +1141,9 @@ namespace OPMedia.UI.Controls
             if (positioningOnly)
                 return;
 
-            // Subscribe for the event handlers.
+            // (re)Subscribe for the event handlers.
+            activeEditControl.Leave -= new EventHandler(OnEditorLeave);
+            activeEditControl.KeyDown -= new KeyEventHandler(OnEditorKeyDown);
             activeEditControl.Leave += new EventHandler(OnEditorLeave);
             activeEditControl.KeyDown += new KeyEventHandler(OnEditorKeyDown);
 
