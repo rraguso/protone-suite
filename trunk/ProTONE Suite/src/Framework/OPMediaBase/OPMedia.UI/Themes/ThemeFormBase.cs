@@ -849,10 +849,7 @@ namespace OPMedia.UI.Themes
 
             if (repositionContentPanel)
             {
-                int spacing = ThemeManager.FormBorderWidth;
-                int th = TitleBarVisible ? CaptionButtonSize.Height : 0;
-                pnlContent.SetLocation(new Point(spacing, th + spacing));
-                pnlContent.SetSize(new Size(this.Width - 2 * spacing, this.Height - th - 2 * spacing));
+                RepositionContentPanel();
             }
 
             _rcTitleBar = (TitleBarVisible) ? new Rectangle(
@@ -883,6 +880,23 @@ namespace OPMedia.UI.Themes
             ApplyTitlebarValues();
 
             Invalidate(true);
+        }
+
+        protected void RepositionContentPanel()
+        {
+            try
+            {
+                pnlContent.SuspendLayoutEx();
+
+                int spacing = ThemeManager.FormBorderWidth;
+                int th = TitleBarVisible ? CaptionButtonSize.Height : 0;
+                pnlContent.SetLocation(new Point(spacing, th + spacing));
+                pnlContent.SetSize(new Size(this.Width - 2 * spacing, this.Height - th - 2 * spacing));
+            }
+            finally
+            {
+                pnlContent.ResumeLayoutEx();
+            }
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)

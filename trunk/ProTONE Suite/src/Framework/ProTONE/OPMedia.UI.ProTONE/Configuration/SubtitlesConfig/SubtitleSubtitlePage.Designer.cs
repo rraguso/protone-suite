@@ -73,6 +73,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             // lvDownloadAddresses
             // 
             this.lvDownloadAddresses.AccessibleName = "lvDownloadAddresses";
+            this.lvDownloadAddresses.AllowEditing = true;
             this.lvDownloadAddresses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lvDownloadAddresses.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colEmpty,
