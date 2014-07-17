@@ -23,6 +23,7 @@ using OPMedia.UI.Properties;
 using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
+using OPMedia.UI.Controls.ThemedScrollBars;
 
 #endregion
 
@@ -283,22 +284,35 @@ namespace OPMedia.UI.Themes
             }
         }
 
+        private static List<Control> _skinnedControls = new List<Control>();
+
         public static void SetDoubleBuffer(Control c)
         {
-            if (c != null)
+            if (c != null && _skinnedControls.Contains(c) == false)
             {
                 if (c.Controls != null && c.Controls.Count > 0)
                 {
-                    SetDoubleBufferControl(c);
                     foreach (Control child in c.Controls)
                     {
                         SetDoubleBuffer(child);
                     }
                 }
-                else
-                {
-                    SetDoubleBufferControl(c);
-                }
+
+                _skinnedControls.Add(c);
+                c.HandleDestroyed += new EventHandler(c_HandleDestroyed);
+
+                SetDoubleBufferControl(c);
+                ScrollBarSkinner.SkinWindow(c);
+            }
+        }
+
+        static void c_HandleDestroyed(object sender, EventArgs e)
+        {
+            Control c = sender as Control;
+            if (c != null && _skinnedControls.Contains(c))
+            {
+                c.HandleDestroyed -= new EventHandler(c_HandleDestroyed);
+                _skinnedControls.Remove(c);
             }
         }
 
@@ -392,10 +406,10 @@ namespace OPMedia.UI.Themes
             RecreateFonts();
         }
 
-        static void OnThemeChanged(object sender, EventArgs e)
-        {
-            RecreateFonts();
-        }
+        //static void OnThemeChanged(object sender, EventArgs e)
+        //{
+        //    RecreateFonts();
+        //}
 
         #endregion
 
