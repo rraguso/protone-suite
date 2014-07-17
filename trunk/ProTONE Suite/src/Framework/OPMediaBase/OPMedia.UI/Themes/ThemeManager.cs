@@ -302,7 +302,9 @@ namespace OPMedia.UI.Themes
                 c.HandleDestroyed += new EventHandler(c_HandleDestroyed);
 
                 SetDoubleBufferControl(c);
-                ScrollBarSkinner.SkinWindow(c);
+
+                // TODO: make scroll bar skinning more reliable
+                //ScrollBarSkinner.SkinWindow(c);
             }
         }
 

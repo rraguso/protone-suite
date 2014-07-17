@@ -131,8 +131,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         void MainWindow_Shown(object sender, EventArgs e)
         {
-            //ScrollBars.ScrollBarSkinner.SkinWindow(lvPlaylist);
-
             if (!DesignMode && initialState && !_compactMode)
             {
                 initialState = false;
