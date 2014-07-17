@@ -19,6 +19,7 @@ using OPMedia.Core.Logging;
 using System.Threading;
 using OPMedia.Core.GlobalEvents;
 using System.Drawing.Text;
+using OPMedia.UI.Controls.ThemedScrollBars;
 
 namespace OPMedia.UI.Themes
 {
@@ -267,6 +268,7 @@ namespace OPMedia.UI.Themes
 
             this.BackColor = ThemeManager.BackColor;
 
+            this.Shown += new EventHandler(ThemeFormBase_Shown);
             this.Load += new EventHandler(ThemeForm_Load);
             this.Resize += new EventHandler(ThemeForm_Resize);
             this.MouseDown += new MouseEventHandler(OnMouseDown);
@@ -278,13 +280,14 @@ namespace OPMedia.UI.Themes
             this.Activated += new EventHandler(OnActivated);
             this.Deactivate += new EventHandler(OnDeactivated);
             this.HandleCreated += new EventHandler(ThemeFormBase_HandleCreated);
+        }
 
-            
+        void ThemeFormBase_Shown(object sender, EventArgs e)
+        {
         }
 
         void ThemeFormBase_HandleCreated(object sender, EventArgs e)
         {
-            ThemeManager.SetDoubleBuffer(this);
         }
 
         void OnDeactivated(object sender, EventArgs e)
@@ -308,9 +311,20 @@ namespace OPMedia.UI.Themes
             ApplyWindowParams(false);
             ApplyTitlebarValues();
             ApplyDrawingValues();
+            ApplyScrollBarTheme();
             Invalidate(true);
 
             OnThemeUpdatedInternal();
+        }
+
+        private void ApplyScrollBarTheme()
+        {
+            ScrollBarSkinner.BackColor = ThemeManager.BorderColor;
+            ScrollBarSkinner.HoverColor = ThemeManager.CheckedMenuColor;
+            ScrollBarSkinner.NormalColor = ThemeManager.BackColor;
+            ScrollBarSkinner.PressedColor = ThemeManager.FocusBorderColor;
+            ScrollBarSkinner.TrackColor = ThemeManager.GradientNormalColor1;
+            ScrollBarSkinner.TrackPressedColor = ThemeManager.GradientFocusHoverColor1;
         }
 
         #region InitializeComponent
@@ -485,6 +499,10 @@ namespace OPMedia.UI.Themes
             this.MinimumSize = new Size(minW, minH);
 
             ApplyWindowParams(true);
+            ApplyScrollBarTheme();
+
+            ThemeManager.SetDoubleBuffer(this);
+
         }
 
         FormWindowState _previousState = FormWindowState.Normal;
