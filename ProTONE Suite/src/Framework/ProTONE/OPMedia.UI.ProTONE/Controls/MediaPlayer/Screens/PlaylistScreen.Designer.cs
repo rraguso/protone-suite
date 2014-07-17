@@ -43,7 +43,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.colMisc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colFile = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pnlLayout = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.lblTotal = new OPMedia.UI.Controls.OPMLabel();
+            this.lblSep = new OPMedia.UI.Controls.OPMLabel();
             this.cmsPlaylist.SuspendLayout();
+            this.pnlLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // ilImages
@@ -71,6 +75,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             // lvPlaylist
             // 
+            this.lvPlaylist.AllowEditing = true;
             this.lvPlaylist.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvPlaylist.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colDummy,
@@ -81,27 +86,76 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.lvPlaylist.ContextMenuStrip = this.cmsPlaylist;
             this.lvPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvPlaylist.Location = new System.Drawing.Point(0, 0);
-            this.lvPlaylist.Margin = new System.Windows.Forms.Padding(0);
+            this.lvPlaylist.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.lvPlaylist.MultiSelect = false;
             this.lvPlaylist.Name = "lvPlaylist";
             this.lvPlaylist.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvPlaylist.Size = new System.Drawing.Size(355, 225);
+            this.lvPlaylist.Size = new System.Drawing.Size(355, 206);
             this.lvPlaylist.TabIndex = 3;
             this.lvPlaylist.UseCompatibleStateImageBehavior = false;
             this.lvPlaylist.View = System.Windows.Forms.View.Details;
+            this.lvPlaylist.SelectedIndexChanged += new System.EventHandler(this.lvPlaylist_SelectedIndexChanged);
             this.lvPlaylist.DragLeave += new System.EventHandler(this.lvPlaylist_DragLeave);
             this.lvPlaylist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvPlaylist_MouseClick);
             this.lvPlaylist.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvPlaylist_MouseDoubleClick);
             this.lvPlaylist.Resize += new System.EventHandler(this.lvPlaylist_Resize);
-            this.lvPlaylist.SelectedIndexChanged += new System.EventHandler(lvPlaylist_SelectedIndexChanged);
+            // 
+            // pnlLayout
+            // 
+            this.pnlLayout.ColumnCount = 1;
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlLayout.Controls.Add(this.lvPlaylist, 0, 0);
+            this.pnlLayout.Controls.Add(this.lblTotal, 0, 2);
+            this.pnlLayout.Controls.Add(this.lblSep, 0, 1);
+            this.pnlLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLayout.Location = new System.Drawing.Point(0, 0);
+            this.pnlLayout.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlLayout.Name = "pnlLayout";
+            this.pnlLayout.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlLayout.RowCount = 3;
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlLayout.Size = new System.Drawing.Size(355, 225);
+            this.pnlLayout.TabIndex = 4;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotal.FontSize = OPMedia.UI.Themes.FontSizes.Small;
+            this.lblTotal.Location = new System.Drawing.Point(2, 211);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblTotal.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblTotal.Size = new System.Drawing.Size(353, 12);
+            this.lblTotal.TabIndex = 4;
+            this.lblTotal.Text = "opmLabel1";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSep
+            // 
+            this.lblSep.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSep.Location = new System.Drawing.Point(0, 208);
+            this.lblSep.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSep.Name = "lblSep";
+            this.lblSep.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblSep.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblSep.Size = new System.Drawing.Size(355, 1);
+            this.lblSep.TabIndex = 5;
             // 
             // PlaylistScreen
             // 
-            this.Controls.Add(this.lvPlaylist);
+            this.Controls.Add(this.pnlLayout);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "PlaylistScreen";
             this.Size = new System.Drawing.Size(355, 225);
             this.cmsPlaylist.ResumeLayout(false);
+            this.pnlLayout.ResumeLayout(false);
+            this.pnlLayout.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -117,5 +171,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         private ColumnHeader colTime;
         private ColumnHeader colFile;
         private OPMContextMenuStrip cmsPlaylist;
+        private OPMTableLayoutPanel pnlLayout;
+        private OPMLabel lblTotal;
+        private OPMLabel lblSep;
     }
 }

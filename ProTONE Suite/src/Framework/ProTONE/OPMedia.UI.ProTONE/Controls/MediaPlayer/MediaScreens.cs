@@ -34,6 +34,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             
         public MediaScreens() : base()
         {
+            this.InnerPadding = new Padding(0);
+
             this.PlaylistScreen = new PlaylistScreen();
             this.PlaylistScreen.Dock = DockStyle.Fill;
 
@@ -73,6 +75,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 int idx = FindIndexForInsert(PlaylistScreen);
 
                 OPMTabPage otp = new OPMTabPage("TXT_PLAYLIST", this.PlaylistScreen);
+                otp.BackColor = Color.Red;
+
                 if (idx >= TabPages.Count)
                     TabPages.Add(otp);
                 else

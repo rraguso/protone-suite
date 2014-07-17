@@ -30,6 +30,13 @@ namespace OPMedia.UI.Controls
             get { return base.Padding; }
         }
 
+        Padding _innerPadding = new Padding(5, 10, 5, 5);
+        public Padding InnerPadding 
+        {
+            get { return _innerPadding; }
+            set { _innerPadding = value; }
+        }
+
         public TabPage GetPageContainingControl(OPMBaseControl contents)
         {
             if (this.TabPages != null && this.TabPages.Count > 0)
@@ -103,11 +110,9 @@ namespace OPMedia.UI.Controls
                 for (int i = 0; i < base.TabPages.Count; i++)
                 {
                     TabPage tp = TabPages[i];
-
-                    Padding p = new Padding(5, 10, 5, 5);
-                    if (tp.Padding != p)
+                    if (tp.Padding != _innerPadding)
                     {
-                        tp.Padding = p;
+                        tp.Padding = _innerPadding;
                     }
                     if (tp.BackColor != ThemeManager.BackColor)
                     {
@@ -364,6 +369,8 @@ namespace OPMedia.UI.Controls
         {
             this.Text = title;
             base.Font = ThemeManager.VeryLargeFont;
+            base.Margin = new Padding(0);
+            base.Padding = new Padding(0);
 
             if (control != null)
             {

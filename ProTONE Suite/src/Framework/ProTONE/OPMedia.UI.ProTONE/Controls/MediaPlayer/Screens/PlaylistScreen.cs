@@ -64,6 +64,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             set 
             { 
                 _compactMode = value;
+
+                if (value)
+                {
+                    pnlLayout.Controls.Remove(lblSep);
+                    pnlLayout.Controls.Remove(lblTotal);
+                }
+
                 lvPlaylist.MultiSelect = !_compactMode;
                 lvPlaylist.ContextMenuStrip = _compactMode ? null : cmsPlaylist;
                 lvPlaylist_Resize(this, null); 
@@ -118,6 +125,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             {
                 MediaRenderer.DefaultInstance.MediaRendererHeartbeat += new MediaRendererEventHandler(OnMediaRendererHeartbeat);
             }
+
+            OnThemeUpdatedInternal();
         }
 
         void MainWindow_Shown(object sender, EventArgs e)
@@ -752,6 +761,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             OnDragOver(e);
         }
 
+        protected override void OnThemeUpdatedInternal()
+        {
+            lblSep.OverrideBackColor = ThemeManager.BorderColor;
+            base.OnThemeUpdatedInternal();
+        }
+
         public void OnExecuteShortcut(OPMShortcutEventArgs args)
         {
             if (args.Handled)
@@ -965,6 +980,15 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void UpdateTotalTime(double totalSeconds)
         {
+            if (_compactMode == false)
+            {
+                TimeSpan ts = TimeSpan.FromSeconds((int)totalSeconds);
+                int h = ts.Days * 24 + ts.Hours;
+
+                lblTotal.Text = string.Format("Total: {0}:{1:d2}:{2:d2}",
+                    h, ts.Minutes, ts.Seconds);
+            }
+
             if (TotalTimeChanged != null)
             {
                 TotalTimeChanged(TimeSpan.FromSeconds((int)totalSeconds));
