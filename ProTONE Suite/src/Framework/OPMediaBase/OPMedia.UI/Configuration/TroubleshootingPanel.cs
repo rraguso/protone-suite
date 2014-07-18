@@ -31,13 +31,5 @@ namespace OPMedia.UI.Configuration
             this.Title = "TXT_S_TROUBLESHOOTING";
             InitializeComponent();
         }
-
-        public void AddLoggingPage()
-        {
-            if (SuiteConfiguration.LogFullyDisabled == false)
-            {
-                AddSubPage(new LoggingSettingsPanel());
-            }
-        }
     }
 }

@@ -269,7 +269,7 @@ namespace OPMedia.Core.ApplicationSettings
 
         public static bool LogEnabled
         {
-            get { return _config.GetValue("LogEnabled", true) && !SuiteConfiguration.LogFullyDisabled; }
+            get { return _config.GetValue("LogEnabled", true); }
             set { _config.SetValue("LogEnabled", value); }
         }
 
@@ -489,45 +489,6 @@ namespace OPMedia.Core.ApplicationSettings
             set
             {
                 _config.SetValue("FullScreenOn", value);
-            }
-        }
-
-        public static int RenderPanelWidth
-        {
-            get
-            {
-                return _config.GetValue("RenderPanelWidth", 400);
-            }
-
-            set
-            {
-                _config.SetValue("RenderPanelWidth", value);
-            }
-        }
-
-        public static int HideMouseTimer
-        {
-            get
-            {
-                return _config.GetValue("HideMouseTimer", 6000);
-            }
-
-            set
-            {
-                _config.SetValue("HideMouseTimer", value);
-            }
-        }
-
-        public static bool IgnoreMouseMove
-        {
-            get
-            {
-                return _config.GetValue("IgnoreMouseMove", true);
-            }
-
-            set
-            {
-                _config.SetValue("IgnoreMouseMove", value);
             }
         }
 
@@ -866,21 +827,6 @@ namespace OPMedia.Core.ApplicationSettings
 
         #endregion
 
-        #region Remote control and communication
-        public static bool AllowRemoteCommands
-        {
-            get
-            {
-                return _config.GetValue("AllowRemoteCommands", false);
-            }
-
-            set
-            {
-                _config.SetValue("AllowRemoteCommands", value);
-            }
-        }
-        #endregion
-
         #region timer scheduler
         public static int PlaylistEventHandler
         {
@@ -1076,12 +1022,6 @@ namespace OPMedia.Core.ApplicationSettings
         #endregion
 
         #region DVD Information
-        public static int DVDScannerInterval
-        {
-            get { return _config.GetValue("DVDScannerInterval", 5); }
-            set { _config.SetValue("DVDScannerInterval", value); }
-        }
-
         public static bool DisableDVDMenu
         {
             get { return _config.GetValue("DisableDVDMenu", false); }
@@ -1090,32 +1030,6 @@ namespace OPMedia.Core.ApplicationSettings
         #endregion
 
         #region Subtitle and OSD
-
-        public static int SUB_LastFilterIndex
-        {
-            get
-            {
-                return _config.GetValue("SUB_LastFilterIndex", 0);
-            }
-
-            set
-            {
-                _config.SetValue("SUB_LastFilterIndex", value);
-            }
-        }
-
-        public static string SUB_LastOpenedFolder
-        {
-            get
-            {
-                return _config.GetValue("SUB_LastOpenedFolder", PathUtils.CurrentDir);
-            }
-
-            set
-            {
-                _config.SetValue("SUB_LastOpenedFolder", value);
-            }
-        }
 
         public static int PrefferedSubtitleLang
         {

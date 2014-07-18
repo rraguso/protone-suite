@@ -275,14 +275,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             if (!DesignMode)
             {
-                if (!CompactView)
-                {
-                    AppSettings.RenderPanelWidth = playlistWidth;
-                }
-
                 MediaRenderer.DefaultInstance.FilterStateChanged -= new FilterStateChangedHandler(OnMediaStateChanged);
                 MediaRenderer.DefaultInstance.MediaRendererHeartbeat -= new MediaRendererEventHandler(OnMediaRendererHeartbeat);
-
                 MediaRenderer.DefaultInstance.Dispose();
             }
         }
