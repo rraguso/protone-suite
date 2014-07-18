@@ -492,8 +492,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Title = Translator.Translate("TXT_SAVEPLAYLIST");
             dlg.Filter = filter;
             dlg.DefaultExt = "m3u";
-            dlg.FilterIndex = AppSettings.Instance.PL_LastFilterIndex;
-            dlg.InitialDirectory = AppSettings.Instance.PL_LastOpenedFolder;
+            dlg.FilterIndex = AppSettings.PL_LastFilterIndex;
+            dlg.InitialDirectory = AppSettings.PL_LastOpenedFolder;
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnSavePlaylist.ToIcon((uint)Color.White.ToArgb());
@@ -506,18 +506,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.Instance.PL_LastFilterIndex = dlg.FilterIndex;
+                AppSettings.PL_LastFilterIndex = dlg.FilterIndex;
 
                 playlist.SavePlaylist(dlg.FileName);
 
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileName);
-                    AppSettings.Instance.PL_LastOpenedFolder = fi.DirectoryName;
+                    AppSettings.PL_LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.Instance.PL_LastOpenedFolder = dlg.InitialDirectory;
+                    AppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
@@ -541,14 +541,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 using (WebClient wc = new WebClient())
                 {
-                    wc.Proxy = AppSettings.Instance.GetWebProxy();
+                    wc.Proxy = AppSettings.GetWebProxy();
                     wc.DownloadFile(uri, tempFile);
                     playlist.LoadPlaylist(tempFile);
                 }
 
                 //HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
                 //request.Headers.Clear();
-                //request.Proxy = AppSettings.Instance.GetWebProxy();
+                //request.Proxy = AppSettings.GetWebProxy();
 
                 //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 //if (response.StatusCode == HttpStatusCode.OK)
@@ -577,8 +577,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Multiselect = true;
             dlg.Title = Translator.Translate("TXT_LOADPLAYLIST");
             dlg.Filter = filter;
-            dlg.FilterIndex = AppSettings.Instance.PL_LastFilterIndex;
-            dlg.InitialDirectory = AppSettings.Instance.PL_LastOpenedFolder;
+            dlg.FilterIndex = AppSettings.PL_LastFilterIndex;
+            dlg.InitialDirectory = AppSettings.PL_LastOpenedFolder;
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnLoadPlaylist.ToIcon((uint)Color.White.ToArgb());
@@ -590,7 +590,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.Instance.PL_LastFilterIndex = dlg.FilterIndex;
+                AppSettings.PL_LastFilterIndex = dlg.FilterIndex;
 
                 Clear();
                 playlist.LoadPlaylist(dlg.FileName);
@@ -598,11 +598,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileName);
-                    AppSettings.Instance.PL_LastOpenedFolder = fi.DirectoryName;
+                    AppSettings.PL_LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.Instance.PL_LastOpenedFolder = dlg.InitialDirectory;
+                    AppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
@@ -806,16 +806,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
 
                 case OPMShortcut.CmdToggleShuffle:
-                    AppSettings.Instance.ShufflePlaylist ^= true;
-                    AppSettings.Instance.Save();
+                    AppSettings.ShufflePlaylist ^= true;
+                    AppSettings.Save();
                     playlist.SetupRandomSequence(playlist.PlayIndex);
                     args.Handled = true;
                     refreshButtonState = true;
                     break;
 
                 case OPMShortcut.CmdLoopPlay:
-                    AppSettings.Instance.LoopPlay ^= true;
-                    AppSettings.Instance.Save();
+                    AppSettings.LoopPlay ^= true;
+                    AppSettings.Save();
                     args.Handled = true;
                     refreshButtonState = true;
                     break;

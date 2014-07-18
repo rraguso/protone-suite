@@ -188,7 +188,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             if (!DesignMode)
             {
                 VolumeScale.Enabled = (MediaRenderer.DefaultInstance.RenderedMediaType != MediaTypes.Video);
-                VolumeScale.Position = AppSettings.Instance.LastVolume;
+                VolumeScale.Position = AppSettings.LastVolume;
             }
         }
 

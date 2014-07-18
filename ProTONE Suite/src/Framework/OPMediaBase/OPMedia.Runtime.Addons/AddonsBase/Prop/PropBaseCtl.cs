@@ -18,6 +18,7 @@ using OPMedia.UI;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.Core.ApplicationSettings;
 using System.Reflection;
+using OPMedia.Runtime.Addons.ApplicationSettings;
 #endregion
 
 namespace OPMedia.Runtime.Addons.AddonsBase.Prop
@@ -105,9 +106,9 @@ namespace OPMedia.Runtime.Addons.AddonsBase.Prop
         {
             if (_strItems != null)
             {
-                if (_strItems.Count > AppSettings.Instance.FEMaxProcessedFiles)
+                if (_strItems.Count > AddonAppSettings.MaxProcessedEntries)
                 {
-                    ShowProperties(_strItems.GetRange(0, AppSettings.Instance.FEMaxProcessedFiles), _additionalData);
+                    ShowProperties(_strItems.GetRange(0, AddonAppSettings.MaxProcessedEntries), _additionalData);
                 }
                 else
                 {

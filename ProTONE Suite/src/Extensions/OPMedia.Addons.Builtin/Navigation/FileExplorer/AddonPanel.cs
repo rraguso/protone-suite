@@ -292,7 +292,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         {
                             case Keys.Escape:
                                 previewTimer.Stop();
-                                if (AppSettings.Instance.FEPreviewTimer > 0)
+                                if (AppSettings.FEPreviewTimer > 0)
                                 {
                                     RaiseNavigationAction(NavActionType.ActionCancelAutoPreview, null, null);
                                 }
@@ -347,7 +347,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
         private void OnLoad(object sender, EventArgs e)
         {
-            ChangePath(AppSettings.Instance.LastExploredFolder);
+            ChangePath(AppSettings.LastExploredFolder);
         }
 
 
@@ -412,9 +412,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     bool autoPreviewAvailable = false;
                     if (AddonsCore.Instance.CanDispatchAction(req, ref autoPreviewAvailable))
                     {
-                        if (autoPreviewAvailable && AppSettings.Instance.FEPreviewTimer > 0)
+                        if (autoPreviewAvailable && AppSettings.FEPreviewTimer > 0)
                         {
-                            previewTimer.Interval = (int)(AppSettings.Instance.FEPreviewTimer * 1000);
+                            previewTimer.Interval = (int)(AppSettings.FEPreviewTimer * 1000);
                             previewTimer.Start();
                             RaiseNavigationAction(NavActionType.ActionPrepareAutoPreview, null, null);
                         }

@@ -29,6 +29,7 @@ using OPMedia.Runtime.Addons.Controls;
 using OPMedia.UI.HelpSupport;
 using OPMedia.UI.Properties;
 using System.Diagnostics;
+using OPMedia.Runtime.Addons.ApplicationSettings;
 
 namespace OPMedia.Runtime.Addons
 {
@@ -104,9 +105,9 @@ namespace OPMedia.Runtime.Addons
             lblNoProperties.Text = Translator.Translate("TXT_THEREARENOITEMS");
             lblNoPreview.Text = Translator.Translate("TXT_THEREARENOITEMS");
 
-            this.Location = AppSettings.Instance.WindowLocation;
-            this.Size = AppSettings.Instance.WindowSize;
-            this.WindowState = AppSettings.Instance.WindowState;
+            this.Location = AppSettings.WindowLocation;
+            this.Size = AppSettings.WindowSize;
+            this.WindowState = AppSettings.WindowState;
 
             tsmiSettings.ShortcutKeyDisplayString =
                 ShortcutMapper.GetShortcutString(OPMShortcut.CmdOpenSettings);
@@ -211,7 +212,7 @@ namespace OPMedia.Runtime.Addons
             if (!GetNavigationAddons())
             {
                 
-                if (AddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS") == DialogResult.Cancel)
+                if (BuiltinAddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS") == DialogResult.Cancel)
                 {
                     EventDispatch.DispatchEvent(EventNames.ShowMessageBox, 
                         Translator.Translate("TXT_NO_NAV_ADDONS"),
@@ -226,8 +227,8 @@ namespace OPMedia.Runtime.Addons
                 }
             }
 
-            this.VSplitterDistance = AppSettings.Instance.VSplitterDistance;
-            this.HSplitterDistance = AppSettings.Instance.HSplitterDistance;
+            this.VSplitterDistance = AddonAppSettings.VSplitterDistance;
+            this.HSplitterDistance = AddonAppSettings.HSplitterDistance;
 
         }
 
@@ -242,20 +243,20 @@ namespace OPMedia.Runtime.Addons
             if (args.Handled)
                 return;
 
-            AddonAppSettingsForm.NetworkConfig = networkConfig;
+            BuiltinAddonAppSettingsForm.NetworkConfig = networkConfig;
 
             switch (args.cmd)
             {
                 case OPMShortcut.CmdOpenSettings:
                     if (!ApplicationInfo.IsMediaLibrary)
                     {
-                        AddonAppSettingsForm.Show();
+                        BuiltinAddonAppSettingsForm.Show();
                         args.Handled = true;
                     }
                     break;
 
                 case OPMShortcut.CmdCfgKeyboard:
-                    AddonAppSettingsForm.Show("TXT_S_KEYMAP");
+                    BuiltinAddonAppSettingsForm.Show("TXT_S_KEYMAP");
                     args.Handled = true;
                     break;
 
@@ -269,9 +270,9 @@ namespace OPMedia.Runtime.Addons
 
         void MainForm_HandleDestroyed(object sender, EventArgs e)
         {
-            AppSettings.Instance.VSplitterDistance = this.VSplitterDistance;
-            AppSettings.Instance.HSplitterDistance = this.HSplitterDistance;
-            AppSettings.Instance.Save();
+            AddonAppSettings.VSplitterDistance = this.VSplitterDistance;
+            AddonAppSettings.HSplitterDistance = this.HSplitterDistance;
+            AppSettings.Save();
         }
 
         /// <summary>
@@ -317,7 +318,7 @@ namespace OPMedia.Runtime.Addons
 
                     msMain.Items.Add(button);
 
-                    if (addon.AddonTypeName == AppSettings.Instance.LastNavAddon)
+                    if (addon.AddonTypeName == AddonAppSettings.LastNavAddon)
                     {
                         previousAddonButton = button;
                     }
@@ -481,7 +482,7 @@ namespace OPMedia.Runtime.Addons
                     //button.Image = null;
                     button.Checked = true;
                     //button.BackColor = Color.FromArgb(150, ThemeManager.GradientNormalColor2);
-                    AppSettings.Instance.LastNavAddon = button.Name;
+                    AddonAppSettings.LastNavAddon = button.Name;
 
                     SetTitle(string.Format("{0} - {1}",
                         Translator.Translate("TXT_APP_NAME"), button.Text));
@@ -766,7 +767,7 @@ namespace OPMedia.Runtime.Addons
         {
             if (this.IsActive)
             {
-                string sectionName = AppSettings.Instance.LastNavAddon.Replace(".", "");
+                string sectionName = AddonAppSettings.LastNavAddon.Replace(".", "");
                 string topicName = "";
 
                 BaseAddonCtl addon = null;

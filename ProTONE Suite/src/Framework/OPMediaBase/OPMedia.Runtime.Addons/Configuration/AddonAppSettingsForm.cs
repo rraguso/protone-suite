@@ -10,26 +10,26 @@ using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.Runtime.Addons.Configuration
 {
-    public class AddonAppSettingsForm : SettingsForm
+    public class BuiltinAddonAppSettingsForm : SettingsForm
     {
         public new static DialogResult Show()
         {
-            AddonAppSettingsForm _instance = new AddonAppSettingsForm();
+            BuiltinAddonAppSettingsForm _instance = new BuiltinAddonAppSettingsForm();
             return _instance.ShowDialog();
         }
 
         public static DialogResult Show(string titleToOpen)
         {
-            AddonAppSettingsForm _instance = new AddonAppSettingsForm(titleToOpen);
+            BuiltinAddonAppSettingsForm _instance = new BuiltinAddonAppSettingsForm(titleToOpen);
             return _instance.ShowDialog();
         }
 
-        protected AddonAppSettingsForm(string titleToOpen) 
+        protected BuiltinAddonAppSettingsForm(string titleToOpen) 
             : base(titleToOpen)
         {
         }
 
-        public AddonAppSettingsForm() : base()
+        public BuiltinAddonAppSettingsForm() : base()
         {
         }
 

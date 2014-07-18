@@ -77,11 +77,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
             dlg.Title = Translator.Translate("TXT_SELECTCATALOG");
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.DefaultExt = "ctx";
-            dlg.InitialDirectory = AppSettings.Instance.MCLastOpenedFolder;
+            dlg.InitialDirectory = AppSettings.MCLastOpenedFolder;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.Instance.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+                AppSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
 
                 (BkgTask as Task).CatalogPath = dlg.FileName;
                 lblCatalogPath.Text = Translator.Translate("TXT_CATALOGPATH", dlg.FileName);

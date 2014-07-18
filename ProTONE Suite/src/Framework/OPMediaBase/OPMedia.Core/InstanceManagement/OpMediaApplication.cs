@@ -37,7 +37,7 @@ namespace OPMedia.Core.InstanceManagement
                 appInstance.DoTerminate();
             }
 
-            AppSettings.Instance.Save();
+            AppSettings.Save();
             Application.Restart();
             Process.GetCurrentProcess().Kill();
         }

@@ -104,9 +104,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         [EventSink(LocalEventNames.UpdateStateButtons)]
         public void UpdateStateButtons()
         {
-            tsmLoopPlay.Checked = AppSettings.Instance.LoopPlay;
+            tsmLoopPlay.Checked = AppSettings.LoopPlay;
             tsmPlaylistEnd.Checked = SystemScheduler.PlaylistEventEnabled;
-            tsmToggleShuffle.Checked = AppSettings.Instance.ShufflePlaylist;
+            tsmToggleShuffle.Checked = AppSettings.ShufflePlaylist;
         }
         
         private void OnButtonPressed(object sender, EventArgs e)

@@ -140,7 +140,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             try
             {
                 CommandType type = (CommandType)Enum.Parse(typeof(CommandType), 
-                    AppSettings.Instance.ExplorerLaunchType);
+                    AppSettings.ExplorerLaunchType);
 
                 cmbExplorerLaunchType.SelectedItem = new ExplorerLaunchType(type);
             }
@@ -554,9 +554,9 @@ namespace OPMedia.UI.ProTONE.Configuration
             SaveFileTypes(pnlVideoFiles);
             SaveFileTypes(pnlPlaylists);
 
-            AppSettings.Instance.ExplorerLaunchType =
+            AppSettings.ExplorerLaunchType =
                 (cmbExplorerLaunchType.SelectedItem as ExplorerLaunchType).CommandType.ToString();
-            AppSettings.Instance.Save();
+            AppSettings.Save();
 
             SuiteRegistrationSupport.ReloadFileAssociations();
         }

@@ -43,8 +43,6 @@ namespace OPMedia.ProTONE
         [STAThread]
         static void Main()
         {
-            AppSettings.RegisterAppInstance(new ProTONEAppSettings());
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
@@ -67,7 +65,7 @@ namespace OPMedia.ProTONE
                         Application.Run(mainFrm);
                         mainFrm.Dispose();
 
-                        AppSettings.Instance.Save();
+                        AppSettings.Save();
                         ShortcutMapper.Save();
                     }
                     catch (MultipleInstancesException ex)
@@ -110,7 +108,7 @@ namespace OPMedia.ProTONE
                 try
                 {
                     CommandType cmdType = (CommandType)Enum.Parse(typeof(CommandType),
-                        AppSettings.Instance.ExplorerLaunchType);
+                        AppSettings.ExplorerLaunchType);
 
                     if (SuiteRegistrationSupport.IsContextMenuHandlerRegistered() &&
                         (cmdType == CommandType.PlayFiles || cmdType == CommandType.EnqueueFiles))

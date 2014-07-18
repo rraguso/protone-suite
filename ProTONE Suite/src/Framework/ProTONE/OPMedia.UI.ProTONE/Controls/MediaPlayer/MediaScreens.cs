@@ -66,7 +66,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             // playlist -------------------
             MediaScreen mediaScreen = MediaScreen.Playlist;
-            bool show = ((ProTONEAppSettings.Instance.ShowMediaScreens & mediaScreen) == mediaScreen);
+            bool show = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
             TabPage tp = GetPageContainingControl(PlaylistScreen);
 
             if (show == false && tp != null)
@@ -86,7 +86,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             
             // track info -------------------
             mediaScreen = MediaScreen.TrackInfo;
-            show = ((ProTONEAppSettings.Instance.ShowMediaScreens & mediaScreen) == mediaScreen);
+            show = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
             tp = GetPageContainingControl(TrackInfoScreen);
 
             if (show == false && tp != null)
@@ -104,7 +104,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             // signal analisys -------------------
             mediaScreen = MediaScreen.SignalAnalisys;
-            show = ((ProTONEAppSettings.Instance.ShowMediaScreens & mediaScreen) == mediaScreen);
+            show = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
             tp = GetPageContainingControl(SignalAnalysisScreen);
 
             if (show == false && tp != null)
@@ -122,7 +122,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             // bookmarks -------------------
             mediaScreen = MediaScreen.BookmarkInfo;
-            show = ((ProTONEAppSettings.Instance.ShowMediaScreens & mediaScreen) == mediaScreen);
+            show = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
             tp = GetPageContainingControl(BookmarkScreen);
 
             if (show == false && tp != null)

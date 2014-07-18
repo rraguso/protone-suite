@@ -803,7 +803,7 @@ namespace OPMedia.UI.Controls
                         m_strDirPath = FindFirstUsablePath(m_strDirPath, ref isUncPathRoot);
                     }
 
-                    AppSettings.Instance.LastExploredFolder = m_strDirPath;
+                    AppSettings.LastExploredFolder = m_strDirPath;
 
                     if (!isUncPathRoot && PathUtils.IsRootPath(m_strDirPath))
                     {
