@@ -19,6 +19,7 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.UI.Controls;
 using TagLib;
 using System.Threading;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
 {
@@ -196,17 +197,17 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
 
                             if (cdEntry == null)
                             {
-                                switch (AppSettings.AudioCdInfoSource)
+                                switch (ProTONEAppSettings.AudioCdInfoSource)
                                 {
-                                    case AppSettings.CddaInfoSource.CdText:
+                                    case CddaInfoSource.CdText:
                                         cdEntry = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());
                                         break;
 
-                                    case AppSettings.CddaInfoSource.Cddb:
+                                    case CddaInfoSource.Cddb:
                                         cdEntry = CDAFileInfo.BuildCdEntryByCddb(cd, cd.GetCDDBDiskID());
                                         break;
 
-                                    case AppSettings.CddaInfoSource.CdText_Cddb:
+                                    case CddaInfoSource.CdText_Cddb:
                                         {
                                             cdEntry = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());
                                             CDEntry cde = CDAFileInfo.BuildCdEntryByCddb(cd, cd.GetCDDBDiskID());
@@ -214,7 +215,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
                                         }
                                         break;
 
-                                    case AppSettings.CddaInfoSource.Cddb_CdText:
+                                    case CddaInfoSource.Cddb_CdText:
                                         {
                                             cdEntry = CDAFileInfo.BuildCdEntryByCddb(cd, cd.GetCDDBDiskID());
                                             CDEntry cde = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());

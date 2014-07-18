@@ -105,9 +105,9 @@ namespace OPMedia.Runtime.Addons.AddonsBase.Prop
         {
             if (_strItems != null)
             {
-                if (_strItems.Count > AppSettings.FEMaxProcessedFiles)
+                if (_strItems.Count > AppSettings.Instance.FEMaxProcessedFiles)
                 {
-                    ShowProperties(_strItems.GetRange(0, AppSettings.FEMaxProcessedFiles), _additionalData);
+                    ShowProperties(_strItems.GetRange(0, AppSettings.Instance.FEMaxProcessedFiles), _additionalData);
                 }
                 else
                 {

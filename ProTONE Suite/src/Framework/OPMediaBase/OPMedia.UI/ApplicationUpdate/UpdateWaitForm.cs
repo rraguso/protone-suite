@@ -57,7 +57,7 @@ namespace OPMedia.UI.ApplicationUpdate
 
             Logger.LogInfo("Downloading update file from {0} ...", fileUri);
 
-            _wfr = new WebFileRetriever(AppSettings.ProxySettings, fileUri, tempFile, true);
+            _wfr = new WebFileRetriever(AppSettings.Instance.ProxySettings, fileUri, tempFile, true);
             _wfr.NewFileRetrieved += new NewFileRetrievedEventHandler(OnDownloadComplete);
         }
 

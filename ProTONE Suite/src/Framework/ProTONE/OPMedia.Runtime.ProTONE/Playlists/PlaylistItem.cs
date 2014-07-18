@@ -22,6 +22,7 @@ using OPMedia.Core.ApplicationSettings;
 using OPMedia.Core.Utilities;
 using OPMedia.Core;
 using System.Linq;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 #endregion
 
 namespace OPMedia.Runtime.ProTONE.Playlists
@@ -87,7 +88,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                  string track = string.Empty;
                  string year = string.Empty;
 
-                if (AppSettings.UseMetadata)
+                if (AppSettings.Instance.UseMetadata)
                 {
                     // Format using metadata
                     artist = mi.Artist;
@@ -99,7 +100,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     year = (mi.Year.HasValue) ? mi.Year.GetValueOrDefault().ToString("d4") : string.Empty;
                 }
 
-                if (AppSettings.UseFileNameFormat)
+                if (AppSettings.Instance.UseFileNameFormat)
                 {
                     // First - parse the file name
                     string name = mi.Name;
@@ -108,7 +109,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                         name = name.Replace(mi.Extension, string.Empty);
                     }
 
-                    Dictionary<string, string> fileTokens = StringUtils.Tokenize(name, AppSettings.FileNameFormat);
+                    Dictionary<string, string> fileTokens = StringUtils.Tokenize(name, AppSettings.Instance.FileNameFormat);
 
                     // Second - replace formatting fields with data from file name where available
                     if (fileTokens != null && fileTokens.Count > 0)
@@ -123,11 +124,11 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     }
                 }
 
-                if (AppSettings.UseMetadata || AppSettings.UseFileNameFormat)
+                if (AppSettings.Instance.UseMetadata || AppSettings.Instance.UseFileNameFormat)
                 {
                     // Format entries if any formatting rules are applied
 
-                    retVal = AppSettings.PlaylistEntryFormat;
+                    retVal = AppSettings.Instance.PlaylistEntryFormat;
                     StringUtils.ReplaceToken(ref retVal, "<A", artist ?? string.Empty);
                     StringUtils.ReplaceToken(ref retVal, "<B", album ?? string.Empty);
                     StringUtils.ReplaceToken(ref retVal, "<T", title ?? string.Empty);
@@ -266,8 +267,8 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
         private Dictionary<PlaylistSubItem, List<PlaylistSubItem>> CreateAudioCdSubmenu()
         {
-            AppSettings.CddaInfoSource src = AppSettings.AudioCdInfoSource;
-            if (src == AppSettings.CddaInfoSource.None)
+            CddaInfoSource src = ProTONEAppSettings.AudioCdInfoSource;
+            if (src == CddaInfoSource.None)
                 return null;
 
             Dictionary<PlaylistSubItem, List<PlaylistSubItem>> submenu =

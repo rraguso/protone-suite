@@ -10,6 +10,7 @@ using System.Drawing;
 using OPMedia.UI.Controls;
 using OPMedia.UI.Dialogs;
 using OPMedia.UI.Properties;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.Addons.Builtin.FileExplorer
 {
@@ -36,7 +37,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            SuiteConfiguration.SetFavoriteFolders(favoriteFoldersControl.FavoriteFolders, 
+            ProTONEAppSettings.SetFavoriteFolders(favoriteFoldersControl.FavoriteFolders, 
                 favoriteFoldersControl.FavoriteFoldersHiveName);
         }
 

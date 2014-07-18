@@ -49,6 +49,7 @@ using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms;
 using OPMedia.Runtime.ProTONE.Rendering.Cdda;
 using OPMedia.Core.NetworkAccess;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 #endregion
 
@@ -291,7 +292,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         {
                             case Keys.Escape:
                                 previewTimer.Stop();
-                                if (AppSettings.FEPreviewTimer > 0)
+                                if (AppSettings.Instance.FEPreviewTimer > 0)
                                 {
                                     RaiseNavigationAction(NavActionType.ActionCancelAutoPreview, null, null);
                                 }
@@ -346,7 +347,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
         private void OnLoad(object sender, EventArgs e)
         {
-            ChangePath(AppSettings.LastExploredFolder);
+            ChangePath(AppSettings.Instance.LastExploredFolder);
         }
 
 
@@ -411,9 +412,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     bool autoPreviewAvailable = false;
                     if (AddonsCore.Instance.CanDispatchAction(req, ref autoPreviewAvailable))
                     {
-                        if (autoPreviewAvailable && AppSettings.FEPreviewTimer > 0)
+                        if (autoPreviewAvailable && AppSettings.Instance.FEPreviewTimer > 0)
                         {
-                            previewTimer.Interval = (int)(AppSettings.FEPreviewTimer * 1000);
+                            previewTimer.Interval = (int)(AppSettings.Instance.FEPreviewTimer * 1000);
                             previewTimer.Start();
                             RaiseNavigationAction(NavActionType.ActionPrepareAutoPreview, null, null);
                         }
@@ -690,12 +691,12 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
                     case ToolAction.ToolActionFavoritesAdd:
                         {
-                            List<string> favorites = new List<string>(SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"));
+                            List<string> favorites = new List<string>(ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"));
                             if (favorites.Contains(opmShellList.Path))
                                 return;
 
                             favorites.Add(opmShellList.Path);
-                            SuiteConfiguration.SetFavoriteFolders(favorites, "FavoriteFolders");
+                            ProTONEAppSettings.SetFavoriteFolders(favorites, "FavoriteFolders");
                         }
                         return;
 
@@ -1099,7 +1100,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     tsmi.DropDownItems.Remove(itemToClear);
                 }
 
-                List<string> favPaths = SuiteConfiguration.GetFavoriteFolders("FavoriteFolders");
+                List<string> favPaths = ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders");
                 if (favPaths != null && favPaths.Count > 0)
                 {
                     foreach (string path in favPaths)

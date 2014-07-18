@@ -9,6 +9,7 @@ using OPMedia.Core.ApplicationSettings;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.Core;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
 {
@@ -23,10 +24,10 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
         {
             List<string> list = new List<string>();
 
-            if (SuiteConfiguration.UseLinkedFiles)
+            if (ProTONEAppSettings.UseLinkedFiles)
             {
                 string fileType = fi.Extension.ToUpperInvariant().Trim('.');
-                string[] childFileTypes = SuiteConfiguration.GetChildFileTypes(fileType);
+                string[] childFileTypes = ProTONEAppSettings.GetChildFileTypes(fileType);
 
                 if (childFileTypes != null && childFileTypes.Length > 0)
                 {
@@ -56,7 +57,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
 
         public override string GetParentFile(FileInfo fi, FileTaskType taskType)
         {
-            if (SuiteConfiguration.UseLinkedFiles)
+            if (ProTONEAppSettings.UseLinkedFiles)
             {
                 // Check whether the child file is a double extension file
                 // In this case the parent file should have same name but w/o the second extension part.
@@ -65,7 +66,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
                     return parentFilePath;
 
                 string fileType = fi.Extension.ToUpperInvariant().Trim('.');
-                string[] parentFileTypes = SuiteConfiguration.GetParentFileTypes(fileType);
+                string[] parentFileTypes = ProTONEAppSettings.GetParentFileTypes(fileType);
 
                 if (parentFileTypes != null && parentFileTypes.Length > 0)
                 {

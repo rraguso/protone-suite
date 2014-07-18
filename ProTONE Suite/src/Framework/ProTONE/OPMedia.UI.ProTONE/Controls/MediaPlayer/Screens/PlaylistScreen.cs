@@ -34,6 +34,7 @@ using OPMedia.UI.ProTONE.Properties;
 using OPMedia.Runtime.Processors;
 using System.Net;
 using OPMedia.Core.Utilities;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -491,13 +492,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Title = Translator.Translate("TXT_SAVEPLAYLIST");
             dlg.Filter = filter;
             dlg.DefaultExt = "m3u";
-            dlg.FilterIndex = AppSettings.PL_LastFilterIndex;
-            dlg.InitialDirectory = AppSettings.PL_LastOpenedFolder;
+            dlg.FilterIndex = AppSettings.Instance.PL_LastFilterIndex;
+            dlg.InitialDirectory = AppSettings.Instance.PL_LastOpenedFolder;
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnSavePlaylist.ToIcon((uint)Color.White.ToArgb());
 
-            dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
 
             dlg.ShowAddToFavorites = true;
@@ -505,18 +506,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.PL_LastFilterIndex = dlg.FilterIndex;
+                AppSettings.Instance.PL_LastFilterIndex = dlg.FilterIndex;
 
                 playlist.SavePlaylist(dlg.FileName);
 
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileName);
-                    AppSettings.PL_LastOpenedFolder = fi.DirectoryName;
+                    AppSettings.Instance.PL_LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
+                    AppSettings.Instance.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
@@ -540,14 +541,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 using (WebClient wc = new WebClient())
                 {
-                    wc.Proxy = AppSettings.GetWebProxy();
+                    wc.Proxy = AppSettings.Instance.GetWebProxy();
                     wc.DownloadFile(uri, tempFile);
                     playlist.LoadPlaylist(tempFile);
                 }
 
                 //HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
                 //request.Headers.Clear();
-                //request.Proxy = AppSettings.GetWebProxy();
+                //request.Proxy = AppSettings.Instance.GetWebProxy();
 
                 //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 //if (response.StatusCode == HttpStatusCode.OK)
@@ -576,20 +577,20 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Multiselect = true;
             dlg.Title = Translator.Translate("TXT_LOADPLAYLIST");
             dlg.Filter = filter;
-            dlg.FilterIndex = AppSettings.PL_LastFilterIndex;
-            dlg.InitialDirectory = AppSettings.PL_LastOpenedFolder;
+            dlg.FilterIndex = AppSettings.Instance.PL_LastFilterIndex;
+            dlg.InitialDirectory = AppSettings.Instance.PL_LastOpenedFolder;
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnLoadPlaylist.ToIcon((uint)Color.White.ToArgb());
 
-            dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
 
             dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.PL_LastFilterIndex = dlg.FilterIndex;
+                AppSettings.Instance.PL_LastFilterIndex = dlg.FilterIndex;
 
                 Clear();
                 playlist.LoadPlaylist(dlg.FileName);
@@ -597,23 +598,23 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileName);
-                    AppSettings.PL_LastOpenedFolder = fi.DirectoryName;
+                    AppSettings.Instance.PL_LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
+                    AppSettings.Instance.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
 
         private bool AddToFavoriteFolders(string path)
         {
-            List<string> favorites = new List<string>(SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"));
+            List<string> favorites = new List<string>(ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"));
             if (favorites.Contains(path))
                 return false;
 
             favorites.Add(path);
-            SuiteConfiguration.SetFavoriteFolders(favorites, "FavoriteFolders");
+            ProTONEAppSettings.SetFavoriteFolders(favorites, "FavoriteFolders");
             return true;
         }
 
@@ -805,16 +806,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
 
                 case OPMShortcut.CmdToggleShuffle:
-                    AppSettings.ShufflePlaylist ^= true;
-                    AppSettings.Save();
+                    AppSettings.Instance.ShufflePlaylist ^= true;
+                    AppSettings.Instance.Save();
                     playlist.SetupRandomSequence(playlist.PlayIndex);
                     args.Handled = true;
                     refreshButtonState = true;
                     break;
 
                 case OPMShortcut.CmdLoopPlay:
-                    AppSettings.LoopPlay ^= true;
-                    AppSettings.Save();
+                    AppSettings.Instance.LoopPlay ^= true;
+                    AppSettings.Instance.Save();
                     args.Handled = true;
                     refreshButtonState = true;
                     break;
