@@ -244,7 +244,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
         private void LoadBookmarks()
         {
-            this.SuspendLayout();
+            this.SuspendLayoutEx();
 
             pnlBookmarkEdit.Visible = false;
             lblNoInfo.Visible = true;
@@ -341,7 +341,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             }
             finally
             {
-                this.ResumeLayout();
+                this.ResumeLayoutEx();
             }
         }
 
