@@ -21,6 +21,7 @@ using System.Windows.Forms.VisualStyles;
 using OPMedia.UI.Generic;
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.Utilities;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
@@ -139,8 +140,8 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             try
             {
-                CommandType type = (CommandType)Enum.Parse(typeof(CommandType), 
-                    AppSettings.ExplorerLaunchType);
+                CommandType type = (CommandType)Enum.Parse(typeof(CommandType),
+                    ProTONEAppSettings.ExplorerLaunchType);
 
                 cmbExplorerLaunchType.SelectedItem = new ExplorerLaunchType(type);
             }
@@ -554,7 +555,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             SaveFileTypes(pnlVideoFiles);
             SaveFileTypes(pnlPlaylists);
 
-            AppSettings.ExplorerLaunchType =
+            ProTONEAppSettings.ExplorerLaunchType =
                 (cmbExplorerLaunchType.SelectedItem as ExplorerLaunchType).CommandType.ToString();
             AppSettings.Save();
 

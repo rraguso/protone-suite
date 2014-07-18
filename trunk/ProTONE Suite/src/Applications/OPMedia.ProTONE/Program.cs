@@ -108,7 +108,7 @@ namespace OPMedia.ProTONE
                 try
                 {
                     CommandType cmdType = (CommandType)Enum.Parse(typeof(CommandType),
-                        AppSettings.ExplorerLaunchType);
+                        ProTONEAppSettings.ExplorerLaunchType);
 
                     if (SuiteRegistrationSupport.IsContextMenuHandlerRegistered() &&
                         (cmdType == CommandType.PlayFiles || cmdType == CommandType.EnqueueFiles))

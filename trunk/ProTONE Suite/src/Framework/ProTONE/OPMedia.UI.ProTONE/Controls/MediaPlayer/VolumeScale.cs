@@ -26,6 +26,7 @@ using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Core;
 
 using OPMedia.UI.Themes;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 #endregion
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
@@ -188,7 +189,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             if (!DesignMode)
             {
                 VolumeScale.Enabled = (MediaRenderer.DefaultInstance.RenderedMediaType != MediaTypes.Video);
-                VolumeScale.Position = AppSettings.LastVolume;
+                VolumeScale.Position = ProTONEAppSettings.LastVolume;
             }
         }
 
