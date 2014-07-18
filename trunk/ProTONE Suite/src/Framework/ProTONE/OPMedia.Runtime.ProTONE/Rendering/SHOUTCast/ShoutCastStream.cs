@@ -43,7 +43,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
             request.Headers.Clear();
             request.Headers.Add("Icy-MetaData", "1");
 
-            request.Proxy = AppSettings.GetWebProxy();
+            request.Proxy = AppSettings.Instance.GetWebProxy();
             request.KeepAlive = false;
             request.UserAgent = Constants.PlayerUserAgent;
             request.ServicePoint.Expect100Continue = false;

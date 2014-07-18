@@ -78,15 +78,15 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
 
         private void OnClearSearchPatternHistory(object sender, EventArgs e)
         {
-            AppSettings.SearchPatternsMC = string.Empty;
-            AppSettings.Save();
+            AppSettings.Instance.SearchPatternsMC = string.Empty;
+            AppSettings.Instance.Save();
             PopulateSearchPattern();
         }
 
         private void OnClearSearchValueHistory(object sender, EventArgs e)
         {
-            AppSettings.SearchTextsMC = string.Empty;
-            AppSettings.Save();
+            AppSettings.Instance.SearchTextsMC = string.Empty;
+            AppSettings.Instance.Save();
             PopulateSearchText();
         }
 
@@ -125,7 +125,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
         private void PopulateSearchText()
         {
             cmbSearchText.Items.Clear();
-            cmbSearchText.Items.AddRange(AppSettings.SearchTextsMC.Split(
+            cmbSearchText.Items.AddRange(AppSettings.Instance.SearchTextsMC.Split(
                 "?".ToCharArray()));
 
             if (!cmbSearchText.Items.Contains(theTask.SearchText))
@@ -137,7 +137,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
         private void PopulateSearchPattern()
         {
             cmbSearchPattern.Items.Clear();
-            cmbSearchPattern.Items.AddRange(AppSettings.SearchPatternsMC.Split(
+            cmbSearchPattern.Items.AddRange(AppSettings.Instance.SearchPatternsMC.Split(
                 "?".ToCharArray()));
 
             if (!cmbSearchPattern.Items.Contains(theTask.SearchPattern))
@@ -148,9 +148,9 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
 
         private void SaveSearchSettings()
         {
-            AppSettings.SearchPatternsMC = SaveSetting(AppSettings.SearchPatternsMC, cmbSearchPattern.Text);
-            AppSettings.SearchTextsMC = SaveSetting(AppSettings.SearchTextsMC, cmbSearchText.Text);
-            AppSettings.Save();
+            AppSettings.Instance.SearchPatternsMC = SaveSetting(AppSettings.Instance.SearchPatternsMC, cmbSearchPattern.Text);
+            AppSettings.Instance.SearchTextsMC = SaveSetting(AppSettings.Instance.SearchTextsMC, cmbSearchText.Text);
+            AppSettings.Instance.Save();
         }
 
         private string SaveSetting(string initialSetting, string settingToAdd)

@@ -18,13 +18,14 @@ using OPMedia.UI.Controls;
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.SubtitleDownload.Base;
 using OPMedia.UI.ProTONE.Properties;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
     public partial class SubtitleSubtitlePage : BaseCfgPanel
     {
         List<SubtitleLanguage> languages = null;
-        bool _subtitleDownloadEnabled = AppSettings.SubtitleDownloadEnabled;
+        bool _subtitleDownloadEnabled = AppSettings.Instance.SubtitleDownloadEnabled;
 
         OPMComboBox _cmbEditServerType = new OPMComboBox();
         YesNoComboBox _cmbEditActive = new YesNoComboBox();
@@ -40,17 +41,17 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         protected override void SaveInternal()
         {
-            AppSettings.SubtitleDownloadEnabled = _subtitleDownloadEnabled;
-            AppSettings.SubtitleDownloadURIs = _subtitleDownloadURIs;
+            AppSettings.Instance.SubtitleDownloadEnabled = _subtitleDownloadEnabled;
+            ProTONEAppSettings.SubtitleDownloadURIs = _subtitleDownloadURIs;
 
             if (cmbLanguages.SelectedItem is SubtitleLanguage)
             {
-                AppSettings.PrefferedSubtitleLang =
+                AppSettings.Instance.PrefferedSubtitleLang =
                     (cmbLanguages.SelectedItem as SubtitleLanguage).LCID;
             }
 
-            AppSettings.SubtitleMinimumMovieDuration = (int)nudMinMovieDuration.Value;
-            AppSettings.SubDownloadedNotificationsEnabled = chkNotifySubDownloaded.Checked;
+            AppSettings.Instance.SubtitleMinimumMovieDuration = (int)nudMinMovieDuration.Value;
+            AppSettings.Instance.SubDownloadedNotificationsEnabled = chkNotifySubDownloaded.Checked;
         }
 
         public SubtitleSubtitlePage()
@@ -135,13 +136,13 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         void OnLoad(object sender, EventArgs e)
         {
-            nudMinMovieDuration.Value = AppSettings.SubtitleMinimumMovieDuration;
+            nudMinMovieDuration.Value = AppSettings.Instance.SubtitleMinimumMovieDuration;
             nudMinMovieDuration.ValueChanged += new EventHandler(nudMinMovieDuration_ValueChanged);
 
             chkSubtitleDownload.Checked = _subtitleDownloadEnabled;
             chkSubtitleDownload.CheckedChanged += new EventHandler(chkSubtitleDownload_CheckedChanged);
 
-            _subtitleDownloadURIs = AppSettings.SubtitleDownloadURIs;
+            _subtitleDownloadURIs = ProTONEAppSettings.SubtitleDownloadURIs;
 
             BuildListFromSubtitleDownloadURIs();
 
@@ -149,7 +150,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             pnlOnlineSubtitles.Enabled = _subtitleDownloadEnabled;
 
-            chkNotifySubDownloaded.Checked = AppSettings.SubDownloadedNotificationsEnabled;
+            chkNotifySubDownloaded.Checked = AppSettings.Instance.SubDownloadedNotificationsEnabled;
             this.chkNotifySubDownloaded.CheckedChanged += new System.EventHandler(this.chkNotifySubDownloaded_CheckedChanged);
 
             this.cmbLanguages.SelectedIndexChanged += new System.EventHandler(this.cmbLanguages_SelectedIndexChanged);
@@ -326,7 +327,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             languages.Sort();
 
             cmbLanguages.DataSource = languages;
-            cmbLanguages.SelectedItem = new SubtitleLanguage(AppSettings.PrefferedSubtitleLang);
+            cmbLanguages.SelectedItem = new SubtitleLanguage(AppSettings.Instance.PrefferedSubtitleLang);
 
             cmbLanguages.SelectedIndexChanged += new EventHandler(cmbLanguages_SelectedIndexChanged);
 
@@ -398,7 +399,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
                     ListViewItem item = new ListViewItem(lFields[0]);
 
-                    bool isDefaultServer = SuiteConfiguration.DefaultSubtitleURIs.ToUpperInvariant().Contains(
+                    bool isDefaultServer = ProTONEAppSettings.DefaultSubtitleURIs.ToUpperInvariant().Contains(
                         lFields[colServerUrl.Index].ToUpperInvariant());
 
                     for(int i = 1; i < lFields.Count; i++)
@@ -451,7 +452,7 @@ namespace OPMedia.UI.ProTONE.Configuration
                     ListViewItem item = lvDownloadAddresses.SelectedItems[0];
                     string serverUrl = item.SubItems[colServerUrl.Index].Text;
 
-                    bool isDefaultServer = SuiteConfiguration.DefaultSubtitleURIs.ToUpperInvariant().Contains(
+                    bool isDefaultServer = ProTONEAppSettings.DefaultSubtitleURIs.ToUpperInvariant().Contains(
                         serverUrl.ToUpperInvariant());
 
                     enable = !isDefaultServer;
@@ -468,7 +469,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             if (MessageDisplay.Query("TXT_CONFIRM_RESTORE", "TXT_RESTORE_DEFAULTSERVERS",
                MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                _subtitleDownloadURIs = SuiteConfiguration.DefaultSubtitleURIs;
+                _subtitleDownloadURIs = ProTONEAppSettings.DefaultSubtitleURIs;
                 BuildListFromSubtitleDownloadURIs();
                 Modified = true;
             }
@@ -535,7 +536,7 @@ namespace OPMedia.UI.ProTONE.Configuration
                     ciLang = ciLang.Substring(0, pos).Trim();
 
                 if (lang.ToLowerInvariant() == ciLang.ToLowerInvariant() &&
-                    ci.LCID == AppSettings.PrefferedSubtitleLang)
+                    ci.LCID == AppSettings.Instance.PrefferedSubtitleLang)
                 {
                     return true;
                 }

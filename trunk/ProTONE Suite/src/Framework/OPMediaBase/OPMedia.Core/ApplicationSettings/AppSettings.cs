@@ -59,21 +59,41 @@ namespace OPMedia.Core.ApplicationSettings
         }
     }
 
-    public class AppSettings
+    public class AppSettings : IDisposable
     {
-        private static ConfigFileManager _config = null;
+        protected ConfigFileManager _config = null;
+
+        protected static AppSettings _instance = null;
+        public static AppSettings Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
+        public static void RegisterAppInstance(AppSettings instance)
+        {
+            _instance = instance;
+        }
+
 
         public AppSettings()
         {
             _config = new ConfigFileManager(ApplicationInfo.SettingsFile);
         }
 
-        public static void Save()
+        public void Dispose()
+        {
+            Save();
+        }
+        
+        public void Save()
         {
             _config.Save();
         }
 
-        public static void Delete()
+        public void Delete()
         {
             try
             {
@@ -95,7 +115,7 @@ namespace OPMedia.Core.ApplicationSettings
         }
 
         #region Network preferences
-        public static int KeepAliveInterval
+        public int KeepAliveInterval
         {
             get
             {
@@ -107,10 +127,10 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static IWebProxy GetWebProxy()
+        public IWebProxy GetWebProxy()
         {
             IWebProxy wp = null;
-            ProxySettings ps = AppSettings.ProxySettings;
+            ProxySettings ps = this.ProxySettings;
 
             if (ps == null || ps.ProxyType == ProxyType.NoProxy)
             {
@@ -126,31 +146,31 @@ namespace OPMedia.Core.ApplicationSettings
             return wp;
         }
                 
-        public static ProxySettings ProxySettings
+        public ProxySettings ProxySettings
         {
             get
             {
                 ProxySettings ps = ProxySettings.Empty;
-                ps.ProxyAddress = AppSettings.ProxyAddress;
-                ps.ProxyPassword = AppSettings.ProxyPassword;
-                ps.ProxyPort = AppSettings.ProxyPort;
-                ps.ProxyType = AppSettings.ProxyType;
-                ps.ProxyUser = AppSettings.ProxyUser;
+                ps.ProxyAddress = this.ProxyAddress;
+                ps.ProxyPassword = this.ProxyPassword;
+                ps.ProxyPort = this.ProxyPort;
+                ps.ProxyType = this.ProxyType;
+                ps.ProxyUser = this.ProxyUser;
 
                 return ps;
             }
 
             set
             {
-                AppSettings.ProxyAddress = value.ProxyAddress;
-                AppSettings.ProxyPassword = value.ProxyPassword;
-                AppSettings.ProxyPort = value.ProxyPort;
-                AppSettings.ProxyType = value.ProxyType;
-                AppSettings.ProxyUser = value.ProxyUser;
+                this.ProxyAddress = value.ProxyAddress;
+                this.ProxyPassword = value.ProxyPassword;
+                this.ProxyPort = value.ProxyPort;
+                this.ProxyType = value.ProxyType;
+                this.ProxyUser = value.ProxyUser;
             }
         }
 
-        private static ProxyType ProxyType
+        protected ProxyType ProxyType
         {
             get
             {
@@ -162,7 +182,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        private static string ProxyAddress
+        protected string ProxyAddress
         {
             get
             {
@@ -174,7 +194,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        private static int ProxyPort
+        protected int ProxyPort
         {
             get
             {
@@ -186,7 +206,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        private static string ProxyUser
+        protected string ProxyUser
         {
             get
             {
@@ -198,7 +218,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        private static string ProxyPassword
+        protected string ProxyPassword
         {
             get
             {
@@ -213,7 +233,7 @@ namespace OPMedia.Core.ApplicationSettings
 
         #region Logging
 
-        public static string GetDefaultLoggingFolder()
+        public string GetDefaultLoggingFolder()
         {
             try
             {
@@ -235,7 +255,7 @@ namespace OPMedia.Core.ApplicationSettings
             return Path.GetTempPath();
         }
 
-        public static bool CanWriteToFolder(string path)
+        public bool CanWriteToFolder(string path)
         {
             try
             {
@@ -267,80 +287,80 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool LogEnabled
+        public bool LogEnabled
         {
             get { return _config.GetValue("LogEnabled", true); }
             set { _config.SetValue("LogEnabled", value); }
         }
 
-        public static bool LogHeavyTraceLevelEnabled
+        public bool LogHeavyTraceLevelEnabled
         {
             get { return _config.GetValue("LogHeavyTraceLevelEnabled", true); }
             set { _config.SetValue("LogHeavyTraceLevelEnabled", value); }
         }
 
-        public static bool LogTraceLevelEnabled
+        public bool LogTraceLevelEnabled
         {
             get { return _config.GetValue("LogTraceLevelEnabled", true); }
             set { _config.SetValue("LogTraceLevelEnabled", value); }
         }
 
-        public static bool LogInfoLevelEnabled
+        public bool LogInfoLevelEnabled
         {
             get { return _config.GetValue("LogInfoLevelEnabled", true); }
             set { _config.SetValue("LogInfoLevelEnabled", value); }
         }
 
-        public static bool LogWarningLevelEnabled
+        public bool LogWarningLevelEnabled
         {
             get { return _config.GetValue("LogWarningLevelEnabled", true); }
             set { _config.SetValue("LogWarningLevelEnabled", value); }
         }
 
-        public static bool LogErrorLevelEnabled
+        public bool LogErrorLevelEnabled
         {
             get { return _config.GetValue("LogErrorLevelEnabled", true); }
             set { _config.SetValue("LogErrorLevelEnabled", value); }
         }
 
-        public static string LogFilePath
+        public string LogFilePath
         {
             get { return _config.GetValue("LogFilePath", GetDefaultLoggingFolder()); }
             set { _config.SetValue("LogFilePath", value); }
         }
 
-        public static int DaysToKeepLogs
+        public int DaysToKeepLogs
         {
             get { return _config.GetValue("DaysToKeepLogs", 2); }
             set { _config.SetValue("DaysToKeepLogs", value); }
         }
 
 
-        public static bool FilterTraceLevelEnabled
+        public bool FilterTraceLevelEnabled
         {
             get { return _config.GetValue("FilterTraceLevelEnabled", true); }
             set { _config.SetValue("FilterTraceLevelEnabled", value); }
         }
 
-        public static bool FilterInfoLevelEnabled
+        public bool FilterInfoLevelEnabled
         {
             get { return _config.GetValue("FilterInfoLevelEnabled", true); }
             set { _config.SetValue("FilterInfoLevelEnabled", value); }
         }
 
-        public static bool FilterWarningLevelEnabled
+        public bool FilterWarningLevelEnabled
         {
             get { return _config.GetValue("LogWarningLevelEnabled", true); }
             set { _config.SetValue("FilterWarningLevelEnabled", value); }
         }
 
-        public static bool FilterErrorLevelEnabled
+        public bool FilterErrorLevelEnabled
         {
             get { return _config.GetValue("FilterErrorLevelEnabled", true); }
             set { _config.SetValue("FilterErrorLevelEnabled", value); }
         }
 
-        public static int FilterLogLinesCount
+        public int FilterLogLinesCount
         {
             get { return _config.GetValue("FilterLogLinesCount", 20); }
             set { _config.SetValue("FilterLogLinesCount", value); }
@@ -349,8 +369,8 @@ namespace OPMedia.Core.ApplicationSettings
 
         #region User interface persistence
 
-        private static bool _allowSaveWindowLocation = true;
-        public static Point WindowLocation
+        protected bool _allowSaveWindowLocation = true;
+        public Point WindowLocation
         {
             get
             {
@@ -392,7 +412,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static Size WindowSize
+        public Size WindowSize
         {
             get
             {
@@ -432,7 +452,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static FormWindowState WindowState
+        public FormWindowState WindowState
         {
             get
             {
@@ -452,7 +472,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool MimimizedToTray
+        public bool MimimizedToTray
         {
             get
             {
@@ -465,7 +485,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool CanSendToTray
+        public bool CanSendToTray
         {
             get
             {
@@ -479,7 +499,7 @@ namespace OPMedia.Core.ApplicationSettings
         }
 
 
-        public static bool FullScreenOn
+        public bool FullScreenOn
         {
             get
             {
@@ -492,7 +512,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static Point DetachedWindowLocation
+        public Point DetachedWindowLocation
         {
             get
             {
@@ -523,7 +543,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static Size DetachedWindowSize
+        public Size DetachedWindowSize
         {
             get
             {
@@ -550,7 +570,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static FormWindowState DetachedWindowState
+        public FormWindowState DetachedWindowState
         {
             get
             {
@@ -574,7 +594,7 @@ namespace OPMedia.Core.ApplicationSettings
         #endregion
 
         #region Application state persistence
-        public static string SearchPaths
+        public string SearchPaths
         {
             get
             {
@@ -587,7 +607,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string SearchTexts
+        public string SearchTexts
         {
             get
             {
@@ -600,7 +620,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string SearchPatterns
+        public string SearchPatterns
         {
             get
             {
@@ -614,7 +634,7 @@ namespace OPMedia.Core.ApplicationSettings
         }
 
 
-        public static string SearchTextsMC
+        public string SearchTextsMC
         {
             get
             {
@@ -627,7 +647,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string SearchPatternsMC
+        public string SearchPatternsMC
         {
             get
             {
@@ -640,7 +660,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int SplitterDistanceMC
+        public int SplitterDistanceMC
         {
             get
             {
@@ -653,7 +673,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int VSplitterDistance
+        public int VSplitterDistance
         {
             get
             {
@@ -667,7 +687,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int HSplitterDistance
+        public int HSplitterDistance
         {
             get
             {
@@ -682,7 +702,7 @@ namespace OPMedia.Core.ApplicationSettings
         }
 
 
-        public static string ExplorerLaunchType
+        public string ExplorerLaunchType
         {
             get
             {
@@ -695,7 +715,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int LastBalance
+        public int LastBalance
         {
             get
             {
@@ -708,7 +728,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int LastVolume
+        public int LastVolume
         {
             get
             {
@@ -721,7 +741,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int LastFilterIndex
+        public int LastFilterIndex
         {
             get
             {
@@ -734,7 +754,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string LastOpenedFolder
+        public string LastOpenedFolder
         {
             get
             {
@@ -747,7 +767,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int PL_LastFilterIndex
+        public int PL_LastFilterIndex
         {
             get
             {
@@ -760,7 +780,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string PL_LastOpenedFolder
+        public string PL_LastOpenedFolder
         {
             get
             {
@@ -773,7 +793,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string LastExploredFolder
+        public string LastExploredFolder
         {
             get
             {
@@ -786,7 +806,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string LastNavAddon
+        public string LastNavAddon
         {
             get
             {
@@ -799,7 +819,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool LoopPlay
+        public bool LoopPlay
         {
             get
             {
@@ -812,7 +832,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool ShufflePlaylist
+        public bool ShufflePlaylist
         {
             get
             {
@@ -828,7 +848,7 @@ namespace OPMedia.Core.ApplicationSettings
         #endregion
 
         #region timer scheduler
-        public static int PlaylistEventHandler
+        public int PlaylistEventHandler
         {
             get
             {
@@ -840,7 +860,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string PlaylistEventData
+        public string PlaylistEventData
         {
             get
             {
@@ -853,7 +873,7 @@ namespace OPMedia.Core.ApplicationSettings
         }
 
 
-        public static int ScheduledEventHandler
+        public int ScheduledEventHandler
         {
             get
             {
@@ -865,7 +885,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string ScheduledEventData
+        public string ScheduledEventData
         {
             get
             {
@@ -877,7 +897,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static TimeSpan ScheduledEventTime
+        public TimeSpan ScheduledEventTime
         {
             get
             {
@@ -889,7 +909,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int ScheduledEventDays
+        public int ScheduledEventDays
         {
             get
             {
@@ -901,7 +921,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool EnableScheduledEvent
+        public bool EnableScheduledEvent
         {
             get
             {
@@ -913,7 +933,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int SchedulerWaitTimerProceed
+        public int SchedulerWaitTimerProceed
         {
             get
             {
@@ -928,13 +948,13 @@ namespace OPMedia.Core.ApplicationSettings
         #endregion
 
         #region File explorer addon
-        public static int FEMaxProcessedFiles
+        public int FEMaxProcessedFiles
         {
             get { return _config.GetValue("FEMaxProcessedFiles", 100); }
             set { _config.SetValue("FEMaxProcessedFiles", value); }
         }
 
-        public static decimal FEPreviewTimer
+        public decimal FEPreviewTimer
         {
             get 
             {
@@ -959,7 +979,7 @@ namespace OPMedia.Core.ApplicationSettings
 
         #region Media catalog addon
 
-        public static string MCLastOpenedFolder
+        public string MCLastOpenedFolder
         {
             get
             {
@@ -971,7 +991,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool MCOpenLastCatalog
+        public bool MCOpenLastCatalog
         {
             get
             {
@@ -983,7 +1003,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool MCRememberRecentFiles
+        public bool MCRememberRecentFiles
         {
             get
             {
@@ -995,7 +1015,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int MCRecentFilesCount
+        public int MCRecentFilesCount
         {
             get
             {
@@ -1007,7 +1027,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string MCRecentFiles
+        public string MCRecentFiles
         {
             get
             {
@@ -1022,7 +1042,7 @@ namespace OPMedia.Core.ApplicationSettings
         #endregion
 
         #region DVD Information
-        public static bool DisableDVDMenu
+        public bool DisableDVDMenu
         {
             get { return _config.GetValue("DisableDVDMenu", false); }
             set { _config.SetValue("DisableDVDMenu", value); }
@@ -1031,25 +1051,25 @@ namespace OPMedia.Core.ApplicationSettings
 
         #region Subtitle and OSD
 
-        public static int PrefferedSubtitleLang
+        public int PrefferedSubtitleLang
         {
             get { return _config.GetValue("PrefferedSubtitleLang", 1033); }
             set { _config.SetValue("PrefferedSubtitleLang", value); }
         }
 
-        public static bool SubEnabled
+        public bool SubEnabled
         {
             get { return _config.GetValue("SubEnabled", false); }
             set { _config.SetValue("SubEnabled", value); }
         }
 
-        public static bool OsdEnabled
+        public bool OsdEnabled
         {
             get { return _config.GetValue("OsdEnabled", false); }
             set { _config.SetValue("OsdEnabled", value); }
         }
 
-        public static Color OsdColor
+        public Color OsdColor
         {
             get
             {
@@ -1063,7 +1083,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static Color SubColor
+        public Color SubColor
         {
             get
             {
@@ -1079,7 +1099,7 @@ namespace OPMedia.Core.ApplicationSettings
 
         static Font DefSubAndOsdFont = new Font("Segoe UI", 12f, FontStyle.Bold, GraphicsUnit.Point);
 
-        public static Font OsdFont
+        public Font OsdFont
         {
             get
             {
@@ -1096,7 +1116,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static Font SubFont
+        public Font SubFont
         {
             get
             {
@@ -1113,7 +1133,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static int OsdPersistTimer
+        public int OsdPersistTimer
         {
             get
             {
@@ -1126,7 +1146,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool SubtitleDownloadEnabled
+        public bool SubtitleDownloadEnabled
         {
             get
             {
@@ -1139,20 +1159,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static string SubtitleDownloadURIs
-        {
-            get
-            {
-                return _config.GetValue("SubtitleDownloadURIs", SuiteConfiguration.DefaultSubtitleURIs);
-            }
-
-            set
-            {
-                _config.SetValue("SubtitleDownloadURIs", value);
-            }
-        }
-
-        public static int SubtitleMinimumMovieDuration
+        public int SubtitleMinimumMovieDuration
         {
             get
             {
@@ -1165,7 +1172,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool MediaStateNotificationsEnabled
+        public bool MediaStateNotificationsEnabled
         {
             get
             {
@@ -1178,7 +1185,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public static bool SubDownloadedNotificationsEnabled
+        public bool SubDownloadedNotificationsEnabled
         {
             get
             {
@@ -1194,37 +1201,37 @@ namespace OPMedia.Core.ApplicationSettings
 
         #region Playlist formatting
 
-        public static bool UseMetadata
+        public bool UseMetadata
         {
             get { return _config.GetValue("UseMetadata", true); }
             set { _config.SetValue("UseMetadata", value); }
         }
 
-        public static bool UseFileNameFormat
+        public bool UseFileNameFormat
         {
             get { return _config.GetValue("UseFileNameFormat", true); }
             set { _config.SetValue("UseFileNameFormat", value); }
         }
 
-        public static string PlaylistEntryFormat
+        public string PlaylistEntryFormat
         {
             get { return _config.GetValue("PlaylistEntryFormat", "<A> - <T>"); }
             set { _config.SetValue("PlaylistEntryFormat", value); }
         }
 
-        public static string FileNameFormat
+        public string FileNameFormat
         {
             get { return _config.GetValue("FileNameFormat", "<A> - <T>"); }
             set { _config.SetValue("FileNameFormat", value); }
         }
 
-        public static string CustomPlaylistEntryFormats
+        public string CustomPlaylistEntryFormats
         {
             get { return _config.GetValue("CustomPlaylistEntryFormats", string.Empty); }
             set { _config.SetValue("CustomPlaylistEntryFormats", value); }
         }
 
-        public static string CustomFileNameFormats
+        public string CustomFileNameFormats
         {
             get { return _config.GetValue("CustomFileNameFormats", string.Empty); }
             set { _config.SetValue("CustomFileNameFormats", value); }
@@ -1232,73 +1239,8 @@ namespace OPMedia.Core.ApplicationSettings
 
         #endregion
 
-        [Flags]
-        public enum MediaScreen
-        {
-            None = 0x00,
-            
-            Playlist = 0x01,
-            TrackInfo = 0x02,
-            SignalAnalisys = 0x04,
-            BookmarkInfo = 0x08,
+       
 
-            All = 0xFF
-        }
-
-        [Flags]
-        public enum SignalAnalisysFunction
-        {
-            None = 0x00,
-
-            VUMeter = 0x01,
-            Waveform = 0x02,
-            Spectrogram = 0x04,
-
-            All = 0xFF
-        }
-
-        public static MediaScreen ShowMediaScreens
-        {
-            get { return (MediaScreen)_config.GetValue("ShowMediaScreens", (int)MediaScreen.All); }
-            set { _config.SetValue("ShowMediaScreens", (int)value); }
-        }
-
-        public static SignalAnalisysFunction SignalAnalisysFunctions
-        {
-            get { return (SignalAnalisysFunction)_config.GetValue("SignalAnalisysFunctions", (int)SignalAnalisysFunction.All); }
-            set { _config.SetValue("SignalAnalisysFunctions", (int)value); }
-        }
-
-        public enum CddaInfoSource
-        {
-            // Don't read audio cd info
-            None = 0,
-            // Read CD-text only
-            CdText,
-            // Read CDDB only
-            Cddb,
-            // Try CD-text first then CDDB [Default]
-            CdText_Cddb,
-            // Try CDDB first then CD-text
-            Cddb_CdText
-        }
-
-        public static CddaInfoSource AudioCdInfoSource
-        {
-            get { return PersistenceProxy.ReadObject("AudioCdInfoSource", CddaInfoSource.CdText_Cddb); }
-            set { PersistenceProxy.SaveObject("AudioCdInfoSource", value); }
-        }
-
-        public static string CddbServerName
-        {
-            get { return PersistenceProxy.ReadObject("CddbServerName", "freedb.freedb.org"); }
-            set { PersistenceProxy.SaveObject("CddbServerName", value); }
-        }
-
-        public static int CddbServerPort
-        {
-            get { return PersistenceProxy.ReadObject("CddbServerPort", 8880); }
-            set { PersistenceProxy.SaveObject("CddbServerPort", value); }
-        }
+        
     }
 }

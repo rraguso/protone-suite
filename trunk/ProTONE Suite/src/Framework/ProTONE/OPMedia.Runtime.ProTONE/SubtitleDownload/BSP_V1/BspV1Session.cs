@@ -37,7 +37,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.BSP_V1
         protected override void DoInitializeSession()
         {
             _wsdl = new BSPSubtitlesService(_serverUrl);
-            _wsdl.Proxy = AppSettings.GetWebProxy();
+            _wsdl.Proxy = AppSettings.Instance.GetWebProxy();
             _wsdl.UserAgent = string.Format("{0} v{1}", Constants.PlayerName, SuiteVersion.Version);
         }
 
@@ -118,7 +118,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.BSP_V1
             string downloadPath = Path.ChangeExtension(fileName, "gz");
 
             bool downloaded = false;
-            using (WebFileRetriever wfr = new WebFileRetriever(AppSettings.ProxySettings,
+            using (WebFileRetriever wfr = new WebFileRetriever(AppSettings.Instance.ProxySettings,
                 subtitle.SubDownloadLink, downloadPath, false))
             {
                 downloaded = true;

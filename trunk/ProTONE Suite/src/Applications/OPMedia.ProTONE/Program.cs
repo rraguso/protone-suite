@@ -29,6 +29,7 @@ using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.HelpSupport;
 using System.Drawing;
 using OPMedia.Runtime.ProTONE.Utilities;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.ProTONE
 {
@@ -42,6 +43,8 @@ namespace OPMedia.ProTONE
         [STAThread]
         static void Main()
         {
+            AppSettings.RegisterAppInstance(new ProTONEAppSettings());
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
@@ -64,7 +67,7 @@ namespace OPMedia.ProTONE
                         Application.Run(mainFrm);
                         mainFrm.Dispose();
 
-                        AppSettings.Save();
+                        AppSettings.Instance.Save();
                         ShortcutMapper.Save();
                     }
                     catch (MultipleInstancesException ex)
@@ -107,7 +110,7 @@ namespace OPMedia.ProTONE
                 try
                 {
                     CommandType cmdType = (CommandType)Enum.Parse(typeof(CommandType),
-                        AppSettings.ExplorerLaunchType);
+                        AppSettings.Instance.ExplorerLaunchType);
 
                     if (SuiteRegistrationSupport.IsContextMenuHandlerRegistered() &&
                         (cmdType == CommandType.PlayFiles || cmdType == CommandType.EnqueueFiles))

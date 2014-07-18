@@ -16,6 +16,7 @@ using OPMedia.Runtime.FileInformation;
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.Runtime.ProTONE.Playlists;
 using OPMedia.Core.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -302,7 +303,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         public static CDEntry BuildCdEntryByCddb(CDDrive cd, string diskId)
         {
             // Check the online FreeDB database.
-            using (FreedbHelper fdb = new FreedbHelper(AppSettings.CddbServerName, AppSettings.CddbServerPort))
+            using (FreedbHelper fdb = new FreedbHelper(ProTONEAppSettings.CddbServerName, ProTONEAppSettings.CddbServerPort))
             {
                 string querySegment = cd.GetCDDBQuerySegment();
                 QueryResult qr;
@@ -337,17 +338,17 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     {
                         if (cd.Open(letter) && cd.Refresh())
                         {
-                            switch (AppSettings.AudioCdInfoSource)
+                            switch (ProTONEAppSettings.AudioCdInfoSource)
                             {
-                                case AppSettings.CddaInfoSource.CdText:
+                                case CddaInfoSource.CdText:
                                     _cdEntry = BuildCdEntryByCdText(cd, _discId);
                                     break;
 
-                                case AppSettings.CddaInfoSource.Cddb:
+                                case CddaInfoSource.Cddb:
                                     _cdEntry = BuildCdEntryByCddb(cd, _discId);
                                     break;
 
-                                case AppSettings.CddaInfoSource.CdText_Cddb:
+                                case CddaInfoSource.CdText_Cddb:
                                     {
                                         _cdEntry = BuildCdEntryByCdText(cd, _discId);
                                         CDEntry cde = BuildCdEntryByCddb(cd, _discId);
@@ -355,7 +356,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                                     }
                                     break;
 
-                                case AppSettings.CddaInfoSource.Cddb_CdText:
+                                case CddaInfoSource.Cddb_CdText:
                                     {
                                         _cdEntry = BuildCdEntryByCddb(cd, _discId);
                                         CDEntry cde = BuildCdEntryByCdText(cd, _discId);

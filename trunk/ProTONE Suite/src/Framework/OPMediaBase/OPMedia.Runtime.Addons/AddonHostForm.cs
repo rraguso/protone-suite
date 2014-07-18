@@ -104,9 +104,9 @@ namespace OPMedia.Runtime.Addons
             lblNoProperties.Text = Translator.Translate("TXT_THEREARENOITEMS");
             lblNoPreview.Text = Translator.Translate("TXT_THEREARENOITEMS");
 
-            this.Location = AppSettings.WindowLocation;
-            this.Size = AppSettings.WindowSize;
-            this.WindowState = AppSettings.WindowState;
+            this.Location = AppSettings.Instance.WindowLocation;
+            this.Size = AppSettings.Instance.WindowSize;
+            this.WindowState = AppSettings.Instance.WindowState;
 
             tsmiSettings.ShortcutKeyDisplayString =
                 ShortcutMapper.GetShortcutString(OPMShortcut.CmdOpenSettings);
@@ -226,8 +226,8 @@ namespace OPMedia.Runtime.Addons
                 }
             }
 
-            this.VSplitterDistance = AppSettings.VSplitterDistance;
-            this.HSplitterDistance = AppSettings.HSplitterDistance;
+            this.VSplitterDistance = AppSettings.Instance.VSplitterDistance;
+            this.HSplitterDistance = AppSettings.Instance.HSplitterDistance;
 
         }
 
@@ -269,9 +269,9 @@ namespace OPMedia.Runtime.Addons
 
         void MainForm_HandleDestroyed(object sender, EventArgs e)
         {
-            AppSettings.VSplitterDistance = this.VSplitterDistance;
-            AppSettings.HSplitterDistance = this.HSplitterDistance;
-            AppSettings.Save();
+            AppSettings.Instance.VSplitterDistance = this.VSplitterDistance;
+            AppSettings.Instance.HSplitterDistance = this.HSplitterDistance;
+            AppSettings.Instance.Save();
         }
 
         /// <summary>
@@ -317,7 +317,7 @@ namespace OPMedia.Runtime.Addons
 
                     msMain.Items.Add(button);
 
-                    if (addon.AddonTypeName == AppSettings.LastNavAddon)
+                    if (addon.AddonTypeName == AppSettings.Instance.LastNavAddon)
                     {
                         previousAddonButton = button;
                     }
@@ -481,7 +481,7 @@ namespace OPMedia.Runtime.Addons
                     //button.Image = null;
                     button.Checked = true;
                     //button.BackColor = Color.FromArgb(150, ThemeManager.GradientNormalColor2);
-                    AppSettings.LastNavAddon = button.Name;
+                    AppSettings.Instance.LastNavAddon = button.Name;
 
                     SetTitle(string.Format("{0} - {1}",
                         Translator.Translate("TXT_APP_NAME"), button.Text));
@@ -766,7 +766,7 @@ namespace OPMedia.Runtime.Addons
         {
             if (this.IsActive)
             {
-                string sectionName = AppSettings.LastNavAddon.Replace(".", "");
+                string sectionName = AppSettings.Instance.LastNavAddon.Replace(".", "");
                 string topicName = "";
 
                 BaseAddonCtl addon = null;

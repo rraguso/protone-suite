@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using OPMedia.UI.Controls;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Core;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.Dialogs
 {
@@ -93,7 +94,7 @@ namespace OPMedia.UI.Dialogs
             lvFavorites.Items.Clear();
             ilFavorites.Images.Clear();
 
-            foreach (string path in SuiteConfiguration.GetFavoriteFolders(FavoriteFoldersHiveName))
+            foreach (string path in ProTONEAppSettings.GetFavoriteFolders(FavoriteFoldersHiveName))
             {
                 CreateItem(path);
             }

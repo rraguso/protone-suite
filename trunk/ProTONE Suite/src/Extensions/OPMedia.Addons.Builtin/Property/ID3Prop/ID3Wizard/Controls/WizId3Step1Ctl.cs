@@ -83,7 +83,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
             dlg.Title = Translator.Translate("TXT_SELECTID3FILES");
             dlg.Filter = Translator.Translate("TXT_ID3FILESFILTER");
-            dlg.InitialDirectory = AppSettings.LastOpenedFolder;
+            dlg.InitialDirectory = AppSettings.Instance.LastOpenedFolder;
             dlg.Multiselect = true;
 
             dlg.InheritAppIcon = false;
@@ -99,11 +99,11 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileNames[0]);
-                    AppSettings.LastOpenedFolder = fi.DirectoryName;
+                    AppSettings.Instance.LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.LastOpenedFolder = dlg.InitialDirectory;
+                    AppSettings.Instance.LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
 
@@ -117,7 +117,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
 
             OPMFolderBrowserDialog dlg = CommonDialogHelper.NewOPMFolderBrowserDialog();
             dlg.Description = Translator.Translate("TXT_SELECTID3FOLDER");
-            dlg.SelectedPath = AppSettings.LastOpenedFolder;
+            dlg.SelectedPath = AppSettings.Instance.LastOpenedFolder;
             dlg.ShowNewFolderButton = false;
 
             dlg.InheritAppIcon = false;
@@ -134,7 +134,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
                     }
                 }
                 
-                AppSettings.LastOpenedFolder = dlg.SelectedPath;
+                AppSettings.Instance.LastOpenedFolder = dlg.SelectedPath;
             }
 
             CursorHelper.ShowWaitCursor(this, false);

@@ -79,7 +79,7 @@ namespace OPMedia.MediaLibrary
                     Application.Run(new MediaLibraryForm());
                 }
 
-                AppSettings.Save();
+                AppSettings.Instance.Save();
             }
             catch (Exception ex)
             {

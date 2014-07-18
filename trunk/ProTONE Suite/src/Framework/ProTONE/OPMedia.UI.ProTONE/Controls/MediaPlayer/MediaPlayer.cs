@@ -45,6 +45,7 @@ using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 using System.Net;
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.RemoteControl;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -285,7 +286,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             if (!DesignMode)
             {
-                pnlRendering.ProjectedVolume = AppSettings.LastVolume;
+                pnlRendering.ProjectedVolume = AppSettings.Instance.LastVolume;
                 SetVolume(pnlRendering.ProjectedVolume);
             }
         }
@@ -327,7 +328,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             MediaRenderer.DefaultInstance.DisplayOsdMessage(text);
 
-            if (AppSettings.MediaStateNotificationsEnabled)
+            if (AppSettings.Instance.MediaStateNotificationsEnabled)
             {
                 TrayNotificationBox f = new TrayNotificationBox();
                 f.HideDelay = 6000;
@@ -363,9 +364,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void OnMediaRendererHeartbeat()
         {
-            if (pnlRendering.ProjectedVolume != AppSettings.LastVolume)
+            if (pnlRendering.ProjectedVolume != AppSettings.Instance.LastVolume)
             {
-                pnlRendering.ProjectedVolume = AppSettings.LastVolume;
+                pnlRendering.ProjectedVolume = AppSettings.Instance.LastVolume;
             }
 
             pnlRendering.ElapsedSeconds = (int)(MediaRenderer.DefaultInstance.MediaPosition);
@@ -529,10 +530,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             
             dlg.Filter = filter;
 
-            dlg.FilterIndex = AppSettings.LastFilterIndex;
-            dlg.InitialDirectory = AppSettings.LastOpenedFolder;
+            dlg.FilterIndex = AppSettings.Instance.LastFilterIndex;
+            dlg.InitialDirectory = AppSettings.Instance.LastOpenedFolder;
 
-            dlg.FillFavoriteFoldersEvt += () => { return SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
             dlg.ShowAddToFavorites = true;
 
@@ -559,28 +560,28 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 else
                     LoadFiles(dlg.FileNames);
 
-                AppSettings.LastFilterIndex = dlg.FilterIndex;
+                AppSettings.Instance.LastFilterIndex = dlg.FilterIndex;
 
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileNames[0]);
-                    AppSettings.LastOpenedFolder = fi.DirectoryName;
+                    AppSettings.Instance.LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.LastOpenedFolder = dlg.InitialDirectory;
+                    AppSettings.Instance.LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
 
         private bool AddToFavoriteFolders(string path)
         {
-            List<string> favorites = new List<string>(SuiteConfiguration.GetFavoriteFolders("FavoriteFolders"));
+            List<string> favorites = new List<string>(ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"));
             if (favorites.Contains(path))
                 return false;
 
             favorites.Add(path);
-            SuiteConfiguration.SetFavoriteFolders(favorites, "FavoriteFolders");
+            ProTONEAppSettings.SetFavoriteFolders(favorites, "FavoriteFolders");
             return true;
         }
 
@@ -706,19 +707,19 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void SetVolume(double volume)
         {
-            AppSettings.LastVolume = (int)volume;
+            AppSettings.Instance.LastVolume = (int)volume;
             if (MediaRenderer.DefaultInstance.RenderedMediaType != MediaTypes.Video &&
                 MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped)
             {
                 MediaRenderer.DefaultInstance.AudioVolume = (int)volume;
                 MediaRenderer.DefaultInstance.DisplayOsdMessage(Translator.Translate("TXT_OSD_VOL", (int)volume / 100));
 
-                MediaRenderer.DefaultInstance.AudioBalance = AppSettings.LastBalance;
+                MediaRenderer.DefaultInstance.AudioBalance = AppSettings.Instance.LastBalance;
             }
 
-            if (pnlRendering.ProjectedVolume != AppSettings.LastVolume)
+            if (pnlRendering.ProjectedVolume != AppSettings.Instance.LastVolume)
             {
-                pnlRendering.ProjectedVolume = AppSettings.LastVolume;
+                pnlRendering.ProjectedVolume = AppSettings.Instance.LastVolume;
             }
         }
 

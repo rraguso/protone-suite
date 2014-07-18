@@ -65,7 +65,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             }
             else if (hint == DvdRenderingStartHint.Beginning)
             {
-                if (AppSettings.DisableDVDMenu)
+                if (AppSettings.Instance.DisableDVDMenu)
                     dvdControl2.PlayTitle(1, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
                 else
                     //dvdControl.PlayForwards(1f, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
@@ -81,9 +81,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
             }
 
-            if (AppSettings.PrefferedSubtitleLang > 0)
+            if (AppSettings.Instance.PrefferedSubtitleLang > 0)
             {
-                int sid = _vdi.GetSubtitle(AppSettings.PrefferedSubtitleLang);
+                int sid = _vdi.GetSubtitle(AppSettings.Instance.PrefferedSubtitleLang);
                 if (sid > 0)
                 {
                     SetSubtitleStream(sid);

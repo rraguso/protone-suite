@@ -63,7 +63,7 @@ namespace OPMedia.Core.NetworkAccess
             }
 
             _retriever = new WebClient();
-            _retriever.Proxy = AppSettings.GetWebProxy();
+            _retriever.Proxy = AppSettings.Instance.GetWebProxy();
             _retriever.DownloadFile(new Uri(_downloadUrl), _destinationPath);
 
             if (NewFileRetrieved != null)

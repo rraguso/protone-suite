@@ -68,8 +68,8 @@ namespace OPMedia.ProTONE
         public MainForm()
             : base("TXT_APP_NAME")
         {
-            AppSettings.CanSendToTray = true;
-            AppSettings.Save();
+            AppSettings.Instance.CanSendToTray = true;
+            AppSettings.Instance.Save();
 
             InitializeComponent();
 
@@ -404,13 +404,13 @@ namespace OPMedia.ProTONE
                     switch((OPMShortcut)tsi.Tag)
                     {
                         case OPMShortcut.CmdToggleShuffle:
-                            (tsi as OPMToolStripMenuItem).Checked = AppSettings.ShufflePlaylist;
+                            (tsi as OPMToolStripMenuItem).Checked = AppSettings.Instance.ShufflePlaylist;
                             break;
                         case OPMShortcut.CmdPlaylistEnd:
                             (tsi as OPMToolStripMenuItem).Checked = SystemScheduler.PlaylistEventEnabled;
                             break;
                         case OPMShortcut.CmdLoopPlay:
-                            (tsi as OPMToolStripMenuItem).Checked = AppSettings.LoopPlay;
+                            (tsi as OPMToolStripMenuItem).Checked = AppSettings.Instance.LoopPlay;
                             break;
                     }
 

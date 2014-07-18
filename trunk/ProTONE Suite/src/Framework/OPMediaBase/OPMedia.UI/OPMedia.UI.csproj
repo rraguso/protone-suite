@@ -63,12 +63,6 @@
     <Compile Include="Configuration\BaseCfgPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Configuration\ConnectedFilesConfigCtl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Configuration\ConnectedFilesConfigCtl.Designer.cs">
-      <DependentUpon>ConnectedFilesConfigCtl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Configuration\ControlAppPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -244,15 +238,6 @@
     </Compile>
     <Compile Include="Dialogs\CommonDialogs.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Dialogs\FavoriteFoldersControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Dialogs\FavoriteFoldersControl.Designer.cs">
-      <DependentUpon>FavoriteFoldersControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\FavoriteFoldersManager.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\LogFileConsoleDetail.cs">
       <SubType>Form</SubType>
@@ -448,9 +433,6 @@
     <EmbeddedResource Include="ApplicationUpdate\UpdateWaitForm.resx">
       <DependentUpon>UpdateWaitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\ConnectedFilesConfigCtl.resx">
-      <DependentUpon>ConnectedFilesConfigCtl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\ControlAppPanel.resx">
       <DependentUpon>ControlAppPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -465,13 +447,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\OPMTimePicker.resx">
       <DependentUpon>OPMTimePicker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\FavoriteFoldersControl.resx">
-      <DependentUpon>FavoriteFoldersControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\FavoriteFoldersManager.resx">
-      <DependentUpon>FavoriteFoldersManager.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\LogFileConsoleDetail.resx">
       <DependentUpon>LogFileConsoleDetail.cs</DependentUpon>

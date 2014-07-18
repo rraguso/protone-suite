@@ -15,6 +15,7 @@ using OPMedia.Runtime.Addons.Configuration;
 using OPMedia.Core;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Core.Utilities;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.Addons.Builtin.FileExplorer
 {
@@ -44,10 +45,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         {
             Translator.TranslateControl(this, DesignMode);
 
-            nudMaxProcessedFiles.Value = AppSettings.FEMaxProcessedFiles;
-            nudPreviewTimer.Value = AppSettings.FEPreviewTimer;
+            nudMaxProcessedFiles.Value = AppSettings.Instance.FEMaxProcessedFiles;
+            nudPreviewTimer.Value = AppSettings.Instance.FEPreviewTimer;
 
-            Dictionary<string, string> tableLinkedFiles = SuiteConfiguration.LinkedFilesTable;
+            Dictionary<string, string> tableLinkedFiles = ProTONEAppSettings.LinkedFilesTable;
             if (tableLinkedFiles.Count < 1)
             {
                 List<string> supChildrenForAudioTypes = new List<string>();
@@ -65,7 +66,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     StringUtils.FromStringArray(MediaRenderer.SupportedVideoTypes.ToArray(), ';'),
                     StringUtils.FromStringArray(supChildrenForVideoTypes.ToArray(), ';'));
 
-                SuiteConfiguration.LinkedFilesTable = new Dictionary<string, string>(tableLinkedFiles);
+                ProTONEAppSettings.LinkedFilesTable = new Dictionary<string, string>(tableLinkedFiles);
             }
         }
 
@@ -77,9 +78,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         protected override void SaveInternal()
         {
             connectedFilesConfigCtl1.Save();
-            AppSettings.FEMaxProcessedFiles = (int)nudMaxProcessedFiles.Value;
-            AppSettings.FEPreviewTimer = nudPreviewTimer.Value;
-            AppSettings.Save();
+            AppSettings.Instance.FEMaxProcessedFiles = (int)nudMaxProcessedFiles.Value;
+            AppSettings.Instance.FEPreviewTimer = nudPreviewTimer.Value;
+            AppSettings.Instance.Save();
         }
     }
 }

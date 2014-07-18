@@ -37,13 +37,13 @@ namespace OPMedia.UI.Configuration
 
             UnsubscribeAll();
 
-            if (AppSettings.ProxySettings.ProxyType > ProxyType.NotDefined)
+            if (AppSettings.Instance.ProxySettings.ProxyType > ProxyType.NotDefined)
             {
-                this.ProxySettings.ProxyType = AppSettings.ProxySettings.ProxyType;
-                this.ProxySettings.ProxyAddress = AppSettings.ProxySettings.ProxyAddress;
-                this.ProxySettings.ProxyPassword = AppSettings.ProxySettings.ProxyPassword;
-                this.ProxySettings.ProxyPort = AppSettings.ProxySettings.ProxyPort;
-                this.ProxySettings.ProxyUser = AppSettings.ProxySettings.ProxyUser;
+                this.ProxySettings.ProxyType = AppSettings.Instance.ProxySettings.ProxyType;
+                this.ProxySettings.ProxyAddress = AppSettings.Instance.ProxySettings.ProxyAddress;
+                this.ProxySettings.ProxyPassword = AppSettings.Instance.ProxySettings.ProxyPassword;
+                this.ProxySettings.ProxyPort = AppSettings.Instance.ProxySettings.ProxyPort;
+                this.ProxySettings.ProxyUser = AppSettings.Instance.ProxySettings.ProxyUser;
             }
 
             LoadProxySettings();
