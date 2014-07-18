@@ -66,8 +66,6 @@ namespace OPMedia.UI
         {
             tabOptions.TabPages.Clear();
 
-            bool logFullyDisabled = SuiteConfiguration.LogFullyDisabled;
-
             AddPanel(typeof(GeneralSettingsPanel));
             AddAditionalPanels();
             AddPanel(typeof(NetworkSettingsPanel), RequiresNetworkConfig());

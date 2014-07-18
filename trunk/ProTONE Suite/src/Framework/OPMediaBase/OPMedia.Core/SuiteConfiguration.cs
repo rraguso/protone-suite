@@ -368,27 +368,6 @@ namespace OPMedia.Core
             }
         }
 
-        public static bool LogFullyDisabled
-        {
-            get
-            {
-                bool retVal = false;
-                try
-                {
-                    RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(@"SOFTWARE\OPMedia Research");
-                    if (key != null)
-                    {
-                        retVal = ((int)key.GetValue("LogFullyDisabled", 0) != 0);
-                    }
-                }
-                catch
-                {
-                }
-
-                return retVal;
-            }
-        }
-
         internal static bool RunProcess(string cmdLine, string args, bool wait, bool window=false)
         {
             try
