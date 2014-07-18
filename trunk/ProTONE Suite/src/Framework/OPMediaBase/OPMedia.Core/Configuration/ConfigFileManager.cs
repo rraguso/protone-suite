@@ -36,7 +36,6 @@ namespace OPMedia.Core.Configuration
         public ConfigFileManager(string filePath)
         {
             _filePath = filePath;
-            Load();
         }
 
         public void Load()
