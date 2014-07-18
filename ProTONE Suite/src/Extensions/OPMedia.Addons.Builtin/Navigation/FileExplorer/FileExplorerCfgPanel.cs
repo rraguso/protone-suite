@@ -48,7 +48,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             Translator.TranslateControl(this, DesignMode);
 
             nudMaxProcessedFiles.Value = AddonAppSettings.MaxProcessedEntries;
-            nudPreviewTimer.Value = AppSettings.FEPreviewTimer;
+            nudPreviewTimer.Value = BuiltinAddonSettings.FEPreviewTimer;
 
             Dictionary<string, string> tableLinkedFiles = ProTONEAppSettings.LinkedFilesTable;
             if (tableLinkedFiles.Count < 1)
@@ -81,7 +81,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         {
             connectedFilesConfigCtl1.Save();
             AddonAppSettings.MaxProcessedEntries = (int)nudMaxProcessedFiles.Value;
-            AppSettings.FEPreviewTimer = nudPreviewTimer.Value;
+            BuiltinAddonSettings.FEPreviewTimer = nudPreviewTimer.Value;
             AppSettings.Save();
         }
     }

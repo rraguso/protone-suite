@@ -20,6 +20,7 @@ using OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.Addons.Builtin.Properties;
 using OPMedia.Core.ApplicationSettings;
+using OPMedia.Addons.Builtin.ApplicationSettings;
 
 namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
 {
@@ -77,11 +78,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
             dlg.Title = Translator.Translate("TXT_SELECTCATALOG");
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.DefaultExt = "ctx";
-            dlg.InitialDirectory = AppSettings.MCLastOpenedFolder;
+            dlg.InitialDirectory = BuiltinAddonSettings.MCLastOpenedFolder;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+                BuiltinAddonSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
 
                 (BkgTask as Task).CatalogPath = dlg.FileName;
                 lblCatalogPath.Text = Translator.Translate("TXT_CATALOGPATH", dlg.FileName);

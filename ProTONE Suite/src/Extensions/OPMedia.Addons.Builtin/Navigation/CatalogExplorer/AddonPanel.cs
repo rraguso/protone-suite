@@ -37,6 +37,7 @@ using OPMedia.Core.Utilities;
 using OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.Runtime.Addons;
+using OPMedia.Addons.Builtin.ApplicationSettings;
 
 /*
  * IMPORTANT NOTE: In Media Catalog, instead of paths are used VPaths. 
@@ -81,7 +82,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
             updateUiTimer = new System.Windows.Forms.Timer();
             updateUiTimer.Enabled = true;
-            updateUiTimer.Interval = (int)(AppSettings.FEPreviewTimer * 1000);
+            updateUiTimer.Interval = (int)(BuiltinAddonSettings.FEPreviewTimer * 1000);
             updateUiTimer.Start();
             updateUiTimer.Tick += new EventHandler(updateUiTimer_Tick);
 
@@ -92,7 +93,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             this.HandleCreated += new EventHandler(AddonPanel_HandleCreated);
             this.HandleDestroyed += new EventHandler(AddonPanel_HandleDestroyed);
 
-            string[] list = StringUtils.ToStringArray(AppSettings.MCRecentFiles, '?');
+            string[] list = StringUtils.ToStringArray(BuiltinAddonSettings.MCRecentFiles, '?');
             if (list != null)
             {
                 foreach (string file in list)
@@ -185,18 +186,18 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
         void AddonPanel_HandleDestroyed(object sender, EventArgs e)
         {
-            AppSettings.SplitterDistanceMC = pnlSplitter.SplitterDistance;
+            BuiltinAddonSettings.SplitterDistanceMC = pnlSplitter.SplitterDistance;
         }
 
         void AddonPanel_HandleCreated(object sender, EventArgs e)
         {
-            pnlSplitter.SplitterDistance = AppSettings.SplitterDistanceMC;
+            pnlSplitter.SplitterDistance = BuiltinAddonSettings.SplitterDistanceMC;
             pnlSplitter.SplitterWidth = 3;
 
             OnPerformTranslation();
 
             string launchCatalogPath = this.Tag as string;
-            if (string.IsNullOrEmpty(launchCatalogPath) && AppSettings.MCOpenLastCatalog)
+            if (string.IsNullOrEmpty(launchCatalogPath) && BuiltinAddonSettings.MCOpenLastCatalog)
             {
                 if (_recentFiles.Count > 0)
                 {
@@ -442,7 +443,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             {
                 updateUiTimer.Stop();
 
-                if (AppSettings.MCRememberRecentFiles)
+                if (BuiltinAddonSettings.MCRememberRecentFiles)
                 {
                     tsbOpen.DropDownButtonWidth = 15;
                 }
@@ -698,11 +699,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             dlg.Title = Translator.Translate("TXT_SAVECATALOG");
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.DefaultExt = "ctx";
-            dlg.InitialDirectory = AppSettings.MCLastOpenedFolder;
+            dlg.InitialDirectory = BuiltinAddonSettings.MCLastOpenedFolder;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+                BuiltinAddonSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
 
                 string ext = PathUtils.GetExtension(dlg.FileName);
 
@@ -727,11 +728,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
             dlg.Title = Translator.Translate("TXT_OPENCATALOG");
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
-            dlg.InitialDirectory = AppSettings.MCLastOpenedFolder;
+            dlg.InitialDirectory = BuiltinAddonSettings.MCLastOpenedFolder;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+                BuiltinAddonSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
                 OpenFileWithCheck(dlg.FileName, false);
             }
         }
@@ -766,11 +767,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
                 OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
                 dlg.Title = Translator.Translate("TXT_MERGECATALOG");
                 dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
-                dlg.InitialDirectory = AppSettings.MCLastOpenedFolder;
+                dlg.InitialDirectory = BuiltinAddonSettings.MCLastOpenedFolder;
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    AppSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+                    BuiltinAddonSettings.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
 
                     ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadedMerge), dlg.FileName);
                 }
@@ -1105,7 +1106,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
                         string.Format(" ({0})", ShortcutMapper.GetShortcutString(command));
                 }
 
-                if (command == OPMShortcut.CmdGenericOpen && _recentFiles.Count > 0 && AppSettings.MCRememberRecentFiles)
+                if (command == OPMShortcut.CmdGenericOpen && _recentFiles.Count > 0 && BuiltinAddonSettings.MCRememberRecentFiles)
                 {
                     tsm.ToolTipText += "\r\n" + Translator.Translate("TXT_OPENRECENTFILEDROPDOWN");
                 }
@@ -1230,7 +1231,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
         private void AddRecentFile(string p)
         {
-            if (AppSettings.MCRememberRecentFiles || AppSettings.MCOpenLastCatalog)
+            if (BuiltinAddonSettings.MCRememberRecentFiles || BuiltinAddonSettings.MCOpenLastCatalog)
             {
                 if (!_cat.IsInDefaultLocation)
                 {
@@ -1239,14 +1240,14 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
                         _recentFiles.Remove(_cat.Path.ToLowerInvariant());
                     }
 
-                    while (_recentFiles.Count >= AppSettings.MCRecentFilesCount)
+                    while (_recentFiles.Count >= BuiltinAddonSettings.MCRecentFilesCount)
                     {
                         _recentFiles.RemoveAt(0); // Remove oldest file in recent file list
                     }
 
                     _recentFiles.Add(_cat.Path.ToLowerInvariant());
 
-                    AppSettings.MCRecentFiles =
+                    BuiltinAddonSettings.MCRecentFiles =
                         StringUtils.FromStringArray(_recentFiles.ToArray(), '?');
                     AppSettings.Save();
                 }

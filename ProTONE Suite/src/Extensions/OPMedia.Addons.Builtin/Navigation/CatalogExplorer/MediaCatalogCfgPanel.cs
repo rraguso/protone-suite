@@ -12,6 +12,7 @@ using OPMedia.Addons.Builtin.Properties;
 
 using OPMedia.UI.Controls;
 using OPMedia.Runtime.Addons.Configuration;
+using OPMedia.Addons.Builtin.ApplicationSettings;
 
 namespace OPMedia.Addons.Builtin.CatalogExplorer
 {
@@ -32,9 +33,9 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             this.Title = "TXT_ADDON_MC_SETTINGS";
             this.HandleCreated += new EventHandler(FileExplorerCfgPanel_HandleCreated);
 
-            chkReopenLastCatalog.Checked = AppSettings.MCOpenLastCatalog;
-            chkRememberRecentFiles.Checked = AppSettings.MCRememberRecentFiles;
-            nudRecentFilesCount.Value = AppSettings.MCRecentFilesCount;
+            chkReopenLastCatalog.Checked = BuiltinAddonSettings.MCOpenLastCatalog;
+            chkRememberRecentFiles.Checked = BuiltinAddonSettings.MCRememberRecentFiles;
+            nudRecentFilesCount.Value = BuiltinAddonSettings.MCRecentFilesCount;
 
             nudRecentFilesCount.Enabled = chkRememberRecentFiles.Checked;
         }
@@ -53,9 +54,9 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
         protected override void SaveInternal()
         {
-            AppSettings.MCOpenLastCatalog = chkReopenLastCatalog.Checked;
-            AppSettings.MCRememberRecentFiles = chkRememberRecentFiles.Checked;
-            AppSettings.MCRecentFilesCount = (int)nudRecentFilesCount.Value;
+            BuiltinAddonSettings.MCOpenLastCatalog = chkReopenLastCatalog.Checked;
+            BuiltinAddonSettings.MCRememberRecentFiles = chkRememberRecentFiles.Checked;
+            BuiltinAddonSettings.MCRecentFilesCount = (int)nudRecentFilesCount.Value;
 
             AppSettings.Save();
         }
