@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using OPMedia.Core.Logging;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Net;
 using System.Collections;
 using OPMedia.Runtime.ProTONE.SubtitleDownload.Base;
@@ -83,7 +83,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
         {
             _proxy = XmlRpcProxyGen.Create<IOsdbProtocol>();
             _proxy.Url = osdbServerUrl;
-            _proxy.Proxy = AppSettings.GetWebProxy();
+            _proxy.Proxy = AppConfig.GetWebProxy();
         }
 
         #region IDisposable Members

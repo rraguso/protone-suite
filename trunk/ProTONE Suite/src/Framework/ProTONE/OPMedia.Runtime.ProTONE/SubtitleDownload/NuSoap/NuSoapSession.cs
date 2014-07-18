@@ -4,7 +4,7 @@ using System.Text;
 using OPMedia.Runtime.ProTONE.SubtitleDownload.Base;
 using OPMedia.Runtime.ProTONE.NuSoap;
 using System.Net;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
 using System.Globalization;
@@ -34,7 +34,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.NuSoap
         protected override void DoInitializeSession()
         {
             _wsdl = new NuSoapWsdl(_serverUrl);
-            _wsdl.Proxy = AppSettings.GetWebProxy();
+            _wsdl.Proxy = AppConfig.GetWebProxy();
             _wsdl.UserAgent = string.Format("{0} v{1}", Constants.PlayerName, SuiteVersion.Version);
         }
 

@@ -1,6 +1,6 @@
 using OPMedia.UI.Controls;
 using System.Windows.Forms;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 namespace OPMedia.UI.Configuration
 {
     partial class MultiPageCfgPanel

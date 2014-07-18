@@ -16,7 +16,7 @@ using OPMedia.ServiceHelper.RCCService;
 using System.Reflection;
 using System.IO;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime;
 using OPMedia.Runtime.Shortcuts;
 using OPMedia.ServiceHelper.RCCService.InputPins;

@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 using OPMedia.Runtime;
 
 using System.Threading;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
 using OPMedia.Core.TranslationSupport;
@@ -803,7 +803,7 @@ namespace OPMedia.UI.Controls
                         m_strDirPath = FindFirstUsablePath(m_strDirPath, ref isUncPathRoot);
                     }
 
-                    AppSettings.LastExploredFolder = m_strDirPath;
+                    AppConfig.LastExploredFolder = m_strDirPath;
 
                     if (!isUncPathRoot && PathUtils.IsRootPath(m_strDirPath))
                     {

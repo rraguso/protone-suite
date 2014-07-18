@@ -23,6 +23,7 @@ using OPMedia.ShellSupport.Properties;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.Utilities;
+using OPMedia.Core.Configuration;
 
 
 namespace OPMedia.ShellSupport
@@ -112,7 +113,7 @@ namespace OPMedia.ShellSupport
 
             ApplicationInfo.RegisterAppName(GetType().Assembly);
             Translator.RegisterTranslationAssembly(GetType().Assembly);
-            Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
+            Translator.SetInterfaceLanguage(AppConfig.LanguageID);
 
             FORMATETC fe = new FORMATETC();
             fe.cfFormat = (short)CLIPFORMAT.CF_HDROP;

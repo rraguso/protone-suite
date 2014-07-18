@@ -10,7 +10,7 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
 using System.Drawing;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Threading;
 
 using System.Windows.Forms;

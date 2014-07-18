@@ -81,7 +81,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AddonsBase\Prop\PropertyAddon.cs" />
-    <Compile Include="ApplicationSettings\AddonAppSettings.cs" />
+    <Compile Include="Configuration\AddonAppConfig.cs" />
     <Compile Include="BaseAddonCtl.cs">
       <SubType>UserControl</SubType>
     </Compile>

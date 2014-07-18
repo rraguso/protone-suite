@@ -6,7 +6,7 @@ using OPMedia.Core.Logging;
 using OPMedia.Core.TranslationSupport;
 using System.Configuration;
 using OPMedia.Runtime.Addons;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.UI;
 using System.Diagnostics;
 using OPMedia.UI.ProTONE;

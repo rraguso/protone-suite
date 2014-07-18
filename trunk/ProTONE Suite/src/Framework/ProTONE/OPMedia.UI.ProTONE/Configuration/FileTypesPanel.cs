@@ -9,7 +9,7 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Core;
 using OPMedia.Runtime.ProTONE.RemoteControl;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime;
 using OPMedia.UI.Configuration;
 using OPMedia.UI.Controls;
@@ -21,7 +21,7 @@ using System.Windows.Forms.VisualStyles;
 using OPMedia.UI.Generic;
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.Utilities;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
@@ -93,7 +93,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             ActivateShellIntegration();
             this.cbShellIntegration.CheckStateChanged += new System.EventHandler(this.cbShellIntegration_CheckStateChanged);
 
-            this.Enabled = SuiteConfiguration.CurrentUserIsAdministrator;
+            this.Enabled = AppConfig.CurrentUserIsAdministrator;
 
             this.HandleCreated += new EventHandler(FileTypesPanel_HandleCreated);
         }
@@ -141,7 +141,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             try
             {
                 CommandType type = (CommandType)Enum.Parse(typeof(CommandType),
-                    ProTONEAppSettings.ExplorerLaunchType);
+                    ProTONEConfig.ExplorerLaunchType);
 
                 cmbExplorerLaunchType.SelectedItem = new ExplorerLaunchType(type);
             }
@@ -555,9 +555,9 @@ namespace OPMedia.UI.ProTONE.Configuration
             SaveFileTypes(pnlVideoFiles);
             SaveFileTypes(pnlPlaylists);
 
-            ProTONEAppSettings.ExplorerLaunchType =
+            ProTONEConfig.ExplorerLaunchType =
                 (cmbExplorerLaunchType.SelectedItem as ExplorerLaunchType).CommandType.ToString();
-            AppSettings.Save();
+            AppConfig.Save();
 
             SuiteRegistrationSupport.ReloadFileAssociations();
         }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using OPMedia.UI.Wizards;
 using System.IO;
 using OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Tasks;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI.Themes;
 using OPMedia.Core;
@@ -22,7 +22,7 @@ using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.UI.Controls;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.Dialogs;
-using OPMedia.Addons.Builtin.ApplicationSettings;
+using OPMedia.Addons.Builtin.Configuration;
 
 namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
 {
@@ -72,15 +72,15 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
 
         private void OnClearSearchPatternHistory(object sender, EventArgs e)
         {
-            BuiltinAddonSettings.SearchPatterns = string.Empty;
-            AppSettings.Save();
+            BuiltinAddonConfig.SearchPatterns = string.Empty;
+            AppConfig.Save();
             PopulateSearchPattern();
         }
 
         private void OnClearSearchValueHistory(object sender, EventArgs e)
         {
-            BuiltinAddonSettings.SearchTexts = string.Empty;
-            AppSettings.Save();
+            BuiltinAddonConfig.SearchTexts = string.Empty;
+            AppConfig.Save();
             PopulateSearchText();
         }
 
@@ -188,7 +188,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         private void PopulateSearchText()
         {
             cmbSearchText.Items.Clear();
-            string[] fields = StringUtils.ToStringArray(BuiltinAddonSettings.SearchTexts, '?');
+            string[] fields = StringUtils.ToStringArray(BuiltinAddonConfig.SearchTexts, '?');
 
             if (fields != null)
             {
@@ -206,7 +206,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         private void PopulateSearchPattern()
         {
             cmbSearchPattern.Items.Clear();
-            string[] fields = StringUtils.ToStringArray(BuiltinAddonSettings.SearchPatterns, '?');
+            string[] fields = StringUtils.ToStringArray(BuiltinAddonConfig.SearchPatterns, '?');
 
             if (fields != null)
             {
@@ -228,16 +228,16 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         {
             if (txtSearchPath.Text != Translator.Translate("TXT_BROWSE"))
             {
-                BuiltinAddonSettings.SearchPaths = SaveSetting(BuiltinAddonSettings.SearchPaths, txtSearchPath.Text);
+                BuiltinAddonConfig.SearchPaths = SaveSetting(BuiltinAddonConfig.SearchPaths, txtSearchPath.Text);
             }
 
             if (!SearchMediaFilesActive() && !SearchBookmarksActive())
             {
-                BuiltinAddonSettings.SearchPatterns = SaveSetting(BuiltinAddonSettings.SearchPatterns, cmbSearchPattern.Text);
+                BuiltinAddonConfig.SearchPatterns = SaveSetting(BuiltinAddonConfig.SearchPatterns, cmbSearchPattern.Text);
             }
 
-            BuiltinAddonSettings.SearchTexts = SaveSetting(BuiltinAddonSettings.SearchTexts, cmbSearchText.Text);
-            AppSettings.Save();
+            BuiltinAddonConfig.SearchTexts = SaveSetting(BuiltinAddonConfig.SearchTexts, cmbSearchText.Text);
+            AppConfig.Save();
         }
 
         private string SaveSetting(string initialSetting, string settingToAdd)
@@ -627,7 +627,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
 
         private void OnMenuOpening(object sender, CancelEventArgs e)
         {
-            bool playerInstalled = File.Exists(SuiteConfiguration.PlayerInstallationPath);
+            bool playerInstalled = File.Exists(AppConfig.PlayerInstallationPath);
             tsmiSepProTONE.Visible = tsmiProTONEEnqueue.Visible = tsmiProTONEPlay.Visible =
                 playerInstalled;
 

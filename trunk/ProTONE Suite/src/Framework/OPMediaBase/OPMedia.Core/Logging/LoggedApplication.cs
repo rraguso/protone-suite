@@ -9,7 +9,7 @@ using OPMedia.Core.InstanceManagement;
 using System.IO;
 using System.Security.AccessControl;
 using OPMedia.Core.NetworkAccess;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.Core.Logging
 {

@@ -14,8 +14,8 @@ using Microsoft.Win32;
 using OPMedia.UI.Properties;
 using OPMedia.Runtime.ProTONE.Haali;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
-using OPMedia.Core.ApplicationSettings;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Core.Configuration;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -36,7 +36,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
         protected override void SaveInternal()
         {
-            ProTONEAppSettings.SetFavoriteFolders(favoriteFoldersControl.FavoriteFolders,
+            ProTONEConfig.SetFavoriteFolders(favoriteFoldersControl.FavoriteFolders,
                 favoriteFoldersControl.FavoriteFoldersHiveName);
         }
     }

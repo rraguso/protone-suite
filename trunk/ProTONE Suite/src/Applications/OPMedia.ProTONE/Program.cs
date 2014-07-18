@@ -13,7 +13,7 @@ using System.Diagnostics;
 using System.Threading;
 
 using OPMedia.Runtime.Shortcuts;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime;
 
 using OPMedia.Core;
@@ -29,7 +29,7 @@ using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.HelpSupport;
 using System.Drawing;
 using OPMedia.Runtime.ProTONE.Utilities;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.ProTONE
 {
@@ -56,7 +56,7 @@ namespace OPMedia.ProTONE
 
                         ProcessCommandLine(false);
 
-                        Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
+                        Translator.SetInterfaceLanguage(AppConfig.LanguageID);
                         Translator.RegisterTranslationAssembly(typeof(MediaPlayer).Assembly);
                         Translator.RegisterTranslationAssembly(typeof(MainForm).Assembly);
 
@@ -65,7 +65,7 @@ namespace OPMedia.ProTONE
                         Application.Run(mainFrm);
                         mainFrm.Dispose();
 
-                        AppSettings.Save();
+                        AppConfig.Save();
                         ShortcutMapper.Save();
                     }
                     catch (MultipleInstancesException ex)
@@ -108,7 +108,7 @@ namespace OPMedia.ProTONE
                 try
                 {
                     CommandType cmdType = (CommandType)Enum.Parse(typeof(CommandType),
-                        ProTONEAppSettings.ExplorerLaunchType);
+                        ProTONEConfig.ExplorerLaunchType);
 
                     if (SuiteRegistrationSupport.IsContextMenuHandlerRegistered() &&
                         (cmdType == CommandType.PlayFiles || cmdType == CommandType.EnqueueFiles))

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.Logging;
 using System.IO;
 using System.Diagnostics;
@@ -135,7 +135,7 @@ namespace OPMedia.Runtime.Addons.AddonsBase
                     {
                         filesToDelete.Add(asmFile);
 
-                        foreach (CultureInfo ci in SuiteConfiguration.SupportedCultures)
+                        foreach (CultureInfo ci in AppConfig.SupportedCultures)
                         {
                             try
                             {
@@ -212,7 +212,7 @@ namespace OPMedia.Runtime.Addons.AddonsBase
                 {
                     filesToCopy.Add(asm.Location.ToLowerInvariant());
 
-                    foreach (CultureInfo ci in SuiteConfiguration.SupportedCultures)
+                    foreach (CultureInfo ci in AppConfig.SupportedCultures)
                     {
                         try
                         {

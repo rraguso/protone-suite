@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Threading;
 using System.IO;
 using System.Net;
@@ -63,7 +63,7 @@ namespace OPMedia.Core.NetworkAccess
             }
 
             _retriever = new WebClient();
-            _retriever.Proxy = AppSettings.GetWebProxy();
+            _retriever.Proxy = AppConfig.GetWebProxy();
             _retriever.DownloadFile(new Uri(_downloadUrl), _destinationPath);
 
             if (NewFileRetrieved != null)

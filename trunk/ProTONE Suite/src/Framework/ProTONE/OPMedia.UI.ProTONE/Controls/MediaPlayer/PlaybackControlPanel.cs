@@ -19,7 +19,7 @@ using OPMedia.Runtime.Shortcuts;
 
 using OPMedia.UI.Generic;
 using OPMedia.Core.GlobalEvents;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE;
 
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
@@ -30,7 +30,7 @@ using OPMedia.Runtime.ProTONE.Playlists;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Core.Utilities;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
@@ -105,9 +105,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         [EventSink(LocalEventNames.UpdateStateButtons)]
         public void UpdateStateButtons()
         {
-            tsmLoopPlay.Checked = ProTONEAppSettings.LoopPlay;
+            tsmLoopPlay.Checked = ProTONEConfig.LoopPlay;
             tsmPlaylistEnd.Checked = SystemScheduler.PlaylistEventEnabled;
-            tsmToggleShuffle.Checked = ProTONEAppSettings.ShufflePlaylist;
+            tsmToggleShuffle.Checked = ProTONEConfig.ShufflePlaylist;
         }
         
         private void OnButtonPressed(object sender, EventArgs e)

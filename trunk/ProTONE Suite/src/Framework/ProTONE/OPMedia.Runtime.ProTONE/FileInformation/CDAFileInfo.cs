@@ -15,8 +15,8 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.FileInformation;
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.Runtime.ProTONE.Playlists;
-using OPMedia.Core.ApplicationSettings;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Core.Configuration;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -303,7 +303,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         public static CDEntry BuildCdEntryByCddb(CDDrive cd, string diskId)
         {
             // Check the online FreeDB database.
-            using (FreedbHelper fdb = new FreedbHelper(ProTONEAppSettings.CddbServerName, ProTONEAppSettings.CddbServerPort))
+            using (FreedbHelper fdb = new FreedbHelper(ProTONEConfig.CddbServerName, ProTONEConfig.CddbServerPort))
             {
                 string querySegment = cd.GetCDDBQuerySegment();
                 QueryResult qr;
@@ -338,7 +338,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     {
                         if (cd.Open(letter) && cd.Refresh())
                         {
-                            switch (ProTONEAppSettings.AudioCdInfoSource)
+                            switch (ProTONEConfig.AudioCdInfoSource)
                             {
                                 case CddaInfoSource.CdText:
                                     _cdEntry = BuildCdEntryByCdText(cd, _discId);

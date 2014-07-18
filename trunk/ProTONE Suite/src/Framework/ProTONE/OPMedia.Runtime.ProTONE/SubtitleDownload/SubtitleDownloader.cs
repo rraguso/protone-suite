@@ -6,7 +6,7 @@ using OPMedia.Runtime.FileInformation;
 using System.Threading;
 using OPMedia.Core.Logging;
 using OPMedia.Core.NetworkAccess;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.IO.Compression;
 using System.Net;
 using OPMedia.Core;

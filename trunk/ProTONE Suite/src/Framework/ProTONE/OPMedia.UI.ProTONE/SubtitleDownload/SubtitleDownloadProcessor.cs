@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.SubtitleDownload;
 using OPMedia.Runtime.ProTONE.SubtitleDownload.Base;
 using OPMedia.Runtime;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.Logging;
 using System.IO;
 using OPMedia.Core;
@@ -21,7 +21,7 @@ using OPMedia.UI.Controls;
 using OPMedia.Runtime.ProTONE;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using System.Drawing;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.SubtitleDownload
 {
@@ -72,13 +72,13 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
 
         public static bool CanPerformSubtitleDownload(string strFile, int duration)
         {
-            if (duration < ProTONEAppSettings.SubtitleMinimumMovieDuration * 60)
+            if (duration < ProTONEConfig.SubtitleMinimumMovieDuration * 60)
             {
                 // Movie is too short
                 Logger.LogTrace("This movie does not have a subtitle but is shorter than {0} minutes. Not starting download.", 20);
                 return false;
             }
-            if (!ProTONEAppSettings.SubtitleDownloadEnabled)
+            if (!ProTONEConfig.SubtitleDownloadEnabled)
             {
                 // Subtitle download not enabled
                 Logger.LogTrace("This movie does not have a subtitle but online subtitle download is disabled.");
@@ -194,7 +194,7 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
 
                     try
                     {
-                        string[] subtitleDownloadURIs = StringUtils.ToStringArray(ProTONEAppSettings.SubtitleDownloadURIs, '\\');
+                        string[] subtitleDownloadURIs = StringUtils.ToStringArray(ProTONEConfig.SubtitleDownloadURIs, '\\');
                         if (subtitleDownloadURIs != null)
                         {
                             int prio = 1;
@@ -293,7 +293,7 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
 
             Logger.LogTrace("A subtitle was found: {0}, for movie: {1}", subtitleFile, movieFile);
 
-            if (ProTONEAppSettings.SubDownloadedNotificationsEnabled)
+            if (ProTONEConfig.SubDownloadedNotificationsEnabled)
             {
                 MainThread.Post(delegate(object x)
                 {

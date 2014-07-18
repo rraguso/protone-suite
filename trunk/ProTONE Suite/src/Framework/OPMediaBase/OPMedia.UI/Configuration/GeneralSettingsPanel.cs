@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using OPMedia.Runtime;
 using OPMedia.UI.Themes;
@@ -44,7 +44,7 @@ namespace OPMedia.UI.Configuration
 
             #region Languages
 
-            foreach (CultureInfo ci in SuiteConfiguration.SupportedCultures)
+            foreach (CultureInfo ci in AppConfig.SupportedCultures)
             {
                 cmbLanguages.Items.Add(new Language(ci.Name));
             }
@@ -64,8 +64,8 @@ namespace OPMedia.UI.Configuration
             #region Themes
 
             cmbThemes.DataSource = ThemeManager.Themes;
-            cmbThemes.SelectedItem = SuiteConfiguration.SkinType;
-            _initialSkinType = SuiteConfiguration.SkinType;
+            cmbThemes.SelectedItem = AppConfig.SkinType;
+            _initialSkinType = AppConfig.SkinType;
 
             lblSetSkin.Visible = (cmbThemes.Items.Count > 1) ;
             cmbThemes.Visible = (cmbThemes.Items.Count > 1);
@@ -81,7 +81,7 @@ namespace OPMedia.UI.Configuration
 
             labelCopyright.Text = AssemblyInfo.GetCopyright(Assembly.GetEntryAssembly());
 
-            chkAllowAutoUpdates.Checked = SuiteConfiguration.AllowAutomaticUpdates;
+            chkAllowAutoUpdates.Checked = AppConfig.AllowAutomaticUpdates;
             this.chkAllowAutoUpdates.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
         }
 
@@ -106,7 +106,7 @@ namespace OPMedia.UI.Configuration
             string newTheme = cmbThemes.SelectedItem as string;
             if (newTheme != null)
             {
-                SuiteConfiguration.SkinType = newTheme;
+                AppConfig.SkinType = newTheme;
             	Modified = true;
         	}
         }
@@ -118,7 +118,7 @@ namespace OPMedia.UI.Configuration
 
         protected override void DiscardInternal()
         {
-            SuiteConfiguration.SkinType = _initialSkinType;
+            AppConfig.SkinType = _initialSkinType;
         }
 
         protected override void SaveInternal()
@@ -126,10 +126,10 @@ namespace OPMedia.UI.Configuration
             string newID = (cmbLanguages.SelectedItem as Language).ID;
             if (newID != curLangID)
             {
-                SuiteConfiguration.LanguageID = newID;
+                AppConfig.LanguageID = newID;
             }
 
-            SuiteConfiguration.AllowAutomaticUpdates = chkAllowAutoUpdates.Checked;
+            AppConfig.AllowAutomaticUpdates = chkAllowAutoUpdates.Checked;
 
             Modified = false;
         }

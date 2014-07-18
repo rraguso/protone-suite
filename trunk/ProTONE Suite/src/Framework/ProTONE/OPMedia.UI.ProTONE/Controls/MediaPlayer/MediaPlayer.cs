@@ -21,7 +21,7 @@ using OPMedia.Core;
 using OPMedia.Runtime.Shortcuts;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.UI.Themes;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 
 using OPMedia.Runtime.ProTONE.Playlists;
 using OPMedia.UI.ProTONE.Dialogs;
@@ -45,7 +45,7 @@ using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 using System.Net;
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.RemoteControl;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -286,7 +286,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             if (!DesignMode)
             {
-                pnlRendering.ProjectedVolume = ProTONEAppSettings.LastVolume;
+                pnlRendering.ProjectedVolume = ProTONEConfig.LastVolume;
                 SetVolume(pnlRendering.ProjectedVolume);
             }
         }
@@ -328,7 +328,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             MediaRenderer.DefaultInstance.DisplayOsdMessage(text);
 
-            if (ProTONEAppSettings.MediaStateNotificationsEnabled)
+            if (ProTONEConfig.MediaStateNotificationsEnabled)
             {
                 TrayNotificationBox f = new TrayNotificationBox();
                 f.HideDelay = 6000;
@@ -364,9 +364,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void OnMediaRendererHeartbeat()
         {
-            if (pnlRendering.ProjectedVolume != ProTONEAppSettings.LastVolume)
+            if (pnlRendering.ProjectedVolume != ProTONEConfig.LastVolume)
             {
-                pnlRendering.ProjectedVolume = ProTONEAppSettings.LastVolume;
+                pnlRendering.ProjectedVolume = ProTONEConfig.LastVolume;
             }
 
             pnlRendering.ElapsedSeconds = (int)(MediaRenderer.DefaultInstance.MediaPosition);
@@ -530,10 +530,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             
             dlg.Filter = filter;
 
-            dlg.FilterIndex = ProTONEAppSettings.LastFilterIndex;
-            dlg.InitialDirectory = ProTONEAppSettings.LastOpenedFolder;
+            dlg.FilterIndex = ProTONEConfig.LastFilterIndex;
+            dlg.InitialDirectory = ProTONEConfig.LastOpenedFolder;
 
-            dlg.FillFavoriteFoldersEvt += () => { return ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
             dlg.ShowAddToFavorites = true;
 
@@ -560,28 +560,28 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 else
                     LoadFiles(dlg.FileNames);
 
-                ProTONEAppSettings.LastFilterIndex = dlg.FilterIndex;
+                ProTONEConfig.LastFilterIndex = dlg.FilterIndex;
 
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileNames[0]);
-                    ProTONEAppSettings.LastOpenedFolder = fi.DirectoryName;
+                    ProTONEConfig.LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    ProTONEAppSettings.LastOpenedFolder = dlg.InitialDirectory;
+                    ProTONEConfig.LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
 
         private bool AddToFavoriteFolders(string path)
         {
-            List<string> favorites = new List<string>(ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"));
+            List<string> favorites = new List<string>(ProTONEConfig.GetFavoriteFolders("FavoriteFolders"));
             if (favorites.Contains(path))
                 return false;
 
             favorites.Add(path);
-            ProTONEAppSettings.SetFavoriteFolders(favorites, "FavoriteFolders");
+            ProTONEConfig.SetFavoriteFolders(favorites, "FavoriteFolders");
             return true;
         }
 
@@ -707,19 +707,19 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void SetVolume(double volume)
         {
-            ProTONEAppSettings.LastVolume = (int)volume;
+            ProTONEConfig.LastVolume = (int)volume;
             if (MediaRenderer.DefaultInstance.RenderedMediaType != MediaTypes.Video &&
                 MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped)
             {
                 MediaRenderer.DefaultInstance.AudioVolume = (int)volume;
                 MediaRenderer.DefaultInstance.DisplayOsdMessage(Translator.Translate("TXT_OSD_VOL", (int)volume / 100));
 
-                MediaRenderer.DefaultInstance.AudioBalance = ProTONEAppSettings.LastBalance;
+                MediaRenderer.DefaultInstance.AudioBalance = ProTONEConfig.LastBalance;
             }
 
-            if (pnlRendering.ProjectedVolume != ProTONEAppSettings.LastVolume)
+            if (pnlRendering.ProjectedVolume != ProTONEConfig.LastVolume)
             {
-                pnlRendering.ProjectedVolume = ProTONEAppSettings.LastVolume;
+                pnlRendering.ProjectedVolume = ProTONEConfig.LastVolume;
             }
         }
 

@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
 using OPMedia.Runtime.ProTONE.SubtitleDownload.Base;
@@ -75,7 +75,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
         protected override void DoInitializeSession()
         {
             Logger.LogHeavyTrace("OsdbSession: creating OSDB server connection ...");
-            _client = new OsdbConnection(_serverUrl, AppSettings.ProxySettings);
+            _client = new OsdbConnection(_serverUrl, AppConfig.ProxySettings);
         }
 
         protected override void DoTestConnection()
@@ -116,7 +116,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
 
         protected override double GetKeepAliveInterval()
         {
-            return AppSettings.KeepAliveInterval;
+            return AppConfig.KeepAliveInterval;
         }
 
         protected override void DoKeepAliveSession()
@@ -194,7 +194,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
             string downloadPath = Path.ChangeExtension(fileName, "gz");
 
             bool downloaded = false;
-            using (WebFileRetriever wfr = new WebFileRetriever(AppSettings.ProxySettings,
+            using (WebFileRetriever wfr = new WebFileRetriever(AppConfig.ProxySettings,
                 subtitle.SubDownloadLink, downloadPath, false))
             {
                 downloaded = true;

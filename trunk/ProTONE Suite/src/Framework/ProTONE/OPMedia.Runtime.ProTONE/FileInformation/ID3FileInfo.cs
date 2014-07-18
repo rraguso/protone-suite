@@ -19,8 +19,8 @@ using OPMedia.Runtime.FileInformation;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Runtime.ProTONE.Rendering;
 using System.Threading;
-using OPMedia.Core.ApplicationSettings;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Core.Configuration;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -452,7 +452,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                             new Bookmark("default", (int)resumePosition));
 
                         MediaRenderer.DefaultInstance.StartRendererWithHint(hint);
-                        MediaRenderer.DefaultInstance.AudioVolume = ProTONEAppSettings.LastVolume;
+                        MediaRenderer.DefaultInstance.AudioVolume = ProTONEConfig.LastVolume;
                     }
                 }
             }

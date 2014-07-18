@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using OPMedia.UI.Themes;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.UI.Properties;
 
 namespace OPMedia.UI.Configuration
@@ -40,13 +40,13 @@ namespace OPMedia.UI.Configuration
 
         private void NetworkSettingsPanel_Load(object sender, EventArgs e)
         {
-            ctlProxy.ProxySettings = AppSettings.ProxySettings;
+            ctlProxy.ProxySettings = AppConfig.ProxySettings;
         }
 
         protected override void SaveInternal()
         {
-            AppSettings.ProxySettings = ctlProxy.ProxySettings;
-            AppSettings.Save();
+            AppConfig.ProxySettings = ctlProxy.ProxySettings;
+            AppConfig.Save();
         }
 
         

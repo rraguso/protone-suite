@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using OPMedia.Core.GlobalEvents;
 using System.Net;
 using OPMedia.Core.Logging;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.UI.HelpSupport
 {
@@ -106,7 +107,7 @@ namespace OPMedia.UI.HelpSupport
                         else if (docLines[i].ToLowerInvariant().Contains("<img"))
                         {
                             docLines[i] = docLines[i].ToLowerInvariant().Replace("src=\"images", string.Format("src=\"{0}\\docs\\images", 
-                                SuiteConfiguration.InstallationPath));
+                                AppConfig.InstallationPath));
                         }
 
                         sb.AppendLine(docLines[i]);
@@ -140,7 +141,7 @@ namespace OPMedia.UI.HelpSupport
                             else if (docLines[i].ToLowerInvariant().Contains("<img"))
                             {
                                 docLines[i] = docLines[i].ToLowerInvariant().Replace("src=\"images", string.Format("src=\"{0}/images",
-                                    SuiteConfiguration.HelpUriBase));
+                                    AppConfig.HelpUriBase));
                             }
 
                             sb.AppendLine(docLines[i]);

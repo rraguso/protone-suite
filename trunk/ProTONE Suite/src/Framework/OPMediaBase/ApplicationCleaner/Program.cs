@@ -10,6 +10,7 @@ using OPMedia.Core;
 using OPMedia.UI.Dialogs;
 using OPMedia.UI.Themes;
 using OPMedia.Core.InstanceManagement;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.Utility
 {
@@ -32,7 +33,7 @@ namespace OPMedia.Utility
             {
                 Translator.RegisterTranslationAssembly(typeof(MainForm).Assembly);
                 Translator.RegisterTranslationAssembly(typeof(ThemeForm).Assembly);
-                Translator.SetInterfaceLanguage(SuiteConfiguration.InstallLanguageID);
+                Translator.SetInterfaceLanguage(AppConfig.InstallLanguageID);
 
                 MainForm frm = new MainForm(_launchFromUninstaller);
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -60,7 +61,7 @@ namespace OPMedia.Utility
             }
             else
             {
-                Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
+                Translator.SetInterfaceLanguage(AppConfig.LanguageID);
 
                 LoggedApplication.Start(Constants.UtilityName);
                 Application.Run(LogFileConsoleDialog.ShowLogConsole(true));

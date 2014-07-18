@@ -7,7 +7,7 @@ using OPMedia.UI.Themes;
 using OPMedia.Runtime.Addons;
 using OPMedia.UI.ProTONE.Configuration;
 using System.Windows.Forms;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.Logging;
 using OPMedia.Core;
 using OPMedia.UI.ProTONE.Controls.MediaPlayer;
@@ -63,7 +63,7 @@ namespace OPMedia.MediaLibrary
                     Translator.SetInterfaceLanguage(cmdLineArgs[2]);
 
                     AddonsConfig.IsInitialConfig = true;
-                    SuiteConfiguration.SkinType = string.Empty;
+                    AppConfig.SkinType = string.Empty;
 
                     try
                     {
@@ -75,11 +75,11 @@ namespace OPMedia.MediaLibrary
                 }
                 else
                 {
-                    Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
+                    Translator.SetInterfaceLanguage(AppConfig.LanguageID);
                     Application.Run(new MediaLibraryForm());
                 }
 
-                AppSettings.Save();
+                AppConfig.Save();
             }
             catch (Exception ex)
             {

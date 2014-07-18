@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Wizards;
 using System.IO;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI.Themes;
 using OPMedia.Core;
@@ -19,7 +19,7 @@ using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.UI.Controls;
 using OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer;
 using OPMedia.Addons.Builtin.Navigation.CatalogExplorer.Dialogs;
-using OPMedia.Addons.Builtin.ApplicationSettings;
+using OPMedia.Addons.Builtin.Configuration;
 
 namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
 {
@@ -79,15 +79,15 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
 
         private void OnClearSearchPatternHistory(object sender, EventArgs e)
         {
-            BuiltinAddonSettings.SearchPatternsMC = string.Empty;
-            AppSettings.Save();
+            BuiltinAddonConfig.SearchPatternsMC = string.Empty;
+            AppConfig.Save();
             PopulateSearchPattern();
         }
 
         private void OnClearSearchValueHistory(object sender, EventArgs e)
         {
-            BuiltinAddonSettings.SearchTextsMC = string.Empty;
-            AppSettings.Save();
+            BuiltinAddonConfig.SearchTextsMC = string.Empty;
+            AppConfig.Save();
             PopulateSearchText();
         }
 
@@ -126,7 +126,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
         private void PopulateSearchText()
         {
             cmbSearchText.Items.Clear();
-            cmbSearchText.Items.AddRange(BuiltinAddonSettings.SearchTextsMC.Split(
+            cmbSearchText.Items.AddRange(BuiltinAddonConfig.SearchTextsMC.Split(
                 "?".ToCharArray()));
 
             if (!cmbSearchText.Items.Contains(theTask.SearchText))
@@ -138,7 +138,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
         private void PopulateSearchPattern()
         {
             cmbSearchPattern.Items.Clear();
-            cmbSearchPattern.Items.AddRange(BuiltinAddonSettings.SearchPatternsMC.Split(
+            cmbSearchPattern.Items.AddRange(BuiltinAddonConfig.SearchPatternsMC.Split(
                 "?".ToCharArray()));
 
             if (!cmbSearchPattern.Items.Contains(theTask.SearchPattern))
@@ -149,9 +149,9 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
 
         private void SaveSearchSettings()
         {
-            BuiltinAddonSettings.SearchPatternsMC = SaveSetting(BuiltinAddonSettings.SearchPatternsMC, cmbSearchPattern.Text);
-            BuiltinAddonSettings.SearchTextsMC = SaveSetting(BuiltinAddonSettings.SearchTextsMC, cmbSearchText.Text);
-            AppSettings.Save();
+            BuiltinAddonConfig.SearchPatternsMC = SaveSetting(BuiltinAddonConfig.SearchPatternsMC, cmbSearchPattern.Text);
+            BuiltinAddonConfig.SearchTextsMC = SaveSetting(BuiltinAddonConfig.SearchTextsMC, cmbSearchText.Text);
+            AppConfig.Save();
         }
 
         private string SaveSetting(string initialSetting, string settingToAdd)
@@ -287,7 +287,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
 
         private void OnMenuOpening(object sender, CancelEventArgs e)
         {
-            bool playerInstalled = File.Exists(SuiteConfiguration.PlayerInstallationPath);
+            bool playerInstalled = File.Exists(AppConfig.PlayerInstallationPath);
             tsmiSepProTONE.Visible = tsmiProTONEEnqueue.Visible = tsmiProTONEPlay.Visible =
                 playerInstalled;
 

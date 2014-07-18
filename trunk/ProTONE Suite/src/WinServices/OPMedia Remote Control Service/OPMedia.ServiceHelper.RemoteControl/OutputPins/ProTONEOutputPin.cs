@@ -10,6 +10,7 @@ using OPMedia.Runtime.ProTONE.RemoteControl;
 using OPMedia.Runtime;
 using OPMedia.Runtime.ProTONE;
 using System.Configuration;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.ServiceHelper.RCCService.OutputPins
 {
@@ -38,7 +39,7 @@ namespace OPMedia.ServiceHelper.RCCService.OutputPins
 
         protected override void StartInternal()
         {
-            string playerLocation = SuiteConfiguration.PlayerInstallationPath;
+            string playerLocation = AppConfig.PlayerInstallationPath;
             if (string.IsNullOrEmpty(playerLocation) || !File.Exists(playerLocation))
                 throw new ConfigurationErrorsException("ProTONEOutputPin: ProTONE Player not installed.");
         }

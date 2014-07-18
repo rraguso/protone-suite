@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using OPMedia.UI.Themes;
 using OPMedia.UI.Dialogs;
 using OPMedia.Core.NetworkAccess;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using System.IO;
 using System.Diagnostics;
@@ -52,12 +52,12 @@ namespace OPMedia.UI.ApplicationUpdate
         private void StartDownload()
         {
             string file = string.Format("{0} {1}.exe", Constants.SuiteName, _version);
-            string fileUri = SuiteConfiguration.DownloadUriBase + "/" + file;
+            string fileUri = AppConfig.DownloadUriBase + "/" + file;
             string tempFile = Path.Combine(Path.GetTempPath(), file);
 
             Logger.LogInfo("Downloading update file from {0} ...", fileUri);
 
-            _wfr = new WebFileRetriever(AppSettings.ProxySettings, fileUri, tempFile, true);
+            _wfr = new WebFileRetriever(AppConfig.ProxySettings, fileUri, tempFile, true);
             _wfr.NewFileRetrieved += new NewFileRetrievedEventHandler(OnDownloadComplete);
         }
 

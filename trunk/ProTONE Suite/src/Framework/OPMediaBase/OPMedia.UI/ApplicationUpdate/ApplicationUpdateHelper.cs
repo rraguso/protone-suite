@@ -7,7 +7,7 @@ using OPMedia.Core.GlobalEvents;
 using System.Threading;
 using System.IO;
 using OPMedia.Core.NetworkAccess;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.Logging;
 using System.Windows.Forms;
 using OPMedia.Core.TranslationSupport;
@@ -29,7 +29,7 @@ namespace OPMedia.UI.ApplicationUpdate
         {
             EventDispatch.RegisterHandler(this);
 
-            if (SuiteConfiguration.AllowAutomaticUpdates)
+            if (AppConfig.AllowAutomaticUpdates)
             {
                 ThreadPool.QueueUserWorkItem(new WaitCallback(DetectUpdates), true);
             }
@@ -38,14 +38,14 @@ namespace OPMedia.UI.ApplicationUpdate
         private void DetectUpdates(object state)
         {
             string versionFile = "/Versions.txt";
-            string versionFileUri = SuiteConfiguration.DownloadUriBase + versionFile;
+            string versionFileUri = AppConfig.DownloadUriBase + versionFile;
             string tempVersionFile = Path.GetTempFileName();
 
             WebFileRetriever retriever = null;
 
             try
             {
-                retriever = new WebFileRetriever(AppSettings.ProxySettings, versionFileUri, tempVersionFile, false);
+                retriever = new WebFileRetriever(AppConfig.ProxySettings, versionFileUri, tempVersionFile, false);
                 StringBuilder sb = new StringBuilder();
 
                 if (Kernel32.GetPrivateProfileString(Constants.SuiteName, "Version", "1.0.0.0", sb, 255, tempVersionFile) > 0)
@@ -102,7 +102,7 @@ namespace OPMedia.UI.ApplicationUpdate
 
             if (addCheck)
             {
-                SuiteConfiguration.AllowAutomaticUpdates = false;
+                AppConfig.AllowAutomaticUpdates = false;
             }
 
             if (dlgRes == DialogResult.Yes)

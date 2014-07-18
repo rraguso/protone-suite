@@ -9,7 +9,7 @@ using OPMedia.Runtime.ProTONE.Rendering.SHOUTCast;
 using OPMedia.Core;
 using OPMedia.Runtime.ProTONE.Rendering;
 using System.Net;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.NetworkAccess;
 
 namespace OPMedia.RemoteControlEmulator

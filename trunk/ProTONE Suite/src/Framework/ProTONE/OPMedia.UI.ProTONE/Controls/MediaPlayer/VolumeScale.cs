@@ -17,7 +17,7 @@ using System.Windows.Forms;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI.Controls;
 using System.Windows.Forms.Design;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Runtime.ProTONE.Rendering.Base;
 
@@ -26,7 +26,7 @@ using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Core;
 
 using OPMedia.UI.Themes;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 #endregion
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
@@ -189,7 +189,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             if (!DesignMode)
             {
                 VolumeScale.Enabled = (MediaRenderer.DefaultInstance.RenderedMediaType != MediaTypes.Video);
-                VolumeScale.Position = ProTONEAppSettings.LastVolume;
+                VolumeScale.Position = ProTONEConfig.LastVolume;
             }
         }
 

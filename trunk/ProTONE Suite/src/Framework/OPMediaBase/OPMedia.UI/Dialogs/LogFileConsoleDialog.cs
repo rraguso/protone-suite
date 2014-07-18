@@ -10,7 +10,7 @@ using OPMedia.UI.Controls;
 using System.IO;
 using OPMedia.UI.Properties;
 using OPMedia.Core.Logging;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Core.GlobalEvents;
@@ -152,13 +152,13 @@ namespace OPMedia.UI.Dialogs
             tsbErrors.CheckedChanged -= new System.EventHandler(this.OnSettingsChanged);
             cmbLogLineCount.SelectedIndexChanged -= new System.EventHandler(this.OnSettingsChanged);
 
-            tsbErrors.Checked = AppSettings.FilterErrorLevelEnabled;
-            tsbInfo.Checked = AppSettings.FilterInfoLevelEnabled;
-            tsbTraces.Checked = AppSettings.FilterTraceLevelEnabled;
-            tsbWarnings.Checked = AppSettings.FilterWarningLevelEnabled;
+            tsbErrors.Checked = AppConfig.FilterErrorLevelEnabled;
+            tsbInfo.Checked = AppConfig.FilterInfoLevelEnabled;
+            tsbTraces.Checked = AppConfig.FilterTraceLevelEnabled;
+            tsbWarnings.Checked = AppConfig.FilterWarningLevelEnabled;
 
             string text = string.Empty;
-            int logLinesCount = AppSettings.FilterLogLinesCount;
+            int logLinesCount = AppConfig.FilterLogLinesCount;
             if (logLinesCount > 0 && logLinesCount <= 200)
             {
                 text = logLinesCount.ToString();
@@ -340,22 +340,22 @@ namespace OPMedia.UI.Dialogs
 
         private void OnSettingsChanged(object sender, EventArgs e)
         {
-            AppSettings.FilterErrorLevelEnabled = tsbErrors.Checked;
-            AppSettings.FilterInfoLevelEnabled = tsbInfo.Checked;
-            AppSettings.FilterTraceLevelEnabled = tsbTraces.Checked;
-            AppSettings.FilterWarningLevelEnabled = tsbWarnings.Checked;
+            AppConfig.FilterErrorLevelEnabled = tsbErrors.Checked;
+            AppConfig.FilterInfoLevelEnabled = tsbInfo.Checked;
+            AppConfig.FilterTraceLevelEnabled = tsbTraces.Checked;
+            AppConfig.FilterWarningLevelEnabled = tsbWarnings.Checked;
 
             _logLineCount = 0;
             if (int.TryParse(cmbLogLineCount.Text, out _logLineCount))
             {
-                AppSettings.FilterLogLinesCount = _logLineCount;
+                AppConfig.FilterLogLinesCount = _logLineCount;
             }
             else
             {
-                AppSettings.FilterLogLinesCount = 500;
+                AppConfig.FilterLogLinesCount = 500;
             }
 
-            AppSettings.Save();
+            AppConfig.Save();
 
             ReadLogFile();
         }

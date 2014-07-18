@@ -11,7 +11,7 @@ using System.Reflection;
 using OPMedia.UI.Controls;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI.Themes;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using OPMedia.UI.Properties;
 using OPMedia.UI.HelpSupport;

@@ -10,7 +10,7 @@ using OPMedia.Core;
 using System.Configuration;
 
 using OPMedia.Runtime.ProTONE.Rendering;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.Rendering.Base;
 
 using OPMedia.UI.Themes;
@@ -68,7 +68,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 _settingFullScreenState = false;
                 _fullScreen = (WindowState == FormWindowState.Maximized);
 
-                AppSettings.FullScreenOn = _fullScreen;
+                AppConfig.FullScreenOn = _fullScreen;
 
                 _osdShowTimer.Stop();
                 _osdShowTimer.Start();
@@ -85,10 +85,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             if (Visible)
             {
                 // Need to apply windows position in order to preserve monitor affinity
-                this.Location = AppSettings.DetachedWindowLocation;
-                this.Size = AppSettings.DetachedWindowSize;
+                this.Location = AppConfig.DetachedWindowLocation;
+                this.Size = AppConfig.DetachedWindowSize;
 
-                if (AppSettings.FullScreenOn)
+                if (AppConfig.FullScreenOn)
                 {
                     if (!_fullScreen)
                         SetFullScreen(true, false);
@@ -100,20 +100,20 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
             else
             {
-                AppSettings.DetachedWindowLocation = this.Location;
-                AppSettings.DetachedWindowSize = this.Size;
-                AppSettings.DetachedWindowState = this.WindowState;
+                AppConfig.DetachedWindowLocation = this.Location;
+                AppConfig.DetachedWindowSize = this.Size;
+                AppConfig.DetachedWindowState = this.WindowState;
             }
         }
 
         void RenderingFrame_FormClosing(object sender, FormClosingEventArgs e)
         {
-            AppSettings.FullScreenOn = _fullScreen;
+            AppConfig.FullScreenOn = _fullScreen;
             if (!_fullScreen)
             {
-                AppSettings.DetachedWindowLocation = this.Location;
-                AppSettings.DetachedWindowSize = this.Size;
-                AppSettings.DetachedWindowState = this.WindowState;
+                AppConfig.DetachedWindowLocation = this.Location;
+                AppConfig.DetachedWindowSize = this.Size;
+                AppConfig.DetachedWindowState = this.WindowState;
             }
         }
 
@@ -130,10 +130,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 // Save position before entring full screen if told so
                 if (persistWindowState)
                 {
-                    AppSettings.DetachedWindowLocation = this.Location;
-                    AppSettings.DetachedWindowSize = this.Size;
-                    AppSettings.DetachedWindowState = FormWindowState.Normal;
-                    AppSettings.Save();
+                    AppConfig.DetachedWindowLocation = this.Location;
+                    AppConfig.DetachedWindowSize = this.Size;
+                    AppConfig.DetachedWindowState = FormWindowState.Normal;
+                    AppConfig.Save();
                 }
 
                 this.WindowState = FormWindowState.Maximized;
@@ -141,8 +141,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             else
             {
                 this.WindowState = FormWindowState.Normal;
-                this.Location = AppSettings.DetachedWindowLocation;
-                this.Size = AppSettings.DetachedWindowSize;
+                this.Location = AppConfig.DetachedWindowLocation;
+                this.Size = AppConfig.DetachedWindowSize;
             }
 
         }
@@ -178,8 +178,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public void OnRestoreRenderingRegionPosition()
         {
             this.WindowState = FormWindowState.Normal;
-            this.Location = AppSettings.DetachedWindowLocation;
-            this.Size = AppSettings.DetachedWindowSize;
+            this.Location = AppConfig.DetachedWindowLocation;
+            this.Size = AppConfig.DetachedWindowSize;
             SetFullScreen(false, false);
         }
 

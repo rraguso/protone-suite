@@ -14,12 +14,12 @@ using OPMedia.Core;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks;
 using OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.UI.Controls;
 using TagLib;
 using System.Threading;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
 {
@@ -197,7 +197,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
 
                             if (cdEntry == null)
                             {
-                                switch (ProTONEAppSettings.AudioCdInfoSource)
+                                switch (ProTONEConfig.AudioCdInfoSource)
                                 {
                                     case CddaInfoSource.CdText:
                                         cdEntry = CDAFileInfo.BuildCdEntryByCdText(cd, cd.GetCDDBDiskID());

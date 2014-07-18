@@ -11,7 +11,7 @@ using System.Drawing.Text;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime;
 using OPMedia.UI.Controls;
 using OPMedia.Runtime.Shortcuts;
@@ -467,7 +467,7 @@ namespace OPMedia.UI.Themes
             PersistState();
             PersistPosition();
 
-            AppSettings.Save();
+            AppConfig.Save();
         }
 
         void OnShown(object sender, EventArgs e)
@@ -488,7 +488,7 @@ namespace OPMedia.UI.Themes
 
         protected void ConcealWindow()
         {
-            if (AppSettings.CanSendToTray)
+            if (AppConfig.CanSendToTray)
             {
                 PersistPosition();
                 //PersistState();
@@ -525,8 +525,8 @@ namespace OPMedia.UI.Themes
 
             if (Visible && this.WindowState == FormWindowState.Normal)
             {
-                AppSettings.WindowLocation = this.Location;
-                AppSettings.WindowSize = this.Size;
+                AppConfig.WindowLocation = this.Location;
+                AppConfig.WindowSize = this.Size;
             }
         }
 
@@ -536,7 +536,7 @@ namespace OPMedia.UI.Themes
 
             if (Visible)
             {
-                AppSettings.WindowState = this.WindowState;
+                AppConfig.WindowState = this.WindowState;
             }
         }
 
@@ -544,7 +544,7 @@ namespace OPMedia.UI.Themes
         {
             if (!_trayStateRestored) return;
 
-            AppSettings.MimimizedToTray = !Visible;
+            AppConfig.MimimizedToTray = !Visible;
         }
 
         bool _positionRestored = false;
@@ -553,8 +553,8 @@ namespace OPMedia.UI.Themes
             if (Visible && WindowState == FormWindowState.Normal)
             {
                 bool isInAnyVisibleScreen = false;
-                Point restoreLocation = AppSettings.WindowLocation;
-                Size restoreSize = AppSettings.WindowSize;
+                Point restoreLocation = AppConfig.WindowLocation;
+                Size restoreSize = AppConfig.WindowSize;
 
                 foreach (Screen scr in Screen.AllScreens)
                 {
@@ -591,7 +591,7 @@ namespace OPMedia.UI.Themes
         {
             if (Visible)
             {
-                this.WindowState = AppSettings.WindowState;
+                this.WindowState = AppConfig.WindowState;
             }
 
             _stateRestored = true;
@@ -600,7 +600,7 @@ namespace OPMedia.UI.Themes
         bool _trayStateRestored = false;
         protected void RestoreTrayState()
         {
-            if (AppSettings.MimimizedToTray)
+            if (AppConfig.MimimizedToTray)
                 Hide();
             else
                 Show();

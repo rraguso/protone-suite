@@ -7,40 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Configuration;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.UI.Controls;
 using OPMedia.Runtime.ProTONE;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.Runtime.ProTONE.Rendering;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
     public partial class SubtitleOsdPage : BaseCfgPanel
     {
-        Font _osdFont = ProTONEAppSettings.OsdFont;
-        Color _osdColor = ProTONEAppSettings.OsdColor;
-        bool _osdEnabled = ProTONEAppSettings.OsdEnabled;
-        int _osdTimer = ProTONEAppSettings.OsdPersistTimer;
+        Font _osdFont = ProTONEConfig.OsdFont;
+        Color _osdColor = ProTONEConfig.OsdColor;
+        bool _osdEnabled = ProTONEConfig.OsdEnabled;
+        int _osdTimer = ProTONEConfig.OsdPersistTimer;
 
-        Font _subFont = ProTONEAppSettings.SubFont;
-        Color _subColor = ProTONEAppSettings.SubColor;
-        bool _subEnabled = ProTONEAppSettings.SubEnabled;
+        Font _subFont = ProTONEConfig.SubFont;
+        Color _subColor = ProTONEConfig.SubColor;
+        bool _subEnabled = ProTONEConfig.SubEnabled;
 
 
         protected override void SaveInternal()
         {
-            ProTONEAppSettings.SubEnabled = _subEnabled;
-            ProTONEAppSettings.SubFont = _subFont;
-            ProTONEAppSettings.SubColor = _subColor;
+            ProTONEConfig.SubEnabled = _subEnabled;
+            ProTONEConfig.SubFont = _subFont;
+            ProTONEConfig.SubColor = _subColor;
 
-            ProTONEAppSettings.OsdEnabled = _osdEnabled;
-            ProTONEAppSettings.OsdFont = _osdFont;
-            ProTONEAppSettings.OsdColor = _osdColor;
+            ProTONEConfig.OsdEnabled = _osdEnabled;
+            ProTONEConfig.OsdFont = _osdFont;
+            ProTONEConfig.OsdColor = _osdColor;
 
-            ProTONEAppSettings.OsdPersistTimer = _osdTimer;
+            ProTONEConfig.OsdPersistTimer = _osdTimer;
 
-            ProTONEAppSettings.MediaStateNotificationsEnabled = chkFilterStateNotificationsEnabled.Checked;
+            ProTONEConfig.MediaStateNotificationsEnabled = chkFilterStateNotificationsEnabled.Checked;
 
             // Tell FFDShow to reload subtitle and OSD settings
             MediaRenderer.DefaultInstance.ReloadFfdShowSettings();
@@ -72,7 +72,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             chkOsdEnabled.CheckedChanged += new EventHandler(chkOsdEnabled_CheckedChanged);
             nudOsdTmr.ValueChanged += new EventHandler(nudOsdTmr_ValueChanged);
 
-            chkFilterStateNotificationsEnabled.Checked = ProTONEAppSettings.MediaStateNotificationsEnabled;
+            chkFilterStateNotificationsEnabled.Checked = ProTONEConfig.MediaStateNotificationsEnabled;
             chkFilterStateNotificationsEnabled.CheckedChanged += new EventHandler(chkFilterStateNotificationsEnabled_CheckedChanged);
 
             this.chkSubEnabled.CheckedChanged += new System.EventHandler(this.chkSubEnabled_CheckedChanged);
