@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.Addons.Configuration;
 using OPMedia.UI.ProTONE.Configuration.MiscConfig;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
@@ -75,7 +76,7 @@ namespace OPMedia.UI.ProTONE.Configuration
         public override List<BaseCfgPanel> GetControlSubPages()
         {
             if (!SuiteConfiguration.CurrentUserIsAdministrator ||
-                !SuiteConfiguration.IsRCCServiceInstalled)
+                !ProTONEAppSettings.IsRCCServiceInstalled)
                 return null;
 
             return new List<BaseCfgPanel> 

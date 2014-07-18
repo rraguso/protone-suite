@@ -22,6 +22,7 @@ using System.Runtime.InteropServices.ComTypes;
 using OPMedia.ShellSupport.Properties;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Core.Utilities;
+using OPMedia.Runtime.ProTONE.Utilities;
 
 
 namespace OPMedia.ShellSupport

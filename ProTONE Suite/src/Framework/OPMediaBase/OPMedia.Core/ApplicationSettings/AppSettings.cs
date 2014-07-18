@@ -59,11 +59,11 @@ namespace OPMedia.Core.ApplicationSettings
         }
     }
 
-    public static class AppSettings
+    public class AppSettings
     {
         private static ConfigFileManager _config = null;
 
-        static AppSettings()
+        public AppSettings()
         {
             _config = new ConfigFileManager(ApplicationInfo.SettingsFile);
         }

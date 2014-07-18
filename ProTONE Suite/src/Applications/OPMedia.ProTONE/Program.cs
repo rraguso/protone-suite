@@ -28,6 +28,7 @@ using OPMedia.Core.Utilities;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.HelpSupport;
 using System.Drawing;
+using OPMedia.Runtime.ProTONE.Utilities;
 
 namespace OPMedia.ProTONE
 {

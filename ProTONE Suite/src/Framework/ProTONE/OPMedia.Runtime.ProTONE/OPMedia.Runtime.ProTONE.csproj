@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationSettings\ProTONEAppSettings.cs" />
     <Compile Include="Compression\LameEncoder.cs" />
     <Compile Include="DirectX\DirectXConfig.cs" />
     <Compile Include="ExtendedInfo\ID3ArtworkInfo.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="SubtitleDownload\Osdb\OsdbStructs.cs" />
     <Compile Include="SubtitleDownload\SubtitleDownloader.cs" />
     <Compile Include="SystemScheduler.cs" />
+    <Compile Include="Utilities\SuiteRegistrationSupport.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OPMediaBase\OPMedia.Core\OPMedia.Core.csproj">

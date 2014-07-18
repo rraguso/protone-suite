@@ -71,7 +71,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\SuiteRegistrationSupport.cs" />
     <Compile Include="Utilities\HelperClasses.cs" />
     <Compile Include="Version.cs" />
     <Compile Include="Win32\Gdi32.cs" />
