@@ -14,6 +14,7 @@ using System.Collections;
 using System.IO;
 using OPMedia.Core.NetworkAccess;
 using System.IO.Compression;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
 {
@@ -116,7 +117,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
 
         protected override double GetKeepAliveInterval()
         {
-            return AppConfig.KeepAliveInterval;
+            return ProTONEConfig.KeepAliveInterval;
         }
 
         protected override void DoKeepAliveSession()

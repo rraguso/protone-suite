@@ -19,6 +19,7 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Core.Logging;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.Core.GlobalEvents;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
@@ -68,7 +69,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 _settingFullScreenState = false;
                 _fullScreen = (WindowState == FormWindowState.Maximized);
 
-                AppConfig.FullScreenOn = _fullScreen;
+                ProTONEConfig.FullScreenOn = _fullScreen;
 
                 _osdShowTimer.Stop();
                 _osdShowTimer.Start();
@@ -85,10 +86,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             if (Visible)
             {
                 // Need to apply windows position in order to preserve monitor affinity
-                this.Location = AppConfig.DetachedWindowLocation;
-                this.Size = AppConfig.DetachedWindowSize;
+                this.Location = ProTONEConfig.DetachedWindowLocation;
+                this.Size = ProTONEConfig.DetachedWindowSize;
 
-                if (AppConfig.FullScreenOn)
+                if (ProTONEConfig.FullScreenOn)
                 {
                     if (!_fullScreen)
                         SetFullScreen(true, false);
@@ -100,20 +101,20 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
             else
             {
-                AppConfig.DetachedWindowLocation = this.Location;
-                AppConfig.DetachedWindowSize = this.Size;
-                AppConfig.DetachedWindowState = this.WindowState;
+                ProTONEConfig.DetachedWindowLocation = this.Location;
+                ProTONEConfig.DetachedWindowSize = this.Size;
+                ProTONEConfig.DetachedWindowState = this.WindowState;
             }
         }
 
         void RenderingFrame_FormClosing(object sender, FormClosingEventArgs e)
         {
-            AppConfig.FullScreenOn = _fullScreen;
+            ProTONEConfig.FullScreenOn = _fullScreen;
             if (!_fullScreen)
             {
-                AppConfig.DetachedWindowLocation = this.Location;
-                AppConfig.DetachedWindowSize = this.Size;
-                AppConfig.DetachedWindowState = this.WindowState;
+                ProTONEConfig.DetachedWindowLocation = this.Location;
+                ProTONEConfig.DetachedWindowSize = this.Size;
+                ProTONEConfig.DetachedWindowState = this.WindowState;
             }
         }
 
@@ -130,9 +131,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 // Save position before entring full screen if told so
                 if (persistWindowState)
                 {
-                    AppConfig.DetachedWindowLocation = this.Location;
-                    AppConfig.DetachedWindowSize = this.Size;
-                    AppConfig.DetachedWindowState = FormWindowState.Normal;
+                    ProTONEConfig.DetachedWindowLocation = this.Location;
+                    ProTONEConfig.DetachedWindowSize = this.Size;
+                    ProTONEConfig.DetachedWindowState = FormWindowState.Normal;
                     AppConfig.Save();
                 }
 
@@ -141,8 +142,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             else
             {
                 this.WindowState = FormWindowState.Normal;
-                this.Location = AppConfig.DetachedWindowLocation;
-                this.Size = AppConfig.DetachedWindowSize;
+                this.Location = ProTONEConfig.DetachedWindowLocation;
+                this.Size = ProTONEConfig.DetachedWindowSize;
             }
 
         }
@@ -178,8 +179,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public void OnRestoreRenderingRegionPosition()
         {
             this.WindowState = FormWindowState.Normal;
-            this.Location = AppConfig.DetachedWindowLocation;
-            this.Size = AppConfig.DetachedWindowSize;
+            this.Location = ProTONEConfig.DetachedWindowLocation;
+            this.Size = ProTONEConfig.DetachedWindowSize;
             SetFullScreen(false, false);
         }
 

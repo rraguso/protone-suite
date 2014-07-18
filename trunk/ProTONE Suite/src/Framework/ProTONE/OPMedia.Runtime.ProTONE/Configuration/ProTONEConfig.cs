@@ -9,6 +9,7 @@ using System.IO;
 using OPMedia.Core.Utilities;
 using Microsoft.Win32;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace OPMedia.Runtime.ProTONE.Configuration
 {
@@ -707,6 +708,108 @@ namespace OPMedia.Runtime.ProTONE.Configuration
             set { ConfigFileManager.Default.SetValue("CustomFileNameFormats", value); }
         }
 
+        public static bool FullScreenOn
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("FullScreenOn", false);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("FullScreenOn", value);
+            }
+        }
+
+        public static Point DetachedWindowLocation
+        {
+            get
+            {
+                try
+                {
+                    string str = ConfigFileManager.Default.GetValue("DetachedWindowLocation");
+                    if (!string.IsNullOrEmpty(str))
+                    {
+                        return (Point)new PointConverter().ConvertFromInvariantString(str);
+                    }
+                }
+                catch
+                {
+                }
+
+                Point ptFallback = new Point(100, 100);
+
+                ConfigFileManager.Default.SetValue("DetachedWindowLocation", new PointConverter().ConvertToInvariantString(ptFallback));
+
+                return ptFallback;
+            }
+            set
+            {
+                if ((value.X >= 0) && (value.Y >= 0))
+                {
+                    ConfigFileManager.Default.SetValue("DetachedWindowLocation", new PointConverter().ConvertToInvariantString(value));
+                }
+            }
+        }
+
+        public static Size DetachedWindowSize
+        {
+            get
+            {
+                Size size = new Size(800, 600);
+                try
+                {
+                    string str = ConfigFileManager.Default.GetValue("DetachedWindowSize");
+                    if (!string.IsNullOrEmpty(str))
+                    {
+                        size = (Size)new SizeConverter().ConvertFromInvariantString(str);
+                    }
+                }
+                catch
+                {
+                }
+                return size;
+            }
+            set
+            {
+                if ((value.Width >= 0) && (value.Height >= 0))
+                {
+                    ConfigFileManager.Default.SetValue("DetachedWindowSize", new SizeConverter().ConvertToInvariantString(value));
+                }
+            }
+        }
+
+        public static FormWindowState DetachedWindowState
+        {
+            get
+            {
+                FormWindowState normal = FormWindowState.Normal;
+                try
+                {
+                    normal = (FormWindowState)ConfigFileManager.Default.GetValue("DetachedWindowState", 0);
+                }
+                catch
+                {
+                }
+                return normal;
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("DetachedWindowState", (int)value);
+            }
+        }
+
+        public static int KeepAliveInterval
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("KeepAliveInterval", 5 * 60 * 1000);
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("KeepAliveInterval", value);
+            }
+        }
         #endregion
     }
 }

@@ -16,6 +16,7 @@ using OPMedia.Runtime.ProTONE.Haali;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.DirectX;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -166,8 +167,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
         private void opmButton1_Click(object sender, EventArgs e)
         {
-            AppConfig.DetachedWindowLocation = new Point(100, 100);
-            AppConfig.DetachedWindowSize = new Size(800, 600);
+            ProTONEConfig.DetachedWindowLocation = new Point(100, 100);
+            ProTONEConfig.DetachedWindowSize = new Size(800, 600);
             AppConfig.Save();
 
             EventDispatch.DispatchEvent(OPMedia.UI.ProTONE.GlobalEvents.EventNames.RestoreRenderingRegionPosition);
