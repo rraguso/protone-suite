@@ -14,6 +14,7 @@ using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Core;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.Controls;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -29,8 +30,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         {
             InitializeComponent();
 
-            chkFileNameFormat.Checked = AppSettings.UseFileNameFormat;
-            chkUseMetadata.Checked = AppSettings.UseMetadata;
+            chkFileNameFormat.Checked = ProTONEAppSettings.UseFileNameFormat;
+            chkUseMetadata.Checked = ProTONEAppSettings.UseMetadata;
             
             PopulatePlaylistEntryFormats(true);
             PopulateFileNameFormats(true);
@@ -99,14 +100,14 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
             if (fillCustomFormats)
             {
-                string[] customFormats = StringUtils.ToStringArray(AppSettings.CustomFileNameFormats, '?');
+                string[] customFormats = StringUtils.ToStringArray(ProTONEAppSettings.CustomFileNameFormats, '?');
                 if (customFormats != null)
                 {
                     cmbFileNameFormat.Items.AddRange(customFormats);
                 }
 
                 cmbFileNameFormat.SelectedIndex =
-                    cmbFileNameFormat.FindStringExact(AppSettings.FileNameFormat);
+                    cmbFileNameFormat.FindStringExact(ProTONEAppSettings.FileNameFormat);
             }
             else
             {
@@ -121,14 +122,14 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
             if (fillCustomFormats)
             {
-                string[] customFormats = StringUtils.ToStringArray(AppSettings.CustomPlaylistEntryFormats, '?');
+                string[] customFormats = StringUtils.ToStringArray(ProTONEAppSettings.CustomPlaylistEntryFormats, '?');
                 if (customFormats != null)
                 {
                     cmbPlaylistEntryFormat.Items.AddRange(customFormats);
                 }
 
                 cmbPlaylistEntryFormat.SelectedIndex =
-                    cmbPlaylistEntryFormat.FindStringExact(AppSettings.PlaylistEntryFormat);
+                    cmbPlaylistEntryFormat.FindStringExact(ProTONEAppSettings.PlaylistEntryFormat);
             }
             else
             {
@@ -157,18 +158,18 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             AddToPlaylistEntryFormatHistory(cmbPlaylistEntryFormat.Text);
             AddToFileNameFormatHistory(cmbFileNameFormat.Text);
 
-            AppSettings.UseFileNameFormat = chkFileNameFormat.Checked;
-            AppSettings.UseMetadata = chkUseMetadata.Checked;
+            ProTONEAppSettings.UseFileNameFormat = chkFileNameFormat.Checked;
+            ProTONEAppSettings.UseMetadata = chkUseMetadata.Checked;
 
-            AppSettings.PlaylistEntryFormat = cmbPlaylistEntryFormat.Text;
-            AppSettings.FileNameFormat = cmbFileNameFormat.Text;
+            ProTONEAppSettings.PlaylistEntryFormat = cmbPlaylistEntryFormat.Text;
+            ProTONEAppSettings.FileNameFormat = cmbFileNameFormat.Text;
 
             string[] customPlaylistEntryFormats = GetCustomFormats(cmbPlaylistEntryFormat);
             string[] customFileNameFormats = GetCustomFormats(cmbFileNameFormat);
 
-            AppSettings.CustomPlaylistEntryFormats =
+            ProTONEAppSettings.CustomPlaylistEntryFormats =
                 StringUtils.FromStringArray(customPlaylistEntryFormats, '?');
-            AppSettings.CustomFileNameFormats =
+            ProTONEAppSettings.CustomFileNameFormats =
                 StringUtils.FromStringArray(customFileNameFormats, '?');
 
             EventDispatch.DispatchEvent(LocalEventNames.UpdatePlaylistNames, false);

@@ -25,7 +25,7 @@ namespace OPMedia.UI.ProTONE.Configuration
     public partial class SubtitleSubtitlePage : BaseCfgPanel
     {
         List<SubtitleLanguage> languages = null;
-        bool _subtitleDownloadEnabled = AppSettings.SubtitleDownloadEnabled;
+        bool _subtitleDownloadEnabled = ProTONEAppSettings.SubtitleDownloadEnabled;
 
         OPMComboBox _cmbEditServerType = new OPMComboBox();
         YesNoComboBox _cmbEditActive = new YesNoComboBox();
@@ -41,17 +41,17 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         protected override void SaveInternal()
         {
-            AppSettings.SubtitleDownloadEnabled = _subtitleDownloadEnabled;
+            ProTONEAppSettings.SubtitleDownloadEnabled = _subtitleDownloadEnabled;
             ProTONEAppSettings.SubtitleDownloadURIs = _subtitleDownloadURIs;
 
             if (cmbLanguages.SelectedItem is SubtitleLanguage)
             {
-                AppSettings.PrefferedSubtitleLang =
+                ProTONEAppSettings.PrefferedSubtitleLang =
                     (cmbLanguages.SelectedItem as SubtitleLanguage).LCID;
             }
 
-            AppSettings.SubtitleMinimumMovieDuration = (int)nudMinMovieDuration.Value;
-            AppSettings.SubDownloadedNotificationsEnabled = chkNotifySubDownloaded.Checked;
+            ProTONEAppSettings.SubtitleMinimumMovieDuration = (int)nudMinMovieDuration.Value;
+            ProTONEAppSettings.SubDownloadedNotificationsEnabled = chkNotifySubDownloaded.Checked;
         }
 
         public SubtitleSubtitlePage()
@@ -136,7 +136,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         void OnLoad(object sender, EventArgs e)
         {
-            nudMinMovieDuration.Value = AppSettings.SubtitleMinimumMovieDuration;
+            nudMinMovieDuration.Value = ProTONEAppSettings.SubtitleMinimumMovieDuration;
             nudMinMovieDuration.ValueChanged += new EventHandler(nudMinMovieDuration_ValueChanged);
 
             chkSubtitleDownload.Checked = _subtitleDownloadEnabled;
@@ -150,7 +150,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             pnlOnlineSubtitles.Enabled = _subtitleDownloadEnabled;
 
-            chkNotifySubDownloaded.Checked = AppSettings.SubDownloadedNotificationsEnabled;
+            chkNotifySubDownloaded.Checked = ProTONEAppSettings.SubDownloadedNotificationsEnabled;
             this.chkNotifySubDownloaded.CheckedChanged += new System.EventHandler(this.chkNotifySubDownloaded_CheckedChanged);
 
             this.cmbLanguages.SelectedIndexChanged += new System.EventHandler(this.cmbLanguages_SelectedIndexChanged);
@@ -327,7 +327,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             languages.Sort();
 
             cmbLanguages.DataSource = languages;
-            cmbLanguages.SelectedItem = new SubtitleLanguage(AppSettings.PrefferedSubtitleLang);
+            cmbLanguages.SelectedItem = new SubtitleLanguage(ProTONEAppSettings.PrefferedSubtitleLang);
 
             cmbLanguages.SelectedIndexChanged += new EventHandler(cmbLanguages_SelectedIndexChanged);
 
@@ -536,7 +536,7 @@ namespace OPMedia.UI.ProTONE.Configuration
                     ciLang = ciLang.Substring(0, pos).Trim();
 
                 if (lang.ToLowerInvariant() == ciLang.ToLowerInvariant() &&
-                    ci.LCID == AppSettings.PrefferedSubtitleLang)
+                    ci.LCID == ProTONEAppSettings.PrefferedSubtitleLang)
                 {
                     return true;
                 }

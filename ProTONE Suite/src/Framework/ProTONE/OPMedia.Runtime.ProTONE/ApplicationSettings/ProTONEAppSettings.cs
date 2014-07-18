@@ -8,6 +8,7 @@ using OPMedia.Core;
 using System.IO;
 using OPMedia.Core.Utilities;
 using Microsoft.Win32;
+using System.Drawing;
 
 namespace OPMedia.Runtime.ProTONE.ApplicationSettings
 {
@@ -105,12 +106,6 @@ namespace OPMedia.Runtime.ProTONE.ApplicationSettings
         {
             get { return PersistenceProxy.ReadObject("CddbServerPort", 8880); }
             set { PersistenceProxy.SaveObject("CddbServerPort", value); }
-        }
-
-        public static string SubtitleDownloadURIs
-        {
-            get { return PersistenceProxy.ReadObject("SubtitleDownloadURIs", DefaultSubtitleURIs); }
-            set { PersistenceProxy.SaveObject("SubtitleDownloadURIs", value); }
         }
 
         #endregion
@@ -288,6 +283,12 @@ namespace OPMedia.Runtime.ProTONE.ApplicationSettings
 
         #region Level 2 Settings using Settings File (Combined per-app and per-user settings)
 
+        public static string SubtitleDownloadURIs
+        {
+            get { return ConfigFileManager.Default.GetValue("SubtitleDownloadURIs", DefaultSubtitleURIs); }
+            set { ConfigFileManager.Default.GetValue("SubtitleDownloadURIs", value); }
+        }
+
         public static MediaScreen ShowMediaScreens
         {
             get { return (MediaScreen)ConfigFileManager.Default.GetValue("ShowMediaScreens", (int)MediaScreen.All); }
@@ -299,6 +300,413 @@ namespace OPMedia.Runtime.ProTONE.ApplicationSettings
             get { return (SignalAnalisysFunction)ConfigFileManager.Default.GetValue("SignalAnalisysFunctions", (int)SignalAnalisysFunction.All); }
             set { ConfigFileManager.Default.SetValue("SignalAnalisysFunctions", (int)value); }
         }
+
+
+        public static string ExplorerLaunchType
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("ExplorerLaunchType", "EnqueueFiles");
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("ExplorerLaunchType", value);
+            }
+        }
+
+        public static int LastBalance
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("LastBalance", 0);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("LastBalance", value);
+            }
+        }
+
+        public static int LastVolume
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("LastVolume", 5000);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("LastVolume", value);
+            }
+        }
+
+        public static int LastFilterIndex
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("LastFilterIndex", 0);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("LastFilterIndex", value);
+            }
+        }
+
+        public static string LastOpenedFolder
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("LastOpenedFolder", PathUtils.CurrentDir);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("LastOpenedFolder", value);
+            }
+        }
+
+        public static int PL_LastFilterIndex
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("PL_LastFilterIndex", 0);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("PL_LastFilterIndex", value);
+            }
+        }
+
+        public static string PL_LastOpenedFolder
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("PL_LastOpenedFolder", PathUtils.CurrentDir);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("PL_LastOpenedFolder", value);
+            }
+        }
+
+
+
+        public static bool LoopPlay
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("LoopPlay", false);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("LoopPlay", value);
+            }
+        }
+
+        public static bool ShufflePlaylist
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("ShufflePlaylist", true);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("ShufflePlaylist", value);
+            }
+        }
+
+        public static int PlaylistEventHandler
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("PlaylistEventHandler", 0);
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("PlaylistEventHandler", value);
+            }
+        }
+
+        public static string PlaylistEventData
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("PlaylistEventData", string.Empty);
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("PlaylistEventData", value);
+            }
+        }
+
+
+        public static int ScheduledEventHandler
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("ScheduledEventHandler", 0);
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("ScheduledEventHandler", value);
+            }
+        }
+
+        public static string ScheduledEventData
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("ScheduledEventData", string.Empty);
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("ScheduledEventData", value);
+            }
+        }
+
+        public static TimeSpan ScheduledEventTime
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("ScheduledEventTime", new TimeSpan(0, 0, 0));
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("ScheduledEventTime", value);
+            }
+        }
+
+        public static int ScheduledEventDays
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("ScheduledEventDays", 0);
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("ScheduledEventDays", value);
+            }
+        }
+
+        public static bool EnableScheduledEvent
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("EnableScheduledEvent", false);
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("EnableScheduledEvent", value);
+            }
+        }
+
+        public static int SchedulerWaitTimerProceed
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("SchedulerWaitTimerProceed", 2);
+            }
+            set
+            {
+                ConfigFileManager.Default.SetValue("SchedulerWaitTimerProceed", value);
+            }
+        }
+
+        public static bool DisableDVDMenu
+        {
+            get { return ConfigFileManager.Default.GetValue("DisableDVDMenu", false); }
+            set { ConfigFileManager.Default.SetValue("DisableDVDMenu", value); }
+        }
+
+        public static int PrefferedSubtitleLang
+        {
+            get { return ConfigFileManager.Default.GetValue("PrefferedSubtitleLang", 1033); }
+            set { ConfigFileManager.Default.SetValue("PrefferedSubtitleLang", value); }
+        }
+
+        public static bool SubEnabled
+        {
+            get { return ConfigFileManager.Default.GetValue("SubEnabled", false); }
+            set { ConfigFileManager.Default.SetValue("SubEnabled", value); }
+        }
+
+        public static bool OsdEnabled
+        {
+            get { return ConfigFileManager.Default.GetValue("OsdEnabled", false); }
+            set { ConfigFileManager.Default.SetValue("OsdEnabled", value); }
+        }
+
+        public static Color OsdColor
+        {
+            get
+            {
+                int argb = ConfigFileManager.Default.GetValue("OsdColor", Color.White.ToArgb());
+                return Color.FromArgb(argb);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("OsdColor", value.ToArgb());
+            }
+        }
+
+        public static Color SubColor
+        {
+            get
+            {
+                int argb = ConfigFileManager.Default.GetValue("SubColor", Color.White.ToArgb());
+                return Color.FromArgb(argb);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("SubColor", value.ToArgb());
+            }
+        }
+
+        static Font DefSubAndOsdFont = new Font("Segoe UI", 12f, FontStyle.Bold, GraphicsUnit.Point);
+
+        public static Font OsdFont
+        {
+            get
+            {
+                string _f = ConfigFileManager.Default.GetValue("OsdFont", new FontConverter().ConvertToInvariantString(DefSubAndOsdFont));
+                Font f = (Font)new FontConverter().ConvertFromInvariantString(_f);
+                byte charSet = (byte)ConfigFileManager.Default.GetValue("OsdFontCharSet", DefSubAndOsdFont.GdiCharSet);
+                return new Font(f.FontFamily, f.Size, f.Style, f.Unit, charSet);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("OsdFont", new FontConverter().ConvertToInvariantString(value));
+                ConfigFileManager.Default.SetValue("OsdFontCharSet", value.GdiCharSet);
+            }
+        }
+
+        public static Font SubFont
+        {
+            get
+            {
+                string _f = ConfigFileManager.Default.GetValue("SubFont", new FontConverter().ConvertToInvariantString(DefSubAndOsdFont));
+                Font f = (Font)new FontConverter().ConvertFromInvariantString(_f);
+                byte charSet = (byte)ConfigFileManager.Default.GetValue("SubFontCharSet", DefSubAndOsdFont.GdiCharSet);
+                return new Font(f.FontFamily, f.Size, f.Style, f.Unit, charSet);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("SubFont", new FontConverter().ConvertToInvariantString(value));
+                ConfigFileManager.Default.SetValue("SubFontCharSet", value.GdiCharSet);
+            }
+        }
+
+        public static int OsdPersistTimer
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("OsdPersistTimer", 4000);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("OsdPersistTimer", value);
+            }
+        }
+
+        public static bool SubtitleDownloadEnabled
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("SubtitleDownloadEnabled", true);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("SubtitleDownloadEnabled", value);
+            }
+        }
+
+        public static int SubtitleMinimumMovieDuration
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("SubtitleMinimumMovieDuration", 20 /* 20 minutes */);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("SubtitleMinimumMovieDuration", value);
+            }
+        }
+
+        public static bool MediaStateNotificationsEnabled
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("MediaStateNotificationsEnabled", true);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("MediaStateNotificationsEnabled", value);
+            }
+        }
+
+        public static bool SubDownloadedNotificationsEnabled
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("SubDownloadedNotificationsEnabled", true);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("SubDownloadedNotificationsEnabled", value);
+            }
+        }
+
+        public static bool UseMetadata
+        {
+            get { return ConfigFileManager.Default.GetValue("UseMetadata", true); }
+            set { ConfigFileManager.Default.SetValue("UseMetadata", value); }
+        }
+
+        public static bool UseFileNameFormat
+        {
+            get { return ConfigFileManager.Default.GetValue("UseFileNameFormat", true); }
+            set { ConfigFileManager.Default.SetValue("UseFileNameFormat", value); }
+        }
+
+        public static string PlaylistEntryFormat
+        {
+            get { return ConfigFileManager.Default.GetValue("PlaylistEntryFormat", "<A> - <T>"); }
+            set { ConfigFileManager.Default.SetValue("PlaylistEntryFormat", value); }
+        }
+
+        public static string FileNameFormat
+        {
+            get { return ConfigFileManager.Default.GetValue("FileNameFormat", "<A> - <T>"); }
+            set { ConfigFileManager.Default.SetValue("FileNameFormat", value); }
+        }
+
+        public static string CustomPlaylistEntryFormats
+        {
+            get { return ConfigFileManager.Default.GetValue("CustomPlaylistEntryFormats", string.Empty); }
+            set { ConfigFileManager.Default.SetValue("CustomPlaylistEntryFormats", value); }
+        }
+
+        public static string CustomFileNameFormats
+        {
+            get { return ConfigFileManager.Default.GetValue("CustomFileNameFormats", string.Empty); }
+            set { ConfigFileManager.Default.SetValue("CustomFileNameFormats", value); }
+        }
+
         #endregion
     }
 }

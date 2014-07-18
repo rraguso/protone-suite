@@ -33,6 +33,7 @@ using OPMedia.Core.ComTypes;
 using OPMedia.UI.ProTONE;
 using OPMedia.UI.Properties;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 
 namespace OPMedia.ProTONE
@@ -404,13 +405,13 @@ namespace OPMedia.ProTONE
                     switch((OPMShortcut)tsi.Tag)
                     {
                         case OPMShortcut.CmdToggleShuffle:
-                            (tsi as OPMToolStripMenuItem).Checked = AppSettings.ShufflePlaylist;
+                            (tsi as OPMToolStripMenuItem).Checked = ProTONEAppSettings.ShufflePlaylist;
                             break;
                         case OPMShortcut.CmdPlaylistEnd:
                             (tsi as OPMToolStripMenuItem).Checked = SystemScheduler.PlaylistEventEnabled;
                             break;
                         case OPMShortcut.CmdLoopPlay:
-                            (tsi as OPMToolStripMenuItem).Checked = AppSettings.LoopPlay;
+                            (tsi as OPMToolStripMenuItem).Checked = ProTONEAppSettings.LoopPlay;
                             break;
                     }
 

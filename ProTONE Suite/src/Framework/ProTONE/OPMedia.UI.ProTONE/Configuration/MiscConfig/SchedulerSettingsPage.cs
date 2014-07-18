@@ -17,6 +17,7 @@ using OPMedia.UI.ProTONE.Properties;
 using OPMedia.UI.Themes;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -79,22 +80,22 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
             chkEnablePlaylistEvt.Checked = SystemScheduler.PlaylistEventEnabled;
 
-            cmbPlaylistEvtHandler.SelectedIndex = AppSettings.PlaylistEventHandler;
+            cmbPlaylistEvtHandler.SelectedIndex = ProTONEAppSettings.PlaylistEventHandler;
             psiPlaylistEvtData.ProgramStartupInfo = 
-                ProgramStartupInfo.FromString(AppSettings.PlaylistEventData);
+                ProgramStartupInfo.FromString(ProTONEAppSettings.PlaylistEventData);
 
-            chkEnableScheduledEvt.Checked = AppSettings.EnableScheduledEvent;
+            chkEnableScheduledEvt.Checked = ProTONEAppSettings.EnableScheduledEvent;
 
-            cmbScheduledEvtHandler.SelectedIndex = AppSettings.ScheduledEventHandler;
+            cmbScheduledEvtHandler.SelectedIndex = ProTONEAppSettings.ScheduledEventHandler;
             psiScheduledEvtData.ProgramStartupInfo =
-                ProgramStartupInfo.FromString(AppSettings.ScheduledEventData);
-            wsScheduledEvtDays.Weekdays = (Weekday)AppSettings.ScheduledEventDays;
+                ProgramStartupInfo.FromString(ProTONEAppSettings.ScheduledEventData);
+            wsScheduledEvtDays.Weekdays = (Weekday)ProTONEAppSettings.ScheduledEventDays;
             
             dtpScheduledEvtTime.Value = new DateTime(1900, 1, 1,
-                AppSettings.ScheduledEventTime.Hours, AppSettings.ScheduledEventTime.Minutes,
-                AppSettings.ScheduledEventTime.Seconds);
+                ProTONEAppSettings.ScheduledEventTime.Hours, ProTONEAppSettings.ScheduledEventTime.Minutes,
+                ProTONEAppSettings.ScheduledEventTime.Seconds);
 
-            nudSchedulerWaitTimerProceed.Value = AppSettings.SchedulerWaitTimerProceed;
+            nudSchedulerWaitTimerProceed.Value = ProTONEAppSettings.SchedulerWaitTimerProceed;
 
             ManageVisibility();
             SubscribeAll();
@@ -104,17 +105,17 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         {
             SystemScheduler.PlaylistEventEnabled = chkEnablePlaylistEvt.Checked;
             
-            AppSettings.PlaylistEventHandler =  cmbPlaylistEvtHandler.SelectedIndex;
-            AppSettings.PlaylistEventData =     psiPlaylistEvtData.GetProgramStartupInfo();
+            ProTONEAppSettings.PlaylistEventHandler =  cmbPlaylistEvtHandler.SelectedIndex;
+            ProTONEAppSettings.PlaylistEventData =     psiPlaylistEvtData.GetProgramStartupInfo();
 
-            AppSettings.EnableScheduledEvent =  chkEnableScheduledEvt.Checked;
-            AppSettings.ScheduledEventHandler = cmbScheduledEvtHandler.SelectedIndex;
-            AppSettings.ScheduledEventData =    psiScheduledEvtData.GetProgramStartupInfo();
-            AppSettings.ScheduledEventDays =    (int)wsScheduledEvtDays.Weekdays;
-            AppSettings.ScheduledEventTime =
+            ProTONEAppSettings.EnableScheduledEvent =  chkEnableScheduledEvt.Checked;
+            ProTONEAppSettings.ScheduledEventHandler = cmbScheduledEvtHandler.SelectedIndex;
+            ProTONEAppSettings.ScheduledEventData =    psiScheduledEvtData.GetProgramStartupInfo();
+            ProTONEAppSettings.ScheduledEventDays =    (int)wsScheduledEvtDays.Weekdays;
+            ProTONEAppSettings.ScheduledEventTime =
                 new TimeSpan(dtpScheduledEvtTime.Value.TimeOfDay.Hours, dtpScheduledEvtTime.Value.TimeOfDay.Minutes, 0);
 
-            AppSettings.SchedulerWaitTimerProceed = (int)nudSchedulerWaitTimerProceed.Value;
+            ProTONEAppSettings.SchedulerWaitTimerProceed = (int)nudSchedulerWaitTimerProceed.Value;
 
             AppSettings.Save();
         }

@@ -492,8 +492,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Title = Translator.Translate("TXT_SAVEPLAYLIST");
             dlg.Filter = filter;
             dlg.DefaultExt = "m3u";
-            dlg.FilterIndex = AppSettings.PL_LastFilterIndex;
-            dlg.InitialDirectory = AppSettings.PL_LastOpenedFolder;
+            dlg.FilterIndex = ProTONEAppSettings.PL_LastFilterIndex;
+            dlg.InitialDirectory = ProTONEAppSettings.PL_LastOpenedFolder;
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnSavePlaylist.ToIcon((uint)Color.White.ToArgb());
@@ -506,18 +506,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.PL_LastFilterIndex = dlg.FilterIndex;
+                ProTONEAppSettings.PL_LastFilterIndex = dlg.FilterIndex;
 
                 playlist.SavePlaylist(dlg.FileName);
 
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileName);
-                    AppSettings.PL_LastOpenedFolder = fi.DirectoryName;
+                    ProTONEAppSettings.PL_LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
+                    ProTONEAppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
@@ -545,23 +545,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     wc.DownloadFile(uri, tempFile);
                     playlist.LoadPlaylist(tempFile);
                 }
-
-                //HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
-                //request.Headers.Clear();
-                //request.Proxy = AppSettings.GetWebProxy();
-
-                //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                //if (response.StatusCode == HttpStatusCode.OK)
-                //{
-                //    using (StreamReader sr = new StreamReader(response.GetResponseStream()))
-                //    using (StreamWriter sw = new StreamWriter(tempFile))
-                //    {
-                //        string s = sr.ReadToEnd();
-                //        sw.Write(s);
-                //    }
-
-                //    playlist.LoadPlaylist(tempFile);
-                //}
             }
         }
 
@@ -577,8 +560,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Multiselect = true;
             dlg.Title = Translator.Translate("TXT_LOADPLAYLIST");
             dlg.Filter = filter;
-            dlg.FilterIndex = AppSettings.PL_LastFilterIndex;
-            dlg.InitialDirectory = AppSettings.PL_LastOpenedFolder;
+            dlg.FilterIndex = ProTONEAppSettings.PL_LastFilterIndex;
+            dlg.InitialDirectory = ProTONEAppSettings.PL_LastOpenedFolder;
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnLoadPlaylist.ToIcon((uint)Color.White.ToArgb());
@@ -590,7 +573,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                AppSettings.PL_LastFilterIndex = dlg.FilterIndex;
+                ProTONEAppSettings.PL_LastFilterIndex = dlg.FilterIndex;
 
                 Clear();
                 playlist.LoadPlaylist(dlg.FileName);
@@ -598,11 +581,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileName);
-                    AppSettings.PL_LastOpenedFolder = fi.DirectoryName;
+                    ProTONEAppSettings.PL_LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
+                    ProTONEAppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
@@ -806,7 +789,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
 
                 case OPMShortcut.CmdToggleShuffle:
-                    AppSettings.ShufflePlaylist ^= true;
+                    ProTONEAppSettings.ShufflePlaylist ^= true;
                     AppSettings.Save();
                     playlist.SetupRandomSequence(playlist.PlayIndex);
                     args.Handled = true;
@@ -814,7 +797,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
 
                 case OPMShortcut.CmdLoopPlay:
-                    AppSettings.LoopPlay ^= true;
+                    ProTONEAppSettings.LoopPlay ^= true;
                     AppSettings.Save();
                     args.Handled = true;
                     refreshButtonState = true;

@@ -12,34 +12,35 @@ using OPMedia.UI.Controls;
 using OPMedia.Runtime.ProTONE;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.Runtime.ProTONE.Rendering;
+using OPMedia.Runtime.ProTONE.ApplicationSettings;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
     public partial class SubtitleOsdPage : BaseCfgPanel
     {
-        Font _osdFont = AppSettings.OsdFont;
-        Color _osdColor = AppSettings.OsdColor;
-        bool _osdEnabled = AppSettings.OsdEnabled;
-        int _osdTimer = AppSettings.OsdPersistTimer;
+        Font _osdFont = ProTONEAppSettings.OsdFont;
+        Color _osdColor = ProTONEAppSettings.OsdColor;
+        bool _osdEnabled = ProTONEAppSettings.OsdEnabled;
+        int _osdTimer = ProTONEAppSettings.OsdPersistTimer;
 
-        Font _subFont = AppSettings.SubFont;
-        Color _subColor = AppSettings.SubColor;
-        bool _subEnabled = AppSettings.SubEnabled;
+        Font _subFont = ProTONEAppSettings.SubFont;
+        Color _subColor = ProTONEAppSettings.SubColor;
+        bool _subEnabled = ProTONEAppSettings.SubEnabled;
 
 
         protected override void SaveInternal()
         {
-            AppSettings.SubEnabled = _subEnabled;
-            AppSettings.SubFont = _subFont;
-            AppSettings.SubColor = _subColor;
+            ProTONEAppSettings.SubEnabled = _subEnabled;
+            ProTONEAppSettings.SubFont = _subFont;
+            ProTONEAppSettings.SubColor = _subColor;
 
-            AppSettings.OsdEnabled = _osdEnabled;
-            AppSettings.OsdFont = _osdFont;
-            AppSettings.OsdColor = _osdColor;
+            ProTONEAppSettings.OsdEnabled = _osdEnabled;
+            ProTONEAppSettings.OsdFont = _osdFont;
+            ProTONEAppSettings.OsdColor = _osdColor;
 
-            AppSettings.OsdPersistTimer = _osdTimer;
+            ProTONEAppSettings.OsdPersistTimer = _osdTimer;
 
-            AppSettings.MediaStateNotificationsEnabled = chkFilterStateNotificationsEnabled.Checked;
+            ProTONEAppSettings.MediaStateNotificationsEnabled = chkFilterStateNotificationsEnabled.Checked;
 
             // Tell FFDShow to reload subtitle and OSD settings
             MediaRenderer.DefaultInstance.ReloadFfdShowSettings();
@@ -71,7 +72,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             chkOsdEnabled.CheckedChanged += new EventHandler(chkOsdEnabled_CheckedChanged);
             nudOsdTmr.ValueChanged += new EventHandler(nudOsdTmr_ValueChanged);
 
-            chkFilterStateNotificationsEnabled.Checked = AppSettings.MediaStateNotificationsEnabled;
+            chkFilterStateNotificationsEnabled.Checked = ProTONEAppSettings.MediaStateNotificationsEnabled;
             chkFilterStateNotificationsEnabled.CheckedChanged += new EventHandler(chkFilterStateNotificationsEnabled_CheckedChanged);
 
             this.chkSubEnabled.CheckedChanged += new System.EventHandler(this.chkSubEnabled_CheckedChanged);
