@@ -130,7 +130,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop
             if (_reloadTimer == null)
             {
                 _reloadTimer = new Timer();
-                _reloadTimer.Interval = (int)(AppSettings.Instance.FEPreviewTimer * 1000);
+                _reloadTimer.Interval = (int)(AppSettings.FEPreviewTimer * 1000);
                 _reloadTimer.Tick += new EventHandler(_reloadTimer_Tick);
             }
 

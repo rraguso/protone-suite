@@ -451,7 +451,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                             new Bookmark("default", (int)resumePosition));
 
                         MediaRenderer.DefaultInstance.StartRendererWithHint(hint);
-                        MediaRenderer.DefaultInstance.AudioVolume = AppSettings.Instance.LastVolume;
+                        MediaRenderer.DefaultInstance.AudioVolume = AppSettings.LastVolume;
                     }
                 }
             }

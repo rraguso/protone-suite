@@ -152,13 +152,13 @@ namespace OPMedia.UI.Dialogs
             tsbErrors.CheckedChanged -= new System.EventHandler(this.OnSettingsChanged);
             cmbLogLineCount.SelectedIndexChanged -= new System.EventHandler(this.OnSettingsChanged);
 
-            tsbErrors.Checked = AppSettings.Instance.FilterErrorLevelEnabled;
-            tsbInfo.Checked = AppSettings.Instance.FilterInfoLevelEnabled;
-            tsbTraces.Checked = AppSettings.Instance.FilterTraceLevelEnabled;
-            tsbWarnings.Checked = AppSettings.Instance.FilterWarningLevelEnabled;
+            tsbErrors.Checked = AppSettings.FilterErrorLevelEnabled;
+            tsbInfo.Checked = AppSettings.FilterInfoLevelEnabled;
+            tsbTraces.Checked = AppSettings.FilterTraceLevelEnabled;
+            tsbWarnings.Checked = AppSettings.FilterWarningLevelEnabled;
 
             string text = string.Empty;
-            int logLinesCount = AppSettings.Instance.FilterLogLinesCount;
+            int logLinesCount = AppSettings.FilterLogLinesCount;
             if (logLinesCount > 0 && logLinesCount <= 200)
             {
                 text = logLinesCount.ToString();
@@ -340,22 +340,22 @@ namespace OPMedia.UI.Dialogs
 
         private void OnSettingsChanged(object sender, EventArgs e)
         {
-            AppSettings.Instance.FilterErrorLevelEnabled = tsbErrors.Checked;
-            AppSettings.Instance.FilterInfoLevelEnabled = tsbInfo.Checked;
-            AppSettings.Instance.FilterTraceLevelEnabled = tsbTraces.Checked;
-            AppSettings.Instance.FilterWarningLevelEnabled = tsbWarnings.Checked;
+            AppSettings.FilterErrorLevelEnabled = tsbErrors.Checked;
+            AppSettings.FilterInfoLevelEnabled = tsbInfo.Checked;
+            AppSettings.FilterTraceLevelEnabled = tsbTraces.Checked;
+            AppSettings.FilterWarningLevelEnabled = tsbWarnings.Checked;
 
             _logLineCount = 0;
             if (int.TryParse(cmbLogLineCount.Text, out _logLineCount))
             {
-                AppSettings.Instance.FilterLogLinesCount = _logLineCount;
+                AppSettings.FilterLogLinesCount = _logLineCount;
             }
             else
             {
-                AppSettings.Instance.FilterLogLinesCount = 500;
+                AppSettings.FilterLogLinesCount = 500;
             }
 
-            AppSettings.Instance.Save();
+            AppSettings.Save();
 
             ReadLogFile();
         }

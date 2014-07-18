@@ -286,7 +286,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             if (!DesignMode)
             {
-                pnlRendering.ProjectedVolume = AppSettings.Instance.LastVolume;
+                pnlRendering.ProjectedVolume = AppSettings.LastVolume;
                 SetVolume(pnlRendering.ProjectedVolume);
             }
         }
@@ -328,7 +328,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             MediaRenderer.DefaultInstance.DisplayOsdMessage(text);
 
-            if (AppSettings.Instance.MediaStateNotificationsEnabled)
+            if (AppSettings.MediaStateNotificationsEnabled)
             {
                 TrayNotificationBox f = new TrayNotificationBox();
                 f.HideDelay = 6000;
@@ -364,9 +364,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void OnMediaRendererHeartbeat()
         {
-            if (pnlRendering.ProjectedVolume != AppSettings.Instance.LastVolume)
+            if (pnlRendering.ProjectedVolume != AppSettings.LastVolume)
             {
-                pnlRendering.ProjectedVolume = AppSettings.Instance.LastVolume;
+                pnlRendering.ProjectedVolume = AppSettings.LastVolume;
             }
 
             pnlRendering.ElapsedSeconds = (int)(MediaRenderer.DefaultInstance.MediaPosition);
@@ -530,8 +530,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             
             dlg.Filter = filter;
 
-            dlg.FilterIndex = AppSettings.Instance.LastFilterIndex;
-            dlg.InitialDirectory = AppSettings.Instance.LastOpenedFolder;
+            dlg.FilterIndex = AppSettings.LastFilterIndex;
+            dlg.InitialDirectory = AppSettings.LastOpenedFolder;
 
             dlg.FillFavoriteFoldersEvt += () => { return ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
@@ -560,16 +560,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 else
                     LoadFiles(dlg.FileNames);
 
-                AppSettings.Instance.LastFilterIndex = dlg.FilterIndex;
+                AppSettings.LastFilterIndex = dlg.FilterIndex;
 
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileNames[0]);
-                    AppSettings.Instance.LastOpenedFolder = fi.DirectoryName;
+                    AppSettings.LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    AppSettings.Instance.LastOpenedFolder = dlg.InitialDirectory;
+                    AppSettings.LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
@@ -707,19 +707,19 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void SetVolume(double volume)
         {
-            AppSettings.Instance.LastVolume = (int)volume;
+            AppSettings.LastVolume = (int)volume;
             if (MediaRenderer.DefaultInstance.RenderedMediaType != MediaTypes.Video &&
                 MediaRenderer.DefaultInstance.FilterState != FilterState.Stopped)
             {
                 MediaRenderer.DefaultInstance.AudioVolume = (int)volume;
                 MediaRenderer.DefaultInstance.DisplayOsdMessage(Translator.Translate("TXT_OSD_VOL", (int)volume / 100));
 
-                MediaRenderer.DefaultInstance.AudioBalance = AppSettings.Instance.LastBalance;
+                MediaRenderer.DefaultInstance.AudioBalance = AppSettings.LastBalance;
             }
 
-            if (pnlRendering.ProjectedVolume != AppSettings.Instance.LastVolume)
+            if (pnlRendering.ProjectedVolume != AppSettings.LastVolume)
             {
-                pnlRendering.ProjectedVolume = AppSettings.Instance.LastVolume;
+                pnlRendering.ProjectedVolume = AppSettings.LastVolume;
             }
         }
 

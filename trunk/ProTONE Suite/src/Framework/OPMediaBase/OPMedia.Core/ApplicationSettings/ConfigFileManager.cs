@@ -24,13 +24,19 @@ namespace OPMedia.Core.ApplicationSettings
         private const string SettingNodeName = "add";
         private const string ValueName = "value";
 
+        private static ConfigFileManager _default = new ConfigFileManager(ApplicationInfo.SettingsFile);
+        public static ConfigFileManager Default
+        {
+            get
+            {
+                return _default;
+            }
+        }
+
         public ConfigFileManager(string filePath)
         {
             _filePath = filePath;
-        }
-
-        public ConfigFileManager()
-        {
+            Load();
         }
 
         public void Load()
@@ -286,5 +292,19 @@ namespace OPMedia.Core.ApplicationSettings
                 }
             }
         }
-	}
+
+        internal void Merge(ConfigFileManager configFileManager)
+        {
+            if (configFileManager != null &&
+                configFileManager._values != null)
+            {
+                for (int i = 0; i < configFileManager._values.Count; i++)
+                {
+                    string key = configFileManager._values.GetKey(i);
+                    string settingValue = configFileManager._values[i];
+                    SetValue(key, settingValue);
+                }
+            }
+        }
+    }
 }

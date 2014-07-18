@@ -83,7 +83,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
         {
             _proxy = XmlRpcProxyGen.Create<IOsdbProtocol>();
             _proxy.Url = osdbServerUrl;
-            _proxy.Proxy = AppSettings.Instance.GetWebProxy();
+            _proxy.Proxy = AppSettings.GetWebProxy();
         }
 
         #region IDisposable Members

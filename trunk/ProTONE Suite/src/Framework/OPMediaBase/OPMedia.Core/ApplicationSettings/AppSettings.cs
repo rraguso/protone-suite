@@ -59,78 +59,32 @@ namespace OPMedia.Core.ApplicationSettings
         }
     }
 
-    public class AppSettings : IDisposable
+    public static class AppSettings
     {
-        protected ConfigFileManager _config = null;
-
-        protected static AppSettings _instance = null;
-        public static AppSettings Instance
+        public static void Save()
         {
-            get
-            {
-                return _instance;
-            }
+            ConfigFileManager.Default.Save();
         }
 
-        public static void RegisterAppInstance(AppSettings instance)
-        {
-            _instance = instance;
-        }
-
-
-        public AppSettings()
-        {
-            _config = new ConfigFileManager(ApplicationInfo.SettingsFile);
-        }
-
-        public void Dispose()
-        {
-            Save();
-        }
-        
-        public void Save()
-        {
-            _config.Save();
-        }
-
-        public void Delete()
-        {
-            try
-            {
-                File.Delete(ApplicationInfo.SettingsFile);
-            }
-            catch(Exception ex)
-            {
-                ErrorDispatcher.DispatchError(ex);
-            }
-
-            try
-            {
-                Directory.Delete(ApplicationInfo.SettingsFolder);
-            }
-            catch (Exception ex)
-            {
-                ErrorDispatcher.DispatchError(ex);
-            }
-        }
+        #region Level 1 settings using Settings File (Combined per-app and per-user settings)
 
         #region Network preferences
-        public int KeepAliveInterval
+        public static int KeepAliveInterval
         {
             get
             {
-                return _config.GetValue("KeepAliveInterval", 5 * 60 * 1000);
+                return ConfigFileManager.Default.GetValue("KeepAliveInterval", 5 * 60 * 1000);
             }
             set
             {
-                _config.SetValue("KeepAliveInterval", value);
+                ConfigFileManager.Default.SetValue("KeepAliveInterval", value);
             }
         }
 
-        public IWebProxy GetWebProxy()
+        public static IWebProxy GetWebProxy()
         {
             IWebProxy wp = null;
-            ProxySettings ps = this.ProxySettings;
+            ProxySettings ps = ProxySettings;
 
             if (ps == null || ps.ProxyType == ProxyType.NoProxy)
             {
@@ -146,94 +100,94 @@ namespace OPMedia.Core.ApplicationSettings
             return wp;
         }
                 
-        public ProxySettings ProxySettings
+        public static ProxySettings ProxySettings
         {
             get
             {
                 ProxySettings ps = ProxySettings.Empty;
-                ps.ProxyAddress = this.ProxyAddress;
-                ps.ProxyPassword = this.ProxyPassword;
-                ps.ProxyPort = this.ProxyPort;
-                ps.ProxyType = this.ProxyType;
-                ps.ProxyUser = this.ProxyUser;
+                ps.ProxyAddress = ProxyAddress;
+                ps.ProxyPassword = ProxyPassword;
+                ps.ProxyPort = ProxyPort;
+                ps.ProxyType = ProxyType;
+                ps.ProxyUser = ProxyUser;
 
                 return ps;
             }
 
             set
             {
-                this.ProxyAddress = value.ProxyAddress;
-                this.ProxyPassword = value.ProxyPassword;
-                this.ProxyPort = value.ProxyPort;
-                this.ProxyType = value.ProxyType;
-                this.ProxyUser = value.ProxyUser;
+                ProxyAddress = value.ProxyAddress;
+                ProxyPassword = value.ProxyPassword;
+                ProxyPort = value.ProxyPort;
+                ProxyType = value.ProxyType;
+                ProxyUser = value.ProxyUser;
             }
         }
 
-        protected ProxyType ProxyType
+        public static ProxyType ProxyType
         {
             get
             {
-                return (ProxyType)_config.GetValue("ProxyType", (int)ProxyType.NoProxy);
+                return (ProxyType)ConfigFileManager.Default.GetValue("ProxyType", (int)ProxyType.NoProxy);
             }
             set
             {
-                _config.SetValue("ProxyType", (int)value);
+                ConfigFileManager.Default.SetValue("ProxyType", (int)value);
             }
         }
 
-        protected string ProxyAddress
+        public static string ProxyAddress
         {
             get
             {
-                return _config.GetValue("ProxyAddress", "your.proxy.address");
+                return ConfigFileManager.Default.GetValue("ProxyAddress", "your.proxy.address");
             }
             set
             {
-                _config.SetValue("ProxyAddress", value);
+                ConfigFileManager.Default.SetValue("ProxyAddress", value);
             }
         }
 
-        protected int ProxyPort
+        public static int ProxyPort
         {
             get
             {
-                return _config.GetValue("ProxyPort", 8080);
+                return ConfigFileManager.Default.GetValue("ProxyPort", 8080);
             }
             set
             {
-                _config.SetValue("ProxyPort", value);
+                ConfigFileManager.Default.SetValue("ProxyPort", value);
             }
         }
 
-        protected string ProxyUser
+        public static string ProxyUser
         {
             get
             {
-                return _config.GetValue("ProxyUser", "user.name");
+                return ConfigFileManager.Default.GetValue("ProxyUser", "user.name");
             }
             set
             {
-                _config.SetValue("ProxyUser", value);
+                ConfigFileManager.Default.SetValue("ProxyUser", value);
             }
         }
 
-        protected string ProxyPassword
+        public static string ProxyPassword
         {
             get
             {
-                return _config.GetValue("ProxyPassword", string.Empty);
+                return ConfigFileManager.Default.GetValue("ProxyPassword", string.Empty);
             }
             set
             {
-                _config.SetValue("ProxyPassword", value);
+                ConfigFileManager.Default.SetValue("ProxyPassword", value);
             }
         }
         #endregion
 
         #region Logging
 
-        public string GetDefaultLoggingFolder()
+        public static string GetDefaultLoggingFolder()
         {
             try
             {
@@ -255,7 +209,7 @@ namespace OPMedia.Core.ApplicationSettings
             return Path.GetTempPath();
         }
 
-        public bool CanWriteToFolder(string path)
+        public static bool CanWriteToFolder(string path)
         {
             try
             {
@@ -287,90 +241,89 @@ namespace OPMedia.Core.ApplicationSettings
             }
         }
 
-        public bool LogEnabled
+        public static bool LogEnabled
         {
-            get { return _config.GetValue("LogEnabled", true); }
-            set { _config.SetValue("LogEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("LogEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("LogEnabled", value); }
         }
 
-        public bool LogHeavyTraceLevelEnabled
+        public static bool LogHeavyTraceLevelEnabled
         {
-            get { return _config.GetValue("LogHeavyTraceLevelEnabled", true); }
-            set { _config.SetValue("LogHeavyTraceLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("LogHeavyTraceLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("LogHeavyTraceLevelEnabled", value); }
         }
 
-        public bool LogTraceLevelEnabled
+        public static bool LogTraceLevelEnabled
         {
-            get { return _config.GetValue("LogTraceLevelEnabled", true); }
-            set { _config.SetValue("LogTraceLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("LogTraceLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("LogTraceLevelEnabled", value); }
         }
 
-        public bool LogInfoLevelEnabled
+        public static bool LogInfoLevelEnabled
         {
-            get { return _config.GetValue("LogInfoLevelEnabled", true); }
-            set { _config.SetValue("LogInfoLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("LogInfoLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("LogInfoLevelEnabled", value); }
         }
 
-        public bool LogWarningLevelEnabled
+        public static bool LogWarningLevelEnabled
         {
-            get { return _config.GetValue("LogWarningLevelEnabled", true); }
-            set { _config.SetValue("LogWarningLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("LogWarningLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("LogWarningLevelEnabled", value); }
         }
 
-        public bool LogErrorLevelEnabled
+        public static bool LogErrorLevelEnabled
         {
-            get { return _config.GetValue("LogErrorLevelEnabled", true); }
-            set { _config.SetValue("LogErrorLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("LogErrorLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("LogErrorLevelEnabled", value); }
         }
 
-        public string LogFilePath
+        public static string LogFilePath
         {
-            get { return _config.GetValue("LogFilePath", GetDefaultLoggingFolder()); }
-            set { _config.SetValue("LogFilePath", value); }
+            get { return ConfigFileManager.Default.GetValue("LogFilePath", GetDefaultLoggingFolder()); }
+            set { ConfigFileManager.Default.SetValue("LogFilePath", value); }
         }
 
-        public int DaysToKeepLogs
+        public static int DaysToKeepLogs
         {
-            get { return _config.GetValue("DaysToKeepLogs", 2); }
-            set { _config.SetValue("DaysToKeepLogs", value); }
+            get { return ConfigFileManager.Default.GetValue("DaysToKeepLogs", 2); }
+            set { ConfigFileManager.Default.SetValue("DaysToKeepLogs", value); }
         }
 
 
-        public bool FilterTraceLevelEnabled
+        public static bool FilterTraceLevelEnabled
         {
-            get { return _config.GetValue("FilterTraceLevelEnabled", true); }
-            set { _config.SetValue("FilterTraceLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("FilterTraceLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("FilterTraceLevelEnabled", value); }
         }
 
-        public bool FilterInfoLevelEnabled
+        public static bool FilterInfoLevelEnabled
         {
-            get { return _config.GetValue("FilterInfoLevelEnabled", true); }
-            set { _config.SetValue("FilterInfoLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("FilterInfoLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("FilterInfoLevelEnabled", value); }
         }
 
-        public bool FilterWarningLevelEnabled
+        public static bool FilterWarningLevelEnabled
         {
-            get { return _config.GetValue("LogWarningLevelEnabled", true); }
-            set { _config.SetValue("FilterWarningLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("LogWarningLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("FilterWarningLevelEnabled", value); }
         }
 
-        public bool FilterErrorLevelEnabled
+        public static bool FilterErrorLevelEnabled
         {
-            get { return _config.GetValue("FilterErrorLevelEnabled", true); }
-            set { _config.SetValue("FilterErrorLevelEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("FilterErrorLevelEnabled", true); }
+            set { ConfigFileManager.Default.SetValue("FilterErrorLevelEnabled", value); }
         }
 
-        public int FilterLogLinesCount
+        public static int FilterLogLinesCount
         {
-            get { return _config.GetValue("FilterLogLinesCount", 20); }
-            set { _config.SetValue("FilterLogLinesCount", value); }
+            get { return ConfigFileManager.Default.GetValue("FilterLogLinesCount", 20); }
+            set { ConfigFileManager.Default.SetValue("FilterLogLinesCount", value); }
         }
         #endregion
 
         #region User interface persistence
 
-        protected bool _allowSaveWindowLocation = true;
-        public Point WindowLocation
+        public static Point WindowLocation
         {
             get
             {
@@ -390,7 +343,7 @@ namespace OPMedia.Core.ApplicationSettings
 
                 try
                 {
-                    string str = _config.GetValue("WindowLocation");
+                    string str = ConfigFileManager.Default.GetValue("WindowLocation");
                     if (!string.IsNullOrEmpty(str))
                     {
                         point = (Point)new PointConverter().ConvertFromInvariantString(str);
@@ -401,18 +354,17 @@ namespace OPMedia.Core.ApplicationSettings
                 }
 
                 return point;
-                //return GetValidMonitorLocation(point, ref _allowSaveWindowLocation);
             }
             set
             {
-                if (_allowSaveWindowLocation && (value.X >= 0) && (value.Y >= 0))
+                if ((value.X >= 0) && (value.Y >= 0))
                 {
-                    _config.SetValue("WindowLocation", new PointConverter().ConvertToInvariantString(value));
+                    ConfigFileManager.Default.SetValue("WindowLocation", new PointConverter().ConvertToInvariantString(value));
                 }
             }
         }
 
-        public Size WindowSize
+        public static Size WindowSize
         {
             get
             {
@@ -432,7 +384,7 @@ namespace OPMedia.Core.ApplicationSettings
                     
                 try
                 {
-                    string str = _config.GetValue("WindowSize");
+                    string str = ConfigFileManager.Default.GetValue("WindowSize");
                     if (!string.IsNullOrEmpty(str))
                     {
                         size = (Size)new SizeConverter().ConvertFromInvariantString(str);
@@ -447,18 +399,18 @@ namespace OPMedia.Core.ApplicationSettings
             {
                 if ((value.Width >= 0) && (value.Height >= 0))
                 {
-                    _config.SetValue("WindowSize", new SizeConverter().ConvertToInvariantString(value));
+                    ConfigFileManager.Default.SetValue("WindowSize", new SizeConverter().ConvertToInvariantString(value));
                 }
             }
         }
 
-        public FormWindowState WindowState
+        public static FormWindowState WindowState
         {
             get
             {
                 try
                 {
-                    return (FormWindowState)_config.GetValue("WindowState", (int)FormWindowState.Normal);
+                    return (FormWindowState)ConfigFileManager.Default.GetValue("WindowState", (int)FormWindowState.Normal);
                 }
                 catch
                 {
@@ -468,57 +420,57 @@ namespace OPMedia.Core.ApplicationSettings
             }
             set
             {
-                _config.SetValue("WindowState", (int)value);
+                ConfigFileManager.Default.SetValue("WindowState", (int)value);
             }
         }
 
-        public bool MimimizedToTray
+        public static bool MimimizedToTray
         {
             get
             {
-                return (_config.GetValue("MimimizedToTray", false) && CanSendToTray);
+                return (ConfigFileManager.Default.GetValue("MimimizedToTray", false) && CanSendToTray);
             }
 
             set
             {
-                _config.SetValue("MimimizedToTray", value && CanSendToTray);
+                ConfigFileManager.Default.SetValue("MimimizedToTray", value && CanSendToTray);
             }
         }
 
-        public bool CanSendToTray
+        public static bool CanSendToTray
         {
             get
             {
-                return _config.GetValue("CanSendToTray", false);
+                return ConfigFileManager.Default.GetValue("CanSendToTray", false);
             }
 
             set
             {
-                _config.SetValue("CanSendToTray", value);
+                ConfigFileManager.Default.SetValue("CanSendToTray", value);
             }
         }
 
 
-        public bool FullScreenOn
+        public static bool FullScreenOn
         {
             get
             {
-                return _config.GetValue("FullScreenOn", false);
+                return ConfigFileManager.Default.GetValue("FullScreenOn", false);
             }
 
             set
             {
-                _config.SetValue("FullScreenOn", value);
+                ConfigFileManager.Default.SetValue("FullScreenOn", value);
             }
         }
 
-        public Point DetachedWindowLocation
+        public static Point DetachedWindowLocation
         {
             get
             {
                 try
                 {
-                    string str = _config.GetValue("DetachedWindowLocation");
+                    string str = ConfigFileManager.Default.GetValue("DetachedWindowLocation");
                     if (!string.IsNullOrEmpty(str))
                     {
                         return (Point)new PointConverter().ConvertFromInvariantString(str);
@@ -530,7 +482,7 @@ namespace OPMedia.Core.ApplicationSettings
 
                 Point ptFallback = new Point(100, 100);
 
-                _config.SetValue("DetachedWindowLocation", new PointConverter().ConvertToInvariantString(ptFallback));
+                ConfigFileManager.Default.SetValue("DetachedWindowLocation", new PointConverter().ConvertToInvariantString(ptFallback));
 
                 return ptFallback;
             }
@@ -538,19 +490,19 @@ namespace OPMedia.Core.ApplicationSettings
             {
                 if ((value.X >= 0) && (value.Y >= 0))
                 {
-                    _config.SetValue("DetachedWindowLocation", new PointConverter().ConvertToInvariantString(value));
+                    ConfigFileManager.Default.SetValue("DetachedWindowLocation", new PointConverter().ConvertToInvariantString(value));
                 }
             }
         }
 
-        public Size DetachedWindowSize
+        public static Size DetachedWindowSize
         {
             get
             {
                 Size size = new Size(800, 600);
                 try
                 {
-                    string str = _config.GetValue("DetachedWindowSize");
+                    string str = ConfigFileManager.Default.GetValue("DetachedWindowSize");
                     if (!string.IsNullOrEmpty(str))
                     {
                         size = (Size)new SizeConverter().ConvertFromInvariantString(str);
@@ -565,19 +517,19 @@ namespace OPMedia.Core.ApplicationSettings
             {
                 if ((value.Width >= 0) && (value.Height >= 0))
                 {
-                    _config.SetValue("DetachedWindowSize", new SizeConverter().ConvertToInvariantString(value));
+                    ConfigFileManager.Default.SetValue("DetachedWindowSize", new SizeConverter().ConvertToInvariantString(value));
                 }
             }
         }
 
-        public FormWindowState DetachedWindowState
+        public static FormWindowState DetachedWindowState
         {
             get
             {
                 FormWindowState normal = FormWindowState.Normal;
                 try
                 {
-                    normal = (FormWindowState)_config.GetValue("DetachedWindowState", 0);
+                    normal = (FormWindowState)ConfigFileManager.Default.GetValue("DetachedWindowState", 0);
                 }
                 catch
                 {
@@ -586,7 +538,7 @@ namespace OPMedia.Core.ApplicationSettings
             }
             set
             {
-                _config.SetValue("DetachedWindowState", (int)value);
+                ConfigFileManager.Default.SetValue("DetachedWindowState", (int)value);
             }
         }
 
@@ -594,374 +546,338 @@ namespace OPMedia.Core.ApplicationSettings
         #endregion
 
         #region Application state persistence
-        public string SearchPaths
+        public static string LastExploredFolder
         {
             get
             {
-                return _config.GetValue("SearchPaths", string.Empty);
+                return ConfigFileManager.Default.GetValue("LastExploredFolder", PathUtils.CurrentDir);
             }
 
             set
             {
-                _config.SetValue("SearchPaths", value);
+                ConfigFileManager.Default.SetValue("LastExploredFolder", value);
+            }
+        }
+        #endregion
+
+        #endregion
+
+
+        #region Application state persistence
+        public static string SearchPaths
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("SearchPaths", string.Empty);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("SearchPaths", value);
             }
         }
 
-        public string SearchTexts
+        public static string SearchTexts
         {
             get
             {
-                return _config.GetValue("SearchTexts", string.Empty);
+                return ConfigFileManager.Default.GetValue("SearchTexts", string.Empty);
             }
 
             set
             {
-                _config.SetValue("SearchTexts", value);
+                ConfigFileManager.Default.SetValue("SearchTexts", value);
             }
         }
 
-        public string SearchPatterns
+        public static string SearchPatterns
         {
             get
             {
-                return _config.GetValue("SearchPatterns", string.Empty);
+                return ConfigFileManager.Default.GetValue("SearchPatterns", string.Empty);
             }
 
             set
             {
-                _config.SetValue("SearchPatterns", value);
-            }
-        }
-
-
-        public string SearchTextsMC
-        {
-            get
-            {
-                return _config.GetValue("SearchTextsMC", string.Empty);
-            }
-
-            set
-            {
-                _config.SetValue("SearchTextsMC", value);
-            }
-        }
-
-        public string SearchPatternsMC
-        {
-            get
-            {
-                return _config.GetValue("SearchPatternsMC", string.Empty);
-            }
-
-            set
-            {
-                _config.SetValue("SearchPatternsMC", value);
-            }
-        }
-
-        public int SplitterDistanceMC
-        {
-            get
-            {
-                return _config.GetValue("SplitterDistanceMC", 200);
-            }
-
-            set
-            {
-                _config.SetValue("SplitterDistanceMC", value);
-            }
-        }
-
-        public int VSplitterDistance
-        {
-            get
-            {
-                return _config.GetValue("VSplitterDistance", 
-                    4 * Screen.PrimaryScreen.Bounds.Width / 9);
-            }
-
-            set
-            {
-                _config.SetValue("VSplitterDistance", value);
-            }
-        }
-
-        public int HSplitterDistance
-        {
-            get
-            {
-                return _config.GetValue("HSplitterDistance",
-                    Screen.PrimaryScreen.Bounds.Height / 3 - 50);
-            }
-
-            set
-            {
-                _config.SetValue("HSplitterDistance", value);
+                ConfigFileManager.Default.SetValue("SearchPatterns", value);
             }
         }
 
 
-        public string ExplorerLaunchType
+        public static string SearchTextsMC
         {
             get
             {
-                return _config.GetValue("ExplorerLaunchType", "EnqueueFiles");
+                return ConfigFileManager.Default.GetValue("SearchTextsMC", string.Empty);
             }
 
             set
             {
-                _config.SetValue("ExplorerLaunchType", value);
+                ConfigFileManager.Default.SetValue("SearchTextsMC", value);
             }
         }
 
-        public int LastBalance
+        public static string SearchPatternsMC
         {
             get
             {
-                return _config.GetValue("LastBalance", 0);
+                return ConfigFileManager.Default.GetValue("SearchPatternsMC", string.Empty);
             }
 
             set
             {
-                _config.SetValue("LastBalance", value);
+                ConfigFileManager.Default.SetValue("SearchPatternsMC", value);
             }
         }
 
-        public int LastVolume
+        public static int SplitterDistanceMC
         {
             get
             {
-                return _config.GetValue("LastVolume", 5000);
+                return ConfigFileManager.Default.GetValue("SplitterDistanceMC", 200);
             }
 
             set
             {
-                _config.SetValue("LastVolume", value);
+                ConfigFileManager.Default.SetValue("SplitterDistanceMC", value);
             }
         }
 
-        public int LastFilterIndex
+        
+
+
+        public static string ExplorerLaunchType
         {
             get
             {
-                return _config.GetValue("LastFilterIndex", 0);
+                return ConfigFileManager.Default.GetValue("ExplorerLaunchType", "EnqueueFiles");
             }
 
             set
             {
-                _config.SetValue("LastFilterIndex", value);
+                ConfigFileManager.Default.SetValue("ExplorerLaunchType", value);
             }
         }
 
-        public string LastOpenedFolder
+        public static int LastBalance
         {
             get
             {
-                return _config.GetValue("LastOpenedFolder", PathUtils.CurrentDir);
+                return ConfigFileManager.Default.GetValue("LastBalance", 0);
             }
 
             set
             {
-                _config.SetValue("LastOpenedFolder", value);
+                ConfigFileManager.Default.SetValue("LastBalance", value);
             }
         }
 
-        public int PL_LastFilterIndex
+        public static int LastVolume
         {
             get
             {
-                return _config.GetValue("PL_LastFilterIndex", 0);
+                return ConfigFileManager.Default.GetValue("LastVolume", 5000);
             }
 
             set
             {
-                _config.SetValue("PL_LastFilterIndex", value);
+                ConfigFileManager.Default.SetValue("LastVolume", value);
             }
         }
 
-        public string PL_LastOpenedFolder
+        public static int LastFilterIndex
         {
             get
             {
-                return _config.GetValue("PL_LastOpenedFolder", PathUtils.CurrentDir);
+                return ConfigFileManager.Default.GetValue("LastFilterIndex", 0);
             }
 
             set
             {
-                _config.SetValue("PL_LastOpenedFolder", value);
+                ConfigFileManager.Default.SetValue("LastFilterIndex", value);
             }
         }
 
-        public string LastExploredFolder
+        public static string LastOpenedFolder
         {
             get
             {
-                return _config.GetValue("LastExploredFolder", PathUtils.CurrentDir);
+                return ConfigFileManager.Default.GetValue("LastOpenedFolder", PathUtils.CurrentDir);
             }
 
             set
             {
-                _config.SetValue("LastExploredFolder", value);
+                ConfigFileManager.Default.SetValue("LastOpenedFolder", value);
             }
         }
 
-        public string LastNavAddon
+        public static int PL_LastFilterIndex
         {
             get
             {
-                return _config.GetValue("LastNavAddon", "FileExplorer");
+                return ConfigFileManager.Default.GetValue("PL_LastFilterIndex", 0);
             }
 
             set
             {
-                _config.SetValue("LastNavAddon", value);
+                ConfigFileManager.Default.SetValue("PL_LastFilterIndex", value);
             }
         }
 
-        public bool LoopPlay
+        public static string PL_LastOpenedFolder
         {
             get
             {
-                return _config.GetValue("LoopPlay", false);
+                return ConfigFileManager.Default.GetValue("PL_LastOpenedFolder", PathUtils.CurrentDir);
             }
 
             set
             {
-                _config.SetValue("LoopPlay", value);
+                ConfigFileManager.Default.SetValue("PL_LastOpenedFolder", value);
             }
         }
 
-        public bool ShufflePlaylist
+        
+
+        public static bool LoopPlay
         {
             get
             {
-                return _config.GetValue("ShufflePlaylist", true);
+                return ConfigFileManager.Default.GetValue("LoopPlay", false);
             }
 
             set
             {
-                _config.SetValue("ShufflePlaylist", value);
+                ConfigFileManager.Default.SetValue("LoopPlay", value);
+            }
+        }
+
+        public static bool ShufflePlaylist
+        {
+            get
+            {
+                return ConfigFileManager.Default.GetValue("ShufflePlaylist", true);
+            }
+
+            set
+            {
+                ConfigFileManager.Default.SetValue("ShufflePlaylist", value);
             }
         }
 
         #endregion
 
         #region timer scheduler
-        public int PlaylistEventHandler
+        public static int PlaylistEventHandler
         {
             get
             {
-                return _config.GetValue("PlaylistEventHandler", 0);
+                return ConfigFileManager.Default.GetValue("PlaylistEventHandler", 0);
             }
             set
             {
-                _config.SetValue("PlaylistEventHandler", value);
+                ConfigFileManager.Default.SetValue("PlaylistEventHandler", value);
             }
         }
 
-        public string PlaylistEventData
+        public static string PlaylistEventData
         {
             get
             {
-                return _config.GetValue("PlaylistEventData", string.Empty);
+                return ConfigFileManager.Default.GetValue("PlaylistEventData", string.Empty);
             }
             set
             {
-                _config.SetValue("PlaylistEventData", value);
+                ConfigFileManager.Default.SetValue("PlaylistEventData", value);
             }
         }
 
 
-        public int ScheduledEventHandler
+        public static int ScheduledEventHandler
         {
             get
             {
-                return _config.GetValue("ScheduledEventHandler", 0);
+                return ConfigFileManager.Default.GetValue("ScheduledEventHandler", 0);
             }
             set
             {
-                _config.SetValue("ScheduledEventHandler", value);
+                ConfigFileManager.Default.SetValue("ScheduledEventHandler", value);
             }
         }
 
-        public string ScheduledEventData
+        public static string ScheduledEventData
         {
             get
             {
-                return _config.GetValue("ScheduledEventData", string.Empty);
+                return ConfigFileManager.Default.GetValue("ScheduledEventData", string.Empty);
             }
             set
             {
-                _config.SetValue("ScheduledEventData", value);
+                ConfigFileManager.Default.SetValue("ScheduledEventData", value);
             }
         }
 
-        public TimeSpan ScheduledEventTime
+        public static TimeSpan ScheduledEventTime
         {
             get
             {
-                return _config.GetValue("ScheduledEventTime", new TimeSpan(0, 0, 0));
+                return ConfigFileManager.Default.GetValue("ScheduledEventTime", new TimeSpan(0, 0, 0));
             }
             set
             {
-                _config.SetValue("ScheduledEventTime", value);
+                ConfigFileManager.Default.SetValue("ScheduledEventTime", value);
             }
         }
 
-        public int ScheduledEventDays
+        public static int ScheduledEventDays
         {
             get
             {
-                return _config.GetValue("ScheduledEventDays", 0);
+                return ConfigFileManager.Default.GetValue("ScheduledEventDays", 0);
             }
             set
             {
-                _config.SetValue("ScheduledEventDays", value);
+                ConfigFileManager.Default.SetValue("ScheduledEventDays", value);
             }
         }
 
-        public bool EnableScheduledEvent
+        public static bool EnableScheduledEvent
         {
             get
             {
-                return _config.GetValue("EnableScheduledEvent", false);
+                return ConfigFileManager.Default.GetValue("EnableScheduledEvent", false);
             }
             set
             {
-                _config.SetValue("EnableScheduledEvent", value);
+                ConfigFileManager.Default.SetValue("EnableScheduledEvent", value);
             }
         }
 
-        public int SchedulerWaitTimerProceed
+        public static int SchedulerWaitTimerProceed
         {
             get
             {
-                return _config.GetValue("SchedulerWaitTimerProceed", 2);
+                return ConfigFileManager.Default.GetValue("SchedulerWaitTimerProceed", 2);
             }
             set
             {
-                _config.SetValue("SchedulerWaitTimerProceed", value);
+                ConfigFileManager.Default.SetValue("SchedulerWaitTimerProceed", value);
             }
         }
 
         #endregion
 
         #region File explorer addon
-        public int FEMaxProcessedFiles
-        {
-            get { return _config.GetValue("FEMaxProcessedFiles", 100); }
-            set { _config.SetValue("FEMaxProcessedFiles", value); }
-        }
+        
 
-        public decimal FEPreviewTimer
+        public static decimal FEPreviewTimer
         {
             get 
             {
                 try
                 {
                     return (decimal)new DecimalConverter().ConvertFromInvariantString(
-                        _config.GetValue("FEPreviewTimer",
+                        ConfigFileManager.Default.GetValue("FEPreviewTimer",
                             new DecimalConverter().ConvertToInvariantString(0.5M)));
                 }
                 catch { }
@@ -971,7 +887,7 @@ namespace OPMedia.Core.ApplicationSettings
 
             set 
             { 
-                _config.SetValue("FEPreviewTimer", 
+                ConfigFileManager.Default.SetValue("FEPreviewTimer", 
                     new DecimalConverter().ConvertToInvariantString(value)); 
             }
         }
@@ -979,262 +895,262 @@ namespace OPMedia.Core.ApplicationSettings
 
         #region Media catalog addon
 
-        public string MCLastOpenedFolder
+        public static string MCLastOpenedFolder
         {
             get
             {
-                return _config.GetValue("MCLastOpenedFolder", string.Empty);
+                return ConfigFileManager.Default.GetValue("MCLastOpenedFolder", string.Empty);
             }
             set
             {
-                _config.SetValue("MCLastOpenedFolder", value);
+                ConfigFileManager.Default.SetValue("MCLastOpenedFolder", value);
             }
         }
 
-        public bool MCOpenLastCatalog
+        public static bool MCOpenLastCatalog
         {
             get
             {
-                return _config.GetValue("MCOpenLastCatalog", false);
+                return ConfigFileManager.Default.GetValue("MCOpenLastCatalog", false);
             }
             set
             {
-                _config.SetValue("MCOpenLastCatalog", value);
+                ConfigFileManager.Default.SetValue("MCOpenLastCatalog", value);
             }
         }
 
-        public bool MCRememberRecentFiles
+        public static bool MCRememberRecentFiles
         {
             get
             {
-                return _config.GetValue("MCRememberRecentFiles", false);
+                return ConfigFileManager.Default.GetValue("MCRememberRecentFiles", false);
             }
             set
             {
-                _config.SetValue("MCRememberRecentFiles", value);
+                ConfigFileManager.Default.SetValue("MCRememberRecentFiles", value);
             }
         }
 
-        public int MCRecentFilesCount
+        public static int MCRecentFilesCount
         {
             get
             {
-                return _config.GetValue("MCRecentFilesCount", 5);
+                return ConfigFileManager.Default.GetValue("MCRecentFilesCount", 5);
             }
             set
             {
-                _config.SetValue("MCRecentFilesCount", value);
+                ConfigFileManager.Default.SetValue("MCRecentFilesCount", value);
             }
         }
 
-        public string MCRecentFiles
+        public static string MCRecentFiles
         {
             get
             {
-                return _config.GetValue("MCRecentFiles", string.Empty);
+                return ConfigFileManager.Default.GetValue("MCRecentFiles", string.Empty);
             }
             set
             {
-                _config.SetValue("MCRecentFiles", value);
+                ConfigFileManager.Default.SetValue("MCRecentFiles", value);
             }
         }
 
         #endregion
 
         #region DVD Information
-        public bool DisableDVDMenu
+        public static bool DisableDVDMenu
         {
-            get { return _config.GetValue("DisableDVDMenu", false); }
-            set { _config.SetValue("DisableDVDMenu", value); }
+            get { return ConfigFileManager.Default.GetValue("DisableDVDMenu", false); }
+            set { ConfigFileManager.Default.SetValue("DisableDVDMenu", value); }
         }
         #endregion
 
         #region Subtitle and OSD
 
-        public int PrefferedSubtitleLang
+        public static int PrefferedSubtitleLang
         {
-            get { return _config.GetValue("PrefferedSubtitleLang", 1033); }
-            set { _config.SetValue("PrefferedSubtitleLang", value); }
+            get { return ConfigFileManager.Default.GetValue("PrefferedSubtitleLang", 1033); }
+            set { ConfigFileManager.Default.SetValue("PrefferedSubtitleLang", value); }
         }
 
-        public bool SubEnabled
+        public static bool SubEnabled
         {
-            get { return _config.GetValue("SubEnabled", false); }
-            set { _config.SetValue("SubEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("SubEnabled", false); }
+            set { ConfigFileManager.Default.SetValue("SubEnabled", value); }
         }
 
-        public bool OsdEnabled
+        public static bool OsdEnabled
         {
-            get { return _config.GetValue("OsdEnabled", false); }
-            set { _config.SetValue("OsdEnabled", value); }
+            get { return ConfigFileManager.Default.GetValue("OsdEnabled", false); }
+            set { ConfigFileManager.Default.SetValue("OsdEnabled", value); }
         }
 
-        public Color OsdColor
+        public static Color OsdColor
         {
             get
             {
-                int argb = _config.GetValue("OsdColor", Color.White.ToArgb());
+                int argb = ConfigFileManager.Default.GetValue("OsdColor", Color.White.ToArgb());
                 return Color.FromArgb(argb);
             }
 
             set
             {
-                _config.SetValue("OsdColor", value.ToArgb());
+                ConfigFileManager.Default.SetValue("OsdColor", value.ToArgb());
             }
         }
 
-        public Color SubColor
+        public static Color SubColor
         {
             get
             {
-                int argb = _config.GetValue("SubColor", Color.White.ToArgb());
+                int argb = ConfigFileManager.Default.GetValue("SubColor", Color.White.ToArgb());
                 return Color.FromArgb(argb);
             }
 
             set
             {
-                _config.SetValue("SubColor", value.ToArgb());
+                ConfigFileManager.Default.SetValue("SubColor", value.ToArgb());
             }
         }
 
         static Font DefSubAndOsdFont = new Font("Segoe UI", 12f, FontStyle.Bold, GraphicsUnit.Point);
 
-        public Font OsdFont
+        public static Font OsdFont
         {
             get
             {
-                string _f = _config.GetValue("OsdFont", new FontConverter().ConvertToInvariantString(DefSubAndOsdFont));
+                string _f = ConfigFileManager.Default.GetValue("OsdFont", new FontConverter().ConvertToInvariantString(DefSubAndOsdFont));
                 Font f = (Font)new FontConverter().ConvertFromInvariantString(_f);
-                byte charSet = (byte)_config.GetValue("OsdFontCharSet", DefSubAndOsdFont.GdiCharSet);
+                byte charSet = (byte)ConfigFileManager.Default.GetValue("OsdFontCharSet", DefSubAndOsdFont.GdiCharSet);
                 return new Font(f.FontFamily, f.Size, f.Style, f.Unit, charSet);
             }
 
             set
             {
-                _config.SetValue("OsdFont", new FontConverter().ConvertToInvariantString(value));
-                _config.SetValue("OsdFontCharSet", value.GdiCharSet);
+                ConfigFileManager.Default.SetValue("OsdFont", new FontConverter().ConvertToInvariantString(value));
+                ConfigFileManager.Default.SetValue("OsdFontCharSet", value.GdiCharSet);
             }
         }
 
-        public Font SubFont
+        public static Font SubFont
         {
             get
             {
-                string _f = _config.GetValue("SubFont", new FontConverter().ConvertToInvariantString(DefSubAndOsdFont));
+                string _f = ConfigFileManager.Default.GetValue("SubFont", new FontConverter().ConvertToInvariantString(DefSubAndOsdFont));
                 Font f = (Font)new FontConverter().ConvertFromInvariantString(_f);
-                byte charSet = (byte)_config.GetValue("SubFontCharSet", DefSubAndOsdFont.GdiCharSet);
+                byte charSet = (byte)ConfigFileManager.Default.GetValue("SubFontCharSet", DefSubAndOsdFont.GdiCharSet);
                 return new Font(f.FontFamily, f.Size, f.Style, f.Unit, charSet);
             }
 
             set
             {
-                _config.SetValue("SubFont", new FontConverter().ConvertToInvariantString(value));
-                _config.SetValue("SubFontCharSet", value.GdiCharSet);
+                ConfigFileManager.Default.SetValue("SubFont", new FontConverter().ConvertToInvariantString(value));
+                ConfigFileManager.Default.SetValue("SubFontCharSet", value.GdiCharSet);
             }
         }
 
-        public int OsdPersistTimer
+        public static int OsdPersistTimer
         {
             get
             {
-                return _config.GetValue("OsdPersistTimer", 4000);
+                return ConfigFileManager.Default.GetValue("OsdPersistTimer", 4000);
             }
 
             set
             {
-                _config.SetValue("OsdPersistTimer", value);
+                ConfigFileManager.Default.SetValue("OsdPersistTimer", value);
             }
         }
 
-        public bool SubtitleDownloadEnabled
+        public static bool SubtitleDownloadEnabled
         {
             get
             {
-                return _config.GetValue("SubtitleDownloadEnabled", true);
+                return ConfigFileManager.Default.GetValue("SubtitleDownloadEnabled", true);
             }
 
             set
             {
-                _config.SetValue("SubtitleDownloadEnabled", value);
+                ConfigFileManager.Default.SetValue("SubtitleDownloadEnabled", value);
             }
         }
 
-        public int SubtitleMinimumMovieDuration
+        public static int SubtitleMinimumMovieDuration
         {
             get
             {
-                return _config.GetValue("SubtitleMinimumMovieDuration", 20 /* 20 minutes */);
+                return ConfigFileManager.Default.GetValue("SubtitleMinimumMovieDuration", 20 /* 20 minutes */);
             }
 
             set
             {
-                _config.SetValue("SubtitleMinimumMovieDuration", value);
+                ConfigFileManager.Default.SetValue("SubtitleMinimumMovieDuration", value);
             }
         }
 
-        public bool MediaStateNotificationsEnabled
+        public static bool MediaStateNotificationsEnabled
         {
             get
             {
-                return _config.GetValue("MediaStateNotificationsEnabled", true);
+                return ConfigFileManager.Default.GetValue("MediaStateNotificationsEnabled", true);
             }
 
             set
             {
-                _config.SetValue("MediaStateNotificationsEnabled", value);
+                ConfigFileManager.Default.SetValue("MediaStateNotificationsEnabled", value);
             }
         }
 
-        public bool SubDownloadedNotificationsEnabled
+        public static bool SubDownloadedNotificationsEnabled
         {
             get
             {
-                return _config.GetValue("SubDownloadedNotificationsEnabled", true);
+                return ConfigFileManager.Default.GetValue("SubDownloadedNotificationsEnabled", true);
             }
 
             set
             {
-                _config.SetValue("SubDownloadedNotificationsEnabled", value);
+                ConfigFileManager.Default.SetValue("SubDownloadedNotificationsEnabled", value);
             }
         }
         #endregion
 
         #region Playlist formatting
 
-        public bool UseMetadata
+        public static bool UseMetadata
         {
-            get { return _config.GetValue("UseMetadata", true); }
-            set { _config.SetValue("UseMetadata", value); }
+            get { return ConfigFileManager.Default.GetValue("UseMetadata", true); }
+            set { ConfigFileManager.Default.SetValue("UseMetadata", value); }
         }
 
-        public bool UseFileNameFormat
+        public static bool UseFileNameFormat
         {
-            get { return _config.GetValue("UseFileNameFormat", true); }
-            set { _config.SetValue("UseFileNameFormat", value); }
+            get { return ConfigFileManager.Default.GetValue("UseFileNameFormat", true); }
+            set { ConfigFileManager.Default.SetValue("UseFileNameFormat", value); }
         }
 
-        public string PlaylistEntryFormat
+        public static string PlaylistEntryFormat
         {
-            get { return _config.GetValue("PlaylistEntryFormat", "<A> - <T>"); }
-            set { _config.SetValue("PlaylistEntryFormat", value); }
+            get { return ConfigFileManager.Default.GetValue("PlaylistEntryFormat", "<A> - <T>"); }
+            set { ConfigFileManager.Default.SetValue("PlaylistEntryFormat", value); }
         }
 
-        public string FileNameFormat
+        public static string FileNameFormat
         {
-            get { return _config.GetValue("FileNameFormat", "<A> - <T>"); }
-            set { _config.SetValue("FileNameFormat", value); }
+            get { return ConfigFileManager.Default.GetValue("FileNameFormat", "<A> - <T>"); }
+            set { ConfigFileManager.Default.SetValue("FileNameFormat", value); }
         }
 
-        public string CustomPlaylistEntryFormats
+        public static string CustomPlaylistEntryFormats
         {
-            get { return _config.GetValue("CustomPlaylistEntryFormats", string.Empty); }
-            set { _config.SetValue("CustomPlaylistEntryFormats", value); }
+            get { return ConfigFileManager.Default.GetValue("CustomPlaylistEntryFormats", string.Empty); }
+            set { ConfigFileManager.Default.SetValue("CustomPlaylistEntryFormats", value); }
         }
 
-        public string CustomFileNameFormats
+        public static string CustomFileNameFormats
         {
-            get { return _config.GetValue("CustomFileNameFormats", string.Empty); }
-            set { _config.SetValue("CustomFileNameFormats", value); }
+            get { return ConfigFileManager.Default.GetValue("CustomFileNameFormats", string.Empty); }
+            set { ConfigFileManager.Default.SetValue("CustomFileNameFormats", value); }
         }
 
         #endregion

@@ -79,22 +79,22 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
             chkEnablePlaylistEvt.Checked = SystemScheduler.PlaylistEventEnabled;
 
-            cmbPlaylistEvtHandler.SelectedIndex = AppSettings.Instance.PlaylistEventHandler;
+            cmbPlaylistEvtHandler.SelectedIndex = AppSettings.PlaylistEventHandler;
             psiPlaylistEvtData.ProgramStartupInfo = 
-                ProgramStartupInfo.FromString(AppSettings.Instance.PlaylistEventData);
+                ProgramStartupInfo.FromString(AppSettings.PlaylistEventData);
 
-            chkEnableScheduledEvt.Checked = AppSettings.Instance.EnableScheduledEvent;
+            chkEnableScheduledEvt.Checked = AppSettings.EnableScheduledEvent;
 
-            cmbScheduledEvtHandler.SelectedIndex = AppSettings.Instance.ScheduledEventHandler;
+            cmbScheduledEvtHandler.SelectedIndex = AppSettings.ScheduledEventHandler;
             psiScheduledEvtData.ProgramStartupInfo =
-                ProgramStartupInfo.FromString(AppSettings.Instance.ScheduledEventData);
-            wsScheduledEvtDays.Weekdays = (Weekday)AppSettings.Instance.ScheduledEventDays;
+                ProgramStartupInfo.FromString(AppSettings.ScheduledEventData);
+            wsScheduledEvtDays.Weekdays = (Weekday)AppSettings.ScheduledEventDays;
             
             dtpScheduledEvtTime.Value = new DateTime(1900, 1, 1,
-                AppSettings.Instance.ScheduledEventTime.Hours, AppSettings.Instance.ScheduledEventTime.Minutes,
-                AppSettings.Instance.ScheduledEventTime.Seconds);
+                AppSettings.ScheduledEventTime.Hours, AppSettings.ScheduledEventTime.Minutes,
+                AppSettings.ScheduledEventTime.Seconds);
 
-            nudSchedulerWaitTimerProceed.Value = AppSettings.Instance.SchedulerWaitTimerProceed;
+            nudSchedulerWaitTimerProceed.Value = AppSettings.SchedulerWaitTimerProceed;
 
             ManageVisibility();
             SubscribeAll();
@@ -104,19 +104,19 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         {
             SystemScheduler.PlaylistEventEnabled = chkEnablePlaylistEvt.Checked;
             
-            AppSettings.Instance.PlaylistEventHandler =  cmbPlaylistEvtHandler.SelectedIndex;
-            AppSettings.Instance.PlaylistEventData =     psiPlaylistEvtData.GetProgramStartupInfo();
+            AppSettings.PlaylistEventHandler =  cmbPlaylistEvtHandler.SelectedIndex;
+            AppSettings.PlaylistEventData =     psiPlaylistEvtData.GetProgramStartupInfo();
 
-            AppSettings.Instance.EnableScheduledEvent =  chkEnableScheduledEvt.Checked;
-            AppSettings.Instance.ScheduledEventHandler = cmbScheduledEvtHandler.SelectedIndex;
-            AppSettings.Instance.ScheduledEventData =    psiScheduledEvtData.GetProgramStartupInfo();
-            AppSettings.Instance.ScheduledEventDays =    (int)wsScheduledEvtDays.Weekdays;
-            AppSettings.Instance.ScheduledEventTime =
+            AppSettings.EnableScheduledEvent =  chkEnableScheduledEvt.Checked;
+            AppSettings.ScheduledEventHandler = cmbScheduledEvtHandler.SelectedIndex;
+            AppSettings.ScheduledEventData =    psiScheduledEvtData.GetProgramStartupInfo();
+            AppSettings.ScheduledEventDays =    (int)wsScheduledEvtDays.Weekdays;
+            AppSettings.ScheduledEventTime =
                 new TimeSpan(dtpScheduledEvtTime.Value.TimeOfDay.Hours, dtpScheduledEvtTime.Value.TimeOfDay.Minutes, 0);
 
-            AppSettings.Instance.SchedulerWaitTimerProceed = (int)nudSchedulerWaitTimerProceed.Value;
+            AppSettings.SchedulerWaitTimerProceed = (int)nudSchedulerWaitTimerProceed.Value;
 
-            AppSettings.Instance.Save();
+            AppSettings.Save();
         }
 
         private void OnSettingsChanged(object sender, EventArgs e)

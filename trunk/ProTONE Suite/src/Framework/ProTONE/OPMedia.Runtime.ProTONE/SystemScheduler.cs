@@ -102,8 +102,8 @@ namespace OPMedia.Runtime.ProTONE
 
                     if (PlaylistEventEnabled)
                     {
-                        ScheduledActionType sat = (ScheduledActionType)AppSettings.Instance.PlaylistEventHandler;
-                        ProgramStartupInfo psi = ProgramStartupInfo.FromString(AppSettings.Instance.PlaylistEventData);
+                        ScheduledActionType sat = (ScheduledActionType)AppSettings.PlaylistEventHandler;
+                        ProgramStartupInfo psi = ProgramStartupInfo.FromString(AppSettings.PlaylistEventData);
 
                         // Apply the language ID on the timer scheduler thread, 
                         // otherwise the translator will default to English
@@ -129,7 +129,7 @@ namespace OPMedia.Runtime.ProTONE
 
             DateTime now = DateTime.Now;
 
-            TimeSpan diff = now.TimeOfDay.Subtract(AppSettings.Instance.ScheduledEventTime);
+            TimeSpan diff = now.TimeOfDay.Subtract(AppSettings.ScheduledEventTime);
             if (Math.Abs(diff.TotalSeconds) <= 3f)
             {
                 matchHour = true;
@@ -141,7 +141,7 @@ namespace OPMedia.Runtime.ProTONE
                 }
             }
 
-            Weekday scheduledWeekDay = (Weekday)AppSettings.Instance.ScheduledEventDays;
+            Weekday scheduledWeekDay = (Weekday)AppSettings.ScheduledEventDays;
 
             if (scheduledWeekDay == Weekday.Everyday)
             {
@@ -182,10 +182,10 @@ namespace OPMedia.Runtime.ProTONE
                 {
                     _isScheduledEvent.Set();
 
-                    if (AppSettings.Instance.EnableScheduledEvent)
+                    if (AppSettings.EnableScheduledEvent)
                     {
-                        ScheduledActionType sat = (ScheduledActionType)AppSettings.Instance.ScheduledEventHandler;
-                        ProgramStartupInfo psi = ProgramStartupInfo.FromString(AppSettings.Instance.ScheduledEventData);
+                        ScheduledActionType sat = (ScheduledActionType)AppSettings.ScheduledEventHandler;
+                        ProgramStartupInfo psi = ProgramStartupInfo.FromString(AppSettings.ScheduledEventData);
 
                         // Apply the language ID on the timer scheduler thread, 
                         // otherwise the translator will default to English
@@ -217,7 +217,7 @@ namespace OPMedia.Runtime.ProTONE
 
             ThreadPool.QueueUserWorkItem(new WaitCallback(ProcessEvent));
 
-            if (AppSettings.Instance.SchedulerWaitTimerProceed > 0)
+            if (AppSettings.SchedulerWaitTimerProceed > 0)
             {
                 _action = ScheduledActionType.None;
 
@@ -278,7 +278,7 @@ namespace OPMedia.Runtime.ProTONE
 
             string info = Translator.Translate("TXT_PROCEED_SCHEDULED_ACTION", actionType, msg);
             TimerWaitingDialog dlg = new TimerWaitingDialog(
-                "TXT_SCHEDULED_ACTION_PROCEED", info, 60 * AppSettings.Instance.SchedulerWaitTimerProceed);
+                "TXT_SCHEDULED_ACTION_PROCEED", info, 60 * AppSettings.SchedulerWaitTimerProceed);
             DialogResult res = dlg.ShowDialog();
 
             return (res == DialogResult.Yes);

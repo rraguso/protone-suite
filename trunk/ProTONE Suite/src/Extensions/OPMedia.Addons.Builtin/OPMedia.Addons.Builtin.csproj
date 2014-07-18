@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationSettings\BuiltinAddonAppSettings.cs" />
     <Compile Include="Navigation\CatalogExplorer\DataLayer\Catalog.cs" />
     <Compile Include="Navigation\CatalogExplorer\DataLayer\CatalogDataset.Designer.cs">
       <AutoGen>True</AutoGen>

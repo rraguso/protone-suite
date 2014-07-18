@@ -50,21 +50,8 @@ namespace OPMedia.Runtime.ProTONE.ApplicationSettings
         All = 0xFF
     }
 
-    public class ProTONEAppSettings : AppSettings
+    public static class ProTONEAppSettings
     {
-        public static new ProTONEAppSettings Instance
-        {
-            get
-            {
-                return (_instance as ProTONEAppSettings);
-            }
-        }
-
-        public ProTONEAppSettings()
-            : base()
-        {
-        }
-
         #region RCC Service API (Calculated Level 2 settings)
         public static bool IsRCCServiceInstalled
         {
@@ -301,16 +288,16 @@ namespace OPMedia.Runtime.ProTONE.ApplicationSettings
 
         #region Level 2 Settings using Settings File (Combined per-app and per-user settings)
 
-        public MediaScreen ShowMediaScreens
+        public static MediaScreen ShowMediaScreens
         {
-            get { return (MediaScreen)_config.GetValue("ShowMediaScreens", (int)MediaScreen.All); }
-            set { _config.SetValue("ShowMediaScreens", (int)value); }
+            get { return (MediaScreen)ConfigFileManager.Default.GetValue("ShowMediaScreens", (int)MediaScreen.All); }
+            set { ConfigFileManager.Default.SetValue("ShowMediaScreens", (int)value); }
         }
 
-        public SignalAnalisysFunction SignalAnalisysFunctions
+        public static SignalAnalisysFunction SignalAnalisysFunctions
         {
-            get { return (SignalAnalisysFunction)_config.GetValue("SignalAnalisysFunctions", (int)SignalAnalisysFunction.All); }
-            set { _config.SetValue("SignalAnalisysFunctions", (int)value); }
+            get { return (SignalAnalisysFunction)ConfigFileManager.Default.GetValue("SignalAnalisysFunctions", (int)SignalAnalisysFunction.All); }
+            set { ConfigFileManager.Default.SetValue("SignalAnalisysFunctions", (int)value); }
         }
         #endregion
     }

@@ -72,13 +72,13 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
 
         public static bool CanPerformSubtitleDownload(string strFile, int duration)
         {
-            if (duration < AppSettings.Instance.SubtitleMinimumMovieDuration * 60)
+            if (duration < AppSettings.SubtitleMinimumMovieDuration * 60)
             {
                 // Movie is too short
                 Logger.LogTrace("This movie does not have a subtitle but is shorter than {0} minutes. Not starting download.", 20);
                 return false;
             }
-            if (!AppSettings.Instance.SubtitleDownloadEnabled)
+            if (!AppSettings.SubtitleDownloadEnabled)
             {
                 // Subtitle download not enabled
                 Logger.LogTrace("This movie does not have a subtitle but online subtitle download is disabled.");
@@ -293,7 +293,7 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
 
             Logger.LogTrace("A subtitle was found: {0}, for movie: {1}", subtitleFile, movieFile);
 
-            if (AppSettings.Instance.SubDownloadedNotificationsEnabled)
+            if (AppSettings.SubDownloadedNotificationsEnabled)
             {
                 MainThread.Post(delegate(object x)
                 {

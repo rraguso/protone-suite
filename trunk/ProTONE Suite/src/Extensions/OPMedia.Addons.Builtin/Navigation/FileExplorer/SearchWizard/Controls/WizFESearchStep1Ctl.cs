@@ -71,15 +71,15 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
 
         private void OnClearSearchPatternHistory(object sender, EventArgs e)
         {
-            AppSettings.Instance.SearchPatterns = string.Empty;
-            AppSettings.Instance.Save();
+            AppSettings.SearchPatterns = string.Empty;
+            AppSettings.Save();
             PopulateSearchPattern();
         }
 
         private void OnClearSearchValueHistory(object sender, EventArgs e)
         {
-            AppSettings.Instance.SearchTexts = string.Empty;
-            AppSettings.Instance.Save();
+            AppSettings.SearchTexts = string.Empty;
+            AppSettings.Save();
             PopulateSearchText();
         }
 
@@ -187,7 +187,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         private void PopulateSearchText()
         {
             cmbSearchText.Items.Clear();
-            string[] fields = StringUtils.ToStringArray(AppSettings.Instance.SearchTexts, '?');
+            string[] fields = StringUtils.ToStringArray(AppSettings.SearchTexts, '?');
 
             if (fields != null)
             {
@@ -205,7 +205,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         private void PopulateSearchPattern()
         {
             cmbSearchPattern.Items.Clear();
-            string[] fields = StringUtils.ToStringArray(AppSettings.Instance.SearchPatterns, '?');
+            string[] fields = StringUtils.ToStringArray(AppSettings.SearchPatterns, '?');
 
             if (fields != null)
             {
@@ -227,16 +227,16 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         {
             if (txtSearchPath.Text != Translator.Translate("TXT_BROWSE"))
             {
-                AppSettings.Instance.SearchPaths = SaveSetting(AppSettings.Instance.SearchPaths, txtSearchPath.Text);
+                AppSettings.SearchPaths = SaveSetting(AppSettings.SearchPaths, txtSearchPath.Text);
             }
 
             if (!SearchMediaFilesActive() && !SearchBookmarksActive())
             {
-                AppSettings.Instance.SearchPatterns = SaveSetting(AppSettings.Instance.SearchPatterns, cmbSearchPattern.Text);
+                AppSettings.SearchPatterns = SaveSetting(AppSettings.SearchPatterns, cmbSearchPattern.Text);
             }
             
-            AppSettings.Instance.SearchTexts = SaveSetting(AppSettings.Instance.SearchTexts, cmbSearchText.Text);
-            AppSettings.Instance.Save();
+            AppSettings.SearchTexts = SaveSetting(AppSettings.SearchTexts, cmbSearchText.Text);
+            AppSettings.Save();
         }
 
         private string SaveSetting(string initialSetting, string settingToAdd)

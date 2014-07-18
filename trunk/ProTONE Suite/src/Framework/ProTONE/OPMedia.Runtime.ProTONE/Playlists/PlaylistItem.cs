@@ -88,7 +88,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                  string track = string.Empty;
                  string year = string.Empty;
 
-                if (AppSettings.Instance.UseMetadata)
+                if (AppSettings.UseMetadata)
                 {
                     // Format using metadata
                     artist = mi.Artist;
@@ -100,7 +100,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     year = (mi.Year.HasValue) ? mi.Year.GetValueOrDefault().ToString("d4") : string.Empty;
                 }
 
-                if (AppSettings.Instance.UseFileNameFormat)
+                if (AppSettings.UseFileNameFormat)
                 {
                     // First - parse the file name
                     string name = mi.Name;
@@ -109,7 +109,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                         name = name.Replace(mi.Extension, string.Empty);
                     }
 
-                    Dictionary<string, string> fileTokens = StringUtils.Tokenize(name, AppSettings.Instance.FileNameFormat);
+                    Dictionary<string, string> fileTokens = StringUtils.Tokenize(name, AppSettings.FileNameFormat);
 
                     // Second - replace formatting fields with data from file name where available
                     if (fileTokens != null && fileTokens.Count > 0)
@@ -124,11 +124,11 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     }
                 }
 
-                if (AppSettings.Instance.UseMetadata || AppSettings.Instance.UseFileNameFormat)
+                if (AppSettings.UseMetadata || AppSettings.UseFileNameFormat)
                 {
                     // Format entries if any formatting rules are applied
 
-                    retVal = AppSettings.Instance.PlaylistEntryFormat;
+                    retVal = AppSettings.PlaylistEntryFormat;
                     StringUtils.ReplaceToken(ref retVal, "<A", artist ?? string.Empty);
                     StringUtils.ReplaceToken(ref retVal, "<B", album ?? string.Empty);
                     StringUtils.ReplaceToken(ref retVal, "<T", title ?? string.Empty);

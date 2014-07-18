@@ -40,13 +40,13 @@ namespace OPMedia.UI.Configuration
 
         private void NetworkSettingsPanel_Load(object sender, EventArgs e)
         {
-            ctlProxy.ProxySettings = AppSettings.Instance.ProxySettings;
+            ctlProxy.ProxySettings = AppSettings.ProxySettings;
         }
 
         protected override void SaveInternal()
         {
-            AppSettings.Instance.ProxySettings = ctlProxy.ProxySettings;
-            AppSettings.Instance.Save();
+            AppSettings.ProxySettings = ctlProxy.ProxySettings;
+            AppSettings.Save();
         }
 
         

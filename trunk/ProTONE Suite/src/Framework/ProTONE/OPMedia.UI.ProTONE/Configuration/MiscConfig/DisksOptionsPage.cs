@@ -34,7 +34,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             }
 
             cmbAudioCdInfoSource.SelectedIndex = (int)ProTONEAppSettings.AudioCdInfoSource;
-            cbDisableDVDMenu.Checked = ProTONEAppSettings.Instance.DisableDVDMenu;
+            cbDisableDVDMenu.Checked = AppSettings.DisableDVDMenu;
             txtCddbServerName.Text = ProTONEAppSettings.CddbServerName;
             txtCddbServerPort.Text = ProTONEAppSettings.CddbServerPort.ToString();
 
@@ -52,7 +52,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
         protected override void SaveInternal()
         {
-            AppSettings.Instance.DisableDVDMenu = cbDisableDVDMenu.Checked;
+            AppSettings.DisableDVDMenu = cbDisableDVDMenu.Checked;
             ProTONEAppSettings.AudioCdInfoSource = (CddaInfoSource)cmbAudioCdInfoSource.SelectedIndex;
             ProTONEAppSettings.CddbServerName = txtCddbServerName.Text;
 

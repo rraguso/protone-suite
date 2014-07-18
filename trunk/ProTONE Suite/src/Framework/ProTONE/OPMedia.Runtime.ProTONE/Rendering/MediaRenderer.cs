@@ -948,11 +948,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         public void DisplayOsdMessage(string msg)
         {
-            if (AppSettings.Instance.OsdEnabled)
+            if (AppSettings.OsdEnabled)
             {
                 using (FfdShowLib i = FfdShowInstance())
                 {
-                    int osdPersistTimer = AppSettings.Instance.OsdPersistTimer;
+                    int osdPersistTimer = AppSettings.OsdPersistTimer;
                     float frameRate = i.getFrameRate();
                     int persistFrames = (int)(osdPersistTimer * frameRate / 1000);
 
@@ -975,21 +975,21 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         private void EnforceSettings(FfdShowLib ffdShowLib)
         {
             // Subtitles
-            ffdShowLib.DoShowSubtitles = AppSettings.Instance.SubEnabled;
+            ffdShowLib.DoShowSubtitles = AppSettings.SubEnabled;
 
-            if (AppSettings.Instance.SubEnabled)
+            if (AppSettings.SubEnabled)
             {
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontColor,
-                    ColorHelper.BGR(AppSettings.Instance.SubColor));
+                    ColorHelper.BGR(AppSettings.SubColor));
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontSizeA,
-                    AppSettings.Instance.SubFont.Height);
+                    AppSettings.SubFont.Height);
                 ffdShowLib.setStringParam(FFDShowConstants.FFDShowDataId.IDFF_fontName,
-                    AppSettings.Instance.SubFont.OriginalFontName);
+                    AppSettings.SubFont.OriginalFontName);
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontCharset,
-                  AppSettings.Instance.SubFont.GdiCharSet);
+                  AppSettings.SubFont.GdiCharSet);
 
                 LOGFONT lf = new LOGFONT();
-                AppSettings.Instance.SubFont.ToLogFont(lf);
+                AppSettings.SubFont.ToLogFont(lf);
 
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontWeight,
                     lf.lfWeight);
@@ -999,19 +999,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering
                    lf.lfUnderline);
             }
 
-            if (AppSettings.Instance.OsdEnabled)
+            if (AppSettings.OsdEnabled)
             {
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontColor,
-                    ColorHelper.BGR(AppSettings.Instance.OsdColor));
+                    ColorHelper.BGR(AppSettings.OsdColor));
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontSize,
-                    AppSettings.Instance.OsdFont.Height);
+                    AppSettings.OsdFont.Height);
                 ffdShowLib.setStringParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontName,
-                    AppSettings.Instance.OsdFont.OriginalFontName);
+                    AppSettings.OsdFont.OriginalFontName);
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontCharset,
-                    AppSettings.Instance.OsdFont.GdiCharSet);
+                    AppSettings.OsdFont.GdiCharSet);
 
                 LOGFONT lf = new LOGFONT();
-                AppSettings.Instance.OsdFont.ToLogFont(lf);
+                AppSettings.OsdFont.ToLogFont(lf);
 
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontWeight,
                     lf.lfWeight);

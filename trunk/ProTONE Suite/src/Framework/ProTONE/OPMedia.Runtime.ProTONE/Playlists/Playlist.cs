@@ -76,10 +76,10 @@ namespace OPMedia.Runtime.ProTONE.Playlists
         { 
             get 
             { 
-                if (AppSettings.Instance.LoopPlay)
+                if (AppSettings.LoopPlay)
                     return false; // If playing in loop, it'n 
 
-                return AppSettings.Instance.ShufflePlaylist ? 
+                return AppSettings.ShufflePlaylist ? 
                     (randomPos == 0 && playIndex == LastIndex) :
                     (Count > 0 && playIndex == Count - 1); 
             } 
@@ -103,7 +103,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
         public void SetupRandomSequence(int firstIndex)
         {
-            if (AppSettings.Instance.ShufflePlaylist)
+            if (AppSettings.ShufflePlaylist)
             {
                 Random rnd = new Random();
                 randomIndexes.Clear();
@@ -144,7 +144,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
             {
                 try
                 {
-                    return (AppSettings.Instance.ShufflePlaylist) ?
+                    return (AppSettings.ShufflePlaylist) ?
                         randomIndexes[0] : 0;
                 }
                 catch
@@ -160,7 +160,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
             {
                 try
                 {
-                    return (AppSettings.Instance.ShufflePlaylist) ?
+                    return (AppSettings.ShufflePlaylist) ?
                         randomIndexes[randomIndexes.Count - 1] : Count - 1;
                 }
                 catch
@@ -212,7 +212,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
         public virtual bool MoveNext()
         {
-            if (AppSettings.Instance.ShufflePlaylist)
+            if (AppSettings.ShufflePlaylist)
             {
                 if (randomIndexes.Count > 0 && randomPos < randomIndexes.Count - 1)
                 {
@@ -221,7 +221,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     return true;
                 }
 
-                if (randomIndexes.Count > 0 && randomPos == randomIndexes.Count - 1 && AppSettings.Instance.LoopPlay)
+                if (randomIndexes.Count > 0 && randomPos == randomIndexes.Count - 1 && AppSettings.LoopPlay)
                 {
                     randomPos = 0;
                     playIndex = FirstIndex;
@@ -236,7 +236,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     return true;
                 }
 
-                if (Count > 0 && playIndex == Count - 1 && AppSettings.Instance.LoopPlay)
+                if (Count > 0 && playIndex == Count - 1 && AppSettings.LoopPlay)
                 {
                     playIndex = FirstIndex;
                     return true;
@@ -249,7 +249,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
         public virtual bool MovePrevious()
         {
             
-            if (AppSettings.Instance.ShufflePlaylist)
+            if (AppSettings.ShufflePlaylist)
             {
                 if (randomIndexes.Count > 0 && randomPos > 0)
                 {
@@ -258,7 +258,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     return true;
                 }
 
-                if (randomIndexes.Count > 0 && randomPos == 0 && AppSettings.Instance.LoopPlay)
+                if (randomIndexes.Count > 0 && randomPos == 0 && AppSettings.LoopPlay)
                 {
                     randomPos = randomIndexes.Count - 1;
                     playIndex = LastIndex;
@@ -273,7 +273,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     return true;
                 }
 
-                if (Count > 0 && playIndex == 0 && AppSettings.Instance.LoopPlay)
+                if (Count > 0 && playIndex == 0 && AppSettings.LoopPlay)
                 {
                     playIndex = LastIndex;
                     return true;

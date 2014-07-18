@@ -166,9 +166,9 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
         private void opmButton1_Click(object sender, EventArgs e)
         {
-            AppSettings.Instance.DetachedWindowLocation = new Point(100, 100);
-            AppSettings.Instance.DetachedWindowSize = new Size(800, 600);
-            AppSettings.Instance.Save();
+            AppSettings.DetachedWindowLocation = new Point(100, 100);
+            AppSettings.DetachedWindowSize = new Size(800, 600);
+            AppSettings.Save();
 
             EventDispatch.DispatchEvent(OPMedia.UI.ProTONE.GlobalEvents.EventNames.RestoreRenderingRegionPosition);
 

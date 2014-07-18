@@ -67,7 +67,7 @@ namespace OPMedia.MediaLibrary
 
                     try
                     {
-                        AddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS");
+                        BuiltinAddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS");
                     }
                     finally
                     {
@@ -79,7 +79,7 @@ namespace OPMedia.MediaLibrary
                     Application.Run(new MediaLibraryForm());
                 }
 
-                AppSettings.Instance.Save();
+                AppSettings.Save();
             }
             catch (Exception ex)
             {

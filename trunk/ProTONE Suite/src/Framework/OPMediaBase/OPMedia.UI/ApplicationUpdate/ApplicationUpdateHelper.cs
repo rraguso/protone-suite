@@ -45,7 +45,7 @@ namespace OPMedia.UI.ApplicationUpdate
 
             try
             {
-                retriever = new WebFileRetriever(AppSettings.Instance.ProxySettings, versionFileUri, tempVersionFile, false);
+                retriever = new WebFileRetriever(AppSettings.ProxySettings, versionFileUri, tempVersionFile, false);
                 StringBuilder sb = new StringBuilder();
 
                 if (Kernel32.GetPrivateProfileString(Constants.SuiteName, "Version", "1.0.0.0", sb, 255, tempVersionFile) > 0)
