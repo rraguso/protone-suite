@@ -504,7 +504,7 @@ namespace OPMedia.Runtime.Addons
                 Logger.LogHeavyTrace("MainForm handling OnNavigationAction ...");
 
                 Application.UseWaitCursor = true;
-                SuspendLayout();
+                this.SuspendLayoutEx();
 
                 bool isVoidAction = false;
                 bool isPreviewAction = false;
@@ -513,8 +513,8 @@ namespace OPMedia.Runtime.Addons
 
                 Logger.LogHeavyTrace("Action is of type: " + args.ActionType.ToString());
 
-                pnlPreview.SuspendLayout();
-                pnlProperties.SuspendLayout();
+                pnlPreview.SuspendLayoutEx();
+                pnlProperties.SuspendLayoutEx();
 
                 lblNoPreview.Text = Translator.Translate("TXT_THEREARENOITEMS");
 
@@ -703,9 +703,9 @@ namespace OPMedia.Runtime.Addons
             }
             finally
             {
-                pnlPreview.ResumeLayout();
-                pnlProperties.ResumeLayout();
-                ResumeLayout();
+                pnlPreview.ResumeLayoutEx();
+                pnlProperties.ResumeLayoutEx();
+                this.ResumeLayoutEx();
                 Application.UseWaitCursor = false;
 
                 Logger.LogHeavyTrace("MainForm handled OnNavigationAction.");
