@@ -50,6 +50,7 @@ using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms;
 using OPMedia.Runtime.ProTONE.Rendering.Cdda;
 using OPMedia.Core.NetworkAccess;
 using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Addons.Builtin.ApplicationSettings;
 
 #endregion
 
@@ -292,7 +293,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         {
                             case Keys.Escape:
                                 previewTimer.Stop();
-                                if (AppSettings.FEPreviewTimer > 0)
+                                if (BuiltinAddonSettings.FEPreviewTimer > 0)
                                 {
                                     RaiseNavigationAction(NavActionType.ActionCancelAutoPreview, null, null);
                                 }
@@ -412,9 +413,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     bool autoPreviewAvailable = false;
                     if (AddonsCore.Instance.CanDispatchAction(req, ref autoPreviewAvailable))
                     {
-                        if (autoPreviewAvailable && AppSettings.FEPreviewTimer > 0)
+                        if (autoPreviewAvailable && BuiltinAddonSettings.FEPreviewTimer > 0)
                         {
-                            previewTimer.Interval = (int)(AppSettings.FEPreviewTimer * 1000);
+                            previewTimer.Interval = (int)(BuiltinAddonSettings.FEPreviewTimer * 1000);
                             previewTimer.Start();
                             RaiseNavigationAction(NavActionType.ActionPrepareAutoPreview, null, null);
                         }

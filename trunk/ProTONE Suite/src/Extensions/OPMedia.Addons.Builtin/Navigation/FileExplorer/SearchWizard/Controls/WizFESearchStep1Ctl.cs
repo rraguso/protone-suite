@@ -22,6 +22,7 @@ using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.UI.Controls;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.Dialogs;
+using OPMedia.Addons.Builtin.ApplicationSettings;
 
 namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
 {
@@ -71,14 +72,14 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
 
         private void OnClearSearchPatternHistory(object sender, EventArgs e)
         {
-            AppSettings.SearchPatterns = string.Empty;
+            BuiltinAddonSettings.SearchPatterns = string.Empty;
             AppSettings.Save();
             PopulateSearchPattern();
         }
 
         private void OnClearSearchValueHistory(object sender, EventArgs e)
         {
-            AppSettings.SearchTexts = string.Empty;
+            BuiltinAddonSettings.SearchTexts = string.Empty;
             AppSettings.Save();
             PopulateSearchText();
         }
@@ -187,7 +188,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         private void PopulateSearchText()
         {
             cmbSearchText.Items.Clear();
-            string[] fields = StringUtils.ToStringArray(AppSettings.SearchTexts, '?');
+            string[] fields = StringUtils.ToStringArray(BuiltinAddonSettings.SearchTexts, '?');
 
             if (fields != null)
             {
@@ -205,7 +206,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         private void PopulateSearchPattern()
         {
             cmbSearchPattern.Items.Clear();
-            string[] fields = StringUtils.ToStringArray(AppSettings.SearchPatterns, '?');
+            string[] fields = StringUtils.ToStringArray(BuiltinAddonSettings.SearchPatterns, '?');
 
             if (fields != null)
             {
@@ -227,15 +228,15 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
         {
             if (txtSearchPath.Text != Translator.Translate("TXT_BROWSE"))
             {
-                AppSettings.SearchPaths = SaveSetting(AppSettings.SearchPaths, txtSearchPath.Text);
+                BuiltinAddonSettings.SearchPaths = SaveSetting(BuiltinAddonSettings.SearchPaths, txtSearchPath.Text);
             }
 
             if (!SearchMediaFilesActive() && !SearchBookmarksActive())
             {
-                AppSettings.SearchPatterns = SaveSetting(AppSettings.SearchPatterns, cmbSearchPattern.Text);
+                BuiltinAddonSettings.SearchPatterns = SaveSetting(BuiltinAddonSettings.SearchPatterns, cmbSearchPattern.Text);
             }
-            
-            AppSettings.SearchTexts = SaveSetting(AppSettings.SearchTexts, cmbSearchText.Text);
+
+            BuiltinAddonSettings.SearchTexts = SaveSetting(BuiltinAddonSettings.SearchTexts, cmbSearchText.Text);
             AppSettings.Save();
         }
 

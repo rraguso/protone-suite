@@ -21,6 +21,7 @@ using OPMedia.UI.ProTONE.GlobalEvents;
 using OPMedia.UI.Controls;
 using OPMedia.Addons.Builtin.Properties;
 using OPMedia.Runtime.FileInformation;
+using OPMedia.Addons.Builtin.ApplicationSettings;
 
 namespace OPMedia.Addons.Builtin.ID3Prop
 {
@@ -130,7 +131,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop
             if (_reloadTimer == null)
             {
                 _reloadTimer = new Timer();
-                _reloadTimer.Interval = (int)(AppSettings.FEPreviewTimer * 1000);
+                _reloadTimer.Interval = (int)(BuiltinAddonSettings.FEPreviewTimer * 1000);
                 _reloadTimer.Tick += new EventHandler(_reloadTimer_Tick);
             }
 
