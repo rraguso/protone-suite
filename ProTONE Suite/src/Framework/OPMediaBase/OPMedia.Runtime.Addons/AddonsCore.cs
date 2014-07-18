@@ -18,6 +18,7 @@ using OPMedia.Runtime.Addons;
 using OPMedia.Runtime.Addons.AddonsBase;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Core;
+using System.IO;
 #endregion
 
 namespace OPMedia.Runtime.Addons
@@ -167,11 +168,32 @@ namespace OPMedia.Runtime.Addons
             Translator.RegisterTranslationAssembly(GetType().Assembly);
 
             Logger.LogTrace("Checking default addons configuration ...");
-            ApplicationInfo.CreateDefaultAddonsConfig();
+            CreateDefaultAddonsConfig();
 
             // Init addons config first
             AddonsConfig.Init();
             InitializeAddons();
+        }
+
+        static void CreateDefaultAddonsConfig()
+        {
+            // Copy default addons config file if it does not exist
+            if (File.Exists(ApplicationInfo.AddonsConfigFile))
+            {
+                Logger.LogTrace("Addons configuration is already saved in user's settings.");
+            }
+            else
+            {
+                Logger.LogTrace("Copying default addons configuration from 'DefaultAddons.config' ...");
+                try
+                {
+                    File.Copy(@".\DefaultAddons.config", ApplicationInfo.AddonsConfigFile);
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogException(ex);
+                }
+            }
         }
 
         #endregion

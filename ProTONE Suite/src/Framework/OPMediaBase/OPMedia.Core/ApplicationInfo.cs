@@ -14,26 +14,7 @@ namespace OPMedia.Core
     {
         public static string _appName = null;
 
-        public static void CreateDefaultAddonsConfig()
-        {
-            // Copy default addons config file if it does not exist
-            if (File.Exists(ApplicationInfo.AddonsConfigFile))
-            {
-                Logger.LogTrace("Addons configuration is already saved in user's settings.");
-            }
-            else
-            {
-                Logger.LogTrace("Copying default addons configuration from 'DefaultAddons.config' ...");
-                try
-                {
-                    File.Copy(@".\DefaultAddons.config", ApplicationInfo.AddonsConfigFile);
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogException(ex);
-                }
-            }
-        }
+        
 
         public static void RegisterAppName(Assembly asm)
         {
