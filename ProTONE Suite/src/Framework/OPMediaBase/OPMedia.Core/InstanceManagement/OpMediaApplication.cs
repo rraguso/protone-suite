@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using OPMedia.Core;
 using System.IO;
 using System.Diagnostics;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.Core.InstanceManagement
 {
@@ -37,7 +37,7 @@ namespace OPMedia.Core.InstanceManagement
                 appInstance.DoTerminate();
             }
 
-            AppSettings.Save();
+            AppConfig.Save();
             Application.Restart();
             Process.GetCurrentProcess().Kill();
         }

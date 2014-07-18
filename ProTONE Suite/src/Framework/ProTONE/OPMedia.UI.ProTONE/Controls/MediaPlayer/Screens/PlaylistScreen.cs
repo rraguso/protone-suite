@@ -14,7 +14,7 @@ using OPMedia.Runtime;
 using OPMedia.Runtime.Shortcuts;
 using OPMedia.UI.Controls;
 using OPMedia.UI.Themes;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Diagnostics;
 
 using OPMedia.Runtime.ProTONE.Rendering;
@@ -34,7 +34,7 @@ using OPMedia.UI.ProTONE.Properties;
 using OPMedia.Runtime.Processors;
 using System.Net;
 using OPMedia.Core.Utilities;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -492,13 +492,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Title = Translator.Translate("TXT_SAVEPLAYLIST");
             dlg.Filter = filter;
             dlg.DefaultExt = "m3u";
-            dlg.FilterIndex = ProTONEAppSettings.PL_LastFilterIndex;
-            dlg.InitialDirectory = ProTONEAppSettings.PL_LastOpenedFolder;
+            dlg.FilterIndex = ProTONEConfig.PL_LastFilterIndex;
+            dlg.InitialDirectory = ProTONEConfig.PL_LastOpenedFolder;
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnSavePlaylist.ToIcon((uint)Color.White.ToArgb());
 
-            dlg.FillFavoriteFoldersEvt += () => { return ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
 
             dlg.ShowAddToFavorites = true;
@@ -506,18 +506,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                ProTONEAppSettings.PL_LastFilterIndex = dlg.FilterIndex;
+                ProTONEConfig.PL_LastFilterIndex = dlg.FilterIndex;
 
                 playlist.SavePlaylist(dlg.FileName);
 
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileName);
-                    ProTONEAppSettings.PL_LastOpenedFolder = fi.DirectoryName;
+                    ProTONEConfig.PL_LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    ProTONEAppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
+                    ProTONEConfig.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
@@ -541,7 +541,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 using (WebClient wc = new WebClient())
                 {
-                    wc.Proxy = AppSettings.GetWebProxy();
+                    wc.Proxy = AppConfig.GetWebProxy();
                     wc.DownloadFile(uri, tempFile);
                     playlist.LoadPlaylist(tempFile);
                 }
@@ -560,20 +560,20 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Multiselect = true;
             dlg.Title = Translator.Translate("TXT_LOADPLAYLIST");
             dlg.Filter = filter;
-            dlg.FilterIndex = ProTONEAppSettings.PL_LastFilterIndex;
-            dlg.InitialDirectory = ProTONEAppSettings.PL_LastOpenedFolder;
+            dlg.FilterIndex = ProTONEConfig.PL_LastFilterIndex;
+            dlg.InitialDirectory = ProTONEConfig.PL_LastOpenedFolder;
 
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.btnLoadPlaylist.ToIcon((uint)Color.White.ToArgb());
 
-            dlg.FillFavoriteFoldersEvt += () => { return ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
 
             dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                ProTONEAppSettings.PL_LastFilterIndex = dlg.FilterIndex;
+                ProTONEConfig.PL_LastFilterIndex = dlg.FilterIndex;
 
                 Clear();
                 playlist.LoadPlaylist(dlg.FileName);
@@ -581,23 +581,23 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileName);
-                    ProTONEAppSettings.PL_LastOpenedFolder = fi.DirectoryName;
+                    ProTONEConfig.PL_LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    ProTONEAppSettings.PL_LastOpenedFolder = dlg.InitialDirectory;
+                    ProTONEConfig.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
         }
 
         private bool AddToFavoriteFolders(string path)
         {
-            List<string> favorites = new List<string>(ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"));
+            List<string> favorites = new List<string>(ProTONEConfig.GetFavoriteFolders("FavoriteFolders"));
             if (favorites.Contains(path))
                 return false;
 
             favorites.Add(path);
-            ProTONEAppSettings.SetFavoriteFolders(favorites, "FavoriteFolders");
+            ProTONEConfig.SetFavoriteFolders(favorites, "FavoriteFolders");
             return true;
         }
 
@@ -789,16 +789,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
 
                 case OPMShortcut.CmdToggleShuffle:
-                    ProTONEAppSettings.ShufflePlaylist ^= true;
-                    AppSettings.Save();
+                    ProTONEConfig.ShufflePlaylist ^= true;
+                    AppConfig.Save();
                     playlist.SetupRandomSequence(playlist.PlayIndex);
                     args.Handled = true;
                     refreshButtonState = true;
                     break;
 
                 case OPMShortcut.CmdLoopPlay:
-                    ProTONEAppSettings.LoopPlay ^= true;
-                    AppSettings.Save();
+                    ProTONEConfig.LoopPlay ^= true;
+                    AppConfig.Save();
                     args.Handled = true;
                     refreshButtonState = true;
                     break;

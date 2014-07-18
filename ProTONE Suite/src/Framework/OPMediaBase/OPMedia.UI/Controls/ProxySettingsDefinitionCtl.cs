@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using OPMedia.UI.Themes;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.UI.Properties;
 using OPMedia.Core.TranslationSupport;
 
@@ -37,13 +37,13 @@ namespace OPMedia.UI.Configuration
 
             UnsubscribeAll();
 
-            if (AppSettings.ProxySettings.ProxyType > ProxyType.NotDefined)
+            if (AppConfig.ProxySettings.ProxyType > ProxyType.NotDefined)
             {
-                this.ProxySettings.ProxyType = AppSettings.ProxySettings.ProxyType;
-                this.ProxySettings.ProxyAddress = AppSettings.ProxySettings.ProxyAddress;
-                this.ProxySettings.ProxyPassword = AppSettings.ProxySettings.ProxyPassword;
-                this.ProxySettings.ProxyPort = AppSettings.ProxySettings.ProxyPort;
-                this.ProxySettings.ProxyUser = AppSettings.ProxySettings.ProxyUser;
+                this.ProxySettings.ProxyType = AppConfig.ProxySettings.ProxyType;
+                this.ProxySettings.ProxyAddress = AppConfig.ProxySettings.ProxyAddress;
+                this.ProxySettings.ProxyPassword = AppConfig.ProxySettings.ProxyPassword;
+                this.ProxySettings.ProxyPort = AppConfig.ProxySettings.ProxyPort;
+                this.ProxySettings.ProxyUser = AppConfig.ProxySettings.ProxyUser;
             }
 
             LoadProxySettings();

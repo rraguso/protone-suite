@@ -8,7 +8,8 @@ using System.Windows.Forms;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.Addons.Configuration;
 using OPMedia.UI.ProTONE.Configuration.MiscConfig;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
@@ -40,7 +41,7 @@ namespace OPMedia.UI.ProTONE.Configuration
         {
             if (ApplicationInfo.IsPlayer)
             {
-                AddPanel(typeof(FileTypesPanel), SuiteConfiguration.CurrentUserIsAdministrator);
+                AddPanel(typeof(FileTypesPanel), AppConfig.CurrentUserIsAdministrator);
             }
             else if (ApplicationInfo.IsMediaLibrary)
             {
@@ -56,7 +57,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             {
                 //AddPanel(typeof(SchedulerSettingsPanel));
 
-                if (!SuiteConfiguration.CurrentUserIsAdministrator)
+                if (!AppConfig.CurrentUserIsAdministrator)
                 {
                     MessageDisplay.Show(Translator.Translate("TXT_PANELSHIDDEN_NOADMIN"),
                         Translator.Translate("TXT_CAUTION"), MessageBoxIcon.Exclamation);
@@ -75,7 +76,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         public override List<BaseCfgPanel> GetControlSubPages()
         {
-            if (!SuiteConfiguration.CurrentUserIsAdministrator || !ProTONEAppSettings.IsRCCServiceInstalled)
+            if (!AppConfig.CurrentUserIsAdministrator || !ProTONEConfig.IsRCCServiceInstalled)
                 return null;
 
             return new List<BaseCfgPanel> 

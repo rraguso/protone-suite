@@ -8,6 +8,7 @@ using OPMedia.Core.Logging;
 using OPMedia.Core.GlobalEvents;
 using System.Diagnostics;
 using OPMedia.UI.Themes;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.UI.HelpSupport
 {
@@ -25,13 +26,13 @@ namespace OPMedia.UI.HelpSupport
             if (string.IsNullOrEmpty(topicName))
             {
                 helpUri = string.Format("{0}/{1}/{2}.htm", 
-                    SuiteConfiguration.HelpUriBase, ApplicationInfo.ApplicationName,
+                    AppConfig.HelpUriBase, ApplicationInfo.ApplicationName,
                     sectionName);
             }
             else
             {
                 helpUri = string.Format("{0}/{1}/{2}/{3}.htm", 
-                    SuiteConfiguration.HelpUriBase, ApplicationInfo.ApplicationName,
+                    AppConfig.HelpUriBase, ApplicationInfo.ApplicationName,
                        sectionName, topicName);
             }
 

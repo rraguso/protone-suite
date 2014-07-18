@@ -9,7 +9,7 @@ using System.Reflection;
 using System.IO;
 using System.Diagnostics;
 using System.Xml;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 
 namespace OPMedia.Core.Logging
@@ -24,7 +24,7 @@ namespace OPMedia.Core.Logging
         private bool warningLevelEnabled = true;
         private bool errorLevelEnabled = true;
         private bool loggingEnabled = true;
-        private string logFilePath = AppSettings.GetDefaultLoggingFolder();
+        private string logFilePath = AppConfig.GetDefaultLoggingFolder();
         private int daysToKeepLogs = 2;
 
         private LoggingConfiguration()
@@ -178,42 +178,42 @@ namespace OPMedia.Core.Logging
         private void ReadConfiguration()
         {
             
-            loggingEnabled = AppSettings.LogEnabled;
-            traceLevelEnabled = AppSettings.LogTraceLevelEnabled;
-            infoLevelEnabled = AppSettings.LogInfoLevelEnabled;
-            warningLevelEnabled = AppSettings.LogWarningLevelEnabled;
-            errorLevelEnabled = AppSettings.LogErrorLevelEnabled;
+            loggingEnabled = AppConfig.LogEnabled;
+            traceLevelEnabled = AppConfig.LogTraceLevelEnabled;
+            infoLevelEnabled = AppConfig.LogInfoLevelEnabled;
+            warningLevelEnabled = AppConfig.LogWarningLevelEnabled;
+            errorLevelEnabled = AppConfig.LogErrorLevelEnabled;
 
-            heavyTraceLevelEnabled = AppSettings.LogHeavyTraceLevelEnabled;
-            logFilePath = AppSettings.LogFilePath;
-            daysToKeepLogs = AppSettings.DaysToKeepLogs;
+            heavyTraceLevelEnabled = AppConfig.LogHeavyTraceLevelEnabled;
+            logFilePath = AppConfig.LogFilePath;
+            daysToKeepLogs = AppConfig.DaysToKeepLogs;
         }
 
         public static void SaveConfiguration()
         {
-            if (AppSettings.LogEnabled != instance.loggingEnabled)
-                AppSettings.LogEnabled = instance.loggingEnabled;
+            if (AppConfig.LogEnabled != instance.loggingEnabled)
+                AppConfig.LogEnabled = instance.loggingEnabled;
 
-            if (AppSettings.LogTraceLevelEnabled != instance.traceLevelEnabled)
-                AppSettings.LogTraceLevelEnabled = instance.traceLevelEnabled;
+            if (AppConfig.LogTraceLevelEnabled != instance.traceLevelEnabled)
+                AppConfig.LogTraceLevelEnabled = instance.traceLevelEnabled;
 
-            if (AppSettings.LogInfoLevelEnabled != instance.infoLevelEnabled)
-                AppSettings.LogInfoLevelEnabled = instance.infoLevelEnabled;
+            if (AppConfig.LogInfoLevelEnabled != instance.infoLevelEnabled)
+                AppConfig.LogInfoLevelEnabled = instance.infoLevelEnabled;
 
-            if (AppSettings.LogWarningLevelEnabled != instance.warningLevelEnabled)
-                AppSettings.LogWarningLevelEnabled = instance.warningLevelEnabled;
+            if (AppConfig.LogWarningLevelEnabled != instance.warningLevelEnabled)
+                AppConfig.LogWarningLevelEnabled = instance.warningLevelEnabled;
 
-            if (AppSettings.LogErrorLevelEnabled != instance.errorLevelEnabled)
-                AppSettings.LogErrorLevelEnabled = instance.errorLevelEnabled;
+            if (AppConfig.LogErrorLevelEnabled != instance.errorLevelEnabled)
+                AppConfig.LogErrorLevelEnabled = instance.errorLevelEnabled;
 
-            if (AppSettings.LogHeavyTraceLevelEnabled != instance.heavyTraceLevelEnabled)
-                AppSettings.LogHeavyTraceLevelEnabled = instance.heavyTraceLevelEnabled;
+            if (AppConfig.LogHeavyTraceLevelEnabled != instance.heavyTraceLevelEnabled)
+                AppConfig.LogHeavyTraceLevelEnabled = instance.heavyTraceLevelEnabled;
 
-            if (AppSettings.LogFilePath != instance.logFilePath)
-                AppSettings.LogFilePath = instance.logFilePath;
+            if (AppConfig.LogFilePath != instance.logFilePath)
+                AppConfig.LogFilePath = instance.logFilePath;
 
-            if (AppSettings.DaysToKeepLogs != instance.daysToKeepLogs)
-                AppSettings.DaysToKeepLogs = instance.daysToKeepLogs;
+            if (AppConfig.DaysToKeepLogs != instance.daysToKeepLogs)
+                AppConfig.DaysToKeepLogs = instance.daysToKeepLogs;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 using OPMedia.UI.FileTasks;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using System.IO;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
 

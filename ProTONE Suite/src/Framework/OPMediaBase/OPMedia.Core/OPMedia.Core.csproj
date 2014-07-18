@@ -55,8 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationInfo.cs" />
-    <Compile Include="ApplicationSettings\AppSettings.cs" />
-    <Compile Include="ApplicationSettings\ConfigFileManager.cs" />
+    <Compile Include="Configuration\AppConfig.cs" />
+    <Compile Include="Configuration\ConfigFileManager.cs" />
     <None Include="VersionTemplate.cs" />
     <Compile Include="MainThread.cs" />
     <Compile Include="NetworkAccess\Shares.cs" />
@@ -87,7 +87,6 @@
     <Compile Include="Logging\LoggingConfiguration.cs" />
     <Compile Include="Utilities\SerialPortAPI.cs">
     </Compile>
-    <Compile Include="SuiteConfiguration.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="TranslationSupport\TranslatableAttributes.cs" />
     <Compile Include="TranslationSupport\Translator.cs" />

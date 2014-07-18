@@ -16,9 +16,9 @@ using System.Windows.Forms;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI;
 using OPMedia.Core.GlobalEvents;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Reflection;
-using OPMedia.Runtime.Addons.ApplicationSettings;
+using OPMedia.Runtime.Addons.Configuration;
 #endregion
 
 namespace OPMedia.Runtime.Addons.AddonsBase.Prop
@@ -106,9 +106,9 @@ namespace OPMedia.Runtime.Addons.AddonsBase.Prop
         {
             if (_strItems != null)
             {
-                if (_strItems.Count > AddonAppSettings.MaxProcessedEntries)
+                if (_strItems.Count > AddonAppConfig.MaxProcessedEntries)
                 {
-                    ShowProperties(_strItems.GetRange(0, AddonAppSettings.MaxProcessedEntries), _additionalData);
+                    ShowProperties(_strItems.GetRange(0, AddonAppConfig.MaxProcessedEntries), _additionalData);
                 }
                 else
                 {

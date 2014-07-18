@@ -68,7 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationSettings\ProTONEAppSettings.cs" />
+    <Compile Include="Configuration\ProTONEConfig.cs" />
     <Compile Include="Compression\LameEncoder.cs" />
     <Compile Include="DirectX\DirectXConfig.cs" />
     <Compile Include="ExtendedInfo\ID3ArtworkInfo.cs" />

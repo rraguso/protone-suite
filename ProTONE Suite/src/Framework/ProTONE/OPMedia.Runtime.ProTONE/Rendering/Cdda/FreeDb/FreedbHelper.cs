@@ -22,7 +22,7 @@ using System.Net;
 using System.IO;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using System.Net.Sockets;
 using System.Collections.Generic;

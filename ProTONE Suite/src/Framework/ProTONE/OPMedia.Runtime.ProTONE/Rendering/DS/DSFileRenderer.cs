@@ -12,7 +12,7 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Core.Logging;
 using OPMedia.Core;
 
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;

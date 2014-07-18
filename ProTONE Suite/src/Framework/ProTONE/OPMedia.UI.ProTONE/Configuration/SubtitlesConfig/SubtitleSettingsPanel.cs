@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 
 using OPMedia.Runtime;
@@ -63,7 +63,7 @@ namespace OPMedia.UI.ProTONE.Configuration
         {
             pageSubtitles.Save();
             pageOsd.Save();
-            AppSettings.Save();
+            AppConfig.Save();
 
             Modified = false;
         }

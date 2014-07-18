@@ -15,7 +15,7 @@ using OPMedia.UI;
 using System.Reflection;
 using OPMedia.UI.Themes;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.Shortcuts;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Runtime;
@@ -33,7 +33,7 @@ using OPMedia.Core.ComTypes;
 using OPMedia.UI.ProTONE;
 using OPMedia.UI.Properties;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 
 namespace OPMedia.ProTONE
@@ -69,8 +69,8 @@ namespace OPMedia.ProTONE
         public MainForm()
             : base("TXT_APP_NAME")
         {
-            AppSettings.CanSendToTray = true;
-            AppSettings.Save();
+            AppConfig.CanSendToTray = true;
+            AppConfig.Save();
 
             InitializeComponent();
 
@@ -405,13 +405,13 @@ namespace OPMedia.ProTONE
                     switch((OPMShortcut)tsi.Tag)
                     {
                         case OPMShortcut.CmdToggleShuffle:
-                            (tsi as OPMToolStripMenuItem).Checked = ProTONEAppSettings.ShufflePlaylist;
+                            (tsi as OPMToolStripMenuItem).Checked = ProTONEConfig.ShufflePlaylist;
                             break;
                         case OPMShortcut.CmdPlaylistEnd:
                             (tsi as OPMToolStripMenuItem).Checked = SystemScheduler.PlaylistEventEnabled;
                             break;
                         case OPMShortcut.CmdLoopPlay:
-                            (tsi as OPMToolStripMenuItem).Checked = ProTONEAppSettings.LoopPlay;
+                            (tsi as OPMToolStripMenuItem).Checked = ProTONEConfig.LoopPlay;
                             break;
                     }
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Configuration;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime;
 
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
@@ -15,7 +15,7 @@ using OPMedia.Core;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.Controls;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -33,13 +33,13 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
                 cmbAudioCdInfoSource.Items.Add(Translator.Translate(raw));
             }
 
-            cmbAudioCdInfoSource.SelectedIndex = (int)ProTONEAppSettings.AudioCdInfoSource;
-            cbDisableDVDMenu.Checked = ProTONEAppSettings.DisableDVDMenu;
-            txtCddbServerName.Text = ProTONEAppSettings.CddbServerName;
-            txtCddbServerPort.Text = ProTONEAppSettings.CddbServerPort.ToString();
+            cmbAudioCdInfoSource.SelectedIndex = (int)ProTONEConfig.AudioCdInfoSource;
+            cbDisableDVDMenu.Checked = ProTONEConfig.DisableDVDMenu;
+            txtCddbServerName.Text = ProTONEConfig.CddbServerName;
+            txtCddbServerPort.Text = ProTONEConfig.CddbServerPort.ToString();
 
             txtCddbServerName.Visible = txtCddbServerPort.Visible = lblCddbServerName.Visible = lblCddbServerPort.Visible =
-                (ProTONEAppSettings.AudioCdInfoSource >= CddaInfoSource.Cddb);
+                (ProTONEConfig.AudioCdInfoSource >= CddaInfoSource.Cddb);
         }
 
         void OnLoad(object sender, EventArgs e)
@@ -52,13 +52,13 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
         protected override void SaveInternal()
         {
-            ProTONEAppSettings.DisableDVDMenu = cbDisableDVDMenu.Checked;
-            ProTONEAppSettings.AudioCdInfoSource = (CddaInfoSource)cmbAudioCdInfoSource.SelectedIndex;
-            ProTONEAppSettings.CddbServerName = txtCddbServerName.Text;
+            ProTONEConfig.DisableDVDMenu = cbDisableDVDMenu.Checked;
+            ProTONEConfig.AudioCdInfoSource = (CddaInfoSource)cmbAudioCdInfoSource.SelectedIndex;
+            ProTONEConfig.CddbServerName = txtCddbServerName.Text;
 
             int val = 8880;
             int.TryParse(txtCddbServerPort.Text, out val);
-            ProTONEAppSettings.CddbServerPort = val;
+            ProTONEConfig.CddbServerPort = val;
         }
 
         private void OnSettingsChanged(object sender, EventArgs e)

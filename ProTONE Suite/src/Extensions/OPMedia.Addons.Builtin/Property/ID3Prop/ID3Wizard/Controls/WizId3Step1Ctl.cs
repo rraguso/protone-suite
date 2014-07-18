@@ -9,13 +9,13 @@ using OPMedia.UI.Wizards;
 using System.IO;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI.Controls;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using OPMedia.UI.Themes;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.UI.Dialogs;
 using OPMedia.Addons.Builtin.Properties;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
 {
@@ -84,7 +84,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
             dlg.Title = Translator.Translate("TXT_SELECTID3FILES");
             dlg.Filter = Translator.Translate("TXT_ID3FILESFILTER");
-            dlg.InitialDirectory = ProTONEAppSettings.LastOpenedFolder;
+            dlg.InitialDirectory = ProTONEConfig.LastOpenedFolder;
             dlg.Multiselect = true;
 
             dlg.InheritAppIcon = false;
@@ -100,11 +100,11 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
                 try
                 {
                     FileInfo fi = new FileInfo(dlg.FileNames[0]);
-                    ProTONEAppSettings.LastOpenedFolder = fi.DirectoryName;
+                    ProTONEConfig.LastOpenedFolder = fi.DirectoryName;
                 }
                 catch
                 {
-                    ProTONEAppSettings.LastOpenedFolder = dlg.InitialDirectory;
+                    ProTONEConfig.LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
 
@@ -118,7 +118,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
 
             OPMFolderBrowserDialog dlg = CommonDialogHelper.NewOPMFolderBrowserDialog();
             dlg.Description = Translator.Translate("TXT_SELECTID3FOLDER");
-            dlg.SelectedPath = ProTONEAppSettings.LastOpenedFolder;
+            dlg.SelectedPath = ProTONEConfig.LastOpenedFolder;
             dlg.ShowNewFolderButton = false;
 
             dlg.InheritAppIcon = false;
@@ -135,7 +135,7 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
                     }
                 }
                 
-                ProTONEAppSettings.LastOpenedFolder = dlg.SelectedPath;
+                ProTONEConfig.LastOpenedFolder = dlg.SelectedPath;
             }
 
             CursorHelper.ShowWaitCursor(this, false);

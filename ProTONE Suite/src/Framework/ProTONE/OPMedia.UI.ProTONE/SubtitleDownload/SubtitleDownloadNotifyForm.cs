@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Themes;
 using OPMedia.Runtime;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.SubtitleDownload;
 using OPMedia.Runtime.ProTONE.SubtitleDownload.Base;
 using OPMedia.Core.Logging;

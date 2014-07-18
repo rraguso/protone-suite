@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Configuration;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime;
 
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Core;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.Controls;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -30,8 +30,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         {
             InitializeComponent();
 
-            chkFileNameFormat.Checked = ProTONEAppSettings.UseFileNameFormat;
-            chkUseMetadata.Checked = ProTONEAppSettings.UseMetadata;
+            chkFileNameFormat.Checked = ProTONEConfig.UseFileNameFormat;
+            chkUseMetadata.Checked = ProTONEConfig.UseMetadata;
             
             PopulatePlaylistEntryFormats(true);
             PopulateFileNameFormats(true);
@@ -100,14 +100,14 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
             if (fillCustomFormats)
             {
-                string[] customFormats = StringUtils.ToStringArray(ProTONEAppSettings.CustomFileNameFormats, '?');
+                string[] customFormats = StringUtils.ToStringArray(ProTONEConfig.CustomFileNameFormats, '?');
                 if (customFormats != null)
                 {
                     cmbFileNameFormat.Items.AddRange(customFormats);
                 }
 
                 cmbFileNameFormat.SelectedIndex =
-                    cmbFileNameFormat.FindStringExact(ProTONEAppSettings.FileNameFormat);
+                    cmbFileNameFormat.FindStringExact(ProTONEConfig.FileNameFormat);
             }
             else
             {
@@ -122,14 +122,14 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
             if (fillCustomFormats)
             {
-                string[] customFormats = StringUtils.ToStringArray(ProTONEAppSettings.CustomPlaylistEntryFormats, '?');
+                string[] customFormats = StringUtils.ToStringArray(ProTONEConfig.CustomPlaylistEntryFormats, '?');
                 if (customFormats != null)
                 {
                     cmbPlaylistEntryFormat.Items.AddRange(customFormats);
                 }
 
                 cmbPlaylistEntryFormat.SelectedIndex =
-                    cmbPlaylistEntryFormat.FindStringExact(ProTONEAppSettings.PlaylistEntryFormat);
+                    cmbPlaylistEntryFormat.FindStringExact(ProTONEConfig.PlaylistEntryFormat);
             }
             else
             {
@@ -158,23 +158,23 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             AddToPlaylistEntryFormatHistory(cmbPlaylistEntryFormat.Text);
             AddToFileNameFormatHistory(cmbFileNameFormat.Text);
 
-            ProTONEAppSettings.UseFileNameFormat = chkFileNameFormat.Checked;
-            ProTONEAppSettings.UseMetadata = chkUseMetadata.Checked;
+            ProTONEConfig.UseFileNameFormat = chkFileNameFormat.Checked;
+            ProTONEConfig.UseMetadata = chkUseMetadata.Checked;
 
-            ProTONEAppSettings.PlaylistEntryFormat = cmbPlaylistEntryFormat.Text;
-            ProTONEAppSettings.FileNameFormat = cmbFileNameFormat.Text;
+            ProTONEConfig.PlaylistEntryFormat = cmbPlaylistEntryFormat.Text;
+            ProTONEConfig.FileNameFormat = cmbFileNameFormat.Text;
 
             string[] customPlaylistEntryFormats = GetCustomFormats(cmbPlaylistEntryFormat);
             string[] customFileNameFormats = GetCustomFormats(cmbFileNameFormat);
 
-            ProTONEAppSettings.CustomPlaylistEntryFormats =
+            ProTONEConfig.CustomPlaylistEntryFormats =
                 StringUtils.FromStringArray(customPlaylistEntryFormats, '?');
-            ProTONEAppSettings.CustomFileNameFormats =
+            ProTONEConfig.CustomFileNameFormats =
                 StringUtils.FromStringArray(customFileNameFormats, '?');
 
             EventDispatch.DispatchEvent(LocalEventNames.UpdatePlaylistNames, false);
 
-            AppSettings.Save();
+            AppConfig.Save();
         }
 
         private string[] GetCustomFormats(OPMEditableComboBox cmb)

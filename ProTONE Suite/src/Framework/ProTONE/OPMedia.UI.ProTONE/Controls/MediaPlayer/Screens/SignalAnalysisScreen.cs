@@ -15,10 +15,10 @@ using OPMedia.UI.Themes;
 using OPMedia.Core;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 using System.Threading;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Core.GlobalEvents;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 {
@@ -41,16 +41,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
         [EventSink(LocalEventNames.UpdateMediaScreens)]
         public void OnUpdateMediaScreens()
         {
-            bool showVU = ((ProTONEAppSettings.SignalAnalisysFunctions & SignalAnalisysFunction.VUMeter) == SignalAnalisysFunction.VUMeter);
+            bool showVU = ((ProTONEConfig.SignalAnalisysFunctions & SignalAnalisysFunction.VUMeter) == SignalAnalisysFunction.VUMeter);
             ggLeft.Visible = ggRight.Visible = showVU;
 
             opmTableLayoutPanel1.RowStyles[0] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 20F : 0F);
             opmTableLayoutPanel1.RowStyles[1] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 20F : 0F);
 
-            bool showWaveform = ((ProTONEAppSettings.SignalAnalisysFunctions & SignalAnalisysFunction.Waveform) == SignalAnalisysFunction.Waveform);
+            bool showWaveform = ((ProTONEConfig.SignalAnalisysFunctions & SignalAnalisysFunction.Waveform) == SignalAnalisysFunction.Waveform);
             gpWaveform.Visible = showWaveform;
 
-            bool showSpectrogram = ((ProTONEAppSettings.SignalAnalisysFunctions & SignalAnalisysFunction.Spectrogram) == SignalAnalisysFunction.Spectrogram);
+            bool showSpectrogram = ((ProTONEConfig.SignalAnalisysFunctions & SignalAnalisysFunction.Spectrogram) == SignalAnalisysFunction.Spectrogram);
             gpSpectrogram.Visible = showSpectrogram;
 
             if (showSpectrogram && showWaveform)
@@ -81,7 +81,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             {
                 _tmrUpdate.Stop();
 
-                if ((ProTONEAppSettings.SignalAnalisysFunctions & SignalAnalisysFunction.VUMeter) == SignalAnalisysFunction.VUMeter)
+                if ((ProTONEConfig.SignalAnalisysFunctions & SignalAnalisysFunction.VUMeter) == SignalAnalisysFunction.VUMeter)
                 {
                     AudioSampleData vuData = MediaRenderer.DefaultInstance.VuMeterData;
                     if (vuData != null)
@@ -96,7 +96,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     }
                 }
 
-                if ((ProTONEAppSettings.SignalAnalisysFunctions & SignalAnalisysFunction.Waveform) == SignalAnalisysFunction.Waveform)
+                if ((ProTONEConfig.SignalAnalisysFunctions & SignalAnalisysFunction.Waveform) == SignalAnalisysFunction.Waveform)
                 {
                     gpWaveform.Reset(false);
 
@@ -113,7 +113,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     }
                 }
 
-                if ((ProTONEAppSettings.SignalAnalisysFunctions & SignalAnalisysFunction.Spectrogram) == SignalAnalisysFunction.Spectrogram)
+                if ((ProTONEConfig.SignalAnalisysFunctions & SignalAnalisysFunction.Spectrogram) == SignalAnalisysFunction.Spectrogram)
                 {
                     gpSpectrogram.Reset(false);
 

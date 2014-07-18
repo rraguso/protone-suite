@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using OPMedia.UI.Themes;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.UI.Properties;
 using OPMedia.UI.Controls;
 using OPMedia.Core;

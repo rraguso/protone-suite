@@ -6,7 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Configuration;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Addons.Builtin.Properties;
 
@@ -15,9 +15,9 @@ using OPMedia.Runtime.Addons.Configuration;
 using OPMedia.Core;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Core.Utilities;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
-using OPMedia.Runtime.Addons.ApplicationSettings;
-using OPMedia.Addons.Builtin.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
+using OPMedia.Runtime.Addons.Configuration;
+using OPMedia.Addons.Builtin.Configuration;
 
 namespace OPMedia.Addons.Builtin.FileExplorer
 {
@@ -47,10 +47,10 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         {
             Translator.TranslateControl(this, DesignMode);
 
-            nudMaxProcessedFiles.Value = AddonAppSettings.MaxProcessedEntries;
-            nudPreviewTimer.Value = BuiltinAddonSettings.FEPreviewTimer;
+            nudMaxProcessedFiles.Value = AddonAppConfig.MaxProcessedEntries;
+            nudPreviewTimer.Value = BuiltinAddonConfig.FEPreviewTimer;
 
-            Dictionary<string, string> tableLinkedFiles = ProTONEAppSettings.LinkedFilesTable;
+            Dictionary<string, string> tableLinkedFiles = ProTONEConfig.LinkedFilesTable;
             if (tableLinkedFiles.Count < 1)
             {
                 List<string> supChildrenForAudioTypes = new List<string>();
@@ -68,7 +68,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     StringUtils.FromStringArray(MediaRenderer.SupportedVideoTypes.ToArray(), ';'),
                     StringUtils.FromStringArray(supChildrenForVideoTypes.ToArray(), ';'));
 
-                ProTONEAppSettings.LinkedFilesTable = new Dictionary<string, string>(tableLinkedFiles);
+                ProTONEConfig.LinkedFilesTable = new Dictionary<string, string>(tableLinkedFiles);
             }
         }
 
@@ -80,9 +80,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         protected override void SaveInternal()
         {
             connectedFilesConfigCtl1.Save();
-            AddonAppSettings.MaxProcessedEntries = (int)nudMaxProcessedFiles.Value;
-            BuiltinAddonSettings.FEPreviewTimer = nudPreviewTimer.Value;
-            AppSettings.Save();
+            AddonAppConfig.MaxProcessedEntries = (int)nudMaxProcessedFiles.Value;
+            BuiltinAddonConfig.FEPreviewTimer = nudPreviewTimer.Value;
+            AppConfig.Save();
         }
     }
 }

@@ -11,7 +11,7 @@ using OPMedia.Core;
 using OPMedia.UI.Themes;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI.Properties;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.Configuration
 {
@@ -50,12 +50,12 @@ namespace OPMedia.UI.Configuration
 
         void ConnectedFilesConfigCtl_Load(object sender, EventArgs e)
         {
-            chkUseLinkedFiles.Checked = ProTONEAppSettings.UseLinkedFiles;
+            chkUseLinkedFiles.Checked = ProTONEConfig.UseLinkedFiles;
             lvConnFiles.Visible = chkUseLinkedFiles.Checked;
             btnAdd.Visible = chkUseLinkedFiles.Checked;
             chkUseLinkedFiles.CheckedChanged += new System.EventHandler(this.chkUseLinkedFiles_CheckedChanged);
 
-            _tableConnFiles = ProTONEAppSettings.LinkedFilesTable;
+            _tableConnFiles = ProTONEConfig.LinkedFilesTable;
             FillData();
 
             lvConnFiles_Resize(sender, e);
@@ -181,8 +181,8 @@ namespace OPMedia.UI.Configuration
 
         protected override void SaveInternal()
         {
-            ProTONEAppSettings.UseLinkedFiles = chkUseLinkedFiles.Checked;
-            ProTONEAppSettings.LinkedFilesTable = new Dictionary<string, string>(_tableConnFiles);
+            ProTONEConfig.UseLinkedFiles = chkUseLinkedFiles.Checked;
+            ProTONEConfig.LinkedFilesTable = new Dictionary<string, string>(_tableConnFiles);
         }
     }
 }

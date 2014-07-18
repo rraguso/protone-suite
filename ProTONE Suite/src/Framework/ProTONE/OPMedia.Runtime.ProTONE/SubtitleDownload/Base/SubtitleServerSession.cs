@@ -6,7 +6,7 @@ using System.Threading;
 using OPMedia.Core.Logging;
 using System.IO;
 using OPMedia.Core.NetworkAccess;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.IO.Compression;
 using OPMedia.Runtime.FileInformation;
 using OPMedia.Runtime.ProTONE.SubtitleDownload.BSP_V1;

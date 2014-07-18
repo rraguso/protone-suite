@@ -9,7 +9,7 @@ using OPMedia.UI.Controls;
 using System.Reflection;
 using OPMedia.Core.Logging;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Collections.Generic;
 using OPMedia.UI.Generic;
 using System.IO;
@@ -319,7 +319,7 @@ namespace OPMedia.UI.Themes
         }
 
         private readonly static string ThemeFontFamily = 
-            SuiteConfiguration.OSVersion < SuiteConfiguration.VerWinVista ?
+            AppConfig.OSVersion < AppConfig.VerWinVista ?
             "Trebuchet MS" : "Segoe UI";
 
 
@@ -446,7 +446,7 @@ namespace OPMedia.UI.Themes
         {
             try
             {
-                string themeFile = Path.Combine(SuiteConfiguration.InstallationPath, "Themes\\Themes.xml");
+                string themeFile = Path.Combine(AppConfig.InstallationPath, "Themes\\Themes.xml");
                 XDocument doc = XDocument.Load(themeFile);
                 if (doc != null)
                 {
@@ -564,13 +564,13 @@ namespace OPMedia.UI.Themes
 
         private static string ThemeElement(string elementName, string defaultValue = null)
         {
-            string currentTheme = SuiteConfiguration.SkinType;
+            string currentTheme = AppConfig.SkinType;
             string elementValue = defaultValue;
 
             if (string.IsNullOrEmpty(currentTheme) || _allThemesElements.ContainsKey(currentTheme) == false)
             {
                 currentTheme = _defaultTheme;
-                SuiteConfiguration.SkinType = _defaultTheme;
+                AppConfig.SkinType = _defaultTheme;
             }
 
             try

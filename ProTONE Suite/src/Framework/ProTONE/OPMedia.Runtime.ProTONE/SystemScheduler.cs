@@ -6,11 +6,11 @@ using System.Threading;
 using OPMedia.Core.Logging;
 using System.Windows.Forms;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using System.Diagnostics;
 using OPMedia.UI.Dialogs;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Runtime.ProTONE
 {
@@ -103,12 +103,12 @@ namespace OPMedia.Runtime.ProTONE
 
                     if (PlaylistEventEnabled)
                     {
-                        ScheduledActionType sat = (ScheduledActionType)ProTONEAppSettings.PlaylistEventHandler;
-                        ProgramStartupInfo psi = ProgramStartupInfo.FromString(ProTONEAppSettings.PlaylistEventData);
+                        ScheduledActionType sat = (ScheduledActionType)ProTONEConfig.PlaylistEventHandler;
+                        ProgramStartupInfo psi = ProgramStartupInfo.FromString(ProTONEConfig.PlaylistEventData);
 
                         // Apply the language ID on the timer scheduler thread, 
                         // otherwise the translator will default to English
-                        Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
+                        Translator.SetInterfaceLanguage(AppConfig.LanguageID);
 
                         string msg = Translator.Translate("TXT_PLAYLIST_END_MSG");
 
@@ -130,7 +130,7 @@ namespace OPMedia.Runtime.ProTONE
 
             DateTime now = DateTime.Now;
 
-            TimeSpan diff = now.TimeOfDay.Subtract(ProTONEAppSettings.ScheduledEventTime);
+            TimeSpan diff = now.TimeOfDay.Subtract(ProTONEConfig.ScheduledEventTime);
             if (Math.Abs(diff.TotalSeconds) <= 3f)
             {
                 matchHour = true;
@@ -142,7 +142,7 @@ namespace OPMedia.Runtime.ProTONE
                 }
             }
 
-            Weekday scheduledWeekDay = (Weekday)ProTONEAppSettings.ScheduledEventDays;
+            Weekday scheduledWeekDay = (Weekday)ProTONEConfig.ScheduledEventDays;
 
             if (scheduledWeekDay == Weekday.Everyday)
             {
@@ -183,14 +183,14 @@ namespace OPMedia.Runtime.ProTONE
                 {
                     _isScheduledEvent.Set();
 
-                    if (ProTONEAppSettings.EnableScheduledEvent)
+                    if (ProTONEConfig.EnableScheduledEvent)
                     {
-                        ScheduledActionType sat = (ScheduledActionType)ProTONEAppSettings.ScheduledEventHandler;
-                        ProgramStartupInfo psi = ProgramStartupInfo.FromString(ProTONEAppSettings.ScheduledEventData);
+                        ScheduledActionType sat = (ScheduledActionType)ProTONEConfig.ScheduledEventHandler;
+                        ProgramStartupInfo psi = ProgramStartupInfo.FromString(ProTONEConfig.ScheduledEventData);
 
                         // Apply the language ID on the timer scheduler thread, 
                         // otherwise the translator will default to English
-                        Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
+                        Translator.SetInterfaceLanguage(AppConfig.LanguageID);
 
                         string msg = Translator.Translate("TXT_SCHEDULED_EVENT_MSG");
 
@@ -218,7 +218,7 @@ namespace OPMedia.Runtime.ProTONE
 
             ThreadPool.QueueUserWorkItem(new WaitCallback(ProcessEvent));
 
-            if (ProTONEAppSettings.SchedulerWaitTimerProceed > 0)
+            if (ProTONEConfig.SchedulerWaitTimerProceed > 0)
             {
                 _action = ScheduledActionType.None;
 
@@ -279,7 +279,7 @@ namespace OPMedia.Runtime.ProTONE
 
             string info = Translator.Translate("TXT_PROCEED_SCHEDULED_ACTION", actionType, msg);
             TimerWaitingDialog dlg = new TimerWaitingDialog(
-                "TXT_SCHEDULED_ACTION_PROCEED", info, 60 * ProTONEAppSettings.SchedulerWaitTimerProceed);
+                "TXT_SCHEDULED_ACTION_PROCEED", info, 60 * ProTONEConfig.SchedulerWaitTimerProceed);
             DialogResult res = dlg.ShowDialog();
 
             return (res == DialogResult.Yes);

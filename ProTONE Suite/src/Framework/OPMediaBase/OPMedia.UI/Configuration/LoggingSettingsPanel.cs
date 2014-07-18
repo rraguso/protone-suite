@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
 using OPMedia.UI.Themes;

@@ -15,6 +15,7 @@ using System.Runtime.Remoting;
 
 using System.Security.AccessControl;
 using OPMedia.Runtime.InterProcessCommunication;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.Runtime.ProTONE
 {
@@ -42,7 +43,7 @@ namespace OPMedia.Runtime.ProTONE
                         // See if player is started; if not - start it
                         while ((!IsPlayerRunning() && i < MaxStartupAttempts))
                         {
-                            Process.Start(SuiteConfiguration.PlayerInstallationPath);
+                            Process.Start(AppConfig.PlayerInstallationPath);
                             i++;
                             Thread.Sleep(1000);
                         }
@@ -75,7 +76,7 @@ namespace OPMedia.Runtime.ProTONE
                         else
                         {
                             Logger.LogError("Could not send command because the player could not be launched from path: {0}",
-                                SuiteConfiguration.PlayerInstallationPath);
+                                AppConfig.PlayerInstallationPath);
                         }
                     }
                 }
@@ -135,7 +136,7 @@ namespace OPMedia.Runtime.ProTONE
         //    int i = 0;
         //    while ((!IsMediaHostRunning() && i < MaxStartupAttempts))
         //    {
-        //        Process.Start(SuiteConfiguration.MediaHostInstallationPath);
+        //        Process.Start(AppConfig.MediaHostInstallationPath);
         //        i++;
 
         //        Thread.Sleep(200);
@@ -144,7 +145,7 @@ namespace OPMedia.Runtime.ProTONE
         //    if (i >= MaxStartupAttempts && !IsMediaHostRunning())
         //    {
         //        Logger.LogError("Could not send command because the media host could not be launched from path: {0}",
-        //            SuiteConfiguration.MediaHostInstallationPath);
+        //            AppConfig.MediaHostInstallationPath);
         //        return;
         //    }
 

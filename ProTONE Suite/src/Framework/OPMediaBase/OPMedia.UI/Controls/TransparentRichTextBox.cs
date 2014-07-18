@@ -9,6 +9,7 @@ using System.Drawing;
 using OPMedia.UI.Themes;
 
 using OPMedia.Core.Utilities;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.UI.Controls
 {
@@ -65,7 +66,7 @@ namespace OPMedia.UI.Controls
 
             string fontFamily = "Segoe UI";// ThemeManager.NormalFont.FontFamily.Name;
 
-            switch (SuiteConfiguration.LanguageID)
+            switch (AppConfig.LanguageID)
             {
                 case "ro":
                     {

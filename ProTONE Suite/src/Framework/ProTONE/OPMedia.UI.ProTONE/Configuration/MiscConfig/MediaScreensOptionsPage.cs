@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Configuration;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime;
 
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Core;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.Controls;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -25,26 +25,26 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             InitializeComponent();
 
             MediaScreen mediaScreen = MediaScreen.Playlist;
-            chkShowPlaylist.Checked = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            chkShowPlaylist.Checked = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
 
             mediaScreen = MediaScreen.TrackInfo;
-            chkShowTrackInfo.Checked = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            chkShowTrackInfo.Checked = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
 
             mediaScreen = MediaScreen.SignalAnalisys;
-            chkShowSignalAnalisys.Checked = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            chkShowSignalAnalisys.Checked = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
 
             mediaScreen = MediaScreen.BookmarkInfo;
-            chkShowBookmarkInfo.Checked = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            chkShowBookmarkInfo.Checked = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
 
 
             SignalAnalisysFunction function = SignalAnalisysFunction.VUMeter;
-            chkVuMeter.Checked = ((ProTONEAppSettings.SignalAnalisysFunctions & function) == function);
+            chkVuMeter.Checked = ((ProTONEConfig.SignalAnalisysFunctions & function) == function);
 
             function = SignalAnalisysFunction.Waveform;
-            chkWaveform.Checked = ((ProTONEAppSettings.SignalAnalisysFunctions & function) == function);
+            chkWaveform.Checked = ((ProTONEConfig.SignalAnalisysFunctions & function) == function);
 
             function = SignalAnalisysFunction.Spectrogram;
-            chkSpectrogram.Checked = ((ProTONEAppSettings.SignalAnalisysFunctions & function) == function);
+            chkSpectrogram.Checked = ((ProTONEConfig.SignalAnalisysFunctions & function) == function);
 
             this.chkShowPlaylist.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             this.chkShowTrackInfo.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
@@ -77,9 +77,9 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             if (chkSpectrogram.Checked)
                 functions |= SignalAnalisysFunction.Spectrogram;
 
-            ProTONEAppSettings.ShowMediaScreens = mediaScreen;
-            ProTONEAppSettings.SignalAnalisysFunctions = functions;
-            AppSettings.Save();
+            ProTONEConfig.ShowMediaScreens = mediaScreen;
+            ProTONEConfig.SignalAnalisysFunctions = functions;
+            AppConfig.Save();
 
             EventDispatch.DispatchEvent(LocalEventNames.UpdateMediaScreens);
         }

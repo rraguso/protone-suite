@@ -10,12 +10,12 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
 using System.Drawing;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Threading;
 
 using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
@@ -66,7 +66,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             }
             else if (hint == DvdRenderingStartHint.Beginning)
             {
-                if (ProTONEAppSettings.DisableDVDMenu)
+                if (ProTONEConfig.DisableDVDMenu)
                     dvdControl2.PlayTitle(1, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
                 else
                     //dvdControl.PlayForwards(1f, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
@@ -82,9 +82,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
             }
 
-            if (ProTONEAppSettings.PrefferedSubtitleLang > 0)
+            if (ProTONEConfig.PrefferedSubtitleLang > 0)
             {
-                int sid = _vdi.GetSubtitle(ProTONEAppSettings.PrefferedSubtitleLang);
+                int sid = _vdi.GetSubtitle(ProTONEConfig.PrefferedSubtitleLang);
                 if (sid > 0)
                 {
                     SetSubtitleStream(sid);

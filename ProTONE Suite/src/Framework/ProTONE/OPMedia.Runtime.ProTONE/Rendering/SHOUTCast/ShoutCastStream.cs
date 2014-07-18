@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Net;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.IO;
 using OPMedia.Core;
 using System.Text.RegularExpressions;
@@ -43,7 +43,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
             request.Headers.Clear();
             request.Headers.Add("Icy-MetaData", "1");
 
-            request.Proxy = AppSettings.GetWebProxy();
+            request.Proxy = AppConfig.GetWebProxy();
             request.KeepAlive = false;
             request.UserAgent = Constants.PlayerUserAgent;
             request.ServicePoint.Expect100Continue = false;

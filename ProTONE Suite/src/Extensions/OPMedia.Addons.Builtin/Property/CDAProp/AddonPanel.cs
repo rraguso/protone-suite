@@ -15,12 +15,12 @@ using OPMedia.UI.Wizards;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.UI;
 using OPMedia.Runtime.Shortcuts;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
 using OPMedia.UI.Controls;
 using OPMedia.Addons.Builtin.Properties;
-using OPMedia.Addons.Builtin.ApplicationSettings;
+using OPMedia.Addons.Builtin.Configuration;
 
 namespace OPMedia.Addons.Builtin.CDAProp
 {
@@ -94,7 +94,7 @@ namespace OPMedia.Addons.Builtin.CDAProp
             if (_reloadTimer == null)
             {
                 _reloadTimer = new Timer();
-                _reloadTimer.Interval = (int)(BuiltinAddonSettings.FEPreviewTimer * 1000);
+                _reloadTimer.Interval = (int)(BuiltinAddonConfig.FEPreviewTimer * 1000);
                 _reloadTimer.Tick += new EventHandler(_reloadTimer_Tick);
             }
 

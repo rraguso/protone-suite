@@ -18,8 +18,8 @@ using OPMedia.UI.ProTONE.GlobalEvents;
 using OPMedia.Core.TranslationSupport;
 using OPMedia.Core;
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
-using OPMedia.Core.ApplicationSettings;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Core.Configuration;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -66,7 +66,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             // playlist -------------------
             MediaScreen mediaScreen = MediaScreen.Playlist;
-            bool show = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            bool show = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
             TabPage tp = GetPageContainingControl(PlaylistScreen);
 
             if (show == false && tp != null)
@@ -86,7 +86,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             
             // track info -------------------
             mediaScreen = MediaScreen.TrackInfo;
-            show = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            show = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
             tp = GetPageContainingControl(TrackInfoScreen);
 
             if (show == false && tp != null)
@@ -104,7 +104,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             // signal analisys -------------------
             mediaScreen = MediaScreen.SignalAnalisys;
-            show = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            show = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
             tp = GetPageContainingControl(SignalAnalysisScreen);
 
             if (show == false && tp != null)
@@ -122,7 +122,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             // bookmarks -------------------
             mediaScreen = MediaScreen.BookmarkInfo;
-            show = ((ProTONEAppSettings.ShowMediaScreens & mediaScreen) == mediaScreen);
+            show = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
             tp = GetPageContainingControl(BookmarkScreen);
 
             if (show == false && tp != null)

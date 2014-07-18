@@ -30,11 +30,11 @@ using System.IO;
 using OPMedia.Core.Utilities;
 using OPMedia.Runtime.ProTONE.SubtitleDownload;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.UI.Generic;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 using OPMedia.Runtime.ProTONE.Utilities;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 #endregion
 
@@ -949,11 +949,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         public void DisplayOsdMessage(string msg)
         {
-            if (ProTONEAppSettings.OsdEnabled)
+            if (ProTONEConfig.OsdEnabled)
             {
                 using (FfdShowLib i = FfdShowInstance())
                 {
-                    int osdPersistTimer = ProTONEAppSettings.OsdPersistTimer;
+                    int osdPersistTimer = ProTONEConfig.OsdPersistTimer;
                     float frameRate = i.getFrameRate();
                     int persistFrames = (int)(osdPersistTimer * frameRate / 1000);
 
@@ -976,21 +976,21 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         private void EnforceSettings(FfdShowLib ffdShowLib)
         {
             // Subtitles
-            ffdShowLib.DoShowSubtitles = ProTONEAppSettings.SubEnabled;
+            ffdShowLib.DoShowSubtitles = ProTONEConfig.SubEnabled;
 
-            if (ProTONEAppSettings.SubEnabled)
+            if (ProTONEConfig.SubEnabled)
             {
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontColor,
-                    ColorHelper.BGR(ProTONEAppSettings.SubColor));
+                    ColorHelper.BGR(ProTONEConfig.SubColor));
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontSizeA,
-                    ProTONEAppSettings.SubFont.Height);
+                    ProTONEConfig.SubFont.Height);
                 ffdShowLib.setStringParam(FFDShowConstants.FFDShowDataId.IDFF_fontName,
-                    ProTONEAppSettings.SubFont.OriginalFontName);
+                    ProTONEConfig.SubFont.OriginalFontName);
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontCharset,
-                  ProTONEAppSettings.SubFont.GdiCharSet);
+                  ProTONEConfig.SubFont.GdiCharSet);
 
                 LOGFONT lf = new LOGFONT();
-                ProTONEAppSettings.SubFont.ToLogFont(lf);
+                ProTONEConfig.SubFont.ToLogFont(lf);
 
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_fontWeight,
                     lf.lfWeight);
@@ -1000,19 +1000,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering
                    lf.lfUnderline);
             }
 
-            if (ProTONEAppSettings.OsdEnabled)
+            if (ProTONEConfig.OsdEnabled)
             {
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontColor,
-                    ColorHelper.BGR(ProTONEAppSettings.OsdColor));
+                    ColorHelper.BGR(ProTONEConfig.OsdColor));
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontSize,
-                    ProTONEAppSettings.OsdFont.Height);
+                    ProTONEConfig.OsdFont.Height);
                 ffdShowLib.setStringParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontName,
-                    ProTONEAppSettings.OsdFont.OriginalFontName);
+                    ProTONEConfig.OsdFont.OriginalFontName);
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontCharset,
-                    ProTONEAppSettings.OsdFont.GdiCharSet);
+                    ProTONEConfig.OsdFont.GdiCharSet);
 
                 LOGFONT lf = new LOGFONT();
-                ProTONEAppSettings.OsdFont.ToLogFont(lf);
+                ProTONEConfig.OsdFont.ToLogFont(lf);
 
                 ffdShowLib.setIntParam(FFDShowConstants.FFDShowDataId.IDFF_OSDfontWeight,
                     lf.lfWeight);

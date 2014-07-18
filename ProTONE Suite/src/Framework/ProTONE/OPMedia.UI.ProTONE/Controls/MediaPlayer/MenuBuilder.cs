@@ -11,7 +11,7 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.Runtime.Shortcuts;
 using OPMedia.Runtime.ProTONE.Rendering.Base;
 using OPMedia.UI.ProTONE.SubtitleDownload;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.UI.Menus;
 using OPMedia.UI.Themes;
 using OPMedia.UI.ProTONE.Properties;

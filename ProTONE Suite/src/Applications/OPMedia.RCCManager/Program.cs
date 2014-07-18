@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using OPMedia.Core.Logging;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Core;
 using System.ServiceProcess;
 using OPMedia.Runtime.ServiceHelpers;
@@ -33,7 +33,7 @@ namespace OPMedia.RCCManager
 
             try
             {
-                Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
+                Translator.SetInterfaceLanguage(AppConfig.LanguageID);
 
                 Translator.RegisterTranslationAssembly(typeof(MainForm).Assembly);
                 Translator.RegisterTranslationAssembly(typeof(SerialDeviceCfgPanel).Assembly);
@@ -41,7 +41,7 @@ namespace OPMedia.RCCManager
 
                 LoggedApplication.Start(Constants.RCCManagerName);
 
-                if (!SuiteConfiguration.CurrentUserIsAdministrator)
+                if (!AppConfig.CurrentUserIsAdministrator)
                 {
                     MessageDisplay.Show(Translator.Translate("TXT_ADMIN_RIGHTS_REQUIRED"),
                         Translator.Translate("TXT_CAUTION"), MessageBoxIcon.Exclamation);
@@ -57,7 +57,7 @@ namespace OPMedia.RCCManager
                 Application.Run(mainFrm);
                 mainFrm.Dispose();
 
-                AppSettings.Save();
+                AppConfig.Save();
             }
             catch (Exception ex)
             {

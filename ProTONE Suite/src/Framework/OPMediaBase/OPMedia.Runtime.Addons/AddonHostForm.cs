@@ -15,7 +15,7 @@ using OPMedia.Runtime.Addons.AddonsBase.Navigation;
 using OPMedia.Runtime.Addons.AddonsBase.Preview;
 using OPMedia.Runtime.Addons.AddonsBase.Prop;
 using OPMedia.UI.Themes;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.UI;
 using OPMedia.Runtime.Addons;
 using OPMedia.Runtime.Addons.ActionManagement;
@@ -29,7 +29,7 @@ using OPMedia.Runtime.Addons.Controls;
 using OPMedia.UI.HelpSupport;
 using OPMedia.UI.Properties;
 using System.Diagnostics;
-using OPMedia.Runtime.Addons.ApplicationSettings;
+using OPMedia.Runtime.Addons.Configuration;
 
 namespace OPMedia.Runtime.Addons
 {
@@ -105,9 +105,9 @@ namespace OPMedia.Runtime.Addons
             lblNoProperties.Text = Translator.Translate("TXT_THEREARENOITEMS");
             lblNoPreview.Text = Translator.Translate("TXT_THEREARENOITEMS");
 
-            this.Location = AppSettings.WindowLocation;
-            this.Size = AppSettings.WindowSize;
-            this.WindowState = AppSettings.WindowState;
+            this.Location = AppConfig.WindowLocation;
+            this.Size = AppConfig.WindowSize;
+            this.WindowState = AppConfig.WindowState;
 
             tsmiSettings.ShortcutKeyDisplayString =
                 ShortcutMapper.GetShortcutString(OPMShortcut.CmdOpenSettings);
@@ -227,8 +227,8 @@ namespace OPMedia.Runtime.Addons
                 }
             }
 
-            this.VSplitterDistance = AddonAppSettings.VSplitterDistance;
-            this.HSplitterDistance = AddonAppSettings.HSplitterDistance;
+            this.VSplitterDistance = AddonAppConfig.VSplitterDistance;
+            this.HSplitterDistance = AddonAppConfig.HSplitterDistance;
 
         }
 
@@ -270,9 +270,9 @@ namespace OPMedia.Runtime.Addons
 
         void MainForm_HandleDestroyed(object sender, EventArgs e)
         {
-            AddonAppSettings.VSplitterDistance = this.VSplitterDistance;
-            AddonAppSettings.HSplitterDistance = this.HSplitterDistance;
-            AppSettings.Save();
+            AddonAppConfig.VSplitterDistance = this.VSplitterDistance;
+            AddonAppConfig.HSplitterDistance = this.HSplitterDistance;
+            AppConfig.Save();
         }
 
         /// <summary>
@@ -318,7 +318,7 @@ namespace OPMedia.Runtime.Addons
 
                     msMain.Items.Add(button);
 
-                    if (addon.AddonTypeName == AddonAppSettings.LastNavAddon)
+                    if (addon.AddonTypeName == AddonAppConfig.LastNavAddon)
                     {
                         previousAddonButton = button;
                     }
@@ -482,7 +482,7 @@ namespace OPMedia.Runtime.Addons
                     //button.Image = null;
                     button.Checked = true;
                     //button.BackColor = Color.FromArgb(150, ThemeManager.GradientNormalColor2);
-                    AddonAppSettings.LastNavAddon = button.Name;
+                    AddonAppConfig.LastNavAddon = button.Name;
 
                     SetTitle(string.Format("{0} - {1}",
                         Translator.Translate("TXT_APP_NAME"), button.Text));
@@ -767,7 +767,7 @@ namespace OPMedia.Runtime.Addons
         {
             if (this.IsActive)
             {
-                string sectionName = AddonAppSettings.LastNavAddon.Replace(".", "");
+                string sectionName = AddonAppConfig.LastNavAddon.Replace(".", "");
                 string topicName = "";
 
                 BaseAddonCtl addon = null;

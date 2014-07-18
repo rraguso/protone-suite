@@ -5,11 +5,11 @@ using System.Text;
 using OPMedia.UI.FileOperations.Tasks;
 using OPMedia.UI.FileTasks;
 using System.IO;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.Core;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
 {
@@ -24,10 +24,10 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
         {
             List<string> list = new List<string>();
 
-            if (ProTONEAppSettings.UseLinkedFiles)
+            if (ProTONEConfig.UseLinkedFiles)
             {
                 string fileType = fi.Extension.ToUpperInvariant().Trim('.');
-                string[] childFileTypes = ProTONEAppSettings.GetChildFileTypes(fileType);
+                string[] childFileTypes = ProTONEConfig.GetChildFileTypes(fileType);
 
                 if (childFileTypes != null && childFileTypes.Length > 0)
                 {
@@ -57,7 +57,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
 
         public override string GetParentFile(FileInfo fi, FileTaskType taskType)
         {
-            if (ProTONEAppSettings.UseLinkedFiles)
+            if (ProTONEConfig.UseLinkedFiles)
             {
                 // Check whether the child file is a double extension file
                 // In this case the parent file should have same name but w/o the second extension part.
@@ -66,7 +66,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks
                     return parentFilePath;
 
                 string fileType = fi.Extension.ToUpperInvariant().Trim('.');
-                string[] parentFileTypes = ProTONEAppSettings.GetParentFileTypes(fileType);
+                string[] parentFileTypes = ProTONEConfig.GetParentFileTypes(fileType);
 
                 if (parentFileTypes != null && parentFileTypes.Length > 0)
                 {

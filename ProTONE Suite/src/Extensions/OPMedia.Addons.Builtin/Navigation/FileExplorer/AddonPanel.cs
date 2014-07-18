@@ -30,7 +30,7 @@ using OPMedia.Addons.Builtin.Properties;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.UI;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using OPMedia.Runtime.Addons.AddonsBase;
 using OPMedia.Runtime.Addons;
 using OPMedia.Runtime.Addons.ActionManagement;
@@ -49,8 +49,8 @@ using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms;
 using OPMedia.Runtime.ProTONE.Rendering.Cdda;
 using OPMedia.Core.NetworkAccess;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
-using OPMedia.Addons.Builtin.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
+using OPMedia.Addons.Builtin.Configuration;
 
 #endregion
 
@@ -293,7 +293,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         {
                             case Keys.Escape:
                                 previewTimer.Stop();
-                                if (BuiltinAddonSettings.FEPreviewTimer > 0)
+                                if (BuiltinAddonConfig.FEPreviewTimer > 0)
                                 {
                                     RaiseNavigationAction(NavActionType.ActionCancelAutoPreview, null, null);
                                 }
@@ -348,7 +348,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
         private void OnLoad(object sender, EventArgs e)
         {
-            ChangePath(AppSettings.LastExploredFolder);
+            ChangePath(AppConfig.LastExploredFolder);
         }
 
 
@@ -413,9 +413,9 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     bool autoPreviewAvailable = false;
                     if (AddonsCore.Instance.CanDispatchAction(req, ref autoPreviewAvailable))
                     {
-                        if (autoPreviewAvailable && BuiltinAddonSettings.FEPreviewTimer > 0)
+                        if (autoPreviewAvailable && BuiltinAddonConfig.FEPreviewTimer > 0)
                         {
-                            previewTimer.Interval = (int)(BuiltinAddonSettings.FEPreviewTimer * 1000);
+                            previewTimer.Interval = (int)(BuiltinAddonConfig.FEPreviewTimer * 1000);
                             previewTimer.Start();
                             RaiseNavigationAction(NavActionType.ActionPrepareAutoPreview, null, null);
                         }
@@ -692,12 +692,12 @@ namespace OPMedia.Addons.Builtin.FileExplorer
 
                     case ToolAction.ToolActionFavoritesAdd:
                         {
-                            List<string> favorites = new List<string>(ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders"));
+                            List<string> favorites = new List<string>(ProTONEConfig.GetFavoriteFolders("FavoriteFolders"));
                             if (favorites.Contains(opmShellList.Path))
                                 return;
 
                             favorites.Add(opmShellList.Path);
-                            ProTONEAppSettings.SetFavoriteFolders(favorites, "FavoriteFolders");
+                            ProTONEConfig.SetFavoriteFolders(favorites, "FavoriteFolders");
                         }
                         return;
 
@@ -777,7 +777,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             if (tsic == null)
                 return;
 
-            bool playerInstalled = File.Exists(SuiteConfiguration.PlayerInstallationPath);
+            bool playerInstalled = File.Exists(AppConfig.PlayerInstallationPath);
             tsmiSepProTONE.Visible = tsmiProTONEEnqueue.Visible = tsmiProTONEPlay.Visible = 
                 playerInstalled;
 
@@ -1101,7 +1101,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                     tsmi.DropDownItems.Remove(itemToClear);
                 }
 
-                List<string> favPaths = ProTONEAppSettings.GetFavoriteFolders("FavoriteFolders");
+                List<string> favPaths = ProTONEConfig.GetFavoriteFolders("FavoriteFolders");
                 if (favPaths != null && favPaths.Count > 0)
                 {
                     foreach (string path in favPaths)

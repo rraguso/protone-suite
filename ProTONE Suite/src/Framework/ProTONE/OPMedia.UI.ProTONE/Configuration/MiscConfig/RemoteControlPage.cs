@@ -10,7 +10,8 @@ using OPMedia.UI.Configuration;
 using OPMedia.Runtime.ProTONE.ServiceHelpers;
 using OPMedia.Core;
 using System.Diagnostics;
-using OPMedia.Runtime.ProTONE.ApplicationSettings;
+using OPMedia.Runtime.ProTONE.Configuration;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -34,13 +35,13 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         void OnLoad(object sender, EventArgs e)
         {
             chkEnableRemoting.Checked = ProTONERemoteConfig.EnableRemoteControl;
-            this.Enabled = SuiteConfiguration.CurrentUserIsAdministrator;
+            this.Enabled = AppConfig.CurrentUserIsAdministrator;
         }
 
         protected override void SaveInternal()
         {
 
-            if (SuiteConfiguration.CurrentUserIsAdministrator && ProTONEAppSettings.IsRCCServiceInstalled)
+            if (AppConfig.CurrentUserIsAdministrator && ProTONEConfig.IsRCCServiceInstalled)
             {
                 ProTONERemoteConfig.EnableRemoteControl = chkEnableRemoting.Checked;
                 ProTONERemoteConfig.ReconfigureRCCService();
@@ -55,7 +56,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
         private void btnLaunch_Click(object sender, EventArgs e)
         {
-            Process.Start(ProTONEAppSettings.RCCManagerInstallationPath);
+            Process.Start(ProTONEConfig.RCCManagerInstallationPath);
         }
     }
 }

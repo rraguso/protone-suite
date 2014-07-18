@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Windows.Forms;
 
-namespace OPMedia.Runtime.Addons.ApplicationSettings
+namespace OPMedia.Runtime.Addons.Configuration
 {
-    public static class AddonAppSettings
+    public static class AddonAppConfig
     {
         public static int VSplitterDistance
         {

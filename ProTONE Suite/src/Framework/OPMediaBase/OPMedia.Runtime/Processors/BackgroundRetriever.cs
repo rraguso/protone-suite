@@ -1,5 +1,5 @@
 using OPMedia.Runtime;
-using OPMedia.Core.ApplicationSettings;
+using OPMedia.Core.Configuration;
 using System.Net;
 using OPMedia.Core.Logging;
 using System.Threading;
