@@ -18,6 +18,7 @@ using OPMedia.Core.ApplicationSettings;
 using System.Security.Principal;
 using OPMedia.Core.Utilities;
 
+
 namespace OPMedia.Core
 {
     public static class SuiteConfiguration
@@ -31,21 +32,12 @@ namespace OPMedia.Core
             string.Format("Software\\{0}\\{1}", Constants.CompanyName, Constants.SuiteName);
 
         static object _languageSyncRoot = new object();
-
         static System.Windows.Forms.Timer _tmrReadRegistry = null;
 
         static Dictionary<string, CultureInfo> _cultures = new Dictionary<string, CultureInfo>();
 
-        public static string ConfigRegPath
-        {
-            get
-            {
-                if (ApplicationInfo.IsSuiteApplication)
-                    return _configRegPath;
-
-                return "Software\\" + ApplicationInfo.ApplicationName;
-            }
-        }
+        static string _skinType = string.Empty;
+        static string _languageId = InstallLanguageID;
 
         static SuiteConfiguration()
         {
@@ -156,7 +148,82 @@ namespace OPMedia.Core
             }
         }
 
-        #region Generic config API
+        #region Generic Purpose API (Level 0 settings)
+
+        public static int OSVersion
+        {
+            get
+            {
+
+                int winVer = Environment.OSVersion.Version.Major * 10;
+                winVer += Environment.OSVersion.Version.Minor;
+                return winVer;
+            }
+        }
+
+        public static bool CurrentUserIsAdministrator
+        {
+            get
+            {
+                try
+                {
+                    WindowsIdentity user = WindowsIdentity.GetCurrent();
+                    WindowsPrincipal principal = new WindowsPrincipal(user);
+                    return principal.IsInRole(WindowsBuiltInRole.Administrator);
+                }
+                catch
+                {
+                }
+
+                return false;
+            }
+        }
+
+        public static string InstallationPath
+        {
+            get
+            {
+                string retVal = string.Empty;
+                try
+                {
+                    if (ApplicationInfo.IsSuiteApplication)
+                    {
+                        RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(@"SOFTWARE\OPMedia Research\" + Constants.PlayerName);
+                        if (key != null)
+                        {
+                            retVal = key.GetValue("InstallPathOverride") as string;
+                        }
+                    }
+
+                    if (string.IsNullOrEmpty(retVal))
+                    {
+                        Assembly asm = Assembly.GetAssembly(typeof(SuiteConfiguration));
+                        if (asm != null)
+                        {
+                            FileInfo fi = new FileInfo(asm.Location);
+                            retVal = fi.DirectoryName;
+                        }
+                    }
+                }
+                catch
+                {
+                    retVal = string.Empty;
+                }
+
+                return retVal;
+            }
+        }
+
+        public static string ConfigRegPath
+        {
+            get
+            {
+                if (ApplicationInfo.IsSuiteApplication)
+                    return _configRegPath;
+
+                return "Software\\" + ApplicationInfo.ApplicationName;
+            }
+        }
 
         public static CultureInfo[] SupportedCultures
         {
@@ -168,7 +235,6 @@ namespace OPMedia.Core
             }
         }
 
-        static string _skinType = string.Empty;
         public static string SkinType
         {
             get
@@ -200,7 +266,6 @@ namespace OPMedia.Core
             }
         }
 
-        static string _languageId = InstallLanguageID;
         public static string LanguageID
         {
             get
@@ -287,25 +352,7 @@ namespace OPMedia.Core
 
                 return false;
             }
-
-            //set
-            //{
-            //    try
-            //    {
-            //        using (RegistryKey key = Registry.LocalMachine.Emu_CreateSubKey(ConfigRegPath))
-            //        {
-            //            if (key != null)
-            //            {
-            //                key.SetValue("UseOnlineDocumentation", value ? 1 : 0);
-            //            }
-            //        }
-            //    }
-            //    catch
-            //    {
-            //    }
-            //}
         }
-        
 
         public static string DownloadUriBase
         {
@@ -357,86 +404,10 @@ namespace OPMedia.Core
             }
         }
 
-        public static int OSVersion
-        {
-            get
-            {
-
-                int winVer = Environment.OSVersion.Version.Major * 10;
-                winVer += Environment.OSVersion.Version.Minor;
-                return winVer;
-            }
-        }
-
-        internal static bool RunProcess(string cmdLine, string args, bool wait, bool window=false)
-        {
-            try
-            {
-                ProcessStartInfo psi = new ProcessStartInfo(cmdLine, args);
-                psi.CreateNoWindow = !window;
-                psi.ErrorDialog = true;
-                psi.WindowStyle = (window) ? ProcessWindowStyle.Normal : ProcessWindowStyle.Hidden;
-
-                Process p = Process.Start(psi);
-                if (p != null && wait)
-                {
-                    p.WaitForExit();
-                }
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
         #endregion
 
+
         #region Suite installation API
-        
-
-        public static string InstallationPath
-        {
-            get
-            {
-                string retVal = string.Empty;
-                try
-                {
-                    if (ApplicationInfo.IsSuiteApplication)
-                    {
-                        RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(@"SOFTWARE\OPMedia Research\" + Constants.PlayerName);
-                        if (key != null)
-                        {
-                            retVal = key.GetValue("InstallPathOverride") as string;
-                        }
-                    }
-
-                    if (string.IsNullOrEmpty(retVal))
-                    {
-                        Assembly asm = Assembly.GetAssembly(typeof(SuiteConfiguration));
-                        if (asm != null)
-                        {
-                            FileInfo fi = new FileInfo(asm.Location);
-                            retVal = fi.DirectoryName;
-                        }
-                    }
-                }
-                catch
-                {
-                    retVal = string.Empty;
-                }
-            
-                return retVal;
-            }
-        }
-
-        public static string ShellSupportInstallationPath
-        {
-            get
-            {
-                return Path.Combine(InstallationPath, Constants.ShellSupportBinary);
-            }
-        }
 
         public static string PlayerInstallationPath
         {
@@ -463,61 +434,34 @@ namespace OPMedia.Core
         }
         #endregion
 
-        #region RCC Service API
-        public static bool IsRCCServiceInstalled
+        internal static bool RunProcess(string cmdLine, string args, bool wait, bool window=false)
         {
-            get
+            try
             {
-                try
+                ProcessStartInfo psi = new ProcessStartInfo(cmdLine, args);
+                psi.CreateNoWindow = !window;
+                psi.ErrorDialog = true;
+                psi.WindowStyle = (window) ? ProcessWindowStyle.Normal : ProcessWindowStyle.Hidden;
+
+                Process p = Process.Start(psi);
+                if (p != null && wait)
                 {
-                    ServiceController sc = new ServiceController(Constants.RCCServiceShortName);
-                    ServiceControllerStatus scs = sc.Status;
-                    return true;
+                    p.WaitForExit();
                 }
-                catch
-                {
-                    return false;
-                }
+
+                return true;
             }
-        }
-
-        public static string RCCManagerInstallationPath
-        {
-            get
+            catch
             {
-                return Path.Combine(InstallationPath, Constants.RCCManagerBinary);
-            }
-        }
-
-        public static string RCCServiceInstallationPath
-        {
-            get
-            {
-                return Path.Combine(InstallationPath, Constants.RCCServiceBinary);
-            }
-        }
-        #endregion
-
-        #region Generic purpoise API
-
-        public static bool CurrentUserIsAdministrator
-        {
-            get
-            {
-                try
-                {
-                    WindowsIdentity user = WindowsIdentity.GetCurrent();
-                    WindowsPrincipal principal = new WindowsPrincipal(user);
-                    return principal.IsInRole(WindowsBuiltInRole.Administrator);
-                }
-                catch
-                {
-                }
-
                 return false;
             }
         }
-        #endregion
+
+        
+
+        
+
+        
 
         public static string DefaultSubtitleURIs 
         {

@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using Microsoft.Win32;
 using System.IO;
+using OPMedia.Core;
 
-namespace OPMedia.Core.Utilities
+namespace OPMedia.Runtime.ProTONE.Utilities
 {
     public enum KnownFileType
     {

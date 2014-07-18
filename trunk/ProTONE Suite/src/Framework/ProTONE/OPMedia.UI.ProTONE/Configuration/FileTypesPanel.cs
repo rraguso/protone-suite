@@ -20,6 +20,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms.VisualStyles;
 using OPMedia.UI.Generic;
 using OPMedia.Core.Utilities;
+using OPMedia.Runtime.ProTONE.Utilities;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
