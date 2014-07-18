@@ -483,17 +483,7 @@ namespace OPMedia.Core.Configuration
         #region Level 1 settings using Settings File (Combined per-app and per-user settings)
 
         #region Network preferences
-        public static int KeepAliveInterval
-        {
-            get
-            {
-                return ConfigFileManager.Default.GetValue("KeepAliveInterval", 5 * 60 * 1000);
-            }
-            set
-            {
-                ConfigFileManager.Default.SetValue("KeepAliveInterval", value);
-            }
-        }
+       
 
         public static IWebProxy GetWebProxy()
         {
@@ -863,99 +853,6 @@ namespace OPMedia.Core.Configuration
                 ConfigFileManager.Default.SetValue("CanSendToTray", value);
             }
         }
-
-
-        public static bool FullScreenOn
-        {
-            get
-            {
-                return ConfigFileManager.Default.GetValue("FullScreenOn", false);
-            }
-
-            set
-            {
-                ConfigFileManager.Default.SetValue("FullScreenOn", value);
-            }
-        }
-
-        public static Point DetachedWindowLocation
-        {
-            get
-            {
-                try
-                {
-                    string str = ConfigFileManager.Default.GetValue("DetachedWindowLocation");
-                    if (!string.IsNullOrEmpty(str))
-                    {
-                        return (Point)new PointConverter().ConvertFromInvariantString(str);
-                    }
-                }
-                catch
-                {
-                }
-
-                Point ptFallback = new Point(100, 100);
-
-                ConfigFileManager.Default.SetValue("DetachedWindowLocation", new PointConverter().ConvertToInvariantString(ptFallback));
-
-                return ptFallback;
-            }
-            set
-            {
-                if ((value.X >= 0) && (value.Y >= 0))
-                {
-                    ConfigFileManager.Default.SetValue("DetachedWindowLocation", new PointConverter().ConvertToInvariantString(value));
-                }
-            }
-        }
-
-        public static Size DetachedWindowSize
-        {
-            get
-            {
-                Size size = new Size(800, 600);
-                try
-                {
-                    string str = ConfigFileManager.Default.GetValue("DetachedWindowSize");
-                    if (!string.IsNullOrEmpty(str))
-                    {
-                        size = (Size)new SizeConverter().ConvertFromInvariantString(str);
-                    }
-                }
-                catch
-                {
-                }
-                return size;
-            }
-            set
-            {
-                if ((value.Width >= 0) && (value.Height >= 0))
-                {
-                    ConfigFileManager.Default.SetValue("DetachedWindowSize", new SizeConverter().ConvertToInvariantString(value));
-                }
-            }
-        }
-
-        public static FormWindowState DetachedWindowState
-        {
-            get
-            {
-                FormWindowState normal = FormWindowState.Normal;
-                try
-                {
-                    normal = (FormWindowState)ConfigFileManager.Default.GetValue("DetachedWindowState", 0);
-                }
-                catch
-                {
-                }
-                return normal;
-            }
-            set
-            {
-                ConfigFileManager.Default.SetValue("DetachedWindowState", (int)value);
-            }
-        }
-
         
         #endregion
 
