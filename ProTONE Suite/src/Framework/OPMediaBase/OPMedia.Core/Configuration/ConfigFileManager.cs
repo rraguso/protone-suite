@@ -6,10 +6,10 @@ using System.Globalization;
 using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
-using OPMedia.OSDependentLayer;
+using OPMedia.Core;
 #endregion
 
-namespace OPMedia.Runtime.ApplicationSettings
+namespace OPMedia.Core.Configuration
 {
     public class ConfigFileManager
 	{
@@ -20,17 +20,23 @@ namespace OPMedia.Runtime.ApplicationSettings
         private object _syncRoot = new object();
         private NameValueCollection _values = new NameValueCollection();
         private const string KeyName = "key";
-        private const string RootNodeName = "AppSettings";
+        private const string RootNodeName = "AppConfig";
         private const string SettingNodeName = "add";
         private const string ValueName = "value";
+
+        private static ConfigFileManager _default = new ConfigFileManager(ApplicationInfo.SettingsFile);
+        public static ConfigFileManager Default
+        {
+            get
+            {
+                return _default;
+            }
+        }
 
         public ConfigFileManager(string filePath)
         {
             _filePath = filePath;
-        }
-
-        public ConfigFileManager()
-        {
+            Load();
         }
 
         public void Load()
@@ -286,5 +292,19 @@ namespace OPMedia.Runtime.ApplicationSettings
                 }
             }
         }
-	}
+
+        internal void Merge(ConfigFileManager configFileManager)
+        {
+            if (configFileManager != null &&
+                configFileManager._values != null)
+            {
+                for (int i = 0; i < configFileManager._values.Count; i++)
+                {
+                    string key = configFileManager._values.GetKey(i);
+                    string settingValue = configFileManager._values[i];
+                    SetValue(key, settingValue);
+                }
+            }
+        }
+    }
 }
