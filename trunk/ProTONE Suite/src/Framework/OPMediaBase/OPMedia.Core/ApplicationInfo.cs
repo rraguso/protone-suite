@@ -18,7 +18,7 @@ namespace OPMedia.Core
 
         public static void RegisterAppName(Assembly asm)
         {
-            if (!(IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsSuiteUtility))
+            if (IsSuiteApplication == false)
             {
                 try
                 {
@@ -132,65 +132,11 @@ namespace OPMedia.Core
             }
         }
 
-        internal static bool IsSuiteApplication
+        public static bool IsSuiteApplication
         {
             get
             {
-                return (IsPlayer || IsMediaLibrary || IsRCCManager || IsMediaHost || IsShellExtension || IsSuiteUtility);
-            }
-        }
-
-        public static bool IsPlayer
-        {
-            get
-            {
-                return string.Compare(ApplicationName, Constants.PlayerName, true) == 0;
-            }
-        }
-
-        public static bool IsMediaLibrary
-        {
-            get
-            {
-                return string.Compare(ApplicationName, Constants.LibraryName, true) == 0;
-            }
-        }
-
-        public static bool IsRCCManager
-        {
-            get
-            {
-                return string.Compare(ApplicationName, Constants.RCCManagerName, true) == 0;
-            }
-        }
-
-        public static bool IsMediaHost
-        {
-            get
-            {
-                return string.Compare(ApplicationName, Constants.MediaHostName, true) == 0;
-            }
-        }
-
-        public static bool IsShellExtension
-        {
-            get
-            {
-                return string.Compare(ApplicationName, Constants.ShellSupportName, true) == 0;
-            }
-        }
-
-        public static bool IsSuiteUtility
-        {
-            get
-            {
-                if (string.Compare(ApplicationName, Constants.UtilityName, true) == 0)
-                    return true;
-
-                if (string.Compare(ApplicationName, "opmedia.remotecontrolemulator", true) == 0)
-                    return true;
-
-                return false;
+                return ApplicationName.StartsWith(Constants.SuiteAppPrefix);
             }
         }
     }

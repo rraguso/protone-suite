@@ -61,11 +61,11 @@ namespace OPMedia.Runtime.ProTONE
                         //// Send the command (it should arrive to player).
                         if (useIpc)
                         {
-                            IPCRemoteControlProxy.PostRequest(Constants.PlayerName, command.ToString());
+                            IPCRemoteControlProxy.PostRequest(ProTONEConstants.PlayerName, command.ToString());
                         }
                         else
                         {
-                            WmCopyDataSender.SendData(Constants.PlayerName, command.ToString());
+                            WmCopyDataSender.SendData(ProTONEConstants.PlayerName, command.ToString());
                         }
                     }
                     else
@@ -111,7 +111,7 @@ namespace OPMedia.Runtime.ProTONE
         {
             try
             {
-                string res = RemoteControlProxy.SendRequest(data, serverMachineName, Constants.RCCServiceShortName, 
+                string res = RemoteControlProxy.SendRequest(data, serverMachineName, ProTONEConstants.RCCServiceShortName, 
                     CommandTargetPort.RccService);
 
                 if (string.IsNullOrEmpty(res))
@@ -163,7 +163,7 @@ namespace OPMedia.Runtime.ProTONE
 
         public static bool IsPlayerRunning()
         {
-            string mutexName = Constants.PlayerName.Replace(" ", "").ToLowerInvariant() + @".mutex"; 
+            string mutexName = ProTONEConstants.PlayerName.Replace(" ", "").ToLowerInvariant() + @".mutex"; 
             try
             {
                 using (Mutex m = Mutex.OpenExisting("Global\\" + mutexName, MutexRights.ReadPermissions))

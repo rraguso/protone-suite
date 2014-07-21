@@ -5,6 +5,7 @@ using System.Text;
 using System.ServiceProcess;
 using OPMedia.Core;
 using OPMedia.Runtime.ServiceHelpers;
+using OPMedia.Runtime.ProTONE;
 
 namespace OPMedia.RCCManager
 {
@@ -14,7 +15,7 @@ namespace OPMedia.RCCManager
         {
             try
             {
-                ServiceController sc = new ServiceController(Constants.RCCServiceShortName);
+                ServiceController sc = new ServiceController(ProTONEConstants.RCCServiceShortName);
                 if (sc.Status == ServiceControllerStatus.Running)
                 {
                     sc.Stop();
@@ -29,7 +30,7 @@ namespace OPMedia.RCCManager
         {
             try
             {
-                ServiceController sc = new ServiceController(Constants.RCCServiceShortName);
+                ServiceController sc = new ServiceController(ProTONEConstants.RCCServiceShortName);
                 if (sc.Status == ServiceControllerStatus.Stopped)
                 {
                     sc.Start();
@@ -44,7 +45,7 @@ namespace OPMedia.RCCManager
         {
             try
             {
-                ServiceController sc = new ServiceController(Constants.RCCServiceShortName);
+                ServiceController sc = new ServiceController(ProTONEConstants.RCCServiceShortName);
                 sc.ExecuteCommand((int)ServiceCommand.Reconfigure);
             }
             catch

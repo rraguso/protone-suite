@@ -30,7 +30,7 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 
         public RemotingInputPin()
         {
-            _service = new RemoteControlHost(Constants.RCCServiceShortName, CommandTargetPort.RccService);
+            _service = new RemoteControlHost(ProTONEConstants.RCCServiceShortName, CommandTargetPort.RccService);
             _service.OnSendRequest += new OnSendRequestHandler(_service_OnSendRequest);
 
             Logger.LogInfo("RemotingInputPin was created ...");

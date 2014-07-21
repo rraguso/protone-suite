@@ -177,9 +177,9 @@ namespace OPMedia.Runtime.ProTONE.Utilities
             _descriptions.Add(KnownFileType.AudioFile, "");
             _descriptions.Add(KnownFileType.VideoFile, "");
             _descriptions.Add(KnownFileType.Playlist, "");
-            _descriptions.Add(KnownFileType.Bookmark, Constants.BookmarkFileTypeDesc);
-            _descriptions.Add(KnownFileType.Catalog, Constants.CatalogFileTypeDesc);
-            _descriptions.Add(KnownFileType.Subtitle, Constants.SubtitleFileTypeDesc);
+            _descriptions.Add(KnownFileType.Bookmark, ProTONEConstants.BookmarkFileTypeDesc);
+            _descriptions.Add(KnownFileType.Catalog, ProTONEConstants.CatalogFileTypeDesc);
+            _descriptions.Add(KnownFileType.Subtitle, ProTONEConstants.SubtitleFileTypeDesc);
         }
 
         public static void Init(ISupportedFileProvider provider)
@@ -368,35 +368,35 @@ namespace OPMedia.Runtime.ProTONE.Utilities
         public static void RegisterContextMenuHandler()
         {
             // File context menu handler
-            string keyName = @"*\shellex\ContextMenuHandlers\" + Constants.PlayerName;
+            string keyName = @"*\shellex\ContextMenuHandlers\" + ProTONEConstants.PlayerName;
             using (RegistryKey key = Registry.ClassesRoot.Emu_CreateSubKey(keyName))
             {
                 // Set the default value of the key.
                 if (key != null)
                 {
-                    key.SetValue(null, Constants.CanonicShellIntegrationSuportGuid);
+                    key.SetValue(null, ProTONEConstants.CanonicShellIntegrationSuportGuid);
                 }
             }
 
             // Folder context menu handler
-            keyName = @"Directory\shellex\ContextMenuHandlers\" + Constants.PlayerName;
+            keyName = @"Directory\shellex\ContextMenuHandlers\" + ProTONEConstants.PlayerName;
             using (RegistryKey key = Registry.ClassesRoot.Emu_CreateSubKey(keyName))
             {
                 // Set the default value of the key.
                 if (key != null)
                 {
-                    key.SetValue(null, Constants.CanonicShellIntegrationSuportGuid);
+                    key.SetValue(null, ProTONEConstants.CanonicShellIntegrationSuportGuid);
                 }
             }
 
             // Drive context menu handler
-            keyName = @"Drive\shellex\ContextMenuHandlers\" + Constants.PlayerName;
+            keyName = @"Drive\shellex\ContextMenuHandlers\" + ProTONEConstants.PlayerName;
             using (RegistryKey key = Registry.ClassesRoot.Emu_CreateSubKey(keyName))
             {
                 // Set the default value of the key.
                 if (key != null)
                 {
-                    key.SetValue(null, Constants.CanonicShellIntegrationSuportGuid);
+                    key.SetValue(null, ProTONEConstants.CanonicShellIntegrationSuportGuid);
                 }
             }
         }
@@ -406,21 +406,21 @@ namespace OPMedia.Runtime.ProTONE.Utilities
             // File context menu handler
             try
             {
-                Registry.ClassesRoot.DeleteSubKeyTree(@"*\shellex\ContextMenuHandlers\" + Constants.PlayerName);
+                Registry.ClassesRoot.DeleteSubKeyTree(@"*\shellex\ContextMenuHandlers\" + ProTONEConstants.PlayerName);
             }
             catch { }
 
             // Folder context menu handler
             try
             {
-                Registry.ClassesRoot.DeleteSubKeyTree(@"Directory\shellex\ContextMenuHandlers\" + Constants.PlayerName);
+                Registry.ClassesRoot.DeleteSubKeyTree(@"Directory\shellex\ContextMenuHandlers\" + ProTONEConstants.PlayerName);
             }
             catch { }
 
             // Drive context menu handler
             try
             {
-                Registry.ClassesRoot.DeleteSubKeyTree(@"Drive\shellex\ContextMenuHandlers\" + Constants.PlayerName);
+                Registry.ClassesRoot.DeleteSubKeyTree(@"Drive\shellex\ContextMenuHandlers\" + ProTONEConstants.PlayerName);
             }
             catch { }
         }
@@ -432,7 +432,7 @@ namespace OPMedia.Runtime.ProTONE.Utilities
                 string fileHandlerGuid = "1";
                 string folderHandlerGuid = "2"; // init with different values so as they are not equal
 
-                using (RegistryKey key = Registry.ClassesRoot.Emu_OpenSubKey(@"*\shellex\ContextMenuHandlers\" + Constants.PlayerName))
+                using (RegistryKey key = Registry.ClassesRoot.Emu_OpenSubKey(@"*\shellex\ContextMenuHandlers\" + ProTONEConstants.PlayerName))
                 {
                     if (key != null)
                     {
@@ -440,7 +440,7 @@ namespace OPMedia.Runtime.ProTONE.Utilities
                     }
                 }
 
-                using (RegistryKey key = Registry.ClassesRoot.Emu_OpenSubKey(@"Directory\shellex\ContextMenuHandlers\" + Constants.PlayerName))
+                using (RegistryKey key = Registry.ClassesRoot.Emu_OpenSubKey(@"Directory\shellex\ContextMenuHandlers\" + ProTONEConstants.PlayerName))
                 {
                     if (key != null)
                     {
@@ -448,7 +448,7 @@ namespace OPMedia.Runtime.ProTONE.Utilities
                     }
                 }
 
-                return (fileHandlerGuid == folderHandlerGuid && folderHandlerGuid == Constants.CanonicShellIntegrationSuportGuid);
+                return (fileHandlerGuid == folderHandlerGuid && folderHandlerGuid == ProTONEConstants.CanonicShellIntegrationSuportGuid);
             }
             catch
             {

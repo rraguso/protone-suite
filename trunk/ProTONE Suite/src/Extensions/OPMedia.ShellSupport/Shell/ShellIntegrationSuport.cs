@@ -28,11 +28,13 @@ using OPMedia.Core.Configuration;
 
 namespace OPMedia.ShellSupport
 {
-    // This GUID is defined inside Constants.cs in OPMedia.Core.
+    //
+    // This GUID is defined inside ProTONEConstants.cs in OPMedia.Runtime.ProTONE.
+    //
     // If so required change it from there rather than entering a new one here.
     // because the value is used also by the install/uninstall routines.
     // Registration will fail if different GUID's are specified !!
-    [Guid(Constants.ShellIntegrationSuportGuid)]
+    [Guid(ProTONEConstants.ShellIntegrationSuportGuid)]
     [ComVisible(true)]
     public class ShellIntegrationSuport : IShellExtInit, IContextMenu
     {

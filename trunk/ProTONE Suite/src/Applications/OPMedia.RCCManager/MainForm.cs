@@ -26,6 +26,7 @@ using OPMedia.UI.Controls;
 using System.Linq;
 using OPMedia.UI.Controls.Dialogs;
 using System.Xml;
+using OPMedia.Runtime.ProTONE;
 
 
 namespace OPMedia.RCCManager
@@ -186,7 +187,7 @@ namespace OPMedia.RCCManager
         {
             try
             {
-                ServiceController sc = new ServiceController(Constants.RCCServiceShortName);
+                ServiceController sc = new ServiceController(ProTONEConstants.RCCServiceShortName);
                 tsbApplyConfig.Enabled = true;
             }
             catch

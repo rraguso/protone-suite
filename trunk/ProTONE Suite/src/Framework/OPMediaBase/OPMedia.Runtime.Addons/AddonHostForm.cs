@@ -248,7 +248,7 @@ namespace OPMedia.Runtime.Addons
             switch (args.cmd)
             {
                 case OPMShortcut.CmdOpenSettings:
-                    if (!ApplicationInfo.IsMediaLibrary)
+                    if (ApplicationInfo.IsSuiteApplication)
                     {
                         BuiltinAddonAppSettingsForm.Show();
                         args.Handled = true;

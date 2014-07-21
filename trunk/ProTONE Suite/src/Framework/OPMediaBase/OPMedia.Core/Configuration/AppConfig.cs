@@ -235,7 +235,7 @@ namespace OPMedia.Core.Configuration
                 {
                     if (ApplicationInfo.IsSuiteApplication)
                     {
-                        RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(@"SOFTWARE\OPMedia Research\" + Constants.PlayerName);
+                        RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite");
                         if (key != null)
                         {
                             retVal = key.GetValue("InstallPathOverride") as string;
@@ -707,17 +707,9 @@ namespace OPMedia.Core.Configuration
             get
             {
                 Point point = new Point(100, 100);
-                if (ApplicationInfo.IsPlayer)
-                {
-                    point = new Point((Screen.PrimaryScreen.Bounds.Width - 440) / 2, (Screen.PrimaryScreen.Bounds.Height - 300) / 2);
-                }
-                else if (ApplicationInfo.IsMediaLibrary)
+                if (ApplicationInfo.IsSuiteApplication)
                 {
                     point = new Point(Screen.PrimaryScreen.Bounds.Width / 6, Screen.PrimaryScreen.Bounds.Height / 6);
-                }
-                else if (ApplicationInfo.IsRCCManager)
-                {
-                    point = new Point((Screen.PrimaryScreen.Bounds.Width - 510) / 2, (Screen.PrimaryScreen.Bounds.Height - 430) / 2);
                 }
 
                 try
@@ -748,17 +740,9 @@ namespace OPMedia.Core.Configuration
             get
             {
                 Size size = new Size(800, 600);
-                if (ApplicationInfo.IsPlayer)
-                {
-                    size = new Size(440, 300);
-                }
-                else if (ApplicationInfo.IsMediaLibrary)
+                if (ApplicationInfo.IsSuiteApplication)
                 {
                     size = new Size(2 * Screen.PrimaryScreen.Bounds.Width / 3, 2 * Screen.PrimaryScreen.Bounds.Height / 3);
-                }
-                else if (ApplicationInfo.IsRCCManager)
-                {
-                    size = new Size(510, 430);
                 }
                     
                 try

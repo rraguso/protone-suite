@@ -95,6 +95,7 @@
     <Compile Include="Playlists\PlaylistItem.cs" />
     <Compile Include="Playlists\RadioStation.cs" />
     <Compile Include="Playlists\UrlPlaylistItem.cs" />
+    <Compile Include="ProTONEConstants.cs" />
     <Compile Include="RemoteControl\ActivateCommand.cs" />
     <Compile Include="RemoteControl\BasicCommand.cs" />
     <Compile Include="RemoteControl\MediaCommands.cs" />
