@@ -36,10 +36,6 @@ namespace OPMedia.UI.HelpSupport
                        sectionName, topicName);
             }
 
-            Version v = new Version(SuiteVersion.Version);
-            string verStr = string.Format("{0}.{1}", v.Major, v.Minor);
-            helpUri = helpUri.Replace("\\", "/").Replace("#VERSION#", verStr);
-
             Logger.LogHelpTrace(helpUri);
 
             if (_helpViewer == null)
