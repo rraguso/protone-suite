@@ -70,6 +70,9 @@ Name: en; MessagesFile: compiler:Default.isl
 ; you can also use Microsoft Visual Styles (*.msstyles) resources.
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
+Source: {#BINDIR}\Themes\Themes.xml; DestDir: {app}\DLL\Themes
+
 Source: {#BINDIR}\ICSharpCode.SharpZipLib.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\XmlRpc.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\taglib-sharp.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
@@ -148,6 +151,7 @@ Name: {app}\DLL\ro; Flags: uninsalwaysuninstall
 Name: {app}\DLL\de; Flags: uninsalwaysuninstall
 Name: {app}\DLL\fr; Flags: uninsalwaysuninstall
 Name: {app}\DLL\Resources; Flags: uninsalwaysuninstall
+Name: {app}\DLL\Themes; Flags: uninsalwaysuninstall
 Name: {app}\DLL\Templates
 Name: {app}\DLL\Templates\Catalog
 Name: {app}\Tools
