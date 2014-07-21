@@ -52,6 +52,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
 
             ResizeColumns();
 
+            ilSelection.ColorDepth = ColorDepth.Depth32Bit;
             ilSelection.Images.Add(OPMedia.UI.Properties.Resources.Error);
             ilSelection.Images.Add(OPMedia.UI.Properties.Resources.OK);
 

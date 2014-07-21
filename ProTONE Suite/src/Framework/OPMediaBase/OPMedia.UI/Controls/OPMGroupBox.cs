@@ -105,8 +105,8 @@ namespace OPMedia.UI.Controls
             (
                 ClientRectangle.Left,
                 ClientRectangle.Top + offsetY,
-                ClientRectangle.Width - ThemeManager.CornerSize,
-                ClientRectangle.Height - ThemeManager.CornerSize - offsetY
+                ClientRectangle.Width - 1,
+                ClientRectangle.Height - offsetY - 1
             );
 
             using (Pen pen = new Pen(cb))
@@ -118,9 +118,6 @@ namespace OPMedia.UI.Controls
                 // Careful not to give a "strikethrough" effect on the text.
                 e.Graphics.DrawLine(penEraser, offsetX, offsetY, offsetX + textSize.Width, offsetY);
             }
-
-          
-
 
             // Draw the text
             using (Brush b = new SolidBrush(cText))
