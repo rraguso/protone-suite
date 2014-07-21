@@ -851,16 +851,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     }
                     break;
 
-                case OPMShortcut.CmdBookmarkManager:
-                    {
-                        args.Handled = true;
-
-                        // TODO
-                        //pnlScreens.OpenBM();
-                        MessageBox.Show("CmdBookmarkManager: to be implemented");
-                    }
-                    break;
-
                 case OPMShortcut.CmdSearchSubtitles:
                     {
                         args.Handled = true;

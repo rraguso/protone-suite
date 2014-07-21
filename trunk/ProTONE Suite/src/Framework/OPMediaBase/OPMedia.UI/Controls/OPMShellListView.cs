@@ -484,8 +484,6 @@ namespace OPMedia.UI.Controls
                             string oldFileName = System.IO.Path.GetFileNameWithoutExtension(oldPath);
                             string newFileName = System.IO.Path.GetFileNameWithoutExtension(finalPath);
 
-                            // TODO correctly handle letter casing
-
                             foreach (string linkedFile in linkedFiles)
                             {
                                 string linkedFileName = System.IO.Path.GetFileName(linkedFile).Replace(oldFileName, newFileName);

@@ -427,7 +427,6 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         }
         protected override void DoAdjustVideoSize(VideoSizeAdjustmentDirection direction, VideoSizeAdjustmentAction action)
         {
-            // TODO: nothing at this time. implement later on.
         }
 
         protected override bool IsEndOfMedia()

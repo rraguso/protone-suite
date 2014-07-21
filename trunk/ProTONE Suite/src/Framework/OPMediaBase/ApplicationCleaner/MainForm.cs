@@ -165,31 +165,14 @@ namespace OPMedia.Utility
 
         private void ProcessUserAppDataPath(string userAppDatapath)
         {
-            // TODO fix this
-
-            /*
-            string[] appSubfolders = new string[]
+            string[] appSettingsFolders = Directory.GetDirectories(userAppDatapath, "OPMedia*", SearchOption.TopDirectoryOnly);
+            foreach (string appSettingsFolder in appSettingsFolders)
             {
-                Constants.LibraryName,
-                Constants.PlayerName,
-                Constants.RCCManagerName,
-                Constants.UtilityName,
-            };
-
-            foreach (string appSubfolder in appSubfolders)
-            {
-                try
+                if (Directory.Exists(appSettingsFolder))
                 {
-                    string appSettingsFolder = Path.Combine(userAppDatapath, appSubfolder);
-                    if (Directory.Exists(appSettingsFolder))
-                    {
-                        PathUtils.DeleteFolderTree(appSettingsFolder);
-                    }
+                    PathUtils.DeleteFolderTree(appSettingsFolder);
                 }
-                catch
-                {
-                }
-            }*/
+            }
         }
     }
 }
