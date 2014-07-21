@@ -60,6 +60,8 @@ namespace OPMedia.ProTONE
                         Translator.RegisterTranslationAssembly(typeof(MediaPlayer).Assembly);
                         Translator.RegisterTranslationAssembly(typeof(MainForm).Assembly);
 
+                        ShortcutMapper.IsPlayer = true;
+
                         mainFrm = new MainForm();
 
                         Application.Run(mainFrm);

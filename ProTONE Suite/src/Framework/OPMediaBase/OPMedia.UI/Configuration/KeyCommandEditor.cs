@@ -82,7 +82,9 @@ namespace OPMedia.UI.Configuration
                 args.KeyData != Keys.Escape &&
                 args.KeyData != Keys.Tab &&
                 args.KeyCode != Keys.PrintScreen &&
-                args.KeyData != Keys.F1)
+                args.KeyData != Keys.F1 &&
+                (args.Control && (args.KeyData == Keys.F2 || args.KeyData == Keys.Left|| args.KeyData == Keys.Right|| args.KeyData == Keys.Up|| args.KeyData == Keys.Down))
+                )
             {
                 if (VerifyShortcut(args))
                 {
