@@ -218,9 +218,18 @@ namespace OPMedia.Runtime.Addons.Configuration
 
         internal void SelectAll()
         {
-            foreach (TreeNode tn in _libNodes.Values)
+            foreach (TreeNode tn in tvAddons.Nodes)
+                SelectNode(tn);
+        }
+
+        internal void SelectNode(TreeNode tn)
+        {
+            if (tn != null)
             {
                 tn.Checked = true;
+                if (tn.Nodes != null)
+                    foreach (TreeNode childNode in tn.Nodes)
+                        SelectNode(childNode);
             }
         }
 
