@@ -54,7 +54,32 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
     public static class ProTONEConfig
     {
-        #region RCC Service API (Calculated Level 2 settings)
+        #region Calculated Level 2 settings
+
+        public static string PlayerInstallationPath
+        {
+            get
+            {
+                return Path.Combine(AppConfig.InstallationPath, Constants.PlayerBinary);
+            }
+        }
+
+        public static string LibraryInstallationPath
+        {
+            get
+            {
+                return Path.Combine(AppConfig.InstallationPath, Constants.LibraryBinary);
+            }
+        }
+
+        public static string MediaHostInstallationPath
+        {
+            get
+            {
+                return Path.Combine(AppConfig.InstallationPath, Constants.MediaHostBinary);
+            }
+        }
+
         public static bool IsRCCServiceInstalled
         {
             get

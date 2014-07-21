@@ -38,6 +38,7 @@ using OPMedia.Addons.Builtin.Navigation.CatalogExplorer.DataLayer;
 using OPMedia.UI.Controls.Dialogs;
 using OPMedia.Runtime.Addons;
 using OPMedia.Addons.Builtin.Configuration;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 /*
  * IMPORTANT NOTE: In Media Catalog, instead of paths are used VPaths. 
@@ -866,7 +867,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             if (tsic == null)
                 return;
 
-            bool playerInstalled = File.Exists(AppConfig.PlayerInstallationPath);
+            bool playerInstalled = File.Exists(ProTONEConfig.PlayerInstallationPath);
             tsmiSepProTONE.Visible = tsmiProTONEEnqueue.Visible = tsmiProTONEPlay.Visible =
                 playerInstalled;
 

@@ -777,7 +777,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             if (tsic == null)
                 return;
 
-            bool playerInstalled = File.Exists(AppConfig.PlayerInstallationPath);
+            bool playerInstalled = File.Exists(ProTONEConfig.PlayerInstallationPath);
             tsmiSepProTONE.Visible = tsmiProTONEEnqueue.Visible = tsmiProTONEPlay.Visible = 
                 playerInstalled;
 
