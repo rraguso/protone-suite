@@ -39,11 +39,11 @@ namespace OPMedia.UI.ProTONE.Configuration
         
         public override void AddAditionalPanels()
         {
-            if (ApplicationInfo.IsPlayer)
+            if (ProTONEConfig.IsPlayer)
             {
                 AddPanel(typeof(FileTypesPanel), AppConfig.CurrentUserIsAdministrator);
             }
-            else if (ApplicationInfo.IsMediaLibrary)
+            else if (ProTONEConfig.IsMediaLibrary)
             {
                 AddPanel(typeof(AddonCfgPanel));
                 AddPanel(typeof(AddonSettingsPanel));
@@ -53,7 +53,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             //AddPanel(typeof(VideoSettingsPanel));
             AddPanel(typeof(SubtitleSettingsPanel));
 
-            if (ApplicationInfo.IsPlayer)
+            if (ProTONEConfig.IsPlayer)
             {
                 //AddPanel(typeof(SchedulerSettingsPanel));
 

@@ -45,7 +45,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
 
             request.Proxy = AppConfig.GetWebProxy();
             request.KeepAlive = false;
-            request.UserAgent = Constants.PlayerUserAgent;
+            request.UserAgent = ProTONEConstants.PlayerUserAgent;
             request.ServicePoint.Expect100Continue = false;
 
             request.Timeout = timeout;

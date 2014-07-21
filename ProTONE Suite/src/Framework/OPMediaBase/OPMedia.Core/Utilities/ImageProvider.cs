@@ -94,22 +94,18 @@ namespace OPMedia.Core
 
         public static Icon GetAppIcon(bool largeIcon = false)
         {
-            if (ApplicationInfo.IsPlayer)
-            {
-                return ResizeIcon(Resources.player, largeIcon);
-            }
-            else if (ApplicationInfo.IsMediaLibrary)
-            {
-                return ResizeIcon(Resources.catalog, largeIcon);
-            }
-            else if (ApplicationInfo.IsRCCManager)
-            {
-                return ResizeIcon(Resources.ir_remote, largeIcon);
-            }
-            else if (ApplicationInfo.IsMediaHost)
-            {
-                return ResizeIcon(Resources.redplayer, largeIcon);
-            }
+            //if (ApplicationInfo.IsPlayer)
+            //{
+            //    return ResizeIcon(Resources.player, largeIcon);
+            //}
+            //else if (ApplicationInfo.IsMediaLibrary)
+            //{
+            //    return ResizeIcon(Resources.catalog, largeIcon);
+            //}
+            //else if (ApplicationInfo.IsRCCManager)
+            //{
+            //    return ResizeIcon(Resources.ir_remote, largeIcon);
+            //}
 
             try
             {

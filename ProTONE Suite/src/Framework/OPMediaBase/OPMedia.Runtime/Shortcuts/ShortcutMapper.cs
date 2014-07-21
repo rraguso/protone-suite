@@ -45,12 +45,18 @@ namespace OPMedia.Runtime.Shortcuts
 
         public static OPMShortcut CmdFirst
         {
-            get { return (ApplicationInfo.IsPlayer) ? OPMShortcut.CmdPlay : OPMShortcut.CmdOpenHelp; }
+            // TODO fix this
+            get { return OPMShortcut.CmdPlay; }
+
+            //get { return (ApplicationInfo.IsPlayer) ? OPMShortcut.CmdPlay : OPMShortcut.CmdOpenHelp; }
         }
 
         public static OPMShortcut CmdLast
         {
-            get { return (ApplicationInfo.IsPlayer) ? OPMShortcut.CmdGenericOpen : OPMShortcut.CmdOutOfRange; }
+            // TODO fix this
+            get { return OPMShortcut.CmdGenericOpen; }
+
+            //get { return (ApplicationInfo.IsPlayer) ? OPMShortcut.CmdGenericOpen : OPMShortcut.CmdOutOfRange; }
         }
 
         public static bool IsConfigurableShortcut(OPMShortcut cmd)

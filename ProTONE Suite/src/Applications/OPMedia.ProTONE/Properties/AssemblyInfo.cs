@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using OPMedia.Core;
+using OPMedia.Runtime.ProTONE;
 
 [assembly: ComVisible(false)]
 [assembly: AssemblyCompany(Constants.CompanyName)]
@@ -10,5 +11,5 @@ using OPMedia.Core;
 [assembly: AssemblyVersion(SuiteVersion.Version)]
 [assembly: AssemblyFileVersion(SuiteVersion.Version)]
 
-[assembly: AssemblyTitle(Constants.PlayerName)]
-[assembly: AssemblyDescription(Constants.PlayerName + " Application")]
+[assembly: AssemblyTitle(ProTONEConstants.PlayerName)]
+[assembly: AssemblyDescription(ProTONEConstants.PlayerName + " Application")]

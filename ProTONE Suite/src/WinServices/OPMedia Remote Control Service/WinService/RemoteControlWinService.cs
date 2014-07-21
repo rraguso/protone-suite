@@ -8,6 +8,7 @@ using OPMedia.Core.Logging;
 using OPMedia.Core;
 using OPMedia.Runtime.ServiceHelpers;
 using OPMedia.Runtime;
+using OPMedia.Runtime.ProTONE;
 
 namespace OPMedia.Services.RCCService
 {
@@ -18,7 +19,7 @@ namespace OPMedia.Services.RCCService
         public RemoteControlWinService()
         {
             InitializeComponent();
-            this.ServiceName = Constants.RCCServiceShortName;
+            this.ServiceName = ProTONEConstants.RCCServiceShortName;
         }
 
         [STAThread]

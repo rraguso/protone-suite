@@ -661,7 +661,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
             if (this == __defaultInstance)
             {
-                if (ApplicationInfo.IsPlayer)
+                if (ProTONEConfig.IsPlayer)
                 {
                     SystemScheduler.Stop();
                 }

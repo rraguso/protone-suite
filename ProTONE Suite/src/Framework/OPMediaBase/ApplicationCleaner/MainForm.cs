@@ -165,9 +165,11 @@ namespace OPMedia.Utility
 
         private void ProcessUserAppDataPath(string userAppDatapath)
         {
+            // TODO fix this
+
+            /*
             string[] appSubfolders = new string[]
             {
-                Constants.MediaHostName,
                 Constants.LibraryName,
                 Constants.PlayerName,
                 Constants.RCCManagerName,
@@ -187,7 +189,7 @@ namespace OPMedia.Utility
                 catch
                 {
                 }
-            }
+            }*/
         }
     }
 }

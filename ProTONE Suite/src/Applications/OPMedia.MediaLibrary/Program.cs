@@ -15,6 +15,7 @@ using OPMedia.Runtime.Addons.Configuration;
 using OPMedia.Runtime.Addons.AddonsBase;
 using System.Diagnostics;
 using OPMedia.Runtime.ProTONE.SubtitleDownload;
+using OPMedia.Runtime.ProTONE;
 
 namespace OPMedia.MediaLibrary
 {
@@ -35,7 +36,7 @@ namespace OPMedia.MediaLibrary
 
             try
             {
-                LoggedApplication.Start(Constants.LibraryName);
+                LoggedApplication.Start(ProTONEConstants.LibraryName);
 
                 string[] cmdLineArgs = Environment.GetCommandLineArgs();
 

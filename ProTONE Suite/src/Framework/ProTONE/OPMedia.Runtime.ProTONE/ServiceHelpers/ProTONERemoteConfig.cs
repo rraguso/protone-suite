@@ -50,7 +50,7 @@ namespace OPMedia.Runtime.ProTONE.ServiceHelpers
             try
             {
                 ServiceController sc = new ServiceController(
-                    Constants.RCCServiceShortName, 
+                    ProTONEConstants.RCCServiceShortName, 
                     Environment.MachineName);
 
                 if (sc.Status == ServiceControllerStatus.Running)

@@ -6,6 +6,7 @@ using System.ServiceProcess;
 using OPMedia.Core;
 using System.Diagnostics;
 using OPMedia.Runtime;
+using OPMedia.Runtime.ProTONE;
 
 namespace OPMedia.Services.RCCService
 {
@@ -18,9 +19,9 @@ namespace OPMedia.Services.RCCService
 
             ServiceInstaller serviceInstaller = new ServiceInstaller();
             serviceInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
-            serviceInstaller.ServiceName = Constants.RCCServiceShortName;
-            serviceInstaller.DisplayName = Constants.RCCServiceLongName;
-            serviceInstaller.Description = Constants.RCCServiceDescription;
+            serviceInstaller.ServiceName = ProTONEConstants.RCCServiceShortName;
+            serviceInstaller.DisplayName = ProTONEConstants.RCCServiceLongName;
+            serviceInstaller.Description = ProTONEConstants.RCCServiceDescription;
 
             Installers.Add(serviceInstaller);
 

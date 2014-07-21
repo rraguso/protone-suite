@@ -54,13 +54,34 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
     public static class ProTONEConfig
     {
+       
+
+
+
+
         #region Calculated Level 2 settings
+
+        public static bool IsPlayer
+        {
+            get
+            {
+                return (string.Compare(ApplicationInfo.ApplicationName, ProTONEConstants.PlayerName) == 0);
+            }
+        }
+
+        public static bool IsMediaLibrary
+        {
+            get
+            {
+                return (string.Compare(ApplicationInfo.ApplicationName, ProTONEConstants.LibraryName) == 0);
+            }
+        }
 
         public static string PlayerInstallationPath
         {
             get
             {
-                return Path.Combine(AppConfig.InstallationPath, Constants.PlayerBinary);
+                return Path.Combine(AppConfig.InstallationPath, ProTONEConstants.PlayerBinary);
             }
         }
 
@@ -68,15 +89,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
         {
             get
             {
-                return Path.Combine(AppConfig.InstallationPath, Constants.LibraryBinary);
-            }
-        }
-
-        public static string MediaHostInstallationPath
-        {
-            get
-            {
-                return Path.Combine(AppConfig.InstallationPath, Constants.MediaHostBinary);
+                return Path.Combine(AppConfig.InstallationPath, ProTONEConstants.LibraryBinary);
             }
         }
 
@@ -86,7 +99,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
             {
                 try
                 {
-                    ServiceController sc = new ServiceController(Constants.RCCServiceShortName);
+                    ServiceController sc = new ServiceController(ProTONEConstants.RCCServiceShortName);
                     ServiceControllerStatus scs = sc.Status;
                     return true;
                 }
@@ -101,7 +114,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
         {
             get
             {
-                return Path.Combine(AppConfig.InstallationPath, Constants.RCCManagerBinary);
+                return Path.Combine(AppConfig.InstallationPath, ProTONEConstants.RCCManagerBinary);
             }
         }
 
@@ -109,7 +122,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
         {
             get
             {
-                return Path.Combine(AppConfig.InstallationPath, Constants.RCCServiceBinary);
+                return Path.Combine(AppConfig.InstallationPath, ProTONEConstants.RCCServiceBinary);
             }
         }
         #endregion

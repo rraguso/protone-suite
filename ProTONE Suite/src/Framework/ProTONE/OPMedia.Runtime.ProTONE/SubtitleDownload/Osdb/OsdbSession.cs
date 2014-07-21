@@ -99,7 +99,7 @@ namespace OPMedia.Runtime.ProTONE.SubtitleDownload.Osdb
             }
 
             string lang = _culture.TwoLetterISOLanguageName;
-            string userAgent = string.Format("{0} v{1}", Constants.PlayerUserAgent, SuiteVersion.Version);
+            string userAgent = string.Format("{0} v{1}", ProTONEConstants.PlayerUserAgent, SuiteVersion.Version);
 
             OsdbLoginResponse rsp = _client.Login(_username, _password, lang, userAgent);
             if (!rsp.IsOK())

@@ -15,6 +15,7 @@ using OPMedia.UI.Themes;
 using OPMedia.UI;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.HelpSupport;
+using OPMedia.Runtime.ProTONE;
 
 namespace OPMedia.RCCManager
 {
@@ -39,7 +40,7 @@ namespace OPMedia.RCCManager
                 Translator.RegisterTranslationAssembly(typeof(SerialDeviceCfgPanel).Assembly);
                 Translator.RegisterTranslationAssembly(typeof(MediaPlayer).Assembly);
 
-                LoggedApplication.Start(Constants.RCCManagerName);
+                LoggedApplication.Start(ProTONEConstants.RCCManagerName);
 
                 if (!AppConfig.CurrentUserIsAdministrator)
                 {

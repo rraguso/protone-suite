@@ -27,6 +27,7 @@ using OPMedia.Core;
 using System.Net.Sockets;
 using System.Collections.Generic;
 using OPMedia.Core.Logging;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 {
@@ -263,9 +264,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
         public FreedbHelper(string server, int port)
         {
-            m_UserName = Constants.AnonymousUser;
+            m_UserName = ProTONEConstants.AnonymousUser;
             m_Hostname = Dns.GetHostName();
-            m_ClientName = Constants.PlayerUserAgent.Replace(" ", ""); // eat up spaces, FreeDb does not like them.
+            m_ClientName = ProTONEConstants.PlayerUserAgent.Replace(" ", ""); // eat up spaces, FreeDb does not like them.
             m_Version = SuiteVersion.Version;
 
             _tcpClient.Connect(server, port);
