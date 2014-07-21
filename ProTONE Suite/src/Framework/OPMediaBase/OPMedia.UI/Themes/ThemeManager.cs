@@ -567,6 +567,9 @@ namespace OPMedia.UI.Themes
             string currentTheme = AppConfig.SkinType;
             string elementValue = defaultValue;
 
+            if (_allThemesElements == null)
+                _allThemesElements = new Dictionary<string, Dictionary<string, string>>();
+
             if (string.IsNullOrEmpty(currentTheme) || _allThemesElements.ContainsKey(currentTheme) == false)
             {
                 currentTheme = _defaultTheme;

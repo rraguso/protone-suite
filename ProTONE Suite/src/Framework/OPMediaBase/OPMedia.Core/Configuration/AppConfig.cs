@@ -369,16 +369,26 @@ namespace OPMedia.Core.Configuration
         {
             get
             {
-                if (UseOnlineDocumentation)
+                try
                 {
-                    using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(ConfigRegPath))
+                    if (UseOnlineDocumentation)
                     {
-                        if (key != null)
+                        using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(ConfigRegPath))
                         {
-                            return key.GetValue("HelpUriBase", string.Empty) as string;
+                            if (key != null)
+                            {
+                                string val = key.GetValue("HelpUriBase", string.Empty) as string;
+                                if (!string.IsNullOrEmpty(val))
+                                {
+                                    Version ver = new Version(SuiteVersion.Version);
+                                    val = val.Replace("#VERSION#", string.Format("{0}.{1}", ver.Major, ver.Minor));
+                                    return val;
+                                }
+                            }
                         }
                     }
                 }
+                catch { }
 
                 return string.Format("file:///{0}/docs", AppConfig.InstallationPath);
             }
