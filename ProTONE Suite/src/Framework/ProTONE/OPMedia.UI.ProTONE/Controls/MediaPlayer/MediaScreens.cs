@@ -51,7 +51,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             base.SelectedIndexChanged += new EventHandler(MediaScreens_SelectedIndexChanged);
 
-            // TODO - maybe active screen will need to be persisted ?
             _oldActiveScreen = null;
             _activeScreen = this.PlaylistScreen;
 

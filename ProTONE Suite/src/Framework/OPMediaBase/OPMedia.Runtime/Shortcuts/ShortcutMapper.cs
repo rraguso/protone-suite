@@ -43,20 +43,21 @@ namespace OPMedia.Runtime.Shortcuts
         public static List<KeyEventArgs> AltKeyCommands
         { get { return altKeyCommands; } }
 
+        private static bool _isPlayer = false;
+        public static bool IsPlayer
+        {
+            get { return _isPlayer; }
+            set { _isPlayer = value; }
+        }
+
         public static OPMShortcut CmdFirst
         {
-            // TODO fix this
-            get { return OPMShortcut.CmdPlay; }
-
-            //get { return (ApplicationInfo.IsPlayer) ? OPMShortcut.CmdPlay : OPMShortcut.CmdOpenHelp; }
+            get { return (IsPlayer) ? OPMShortcut.CmdPlay : OPMShortcut.CmdOpenHelp; }
         }
 
         public static OPMShortcut CmdLast
         {
-            // TODO fix this
-            get { return OPMShortcut.CmdGenericOpen; }
-
-            //get { return (ApplicationInfo.IsPlayer) ? OPMShortcut.CmdGenericOpen : OPMShortcut.CmdOutOfRange; }
+            get { return (IsPlayer) ? OPMShortcut.CmdGenericOpen : OPMShortcut.CmdOutOfRange; }
         }
 
         public static bool IsConfigurableShortcut(OPMShortcut cmd)
@@ -293,9 +294,6 @@ namespace OPMedia.Runtime.Shortcuts
                      // Subtitles
                     new KeyEventArgs(Keys.Control | Keys.T),
 
-                    // Bookmarks
-                    new KeyEventArgs(Keys.Control | Keys.Alt | Keys.B),
-
                     // Common commands (player-non player)
                     new KeyEventArgs(Keys.F1),
                     new KeyEventArgs(Keys.Control | Keys.Alt | Keys.C),
@@ -377,9 +375,6 @@ namespace OPMedia.Runtime.Shortcuts
 
                 // Subtitles
                 new KeyEventArgs(Keys.Control | Keys.T),
-
-                // Bookmarks
-                new KeyEventArgs(Keys.Control | Keys.Alt | Keys.B),
 
                 // Common commands (player-non player)
                 new KeyEventArgs(Keys.F1),
@@ -488,9 +483,6 @@ namespace OPMedia.Runtime.Shortcuts
         // Subtitles
         CmdSearchSubtitles,
 
-        // Bookmarks
-        CmdBookmarkManager,
-        
         // Common commands (player-non player)
         CmdOpenHelp,
         CmdOpenSettings,
