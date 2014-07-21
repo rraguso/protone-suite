@@ -453,32 +453,7 @@ namespace OPMedia.Core.Configuration
 
         #endregion
         
-        #region Suite installation API
-
-        public static string PlayerInstallationPath
-        {
-            get
-            {
-                return Path.Combine(InstallationPath, Constants.PlayerBinary);
-            }
-        }
-
-        public static string LibraryInstallationPath
-        {
-            get
-            {
-                return Path.Combine(InstallationPath, Constants.LibraryBinary);
-            }
-        }
-
-        public static string MediaHostInstallationPath
-        {
-            get
-            {
-                return Path.Combine(InstallationPath, Constants.MediaHostBinary);
-            }
-        }
-        #endregion
+        
 
         #region Level 1 settings using Settings File (Combined per-app and per-user settings)
 

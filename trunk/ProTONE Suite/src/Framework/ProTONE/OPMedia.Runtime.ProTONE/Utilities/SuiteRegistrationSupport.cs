@@ -6,6 +6,7 @@ using Microsoft.Win32;
 using System.IO;
 using OPMedia.Core;
 using OPMedia.Core.Configuration;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Runtime.ProTONE.Utilities
 {
@@ -165,11 +166,11 @@ namespace OPMedia.Runtime.ProTONE.Utilities
 
         static SuiteRegistrationSupport()
         {
-            _launchPaths.Add(KnownFileType.AudioFile, AppConfig.PlayerInstallationPath);
-            _launchPaths.Add(KnownFileType.VideoFile, AppConfig.PlayerInstallationPath);
-            _launchPaths.Add(KnownFileType.Playlist, AppConfig.PlayerInstallationPath);
-            _launchPaths.Add(KnownFileType.Bookmark, AppConfig.PlayerInstallationPath);
-            _launchPaths.Add(KnownFileType.Catalog, AppConfig.LibraryInstallationPath);
+            _launchPaths.Add(KnownFileType.AudioFile, ProTONEConfig.PlayerInstallationPath);
+            _launchPaths.Add(KnownFileType.VideoFile, ProTONEConfig.PlayerInstallationPath);
+            _launchPaths.Add(KnownFileType.Playlist, ProTONEConfig.PlayerInstallationPath);
+            _launchPaths.Add(KnownFileType.Bookmark, ProTONEConfig.PlayerInstallationPath);
+            _launchPaths.Add(KnownFileType.Catalog, ProTONEConfig.LibraryInstallationPath);
             //_launchPaths.Add(KnownFileType.Subtitle, AppConfig.LibraryInstallationPath);
             _launchPaths.Add(KnownFileType.Subtitle, "");
 
