@@ -10,34 +10,40 @@ using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.Runtime.Addons.Configuration
 {
-    public class BuiltinAddonAppSettingsForm : SettingsForm
+    public class AddonAppSettingsForm : SettingsForm
     {
         public new static DialogResult Show()
         {
-            BuiltinAddonAppSettingsForm _instance = new BuiltinAddonAppSettingsForm();
+            AddonAppSettingsForm _instance = new AddonAppSettingsForm();
             return _instance.ShowDialog();
         }
 
         public static DialogResult Show(string titleToOpen)
         {
-            BuiltinAddonAppSettingsForm _instance = new BuiltinAddonAppSettingsForm(titleToOpen);
+            AddonAppSettingsForm _instance = new AddonAppSettingsForm(titleToOpen);
             return _instance.ShowDialog();
         }
 
-        protected BuiltinAddonAppSettingsForm(string titleToOpen) 
+        protected AddonAppSettingsForm(string titleToOpen) 
             : base(titleToOpen)
         {
         }
 
-        public BuiltinAddonAppSettingsForm() : base()
+        public AddonAppSettingsForm() : base()
         {
+        }
+
+        protected virtual bool DissalowAddonConfigPages()
+        {
+            return false;
         }
 
         public override void AddAditionalPanels()
         {
             Translator.RegisterTranslationAssembly(GetType().Assembly);
 
-            AddPanel(typeof(AddonCfgPanel));
+            bool dissalowAddonsConfig = DissalowAddonConfigPages();
+            AddPanel(typeof(AddonCfgPanel), !dissalowAddonsConfig);
             AddPanel(typeof(AddonSettingsPanel), !AddonsConfig.IsInitialConfig);
         }
 

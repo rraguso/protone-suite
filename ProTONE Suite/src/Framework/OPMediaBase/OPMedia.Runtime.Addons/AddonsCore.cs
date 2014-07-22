@@ -187,7 +187,8 @@ namespace OPMedia.Runtime.Addons
                 Logger.LogTrace("Copying default addons configuration from 'DefaultAddons.config' ...");
                 try
                 {
-                    File.Copy(@".\DefaultAddons.config", ApplicationInfo.AddonsConfigFile);
+                    string defaultAddonsConfig = string.Format(@".\DefaultAddons.{0}.config", ApplicationInfo.ApplicationName);
+                    File.Copy(defaultAddonsConfig, ApplicationInfo.AddonsConfigFile);
                 }
                 catch (Exception ex)
                 {
