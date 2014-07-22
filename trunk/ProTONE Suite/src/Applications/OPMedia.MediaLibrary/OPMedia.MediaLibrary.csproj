@@ -128,7 +128,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DefaultAddons.config">
+    <None Include="DefaultAddons.OPMedia.MediaLibrary.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

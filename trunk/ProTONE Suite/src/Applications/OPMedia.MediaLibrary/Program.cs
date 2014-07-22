@@ -68,7 +68,7 @@ namespace OPMedia.MediaLibrary
 
                     try
                     {
-                        BuiltinAddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS");
+                        AddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS");
                     }
                     finally
                     {

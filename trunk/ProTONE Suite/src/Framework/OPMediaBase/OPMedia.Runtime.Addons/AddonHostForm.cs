@@ -212,7 +212,7 @@ namespace OPMedia.Runtime.Addons
             if (!GetNavigationAddons())
             {
                 
-                if (BuiltinAddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS") == DialogResult.Cancel)
+                if (AddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS") == DialogResult.Cancel)
                 {
                     EventDispatch.DispatchEvent(EventNames.ShowMessageBox, 
                         Translator.Translate("TXT_NO_NAV_ADDONS"),
@@ -243,20 +243,20 @@ namespace OPMedia.Runtime.Addons
             if (args.Handled)
                 return;
 
-            BuiltinAddonAppSettingsForm.NetworkConfig = networkConfig;
+            AddonAppSettingsForm.NetworkConfig = networkConfig;
 
             switch (args.cmd)
             {
                 case OPMShortcut.CmdOpenSettings:
                     if (ApplicationInfo.IsSuiteApplication)
                     {
-                        BuiltinAddonAppSettingsForm.Show();
+                        AddonAppSettingsForm.Show();
                         args.Handled = true;
                     }
                     break;
 
                 case OPMShortcut.CmdCfgKeyboard:
-                    BuiltinAddonAppSettingsForm.Show("TXT_S_KEYMAP");
+                    AddonAppSettingsForm.Show("TXT_S_KEYMAP");
                     args.Handled = true;
                     break;
 
