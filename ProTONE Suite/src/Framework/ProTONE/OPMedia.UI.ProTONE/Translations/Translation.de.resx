@@ -1077,5 +1077,47 @@ Videofenster Position</value>
 <data name="TXT_PLAYLISTEVT_CAUTION">
   <value>ACHTUNG: Das Programm startet immer mit der "Playlist beendet" Ereignis deaktiviert!</value>
 </data>
+<data name="TXT_SHOW_PLAYLIST">
+  <value></value>
+</data>
+<data name="TXT_SHOW_TRACKINFO">
+  <value></value>
+</data>
+<data name="TXT_SHOW_SIGNALANALISYS">
+  <value></value>
+</data>
+<data name="TXT_SHOW_BOOKMARKINFO">
+  <value></value>
+</data>
+<data name="TXT_HINT_PLAYLISTTAB">
+  <value></value>
+</data>
+<data name="TXT_HINT_TRACKINFOTAB">
+  <value></value>
+</data>
+<data name="TXT_HINT_SIGNALANALISYSTAB">
+  <value></value>
+</data>
+<data name="TXT_HINT_BOOKMARKINFOTAB">
+  <value></value>
+</data>
+<data name="TXT_SHOW_VUMETER">
+  <value></value>
+</data>
+<data name="TXT_SHOW_WAVEFORM">
+  <value></value>
+</data>
+<data name="TXT_SHOW_SPECTROGRAM">
+  <value></value>
+</data>
+<data name="TXT_MEDIA_SCREENS">
+  <value></value>
+</data>
+<data name="TXT_CHOOSE_COLOR_FOR_OSD">
+  <value>Wählen Sie die Farbe für OSD:</value>
+</data>
+<data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
+  <value>Wählen Sie die Farbe für Untertitel:</value>
+</data>
     
 </root>

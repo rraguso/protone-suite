@@ -1070,5 +1070,8 @@ Voulez-vous le créer?</value>
 <data name="TXT_EDIT_KEY">
   <value>Configurez raccourci</value>
 </data>
+<data name="TXT_RESULTING_COLOR">
+  <value>Couleur résultante:</value>
+</data>
     
 </root>

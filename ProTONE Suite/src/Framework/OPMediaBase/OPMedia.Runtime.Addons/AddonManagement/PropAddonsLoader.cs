@@ -83,7 +83,7 @@ namespace OPMedia.Runtime.Addons.AddonManagement
                     try
                     {
                         System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(item);
-                        if ((di.Attributes & System.IO.FileAttributes.Directory) == System.IO.FileAttributes.Directory)
+                        if (di.Exists && (di.Attributes & System.IO.FileAttributes.Directory) == System.IO.FileAttributes.Directory)
                         {
                             mustHandleFolders = true;
                         }

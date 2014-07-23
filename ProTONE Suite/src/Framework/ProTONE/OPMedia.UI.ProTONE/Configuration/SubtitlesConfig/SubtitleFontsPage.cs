@@ -13,6 +13,8 @@ using OPMedia.Runtime.ProTONE;
 using OPMedia.Runtime.ProTONE.FfdShowApi;
 using OPMedia.Runtime.ProTONE.Rendering;
 using OPMedia.Runtime.ProTONE.Configuration;
+using OPMedia.UI.Dialogs;
+using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
@@ -106,7 +108,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         private void btnSubColor_Click(object sender, EventArgs e)
         {
-            if (ChooseColor(ref _subColor))
+            if (ChooseColor(ref _subColor, "TXT_CHOOSE_COLOR_FOR_SUBTITLE"))
             {
                 lblSubText1.ForeColor = _subColor;
                 lblSubText2.ForeColor = _subColor;
@@ -116,7 +118,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         private void btnOsdColor_Click(object sender, EventArgs e)
         {
-            if (ChooseColor(ref _osdColor))
+            if (ChooseColor(ref _osdColor, "TXT_CHOOSE_COLOR_FOR_OSD"))
             {
                 lblOsdText.ForeColor = _osdColor;
                 lblOsdText2.ForeColor = _osdColor;
@@ -138,10 +140,13 @@ namespace OPMedia.UI.ProTONE.Configuration
             return false;
         }
 
-        private bool ChooseColor(ref Color c)
+        private bool ChooseColor(ref Color c, string reason)
         {
-            OPMColorDialog dlg = new OPMColorDialog();
+            //OPMColorDialog dlg = new OPMColorDialog();
+            OPMColorChooserDialog dlg = new OPMColorChooserDialog();
             dlg.Color = c;
+            dlg.Description = Translator.Translate(reason);
+            dlg.SetTitle("TXT_CHOOSE_COLOR");
 
             if (dlg.ShowDialog(FindForm()) == DialogResult.OK)
             {

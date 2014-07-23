@@ -90,10 +90,25 @@ namespace OPMedia.Runtime.Addons
             set { pnlLocalContent.SplitterDistance = value; }
         }
 
+        protected void SetNavPanelOrientation(Orientation o)
+        {
+            if (o == Orientation.Vertical)
+            {
+                pnlOpMedia.Orientation = Orientation.Vertical;
+                pnlLocalContent.Orientation = Orientation.Horizontal;
+            }
+            else
+            {
+                pnlOpMedia.Orientation = Orientation.Horizontal;
+                pnlLocalContent.Orientation = Orientation.Vertical;
+            }
+        }
+
         protected AddonHostForm()
             : base("TXT_APP_NAME")
         {
             InitializeComponent();
+            SetNavPanelOrientation(Orientation.Vertical);
 
             this.Shown += new EventHandler(MainForm_Load);
             //this.Load += new EventHandler(MainForm_Load);
@@ -525,6 +540,12 @@ namespace OPMedia.Runtime.Addons
 
                 switch (args.ActionType)
                 {
+                    case NavActionType.ActionSaveProperties:
+                        // It is a save property request.
+                        request.ActionType = ActionManagement.ActionType.ActionSaveProperties;
+                        request.Items = args.Paths; // don't matter any way
+                        break;
+
                     case NavActionType.ActionSelectDirectory:
                     case NavActionType.ActionSelectFile:
                     case NavActionType.ActionSelectMultipleItems:

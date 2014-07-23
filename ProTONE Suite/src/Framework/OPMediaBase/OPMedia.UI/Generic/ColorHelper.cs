@@ -126,6 +126,12 @@ namespace OPMedia.UI.Generic
             int b3 = SoftLightMath(b1, b2);
             return OpacityMix(CreateColorFromRGB(r3, g3, b3), baseColor, opacity);
         }
+
+        public static Color GetContrastingColor(Color c)
+        {
+            var yiq = ((c.R * 299) + (c.G * 587) + (c.B * 114)) / 1000;
+            return (yiq >= 128) ? Color.Black : Color.White;
+        }
     }
 }
 
