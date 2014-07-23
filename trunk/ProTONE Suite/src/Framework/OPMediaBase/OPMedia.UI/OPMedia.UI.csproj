@@ -141,6 +141,12 @@
     <Compile Include="Controls\MultilineEditTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\OPMColorChooserCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OPMColorChooserCtl.Designer.cs">
+      <DependentUpon>OPMColorChooserCtl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\OPMDoubleBufferControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -244,6 +250,12 @@
     </Compile>
     <Compile Include="Dialogs\LogFileConsoleDetail.Designer.cs">
       <DependentUpon>LogFileConsoleDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\OPMColorChooserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\OPMColorChooserDialog.Designer.cs">
+      <DependentUpon>OPMColorChooserDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\OPMFolderBrowserDialog.cs">
       <SubType>Form</SubType>
@@ -445,11 +457,17 @@
     <EmbeddedResource Include="Controls\FileAttributesBrowserCtl.resx">
       <DependentUpon>FileAttributesBrowserCtl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OPMColorChooserCtl.resx">
+      <DependentUpon>OPMColorChooserCtl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\OPMTimePicker.resx">
       <DependentUpon>OPMTimePicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\LogFileConsoleDetail.resx">
       <DependentUpon>LogFileConsoleDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\OPMColorChooserDialog.resx">
+      <DependentUpon>OPMColorChooserDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OPMFileDialog.resx">
       <DependentUpon>OPMFileDialog.cs</DependentUpon>
@@ -745,7 +763,7 @@
     <Content Include="Resources\Troubleshooting.png" />
     <Content Include="Resources\TVState0.bmp" />
     <Content Include="Resources\TVState1.bmp" />
-    <None Include="Themes\Themes.xml">
+    <None Include="Themes\Themes.thm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

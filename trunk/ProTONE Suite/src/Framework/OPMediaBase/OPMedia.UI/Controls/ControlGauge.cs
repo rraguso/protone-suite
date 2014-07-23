@@ -54,9 +54,15 @@ namespace OPMedia.UI.Controls
         protected double _hoverPos = 0;
 
         Point _lastPos = new Point();
+
+        Color _overrideBackColor = Color.Empty;
+
         #endregion
 
         #region Properties
+
+        public Color OverrideBackColor
+        { get { return _overrideBackColor; } set { _overrideBackColor = value; Invalidate(true); } }
 
         [DefaultValue(GaugeMode.BandToStart)]
         public GaugeMode GaugeMode
@@ -230,6 +236,12 @@ namespace OPMedia.UI.Controls
                 Rectangle rcMinor, rcMajor, rcDot = Rectangle.Empty;
                 Color c1 = ThemeManager.GradientNormalColor1;
                 Color c2 = ThemeManager.GradientNormalColor2;
+
+                if (_overrideBackColor != Color.Empty)
+                {
+                    c1 = c2 = _overrideBackColor;
+                }
+
                 float a;
 
                 if (_vert)

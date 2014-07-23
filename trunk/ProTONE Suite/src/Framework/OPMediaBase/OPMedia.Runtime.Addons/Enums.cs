@@ -22,6 +22,8 @@ namespace OPMedia.Runtime.Addons
         ActionReloadNavigation,
         ActionReloadProperties,
         ActionReloadPreview,
+
+        ActionSaveProperties,
     }
     #endregion
 

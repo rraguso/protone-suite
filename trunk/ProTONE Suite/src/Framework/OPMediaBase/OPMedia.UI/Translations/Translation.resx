@@ -1068,5 +1068,8 @@ Do you want to create it ?</value>
 <data name="TXT_EDIT_KEY">
   <value>Configure shortcut</value>
 </data>
+<data name="TXT_RESULTING_COLOR">
+  <value>Resulting color:</value>
+</data>
     
 </root>

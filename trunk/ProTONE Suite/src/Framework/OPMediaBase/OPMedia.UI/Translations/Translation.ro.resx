@@ -1062,10 +1062,13 @@ Doriţi să fie creat ?</value>
   <value>Control</value>
 </data>
 <data name="TXT_S_TROUBLESHOOTING">
-  <value />
+  <value></value>
 </data>
 <data name="TXT_EDIT_KEY">
   <value>Configurare scurtătură</value>
+</data>
+<data name="TXT_RESULTING_COLOR">
+  <value>Culoare rezultat:</value>
 </data>
     
 </root>

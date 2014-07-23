@@ -159,7 +159,7 @@ Source: {#BINDIR}\Templates\Catalog\Default Catalog; DestDir: {app}\Templates\Ca
 Source: {#BINDIR}\Templates\RemoteControl\ProTONEOnSerial.Config; DestDir: {app}\Templates\RemoteControl; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace; Components: itemPlayer\itemRemote
 
 Source: {#BINDIR}\DefaultAddons.config; DestDir: {app}
-Source: {#BINDIR}\Themes\Themes.xml; DestDir: {app}\Themes
+Source: {#BINDIR}\Themes\Themes.thm; DestDir: {app}\Themes
 
 Source: {#EXTDIR}\SQLCE\sqlceca35.dll; DestDir: {app}
 Source: {#EXTDIR}\SQLCE\sqlcecompact35.dll; DestDir: {app}

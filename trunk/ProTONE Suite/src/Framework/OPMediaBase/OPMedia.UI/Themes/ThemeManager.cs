@@ -24,6 +24,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
 using OPMedia.UI.Controls.ThemedScrollBars;
+using System.Threading;
 
 #endregion
 
@@ -65,6 +66,8 @@ namespace OPMedia.UI.Themes
     public static class ThemeManager
     {
         static Dictionary<string, Dictionary<string, string>> _allThemesElements = null;
+
+        static FileSystemWatcher _fsw = null;
 
         #region Members
         private static Font _smallestFont = null;
@@ -442,55 +445,89 @@ namespace OPMedia.UI.Themes
         }
         #endregion
 
+        private static object _loadThemeLock = new object();
+
         private static void InitThemeElements()
         {
-            try
+            lock (_loadThemeLock)
             {
-                string themeFile = Path.Combine(AppConfig.InstallationPath, "Themes\\Themes.xml");
-                XDocument doc = XDocument.Load(themeFile);
-                if (doc != null)
+                try
                 {
-                    var allThemes = (from theme in doc.Descendants("Theme")
-                             select new
-                             {
-                                 Name = theme.Attribute("Name").Value.Trim(),
-                                 IsDefault = theme.Attribute("IsDefault").Value.ToLowerInvariant() == "true"
-                             }).ToList();
+                    string themeFolder = Path.Combine(AppConfig.InstallationPath, "Themes");
+                    string themeFile = Path.Combine(AppConfig.InstallationPath, "Themes\\Themes.thm");
+                    XDocument doc = XDocument.Load(themeFile);
 
-                    string lastThemeName = string.Empty;
-                    foreach (var theme in allThemes)
+                    if (_fsw == null)
                     {
-                        lastThemeName = theme.Name;
-                        if (theme.IsDefault)
-                        {
-                            _defaultTheme = theme.Name;
-                        }
-
-                        var themeElements = (from themeElement in doc.Descendants("ThemeElement")
-                                                where themeElement.Parent.Attribute("Name").Value == theme.Name
-                                                select new
-                                                {
-                                                    Name = themeElement.Attribute("Name").Value.Trim(),
-                                                    Value = themeElement.Attribute("Value").Value
-                                                }).ToList();
-
-                        foreach (var themeElement in themeElements)
-                            ThemeElement(theme.Name, themeElement.Name, themeElement.Value);
+                        _fsw = new FileSystemWatcher(themeFolder, "Themes.thm");
+                        _fsw.Changed += new FileSystemEventHandler(OnFileChanged);
+                        _fsw.EnableRaisingEvents = true;
                     }
 
-                    if (string.IsNullOrEmpty(_defaultTheme))
-                        _defaultTheme = lastThemeName;
+                    if (doc != null)
+                    {
+                        var allThemes = (from theme in doc.Descendants("Theme")
+                                         select new
+                                         {
+                                             Name = theme.Attribute("Name").Value.Trim(),
+                                             IsDefault = theme.Attribute("IsDefault").Value.ToLowerInvariant() == "true"
+                                         }).ToList();
+
+                        string lastThemeName = string.Empty;
+                        foreach (var theme in allThemes)
+                        {
+                            lastThemeName = theme.Name;
+                            if (theme.IsDefault)
+                            {
+                                _defaultTheme = theme.Name;
+                            }
+
+                            var themeElements = (from themeElement in doc.Descendants("ThemeElement")
+                                                 where themeElement.Parent.Attribute("Name").Value == theme.Name
+                                                 select new
+                                                 {
+                                                     Name = themeElement.Attribute("Name").Value.Trim(),
+                                                     Value = themeElement.Attribute("Value").Value
+                                                 }).ToList();
+
+                            foreach (var themeElement in themeElements)
+                                ThemeElement(theme.Name, themeElement.Name, themeElement.Value);
+                        }
+
+                        if (string.IsNullOrEmpty(_defaultTheme))
+                            _defaultTheme = lastThemeName;
+                    }
+
+                    // This is just to enforce reading theme settings from Registry
+                    int sz = ThemeElement("CornerSize", 1);
                 }
+                catch (Exception ex)
+                {
+                    Logger.LogException(ex);
 
-                // This is just to enforce reading theme settings from Registry
-                int sz = ThemeElement("CornerSize", 1);
+                    if (_allThemesElements != null)
+                        _allThemesElements.Clear();
+                }
             }
-            catch (Exception ex)
-            {
-                Logger.LogException(ex);
+        }
 
-                if (_allThemesElements != null)
-                    _allThemesElements.Clear();
+        static void OnFileChanged(object sender, FileSystemEventArgs e)
+        {
+            string themeFile = Path.Combine(AppConfig.InstallationPath, "Themes\\Themes.thm");
+            if (e.ChangeType == WatcherChangeTypes.Changed && e.FullPath == themeFile)
+            {
+                Logger.LogInfo("Theme file changed. Reloading themes ...");
+
+                lock (_loadThemeLock)
+                {
+                    string themeBefore = AppConfig.SkinType;
+                    Thread.Sleep(200);
+                    InitThemeElements();
+                    AppConfig.SkinType = _defaultTheme;
+                    AppConfig.SkinType = themeBefore;
+                }
+                
+                Logger.LogInfo("Themes reloaded succesfully.");
             }
         }
 
@@ -564,29 +601,46 @@ namespace OPMedia.UI.Themes
 
         private static string ThemeElement(string elementName, string defaultValue = null)
         {
-            string currentTheme = AppConfig.SkinType;
-            string elementValue = defaultValue;
-
-            if (_allThemesElements == null)
-                _allThemesElements = new Dictionary<string, Dictionary<string, string>>();
-
-            if (string.IsNullOrEmpty(currentTheme) || _allThemesElements.ContainsKey(currentTheme) == false)
+            lock (_loadThemeLock)
             {
-                currentTheme = _defaultTheme;
-                AppConfig.SkinType = _defaultTheme;
-            }
+                string currentTheme = AppConfig.SkinType;
+                string elementValue = defaultValue;
 
-            try
-            {
-                elementValue = _allThemesElements[currentTheme][elementName];
+                if (_allThemesElements == null)
+                    _allThemesElements = new Dictionary<string, Dictionary<string, string>>();
+
+                if (string.IsNullOrEmpty(currentTheme) || _allThemesElements.ContainsKey(currentTheme) == false)
+                {
+                    currentTheme = _defaultTheme;
+                    AppConfig.SkinType = _defaultTheme;
+                }
+
+                try
+                {
+                    elementValue = _allThemesElements[currentTheme][elementName];
+                }
+                catch
+                {
+                    elementValue = defaultValue;
+                }
+
+                return elementValue;
             }
-            catch
-            {
-                elementValue = defaultValue;
-            }
-            
-            return elementValue;
         }
+
+        public static Dictionary<string, string> GetAllThemeElements(string themeName)
+        {
+            lock (_loadThemeLock)
+            {
+                if (_allThemesElements != null)
+                {
+                    return _allThemesElements[themeName];
+                }
+
+                return null;
+            }
+        }
+
         #endregion
     }
 }

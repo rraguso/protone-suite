@@ -1068,5 +1068,8 @@ Wollen Sie es schaffen?</value>
 <data name="TXT_EDIT_KEY">
   <value>Konfigurieren Verknüpfung</value>
 </data>
+<data name="TXT_RESULTING_COLOR">
+  <value>Entstandene Farbe:</value>
+</data>
     
 </root>

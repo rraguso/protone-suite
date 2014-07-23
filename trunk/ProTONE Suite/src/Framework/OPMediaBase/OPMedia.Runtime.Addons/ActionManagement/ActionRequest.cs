@@ -28,6 +28,10 @@ namespace OPMedia.Runtime.Addons.ActionManagement
         /// Display preview in Preview Panel.
         /// </summary>
         ActionBeginPreview,
+        /// <summary>
+        /// Save properties
+        /// </summary>
+        ActionSaveProperties,
     }
     #endregion
 

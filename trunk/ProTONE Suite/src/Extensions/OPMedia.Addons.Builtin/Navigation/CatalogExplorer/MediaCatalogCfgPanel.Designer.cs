@@ -34,8 +34,8 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             this.chkRememberRecentFiles = new OPMedia.UI.Controls.OPMCheckBox();
             this.nudRecentFilesCount = new OPMedia.UI.Controls.OPMNumericUpDown();
             this.kryptonLabel2 = new OPMedia.UI.Controls.OPMLabel();
-            this.flowLayoutPanel1 = new OPMFlowLayoutPanel();
-            this.tableLayoutPanel1 = new OPMTableLayoutPanel();
+            this.flowLayoutPanel1 = new OPMedia.UI.Controls.OPMFlowLayoutPanel();
+            this.tableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.nudRecentFilesCount)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -43,14 +43,14 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             // 
             // chkReopenLastCatalog
             // 
-            this.chkReopenLastCatalog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkReopenLastCatalog.AutoSize = true;
+            this.chkReopenLastCatalog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkReopenLastCatalog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkReopenLastCatalog.Location = new System.Drawing.Point(0, 38);
             this.chkReopenLastCatalog.Margin = new System.Windows.Forms.Padding(0);
             this.chkReopenLastCatalog.Name = "chkReopenLastCatalog";
             this.chkReopenLastCatalog.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkReopenLastCatalog.Size = new System.Drawing.Size(350, 19);
+            this.chkReopenLastCatalog.Size = new System.Drawing.Size(350, 17);
             this.chkReopenLastCatalog.TabIndex = 1;
             this.chkReopenLastCatalog.Text = "TXT_REOPEN_LAST_CATALOG";
             this.chkReopenLastCatalog.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
@@ -59,19 +59,20 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             // 
             this.chkRememberRecentFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkRememberRecentFiles.AutoSize = true;
             this.chkRememberRecentFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkRememberRecentFiles.Location = new System.Drawing.Point(0, 3);
             this.chkRememberRecentFiles.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.chkRememberRecentFiles.Name = "chkRememberRecentFiles";
             this.chkRememberRecentFiles.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkRememberRecentFiles.Size = new System.Drawing.Size(113, 19);
+            this.chkRememberRecentFiles.Size = new System.Drawing.Size(108, 17);
             this.chkRememberRecentFiles.TabIndex = 2;
             this.chkRememberRecentFiles.Text = "TXT_RETAIN_LAST";
             this.chkRememberRecentFiles.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             // 
             // nudRecentFilesCount
             // 
-            this.nudRecentFilesCount.Location = new System.Drawing.Point(119, 3);
+            this.nudRecentFilesCount.Location = new System.Drawing.Point(114, 3);
             this.nudRecentFilesCount.Maximum = new decimal(new int[] {
             10,
             0,
@@ -95,13 +96,14 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             // 
             // kryptonLabel2
             // 
+            this.kryptonLabel2.AutoSize = true;
             this.kryptonLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.kryptonLabel2.Location = new System.Drawing.Point(162, 6);
+            this.kryptonLabel2.Location = new System.Drawing.Point(157, 6);
             this.kryptonLabel2.Margin = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.OverrideBackColor = System.Drawing.Color.Empty;
             this.kryptonLabel2.OverrideForeColor = System.Drawing.Color.Empty;
-            this.kryptonLabel2.Size = new System.Drawing.Size(112, 17);
+            this.kryptonLabel2.Size = new System.Drawing.Size(111, 13);
             this.kryptonLabel2.TabIndex = 5;
             this.kryptonLabel2.Text = "TXT_OPENCATALOGS";
             this.kryptonLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -117,6 +119,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.flowLayoutPanel1.Size = new System.Drawing.Size(350, 28);
             this.flowLayoutPanel1.TabIndex = 6;
             this.flowLayoutPanel1.WrapContents = false;
@@ -130,6 +133,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
@@ -141,12 +145,12 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             // 
             // CatalogExplorerCfgPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CatalogExplorerCfgPanel";
             this.Size = new System.Drawing.Size(350, 230);
             ((System.ComponentModel.ISupportInitialize)(this.nudRecentFilesCount)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

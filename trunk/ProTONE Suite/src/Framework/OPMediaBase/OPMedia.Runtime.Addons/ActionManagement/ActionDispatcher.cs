@@ -31,6 +31,17 @@ namespace OPMedia.Runtime.Addons.ActionManagement
 
             switch (request.ActionType)
             {
+                case ActionType.ActionSaveProperties:
+                    if (propertyAddon != null)
+                    {
+                        PropBaseCtl propCtl = (propertyAddon.AddonPanel as PropBaseCtl);
+                        if (propCtl != null)
+                        {
+                            propCtl.SaveProperties();
+                        }
+                    }
+                    break;
+
                 case ActionType.ActionBeginEdit:
                     {
                         // Stop editing properties if it's the case.
@@ -87,6 +98,9 @@ namespace OPMedia.Runtime.Addons.ActionManagement
             {
                 switch (request.ActionType)
                 {
+                    case ActionType.ActionSaveProperties:
+                        return (propertyAddon != null);
+
                     case ActionType.ActionBeginEdit:
                         return (SelectPropertyAddon(request.Items) != null);
 

@@ -18,7 +18,7 @@ namespace OPMedia.UI.Controls
 {
     public class OPMComboBox : ComboBox
     {
-        bool _isHovered = false;
+        protected bool _isHovered = false;
 
         #region GUI Properties
 
@@ -53,7 +53,7 @@ namespace OPMedia.UI.Controls
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new Color ForeColor { get { return base.ForeColor; } }
 
-        Color _overrideForeColor = Color.Empty;
+        protected Color _overrideForeColor = Color.Empty;
         public Color OverrideForeColor
         {
             get { return _overrideForeColor; }
@@ -196,6 +196,11 @@ namespace OPMedia.UI.Controls
             if (e.Index < 0 || e.Index > Items.Count)
                 return;
 
+            DrawItemInternal(sender, e);
+        }
+
+        protected virtual void DrawItemInternal(object sender, DrawItemEventArgs e)
+        {
             Image img = null;
             ComboBoxItem item = this.Items[e.Index] as ComboBoxItem;
             if (item != null)
@@ -265,7 +270,7 @@ namespace OPMedia.UI.Controls
             gClient.Dispose();
         }
 
-        private void PaintFlatControlBorder(Graphics g)
+        protected virtual void PaintFlatControlBorder(Graphics g)
         {
             int pw = 1;
             Color c1 = Color.Empty, c2 = Color.Empty, cb = Color.Empty, cText = Color.Empty;
@@ -406,6 +411,148 @@ namespace OPMedia.UI.Controls
         public ComboBoxItem(Image img)
         {
             this.Image = img;
+        }
+    }
+
+    public class ColorComboBox : OPMComboBox
+    {
+        public ColorComboBox() : base()
+        {
+            PopulateKnownColors();
+        }
+        
+        private void PopulateKnownColors()
+        {
+            KnownColor[] knownColors = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+            foreach (KnownColor kc in knownColors)
+            {
+                Color c = Color.FromName(kc.ToString());
+                this.AddUniqueItem(c);
+            }
+        }
+
+        protected override void DrawItemInternal(object sender, DrawItemEventArgs e)
+        {
+            Color c = (Color)this.Items[e.Index];
+
+            ThemeManager.PrepareGraphics(e.Graphics);
+
+            Rectangle rc1 = e.Bounds;
+            Rectangle rc2 = e.Bounds;
+
+            rc1.Inflate(1, 1);
+            rc2.Inflate(-1, -1);
+
+            using (Brush b = new SolidBrush(c))
+            {
+                e.Graphics.FillRectangle(b, rc1);
+            }
+
+            Color cText = ColorHelper.GetContrastingColor(c);
+
+            using (Brush b = new SolidBrush(cText))
+            {
+                StringFormat sf = new StringFormat();
+                sf.Alignment = StringAlignment.Near;
+                sf.LineAlignment = StringAlignment.Center;
+                sf.Trimming = StringTrimming.EllipsisWord;
+                //sf.FormatFlags = StringFormatFlags.NoWrap;
+
+                e.Graphics.DrawString(c.Name, e.Font, b, rc2);
+            }
+        }
+
+        protected override void PaintFlatControlBorder(Graphics g)
+        {
+            int pw = 1;
+            Color c1 = Color.Empty, c2 = Color.Empty, cb = Color.Empty, cText = Color.Empty;
+
+            c1 = Enabled ? ThemeManager.GradientNormalColor1 : ThemeManager.BackColor;
+            c2 = Enabled ? ThemeManager.GradientNormalColor2 : ThemeManager.BackColor;
+            cb = Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
+            cText = Enabled ? ThemeManager.ForeColor : Color.FromKnownColor(KnownColor.ControlDark);
+
+            if (Enabled && (_isHovered || Focused))
+            {
+                if (_isHovered && Focused)
+                {
+                    c1 = ThemeManager.GradientFocusHoverColor1;
+                    c2 = ThemeManager.GradientFocusHoverColor2;
+                    cb = ThemeManager.FocusBorderColor;
+                    pw = 2;
+                }
+                else if (Focused)
+                {
+                    c1 = ThemeManager.GradientFocusColor1;
+                    c2 = ThemeManager.GradientFocusColor2;
+                    cb = ThemeManager.FocusBorderColor;
+                    pw = 2;
+                }
+                else
+                {
+                    c1 = ThemeManager.GradientHoverColor1;
+                    c2 = ThemeManager.GradientHoverColor2;
+                    cText = ThemeManager.SelectedTextColor;
+                }
+            }
+
+            if (_overrideForeColor != Color.Empty)
+            {
+                cText = _overrideForeColor;
+            }
+
+            Color c = Color.Empty;
+            if (this.SelectedIndex > 0)
+            {
+                c = (Color)this.Items[this.SelectedIndex];
+            }
+
+            Color cString = ColorHelper.GetContrastingColor(c);
+            Rectangle rc = ClientRectangle;
+            rc.Inflate(2, 2);
+
+            using (Brush b = new SolidBrush(ThemeManager.BackColor))
+            {
+                g.FillRectangle(b, rc);
+            }
+
+            rc = ClientRectangle;
+            rc.Width -= 1;
+            rc.Height -= 1;
+
+            using (Pen p = new Pen(cb, pw))
+            using (Brush b = new LinearGradientBrush(rc, c1, c2, 90))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rc, ThemeManager.CornerSize))
+            {
+                g.FillPath(b, path);
+                g.DrawPath(p, path);
+            }
+
+            rc = new Rectangle(ClientRectangle.Left + 2, ClientRectangle.Top + 2,
+                ClientRectangle.Width - 6, ClientRectangle.Height - 6);
+
+            Rectangle rcText = new Rectangle(rc.Left, rc.Top, rc.Width - 12, rc.Height);
+            Rectangle rcArrow = new Rectangle(rcText.Right, rc.Top, 12, rc.Height);
+
+            using (Brush b = new SolidBrush(cString))
+            using (Brush b2 = new SolidBrush(c))
+            {
+                StringFormat sf = new StringFormat();
+                sf.Alignment = StringAlignment.Near;
+                sf.LineAlignment = StringAlignment.Center;
+                sf.Trimming = StringTrimming.EllipsisCharacter;
+
+                g.FillRectangle(b2, rcText);
+                g.DrawString((c == Color.Empty) ? "" : c.Name, this.Font, b, rcText, sf);
+            }
+
+            using (GraphicsPath gp = ImageProcessing.GenerateCenteredArrow(rcArrow))
+            using (Brush b = new SolidBrush(cText))
+            using (Pen p = new Pen(b, 1))
+            {
+                g.FillPath(b, gp);
+                g.DrawPath(p, gp);
+            }
         }
     }
 }

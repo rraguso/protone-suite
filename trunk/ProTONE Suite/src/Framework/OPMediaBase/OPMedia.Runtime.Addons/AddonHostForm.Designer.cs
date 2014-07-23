@@ -189,6 +189,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlOpMedia.Location = new System.Drawing.Point(0, 24);
             this.pnlOpMedia.Margin = new System.Windows.Forms.Padding(0);
             this.pnlOpMedia.Name = "pnlOpMedia";
+            this.pnlOpMedia.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // pnlOpMedia.Panel1
             // 
@@ -198,7 +199,7 @@ namespace OPMedia.Runtime.Addons
             // 
             this.pnlOpMedia.Panel2.Controls.Add(this.pnlLocalContent);
             this.pnlOpMedia.Size = new System.Drawing.Size(822, 500);
-            this.pnlOpMedia.SplitterDistance = 580;
+            this.pnlOpMedia.SplitterDistance = 472;
             this.pnlOpMedia.SplitterWidth = 3;
             this.pnlOpMedia.TabIndex = 6;
             // 
@@ -209,7 +210,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlNavContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlNavContainer.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNavContainer.Name = "pnlNavContainer";
-            this.pnlNavContainer.Size = new System.Drawing.Size(580, 500);
+            this.pnlNavContainer.Size = new System.Drawing.Size(822, 472);
             this.pnlNavContainer.TabIndex = 0;
             // 
             // lblNoItems
@@ -222,7 +223,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoItems.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoItems.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoItems.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoItems.Size = new System.Drawing.Size(580, 60);
+            this.lblNoItems.Size = new System.Drawing.Size(822, 60);
             this.lblNoItems.TabIndex = 0;
             this.lblNoItems.Text = "aaaa";
             this.lblNoItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -243,8 +244,8 @@ namespace OPMedia.Runtime.Addons
             // pnlLocalContent.Panel2
             // 
             this.pnlLocalContent.Panel2.Controls.Add(this.pnlPreview);
-            this.pnlLocalContent.Size = new System.Drawing.Size(239, 500);
-            this.pnlLocalContent.SplitterDistance = 333;
+            this.pnlLocalContent.Size = new System.Drawing.Size(822, 25);
+            this.pnlLocalContent.SplitterDistance = 26;
             this.pnlLocalContent.SplitterWidth = 3;
             this.pnlLocalContent.TabIndex = 3;
             // 
@@ -256,7 +257,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlProperties.Location = new System.Drawing.Point(0, 0);
             this.pnlProperties.Margin = new System.Windows.Forms.Padding(0);
             this.pnlProperties.Name = "pnlProperties";
-            this.pnlProperties.Size = new System.Drawing.Size(239, 333);
+            this.pnlProperties.Size = new System.Drawing.Size(346, 26);
             this.pnlProperties.TabIndex = 0;
             // 
             // lblNoProperties
@@ -269,7 +270,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoProperties.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoProperties.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoProperties.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoProperties.Size = new System.Drawing.Size(239, 60);
+            this.lblNoProperties.Size = new System.Drawing.Size(346, 60);
             this.lblNoProperties.TabIndex = 0;
             this.lblNoProperties.Text = "aaaa";
             this.lblNoProperties.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -282,7 +283,7 @@ namespace OPMedia.Runtime.Addons
             this.pnlPreview.Location = new System.Drawing.Point(0, 0);
             this.pnlPreview.Margin = new System.Windows.Forms.Padding(0);
             this.pnlPreview.Name = "pnlPreview";
-            this.pnlPreview.Size = new System.Drawing.Size(239, 164);
+            this.pnlPreview.Size = new System.Drawing.Size(346, 471);
             this.pnlPreview.TabIndex = 0;
             // 
             // lblNoPreview
@@ -295,7 +296,7 @@ namespace OPMedia.Runtime.Addons
             this.lblNoPreview.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNoPreview.OverrideForeColor = System.Drawing.Color.Empty;
             this.lblNoPreview.Padding = new System.Windows.Forms.Padding(5);
-            this.lblNoPreview.Size = new System.Drawing.Size(239, 60);
+            this.lblNoPreview.Size = new System.Drawing.Size(346, 60);
             this.lblNoPreview.TabIndex = 0;
             this.lblNoPreview.Text = "abcdef";
             this.lblNoPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -331,9 +332,9 @@ namespace OPMedia.Runtime.Addons
             // txtStatusMain
             // 
             this.txtStatusMain.AutoSize = false;
-            this.txtStatusMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txtStatusMain.BackColor = System.Drawing.Color.White;
             this.txtStatusMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.txtStatusMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.txtStatusMain.ForeColor = System.Drawing.Color.Black;
             this.txtStatusMain.Name = "txtStatusMain";
             this.txtStatusMain.Size = new System.Drawing.Size(696, 13);
             this.txtStatusMain.Text = "editModePath";
