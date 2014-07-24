@@ -117,11 +117,17 @@ namespace SkinBuilder.Property
         {
             lblNodeName.Text = "Theme element name:";
             txtNodeName.Text = themeElementPair.Key;
-            
+
             if (themeElementPair.Key.ToLowerInvariant().Contains("color"))
                 AddChooserItem(themeElementPair.Key, themeElementPair.Value, typeof(SBColorChooser));
             else
-                AddChooserItem(themeElementPair.Key, themeElementPair.Value, typeof(IntegerChooser));
+            {
+                int x = 0;
+                bool isNumeric = int.TryParse(themeElementPair.Value, out x);
+
+                AddChooserItem(themeElementPair.Key, themeElementPair.Value, 
+                    isNumeric ? typeof(IntegerChooser) : typeof(StringChooser));
+            }
         }
 
         
@@ -141,6 +147,8 @@ namespace SkinBuilder.Property
             }
         }
 
+        string _lastText = string.Empty;
+
         void OnPropertyChanged(object sender, EventArgs e)
         {
             if (_raiseEvents)
@@ -149,6 +157,14 @@ namespace SkinBuilder.Property
                 {
                     if (_themeFile != null)
                     {
+                        if (string.IsNullOrEmpty(txtNodeName.Text))
+                        {
+                            txtNodeName.Text = _lastText;
+                            return;
+                        }
+
+                        _lastText = txtNodeName.Text;
+
                         if (sender == txtNodeName)
                         {
                             // Node name changed

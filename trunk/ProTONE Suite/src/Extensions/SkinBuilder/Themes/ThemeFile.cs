@@ -21,22 +21,31 @@ namespace SkinBuilder.Themes
             }
         }
 
+        public bool IsModified { get; set; }
+
         public void AddNewTheme(string themeName, string templateThemeName, bool isDefault)
         {
             if (Themes.ContainsKey(themeName) == false)
+            {
                 Themes.Add(themeName, new Theme(themeName, templateThemeName, isDefault));
+                IsModified = true;
+            }
         }
 
         public void DeleteTheme(string themeName)
         {
             if (Themes.ContainsKey(themeName))
+            {
                 Themes.Remove(themeName);
+                IsModified = true;
+            }
         }
 
         public ThemeFile()
         {
+            this.FileName = "[ New theme file - not yet saved ]";
             Themes = new Dictionary<string, Theme>();
-            Themes.Add("New Theme", new Theme("ThemeName", "Metro", true));
+            IsModified = false;
         }
 
         public ThemeFile(string themeFile)
@@ -65,6 +74,8 @@ namespace SkinBuilder.Themes
             }
             else
                 throw new Exception("Invalid theme file: " + themeFile);
+
+            IsModified = false;
         }
 
         public void SaveToFile(string themeFile)
@@ -86,6 +97,9 @@ namespace SkinBuilder.Themes
             }
 
             doc.Save(themeFile);
+
+            this.FileName = themeFile;
+            this.IsModified = false;
         }
     }
 }

@@ -13,11 +13,19 @@ namespace SkinBuilder.Navigation
 {
     public partial class ThemeChooser : ToolForm
     {
-        public string ThemeName 
+        public string TemplateThemeName 
         {
             get
             {
                 return lbThemes.SelectedItem as string;
+            }
+        }
+
+        public string NewThemeName
+        {
+            get
+            {
+                return txtThemeName.Text;
             }
         }
 
@@ -42,7 +50,7 @@ namespace SkinBuilder.Navigation
 
         private void lbThemes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnOk.Enabled = string.IsNullOrEmpty(ThemeName) == false;
+            btnOk.Enabled = (txtThemeName.Text.Length > 0 && string.IsNullOrEmpty(TemplateThemeName) == false);
         }
     }
 }

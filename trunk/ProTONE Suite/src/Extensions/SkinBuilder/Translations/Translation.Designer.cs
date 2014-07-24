@@ -61,6 +61,15 @@ namespace SkinBuilder.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete theme.
+        /// </summary>
+        internal static string TXT_DELETE_THEME {
+            get {
+                return ResourceManager.GetString("TXT_DELETE_THEME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Merge this theme into the selected file.
         ///The themes that already exist will be kept.
         ///If the selected file contains a theme with the same name, this theme will be overwritten..
@@ -107,6 +116,15 @@ namespace SkinBuilder.Translations {
         internal static string TXT_MULTIPLE_THEMES_IN_FILE {
             get {
                 return ResourceManager.GetString("TXT_MULTIPLE_THEMES_IN_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New theme.
+        /// </summary>
+        internal static string TXT_NEW_THEME {
+            get {
+                return ResourceManager.GetString("TXT_NEW_THEME", resourceCulture);
             }
         }
         
