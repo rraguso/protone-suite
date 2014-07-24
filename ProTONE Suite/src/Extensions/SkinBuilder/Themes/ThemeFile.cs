@@ -111,6 +111,7 @@ namespace SkinBuilder.Themes
                 else
                     themeEntry.Value.IsDefault = false;
             }
+            this.IsModified = true;
         }
     }
 }

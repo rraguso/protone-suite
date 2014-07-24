@@ -244,6 +244,10 @@ namespace SkinBuilder.Property
             if (_raiseEvents && _themeFile != null)
             {
                 _themeFile.SetDefaultTheme(_editedThemeName);
+                base.Modified = false;
+
+                // Just update the dirty flag ;)
+                RaiseNavigationAction(OPMedia.Runtime.Addons.NavActionType.ActionReloadNavigation, null, null);
             }
         }
     }
