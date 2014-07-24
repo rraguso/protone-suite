@@ -42,6 +42,8 @@ namespace SkinBuilder.Navigation
 
         List<string> _recentFiles = new List<string>();
 
+        Image imgThemeFile = ImageProvider.GetShell32Icon(Shell32Icon.GenericFileSystem, false);
+
         public override List<string> HandledFileTypes
         {
             get
@@ -76,6 +78,8 @@ namespace SkinBuilder.Navigation
             tvThemes.ImageList = _il;
 
             tvThemes.AfterSelect += new TreeViewEventHandler(tvThemes_AfterSelect);
+
+            EventDispatch.DispatchEvent(EventNames.SetMainStatusBar, null, null);
         }
 
         void AddonPanel_HandleCreated(object sender, EventArgs e)
@@ -464,9 +468,13 @@ namespace SkinBuilder.Navigation
             tvThemes.Nodes.Clear();
             _il.Images.Clear();
 
+            EventDispatch.DispatchEvent(EventNames.SetMainStatusBar, null, null);
+
             if (_themeFile != null)
             {
-                _il.Images.Add(ImageProvider.GetShell32Icon(Shell32Icon.GenericFileSystem, false));
+                EventDispatch.DispatchEvent(EventNames.SetMainStatusBar, _themeFile.FileName, imgThemeFile);
+
+                _il.Images.Add(imgThemeFile);
                 _il.Images.Add(Resources.ThemeNode);
                 _il.Images.Add(Resources.ColorNode);
                 _il.Images.Add(Resources.NumericNode);
