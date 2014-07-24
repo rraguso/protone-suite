@@ -488,7 +488,7 @@ namespace SkinBuilder.Navigation
 
                 if (_themeFile.IsModified == false)
                 {
-                    if (tvThemes.Nodes[0].Text.StartsWith("[*] ") == false)
+                    if (tvThemes.Nodes[0].Text.StartsWith("[*] "))
                         tvThemes.Nodes[0].Text = tvThemes.Nodes[0].Text.Replace("[*] ", "");
                 }
 
