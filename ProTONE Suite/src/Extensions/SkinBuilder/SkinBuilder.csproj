@@ -106,17 +106,14 @@
     <Compile Include="Property\BooleanChooser.Designer.cs">
       <DependentUpon>BooleanChooser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Property\SBColorChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Property\StringChooser.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Property\StringChooser.Designer.cs">
       <DependentUpon>StringChooser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Property\DropDownColorChooser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Property\DropDownColorChooser.Designer.cs">
-      <DependentUpon>DropDownColorChooser.cs</DependentUpon>
     </Compile>
     <Compile Include="Property\IntegerChooser.cs">
       <SubType>UserControl</SubType>
@@ -156,9 +153,6 @@
     <EmbeddedResource Include="Property\StringChooser.resx">
       <DependentUpon>StringChooser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\DropDownColorChooser.resx">
-      <DependentUpon>DropDownColorChooser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Property\IntegerChooser.resx">
       <DependentUpon>IntegerChooser.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +191,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SaveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ColorNode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NumericNode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThemeNode.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

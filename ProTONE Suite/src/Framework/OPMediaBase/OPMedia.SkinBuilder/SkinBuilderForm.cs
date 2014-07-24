@@ -16,7 +16,6 @@ namespace OPMedia.SkinBuilder
         public SkinBuilderForm()
             : base(Program.LaunchPath)
         {
-            SetNavPanelOrientation(Orientation.Horizontal);
         }
 
         public override void OnExecuteShortcut(OPMShortcutEventArgs args)

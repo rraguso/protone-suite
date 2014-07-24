@@ -11,6 +11,8 @@ namespace OPMedia.UI.Controls
 {
     public partial class OPMColorChooserCtl : OPMBaseControl
     {
+        public event EventHandler ColorChanged = null;
+
         public string Description
         {
             get { return lblColorName.Text; }
@@ -27,11 +29,11 @@ namespace OPMedia.UI.Controls
             set 
             { 
                 lblResultingColor.OverrideBackColor = value;
-                ApplyColor();
+                ApplyColor(false, false);
             }
         }
 
-        private void ApplyColor(bool skipApplyingText = false)
+        private void ApplyColor(bool raiseEvent, bool skipApplyingText)
         {
             try
             {
@@ -66,6 +68,11 @@ namespace OPMedia.UI.Controls
                 else
                 {
                     cmbKnownColors.SelectedIndex = -1;
+                }
+
+                if (ColorChanged != null && raiseEvent)
+                {
+                    ColorChanged(this, EventArgs.Empty);
                 }
             }
             finally
@@ -108,14 +115,14 @@ namespace OPMedia.UI.Controls
         {
             Color c = Color.FromArgb((int)nudR.Value, (int)nudG.Value, (int)nudB.Value);
             lblResultingColor.OverrideBackColor = c;
-            ApplyColor();
+            ApplyColor(true, false);
         }
 
         private void ColorChangedByGauges(double val)
         {
             Color c = Color.FromArgb((int)cgR.Value, (int)cgG.Value, (int)cgB.Value);
             lblResultingColor.OverrideBackColor = c;
-            ApplyColor();
+            ApplyColor(true, false);
         }
 
         private void ColorChangedByText(object sender, EventArgs e)
@@ -136,14 +143,14 @@ namespace OPMedia.UI.Controls
 
             Color c = Color.FromArgb(r, g, b);
             lblResultingColor.OverrideBackColor = c;
-            ApplyColor(true);
+            ApplyColor(true, true);
         }
 
         private void ColorChangedByComboBox(object sender, EventArgs e)
         {
             Color c = (Color)cmbKnownColors.Items[cmbKnownColors.SelectedIndex];
             lblResultingColor.OverrideBackColor = c;
-            ApplyColor();
+            ApplyColor(true, false);
         }
     }
 }
