@@ -101,5 +101,16 @@ namespace SkinBuilder.Themes
             this.FileName = themeFile;
             this.IsModified = false;
         }
+
+        internal void SetDefaultTheme(string themeName)
+        {
+            foreach (var themeEntry in Themes)
+            {
+                if (themeEntry.Key == themeName)
+                    themeEntry.Value.IsDefault = true;
+                else
+                    themeEntry.Value.IsDefault = false;
+            }
+        }
     }
 }

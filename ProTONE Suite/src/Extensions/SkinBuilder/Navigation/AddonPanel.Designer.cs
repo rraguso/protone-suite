@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddonPanel));
             this.toolStripMain = new OPMedia.UI.Controls.OPMToolStrip();
             this.tsbNew = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbOpen = new OPMedia.UI.Controls.OPMToolStripSplitButton();
@@ -38,8 +37,6 @@
             this.opmToolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsbNewTheme = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbDeleteTheme = new OPMedia.UI.Controls.OPMToolStripButton();
-            this.opmToolStripSeparator2 = new OPMedia.UI.Controls.OPMToolStripSeparator();
-            this.opmToolStripButton1 = new OPMedia.UI.Controls.OPMToolStripButton();
             this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.tvThemes = new OPMedia.UI.Controls.OPMTreeView();
             this.toolStripMain.SuspendLayout();
@@ -62,9 +59,7 @@
             this.tsbSaveAs,
             this.opmToolStripSeparator1,
             this.tsbNewTheme,
-            this.tsbDeleteTheme,
-            this.opmToolStripSeparator2,
-            this.opmToolStripButton1});
+            this.tsbDeleteTheme});
             this.toolStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
@@ -134,41 +129,25 @@
             // 
             // tsbNewTheme
             // 
-            this.tsbNewTheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbNewTheme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.ImageAndText;
             this.tsbNewTheme.Image = global::SkinBuilder.Properties.Resources.NewTheme;
             this.tsbNewTheme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNewTheme.Name = "tsbNewTheme";
-            this.tsbNewTheme.Size = new System.Drawing.Size(29, 44);
-            this.tsbNewTheme.Text = "TXT_NEW_THEME";
+            this.tsbNewTheme.Size = new System.Drawing.Size(107, 44);
             this.tsbNewTheme.Tag = "ToolActionNewTheme";
+            this.tsbNewTheme.Text = "TXT_NEW_THEME";
+            this.tsbNewTheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbNewTheme.Click += new System.EventHandler(this.OnToolAction);
             // 
             // tsbDeleteTheme
             // 
-            this.tsbDeleteTheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbDeleteTheme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.ImageAndText;
             this.tsbDeleteTheme.Image = global::SkinBuilder.Properties.Resources.DeleteTheme;
             this.tsbDeleteTheme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeleteTheme.Name = "tsbDeleteTheme";
-            this.tsbDeleteTheme.Size = new System.Drawing.Size(29, 44);
-            this.tsbDeleteTheme.Text = "TXT_DELETE_THEME";
+            this.tsbDeleteTheme.Size = new System.Drawing.Size(120, 44);
             this.tsbDeleteTheme.Tag = "ToolActionDeleteTheme";
+            this.tsbDeleteTheme.Text = "TXT_DELETE_THEME";
+            this.tsbDeleteTheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbDeleteTheme.Click += new System.EventHandler(this.OnToolAction);
-            // 
-            // opmToolStripSeparator2
-            // 
-            this.opmToolStripSeparator2.Name = "opmToolStripSeparator2";
-            this.opmToolStripSeparator2.Size = new System.Drawing.Size(6, 47);
-            // 
-            // opmToolStripButton1
-            // 
-            this.opmToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.opmToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("opmToolStripButton1.Image")));
-            this.opmToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.opmToolStripButton1.Name = "opmToolStripButton1";
-            this.opmToolStripButton1.Size = new System.Drawing.Size(29, 44);
-            this.opmToolStripButton1.Text = "opmToolStripButton1";
             // 
             // opmTableLayoutPanel1
             // 
@@ -222,8 +201,6 @@
         private OPMedia.UI.Controls.OPMToolStripButton tsbNewTheme;
         private OPMedia.UI.Controls.OPMToolStripButton tsbDeleteTheme;
         private OPMedia.UI.Controls.OPMToolStripSeparator opmToolStripSeparator1;
-        private OPMedia.UI.Controls.OPMToolStripSeparator opmToolStripSeparator2;
-        private OPMedia.UI.Controls.OPMToolStripButton opmToolStripButton1;
         private OPMedia.UI.Controls.OPMTreeView tvThemes;
     }
 }
