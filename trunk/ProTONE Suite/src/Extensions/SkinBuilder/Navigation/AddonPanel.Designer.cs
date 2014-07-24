@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddonPanel));
             this.toolStripMain = new OPMedia.UI.Controls.OPMToolStrip();
             this.tsbNew = new OPMedia.UI.Controls.OPMToolStripButton();
@@ -37,10 +38,10 @@
             this.opmToolStripSeparator1 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsbNewTheme = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbDeleteTheme = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.opmToolStripSeparator2 = new OPMedia.UI.Controls.OPMToolStripSeparator();
+            this.opmToolStripButton1 = new OPMedia.UI.Controls.OPMToolStripButton();
             this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.lvThemes = new OPMedia.UI.Controls.OPMListView();
-            this.colThemeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colIsDefault = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tvThemes = new OPMedia.UI.Controls.OPMTreeView();
             this.toolStripMain.SuspendLayout();
             this.opmTableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +62,9 @@
             this.tsbSaveAs,
             this.opmToolStripSeparator1,
             this.tsbNewTheme,
-            this.tsbDeleteTheme});
+            this.tsbDeleteTheme,
+            this.opmToolStripSeparator2,
+            this.opmToolStripButton1});
             this.toolStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
@@ -147,12 +150,26 @@
             this.tsbDeleteTheme.Size = new System.Drawing.Size(29, 44);
             this.tsbDeleteTheme.Text = "TXT_DELETE_THEME";
             // 
+            // opmToolStripSeparator2
+            // 
+            this.opmToolStripSeparator2.Name = "opmToolStripSeparator2";
+            this.opmToolStripSeparator2.Size = new System.Drawing.Size(6, 47);
+            // 
+            // opmToolStripButton1
+            // 
+            this.opmToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.opmToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("opmToolStripButton1.Image")));
+            this.opmToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.opmToolStripButton1.Name = "opmToolStripButton1";
+            this.opmToolStripButton1.Size = new System.Drawing.Size(29, 44);
+            this.opmToolStripButton1.Text = "opmToolStripButton1";
+            // 
             // opmTableLayoutPanel1
             // 
             this.opmTableLayoutPanel1.ColumnCount = 1;
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmTableLayoutPanel1.Controls.Add(this.toolStripMain, 0, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.lvThemes, 0, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.tvThemes, 0, 1);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
@@ -163,32 +180,14 @@
             this.opmTableLayoutPanel1.Size = new System.Drawing.Size(563, 484);
             this.opmTableLayoutPanel1.TabIndex = 2;
             // 
-            // lvThemes
+            // tvThemes
             // 
-            this.lvThemes.AllowEditing = false;
-            this.lvThemes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvThemes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colThemeName,
-            this.colIsDefault});
-            this.lvThemes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvThemes.Location = new System.Drawing.Point(3, 50);
-            this.lvThemes.MultiSelect = false;
-            this.lvThemes.Name = "lvThemes";
-            this.lvThemes.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvThemes.Size = new System.Drawing.Size(557, 431);
-            this.lvThemes.TabIndex = 2;
-            this.lvThemes.UseCompatibleStateImageBehavior = false;
-            this.lvThemes.View = System.Windows.Forms.View.Details;
-            this.lvThemes.SelectedIndexChanged += new System.EventHandler(this.lvThemes_SelectedIndexChanged);
-            this.lvThemes.Resize += new System.EventHandler(this.lvThemes_Resize);
-            // 
-            // colThemeName
-            // 
-            this.colThemeName.Text = "TXT_THEME_NAME";
-            // 
-            // colIsDefault
-            // 
-            this.colIsDefault.Text = "TXT_IS_DEFAULT";
+            this.tvThemes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvThemes.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
+            this.tvThemes.Location = new System.Drawing.Point(3, 50);
+            this.tvThemes.Name = "tvThemes";
+            this.tvThemes.Size = new System.Drawing.Size(557, 431);
+            this.tvThemes.TabIndex = 2;
             // 
             // AddonPanel
             // 
@@ -217,8 +216,8 @@
         private OPMedia.UI.Controls.OPMToolStripButton tsbNewTheme;
         private OPMedia.UI.Controls.OPMToolStripButton tsbDeleteTheme;
         private OPMedia.UI.Controls.OPMToolStripSeparator opmToolStripSeparator1;
-        private OPMedia.UI.Controls.OPMListView lvThemes;
-        private System.Windows.Forms.ColumnHeader colThemeName;
-        private System.Windows.Forms.ColumnHeader colIsDefault;
+        private OPMedia.UI.Controls.OPMToolStripSeparator opmToolStripSeparator2;
+        private OPMedia.UI.Controls.OPMToolStripButton opmToolStripButton1;
+        private OPMedia.UI.Controls.OPMTreeView tvThemes;
     }
 }

@@ -49,7 +49,7 @@
             this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmTableLayoutPanel1.RowCount = 1;
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(110, 28);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(92, 28);
             this.opmTableLayoutPanel1.TabIndex = 0;
             // 
             // opmLabel1
@@ -61,16 +61,16 @@
             this.opmLabel1.Name = "opmLabel1";
             this.opmLabel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel1.Size = new System.Drawing.Size(57, 28);
+            this.opmLabel1.Size = new System.Drawing.Size(39, 28);
             this.opmLabel1.TabIndex = 0;
-            this.opmLabel1.Text = "opmLabel";
+            this.opmLabel1.Text = "Value:";
             this.opmLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtValue
             // 
             this.txtValue.BackColor = System.Drawing.Color.White;
             this.txtValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtValue.Location = new System.Drawing.Point(66, 3);
+            this.txtValue.Location = new System.Drawing.Point(48, 3);
             this.txtValue.Name = "txtValue";
             this.txtValue.OverrideForeColor = System.Drawing.Color.Empty;
             this.txtValue.Size = new System.Drawing.Size(41, 22);
@@ -85,7 +85,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.opmTableLayoutPanel1);
             this.Name = "StringChooser";
-            this.Size = new System.Drawing.Size(110, 28);
+            this.Size = new System.Drawing.Size(92, 28);
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmTableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

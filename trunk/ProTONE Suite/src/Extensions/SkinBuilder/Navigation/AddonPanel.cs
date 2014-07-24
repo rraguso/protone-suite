@@ -22,20 +22,21 @@ using System.Xml.Linq;
 using OPMedia.UI.Controls.Dialogs;
 using System.IO;
 using OPMedia.Core.Logging;
-using OPMedia.Core.Properties;
 using OPMedia.Runtime.Addons;
+using SkinBuilder.Properties;
+using OPMedia.UI.Themes;
+using System.Threading;
 
 namespace SkinBuilder.Navigation
 {
     public partial class AddonPanel : NavBaseCtl
     {
-        ImageList _il;
+        ColorConverter cc = new ColorConverter();
 
+        ImageList _il;
         ThemeFile _themeFile = null;
 
         private System.Windows.Forms.Timer updateUiTimer;
-
-        GenericWaitDialog _waitDialog = null;
 
         bool _operationInProgress = false;
 
@@ -49,6 +50,13 @@ namespace SkinBuilder.Navigation
             }
         }
 
+        enum NodeIndexes
+        {
+            ThemeFile = 0,
+            Theme,
+            ColorThemeElement,
+            NumericThemeElement
+        }
 
         public AddonPanel()
         {
@@ -62,17 +70,17 @@ namespace SkinBuilder.Navigation
             updateUiTimer.Tick += new EventHandler(updateUiTimer_Tick);
 
             _il = new ImageList();
-            _il.ImageSize = new System.Drawing.Size(24, 24);
+            _il.ImageSize = new System.Drawing.Size(16, 16);
             _il.ColorDepth = ColorDepth.Depth32Bit;
-            _il.Images.Add(Resources.New);
+            _il.TransparentColor = Color.Magenta;
+            tvThemes.ImageList = _il;
 
-            lvThemes.SmallImageList = _il;
+            tvThemes.AfterSelect += new TreeViewEventHandler(tvThemes_AfterSelect);
         }
 
         void AddonPanel_HandleCreated(object sender, EventArgs e)
         {
             OnPerformTranslation();
-            ResizeColumns();
         }
 
         protected override BaseCfgPanel GetBaseCfgPanel()
@@ -283,7 +291,7 @@ namespace SkinBuilder.Navigation
 
                     case ToolAction.ToolActionDeleteTheme:
                         BuildMenuText(btn, "TXT_DELETE_THEME", string.Empty, OPMShortcut.CmdOutOfRange);
-                        btn.Enabled = (_themeFile != null && lvThemes.SelectedItems.Count == 1);
+                        //TODO fix btn.Enabled = (_themeFile != null && tvThemes.SelectedItems.Count == 1);
                         break;
                 }
             }
@@ -453,56 +461,221 @@ namespace SkinBuilder.Navigation
 
         private void DisplayThemeFile()
         {
-            try
-            {
-                _operationInProgress = true;
-                lvThemes.Items.Clear();
+            tvThemes.Nodes.Clear();
+            _il.Images.Clear();
 
-                if (_themeFile != null)
+            if (_themeFile != null)
+            {
+                _il.Images.Add(ImageProvider.GetShell32Icon(Shell32Icon.GenericFileSystem, false));
+                _il.Images.Add(Resources.ThemeNode);
+                _il.Images.Add(Resources.ColorNode);
+                _il.Images.Add(Resources.NumericNode);
+
+                TreeNode themeFileNode = new TreeNode();
+                themeFileNode.Text = _themeFile.FileName;
+                themeFileNode.ImageIndex = themeFileNode.SelectedImageIndex = (int)NodeIndexes.ThemeFile;
+                themeFileNode.Tag = _themeFile;
+                themeFileNode.NodeFont = ThemeManager.NormalBoldFont;
+
+                if (_themeFile.Themes != null)
                 {
                     foreach (var theme in _themeFile.Themes)
                     {
-                        ListViewItem lvi = new ListViewItem(theme.Key);
-                        OPMListViewSubItem si = new OPMListViewSubItem(lvi, theme.Value.IsDefault ? "Yes" : "No");
-                        si.ReadOnly = true;
+                        TreeNode themeNode = new TreeNode(theme.Key);
+                        themeNode.ImageIndex = themeNode.SelectedImageIndex = (int)NodeIndexes.Theme;
+                        themeNode.Tag = theme;
+                        themeNode.NodeFont = ThemeManager.NormalBoldFont;
 
-                        lvi.SubItems.Add(si);
+                        if (theme.Value.ThemeElements != null)
+                        {
+                            foreach (var themeElement in theme.Value.ThemeElements)
+                            {
+                                bool isColorNode = themeElement.Key.ToLowerInvariant().Contains("color");
 
-                        lvi.ImageIndex = 0;
-                        lvi.Tag = theme.Value;
+                                TreeNode themeElementNode = new TreeNode(themeElement.Key);
+                                themeElementNode.Tag = themeElement;
+                                themeElementNode.NodeFont = ThemeManager.NormalFont;
 
-                        lvThemes.Items.Add(lvi);
+                                if (isColorNode)
+                                {
+                                    themeElementNode.ForeColor = ThemeManager.ForeColor;
+
+                                    Color c = (Color)cc.ConvertFromInvariantString(themeElement.Value);
+                                    Bitmap bmp = CreateColorBitmap(c);
+                                    if (bmp != null)
+                                    {
+                                        themeElementNode.ImageIndex = themeElementNode.SelectedImageIndex =
+                                            _il.Images.Add(bmp, Color.Magenta);
+                                    }
+
+                                    themeElementNode.Text = string.Format("{0} [{1}]", themeElement.Key, themeElement.Value);
+                                }
+                                else
+                                {
+                                    themeElementNode.ForeColor = ThemeManager.HighlightColor;
+                                    themeElementNode.ImageIndex = themeElementNode.SelectedImageIndex = (int)NodeIndexes.NumericThemeElement;
+                                }
+
+                                themeNode.Nodes.Add(themeElementNode);
+                            }
+                        }
+
+                        themeFileNode.Nodes.Add(themeNode);
                     }
                 }
+
+                tvThemes.Nodes.Add(themeFileNode);
             }
-            finally
+        }
+
+        public override void Reload(object target)
+        {
+            try
             {
-                _operationInProgress = false;
+                NavigationReloadArguments args = target as NavigationReloadArguments;
+                if (args != null && args.OldThemeName.Length > 0)
+                {
+                    if (args.OldThemeElementName.Length > 0)
+                    {
+                        TreeNode tn = FindThemeElementNode(args.OldThemeName, args.OldThemeElementName);
+                        if (tn != null)
+                        {
+                            // Some action was done on a theme element.
+                            if (args.OldThemeElementName != args.NewThemeElementName)
+                            {
+                                // The theme element was renamed.
+                                tn.Text = args.NewThemeElementName;
+                            }
+                            else
+                            {
+                                // The value of the theme element was changed.
+                                bool isColorNode = args.NewThemeElementName.ToLowerInvariant().Contains("color");
+                                if (isColorNode)
+                                {
+                                    tn.ForeColor = ThemeManager.ForeColor;
+                                    string value = _themeFile.Themes[args.OldThemeName].ThemeElements[args.NewThemeElementName];
+
+                                    Color c = (Color)cc.ConvertFromInvariantString(value);
+                                    Bitmap bmp = CreateColorBitmap(c);
+                                    if (bmp != null)
+                                    {
+                                        tn.ImageIndex = tn.SelectedImageIndex =
+                                            _il.Images.Add(bmp, Color.Magenta);
+                                    }
+
+                                    tn.Text = string.Format("{0} [{1}]", args.NewThemeElementName, value);
+                                }
+                                else
+                                {
+                                    tn.ForeColor = ThemeManager.HighlightColor;
+                                    tn.ImageIndex = tn.SelectedImageIndex = (int)NodeIndexes.NumericThemeElement;
+                                    tn.Text = args.NewThemeElementName;
+                                }
+                            }
+
+                            tn.Tag = new KeyValuePair<string, string>(args.NewThemeElementName,
+                                _themeFile.Themes[args.OldThemeName].ThemeElements[args.NewThemeElementName]);
+                        }
+                    }
+                    else if (args.OldThemeName != args.NewThemeName)
+                    {
+                        // The theme was renamed.
+                        TreeNode tn = FindThemeNode(args.OldThemeName);
+                        if (tn != null)
+                        {
+                            tn.Text = args.NewThemeName;
+                            tn.Tag = new KeyValuePair<string, Theme>(args.NewThemeName, _themeFile.Themes[args.NewThemeName]);
+                        }
+                    }
+                }
+
+                tvThemes.Invalidate();
+            }
+            catch (Exception ex)
+            {
+                ErrorDispatcher.DispatchException(ex);
+                DisplayThemeFile();
             }
         }
 
-        void lvThemes_Resize(object sender, System.EventArgs e)
+        private TreeNode FindThemeElementNode(string themeName, string themeElementName)
         {
-            ResizeColumns();
+            TreeNode themeNode = FindThemeNode(themeName);
+            if (themeNode != null && themeNode.Nodes != null)
+            {
+                foreach (TreeNode tn in themeNode.Nodes)
+                {
+                    if (tn.Text.StartsWith(themeElementName))
+                        return tn;
+                }
+            }
+
+            return null;
         }
 
-        private void ResizeColumns()
+        private TreeNode FindThemeNode(string themeName)
         {
-            colIsDefault.Width = 100;
-            int w = lvThemes.Width - colIsDefault.Width;
-            colThemeName.Width = w;
+            return tvThemes.FindNode(themeName, false);
         }
 
-        private void lvThemes_SelectedIndexChanged(object sender, EventArgs e)
+        private Bitmap CreateColorBitmap(Color c)
         {
-            List<String> paths = new List<string>();
-            if (lvThemes.SelectedItems.Count > 0)
-                paths.Add(string.Format("{0}.thm", lvThemes.SelectedItems[0].Text));
+            Bitmap bmp = new Bitmap(16, 16);
 
-            RaiseNavigationAction(NavActionType.ActionSelectFile, paths, _themeFile);
+            int w = 1;
+
+            for (int i = 0; i < 16; i++)
+            {
+                for (int j = 0; j < 16; j++)
+                {
+                    if (i < w || j < w || i > 16 - w || j > 16 - w)
+                        bmp.SetPixel(i, j, Color.Magenta);
+                    else if (i == w || j == w || i == 16 - w || j == 16 - w)
+                        bmp.SetPixel(i, j, Color.Black);
+                    else
+                        bmp.SetPixel(i, j, c);
+                }
+            }
+
+            return bmp;
         }
 
+        void tvThemes_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            List<string> paths = new List<string>();
+            paths.Add(".node");
 
+            List<object> args = new List<object>();
+            args.Add(_themeFile);
+
+            if (tvThemes.SelectedNode != null)
+            {
+                if (tvThemes.SelectedNode.Parent != null &&
+                    tvThemes.SelectedNode.Tag is KeyValuePair<string, string>)
+                {
+                    args.Add(tvThemes.SelectedNode.Parent.Tag);
+                }
+
+                args.Add(tvThemes.SelectedNode.Tag);
+            }
+
+            RaiseNavigationAction(NavActionType.ActionSelectFile, paths, args);
+        }
+
+        
+    }
+
+    internal class NavigationReloadArguments
+    {
+        public string OldThemeName { get; set; }
+        public string OldThemeElementName { get; set; }
+        public string NewThemeName { get; set; }
+        public string NewThemeElementName { get; set; }
+
+        public NavigationReloadArguments()
+        {
+            OldThemeName = NewThemeName = OldThemeElementName = NewThemeElementName = string.Empty;
+        }
     }
 
     internal enum ToolAction : int

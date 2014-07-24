@@ -9,13 +9,16 @@ using System.Windows.Forms;
 using OPMedia.Runtime.Addons.AddonsBase.Prop;
 using OPMedia.UI;
 using SkinBuilder.Themes;
+using OPMedia.Core.Logging;
+using SkinBuilder.Navigation;
 
 namespace SkinBuilder.Property
 {
     public partial class AddonPanel : PropBaseCtl
     {
         ThemeFile _themeFile = null;
-        string _themeName = string.Empty;
+        string _editedThemeName = null;
+        string _editedThemeElementName = null;
 
         public AddonPanel()
         {
@@ -23,147 +26,105 @@ namespace SkinBuilder.Property
         }
 
         public override List<string> HandledFileTypes
-        {
-            get
-            {
-                return new List<string>(new string[] { "thm" });
-            }
-        }
+        { get { return new List<string>(new string[] { "node" }); } }
 
         public override bool CanHandleFolders
-        {
-            get
-            {
-                return false;
-            }
-        }
+        { get { return false; } }
 
         public override int  MaximumHandledItems
-        {
-	        get 
-	        { 
-		         return 1;
-	        }
-        }
+        { get { return 1; } }
 
         public override void SaveProperties()
         {
-            if (_themeFile != null && _themeFile.Themes != null && _themeFile.Themes.Count > 0)
-            {
-                if (!string.IsNullOrEmpty(_themeName) && _themeFile.Themes.ContainsKey(_themeName))
-                {
-                    Theme theme = _themeFile.Themes[_themeName];
-                    if (theme != null)
-                    {
-                        foreach (Control c in pnlThemeProperties.Controls)
-                        {
-                            IPropertyChooser pc = c as IPropertyChooser;
-                            if (pc != null)
-                            {
-                                if (pc.PropertyName == "Name")
-                                {
-                                    //theme.ThemeName = pc.PropertyName;
-                                }
-                                else if (pc.PropertyName == "IsDefault")
-                                {
-                                    bool val = false;
-                                    if (bool.TryParse(pc.PropertyValue, out val) == false)
-                                        val = false;
-                                    theme.IsDefault = val;
-                                }
-                                else
-                                {
-                                    if (theme.ThemeElements.ContainsKey(pc.PropertyName))
-                                    {
-                                        theme.ThemeElements[pc.PropertyName] = pc.PropertyValue;
-                                    }
-                                    else
-                                    {
-                                        theme.ThemeElements.Add(pc.PropertyName, pc.PropertyValue);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
+
+        bool _raiseEvents = true;
         
         public override void ShowProperties(List<string> strItems, object additionalData)
         {
-            _themeName = string.Empty;
-            _themeFile = additionalData as ThemeFile;
+            _themeFile = null;
+            _editedThemeName = null;
+            _editedThemeElementName = null;
+
+            txtNodeName.ReadOnly = false;
+            List<object> args = additionalData as List<object>;
+
+            this.SuspendLayoutEx();
+            pnlContent.SuspendLayoutEx();
+            pnlThemeProperties.SuspendLayoutEx();
 
             try
             {
-                pnlScrollable.Visible = false;
-                pnlScrollable.SuspendLayoutEx();
-                pnlThemeProperties.SuspendLayoutEx();
+                _raiseEvents = false;
 
                 pnlThemeProperties.Controls.Clear();
                 pnlThemeProperties.RowStyles.Clear();
 
-                if (pnlThemeProperties.Controls.Count > 0)
+                if (args != null && args.Count > 0)
                 {
-                    foreach (Control c in pnlThemeProperties.Controls)
+                    _themeFile = args[0] as ThemeFile;
+                    if (_themeFile != null)
                     {
-                        if (c is IPropertyChooser)
+                        KeyValuePair<string, Theme>? themePair = null;
+                        KeyValuePair<string, string>? themeElementPair = null;
+
+                        if (args.Count > 1 && args[1] is KeyValuePair<string, Theme>)
                         {
-                            (c as IPropertyChooser).PropertyChanged -= new PropertyChangedHandler(OnPropertyChanged);
+                            themePair = (KeyValuePair<string, Theme>)args[1];
+                            _editedThemeName = themePair.Value.Key;
                         }
-                    }
-                }
 
-                if (_themeFile != null && _themeFile.Themes != null && _themeFile.Themes.Count > 0)
-                {
-                    if (strItems != null && strItems.Count > 0 && !string.IsNullOrEmpty(strItems[0]))
-                    {
-                        _themeName = strItems[0].Replace(".thm", string.Empty);
-                    }
-
-                    if (!string.IsNullOrEmpty(_themeName) && _themeFile.Themes.ContainsKey(_themeName))
-                    {
-                        Theme theme = _themeFile.Themes[_themeName];
-
-                        AddChooserItem("Name", _themeName, typeof(StringChooser), false);
-                        AddChooserItem("IsDefault", theme.IsDefault.ToString(), typeof(BooleanChooser));
-
-                        var nonColorElements = from kvp in theme.ThemeElements
-                                               where kvp.Key.ToLowerInvariant().Contains("color") == false
-                                               select kvp;
-
-                        foreach (var x in nonColorElements)
-                            AddChooserItem(x.Key, x.Value, typeof(IntegerChooser));
-
-                        var colorElements = from kvp in theme.ThemeElements
-                                               where kvp.Key.ToLowerInvariant().Contains("color")
-                                               select kvp;
-
-                        foreach (var x in colorElements)
-                            AddChooserItem(x.Key, x.Value, typeof(DropDownColorChooser));
-                    }
-                }
-
-                if (pnlThemeProperties.Controls.Count > 0)
-                {
-                    foreach (Control c in pnlThemeProperties.Controls)
-                    {
-                        if (c is IPropertyChooser)
+                        if (args.Count > 2 && args[2] is KeyValuePair<string, string>)
                         {
-                            (c as IPropertyChooser).PropertyChanged += new PropertyChangedHandler(OnPropertyChanged);
+                            themeElementPair = (KeyValuePair<string, string>)args[2];
+                            _editedThemeElementName = themeElementPair.Value.Key;
                         }
+
+                        if (themeElementPair.HasValue)
+                            DisplayThemeElementProperties(themeElementPair.Value);
+                        else if (themePair.HasValue)
+                            DisplayThemeProperties(themePair.Value);
+                        else
+                            DisplayThemeFileProperties();
                     }
                 }
             }
             finally
             {
                 pnlThemeProperties.ResumeLayoutEx();
-                pnlScrollable.ResumeLayoutEx();
-                pnlScrollable.Visible = true;
+                pnlContent.ResumeLayoutEx();
+                this.ResumeLayoutEx();
                 base.Modified = false;
+
+                _raiseEvents = true;
             }
         }
 
+        private void DisplayThemeFileProperties()
+        {
+            lblNodeName.Text = "Theme file path (read-only):";
+            txtNodeName.Text = _themeFile.FileName;
+            txtNodeName.ReadOnly = true;
+        }
+
+        private void DisplayThemeProperties(KeyValuePair<string, Theme> themePair)
+        {
+            lblNodeName.Text = "Theme name:";
+            txtNodeName.Text = themePair.Key;
+        }
+
+        private void DisplayThemeElementProperties(KeyValuePair<string, string> themeElementPair)
+        {
+            lblNodeName.Text = "Theme element name:";
+            txtNodeName.Text = themeElementPair.Key;
+            
+            if (themeElementPair.Key.ToLowerInvariant().Contains("color"))
+                AddChooserItem(themeElementPair.Key, themeElementPair.Value, typeof(SBColorChooser));
+            else
+                AddChooserItem(themeElementPair.Key, themeElementPair.Value, typeof(IntegerChooser));
+        }
+
+        
         public void AddChooserItem(string name, string value, Type type, bool enabled = true)
         {
             RowStyle rs = new RowStyle(SizeType.AutoSize, 30);
@@ -174,24 +135,93 @@ namespace SkinBuilder.Property
             {
                 c.Enabled = enabled;
                 c.Dock = DockStyle.Fill;
-                (c as IPropertyChooser).PropertyName = name;
                 (c as IPropertyChooser).PropertyValue = value;
+                (c as IPropertyChooser).PropertyChanged += new EventHandler(OnPropertyChanged);
                 pnlThemeProperties.Controls.Add(c, 0, row);
             }
         }
 
-        void OnPropertyChanged(IPropertyChooser sender, string oldName, string newName)
+        void OnPropertyChanged(object sender, EventArgs e)
         {
-            base.Modified = true;
+            if (_raiseEvents)
+            {
+                try
+                {
+                    if (_themeFile != null)
+                    {
+                        if (sender == txtNodeName)
+                        {
+                            // Node name changed
+                            // This can happen only for a theme node or a theme element node.
+
+                            if (!string.IsNullOrEmpty(_editedThemeElementName) &&
+                                !string.IsNullOrEmpty(_editedThemeName))
+                            {
+                                // We changed the name of a theme element node
+                                string value = _themeFile.Themes[_editedThemeName].ThemeElements[_editedThemeElementName];
+                                _themeFile.Themes[_editedThemeName].ThemeElements.Remove(_editedThemeElementName);
+                                _themeFile.Themes[_editedThemeName].ThemeElements.Add(txtNodeName.Text, value);
+
+                                NavigationReloadArguments args = new NavigationReloadArguments();
+                                args.OldThemeElementName = _editedThemeElementName;
+                                args.NewThemeElementName = txtNodeName.Text;
+                                args.OldThemeName = args.NewThemeName = _editedThemeName;
+
+                                _editedThemeElementName = txtNodeName.Text;
+                                RaiseNavigationAction(OPMedia.Runtime.Addons.NavActionType.ActionReloadNavigation, null, args);
+                            }
+                            else if (!string.IsNullOrEmpty(_editedThemeName))
+                            {
+                                // We changed the name of a theme node
+                                Theme theme = _themeFile.Themes[_editedThemeName];
+                                theme.ThemeName = txtNodeName.Text;
+
+                                _themeFile.Themes.Remove(_editedThemeName);
+                                _themeFile.Themes.Add(txtNodeName.Text, theme);
+
+                                NavigationReloadArguments args = new NavigationReloadArguments();
+                                args.OldThemeName = _editedThemeName;
+                                args.NewThemeName = txtNodeName.Text;
+
+                                _editedThemeName = txtNodeName.Text;
+                                RaiseNavigationAction(OPMedia.Runtime.Addons.NavActionType.ActionReloadNavigation, null, args);
+                            }
+                        }
+                        else if (sender is IPropertyChooser)
+                        {
+                            // Node value changed. 
+                            // This can happen only for a theme element node.
+
+                            string value = (sender as IPropertyChooser).PropertyValue;
+
+                            if (!string.IsNullOrEmpty(_editedThemeElementName) &&
+                                !string.IsNullOrEmpty(_editedThemeName))
+                            {
+                                // We changed the value of a theme element node
+                                _themeFile.Themes[_editedThemeName].ThemeElements[_editedThemeElementName] = value;
+
+                                NavigationReloadArguments args = new NavigationReloadArguments();
+                                args.NewThemeElementName = args.OldThemeElementName = _editedThemeElementName;
+                                args.NewThemeName = args.OldThemeName = _editedThemeName;
+
+                                RaiseNavigationAction(OPMedia.Runtime.Addons.NavActionType.ActionReloadNavigation, null, args);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ErrorDispatcher.DispatchError(ex);
+                }
+
+                base.Modified = false;
+            }
         }
     }
 
-    public delegate void PropertyChangedHandler(IPropertyChooser sender, string oldName, string newName);
-
     public interface IPropertyChooser
     {
-        string PropertyName { get; set; }
         string PropertyValue { get; set; }
-        event PropertyChangedHandler PropertyChanged;
+        event EventHandler PropertyChanged;
     }
 }

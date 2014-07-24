@@ -50,7 +50,7 @@
             this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmTableLayoutPanel1.RowCount = 1;
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(116, 28);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(92, 28);
             this.opmTableLayoutPanel1.TabIndex = 0;
             // 
             // opmLabel1
@@ -62,16 +62,16 @@
             this.opmLabel1.Name = "opmLabel1";
             this.opmLabel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel1.Size = new System.Drawing.Size(63, 28);
+            this.opmLabel1.Size = new System.Drawing.Size(39, 28);
             this.opmLabel1.TabIndex = 0;
-            this.opmLabel1.Text = "opmLabel1";
+            this.opmLabel1.Text = "Value:";
             this.opmLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // opmNumericUpDown1
             // 
             this.opmNumericUpDown1.AutoSize = true;
             this.opmNumericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmNumericUpDown1.Location = new System.Drawing.Point(72, 3);
+            this.opmNumericUpDown1.Location = new System.Drawing.Point(48, 3);
             this.opmNumericUpDown1.Minimum = new decimal(new int[] {
             100,
             0,
@@ -90,7 +90,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.opmTableLayoutPanel1);
             this.Name = "IntegerChooser";
-            this.Size = new System.Drawing.Size(116, 28);
+            this.Size = new System.Drawing.Size(92, 28);
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmTableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opmNumericUpDown1)).EndInit();

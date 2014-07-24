@@ -49,7 +49,7 @@
             this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmTableLayoutPanel1.RowCount = 1;
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(81, 17);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(63, 17);
             this.opmTableLayoutPanel1.TabIndex = 0;
             // 
             // opmLabel1
@@ -61,9 +61,9 @@
             this.opmLabel1.Name = "opmLabel1";
             this.opmLabel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel1.Size = new System.Drawing.Size(57, 17);
+            this.opmLabel1.Size = new System.Drawing.Size(39, 17);
             this.opmLabel1.TabIndex = 0;
-            this.opmLabel1.Text = "opmLabel";
+            this.opmLabel1.Text = "Value:";
             this.opmLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // chkValue
@@ -71,7 +71,7 @@
             this.chkValue.AutoSize = true;
             this.chkValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkValue.Location = new System.Drawing.Point(66, 3);
+            this.chkValue.Location = new System.Drawing.Point(48, 3);
             this.chkValue.Name = "chkValue";
             this.chkValue.OverrideForeColor = System.Drawing.Color.Empty;
             this.chkValue.Size = new System.Drawing.Size(12, 11);
@@ -86,7 +86,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.opmTableLayoutPanel1);
             this.Name = "BooleanChooser";
-            this.Size = new System.Drawing.Size(81, 17);
+            this.Size = new System.Drawing.Size(63, 17);
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmTableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

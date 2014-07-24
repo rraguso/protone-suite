@@ -12,13 +12,7 @@ namespace SkinBuilder.Property
 {
     public partial class StringChooser : OPMBaseControl, IPropertyChooser
     {
-        public event PropertyChangedHandler PropertyChanged = null;
-
-        public string PropertyName
-        {
-            get { return opmLabel1.Text; }
-            set { opmLabel1.Text = value; }
-        }
+        public event EventHandler PropertyChanged = null;
 
         public string PropertyValue
         {
@@ -35,7 +29,7 @@ namespace SkinBuilder.Property
         {
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, PropertyName, PropertyName);
+                PropertyChanged(this, e);
             }
         }
     }
