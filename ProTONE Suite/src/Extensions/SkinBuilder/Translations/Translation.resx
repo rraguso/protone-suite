@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="TXT_DELETE_THEME" xml:space="preserve">
+    <value>Delete theme</value>
+  </data>
   <data name="TXT_DO_MERGE" xml:space="preserve">
     <value>Merge this theme into the selected file.
 The themes that already exist will be kept.
@@ -136,6 +139,9 @@ The themes that already exist will be lost.</value>
   <data name="TXT_MULTIPLE_THEMES_IN_FILE" xml:space="preserve">
     <value>The file you have selected contains multiple themes.
 What do you want to do ?</value>
+  </data>
+  <data name="TXT_NEW_THEME" xml:space="preserve">
+    <value>New theme</value>
   </data>
   <data name="TXT_OPENFILES" xml:space="preserve">
     <value>opened file(s).</value>

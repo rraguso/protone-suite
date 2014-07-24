@@ -134,21 +134,27 @@
             // 
             // tsbNewTheme
             // 
-            this.tsbNewTheme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbNewTheme.Image = ((System.Drawing.Image)(resources.GetObject("tsbNewTheme.Image")));
+            this.tsbNewTheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbNewTheme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.ImageAndText;
+            this.tsbNewTheme.Image = global::SkinBuilder.Properties.Resources.NewTheme;
             this.tsbNewTheme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNewTheme.Name = "tsbNewTheme";
             this.tsbNewTheme.Size = new System.Drawing.Size(29, 44);
             this.tsbNewTheme.Text = "TXT_NEW_THEME";
+            this.tsbNewTheme.Tag = "ToolActionNewTheme";
+            this.tsbNewTheme.Click += new System.EventHandler(this.OnToolAction);
             // 
             // tsbDeleteTheme
             // 
-            this.tsbDeleteTheme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbDeleteTheme.Image = ((System.Drawing.Image)(resources.GetObject("tsbDeleteTheme.Image")));
+            this.tsbDeleteTheme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbDeleteTheme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.ImageAndText;
+            this.tsbDeleteTheme.Image = global::SkinBuilder.Properties.Resources.DeleteTheme;
             this.tsbDeleteTheme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeleteTheme.Name = "tsbDeleteTheme";
             this.tsbDeleteTheme.Size = new System.Drawing.Size(29, 44);
             this.tsbDeleteTheme.Text = "TXT_DELETE_THEME";
+            this.tsbDeleteTheme.Tag = "ToolActionDeleteTheme";
+            this.tsbDeleteTheme.Click += new System.EventHandler(this.OnToolAction);
             // 
             // opmToolStripSeparator2
             // 

@@ -34,7 +34,7 @@
             this.lbThemes = new System.Windows.Forms.ListBox();
             this.opmLabel1 = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel2 = new OPMedia.UI.Controls.OPMLabel();
-            this.opmTextBox1 = new OPMedia.UI.Controls.OPMTextBox();
+            this.txtThemeName = new OPMedia.UI.Controls.OPMTextBox();
             this.pnlContent.SuspendLayout();
             this.opmTableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             this.opmTableLayoutPanel1.Controls.Add(this.lbThemes, 0, 3);
             this.opmTableLayoutPanel1.Controls.Add(this.opmLabel1, 0, 2);
             this.opmTableLayoutPanel1.Controls.Add(this.opmLabel2, 0, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.opmTextBox1, 0, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.txtThemeName, 0, 1);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
@@ -143,17 +143,17 @@
             this.opmLabel2.TabIndex = 4;
             this.opmLabel2.Text = "TXT_THEME_NAME:";
             // 
-            // opmTextBox1
+            // txtThemeName
             // 
-            this.opmTextBox1.BackColor = System.Drawing.Color.White;
-            this.opmTableLayoutPanel1.SetColumnSpan(this.opmTextBox1, 3);
-            this.opmTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmTextBox1.Location = new System.Drawing.Point(3, 16);
-            this.opmTextBox1.Name = "opmTextBox1";
-            this.opmTextBox1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmTextBox1.Size = new System.Drawing.Size(373, 22);
-            this.opmTextBox1.TabIndex = 5;
-            this.opmTextBox1.Text = "New Theme";
+            this.txtThemeName.BackColor = System.Drawing.Color.White;
+            this.opmTableLayoutPanel1.SetColumnSpan(this.txtThemeName, 3);
+            this.txtThemeName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtThemeName.Location = new System.Drawing.Point(3, 16);
+            this.txtThemeName.Name = "txtThemeName";
+            this.txtThemeName.OverrideForeColor = System.Drawing.Color.Empty;
+            this.txtThemeName.Size = new System.Drawing.Size(373, 22);
+            this.txtThemeName.TabIndex = 5;
+            this.txtThemeName.Text = "New Theme";
             // 
             // ThemeChooser
             // 
@@ -177,6 +177,6 @@
         private System.Windows.Forms.ListBox lbThemes;
         private OPMedia.UI.Controls.OPMLabel opmLabel1;
         private OPMedia.UI.Controls.OPMLabel opmLabel2;
-        private OPMedia.UI.Controls.OPMTextBox opmTextBox1;
+        private OPMedia.UI.Controls.OPMTextBox txtThemeName;
     }
 }

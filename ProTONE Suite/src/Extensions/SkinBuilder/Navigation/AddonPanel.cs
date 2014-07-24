@@ -26,6 +26,7 @@ using OPMedia.Runtime.Addons;
 using SkinBuilder.Properties;
 using OPMedia.UI.Themes;
 using System.Threading;
+using OPMedia.UI;
 
 namespace SkinBuilder.Navigation
 {
@@ -57,13 +58,15 @@ namespace SkinBuilder.Navigation
             ThemeFile = 0,
             Theme,
             ColorThemeElement,
-            NumericThemeElement
+            NumericThemeElement,
+            StringThemeElement,
         }
 
         public AddonPanel()
         {
             InitializeComponent();
             this.HandleCreated += new EventHandler(AddonPanel_HandleCreated);
+            MainThread.MainWindow.FormClosing += new FormClosingEventHandler(AddonPanel_FormClosing);
 
             updateUiTimer = new System.Windows.Forms.Timer();
             updateUiTimer.Enabled = true;
@@ -80,6 +83,38 @@ namespace SkinBuilder.Navigation
             tvThemes.AfterSelect += new TreeViewEventHandler(tvThemes_AfterSelect);
 
             EventDispatch.DispatchEvent(EventNames.SetMainStatusBar, null, null);
+        }
+
+        void AddonPanel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
+            if (_themeFile == null || _themeFile.IsModified == false)
+                return;
+
+            DialogResult dlgRes = MessageDisplay.QueryWithCancel(
+                "The theme file has been modified.\nDo you want to save the changes before exiting ?", 
+                "Confirm saving");
+
+            switch (dlgRes)
+            {
+                case DialogResult.Yes:
+                    {
+                        if (_themeFile.IsSaved)
+                            e.Cancel = SaveThemeFileNoDialog() == false;
+                        else
+                            // New theme, never saved before.
+                            e.Cancel = SaveThemeFileWithDialog() == false;
+                    }
+                    break;
+
+                case DialogResult.No:
+                    e.Cancel = false;
+                    break;
+
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+            }
         }
 
         void AddonPanel_HandleCreated(object sender, EventArgs e)
@@ -107,7 +142,7 @@ namespace SkinBuilder.Navigation
                 switch (args.cmd)
                 {
                     case OPMShortcut.CmdGenericNew:
-                        CreateNewTheme();
+                        CreateNewThemeFile();
                         args.Handled = true;
                         break;
 
@@ -179,7 +214,7 @@ namespace SkinBuilder.Navigation
             switch (action)
             {
                 case ToolAction.ToolActionNew:
-                    CreateNewTheme();
+                    CreateNewThemeFile();
                     break;
                 case ToolAction.ToolActionOpen:
                     OpenTheme();
@@ -189,21 +224,23 @@ namespace SkinBuilder.Navigation
                     if (_themeFile != null)
                     {
                         if (_themeFile.IsSaved)
-                            SaveThemeNoDialog();
+                            SaveThemeFileNoDialog();
                         else
                             // New theme, never saved before.
-                            SaveThemeWithDialog();
+                            SaveThemeFileWithDialog();
                     }
                     break;
 
                 case ToolAction.ToolActionSaveAs:
-                    SaveThemeWithDialog();
+                    SaveThemeFileWithDialog();
                     break;
 
                 case ToolAction.ToolActionNewTheme:
+                    CreateNewTheme();
                     break;
 
                 case ToolAction.ToolActionDeleteTheme:
+                    DeleteSelectedTheme();
                     break;
             }
         }
@@ -295,11 +332,10 @@ namespace SkinBuilder.Navigation
 
                     case ToolAction.ToolActionDeleteTheme:
                         BuildMenuText(btn, "TXT_DELETE_THEME", string.Empty, OPMShortcut.CmdOutOfRange);
-                        //TODO fix btn.Enabled = (_themeFile != null && tvThemes.SelectedItems.Count == 1);
+                        btn.Enabled = (_themeFile != null && GetSelectedThemeNode() != null);
                         break;
                 }
             }
-
         }
 
         private void BuildMenuText(ToolStripItem tsm, string tag, string param, OPMShortcut command)
@@ -369,7 +405,7 @@ namespace SkinBuilder.Navigation
 
             if (File.Exists(fileName))
             {
-                LoadTheme(fileName);
+                LoadThemeFile(fileName);
             }
             else
             {
@@ -389,7 +425,7 @@ namespace SkinBuilder.Navigation
             }
         }
 
-        private void LoadTheme(string themeFile)
+        private void LoadThemeFile(string themeFile)
         {
             try
             {
@@ -403,7 +439,7 @@ namespace SkinBuilder.Navigation
             }
         }
 
-        private void CreateNewTheme()
+        private void CreateNewThemeFile()
         {
             try
             {
@@ -417,7 +453,7 @@ namespace SkinBuilder.Navigation
             }
         }
 
-        private void SaveThemeWithDialog()
+        private bool SaveThemeFileWithDialog()
         {
             if (_themeFile != null)
             {
@@ -433,20 +469,36 @@ namespace SkinBuilder.Navigation
 
                     string ext = PathUtils.GetExtension(dlg.FileName);
 
-                    Save(dlg.FileName);
+                    SaveThemeFile(dlg.FileName);
 
                     DisplayThemeFile();
+
+                    return true;
                 }
             }
+
+            return false;
         }
 
-        private void SaveThemeNoDialog()
+        private bool SaveThemeFileNoDialog()
         {
             if (_themeFile != null)
-                Save(_themeFile.FileName);
+            {
+                SaveThemeFile(_themeFile.FileName);
+
+                if (_themeFile.IsModified == false)
+                {
+                    if (tvThemes.Nodes[0].Text.StartsWith("[*] ") == false)
+                        tvThemes.Nodes[0].Text = tvThemes.Nodes[0].Text.Replace("[*] ", "");
+                }
+
+                return true;
+            }
+
+            return false;
         }
 
-        private void Save(string themeFile)
+        private void SaveThemeFile(string themeFile)
         {
             if (_themeFile != null)
             {
@@ -478,9 +530,14 @@ namespace SkinBuilder.Navigation
                 _il.Images.Add(Resources.ThemeNode);
                 _il.Images.Add(Resources.ColorNode);
                 _il.Images.Add(Resources.NumericNode);
+                _il.Images.Add(Resources.StringNode);
 
                 TreeNode themeFileNode = new TreeNode();
-                themeFileNode.Text = _themeFile.FileName;
+                if (_themeFile.IsModified)
+                    themeFileNode.Text += "[*]" + _themeFile.FileName;
+                else
+                    themeFileNode.Text = _themeFile.FileName;
+
                 themeFileNode.ImageIndex = themeFileNode.SelectedImageIndex = (int)NodeIndexes.ThemeFile;
                 themeFileNode.Tag = _themeFile;
                 themeFileNode.NodeFont = ThemeManager.NormalBoldFont;
@@ -521,7 +578,11 @@ namespace SkinBuilder.Navigation
                                 else
                                 {
                                     themeElementNode.ForeColor = ThemeManager.HighlightColor;
-                                    themeElementNode.ImageIndex = themeElementNode.SelectedImageIndex = (int)NodeIndexes.NumericThemeElement;
+
+                                    int x = 0;
+                                    bool isNumeric = int.TryParse(themeElement.Value, out x);
+                                    themeElementNode.ImageIndex = themeElementNode.SelectedImageIndex =
+                                        isNumeric ? (int)NodeIndexes.NumericThemeElement : (int)NodeIndexes.StringThemeElement;
                                 }
 
                                 themeNode.Nodes.Add(themeElementNode);
@@ -533,35 +594,41 @@ namespace SkinBuilder.Navigation
                 }
 
                 tvThemes.Nodes.Add(themeFileNode);
+                themeFileNode.Expand();
             }
         }
 
         public override void Reload(object target)
         {
-            try
+            if (_themeFile != null)
             {
-                NavigationReloadArguments args = target as NavigationReloadArguments;
-                if (args != null && args.OldThemeName.Length > 0)
+                _themeFile.IsModified = true;
+
+                if (tvThemes.Nodes[0].Text.StartsWith("[*] ") == false)
+                    tvThemes.Nodes[0].Text = "[*] " + tvThemes.Nodes[0].Text;
+
+                try
                 {
-                    if (args.OldThemeElementName.Length > 0)
+                    NavigationReloadArguments args = target as NavigationReloadArguments;
+                    if (args != null && args.OldThemeName.Length > 0)
                     {
-                        TreeNode tn = FindThemeElementNode(args.OldThemeName, args.OldThemeElementName);
-                        if (tn != null)
+                        if (args.OldThemeElementName.Length > 0)
                         {
-                            // Some action was done on a theme element.
-                            if (args.OldThemeElementName != args.NewThemeElementName)
+                            TreeNode tn = FindThemeElementNode(args.OldThemeName, args.OldThemeElementName);
+                            if (tn != null)
                             {
-                                // The theme element was renamed.
-                                tn.Text = args.NewThemeElementName;
-                            }
-                            else
-                            {
-                                // The value of the theme element was changed.
+                                // Some action was done on a theme element.
+                                if (args.OldThemeElementName != args.NewThemeElementName)
+                                {
+                                    // The theme element was renamed.
+                                    tn.Text = args.NewThemeElementName;
+                                }
+
+                                string value = _themeFile.Themes[args.NewThemeName].ThemeElements[args.NewThemeElementName];
                                 bool isColorNode = args.NewThemeElementName.ToLowerInvariant().Contains("color");
                                 if (isColorNode)
                                 {
                                     tn.ForeColor = ThemeManager.ForeColor;
-                                    string value = _themeFile.Themes[args.OldThemeName].ThemeElements[args.NewThemeElementName];
 
                                     Color c = (Color)cc.ConvertFromInvariantString(value);
                                     Bitmap bmp = CreateColorBitmap(c);
@@ -576,33 +643,37 @@ namespace SkinBuilder.Navigation
                                 else
                                 {
                                     tn.ForeColor = ThemeManager.HighlightColor;
-                                    tn.ImageIndex = tn.SelectedImageIndex = (int)NodeIndexes.NumericThemeElement;
                                     tn.Text = args.NewThemeElementName;
+
+                                    int x = 0;
+                                    bool isNumeric = int.TryParse(value, out x);
+                                    tn.ImageIndex = tn.SelectedImageIndex =
+                                        isNumeric ? (int)NodeIndexes.NumericThemeElement : (int)NodeIndexes.StringThemeElement;
                                 }
+
+                                tn.Tag = new KeyValuePair<string, string>(args.NewThemeElementName,
+                                    _themeFile.Themes[args.OldThemeName].ThemeElements[args.NewThemeElementName]);
                             }
-
-                            tn.Tag = new KeyValuePair<string, string>(args.NewThemeElementName,
-                                _themeFile.Themes[args.OldThemeName].ThemeElements[args.NewThemeElementName]);
                         }
-                    }
-                    else if (args.OldThemeName != args.NewThemeName)
-                    {
-                        // The theme was renamed.
-                        TreeNode tn = FindThemeNode(args.OldThemeName);
-                        if (tn != null)
+                        else if (args.OldThemeName != args.NewThemeName)
                         {
-                            tn.Text = args.NewThemeName;
-                            tn.Tag = new KeyValuePair<string, Theme>(args.NewThemeName, _themeFile.Themes[args.NewThemeName]);
+                            // The theme was renamed.
+                            TreeNode tn = FindThemeNode(args.OldThemeName);
+                            if (tn != null)
+                            {
+                                tn.Text = args.NewThemeName;
+                                tn.Tag = new KeyValuePair<string, Theme>(args.NewThemeName, _themeFile.Themes[args.NewThemeName]);
+                            }
                         }
                     }
-                }
 
-                tvThemes.Invalidate();
-            }
-            catch (Exception ex)
-            {
-                ErrorDispatcher.DispatchException(ex);
-                DisplayThemeFile();
+                    tvThemes.Invalidate();
+                }
+                catch (Exception ex)
+                {
+                    ErrorDispatcher.DispatchException(ex);
+                    DisplayThemeFile();
+                }
             }
         }
 
@@ -613,7 +684,16 @@ namespace SkinBuilder.Navigation
             {
                 foreach (TreeNode tn in themeNode.Nodes)
                 {
-                    if (tn.Text.StartsWith(themeElementName))
+                    string textToLookup = tn.Text;
+
+                    int i1 = textToLookup.IndexOf('[');
+                    int i2 = textToLookup.IndexOf(']');
+                    if (i1 > 1 && i2 > i1)
+                    {
+                        textToLookup = textToLookup.Substring(0, i1 - 1);
+                    }
+
+                    if (textToLookup == themeElementName)
                         return tn;
                 }
             }
@@ -670,7 +750,44 @@ namespace SkinBuilder.Navigation
             RaiseNavigationAction(NavActionType.ActionSelectFile, paths, args);
         }
 
-        
+        private TreeNode GetSelectedThemeNode()
+        {
+            if (tvThemes.SelectedNode != null)
+            {
+                if (tvThemes.SelectedNode.Tag is KeyValuePair<string, Theme>)
+                    return tvThemes.SelectedNode;
+
+                if (tvThemes.SelectedNode.Tag is KeyValuePair<string, string> &&
+                    tvThemes.SelectedNode.Parent != null &&
+                    tvThemes.SelectedNode.Parent.Tag is KeyValuePair<string, Theme>)
+                    return tvThemes.SelectedNode.Parent;
+            }
+
+            return null;
+        }
+
+        private void CreateNewTheme()
+        {
+            ThemeChooser dlg = new ThemeChooser();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                _themeFile.AddNewTheme(dlg.NewThemeName, dlg.TemplateThemeName, false);
+                DisplayThemeFile();
+            }
+        }
+
+        private void DeleteSelectedTheme()
+        {
+            TreeNode themeNode = GetSelectedThemeNode();
+            if (themeNode != null &&
+                themeNode.Tag is KeyValuePair<string, Theme> &&
+                (MessageDisplay.Query("Are you sure you want to delete the selected theme ?\nYou will not be able to undo this rmeoval !",
+                "Confirm theme deletion") == DialogResult.Yes))
+            {
+                _themeFile.DeleteTheme(((KeyValuePair<string, Theme>)themeNode.Tag).Key);
+                DisplayThemeFile();
+            }
+        }
     }
 
     internal class NavigationReloadArguments
