@@ -57,6 +57,8 @@ namespace SkinBuilder.Property
             {
                 _raiseEvents = false;
 
+                lblIsDefault.Visible = chkIsDefault.Visible = false;
+
                 pnlThemeProperties.Controls.Clear();
                 pnlThemeProperties.RowStyles.Clear();
 
@@ -111,6 +113,9 @@ namespace SkinBuilder.Property
         {
             lblNodeName.Text = "Theme name:";
             txtNodeName.Text = themePair.Key;
+
+            lblIsDefault.Visible = chkIsDefault.Visible = true;
+            chkIsDefault.Checked = themePair.Value.IsDefault;
         }
 
         private void DisplayThemeElementProperties(KeyValuePair<string, string> themeElementPair)
@@ -231,6 +236,14 @@ namespace SkinBuilder.Property
                 }
 
                 base.Modified = false;
+            }
+        }
+
+        private void chkIsDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_raiseEvents && _themeFile != null)
+            {
+                _themeFile.SetDefaultTheme(_editedThemeName);
             }
         }
     }
