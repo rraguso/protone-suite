@@ -2,8 +2,8 @@
 using System.Windows.Forms;
 using OPMedia.Core.Logging;
 using OPMedia.Core.TranslationSupport;
-using OPMedia.Core.ApplicationSettings;
 using OPMedia.Core;
+using OPMedia.Core.Configuration;
 
 namespace WindowsFormsApplication1
 {
@@ -23,10 +23,10 @@ namespace WindowsFormsApplication1
                 LoggedApplication.Start("SampleAddonApplication");
 
                 Translator.RegisterTranslationAssembly(typeof(MainForm).Assembly);
-                Translator.SetInterfaceLanguage(SuiteConfiguration.LanguageID);
+                Translator.SetInterfaceLanguage(AppConfig.LanguageID);
                 Application.Run(new MainForm());
 
-                AppSettings.Save();
+                AppConfig.Save();
             }
             catch (Exception ex)
             {

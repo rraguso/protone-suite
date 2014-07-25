@@ -71,45 +71,25 @@ Name: en; MessagesFile: compiler:Default.isl
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
-Source: {#BINDIR}\Themes\Themes.xml; DestDir: {app}\DLL\Themes
+Source: {#BINDIR}\Themes\Themes.thm; DestDir: {app}\DLL\Themes
 
-Source: {#BINDIR}\ICSharpCode.SharpZipLib.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\XmlRpc.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\taglib-sharp.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\OPMedia.Core.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\OPMedia.Utility.exe; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\OPMedia.Runtime.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.Runtime.ProTONE.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\OPMedia.UI.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\OPMedia.UI.ProTONE.dll; DestDir: {app}\DLL; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\player.ico; DestDir: {app}\DLL\Resources; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\bookmark.ico; DestDir: {app}\DLL\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\AudioFile.ico; DestDir: {app}\DLL\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\VideoFile.ico; DestDir: {app}\DLL\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\Playlist.ico; DestDir: {app}\DLL\Resources; Flags: promptifolder uninsremovereadonly replacesameversion uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\Resources\Subtitle.ico; DestDir: {app}\DLL\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\ro\OPMedia.ProTONE.resources.dll; DestDir: {app}\DLL\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\ro\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\DLL\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\ro\OPMedia.UI.resources.dll; DestDir: {app}\DLL\ro\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\ro\OPMedia.Utility.resources.dll; DestDir: {app}\DLL\ro; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\de\OPMedia.ProTONE.resources.dll; DestDir: {app}\DLL\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\de\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\DLL\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\de\OPMedia.UI.resources.dll; DestDir: {app}\DLL\de\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\de\OPMedia.Utility.resources.dll; DestDir: {app}\DLL\de; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\fr\OPMedia.ProTONE.resources.dll; DestDir: {app}\DLL\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
-Source: {#BINDIR}\fr\OPMedia.UI.ProTONE.resources.dll; DestDir: {app}\DLL\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\fr\OPMedia.UI.resources.dll; DestDir: {app}\DLL\fr\; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\fr\OPMedia.Utility.resources.dll; DestDir: {app}\DLL\fr; Flags: replacesameversion uninsremovereadonly promptifolder uninsrestartdelete touch restartreplace
 Source: {#BINDIR}\OPMedia.Runtime.Addons.dll; DestDir: {app}\DLL; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\Resources\catalog.ico; DestDir: {app}\DLL\Resources\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
 Source: {#BINDIR}\ro\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\DLL\ro\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
 Source: {#BINDIR}\de\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\DLL\de\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
 Source: {#BINDIR}\fr\OPMedia.Runtime.Addons.resources.dll; DestDir: {app}\DLL\fr\; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\IRSerDev.dll; DestDir: {app}\DLL; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\IRSerDev.h; DestDir: {app}\DLL; Flags: uninsremovereadonly promptifolder uninsrestartdelete touch replacesameversion restartreplace
-Source: {#BINDIR}\Templates\Catalog\Default Catalog; DestDir: {app}\DLL\Templates\Catalog; Flags: uninsrestartdelete promptifolder uninsremovereadonly touch replacesameversion restartreplace
+
 Source: {#EXTDIR}\TranslationEditor.exe; DestDir: {app}\Tools\TranslationEditor
-Source: {#EXTDIR}\GenerateDbmlFromSdf.dll; DestDir: {app}\VS2010\
+
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\AddonPanel.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\AddonPanel.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddon\Navigation\AddonPanel.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddon\Navigation
@@ -131,12 +111,23 @@ Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properti
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properties\Resources.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Properties
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Translations\Translation.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Translations
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Translations\Translation.resx; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Translations
-Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\DefaultAddons.config; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\MainForm.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\MainForm.Designer.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Program.cs; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\SampleAddonApplication.csproj; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
 Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication.sln; DestDir: {app}\SDKSamples\SampleAddonApplication
+
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\DefaultAddons.SampleAddonApplication.config; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication
+Source: ..\SDK\SDKSamples\SampleAddonApplication\SampleAddonApplication\Themes\Themes.thm; DestDir: {app}\SDKSamples\SampleAddonApplication\SampleAddonApplication\Themes
+
+Source: {#BINDIR}\OPMedia.SkinBuilder.exe; DestDir: {app}\Tools\SkinBuilder
+Source: {#BINDIR}\OPMedia.Core.dll; DestDir: {app}\Tools\SkinBuilder
+Source: {#BINDIR}\OPMedia.Runtime.Addons.dll; DestDir: {app}\Tools\SkinBuilder
+Source: {#BINDIR}\OPMedia.Runtime.dll; DestDir: {app}\Tools\SkinBuilder
+Source: {#BINDIR}\OPMedia.UI.dll; DestDir: {app}\Tools\SkinBuilder
+Source: {#BINDIR}\SkinBuilder.dll; DestDir: {app}\Tools\SkinBuilder
+Source: {#BINDIR}\DefaultAddons.OPMedia.SkinBuilder.config; DestDir: {app}\Tools\SkinBuilder
+Source: {#BINDIR}\Themes\Themes.thm; DestDir: {app}\Tools\SkinBuilder\Themes
 
 [Icons]
 
@@ -150,16 +141,13 @@ Name: default; Description: default; Flags: iscustom
 Name: {app}\DLL\ro; Flags: uninsalwaysuninstall
 Name: {app}\DLL\de; Flags: uninsalwaysuninstall
 Name: {app}\DLL\fr; Flags: uninsalwaysuninstall
-Name: {app}\DLL\Resources; Flags: uninsalwaysuninstall
 Name: {app}\DLL\Themes; Flags: uninsalwaysuninstall
-Name: {app}\DLL\Templates
-Name: {app}\DLL\Templates\Catalog
 Name: {app}\Tools
-Name: {app}\VS2010
+Name: {app}\Tools\SkinBuilder
+Name: {app}\Tools\SkinBuilder\Themes
 Name: {app}\SDKSamples
 
 [Run]
-;Filename: {app}\DLL\OPMedia.MediaLibrary.exe; Parameters: ConfigAddons {language}; WorkingDir: {app}\DLL; StatusMsg: {cm:cfgMediaLibrary}; Flags: hidewizard runascurrentuser; Components: itemPlayer\itemLibrary
 
 [UninstallRun]
 
@@ -168,4 +156,3 @@ Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: InstallLanguageID
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: DownloadUriBase; ValueData: https://protone-suite.googlecode.com/svn/publish/1.10; Flags: noerror uninsdeletevalue createvalueifdoesntexist
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: string; ValueName: HelpUriBase; ValueData: http://protone-suite.googlecode.com/svn/wiki/ProTONE Suite - 1.10.x/; Flags: noerror uninsdeletevalue createvalueifdoesntexist
 Root: HKLM; Subkey: {#REGENTRY}; ValueType: dword; ValueName: UseOnlineDocumentation; ValueData: 1; Flags: noerror uninsdeletevalue createvalueifdoesntexist
-; Components: itemCodecs\itemFFDShow

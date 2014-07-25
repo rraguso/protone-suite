@@ -263,7 +263,7 @@ namespace OPMedia.Runtime.Addons
             switch (args.cmd)
             {
                 case OPMShortcut.CmdOpenSettings:
-                    if (ApplicationInfo.IsSuiteApplication)
+                    if (ApplicationInfo.IsSuiteApplication == false)
                     {
                         AddonAppSettingsForm.Show();
                         args.Handled = true;
