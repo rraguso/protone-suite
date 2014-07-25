@@ -20,6 +20,7 @@ using OPMedia.UI.Controls;
 using TagLib;
 using System.Threading;
 using OPMedia.Runtime.ProTONE.Configuration;
+using WF = System.Windows.Forms;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
 {
@@ -27,9 +28,9 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
     {
         ImageList ilSelection = new ImageList();
 
-        OPMTextBox tbEditArtist = new OPMTextBox();
-        OPMTextBox tbEditAlbum = new OPMTextBox();
-        OPMTextBox tbEditTitle = new OPMTextBox();
+        WF.TextBox tbEditArtist = new WF.TextBox();
+        WF.TextBox tbEditAlbum = new WF.TextBox();
+        WF.TextBox tbEditTitle = new WF.TextBox();
         OPMComboBox cmbEditgenre = new OPMComboBox();
 
         public override Size DesiredSize
