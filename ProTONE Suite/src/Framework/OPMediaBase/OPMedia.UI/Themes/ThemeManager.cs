@@ -513,21 +513,24 @@ namespace OPMedia.UI.Themes
 
         static void OnFileChanged(object sender, FileSystemEventArgs e)
         {
-            string themeFile = Path.Combine(AppConfig.InstallationPath, "Themes\\Themes.thm");
-            if (e.ChangeType == WatcherChangeTypes.Changed && e.FullPath == themeFile)
+            if (AppConfig.AllowRealtimeGUISetup)
             {
-                Logger.LogInfo("Theme file changed. Reloading themes ...");
-
-                lock (_loadThemeLock)
+                string themeFile = Path.Combine(AppConfig.InstallationPath, "Themes\\Themes.thm");
+                if (e.ChangeType == WatcherChangeTypes.Changed && e.FullPath == themeFile)
                 {
-                    string themeBefore = AppConfig.SkinType;
-                    Thread.Sleep(200);
-                    InitThemeElements();
-                    AppConfig.SkinType = _defaultTheme;
-                    AppConfig.SkinType = themeBefore;
+                    Logger.LogInfo("Theme file changed. Reloading themes ...");
+
+                    lock (_loadThemeLock)
+                    {
+                        string themeBefore = AppConfig.SkinType;
+                        Thread.Sleep(200);
+                        InitThemeElements();
+                        AppConfig.SkinType = _defaultTheme;
+                        AppConfig.SkinType = themeBefore;
+                    }
+
+                    Logger.LogInfo("Themes reloaded succesfully.");
                 }
-                
-                Logger.LogInfo("Themes reloaded succesfully.");
             }
         }
 
@@ -603,7 +606,7 @@ namespace OPMedia.UI.Themes
         {
             lock (_loadThemeLock)
             {
-                string currentTheme = AppConfig.SkinType;
+                string currentTheme = AppConfig.AllowRealtimeGUISetup ? AppConfig.SkinType : "Black";
                 string elementValue = defaultValue;
 
                 if (_allThemesElements == null)

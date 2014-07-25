@@ -42,6 +42,8 @@ namespace OPMedia.UI.Configuration
             this.Title= "TXT_S_GENERALSETTINGS";
             InitializeComponent();
 
+            bool allowGUISetup = AppConfig.AllowRealtimeGUISetup;
+
             #region Languages
 
             foreach (CultureInfo ci in AppConfig.SupportedCultures)
@@ -59,6 +61,10 @@ namespace OPMedia.UI.Configuration
                 }
             }
             this.cmbLanguages.SelectedIndexChanged += new System.EventHandler(this.OnSettingsChanged);
+
+            lblSetLanguage.Visible = allowGUISetup;
+            cmbLanguages.Visible = allowGUISetup;
+
             #endregion
 
             #region Themes
@@ -67,8 +73,8 @@ namespace OPMedia.UI.Configuration
             cmbThemes.SelectedItem = AppConfig.SkinType;
             _initialSkinType = AppConfig.SkinType;
 
-            lblSetSkin.Visible = (cmbThemes.Items.Count > 1) ;
-            cmbThemes.Visible = (cmbThemes.Items.Count > 1);
+            lblSetSkin.Visible = (allowGUISetup && cmbThemes.Items.Count > 1);
+            cmbThemes.Visible = (allowGUISetup && cmbThemes.Items.Count > 1);
 
             this.cmbThemes.SelectedIndexChanged += new System.EventHandler(this.OnThemeChanged);
             #endregion
@@ -83,6 +89,9 @@ namespace OPMedia.UI.Configuration
 
             chkAllowAutoUpdates.Checked = AppConfig.AllowAutomaticUpdates;
             this.chkAllowAutoUpdates.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
+
+            chkAllowAutoUpdates.Visible = allowGUISetup;
+            btnCheckUpdates.Visible = allowGUISetup;
         }
 
         [EventSink(EventNames.PerformTranslation)]

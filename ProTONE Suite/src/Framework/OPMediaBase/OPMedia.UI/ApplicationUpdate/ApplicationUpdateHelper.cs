@@ -29,7 +29,7 @@ namespace OPMedia.UI.ApplicationUpdate
         {
             EventDispatch.RegisterHandler(this);
 
-            if (AppConfig.AllowAutomaticUpdates)
+            if (AppConfig.AllowRealtimeGUISetup && AppConfig.AllowAutomaticUpdates)
             {
                 ThreadPool.QueueUserWorkItem(new WaitCallback(DetectUpdates), true);
             }

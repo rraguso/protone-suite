@@ -45,6 +45,8 @@ namespace OPMedia.SkinBuilder
                     }
                 }
 
+                AppConfig.AllowRealtimeGUISetup = false;
+
                 Translator.RegisterTranslationAssembly(typeof(SkinBuilderForm).Assembly);
                 Translator.SetInterfaceLanguage("en"); // Only English
                 Application.Run(new SkinBuilderForm());

@@ -20,6 +20,7 @@ using System.Collections;
 using System.Collections.Generic;
 using OPMedia.Core;
 using OPMedia.Core.Utilities;
+using OPMedia.Core.Configuration;
 #endregion
 
 namespace OPMedia.Core.TranslationSupport
@@ -182,6 +183,11 @@ namespace OPMedia.Core.TranslationSupport
         /// <param name="languageId">The language id.</param>
         public static void SetInterfaceLanguage(string languageId)
         {
+            if (AppConfig.AllowRealtimeGUISetup == false)
+            {
+                languageId = "en";
+            }
+
             Logger.LogTrace("SetInterfaceLanguage: Requested UI language is: {0}", languageId);
 
             try
