@@ -115,13 +115,13 @@ namespace OPMedia.UI.Controls
                 {
                     c1 = ThemeManager.GradientFocusHoverColor1;
                     cb = ThemeManager.FocusBorderColor;
-                    pw = 2;
+                    //pw = 2;
                 }
                 else if (Focused)
                 {
                     c1 = ThemeManager.GradientFocusColor1;
                     cb = ThemeManager.FocusBorderColor;
-                    pw = 2;
+                    //pw = 2;
                 }
                 else
                 {

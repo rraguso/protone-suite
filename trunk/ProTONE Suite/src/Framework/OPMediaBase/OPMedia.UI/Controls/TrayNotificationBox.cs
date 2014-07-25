@@ -298,7 +298,8 @@ namespace OPMedia.UI.Controls
             e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             using (LinearGradientBrush b = new LinearGradientBrush(ClientRectangle,
-                ThemeManager.GradientFocusColor1, ThemeManager.GradientFocusColor2, 90))
+                ControlPaint.Light(ThemeManager.GradientNormalColor1),
+                    ControlPaint.Light(ThemeManager.GradientNormalColor2), 90))
             {
                 e.Graphics.FillRectangle(b, ClientRectangle);
             }

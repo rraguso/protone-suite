@@ -790,7 +790,7 @@ namespace OPMedia.UI.Themes
                 case ButtonIcons.MinimizeHovered:
                     letter = "0";
                     cl1 = ControlPaint.Light(cl1, percLight);
-                    cl2 = ThemeManager.WndValidColor;
+                    cl2 = ControlPaint.Light(cl2, percLight);
                     clText = ThemeManager.WndTextColor;
                     break;
 
@@ -801,7 +801,7 @@ namespace OPMedia.UI.Themes
                 case ButtonIcons.MaximizeHovered:
                     letter = "1";
                     cl1 = ControlPaint.Light(cl1, percLight);
-                    cl2 = ThemeManager.WndValidColor;
+                    cl2 = ControlPaint.Light(cl2, percLight);
                     clText = ThemeManager.WndTextColor;
                     break;
                 
@@ -812,7 +812,7 @@ namespace OPMedia.UI.Themes
                 case ButtonIcons.RestoreHovered:
                     letter = "2";
                     cl1 = ControlPaint.Light(cl1, percLight);
-                    cl2 = ThemeManager.WndValidColor;
+                    cl2 = ControlPaint.Light(cl2, percLight);
                     clText = ThemeManager.WndTextColor;
                     break;
 
