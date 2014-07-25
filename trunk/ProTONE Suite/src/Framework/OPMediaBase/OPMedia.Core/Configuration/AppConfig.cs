@@ -158,44 +158,88 @@ namespace OPMedia.Core.Configuration
 
         static void OnReadRegistry(object sender, EventArgs e)
         {
-            lock (_languageSyncRoot)
+            if (DetectRegistryChanges)
             {
-                try
+                lock (_languageSyncRoot)
                 {
-                    _tmrReadRegistry.Stop();
-
-                    using (RegistryKey key = Registry.CurrentUser.Emu_OpenSubKey(ConfigRegPath))
+                    try
                     {
-                        if (key != null)
-                        {
-                            string langId = key.GetValue("LanguageID", InstallLanguageID) as string;
-                            if (langId != _languageId)
-                            {
-                                _languageId = langId;
-                                Translator.SetInterfaceLanguage(_languageId);
-                            }
+                        _tmrReadRegistry.Stop();
 
-                            string skinType = key.GetValue("SkinType", string.Empty) as string;
-                            if (skinType != _skinType)
+                        using (RegistryKey key = Registry.CurrentUser.Emu_OpenSubKey(ConfigRegPath))
+                        {
+                            if (key != null)
                             {
-                                _skinType = skinType;
-                                EventDispatch.DispatchEvent(EventNames.ThemeUpdated);
+                                string langId = key.GetValue("LanguageID", InstallLanguageID) as string;
+                                if (langId != _languageId)
+                                {
+                                    _languageId = langId;
+                                    Translator.SetInterfaceLanguage(_languageId);
+                                }
+
+                                string skinType = key.GetValue("SkinType", string.Empty) as string;
+                                if (skinType != _skinType)
+                                {
+                                    _skinType = skinType;
+                                    EventDispatch.DispatchEvent(EventNames.ThemeUpdated);
+                                }
                             }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogException(ex);
-                }
-                finally
-                {
-                    _tmrReadRegistry.Start();
+                    catch (Exception ex)
+                    {
+                        Logger.LogException(ex);
+                    }
+                    finally
+                    {
+                        _tmrReadRegistry.Start();
+                    }
                 }
             }
         }
 
         #region Generic Purpose API (Level 0 settings)
+
+        private static bool _allowGUISetup = true;
+        private static object _allowGUISetupLock = new object();
+        public static bool AllowRealtimeGUISetup
+        {
+            get
+            {
+                lock (_allowGUISetupLock)
+                {
+                    return _allowGUISetup;
+                }
+            }
+            set
+            {
+                lock (_allowGUISetupLock)
+                {
+                    _allowGUISetup = value;
+                    DetectRegistryChanges = value;
+                }
+            }
+        }
+
+        private static bool _detectRegistryChanges = true;
+        private static object _registryChangesLock = new object();
+        public static bool DetectRegistryChanges
+        { 
+            get 
+            {
+                lock (_registryChangesLock)
+                {
+                    return _detectRegistryChanges;
+                }
+            } 
+            set 
+            {
+                lock (_registryChangesLock)
+                {
+                    _detectRegistryChanges = value;
+                }
+            } 
+        }
 
         public static int OSVersion
         {
