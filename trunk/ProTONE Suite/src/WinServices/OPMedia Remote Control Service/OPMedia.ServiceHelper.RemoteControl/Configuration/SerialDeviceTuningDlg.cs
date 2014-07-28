@@ -14,7 +14,6 @@ namespace OPMedia.ServiceHelper.RCCService.Configuration
 {
     public partial class SerialDeviceTuningDlg : ToolForm
     {
-        protected SerialPort _port = null;
         protected SerialRemoteDeviceDriver _cfgData = null;
 
         public SerialRemoteDeviceDriver DeviceConfigurationData
@@ -23,10 +22,9 @@ namespace OPMedia.ServiceHelper.RCCService.Configuration
             set { _cfgData = value; }
         }
 
-        public SerialDeviceTuningDlg(SerialPort port, SerialRemoteDeviceDriver cfgData)
+        public SerialDeviceTuningDlg(SerialRemoteDeviceDriver cfgData)
         {
             _cfgData = cfgData;
-            _port = port;
 
             InitializeComponent();
 
@@ -41,7 +39,7 @@ namespace OPMedia.ServiceHelper.RCCService.Configuration
 
         void RemoteControlFineTuningDlg_Load(object sender, EventArgs e)
         {
-            base.SetTitle(Translator.TranslateTaggedString("TXT_SERIALDEVICE - " + _port.PortName));
+            base.SetTitle(Translator.TranslateTaggedString("TXT_SERIALDEVICE - " + _cfgData.ComPortName));
 
             _cfgData.SignalOutput -=
                 new SignalOutputCallbackDelegate(cfgData_SignalOutput);
@@ -49,7 +47,7 @@ namespace OPMedia.ServiceHelper.RCCService.Configuration
                 new SignalOutputCallbackDelegate(cfgData_SignalOutput);
 
             _cfgData.TrainMode = true;
-            _cfgData.Start(_port);
+            _cfgData.Start();
 
             Reload();
             cfgData_SignalOutput(long.MaxValue, 1.0f /* max erfc */);

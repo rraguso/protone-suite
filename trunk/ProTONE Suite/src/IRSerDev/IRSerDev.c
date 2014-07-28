@@ -22,8 +22,20 @@ enum DeviceErrorCodes
 
 DWORD WINAPI ReceiverThread( LPVOID lpParam );
 
-int __stdcall PortInit(LPCTSTR lpszPortName, DCB initDcb)
+int __stdcall PortInit(LPCTSTR lpszPortName)
 {
+	DCB initDcb;
+
+	memset(&initDcb, 0, sizeof(DCB));
+	initDcb.DCBlength = sizeof(DCB);
+	initDcb.BaudRate = 9600;	// 9600 Bauds
+	initDcb.ByteSize = 8;		// 8 Data Bits
+	initDcb.Parity = 0;			// No parity
+	initDcb.StopBits = 0;		// 1 Stop bit
+
+	initDcb.fRtsControl = 1;	// Mandatory to set to 1 for the Serial Remote device
+	initDcb.fDtrControl = 0;	// Mandatory to set to 0 for the Serial Remote device
+
     if(hPort)
     {
         SetCommMask(hPort,0);	// stop any waiting on the port

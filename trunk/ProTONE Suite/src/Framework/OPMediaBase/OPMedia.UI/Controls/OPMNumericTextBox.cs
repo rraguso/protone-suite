@@ -84,9 +84,10 @@ namespace OPMedia.UI.Controls
             this.numBase = numBase;
             // Auto convert to uppercase.
             this.CharacterCasing = CharacterCasing.Upper;
-            // Add event handler to filter the input.
-            this.KeyDown += new KeyEventHandler(OnKeyDown);
             this.MaxLength = 5;
+
+            // Add event handler to filter the input.
+            txtField.KeyDown += new KeyEventHandler(OnKeyDown);
         }
 
         /// <summary>
