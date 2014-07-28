@@ -59,9 +59,6 @@
     <Compile Include="Configuration\SerialDeviceCfgDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuration\SerialDeviceCfgPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Configuration\SerialDeviceTuningDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,9 +114,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\SerialDeviceCfgDlg.resx">
       <DependentUpon>SerialDeviceCfgDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\SerialDeviceCfgPanel.resx">
-      <DependentUpon>SerialDeviceCfgPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\SerialDeviceTuningDlg.resx">
       <DependentUpon>SerialDeviceTuningDlg.cs</DependentUpon>

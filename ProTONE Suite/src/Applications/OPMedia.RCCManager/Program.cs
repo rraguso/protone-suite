@@ -37,7 +37,7 @@ namespace OPMedia.RCCManager
                 Translator.SetInterfaceLanguage(AppConfig.LanguageID);
 
                 Translator.RegisterTranslationAssembly(typeof(MainForm).Assembly);
-                Translator.RegisterTranslationAssembly(typeof(SerialDeviceCfgPanel).Assembly);
+                Translator.RegisterTranslationAssembly(typeof(SerialDeviceCfgDlg).Assembly);
                 Translator.RegisterTranslationAssembly(typeof(MediaPlayer).Assembly);
 
                 LoggedApplication.Start(ProTONEConstants.RCCManagerName);

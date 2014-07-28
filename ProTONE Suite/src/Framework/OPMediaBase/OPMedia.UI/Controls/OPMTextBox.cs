@@ -2,45 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
 using OPMedia.UI.Themes;
+using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using OPMedia.UI.Generic;
-using OPMedia.Core;
-using OPMedia.UI.Controls;
-using System.Diagnostics;
-using OPMedia.Core.GlobalEvents;
 
 namespace OPMedia.UI.Controls
 {
-    public class OPMTextBox : TextBox
+    public class OPMTextBox : OPMBaseControl
     {
+        bool _isHovered = false;
+        bool _hasInput = false;
+        protected TextBox txtField;
+
         #region GUI Properties
 
-        #region Font Size
-
-        [ReadOnly(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public new Font Font { get { return base.Font; } }
-
-        FontSizes _fontSizes = FontSizes.Normal;
-        [DefaultValue(FontSizes.Normal)]
-        public FontSizes FontSize
-        {
-            get { return _fontSizes; }
-            set
-            {
-                ThemeManager.SetFont(this, value);
-                _fontSizes = value;
-
-                Invalidate(true);
-            }
-        }
-        #endregion
 
         #region Override settings
 
@@ -68,116 +46,196 @@ namespace OPMedia.UI.Controls
 
         #endregion
 
-        [ReadOnly(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public new BorderStyle BorderStyle
-        { get { return base.BorderStyle; } }
+        #region TextBoxBase-like properties
 
-        static Timer _tmrApplyColor = null;
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [DefaultValue("")]
+        public new string Text
+        {
+            get { return txtField.Text; }
+            set { txtField.Text = value; }
+        }
 
-        public bool IsHovered { get; private set; }
+        public CharacterCasing CharacterCasing
+        {
+            get { return txtField.CharacterCasing; }
+            set { txtField.CharacterCasing = value; }
+        }
+
+        public int MaxLength
+        {
+            get { return txtField.MaxLength; }
+            set { txtField.MaxLength = value; }
+        }
+
+        public bool ShortcutsEnabled
+        {
+            get { return txtField.ShortcutsEnabled; }
+            set { txtField.ShortcutsEnabled = value; }
+        }
+
+        public char PasswordChar
+        {
+            get { return txtField.PasswordChar; }
+            set { txtField.PasswordChar = value; }
+        }
+
+        public new Color BackColor
+        {
+            get { return txtField.BackColor; }
+            set { txtField.BackColor = value; }
+        }
+
+        public bool UseSystemPasswordChar
+        {
+            get { return txtField.UseSystemPasswordChar; }
+            set { txtField.UseSystemPasswordChar = value; }
+        }
+
+        public ScrollBars ScrollBars
+        {
+            get { return txtField.ScrollBars; }
+            set { txtField.ScrollBars = value; }
+        }
+
+        public bool WordWrap
+        {
+            get { return txtField.WordWrap; }
+            set { txtField.WordWrap = value; }
+        }
+
+        public bool Multiline
+        {
+            get { return txtField.Multiline; }
+            set 
+            { 
+                txtField.Multiline = value;
+                this.MaximumSize = value ? new Size(0, 0) : new Size(2000, 20);
+                this.MinimumSize = value ? new Size(0, 0) : new Size(20, 20);
+            }
+        }
+
+        public bool ReadOnly
+        {
+            get { return txtField.ReadOnly; }
+            set { txtField.ReadOnly = value; }
+        }
+
+        public HorizontalAlignment TextAlign
+        {
+            get { return txtField.TextAlign; }
+            set { txtField.TextAlign = value; }
+        }
+
+        #endregion
 
         public OPMTextBox()
             : base()
         {
-            base.BorderStyle = BorderStyle.FixedSingle;
-            //base.TextAlign = HorizontalAlignment.Left;
-            //base.Multiline = true;
+            InitializeComponent();
+            OnThemeUpdatedInternal();
 
-            if (_tmrApplyColor == null)
-            {
-                _tmrApplyColor = new Timer();
-                _tmrApplyColor.Interval = 100;
-                _tmrApplyColor.Tick += new EventHandler(_tmrApplyColor_Tick);
-                _tmrApplyColor.Start();
-            }
-
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            this.DoubleBuffered = true;
-            this.FontSize = FontSizes.Normal;
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 
-            this.HandleDestroyed += new EventHandler(OPMTextBox_HandleDestroyed);
+            txtField.MouseEnter += new EventHandler(OnMouseEnter);
+            txtField.MouseLeave += new EventHandler(OnMouseLeave);
 
-            this.MouseEnter += new EventHandler(OnMouseEnter);
-            this.MouseLeave += new EventHandler(OnMouseLeave);
-            this.Enter += new EventHandler(OnEnter);
-            this.Leave += new EventHandler(OnLeave);
-        
-            this.HandleCreated += new EventHandler(OPMTextBox_HandleCreated);
-            this.EnabledChanged += new EventHandler(OPMTextBox_EnabledChanged);
+            txtField.Enter += new EventHandler(txtField_Enter);
+            txtField.Leave += new EventHandler(txtField_Leave);
         }
 
-        void OPMTextBox_EnabledChanged(object sender, EventArgs e)
+        void txtField_Leave(object sender, EventArgs e)
         {
-            SetColors();
-        }
-
-        void OPMTextBox_HandleCreated(object sender, EventArgs e)
-        {
-            SetColors();
-        }
-
-        void OnLeave(object sender, EventArgs e)
-        {
-            //_isHovered = false;
+            _hasInput = false;
             Invalidate(true);
         }
-        void OnEnter(object sender, EventArgs e)
+
+        void txtField_Enter(object sender, EventArgs e)
         {
-            //_isHovered = false;
+            _hasInput = true;
             Invalidate(true);
         }
 
         void OnMouseLeave(object sender, EventArgs e)
         {
-            IsHovered = false;
+            _isHovered = false;
             Invalidate(true);
         }
 
         void OnMouseEnter(object sender, EventArgs e)
         {
-            IsHovered = Enabled;
+            _isHovered = Enabled;
             Invalidate(true);
         }
 
-        void OPMTextBox_HandleDestroyed(object sender, EventArgs e)
+        protected override void OnThemeUpdatedInternal()
         {
-            _tmrApplyColor.Tick -= new EventHandler(_tmrApplyColor_Tick);
+            txtField.BackColor = ThemeManager.WndValidColor;
+            txtField.ForeColor = GetForeColor();
         }
 
-        void _tmrApplyColor_Tick(object sender, EventArgs e)
+        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
         {
-            SetColors();
-        }
+            Color cWnd = Color.Empty, cb = Color.Empty;
 
-        Rectangle GetFormattingRectangle()
-        {
-            Rectangle rc = Rectangle.Empty;
+            cWnd = Enabled ? ThemeManager.WndValidColor : ThemeManager.BackColor;
+            cb = Enabled ? ThemeManager.BorderColor : ThemeManager.GradientNormalColor2;
+            int pw = 1;
 
-            try
+            if (Enabled && (_isHovered || _hasInput))
             {
-                RECT erc = new RECT();
-                User32.SendMessage(Handle, EM_GETRECT, 0, ref erc);
-                rc = erc.ToRectangle();
+                cb = ThemeManager.FocusBorderColor;
+                pw = 2;
             }
-            catch { }
-            
-            return rc;
+
+            ThemeManager.PrepareGraphics(e.Graphics);
+
+            Rectangle rcPath = new Rectangle(1, 1, Width - 2, Height - 2);
+
+            using (Brush b1 = new SolidBrush(ThemeManager.BackColor))
+            using (Brush b2 = new SolidBrush(cWnd))
+            using (Pen p = new Pen(cb, pw))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rcPath, ThemeManager.CornerSize)) 
+            {
+                e.Graphics.FillRectangle(b1, ClientRectangle);
+                e.Graphics.FillPath(b2, path);
+                e.Graphics.DrawPath(p, path);
+            }
         }
 
-
-        const int EM_GETRECT = 0x00B2;
-        const int EM_SETRECT = 0x00B3;
-
-        [EventSink(EventNames.ThemeUpdated)]
-        public void SetColors()
+        private void InitializeComponent()
         {
-            base.BackColor =
-                Enabled ? ThemeManager.WndValidColor : Color.FromKnownColor(KnownColor.ControlLight);
-            base.ForeColor =
-                Enabled ? GetForeColor() : Color.FromKnownColor(KnownColor.ControlDark);
+            this.txtField = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // txtField
+            // 
+            this.txtField.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtField.Location = new System.Drawing.Point(3, 3);
+            this.txtField.Margin = new System.Windows.Forms.Padding(0);
+            this.txtField.Name = "txtField";
+            this.txtField.Size = new System.Drawing.Size(50, 15);
+            this.txtField.TabIndex = 1;
+            // 
+            // OPMTextBox
+            // 
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.txtField);
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.MaximumSize = new System.Drawing.Size(2000, 20);
+            this.MinimumSize = new System.Drawing.Size(20, 20);
+            this.Name = "OPMTextBox";
+            this.Padding = new System.Windows.Forms.Padding(3);
+            this.Size = new System.Drawing.Size(56, 20);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
     }
 }

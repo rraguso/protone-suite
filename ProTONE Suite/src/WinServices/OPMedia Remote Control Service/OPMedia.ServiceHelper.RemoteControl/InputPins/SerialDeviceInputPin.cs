@@ -25,7 +25,7 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 {
     public class SerialDeviceInputPin : InputPin
     {
-        protected SerialPort _port = null;
+        protected string _comPortName = null;
         protected SerialRemoteDeviceDriver _driver = new SerialRemoteDeviceDriver();
         protected bool _isPortConfigured = false;
 
@@ -36,15 +36,15 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 
         protected override string GetConfigDataInternal(string initialCfgData)
         {
-            SerialDeviceInputPinCfgDlg dlg = new SerialDeviceInputPinCfgDlg();
+            SerialDeviceCfgDlg dlg = new SerialDeviceCfgDlg();
 
-            dlg.PortName = GetConfigurationFromString(initialCfgData, dlg.DeviceConfigurationData);
+            bool cfgValid = ParseConfigurationString(initialCfgData, dlg.DeviceConfigurationData);
 
-            if (dlg.ShowDialog() == DialogResult.OK)
+            if (cfgValid && dlg.ShowDialog() == DialogResult.OK)
             {
                 string[] cfgFields = new string[]
                 { 
-                    dlg.PortName,
+                    dlg.DeviceConfigurationData.ComPortName,
                     dlg.DeviceConfigurationData.InterCodeWordsGap.ToString(),
                     dlg.DeviceConfigurationData.MinCodeWordOccurences.ToString(),
                     dlg.DeviceConfigurationData.MinCodeWordLength.ToString(),
@@ -59,16 +59,14 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 
         protected override void ConfigureInternal()
         {
-            string portName = GetConfigurationFromString(_cfgData, _driver);
-            _port = new SerialPort(portName);
-            _isPortConfigured = SerialPortAPI.FillSerialPortSettings(ref _port);
+            _isPortConfigured = ParseConfigurationString(_cfgData, _driver);
         }
 
-        public static string GetConfigurationFromString(string configString, SerialRemoteDeviceDriver cfgData)
+        public static bool ParseConfigurationString(string configString, SerialRemoteDeviceDriver cfgData)
         {
             string[] cfgFields = StringUtils.ToStringArray(configString, SerialRemoteDeviceDriver.Delimiter);
             if (cfgFields == null || cfgFields.Length < 1)
-                return string.Empty;
+                return false;
 
             int i = 0;
             int param;
@@ -76,7 +74,7 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
             string portName = string.Empty;
 
             if (cfgFields.Length > i)
-                portName = cfgFields[i++];
+                cfgData.ComPortName = cfgFields[i++];
 
             if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
                 cfgData.InterCodeWordsGap = param;
@@ -90,12 +88,12 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
             if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
                 cfgData.MaxCodeWordLength = param;
 
-            return portName;
+            return true;
         }
 
         protected override void StartInternal()
         {
-            Logger.LogInfo("{0}: Starting remote control device on port {1} ...", this.GetType().Name, _port.PortName);
+            Logger.LogInfo("{0}: Starting remote control device on port {1} ...", this.GetType().Name, _driver.ComPortName);
 
             if (_isPortConfigured)
             {
@@ -103,12 +101,12 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
                 _driver.SignalOutput += new SignalOutputCallbackDelegate(_driver_SignalOutput);
 
                 _driver.TrainMode = RemoteControlServiceMux.Instance.TrainMode;
-                _driver.Start(_port);
+                _driver.Start();
             }
             else
             {
                 throw new ConfigurationErrorsException(string.Format("{0}: Settings for port {1} could not be retrieved",
-                    this.GetType().Name, _port.PortName));
+                    this.GetType().Name, _driver.ComPortName));
             }
         }
 
@@ -131,12 +129,12 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
             if (_driver.Running)
             {
                 throw new TimeoutException(string.Format("{0}: Could not stop remote control device on port {1} in a timely fashion",
-                    this.GetType().Name, _port.PortName));
+                    this.GetType().Name, _driver.ComPortName));
             }
             else
             {
-                Logger.LogInfo("{0}: Remote control device on port {1} was stopped succesfully ...", this.GetType().Name, _port.PortName);
-                _port = null;
+                Logger.LogInfo("{0}: Remote control device on port {1} was stopped succesfully ...", this.GetType().Name, 
+                    _driver.ComPortName);
             }
         }
 

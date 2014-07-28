@@ -157,7 +157,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\OPMNumericTextBox.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ExtendedMethods.cs" />
     <Compile Include="Controls\OPMGroupBox.cs">
@@ -183,6 +183,9 @@
     </Compile>
     <Compile Include="Controls\OPMStatusStrip.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\OPMTextBox.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\SelfValidableCollection.cs" />
     <Compile Include="Controls\ToolAndMenuStrips.cs">
@@ -351,9 +354,6 @@
     <Compile Include="Controls\OPMLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\OPMTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\OPMNumericUpDown.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -459,6 +459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\OPMColorChooserCtl.resx">
       <DependentUpon>OPMColorChooserCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OPMTextBox.resx">
+      <DependentUpon>OPMTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\OPMTimePicker.resx">
       <DependentUpon>OPMTimePicker.cs</DependentUpon>

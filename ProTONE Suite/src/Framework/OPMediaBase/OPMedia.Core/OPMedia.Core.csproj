@@ -72,6 +72,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\HelperClasses.cs" />
+    <Compile Include="Utilities\SerialPortAPI.cs" />
     <Compile Include="Version.cs" />
     <Compile Include="Win32\Gdi32.cs" />
     <Compile Include="GlobalEvents\EventSinkAttribute.cs" />
@@ -85,8 +86,6 @@
     <Compile Include="Logging\LoggedApplication.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\LoggingConfiguration.cs" />
-    <Compile Include="Utilities\SerialPortAPI.cs">
-    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="TranslationSupport\TranslatableAttributes.cs" />
     <Compile Include="TranslationSupport\Translator.cs" />

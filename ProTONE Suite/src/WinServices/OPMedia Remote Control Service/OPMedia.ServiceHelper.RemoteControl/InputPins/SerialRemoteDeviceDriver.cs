@@ -12,83 +12,6 @@ using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.ServiceHelper.RCCService.InputPins
 {
-    public enum DcbFlagsPos
-    {
-        fBinary           = 0,
-        fParity           = 1,
-        fOutxCtsFlow      = 2,
-        fOutxDsrFlow      = 3,
-        fDtrControl       = 4,
-        fDsrSensitivity   = 6,
-        fTXContinueOnXoff = 7,
-        fOutX             = 8,
-        fInX              = 9,
-        fErrorChar        = 10,
-        fNull             = 11,
-        fRtsControl       = 12,
-        fAbortOnError     = 14,
-        fDummy2           = 15,
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct DCB
-    {
-        public uint DCBlength;
-        public uint BaudRate;
-        public uint Flags;
-        public ushort wReserved;
-        public ushort XonLim;
-        public ushort XoffLim;
-        public byte ByteSize;
-        public byte Parity;
-        public byte StopBits;
-        public byte XonChar;
-        public byte XoffChar;
-        public byte ErrorChar;
-        public byte EofChar;
-        public byte EvtChar;
-        public ushort wReserved1;
-
-        internal void SetDcbFlag(DcbFlagsPos whichFlag, int setting)
-        {
-            uint num;
-            setting = setting << (int)whichFlag;
-            if ((whichFlag == DcbFlagsPos.fDtrControl) || (whichFlag == DcbFlagsPos.fRtsControl))
-            {
-                num = 3;
-            }
-            else if (whichFlag == DcbFlagsPos.fDummy2)
-            {
-                num = 0x1ffff;
-            }
-            else
-            {
-                num = 1;
-            }
-            this.Flags &= ~(num << (int)whichFlag);
-            this.Flags |= (uint)setting;
-        }
-
-        internal int GetDcbFlag(DcbFlagsPos whichFlag)
-        {
-            uint num;
-            if ((whichFlag == DcbFlagsPos.fDtrControl) || (whichFlag == DcbFlagsPos.fRtsControl))
-            {
-                num = 3;
-            }
-            else if (whichFlag == DcbFlagsPos.fDummy2)
-            {
-                num = 0x1ffff;
-            }
-            else
-            {
-                num = 1;
-            }
-            uint num2 = this.Flags & (num << (int)whichFlag);
-            return (int)(num2 >> (int)whichFlag);
-        }
-    }
-
     public delegate void DriverCallbackDelegate(Int64 counter);
     public delegate void SignalOutputCallbackDelegate(Int64 counter, double erfc);
 
@@ -106,7 +29,7 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
     public sealed class SerialRemoteDeviceDriver : IDisposable
     {
         [DllImport("IRSerDev.dll", CallingConvention = CallingConvention.StdCall)]
-        private static extern int PortInit(string lpszPortName, DCB initDcb);
+        private static extern int PortInit(string lpszPortName);
 
         [DllImport("IRSerDev.dll", CallingConvention = CallingConvention.StdCall)]
         private static extern int PortClose();
@@ -116,18 +39,15 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 
         #region Detection parameters / properties
 
-
         public const char Delimiter = ';';
 
         public override string ToString()
         {
             return Translator.TranslateTaggedString(
-                string.Format("TXT_INTERCODEWORDSGAP {0}\nTXT_MINCODEWORDLENGTH {1}\nTXT_MAXCODEWORDLENGTH {2}\nTXT_MINCODEWORDOCCURENCES {3}",
-                InterCodeWordsGap, MinCodeWordLength, MaxCodeWordLength, MinCodeWordOccurences)
-                );
+                string.Format("PORT {4}\nTXT_INTERCODEWORDSGAP {0}\nTXT_MINCODEWORDLENGTH {1}\nTXT_MAXCODEWORDLENGTH {2}\nTXT_MINCODEWORDOCCURENCES {3}",
+                InterCodeWordsGap, MinCodeWordLength, MaxCodeWordLength, MinCodeWordOccurences, ComPortName));
         }
 
-        SerialPort _port = null;
 
         public event SignalOutputCallbackDelegate SignalOutput = null;
 
@@ -144,6 +64,8 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
             }
         }
 
+        [Browsable(false)]
+        public string ComPortName { get; set; }
         
         private long _MinCodeWordLength = 10;
         private long _MaxCodeWordLength = 20;
@@ -182,12 +104,12 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 
         #endregion
 
-
         List<long> _rawCodes = null;
 
         public SerialRemoteDeviceDriver Clone()
         {
             SerialRemoteDeviceDriver retVal = new SerialRemoteDeviceDriver();
+            retVal.ComPortName = this.ComPortName;
             retVal.InterCodeWordsGap = this.InterCodeWordsGap;
             retVal.MaxCodeWordLength = this.MaxCodeWordLength;
             retVal.MinCodeWordLength = this.MinCodeWordLength;
@@ -200,7 +122,7 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
         {
         }
 
-        public void Start(SerialPort port)
+        public void Start()
         {
             if (callback == null)
             {
@@ -216,33 +138,7 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 
             if (!_running)
             {
-                _port = port;
-
-                DCB dcb = new DCB();
-                dcb.BaudRate = (uint)_port.BaudRate;
-                dcb.ByteSize = (byte)_port.DataBits;
-                dcb.DCBlength = (uint)Marshal.SizeOf(dcb);
-                dcb.Parity = (byte)_port.Parity;
-
-                switch (_port.StopBits)
-                {
-                    case StopBits.One:
-                        dcb.StopBits = 0;
-                        break;
-
-                    case StopBits.Two:
-                        dcb.StopBits = 2;
-                        break;
-
-                    case StopBits.OnePointFive:
-                        dcb.StopBits = 1;
-                        break;
-                }
-
-                dcb.SetDcbFlag(DcbFlagsPos.fDtrControl, _port.DtrEnable ? 1 : 0);
-                dcb.SetDcbFlag(DcbFlagsPos.fRtsControl, _port.RtsEnable ? 1 : 0);
-
-                int errCode = PortInit(_port.PortName, dcb);
+                int errCode = PortInit(this.ComPortName);
                 ThrowExceptionForErrCode(errCode);
 
                 _running = true;
@@ -273,25 +169,25 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
                     break;
 
                 case (int)DeviceErrorCodes.ErrPortOpen:
-                    throw new IOException("Failed to open port: " + _port.PortName);
+                    throw new IOException("Failed to open port: " + this.ComPortName);
 
                 case (int)DeviceErrorCodes.ErrSetGetCommState:
-                    throw new IOException("Failed to set/get state of port: " + _port.PortName);
+                    throw new IOException("Failed to set/get state of port: " + this.ComPortName);
 
                 case (int)DeviceErrorCodes.ErrCreateEvents:
-                    throw new IOException("Failed to create event monitor on port: " + _port.PortName);
+                    throw new IOException("Failed to create event monitor on port: " + this.ComPortName);
 
                 case (int)DeviceErrorCodes.ErrCreateRecvThread:
-                    throw new IOException("Failed to create monitor thread on port: " + _port.PortName);
+                    throw new IOException("Failed to create monitor thread on port: " + this.ComPortName);
 
                 case (int)DeviceErrorCodes.ErrSignalStop:
-                    throw new IOException("Failed to destroy event monitor on port: " + _port.PortName);
+                    throw new IOException("Failed to destroy event monitor on port: " + this.ComPortName);
 
                 case (int)DeviceErrorCodes.ErrStopThreadForced:
-                    throw new IOException("Failed to forcibly stop monitor thread on port: " + _port.PortName);
+                    throw new IOException("Failed to forcibly stop monitor thread on port: " + this.ComPortName);
 
                 default:
-                    throw new IOException("Unspecified error on port: " + _port.PortName,
+                    throw new IOException("Unspecified error on port: " + this.ComPortName,
                         new Win32Exception());
             }
         }
