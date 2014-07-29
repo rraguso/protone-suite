@@ -24,27 +24,14 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         {
             InitializeComponent();
 
-            MediaScreen mediaScreen = MediaScreen.Playlist;
-            chkShowPlaylist.Checked = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
+            chkShowPlaylist.Checked = ProTONEConfig.MediaScreenActive(MediaScreen.Playlist);
+            chkShowTrackInfo.Checked = ProTONEConfig.MediaScreenActive(MediaScreen.TrackInfo);
+            chkShowSignalAnalisys.Checked = ProTONEConfig.MediaScreenActive(MediaScreen.SignalAnalisys);
+            chkShowBookmarkInfo.Checked = ProTONEConfig.MediaScreenActive(MediaScreen.BookmarkInfo);
 
-            mediaScreen = MediaScreen.TrackInfo;
-            chkShowTrackInfo.Checked = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
-
-            mediaScreen = MediaScreen.SignalAnalisys;
-            chkShowSignalAnalisys.Checked = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
-
-            mediaScreen = MediaScreen.BookmarkInfo;
-            chkShowBookmarkInfo.Checked = ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
-
-
-            SignalAnalisysFunction function = SignalAnalisysFunction.VUMeter;
-            chkVuMeter.Checked = ((ProTONEConfig.SignalAnalisysFunctions & function) == function);
-
-            function = SignalAnalisysFunction.Waveform;
-            chkWaveform.Checked = ((ProTONEConfig.SignalAnalisysFunctions & function) == function);
-
-            function = SignalAnalisysFunction.Spectrogram;
-            chkSpectrogram.Checked = ((ProTONEConfig.SignalAnalisysFunctions & function) == function);
+            chkVuMeter.Checked = ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.VUMeter);
+            chkWaveform.Checked = ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Waveform);
+            chkSpectrogram.Checked = ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Spectrogram);
 
             this.chkShowPlaylist.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);
             this.chkShowTrackInfo.CheckedChanged += new System.EventHandler(this.OnSettingsChanged);

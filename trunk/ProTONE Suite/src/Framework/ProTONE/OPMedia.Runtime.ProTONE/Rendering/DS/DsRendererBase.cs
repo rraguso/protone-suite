@@ -20,6 +20,7 @@ using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
 using System.Linq;
 using OPMedia.Runtime.DSP;
 using System.Collections.Concurrent;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
@@ -634,42 +635,44 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         public int BufferCB(double sampleTime, IntPtr pBuffer, int bufferLen)
         {
-            try
+            if (ProTONEConfig.IsSignalAnalisysActive())
             {
-                if (sampleGrabberConfigured.WaitOne(0) && _actualAudioFormat != null)
+                try
                 {
-                    const int fraction = 128;
-
-                    byte[] allBytes = new byte[bufferLen];
-                    Marshal.Copy(pBuffer, allBytes, 0, bufferLen);
-                    
-                    int pos = 0;
-                    
-                    double chunkTimeLen = (double)fraction / (double)_actualAudioFormat.nSamplesPerSec;
-                    int chunkSize = fraction * _actualAudioFormat.nBlockAlign;
-                    int i = 0;
-
-                    do
+                    if (sampleGrabberConfigured.WaitOne(0) && _actualAudioFormat != null)
                     {
-                        int size = Math.Min(chunkSize, bufferLen - pos);
+                        const int fraction = 128;
 
-                        AudioSample smp = new AudioSample();
-                        smp.RawSamples = new byte[size];
-                        smp.SampleTime = sampleTime + i * chunkTimeLen;
-                        
-                        Array.Copy(allBytes, pos, smp.RawSamples, 0, size);
+                        byte[] allBytes = new byte[bufferLen];
+                        Marshal.Copy(pBuffer, allBytes, 0, bufferLen);
 
-                        samples.Enqueue(smp);
+                        int pos = 0;
 
-                        pos += size;
-                        i++;
+                        double chunkTimeLen = (double)fraction / (double)_actualAudioFormat.nSamplesPerSec;
+                        int chunkSize = fraction * _actualAudioFormat.nBlockAlign;
+                        int i = 0;
+
+                        do
+                        {
+                            int size = Math.Min(chunkSize, bufferLen - pos);
+
+                            AudioSample smp = new AudioSample();
+                            smp.RawSamples = new byte[size];
+                            smp.SampleTime = sampleTime + i * chunkTimeLen;
+
+                            Array.Copy(allBytes, pos, smp.RawSamples, 0, size);
+
+                            samples.Enqueue(smp);
+
+                            pos += size;
+                            i++;
+                        }
+                        while (pos < bufferLen);
                     }
-                    while (pos < bufferLen);
                 }
+                catch { }
             }
-            catch { }
 
-            Debug.Flush();
             return 0;
         }
 
@@ -682,11 +685,18 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             while (sampleAnalyzerMustStop.WaitOne(0) == false)
             {
-                AudioSample smp = null;
-                if (samples.TryDequeue(out smp) && smp != null)
-                    ExtractSamples(smp);
+                if (ProTONEConfig.IsSignalAnalisysActive())
+                {
+                    AudioSample smp = null;
+                    if (samples.TryDequeue(out smp) && smp != null)
+                        ExtractSamples(smp);
 
-                Thread.Yield();
+                    Thread.Yield();
+                }
+                else
+                {
+                    Thread.Sleep(1);
+                }
             }
         }
 
@@ -745,8 +755,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 _gatheredSamples++;
                 if (_gatheredSamples % _waveformWindowSize == 0)
                 {
-                    AnalyzeWaveform(_sampleData.Skip(_sampleData.Count - _waveformWindowSize).Take(_waveformWindowSize).ToArray(),
-                        smp.SampleTime);
+                    if (ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.VUMeter) ||
+                        ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Waveform))
+                    {
+                        AnalyzeWaveform(_sampleData.Skip(_sampleData.Count - _waveformWindowSize).Take(_waveformWindowSize).ToArray(),
+                            smp.SampleTime);
+                    }
                 }
 
                 Thread.Yield();
@@ -756,7 +770,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             while (_sampleData.Count > _fftWindowSize)
                 _sampleData.TryDequeue(out lostSample);
 
-            AnalyzeFFT(_sampleData.ToArray());
+            if (ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Spectrogram))
+            {
+                AnalyzeFFT(_sampleData.ToArray());
+            }
+
             Thread.Yield();
         }
 

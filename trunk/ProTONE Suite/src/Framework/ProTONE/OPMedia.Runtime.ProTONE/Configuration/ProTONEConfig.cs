@@ -334,13 +334,28 @@ namespace OPMedia.Runtime.ProTONE.Configuration
             set { ConfigFileManager.Default.SetValue("ShowMediaScreens", (int)value); }
         }
 
+        public static bool MediaScreenActive(MediaScreen mediaScreen)
+        {
+            return ((ProTONEConfig.ShowMediaScreens & mediaScreen) == mediaScreen);
+        }
+
         public static SignalAnalisysFunction SignalAnalisysFunctions
         {
             get { return (SignalAnalisysFunction)ConfigFileManager.Default.GetValue("SignalAnalisysFunctions", (int)SignalAnalisysFunction.All); }
             set { ConfigFileManager.Default.SetValue("SignalAnalisysFunctions", (int)value); }
         }
 
+        public static bool SignalAnalisysFunctionActive(SignalAnalisysFunction function)
+        {
+            return ((ProTONEConfig.SignalAnalisysFunctions & function) == function);
+        }
 
+        public static bool IsSignalAnalisysActive()
+        {
+            return (ProTONEConfig.SignalAnalisysFunctions != SignalAnalisysFunction.None);
+        }
+
+        
         public static string ExplorerLaunchType
         {
             get
