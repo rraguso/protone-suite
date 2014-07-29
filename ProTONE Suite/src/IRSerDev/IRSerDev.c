@@ -1,9 +1,9 @@
 #include "IRSerDev.h"
 
-HANDLE hThread    = INVALID_HANDLE_VALUE;
-HANDLE hPort      = INVALID_HANDLE_VALUE;
-HANDLE hStopEvent = INVALID_HANDLE_VALUE;
-HANDLE hExitEvent = INVALID_HANDLE_VALUE;
+HANDLE hThread    = NULL;
+HANDLE hPort      = NULL;
+HANDLE hStopEvent = NULL;
+HANDLE hExitEvent = NULL;
 
 OVERLAPPED ov;
 DWORD dwThId = 0xffffffff;
@@ -36,7 +36,7 @@ int __stdcall PortInit(LPCTSTR lpszPortName)
 	initDcb.fRtsControl = 1;	// Mandatory to set to 1 for the Serial Remote device
 	initDcb.fDtrControl = 0;	// Mandatory to set to 0 for the Serial Remote device
 
-    if(hPort)
+    if(hPort != NULL)
     {
         SetCommMask(hPort,0);	// stop any waiting on the port
         Sleep(100);				// wait a tiny bit
