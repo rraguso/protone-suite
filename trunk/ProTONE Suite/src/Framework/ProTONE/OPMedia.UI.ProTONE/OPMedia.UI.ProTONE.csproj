@@ -454,6 +454,7 @@
     <None Include="Resources\delete2.png" />
     <None Include="Resources\delete3.png" />
     <None Include="Resources\GenVideoDoc_32x32_72.png" />
+    <None Include="Resources\btnShowLogConsole.bmp" />
     <Content Include="Resources\movedown.png" />
     <Content Include="Resources\moveup.png" />
     <None Include="Resources\btnCfgTimer.png" />
