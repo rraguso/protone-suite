@@ -55,11 +55,16 @@ namespace OPMedia.UI.Controls
 
         Point _lastPos = new Point();
 
+        Color _overrideElapsedBackColor = Color.Empty;
         Color _overrideBackColor = Color.Empty;
+
 
         #endregion
 
         #region Properties
+
+        public Color OverrideElapsedBackColor
+        { get { return _overrideElapsedBackColor; } set { _overrideElapsedBackColor = value; Invalidate(true); } }
 
         public Color OverrideBackColor
         { get { return _overrideBackColor; } set { _overrideBackColor = value; Invalidate(true); } }
@@ -236,10 +241,15 @@ namespace OPMedia.UI.Controls
                 Rectangle rcMinor, rcMajor, rcDot = Rectangle.Empty;
                 Color c1 = ThemeManager.GradientNormalColor1;
                 Color c2 = ThemeManager.GradientNormalColor2;
+                Color cBack = ThemeManager.BackColor;
 
+                if (_overrideElapsedBackColor != Color.Empty)
+                {
+                    c1 = c2 = _overrideElapsedBackColor;
+                }
                 if (_overrideBackColor != Color.Empty)
                 {
-                    c1 = c2 = _overrideBackColor;
+                    cBack = _overrideBackColor;
                 }
 
                 float a;
@@ -266,6 +276,9 @@ namespace OPMedia.UI.Controls
 
                 AdjustRectangle(ref rcMinor);
                 AdjustRectangle(ref rcMajor);
+
+                using (Brush b = new SolidBrush(cBack))
+                    g.FillRectangle(b, ClientRectangle);
 
                 switch (_gaugeMode)
                 {
@@ -298,11 +311,15 @@ namespace OPMedia.UI.Controls
                             new Point(this.Width - 3, offset) : new Point(offset, this.Height - 3);
                     }
 
-                    using (Pen p = new Pen(ThemeManager.ForeColor, 1))
+                    using (Pen p1 = new Pen(ThemeManager.ForeColor, 1))
+                    using (Pen p2 = new Pen(ThemeManager.BorderColor, 1))
                     {
                         for (int i = 1; i < _nrTicks; i++)
                         {
-                            g.DrawLine(p, ptBegin[i], ptEnd[i]);
+                            if (rcMinor.Contains(ptBegin[i]))
+                                g.DrawLine(p1, ptBegin[i], ptEnd[i]);
+                            else
+                                g.DrawLine(p2, ptBegin[i], ptEnd[i]);
                         }
                     }
                 }
@@ -348,34 +365,34 @@ namespace OPMedia.UI.Controls
         }
     }
 
-    [DesignerCategory("code")]
-    [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.All)]
-    public class OPMToolStripProgressBar : ToolStripControlHost
-    {
-        public OPMProgressBar OPMProgressBar
-        {
-            get
-            {
-                return this.Control as OPMProgressBar;
-            }
-        }
+    //[DesignerCategory("code")]
+    //[ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.All)]
+    //public class OPMToolStripProgressBar : ToolStripControlHost
+    //{
+    //    public OPMProgressBar OPMProgressBar
+    //    {
+    //        get
+    //        {
+    //            return this.Control as OPMProgressBar;
+    //        }
+    //    }
 
-        public double Value
-        {
-            get { return OPMProgressBar.Value; }
-            set { OPMProgressBar.Value = value; }
-        }
+    //    public double Value
+    //    {
+    //        get { return OPMProgressBar.Value; }
+    //        set { OPMProgressBar.Value = value; }
+    //    }
 
-        public double Maximum
-        {
-            get { return OPMProgressBar.Maximum; }
-            set { OPMProgressBar.Maximum = value; }
-        }
+    //    public double Maximum
+    //    {
+    //        get { return OPMProgressBar.Maximum; }
+    //        set { OPMProgressBar.Maximum = value; }
+    //    }
 
-        public OPMToolStripProgressBar()
-            : base(new OPMProgressBar())
-        {
-        }
-    }
+    //    public OPMToolStripProgressBar()
+    //        : base(new OPMProgressBar())
+    //    {
+    //    }
+    //}
 }
 

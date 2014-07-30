@@ -47,7 +47,7 @@
             this.ggLeft.Maximum = 10000;
             this.ggLeft.Name = "ggLeft";
             this.ggLeft.NrTicks = 20;
-            this.ggLeft.OverrideBackColor = System.Drawing.Color.Empty;
+            this.ggLeft.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.ggLeft.ShowTicks = true;
             this.ggLeft.Size = new System.Drawing.Size(303, 14);
             this.ggLeft.TabIndex = 0;
@@ -65,7 +65,7 @@
             this.ggRight.Maximum = 10000;
             this.ggRight.Name = "ggRight";
             this.ggRight.NrTicks = 20;
-            this.ggRight.OverrideBackColor = System.Drawing.Color.Empty;
+            this.ggRight.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.ggRight.ShowTicks = true;
             this.ggRight.Size = new System.Drawing.Size(303, 14);
             this.ggRight.TabIndex = 1;

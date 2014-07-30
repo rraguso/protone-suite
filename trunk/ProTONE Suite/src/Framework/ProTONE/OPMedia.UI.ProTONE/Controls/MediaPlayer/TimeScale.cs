@@ -116,7 +116,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             layoutPanel.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
             timeProgress.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
             lblTime.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
-            lblTime.OverrideForeColor = ThemeManager.SelectedColor;
+            lblTime.OverrideForeColor = ThemeManager.MenuTextColor;
         }
         #endregion
 
@@ -203,9 +203,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             TimeScale.Visible = true;
             TimeScale.IsOnMenuBar = true;
 
-            this.BackColor = Color.FromKnownColor(KnownColor.Window);
-            TimeScale.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
-
+            //this.BackColor = Color.FromKnownColor(KnownColor.Window);
+            //TimeScale.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
             TimeScale.ApplyMenuBarColors();
 
             TimeScale.HandleCreated += new EventHandler(HandleCreated);

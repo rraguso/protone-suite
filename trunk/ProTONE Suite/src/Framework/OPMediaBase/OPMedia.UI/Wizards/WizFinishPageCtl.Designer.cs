@@ -65,7 +65,7 @@ namespace OPMedia.UI.Wizards
             this.pbProgress.Maximum = 10000D;
             this.pbProgress.Name = "pbProgress";
             this.pbProgress.NrTicks = 20;
-            this.pbProgress.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pbProgress.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.pbProgress.ShowTicks = false;
             this.pbProgress.Size = new System.Drawing.Size(212, 10);
             this.pbProgress.TabIndex = 1;
