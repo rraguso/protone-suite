@@ -79,7 +79,7 @@
             this.cgLevel.Maximum = 10000D;
             this.cgLevel.Name = "cgLevel";
             this.cgLevel.NrTicks = 4;
-            this.cgLevel.OverrideBackColor = System.Drawing.Color.Empty;
+            this.cgLevel.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.cgLevel.ShowTicks = true;
             this.cgLevel.Size = new System.Drawing.Size(13, 272);
             this.cgLevel.TabIndex = 2;

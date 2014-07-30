@@ -179,7 +179,7 @@
             this.cgR.MinimumSize = new System.Drawing.Size(55, 5);
             this.cgR.Name = "cgR";
             this.cgR.NrTicks = 10;
-            this.cgR.OverrideBackColor = System.Drawing.Color.Red;
+            this.cgR.OverrideElapsedBackColor = System.Drawing.Color.Red;
             this.cgR.ShowTicks = true;
             this.cgR.Size = new System.Drawing.Size(357, 20);
             this.cgR.TabIndex = 3;
@@ -200,7 +200,7 @@
             this.cgG.MinimumSize = new System.Drawing.Size(55, 5);
             this.cgG.Name = "cgG";
             this.cgG.NrTicks = 10;
-            this.cgG.OverrideBackColor = System.Drawing.Color.Green;
+            this.cgG.OverrideElapsedBackColor = System.Drawing.Color.Green;
             this.cgG.ShowTicks = true;
             this.cgG.Size = new System.Drawing.Size(357, 20);
             this.cgG.TabIndex = 4;
@@ -221,7 +221,7 @@
             this.cgB.MinimumSize = new System.Drawing.Size(55, 5);
             this.cgB.Name = "cgB";
             this.cgB.NrTicks = 10;
-            this.cgB.OverrideBackColor = System.Drawing.Color.Blue;
+            this.cgB.OverrideElapsedBackColor = System.Drawing.Color.Blue;
             this.cgB.ShowTicks = true;
             this.cgB.Size = new System.Drawing.Size(357, 20);
             this.cgB.TabIndex = 5;

@@ -115,14 +115,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public void ApplyMenuBarColors()
         {
             layoutPanel1.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
+            
             volumeProgress.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
+            
             lblCurrent.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
             lblMin.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
             lblMax.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
 
-            lblCurrent.OverrideForeColor = ThemeManager.SelectedColor;
-            lblMin.OverrideForeColor = ThemeManager.SelectedColor;
-            lblMax.OverrideForeColor = ThemeManager.SelectedColor;
+            lblCurrent.OverrideForeColor = ThemeManager.MenuTextColor;
+            lblMin.OverrideForeColor = ThemeManager.MenuTextColor;
+            lblMax.OverrideForeColor = ThemeManager.MenuTextColor;
         }
         #endregion
 
@@ -157,8 +159,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             VolumeScale.PositionChanged += new ValueChangedEventHandler(VolumeScale_PositionChanged);
             VolumeScale.Visible = true;
 
-            this.BackColor = Color.FromKnownColor(KnownColor.Window);
-            VolumeScale.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
+            //this.BackColor = Color.FromKnownColor(KnownColor.Window);
+            //VolumeScale.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);
             
             VolumeScale.ApplyMenuBarColors();
 
