@@ -125,7 +125,7 @@ namespace OPMedia.UI.Controls
 
             if (Selected || Pressed)
             {
-                c1 = c2 = ThemeManager.SelectedColor;
+                //c1 = c2 = ThemeManager.SelectedColor;
                 clText = ThemeManager.HighlightMenuTextColor;
             }
 
@@ -261,7 +261,7 @@ namespace OPMedia.UI.Controls
 
             if (Selected)
             {
-                c1 = c2 = ThemeManager.SelectedColor;
+                //c1 = c2 = ThemeManager.SelectedColor;
                 clText = ThemeManager.HighlightMenuTextColor;
             }
             else if (Checked)
@@ -387,7 +387,7 @@ namespace OPMedia.UI.Controls
 
             if (Selected || Pressed)
             {
-                c1 = c2 = ThemeManager.SelectedColor;
+                //c1 = c2 = ThemeManager.SelectedColor;
                 clText = ThemeManager.HighlightMenuTextColor;
             }
             
