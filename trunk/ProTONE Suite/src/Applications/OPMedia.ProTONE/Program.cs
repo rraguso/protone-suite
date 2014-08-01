@@ -37,6 +37,8 @@ namespace OPMedia.ProTONE
     {
         static MainForm mainFrm;
 
+        static List<BasicCommand> _commandQueue = new List<BasicCommand>();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -63,6 +65,11 @@ namespace OPMedia.ProTONE
                         ShortcutMapper.IsPlayer = true;
 
                         mainFrm = new MainForm();
+
+                        foreach(BasicCommand cmd in _commandQueue)
+                        {
+                            mainFrm.EnqueueCommand(cmd);
+                        }
 
                         Application.Run(mainFrm);
                         mainFrm.Dispose();
@@ -115,7 +122,24 @@ namespace OPMedia.ProTONE
                     if (SuiteRegistrationSupport.IsContextMenuHandlerRegistered() &&
                         (cmdType == CommandType.PlayFiles || cmdType == CommandType.EnqueueFiles))
                     {
-                        RemoteControlHelper.SendPlayerCommand(cmdType, files.ToArray());
+                        if (RemoteControlHelper.IsPlayerRunning())
+                        {
+                            // There is another player instance that is running.
+                            // Just pass the command to that instance and exit.
+                            RemoteControlHelper.SendPlayerCommand(cmdType, files.ToArray());
+                        }
+                        else
+                        {
+                            // There is no other player instance. 
+                            // This instance needs to process the command itself.
+                            
+                            // Note: when player is launched like this - clear previous playlist first.
+                            _commandQueue.Add(BasicCommand.Create(CommandType.ClearPlaylist));
+                            
+                            _commandQueue.Add(BasicCommand.Create(cmdType, files.ToArray()));
+
+                            return false; // Don't exit
+                        }
                     }
                 }
                 catch(Exception ex)
@@ -124,21 +148,6 @@ namespace OPMedia.ProTONE
                 }
 
                 return true;
-            }
-
-
-            string argStr = string.Empty;
-            for (int i = 1; i < cmdLineArgs.Length; i++)
-            {
-                if (!string.IsNullOrEmpty(cmdLineArgs[i]))
-                {
-                    argStr += cmdLineArgs[i];
-                }
-            }
-
-            if (!string.IsNullOrEmpty(argStr))
-            {
-                mainFrm.EnqueueCommand(BasicCommand.Create(argStr));
             }
 
             return false;
