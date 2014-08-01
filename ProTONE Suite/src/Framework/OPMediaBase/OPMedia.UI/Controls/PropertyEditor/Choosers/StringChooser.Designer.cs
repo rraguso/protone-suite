@@ -1,4 +1,4 @@
-﻿namespace SkinBuilder.Property
+﻿namespace OPMedia.UI.Controls.PropertyEditor.Choosers
 {
     partial class StringChooser
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.opmLabel1 = new OPMedia.UI.Controls.OPMLabel();
+            this.lblValueName = new OPMedia.UI.Controls.OPMLabel();
             this.txtValue = new OPMedia.UI.Controls.OPMTextBox();
             this.opmTableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -41,7 +41,7 @@
             this.opmTableLayoutPanel1.ColumnCount = 2;
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.opmTableLayoutPanel1.Controls.Add(this.opmLabel1, 0, 0);
+            this.opmTableLayoutPanel1.Controls.Add(this.lblValueName, 0, 0);
             this.opmTableLayoutPanel1.Controls.Add(this.txtValue, 1, 0);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -54,17 +54,17 @@
             // 
             // opmLabel1
             // 
-            this.opmLabel1.AutoSize = true;
-            this.opmLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel1.Location = new System.Drawing.Point(3, 0);
-            this.opmLabel1.Name = "opmLabel1";
-            this.opmLabel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmLabel1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel1.Size = new System.Drawing.Size(39, 28);
-            this.opmLabel1.TabIndex = 0;
-            this.opmLabel1.Text = "Value:";
-            this.opmLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblValueName.AutoSize = true;
+            this.lblValueName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblValueName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblValueName.Location = new System.Drawing.Point(3, 0);
+            this.lblValueName.Name = "opmLabel1";
+            this.lblValueName.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblValueName.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblValueName.Size = new System.Drawing.Size(39, 28);
+            this.lblValueName.TabIndex = 0;
+            this.lblValueName.Text = "Value:";
+            this.lblValueName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtValue
             // 
@@ -96,7 +96,7 @@
         #endregion
 
         private OPMedia.UI.Controls.OPMTableLayoutPanel opmTableLayoutPanel1;
-        private OPMedia.UI.Controls.OPMLabel opmLabel1;
+        private OPMedia.UI.Controls.OPMLabel lblValueName;
         private OPMedia.UI.Controls.OPMTextBox txtValue;
     }
 }

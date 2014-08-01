@@ -8,11 +8,23 @@ using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Controls;
 
-namespace SkinBuilder.Property
+namespace OPMedia.UI.Controls.PropertyEditor.Choosers
 {
     public partial class BooleanChooser : OPMBaseControl, IPropertyChooser
     {
         public event EventHandler PropertyChanged = null;
+
+        public string PropertyName
+        {
+            get { return lblValueName.Text; }
+            set 
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    lblValueName.Text = value;
+                }
+            }
+        }
 
         public string PropertyValue
         {

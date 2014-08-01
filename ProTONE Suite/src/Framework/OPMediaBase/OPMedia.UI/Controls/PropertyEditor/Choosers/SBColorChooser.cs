@@ -5,13 +5,19 @@ using System.Text;
 using OPMedia.UI.Controls;
 using System.Drawing;
 
-namespace SkinBuilder.Property
+namespace OPMedia.UI.Controls.PropertyEditor.Choosers
 {
     public class SBColorChooser : OPMColorChooserCtl, IPropertyChooser
     {
         ColorConverter cc = new ColorConverter();
 
         public event EventHandler PropertyChanged;
+
+        public string PropertyName
+        {
+            get { return base.Description; }
+            set { base.Description = value; }
+        }
 
         public string PropertyValue
         {
