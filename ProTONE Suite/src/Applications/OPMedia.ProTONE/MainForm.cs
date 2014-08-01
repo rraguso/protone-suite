@@ -287,6 +287,10 @@ namespace OPMedia.ProTONE
                     ProcessPlaybackCommand(cmd.Args);
                     break;
 
+                case CommandType.ClearPlaylist:
+                    mediaPlayer.ClearPlaylist();
+                    break;
+
                 case CommandType.KeyPress:
                     (cmd as KeyPressCommand).Execute();
                     break;

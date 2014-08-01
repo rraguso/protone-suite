@@ -5,6 +5,15 @@ using System.Text;
 namespace OPMedia.Runtime.ProTONE.RemoteControl
 {
     [Serializable]
+    public class ClearPlaylistCommand : BasicCommand
+    {
+        internal ClearPlaylistCommand()
+            : base(CommandType.ClearPlaylist, null)
+        {
+        }
+    }
+
+    [Serializable]
     public class PlayFilesCommand : BasicCommand
     {
         internal PlayFilesCommand(string[] args)

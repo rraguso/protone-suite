@@ -122,6 +122,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             }
         }
 
+        public void ClearPlaylist()
+        {
+            pnlScreens.PlaylistScreen.Clear();
+        }
+
         public new void Dispose()
         {
         }

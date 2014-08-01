@@ -15,6 +15,7 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
         Terminate,
         PlayFiles,
         EnqueueFiles,
+        ClearPlaylist,
         Playback,
 
         BrowseRemoteFiles,
@@ -228,6 +229,9 @@ namespace OPMedia.Runtime.ProTONE.RemoteControl
 
                     case CommandType.KeyPress:
                         return new KeyPressCommand(args);
+
+                    case CommandType.ClearPlaylist:
+                        return new ClearPlaylistCommand();
                 }
             }
             catch (Exception ex)
