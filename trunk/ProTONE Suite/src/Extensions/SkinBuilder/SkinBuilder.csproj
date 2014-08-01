@@ -100,27 +100,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Property\BooleanChooser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Property\BooleanChooser.Designer.cs">
-      <DependentUpon>BooleanChooser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Property\SBColorChooser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Property\StringChooser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Property\StringChooser.Designer.cs">
-      <DependentUpon>StringChooser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Property\IntegerChooser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Property\IntegerChooser.Designer.cs">
-      <DependentUpon>IntegerChooser.cs</DependentUpon>
-    </Compile>
     <Compile Include="Themes\Theme.cs" />
     <Compile Include="Themes\ThemeFile.cs" />
     <Compile Include="Translations\Translation.Designer.cs">
@@ -146,15 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Property\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Property\BooleanChooser.resx">
-      <DependentUpon>BooleanChooser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Property\StringChooser.resx">
-      <DependentUpon>StringChooser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Property\IntegerChooser.resx">
-      <DependentUpon>IntegerChooser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.resx">
       <Generator>ResXFileCodeGenerator</Generator>

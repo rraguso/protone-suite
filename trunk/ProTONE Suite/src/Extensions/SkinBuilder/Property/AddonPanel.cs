@@ -11,6 +11,7 @@ using OPMedia.UI;
 using SkinBuilder.Themes;
 using OPMedia.Core.Logging;
 using SkinBuilder.Navigation;
+using OPMedia.UI.Controls.PropertyEditor.Choosers;
 
 namespace SkinBuilder.Property
 {
@@ -252,9 +253,5 @@ namespace SkinBuilder.Property
         }
     }
 
-    public interface IPropertyChooser
-    {
-        string PropertyValue { get; set; }
-        event EventHandler PropertyChanged;
-    }
+   
 }

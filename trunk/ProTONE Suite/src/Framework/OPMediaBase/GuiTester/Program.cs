@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using OPMedia.Core.Configuration;
 using OPMedia.Core.Logging;
+using OPMedia.Core.TranslationSupport;
 
 namespace GuiTester
 {
@@ -22,7 +23,8 @@ namespace GuiTester
             {
                 LoggedApplication.Start("GuiTester");
 
-                AppConfig.AllowRealtimeGUISetup = false;
+                //AppConfig.AllowRealtimeGUISetup = false;
+                Translator.SetInterfaceLanguage(AppConfig.LanguageID);
 
 
                 Application.Run(new MainForm());

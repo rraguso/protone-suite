@@ -187,6 +187,40 @@
     <Compile Include="Controls\OPMTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\BooleanChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\BooleanChooser.Designer.cs">
+      <DependentUpon>BooleanChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\EnumeratedTypeChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\EnumeratedTypeChooser.Designer.cs">
+      <DependentUpon>EnumeratedTypeChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\IntegerChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\IntegerChooser.Designer.cs">
+      <DependentUpon>IntegerChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\IPropertyChooser.cs" />
+    <Compile Include="Controls\PropertyEditor\Choosers\SBColorChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\StringChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\Choosers\StringChooser.Designer.cs">
+      <DependentUpon>StringChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\OPMPropertyEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PropertyEditor\OPMPropertyEditor.Designer.cs">
+      <DependentUpon>OPMPropertyEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SelfValidableCollection.cs" />
     <Compile Include="Controls\ToolAndMenuStrips.cs">
       <SubType>Component</SubType>
@@ -465,6 +499,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\OPMTimePicker.resx">
       <DependentUpon>OPMTimePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PropertyEditor\Choosers\BooleanChooser.resx">
+      <DependentUpon>BooleanChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PropertyEditor\Choosers\EnumeratedTypeChooser.resx">
+      <DependentUpon>EnumeratedTypeChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PropertyEditor\Choosers\IntegerChooser.resx">
+      <DependentUpon>IntegerChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PropertyEditor\Choosers\StringChooser.resx">
+      <DependentUpon>StringChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PropertyEditor\OPMPropertyEditor.resx">
+      <DependentUpon>OPMPropertyEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\LogFileConsoleDetail.resx">
       <DependentUpon>LogFileConsoleDetail.cs</DependentUpon>
