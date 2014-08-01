@@ -87,11 +87,10 @@ namespace OPMedia.UI.ProTONE.Configuration
             ThemeManager.SetFont(btnUnselAllPlaylists, FontSizes.Small);
             ThemeManager.SetFont(btnUnselAllVideo, FontSizes.Small);
 
-            FillExplorerLaunchTypes();
-
             cbShellIntegration.Checked = SuiteRegistrationSupport.IsContextMenuHandlerRegistered();
+            
             ActivateShellIntegration();
-            this.cbShellIntegration.CheckStateChanged += new System.EventHandler(this.cbShellIntegration_CheckStateChanged);
+            FillExplorerLaunchTypes();
 
             this.Enabled = AppConfig.CurrentUserIsAdministrator;
 
@@ -149,6 +148,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             {
             }
 
+            cmbExplorerLaunchType.SelectedIndexChanged -= new EventHandler(cmbExplorerLaunchType_SelectedIndexChanged);
             cmbExplorerLaunchType.SelectedIndexChanged += new EventHandler(cmbExplorerLaunchType_SelectedIndexChanged);
         }
 
@@ -529,7 +529,8 @@ namespace OPMedia.UI.ProTONE.Configuration
             tableLayoutPanel1.Enabled = cbShellIntegration.Checked;
             pnlButtons.Enabled = cbShellIntegration.Checked;
 
-            cmbExplorerLaunchType.SelectedIndex = 0;
+            this.cbShellIntegration.CheckStateChanged -= new System.EventHandler(this.cbShellIntegration_CheckStateChanged);
+            this.cbShellIntegration.CheckStateChanged += new System.EventHandler(this.cbShellIntegration_CheckStateChanged);
         }
 
         protected override void SaveInternal()
