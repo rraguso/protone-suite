@@ -116,7 +116,7 @@
             this.cmbAudioCDDrives.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.cmbAudioCDDrives.Name = "cmbAudioCDDrives";
             this.cmbAudioCDDrives.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cmbAudioCDDrives.Size = new System.Drawing.Size(381, 23);
+            this.cmbAudioCDDrives.Size = new System.Drawing.Size(382, 23);
             this.cmbAudioCDDrives.TabIndex = 1;
             this.cmbAudioCDDrives.SelectedIndexChanged += new System.EventHandler(this.OnDriveSelected);
             // 
@@ -138,6 +138,7 @@
             // 
             // lvTracks
             // 
+            this.lvTracks.AllowEditing = true;
             this.lvTracks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colTrackNo,
             this.colDuration,
@@ -191,11 +192,12 @@
             // 
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Reload16;
-            this.btnRefresh.Location = new System.Drawing.Point(382, 22);
+            this.btnRefresh.Location = new System.Drawing.Point(383, 22);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(1, 3, 3, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnRefresh.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnRefresh.ShowDropDown = false;
             this.btnRefresh.Size = new System.Drawing.Size(23, 23);
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -204,10 +206,10 @@
             // pbWaiting
             // 
             this.pbWaiting.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbWaiting.Location = new System.Drawing.Point(418, 19);
-            this.pbWaiting.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pbWaiting.Location = new System.Drawing.Point(412, 30);
+            this.pbWaiting.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
             this.pbWaiting.Name = "pbWaiting";
-            this.pbWaiting.Size = new System.Drawing.Size(29, 29);
+            this.pbWaiting.Size = new System.Drawing.Size(36, 8);
             this.pbWaiting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbWaiting.TabIndex = 6;
             this.pbWaiting.TabStop = false;

@@ -46,23 +46,23 @@ namespace OPMedia.UI.Dialogs
             // 
             this.lblNotifyText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNotifyText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNotifyText.Location = new System.Drawing.Point(49, 0);
+            this.lblNotifyText.Location = new System.Drawing.Point(45, 0);
             this.lblNotifyText.Name = "lblNotifyText";
             this.lblNotifyText.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNotifyText.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblNotifyText.Size = new System.Drawing.Size(242, 72);
+            this.opmTableLayoutPanel1.SetRowSpan(this.lblNotifyText, 3);
+            this.lblNotifyText.Size = new System.Drawing.Size(220, 47);
             this.lblNotifyText.TabIndex = 8;
             this.lblNotifyText.Text = "fdsfdsf";
             this.lblNotifyText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 19);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 66);
+            this.pictureBox1.Size = new System.Drawing.Size(36, 8);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -73,19 +73,23 @@ namespace OPMedia.UI.Dialogs
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.opmTableLayoutPanel1.Controls.Add(this.lblNotifyText, 1, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.opmTableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
             this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.RowCount = 1;
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(294, 72);
+            this.opmTableLayoutPanel1.RowCount = 3;
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(268, 47);
             this.opmTableLayoutPanel1.TabIndex = 9;
             // 
             // GenericWaitDialog
             // 
-            this.ClientSize = new System.Drawing.Size(304, 100);
+            this.ClientSize = new System.Drawing.Size(270, 70);
+            this.MinimumSize = new System.Drawing.Size(270, 70);
             this.Name = "GenericWaitDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlContent.ResumeLayout(false);

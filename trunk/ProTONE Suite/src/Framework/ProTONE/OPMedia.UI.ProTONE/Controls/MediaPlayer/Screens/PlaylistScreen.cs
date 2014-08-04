@@ -204,7 +204,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 if (SubtitleDownloadProcessor.IsFileOnDownloadList(plItem.Path))
                 {
                     // Currently downloading a subtitle
-                    Bitmap bmp = OPMedia.UI.Properties.Resources.waitframe0;
+                    Bitmap bmp = OPMedia.UI.Properties.Resources.hourglass;
                     bmp.MakeTransparent(ThemeManager.TransparentColor);
                     imgMisc = ImageProvider.ScaleImage(bmp, new Size(16, 16), true);
                     txtMisc = Translator.Translate("TXT_SUBTITLE_DOWNLOADING");

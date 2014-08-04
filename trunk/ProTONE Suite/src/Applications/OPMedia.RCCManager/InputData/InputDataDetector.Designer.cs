@@ -30,7 +30,6 @@ namespace OPMedia.RCCManager.InputData
         /// </summary>
         private void InitializeComponent()
         {
-            
             this.SuspendLayout();
             // 
             // pnlContent
@@ -39,10 +38,9 @@ namespace OPMedia.RCCManager.InputData
             // 
             // InputDataDetector
             // 
-            this.ClientSize = new System.Drawing.Size(294, 113);
-            
+            this.ClientSize = new System.Drawing.Size(270, 100);
+            this.MinimumSize = new System.Drawing.Size(270, 100);
             this.Name = "InputDataDetector";
-            
             this.ResumeLayout(false);
 
         }

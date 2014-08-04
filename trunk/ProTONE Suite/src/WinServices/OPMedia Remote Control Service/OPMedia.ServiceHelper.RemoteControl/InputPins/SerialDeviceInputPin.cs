@@ -64,29 +64,46 @@ namespace OPMedia.ServiceHelper.RCCService.InputPins
 
         public static bool ParseConfigurationString(string configString, SerialRemoteDeviceDriver cfgData)
         {
-            string[] cfgFields = StringUtils.ToStringArray(configString, SerialRemoteDeviceDriver.Delimiter);
-            if (cfgFields == null || cfgFields.Length < 1)
-                return false;
+            if (string.IsNullOrEmpty(configString) == false)
+            {
+                string[] cfgFields = StringUtils.ToStringArray(configString, SerialRemoteDeviceDriver.Delimiter);
+                if (cfgFields == null || cfgFields.Length < 1)
+                    return false;
 
-            int i = 0;
-            int param;
+                int i = 0;
+                int param;
 
-            string portName = string.Empty;
+                string portName = string.Empty;
 
-            if (cfgFields.Length > i)
-                cfgData.ComPortName = cfgFields[i++];
+                if (cfgFields.Length > i)
+                    cfgData.ComPortName = cfgFields[i++];
 
-            if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
-                cfgData.InterCodeWordsGap = param;
+                if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
+                    cfgData.InterCodeWordsGap = param;
 
-            if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
-                cfgData.MinCodeWordOccurences = param;
+                if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
+                    cfgData.MinCodeWordOccurences = param;
 
-            if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
-                cfgData.MinCodeWordLength = param;
+                if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
+                    cfgData.MinCodeWordLength = param;
 
-            if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
-                cfgData.MaxCodeWordLength = param;
+                if (cfgFields.Length > i && int.TryParse(cfgFields[i++], out param))
+                    cfgData.MaxCodeWordLength = param;
+            }
+            else
+            {
+                SerialRemoteDeviceDriver tmp = new SerialRemoteDeviceDriver();
+
+                string[] ports = SerialPort.GetPortNames();
+                if (ports == null || ports.Length < 1)
+                    throw new Exception("There are no serial ports installed on this system.");
+
+                cfgData.ComPortName = ports[0];
+                cfgData.InterCodeWordsGap = tmp.InterCodeWordsGap;
+                cfgData.MinCodeWordOccurences = tmp.MinCodeWordOccurences;
+                cfgData.MinCodeWordLength = tmp.MinCodeWordLength;
+                cfgData.MaxCodeWordLength = tmp.MaxCodeWordLength;
+            }
 
             return true;
         }

@@ -114,7 +114,7 @@ namespace OPMedia.UI.Wizards
             // 
             this.pbWizImage.BackColor = System.Drawing.Color.Transparent;
             this.pbWizImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbWizImage.Image = global::OPMedia.UI.Properties.Resources.Wizard;
+            this.pbWizImage.Image = global::OPMedia.UI.Properties.Resources.main;
             this.pbWizImage.Location = new System.Drawing.Point(0, 0);
             this.pbWizImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbWizImage.Name = "pbWizImage";
