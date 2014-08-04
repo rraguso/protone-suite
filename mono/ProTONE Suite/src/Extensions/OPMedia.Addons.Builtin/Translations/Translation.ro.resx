@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ABORTED">
+  <value>Scanare abandonată.</value>
+</data>
+<data name="TXT_ADDON_FE_SETTINGS">
+  <value>Explorator Fişiere</value>
+</data>
+<data name="TXT_ADDON_MC_SETTINGS">
+  <value>Explorator Cataloage</value>
+</data>
+<data name="TXT_ATTRIBUTESEARCH">
+  <value>Filtrează rezultatele după atributele fişierelor</value>
+</data>
+<data name="TXT_CAPITALIZEWORDS">
+  <value>Toate Cuvintele Cu Majuscule</value>
+</data>
+<data name="TXT_CASEINSENSITIVESEARCH">
+  <value>Ignoră majuscule/minuscule</value>
+</data>
+<data name="TXT_CATALOG">
+  <value>Importă Catalog</value>
+</data>
+<data name="TXT_CATALOGPATH">
+  <value>Obiectele importate vor fi adăugate la catalog sub calea: {0}</value>
+</data>
+<data name="TXT_CATALOGSCHEMAVERSION">
+  <value>Versiune schemă catalog</value>
+</data>
+<data name="TXT_CATALOG_FILTER">
+  <value>Fişiere catalog (*.ctx)|*.ctx||</value>
+</data>
+<data name="TXT_CMDCATALOGMERGE">
+  <value>Alipire cataloage</value>
+</data>
+<data name="TXT_CMDCATALOGWIZARD">
+  <value>Lansează utilitarul de importare catalog</value>
+</data>
+<data name="TXT_CMDCHANGEDISK">
+  <value>Schimbă discul logic</value>
+</data>
+<data name="TXT_CMDID3WIZARD">
+  <value>Lansează utilitarul ID3</value>
+</data>
+<data name="TXT_CMDNAVIGATEBACK">
+  <value>Navigare înapoi</value>
+</data>
+<data name="TXT_CMDNAVIGATEFORWARD">
+  <value>Navigare înainte</value>
+</data>
+<data name="TXT_CMDNAVIGATEUP">
+  <value>Mergi la directorul părinte</value>
+</data>
+<data name="TXT_DRIVES">
+  <value>Schimbă discul logic</value>
+</data>
+<data name="TXT_ENTRY_DESC">
+  <value>Daţi o descriere pentru elementul ce va fi adaugat:</value>
+</data>
+<data name="TXT_ERROR_INVALID_CATALOG">
+  <value>Acest fişier nu reprezintă un catalog media valid:&#xD;
+&#xD;
+{0}</value>
+</data>
+<data name="TXT_ERROR_MERGE_SAME_CATALOG">
+  <value>Nu se poate alipi un catalog cu el insusi:&#xD;
+&#xD;
+{0}</value>
+</data>
+<data name="TXT_ERR_MERGE_FAILED">
+  <value>Alipirea cataloagelor a eşuat. Detalii:&#xD;
+{0}</value>
+</data>
+<data name="TXT_FILENAMEPATTERN">
+  <value>Şablon nume fişier:</value>
+</data>
+<data name="TXT_FOLDERNAMEPATTERN">
+  <value>Şablon nume director:</value>
+</data>
+<data name="TXT_FSTAGEDITOR">
+  <value>Populează câmpurile ID3 folosind numele fişierului/directorului</value>
+</data>
+<data name="TXT_GROUP_BMKWITHMEDIA">
+  <value>Leagă fişierele media de fişierele bookmark&#xD;
+(Stationaţi cu mouse-ul peste acest text pentru a afişa un tooltip explicativ)</value>
+</data>
+<data name="TXT_GROUP_BMKWITHMEDIA_DESC">
+  <value>Fişierele bookmark (extensia BMK) conţin informaţii despre anumite momente în cadrul unui fişier &#xD;
+media. Este foarte important ca fişierele BMK să se afle lânga fişierele media asociate (numite şi &#xD;
+'fişiere părinte').&#xD;
+&#xD;
+Dacă bifaţi această casetă, Exploratorul de Fişiere va considera intotdeauna că un fişier media şi &#xD;
+fişierul bookmark asociat reprezintă o singura entitate. Acest lucru inseamna că o operaţiune de &#xD;
+copiere, redenumire, mutare sau ştergere efectuata prin Exploratorul de Fişiere pe oricare din aceste &#xD;
+doua fişiere se va propaga automat şi asupra celuilalt.&#xD;
+&#xD;
+Lăsaţi această casetă nebifată dacă doriţi ca aceste două fişiere să fie tratate ca două fişiere &#xD;
+distincte, gestionate în stilul Windows Explorer.</value>
+</data>
+<data name="TXT_ID3FILESFILTER">
+  <value>Fişiere MPEG Audio (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
+</data>
+<data name="TXT_ID3WIZARD">
+  <value>Utilitar ID3</value>
+</data>
+<data name="TXT_IMPORTWIZARD">
+  <value>Utilitar import catalog</value>
+</data>
+<data name="TXT_INIT_SEARCH">
+  <value>Iniţializare căutare - vă rugăm aşteptaţi ...</value>
+</data>
+<data name="TXT_ITEMNAME">
+  <value>Nume obiect</value>
+</data>
+<data name="TXT_JUMPTOITEM">
+  <value>Salt la obiect</value>
+</data>
+<data name="TXT_KEEPCASE">
+  <value>Pastrează majusculele/minusculele existente</value>
+</data>
+<data name="TXT_LAUNCH_WIZARD">
+  <value>Lansează Utilitar ID3 ...</value>
+</data>
+<data name="TXT_MAINTAIN_CATALOG_HISTORY">
+  <value>Reţine istoricul cataloagelor deschise</value>
+</data>
+<data name="TXT_MAXPROCESSEDFILES">
+  <value>Nr. max. de fişiere ale căror proprietăţi pot fi afişate:</value>
+</data>
+<data name="TXT_MEDIALABEL">
+  <value>Etichetă originală mediu</value>
+</data>
+<data name="TXT_MEDIAPATH">
+  <value>Cale originală în cadrul mediului - '$' semnifică 'rădăcina discului portabil'</value>
+</data>
+<data name="TXT_MEDIA_WITHOUT_BOOKMARKS">
+  <value>Fişiere media fără Bookmark-uri</value>
+</data>
+<data name="TXT_MEDIA_WITH_BOOKMARKS">
+  <value>Fişiere media cu Bookmark-uri</value>
+</data>
+<data name="TXT_MERGECATALOG">
+  <value>Selectaţi un catalog pentru alipire:</value>
+</data>
+<data name="TXT_MERGECATALOGS">
+  <value>Alipire Cataloage</value>
+</data>
+<data name="TXT_MULTIRENAME">
+  <value>Redenumire fişiere</value>
+</data>
+<data name="TXT_NON_ORPHAN_BOOKMARKS">
+  <value>Fişiere bookmark non-orfane</value>
+</data>
+<data name="TXT_NO_CATALOG">
+  <value>Catalogul nu este incă ales, apasaţi Răsfoire pentru a alege unul.</value>
+</data>
+<data name="TXT_NO_ITEMS_FOUND">
+  <value>Nici un element găsit. Schimbaţi parametrii de căutare şi incercaţi iarăşi.</value>
+</data>
+<data name="TXT_OPENCATALOG">
+  <value>Deschide catalog ...</value>
+</data>
+<data name="TXT_OPENCATALOGS">
+  <value>cataloage deschise.</value>
+</data>
+<data name="TXT_OPENRECENTFILEDROPDOWN">
+  <value>Apăsaţi butonul cu săgeata in jos pentru a afişa lista fişierelor recent deschise.</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINBOOKMARKSADDONPANEL">
+  <value>Arată proprietăţile fişierelor Bookmark (.BMK) în Explorator Fişiere</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL">
+  <value>Explorator Fişiere</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINID3PROPADDONPANEL">
+  <value>Editare ID3 pe fişierele MP1/MP2/MP3 în Explorator Fişiere</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL">
+  <value>Vizualizare fişiere imagine (JPG, GIF, BMP, PNG, etc.)</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERADDONPANEL">
+  <value>Explorator Cataloage</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL">
+  <value>Arată proprietăţile obiectelor catalog în Explorator Cataloage</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL">
+  <value>Arată proprietăţile fişierelor catalog (.CTX) în Explorator Fişiere</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL">
+  <value>Redă fişierele media cu extensia ProTONE Player integrată</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINVIDEOPROPADDONPANEL">
+  <value>Arată proprietăţile fişierelor video în Explorator Fişiere</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPREVIEWADDONPANEL">
+  <value>Deschide fişierele cu programul Windows asociat</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL">
+  <value>Arată proprietăţile legate de sistemul de fişiere</value>
+</data>
+<data name="TXT_ORPHAN_BOOKMARKS">
+  <value>Fişiere bookmark orfane</value>
+</data>
+<data name="TXT_PREVIEW">
+  <value>Vizualizare rezultate ...</value>
+</data>
+<data name="TXT_PREVIEW_DESC_EDITID3">
+  <value>Vizualizare rezultate acţiune 'Editare câmpuri ID3':</value>
+</data>
+<data name="TXT_PREVIEW_DESC_FILLID3BYFS">
+  <value>Vizualizare rezultate acţiune 'Populează câmpurile ID3 folosind numele fişierului/directorului':</value>
+</data>
+<data name="TXT_PREVIEW_DESC_MULTIRENAME">
+  <value>Vizualizare rezultate acţiune 'Redenumire fişiere':</value>
+</data>
+<data name="TXT_PREVIEW_FORM">
+  <value>Vizualizare rezultate</value>
+</data>
+<data name="TXT_PREVIEW_TIMER">
+  <value>Temporizare vizualizare automată (secunde)&#xD;
+(0 = Dezactivează vizualizarea automată):</value>
+</data>
+<data name="TXT_PROPERTYSEARCH">
+  <value>Cauta în Metadata (ex. ID3)</value>
+</data>
+<data name="TXT_RECURSIVESEARCH">
+  <value>Caută în subdirectoare</value>
+</data>
+<data name="TXT_REMOVE_FILES">
+  <value>Şterge fişiere</value>
+</data>
+<data name="TXT_RENAME">
+  <value>Redenumire</value>
+</data>
+<data name="TXT_RENAMEPATTERN">
+  <value>Şablon redenumire:</value>
+</data>
+<data name="TXT_REOPEN_LAST_CATALOG">
+  <value>La pornirea programului, deschide ultimul catalog încărcat</value>
+</data>
+<data name="TXT_RETAIN_LAST">
+  <value>Reţine ultimele</value>
+</data>
+<data name="TXT_ROOT">
+  <value>Director radacină al catalogului</value>
+</data>
+<data name="TXT_SAVECATALOG">
+  <value>Salvează catalogul ca ...</value>
+</data>
+<data name="TXT_SCAN_ERROR">
+  <value>Eroare la scanare</value>
+</data>
+<data name="TXT_SCAN_ERROR_MSG">
+  <value>O eroare non-fatală s-a produs la scanarea obiectului: {0}.&#xD;
+Mesajul de eroare este: {1}. &#xD;
+&#xD;
+Doriţi continuarea scanării ?</value>
+</data>
+<data name="TXT_SEARCHFOLDER">
+  <value>Caută în director:</value>
+</data>
+<data name="TXT_SEARCHPATTERN_FE">
+  <value>Specificaţi numele căutat (metacaractere permise: *, ?) sau alegeţi unul dintre şabloanele predefinite:</value>
+</data>
+<data name="TXT_SEARCHPATTERN_MC">
+  <value>Specificaţi numele căutat fără metacaractere:</value>
+</data>
+<data name="TXT_SEARCHVALUE">
+  <value>Textul căutat:</value>
+</data>
+<data name="TXT_SEARCHWIZARD_FE">
+  <value>Caută fişiere şi directoare</value>
+</data>
+<data name="TXT_SEARCHWIZARD_MC">
+  <value>Caută obiecte în catalog</value>
+</data>
+<data name="TXT_SEARCH_BOOKMARKS">
+  <value>Caută fişiere Bookmark (*.BMK)</value>
+</data>
+<data name="TXT_SEARCH_MEDIAFILES">
+  <value>Caută fişiere media</value>
+</data>
+<data name="TXT_SELECTCATALOG">
+  <value>Specificaţi catalogul unde se vor adăuga elementele importate:</value>
+</data>
+<data name="TXT_SELECTID3FILES">
+  <value>Selectaţi fişierele audio pentru editare ...</value>
+</data>
+<data name="TXT_SELECTID3FOLDER">
+  <value>Selectaţi un director ce contine fişiere MPEG audio:</value>
+</data>
+<data name="TXT_SELECTINSERTPOINT">
+  <value>Selectaţi punctul de insertie în cadrul catalogului selectat&#xD;
+(apasaţi F5 pentru reîncărcarea listei):</value>
+</data>
+<data name="TXT_SENTENCECASE">
+  <value>Primul cuvânt cu majusculă</value>
+</data>
+<data name="TXT_SHORTCUT">
+  <value>&#xD;
+Scurtătură: {0}</value>
+</data>
+<data name="TXT_SUPPLY_CATALOG_DESC">
+  <value>Specificaţi o descriere pentru catalog...</value>
+</data>
+<data name="TXT_TAGEDITOR">
+  <value>Editare câmpuri ID3</value>
+</data>
+<data name="TXT_TOTAL_ITEMS_FOUND">
+  <value>Total: {0} obiect(e) găsite. Folosiţi meniul contextual pentru a procesa aceste elemente.</value>
+</data>
+<data name="TXT_UNHANDLED">
+  <value>Acest tip de sarcină nu poate fi indeplinit.</value>
+</data>
+<data name="TXT_VER_NA">
+  <value>Informaţia de versiune lipseşte (Catalog vechi)</value>
+</data>
+<data name="TXT_WAIT_LOADING_CATALOG">
+  <value>Va rugăm aşteptaţi incărcarea catalogului ...</value>
+</data>
+<data name="TXT_WAIT_MERGING_CATALOG">
+  <value>Va rugăm aşteptaţi alipirea cataloagelor ...</value>
+</data>
+<data name="TXT_WIZCATSTEP1_DESC">
+  <value>Specificaţi catalogul unde se vor adăuga elementele importate:</value>
+</data>
+<data name="TXT_WIZCATSTEP2_DESC">
+  <value>Selectaţi directorul sau discul conţinând fişierele ce trebuiesc importate: &#xD;
+(apasaţi F5 pentru a reîncărca lista):</value>
+</data>
+<data name="TXT_WIZID3STEP1_DESC">
+  <value>Specificaţi fişierele ce trebuiesc editate. Folosiţi butoanele 'Adaugă Fişier', &#xD;
+'Adaugă Director', 'Şterge fişiere' pentru a configura lista de fişiere.</value>
+</data>
+<data name="TXT_WIZID3STEP2_DESC">
+  <value>Specificaţi cum trebuie procesate aceste fişiere:</value>
+</data>
+<data name="TXT_WORDHANDLING">
+  <value>Schimbare majuscule/minuscule:</value>
+</data>
+<data name="TXT_CATALOG_DESC">
+  <value>Descriere catalog</value>
+</data>
+<data name="TXT_CATALOGINFO">
+  <value>Informaţii fişier catalog</value>
+</data>
+<data name="TXT_ID3INFO_PATTERNS">
+  <value>Şabloane câmpuri ID3</value>
+</data>
+<data name="TXT_INTERNALLABEL">
+  <value>Etichetă internă mediu</value>
+</data>
+<data name="TXT_ISORPHAN">
+  <value>Fişier orfan</value>
+</data>
+<data name="TXT_ITEMDATA">
+  <value>Date adiţionale</value>
+</data>
+<data name="TXT_ITEMTYPE_DESC">
+  <value> Tipul obiectului</value>
+</data>
+<data name="TXT_MEDIAPATH_SHORT">
+  <value>Cale originală în cadrul mediului</value>
+</data>
+<data name="TXT_PARENTMEDIAFILE">
+  <value>Fişier media părinte</value>
+</data>
+<data name="TXT_ROOTSERIALNUMBER">
+  <value>Număr serial al mediului</value>
+</data>
+<data name="TXT_TOTALCHILDRENCOUNT">
+  <value>Total elemente</value>
+</data>
+<data name="TXT_TOTALFILECOUNT">
+  <value> Total fişiere</value>
+</data>
+<data name="TXT_TOTALSUBFOLDERCOUNT">
+  <value> Total subdirectoare</value>
+</data>
+<data name="TXT_CATALOGITEMINFO">
+  <value>Informaţii editabile</value>
+</data>
+<data name="TXT_CATALOGITEMINFO_RO">
+  <value>Informaţii needitabile</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
+  <value>Arată proprietățile fișierelor CD Audio (CDA) în Explorator Fișiere</value>
+</data>
+<data name="TXT_CDRIPPERWIZARD">
+  <value>CD Ripper</value>
+</data>
+<data name="TXT_GRABBERHINT_STEP1">
+  <value>Daţi clic pe celulele listei pentru a le edita.&#xD;
+Daţi dublu-clic pe imagini pentru a alege dacă importaţi o pistă sau nu.</value>
+</data>
+<data name="TXT_OPTIONS_VBR">
+  <value>Opțiuni VBR</value>
+</data>
+<data name="TXT_SELECTDRIVE">
+  <value>Selectați o unitate CD audio:</value>
+</data>
+<data name="TXT_SELECTTRACKS">
+  <value>Selectați pistele ce doriţi să le capturaţi de pe CD:</value>
+</data>
+<data name="TXT_SAVETOFOLDER">
+  <value>Salvează fișierele de ieșire în:</value>
+</data>
+<data name="TXT_OUTPUT_FORMAT">
+  <value>Format de ieșire:</value>
+</data>
+<data name="TXT_ENCODEROPTIONS">
+  <value>Opțiuni Encoder: </value>
+</data>
+<data name="TXT_BITRATE_MODE">
+  <value>Mod rată binară:</value>
+</data>
+<data name="TXT_CHANNEL_MODE">
+  <value>Mod audio:</value>
+</data>
+<data name="TXT_VBRQUALITY">
+  <value>Calitate VBR:</value>
+</data>
+<data name="TXT_VBRMAX">
+  <value>Max. VBR (kbps):</value>
+</data>
+<data name="TXT_VBRMIN:">
+  <value>Min. VBR (kbps):</value>
+</data>
+<data name="TXT_VBRMODE">
+  <value>Mod VBR:</value>
+</data>
+<data name="TXT_BITCOPYRIGHT">
+  <value>Bit Copyright</value>
+</data>
+<data name="TXT_MP3FLAGS">
+  <value>Fanioane MP3: </value>
+</data>
+<data name="TXT_BITORIGINAL">
+  <value>Bit original</value>
+</data>
+<data name="TXT_BITPRIVATE">
+  <value>Bit privat</value>
+</data>
+<data name="TXT_BITCRC">
+  <value>Bit CRC</value>
+</data>
+<data name="TXT_OPTIONS_ADDITIONAL">
+  <value>Opțiuni suplimentare</value>
+</data>
+<data name="TXT_LAME_DISCLAIMER">
+  <value>ProTONE Suite foloseşte L.A.M.E. pentru codarea MP3.</value>
+</data>
+<data name="TXT_CONFIG_NOT_REQUIRED">
+  <value>Acest format nu are nevoie de nici o opțiune de configurare.</value>
+</data>
+<data name="TXT_GENERATE_ID3">
+  <value>Generează câmpurile ID3 folosind proprietăţile pistelor de pe CD</value>
+</data>
+<data name="TXT_PROCESSING_TRACK">
+  <value>Se importă pista nr. {0} de pe CD în fişierul: {1}</value>
+</data>
+    
+</root>

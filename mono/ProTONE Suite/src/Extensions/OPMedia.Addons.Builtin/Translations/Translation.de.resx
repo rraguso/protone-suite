@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ABORTED">
+  <value>Scan-Vorgang abgebrochen.</value>
+</data>
+<data name="TXT_ADDON_FE_SETTINGS">
+  <value>Datei-Browser</value>
+</data>
+<data name="TXT_ADDON_MC_SETTINGS">
+  <value>Katalog-Browser</value>
+</data>
+<data name="TXT_ATTRIBUTESEARCH">
+  <value>Die Ergebnisse filtern durch Dateiattribute</value>
+</data>
+<data name="TXT_CAPITALIZEWORDS">
+  <value>Wandelt alle Wörter</value>
+</data>
+<data name="TXT_CASEINSENSITIVESEARCH">
+  <value>Ignorieren Großschreibung / Kleinschreibung</value>
+</data>
+<data name="TXT_CATALOG">
+  <value>Katalog-Assistent</value>
+</data>
+<data name="TXT_CATALOGPATH">
+  <value>Importierte Produkte werden in den Katalog Datei unter dem Pfad hinzugefügt werden: {0}</value>
+</data>
+<data name="TXT_CATALOGSCHEMAVERSION">
+  <value>Katalog-Schema-Version</value>
+</data>
+<data name="TXT_CATALOG_FILTER">
+  <value>Media Katalog Dateien (*.ctx)|*.ctx||</value>
+</data>
+<data name="TXT_CMDCATALOGMERGE">
+  <value>Zusammenführen von Katalogen</value>
+</data>
+<data name="TXT_CMDCATALOGWIZARD">
+  <value>Starten Sie Catalog Import-Assistent</value>
+</data>
+<data name="TXT_CMDCHANGEDISK">
+  <value>Ändern logischer Datenträger</value>
+</data>
+<data name="TXT_CMDID3WIZARD">
+  <value>Starten Sie ID3-Assistent</value>
+</data>
+<data name="TXT_CMDNAVIGATEBACK">
+  <value>Navigieren Sie zurück</value>
+</data>
+<data name="TXT_CMDNAVIGATEFORWARD">
+  <value>Navigieren Sie nach vorn</value>
+</data>
+<data name="TXT_CMDNAVIGATEUP">
+  <value>Gehe zum übergeordneten Ordner</value>
+</data>
+<data name="TXT_DRIVES">
+  <value>Ändern Sie Laufwerk</value>
+</data>
+<data name="TXT_ENTRY_DESC">
+  <value>Geben Sie eine Beschreibung für den Eintrag hinzugefügt werden:</value>
+</data>
+<data name="TXT_ERROR_INVALID_CATALOG">
+  <value>Diese Datei stellt keine gültige Media Catalog:
+
+{0}</value>
+</data>
+<data name="TXT_ERROR_MERGE_SAME_CATALOG">
+  <value>Sie können nicht zusammengeführt werden einen Katalog in sich:
+
+{0}</value>
+</data>
+<data name="TXT_ERR_MERGE_FAILED">
+  <value>Merge Kataloge sind gescheitert. Details:
+
+{0}</value>
+</data>
+<data name="TXT_FILENAMEPATTERN">
+  <value>Dateiname Muster:</value>
+</data>
+<data name="TXT_FOLDERNAMEPATTERN">
+  <value>Ordnername Muster:</value>
+</data>
+<data name="TXT_FSTAGEDITOR">
+  <value>Füllen Sie ID3-Infos über Datei / Ordner-Namen</value>
+</data>
+<data name="TXT_GROUP_BMKWITHMEDIA">
+  <value>Link-Media-Dateien, um Dateien bookmark
+(Halten Sie die Maustaste schwebte auf diesen Text, um einen erklärenden Tooltip zeigen)</value>
+</data>
+<data name="TXT_GROUP_BMKWITHMEDIA_DESC">
+  <value>Bookmark-Dateien (BMK) enthalten Informationen über besondere Momente in einer Mediendatei. Es ist sehr wichtig, dass
+BMK Dateien in der Nähe der erhältlichen Mediendateien (auch als "Stamm-Dateien ') angeordnet sind.
+
+Wenn Sie dieses Feld ckeck, die Datei-Browser wird immer überlegen, stellen eine einzelne Entität, die eine Medien-Datei und die zugehörigen Lesezeichen-Datei.
+Dies bedeutet, dass ein kopieren, umbenennen, verschieben oder löschen Betrieb
+aus dem Datei-Browser auf eine dieser Dateien automatisch ausgestellt propagiert auf die andere Datei auch.
+
+Halten Sie dieses Kontrollkästchen deaktiviert, wenn Sie sie als verschiedene Entitäten zu betrachten und mit ihnen umgehen
+in den Windows-Explorer-Stil wollen.</value>
+</data>
+<data name="TXT_ID3FILESFILTER">
+  <value>MPEG Audio-Dateien (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
+</data>
+<data name="TXT_ID3WIZARD">
+  <value>ID3-Assistent</value>
+</data>
+<data name="TXT_IMPORTWIZARD">
+  <value>Import-Assistent</value>
+</data>
+<data name="TXT_INIT_SEARCH">
+  <value>Der Suchvorgang wird initialisiert, bitte warten ...</value>
+</data>
+<data name="TXT_ITEMNAME">
+  <value>Objektnamen</value>
+</data>
+<data name="TXT_JUMPTOITEM">
+  <value>Gehe zu Element</value>
+</data>
+<data name="TXT_KEEPCASE">
+  <value>Behält das ursprüngliche Wort Gehäuse</value>
+</data>
+<data name="TXT_LAUNCH_WIZARD">
+  <value>Starten Sie ID3-Assistent ...</value>
+</data>
+<data name="TXT_MAINTAIN_CATALOG_HISTORY">
+  <value>Denken Sie daran, offen Kataloge Geschichte</value>
+</data>
+<data name="TXT_MAXPROCESSEDFILES">
+  <value>Max. Nr. von Dateien, deren Eigenschaften können angezeigt werden:</value>
+</data>
+<data name="TXT_MEDIALABEL">
+  <value>Original-Medien-Label</value>
+</data>
+<data name="TXT_MEDIAPATH">
+  <value>Ursprünglichen Pfad in Medien - '$' steht für 'Wechselmedien root'</value>
+</data>
+<data name="TXT_MEDIA_WITHOUT_BOOKMARKS">
+  <value>Media-Dateien ohne Lesezeichen</value>
+</data>
+<data name="TXT_MEDIA_WITH_BOOKMARKS">
+  <value>Media-Dateien mit Lesezeichen</value>
+</data>
+<data name="TXT_MERGECATALOG">
+  <value>Bitte wählen Sie einen Katalog zusammengeführt werden:</value>
+</data>
+<data name="TXT_MERGECATALOGS">
+  <value>Zusammenführen von Katalogen</value>
+</data>
+<data name="TXT_MULTIRENAME">
+  <value>Umbenennen von Dateien</value>
+</data>
+<data name="TXT_NON_ORPHAN_BOOKMARKS">
+  <value>Non-Waise Bookmark-Dateien</value>
+</data>
+<data name="TXT_NO_CATALOG">
+  <value>Kein Katalog noch definiert wird, klicken Sie bitte auf Durchsuchen, um einen auszuwählen.</value>
+</data>
+<data name="TXT_NO_ITEMS_FOUND">
+  <value>Keine Artikel gefunden. Bitte ändern Sie die Suchparameter und versuchen Sie es erneut.</value>
+</data>
+<data name="TXT_OPENCATALOG">
+  <value>Öffnen Sie den Katalog-Datei ...</value>
+</data>
+<data name="TXT_OPENCATALOGS">
+  <value>offenen Kataloge.</value>
+</data>
+<data name="TXT_OPENRECENTFILEDROPDOWN">
+  <value>Drücken Sie auf den Pfeil nach unten Taste, um die zuletzt verwendeten Dateien zu öffnen.</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINBOOKMARKSADDONPANEL">
+  <value>Anzeige der Eigenschaften des Bookmark-Dateien (. BMK) im Datei-Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL">
+  <value>Datei-Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINID3PROPADDONPANEL">
+  <value>Bearbeiten von ID3 auf MP1/MP2/MP3 Dateien im Datei-Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL">
+  <value>Alle Bilddateien (JPG, GIF, BMP, PNG, etc.)</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERADDONPANEL">
+  <value>Katalog-Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL">
+  <value>Zeige Katalogelemente Informationen in Katalog-Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL">
+  <value>Zeige Eigenschaften des Catalog Dateien im Datei-Browser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL">
+  <value>Wiedergeben von Mediendateien mit dem eingebetteten Player-Erweiterung ProTONE</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINVIDEOPROPADDONPANEL">
+  <value>Zeige Eigenschaften von Videodateien im Dateibrowser</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPREVIEWADDONPANEL">
+  <value>Öffnen Sie die Dateien mit den zugehörigen Windows-Programm</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL">
+  <value>Show File System Informationen im Datei-Browser</value>
+</data>
+<data name="TXT_ORPHAN_BOOKMARKS">
+  <value>Waise Bookmark-Dateien</value>
+</data>
+<data name="TXT_PREVIEW">
+  <value>Vorschau der Ergebnisse ...</value>
+</data>
+<data name="TXT_PREVIEW_DESC_EDITID3">
+  <value>Vorschau Ergebnisse der 'Edit ID3-Infos' Aufgabe:</value>
+</data>
+<data name="TXT_PREVIEW_DESC_FILLID3BYFS">
+  <value>Vorschau Ergebnisse der "Fill ID3-Infos 'Aufgabe:</value>
+</data>
+<data name="TXT_PREVIEW_DESC_MULTIRENAME">
+  <value>Vorschau Ergebnisse "Redenumire Fişiere 'Aufgabe:</value>
+</data>
+<data name="TXT_PREVIEW_FORM">
+  <value>Vorschau Ergebnisse</value>
+</data>
+<data name="TXT_PREVIEW_TIMER">
+  <value>Automatische Vorschau Timer (Sekunden)
+(0 = Deaktivieren Sie die automatische Vorschau):</value>
+</data>
+<data name="TXT_PROPERTYSEARCH">
+  <value>Suche Metadaten (z.B. ID3)</value>
+</data>
+<data name="TXT_RECURSIVESEARCH">
+  <value>Suche in Unterordnern</value>
+</data>
+<data name="TXT_REMOVE_FILES">
+  <value>Entfernen von Dateien</value>
+</data>
+<data name="TXT_RENAME">
+  <value>Umbenennen</value>
+</data>
+<data name="TXT_RENAMEPATTERN">
+  <value>Benennen Sie Muster:</value>
+</data>
+<data name="TXT_REOPEN_LAST_CATALOG">
+  <value>Beim Programmstart, öffnen Sie zuletzt geladene Katalog</value>
+</data>
+<data name="TXT_RETAIN_LAST">
+  <value>Angemeldet letzten</value>
+</data>
+<data name="TXT_ROOT">
+  <value>Catalog Root Folder</value>
+</data>
+<data name="TXT_SAVECATALOG">
+  <value>Speichern unter ... Katalog</value>
+</data>
+<data name="TXT_SCAN_ERROR">
+  <value>Scan-Fehler</value>
+</data>
+<data name="TXT_SCAN_ERROR_MSG">
+  <value>Ein nicht-tödlicher Fehler beim Scannen Objekt:. {0}
+Die Fehlermeldung lautet:. {1}
+
+Möchten Sie fortfahren Scannen wollen?</value>
+</data>
+<data name="TXT_SEARCHFOLDER">
+  <value>Suchen Sie im Ordner:</value>
+</data>
+<data name="TXT_SEARCHPATTERN_FE">
+  <value>Geben Sie den Namen für die Suche (Wildcards erlaubt:*, ?), oder wählen Sie eine der vordefinierten Mustern:</value>
+</data>
+<data name="TXT_SEARCHPATTERN_MC">
+  <value>Geben Sie den Namen für die Suche ohne Wildcards:</value>
+</data>
+<data name="TXT_SEARCHVALUE">
+  <value>Text durchsucht werden soll:</value>
+</data>
+<data name="TXT_SEARCHWIZARD_FE">
+  <value>Suchen von Dateien und Ordnern</value>
+</data>
+<data name="TXT_SEARCHWIZARD_MC">
+  <value>Suche Artikel im Katalog</value>
+</data>
+<data name="TXT_SEARCH_BOOKMARKS">
+  <value>Search Bookmark-Dateien (*. BMK)</value>
+</data>
+<data name="TXT_SEARCH_MEDIAFILES">
+  <value>Suche Media-Dateien</value>
+</data>
+<data name="TXT_SELECTCATALOG">
+  <value>Geben Sie den Katalog, um die importierten Dateien hinzu:</value>
+</data>
+<data name="TXT_SELECTID3FILES">
+  <value>Wählen Sie Audio-Dateien bearbeitet werden, um ...</value>
+</data>
+<data name="TXT_SELECTID3FOLDER">
+  <value>Wählen Sie einen Ordner mit MPEG-Audio-Dateien:</value>
+</data>
+<data name="TXT_SELECTINSERTPOINT">
+  <value>Wählen Sie die Einfügemarke innerhalb des ausgewählten Katalog
+(drücken Sie F5, um den Baum neu zu laden):</value>
+</data>
+<data name="TXT_SENTENCECASE">
+  <value>Profitieren erste Wort</value>
+</data>
+<data name="TXT_SHORTCUT">
+  <value>
+Tastenkürzel: {0}</value>
+</data>
+<data name="TXT_SUPPLY_CATALOG_DESC">
+  <value>Geben Sie eine Beschreibung für Ihren Katalog ...</value>
+</data>
+<data name="TXT_TAGEDITOR">
+  <value>Bearbeiten von ID3 Infos</value>
+</data>
+<data name="TXT_TOTAL_ITEMS_FOUND">
+  <value>Gesamt: {0} item (s) gefunden. Verwenden Sie das Menü der rechten Maustaste weiter zu verarbeiten diese Artikel.</value>
+</data>
+<data name="TXT_UNHANDLED">
+  <value>Können nicht mit der angegebenen Task-Typ.</value>
+</data>
+<data name="TXT_VER_NA">
+  <value>Info Version nicht vorhanden ist (Legacy-Katalog)</value>
+</data>
+<data name="TXT_WAIT_LOADING_CATALOG">
+  <value>Bitte warten Katalog ...</value>
+</data>
+<data name="TXT_WAIT_MERGING_CATALOG">
+  <value>Bitte warten zusammenführen von Katalogen ...</value>
+</data>
+<data name="TXT_WIZCATSTEP1_DESC">
+  <value>Geben Sie den Katalog, um die importierten Dateien hinzu:</value>
+</data>
+<data name="TXT_WIZCATSTEP2_DESC">
+  <value>Wählen Sie den Ordner oder die Diskette mit der zu importierenden Objekte
+(drücken Sie F5, um den Baum neu zu laden):</value>
+</data>
+<data name="TXT_WIZID3STEP1_DESC">
+  <value>Bitte angeben, welche Dateien Sie bearbeiten möchten.
+Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entfernen "Tasten, um die Dateien zu konfigurieren.</value>
+</data>
+<data name="TXT_WIZID3STEP2_DESC">
+  <value>Bitte angeben, wie sollten diese Dateien verarbeitet werden:</value>
+</data>
+<data name="TXT_WORDHANDLING">
+  <value>Ändern Worte Fall:</value>
+</data>
+<data name="TXT_CATALOG_DESC">
+  <value>Katalog Beschreibung</value>
+</data>
+<data name="TXT_CATALOGINFO">
+  <value>Katalog Datei-Informationen</value>
+</data>
+<data name="TXT_ID3INFO_PATTERNS">
+  <value>ID3 Info Patterns</value>
+</data>
+<data name="TXT_INTERNALLABEL">
+  <value>Interne Medien Etikett</value>
+</data>
+<data name="TXT_ISORPHAN">
+  <value>Ist Waise</value>
+</data>
+<data name="TXT_ITEMDATA">
+  <value>Zusätzliche Daten</value>
+</data>
+<data name="TXT_ITEMTYPE_DESC">
+  <value> Ursprüngliche Element-Typ</value>
+</data>
+<data name="TXT_MEDIAPATH_SHORT">
+  <value>Ursprünglichen Pfad innerhalb Medien</value>
+</data>
+<data name="TXT_PARENTMEDIAFILE">
+  <value>Eltern-Medien-Datei</value>
+</data>
+<data name="TXT_ROOTSERIALNUMBER">
+  <value>Media Serial Number</value>
+</data>
+<data name="TXT_TOTALCHILDRENCOUNT">
+  <value> Artikel insgesamt</value>
+</data>
+<data name="TXT_TOTALFILECOUNT">
+  <value> Dateien insgesamt</value>
+</data>
+<data name="TXT_TOTALSUBFOLDERCOUNT">
+  <value> Unterordner ingesamt</value>
+</data>
+<data name="TXT_CATALOGITEMINFO">
+  <value>Veränderbare Informationen</value>
+</data>
+<data name="TXT_CATALOGITEMINFO_RO">
+  <value>Nicht Veränderbaren Informationen</value>
+</data>
+<data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
+  <value>Zeige Eigenschaften von Audio-CD-Dateien (CDA) in Datei-Browser</value>
+</data>
+<data name="TXT_CDRIPPERWIZARD">
+  <value>CD Ripper</value>
+</data>
+<data name="TXT_GRABBERHINT_STEP1">
+  <value>Klicken Sie auf Zellen der Liste, um sie zu bearbeiten.
+Beim Check Bildern zu entscheiden, ob eine Spur oder nicht greifen Doppelklick.</value>
+</data>
+<data name="TXT_OPTIONS_VBR">
+  <value>VBR Optionen</value>
+</data>
+<data name="TXT_SELECTDRIVE">
+  <value>Wählen Sie eine Audio-CD-Laufwerk:</value>
+</data>
+<data name="TXT_SELECTTRACKS">
+  <value>Wählen Sie die Tracks von der CD gerippt werden:</value>
+</data>
+<data name="TXT_SAVETOFOLDER">
+  <value>Speichern Output-Dateien an:</value>
+</data>
+<data name="TXT_OUTPUT_FORMAT">
+  <value>Ausgabeformat:</value>
+</data>
+<data name="TXT_ENCODEROPTIONS">
+  <value>Encoder Optionen: </value>
+</data>
+<data name="TXT_BITRATE_MODE">
+  <value>Bitrate-Modus:</value>
+</data>
+<data name="TXT_CHANNEL_MODE">
+  <value>Audio-Modus:</value>
+</data>
+<data name="TXT_VBRQUALITY">
+  <value>VBR-Qualität:</value>
+</data>
+<data name="TXT_VBRMAX">
+  <value>Max. VBR (kbps):</value>
+</data>
+<data name="TXT_VBRMIN:">
+  <value>Min. VBR (kbps):</value>
+</data>
+<data name="TXT_VBRMODE">
+  <value>VBR-Modus:</value>
+</data>
+<data name="TXT_BITCOPYRIGHT">
+  <value>Urheberrecht Bit</value>
+</data>
+<data name="TXT_MP3FLAGS">
+  <value>MP3 Flags: </value>
+</data>
+<data name="TXT_BITORIGINAL">
+  <value>Original-Bit</value>
+</data>
+<data name="TXT_BITPRIVATE">
+  <value>Privat Bit</value>
+</data>
+<data name="TXT_BITCRC">
+  <value>CRC Bit</value>
+</data>
+<data name="TXT_OPTIONS_ADDITIONAL">
+  <value>Weitere Optionen</value>
+</data>
+<data name="TXT_LAME_DISCLAIMER">
+  <value>ProTONE Suite nutzt L.A.M.E. für MP3-Encoding.</value>
+</data>
+<data name="TXT_CONFIG_NOT_REQUIRED">
+  <value>Dieses Format erfordert keine Konfigurationsoptionen.</value>
+</data>
+<data name="TXT_GENERATE_ID3">
+  <value>Generieren ID3 Infos auf CD-Track-Eigenschaften basierend</value>
+</data>
+<data name="TXT_PROCESSING_TRACK">
+  <value>Importieren CD-Spur Nr. {0} in Datei: {1}</value>
+</data>
+    
+</root>

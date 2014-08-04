@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F8F065A-62A9-48D7-AADC-5E59CBCD1D3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OPMedia.Addons.Builtin</RootNamespace>
+    <AssemblyName>OPMedia.Addons.Builtin</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="taglib-sharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Externals\taglib-sharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\BuiltinAddonConfig.cs" />
+    <Compile Include="Navigation\CatalogExplorer\DataLayer\Catalog.cs" />
+    <Compile Include="Navigation\CatalogExplorer\DataLayer\CatalogDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CatalogDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\DataLayer\CatalogInfo.cs" />
+    <Compile Include="Navigation\CatalogExplorer\DataLayer\CatalogItem.cs" />
+    <Compile Include="Navigation\CatalogExplorer\DataLayer\CatalogItemType.cs" />
+    <Compile Include="Navigation\CatalogExplorer\Dialogs\CatalogFolderBrowserDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\Dialogs\CatalogFolderBrowserDialog.Designer.cs">
+      <DependentUpon>CatalogFolderBrowserDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\EncoderConfiguratorCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\EncoderConfiguratorCtl.Designer.cs">
+      <DependentUpon>EncoderConfiguratorCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.Designer.cs">
+      <DependentUpon>Mp3EncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.Designer.cs">
+      <DependentUpon>OggEncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.Designer.cs">
+      <DependentUpon>WavEncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep2.Designer.cs">
+      <DependentUpon>WizCdRipperStep2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep1.Designer.cs">
+      <DependentUpon>WizCdRipperStep1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.Designer.cs">
+      <DependentUpon>WmaEncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\AudioGrabber.cs" />
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToMP3.cs" />
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\GrabberToWave.cs" />
+    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Tasks\Task.cs" />
+    <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FECopyFilesTask.cs" />
+    <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEDeleteFilesTask.cs" />
+    <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEFileTaskSupport.cs" />
+    <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEMoveFilesTask.cs" />
+    <Compile Include="Property\Bookmarks\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\Bookmarks\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\CDAProp\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\CDAProp\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\PreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\PreviewForm.Designer.cs">
+      <DependentUpon>PreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\MediaCatalogCfgPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\MediaCatalogCfgPanel.Designer.cs">
+      <DependentUpon>MediaCatalogCfgPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Preview\__DefaultPreview\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\FileOperations\Forms\FEFileTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\FileExplorerCfgPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\FileExplorerCfgPanel.Designer.cs">
+      <DependentUpon>FileExplorerCfgPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\SearchWizard\Controls\WizFESearchStep1Ctl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\SearchWizard\Controls\WizFESearchStep1Ctl.Designer.cs">
+      <DependentUpon>WizFESearchStep1Ctl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\SearchWizard\Tasks\Task.cs" />
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\FSTagEditorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\FSTagEditorPanel.Designer.cs">
+      <DependentUpon>FSTagEditorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\CatalogItemPropFE\CatalogItemPropFE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\CatalogItemPropFE\CatalogItemPropFE.Designer.cs">
+      <DependentUpon>CatalogItemPropFE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\CatalogItemPropMC\CatalogItemPropMC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\CatalogItemPropMC\CatalogItemPropMC.Designer.cs">
+      <DependentUpon>CatalogItemPropMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\__DefaultProp\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\__DefaultProp\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\FileExplorer\AddonPanel.designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\ID3Prop\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\ID3Prop\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\EditPanelBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\EditPanelBase.Designer.cs">
+      <DependentUpon>EditPanelBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Helpers\ID3FileRenamer.cs" />
+    <Compile Include="Property\ID3Prop\ID3Wizard\Helpers\ID3Tagger.cs" />
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\MultiRenamePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\MultiRenamePanel.Designer.cs">
+      <DependentUpon>MultiRenamePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\TagEditorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\TagEditorPanel.Designer.cs">
+      <DependentUpon>TagEditorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Task\Task.cs" />
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step1Ctl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step1Ctl.Designer.cs">
+      <DependentUpon>WizId3Step1Ctl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step2Ctl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step2Ctl.Designer.cs">
+      <DependentUpon>WizId3Step2Ctl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Preview\Images\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Preview\Images\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\Controls\CatalogListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\Controls\CatalogTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\ImportWizard\Controls\WizImportStep2Ctl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\ImportWizard\Controls\WizImportStep2Ctl.Designer.cs">
+      <DependentUpon>WizImportStep2Ctl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\ImportWizard\Controls\WizImportStep1Ctl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\ImportWizard\Controls\WizImportStep1Ctl.Designer.cs">
+      <DependentUpon>WizImportStep1Ctl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\ImportWizard\Tasks\Task.cs" />
+    <Compile Include="Navigation\CatalogExplorer\SearchWizard\Controls\WizMCSearchStep1Ctl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\SearchWizard\Controls\WizMCSearchStep1Ctl.Designer.cs">
+      <DependentUpon>WizMCSearchStep1Ctl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\CatalogExplorer\SearchWizard\Tasks\Task.cs" />
+    <Compile Include="Preview\Player\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Preview\Player\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Property\VideoProp\AddonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\VideoProp\AddonPanel.Designer.cs">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Translations\Translation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Translation.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Navigation\CatalogExplorer\AddonPanel.resx">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\CatalogExplorer\Dialogs\CatalogFolderBrowserDialog.resx">
+      <DependentUpon>CatalogFolderBrowserDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\AddonPanel.resx">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.resx">
+      <DependentUpon>Mp3EncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.resx">
+      <DependentUpon>OggEncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.resx">
+      <DependentUpon>WavEncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep1.resx">
+      <DependentUpon>WizCdRipperStep1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep2.resx">
+      <DependentUpon>WizCdRipperStep2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.resx">
+      <DependentUpon>WmaEncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\FileExplorer\FileExplorerCfgPanel.resx">
+      <DependentUpon>FileExplorerCfgPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preview\Player\AddonPanel.resx">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\ID3Prop\AddonPanel.resx">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\FSTagEditorPanel.resx">
+      <DependentUpon>FSTagEditorPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\MultiRenamePanel.resx">
+      <DependentUpon>MultiRenamePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\PreviewForm.resx">
+      <DependentUpon>PreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\TagEditorPanel.resx">
+      <DependentUpon>TagEditorPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step1Ctl.resx">
+      <DependentUpon>WizId3Step1Ctl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step2Ctl.resx">
+      <DependentUpon>WizId3Step2Ctl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\CatalogExplorer\MediaCatalogCfgPanel.resx">
+      <DependentUpon>MediaCatalogCfgPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\CatalogExplorer\ImportWizard\Controls\WizImportStep1Ctl.resx">
+      <DependentUpon>WizImportStep1Ctl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\CatalogExplorer\ImportWizard\Controls\WizImportStep2Ctl.resx">
+      <DependentUpon>WizImportStep2Ctl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Property\VideoProp\AddonPanel.resx">
+      <DependentUpon>AddonPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.fr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Navigation\CatalogExplorer\DataLayer\CatalogDataset.xsc">
+      <DependentUpon>CatalogDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Navigation\CatalogExplorer\DataLayer\CatalogDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CatalogDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Navigation\CatalogExplorer\DataLayer\CatalogDataset.xss">
+      <DependentUpon>CatalogDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Templates\Catalog\Default Catalog">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Navigation\FileExplorer\SearchWizard\Controls\WizFESearchStep1Ctl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WizFESearchStep1Ctl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navigation\CatalogExplorer\SearchWizard\Controls\WizMCSearchStep1Ctl.resx">
+      <DependentUpon>WizMCSearchStep1Ctl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.de.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.ro.resx">
+      <LastGenOutput>Translation.ro.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\Translation.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Translation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id3.PNG" />
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\OPMediaBase\OPMedia.Core\OPMedia.Core.csproj">
+      <Project>{D75C6E16-0208-40FD-8C54-F073667F5384}</Project>
+      <Name>OPMedia.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\OPMediaBase\OPMedia.Runtime.Addons\OPMedia.Runtime.Addons.csproj">
+      <Project>{EAD6662B-2B4A-47A8-A82B-B44463668177}</Project>
+      <Name>OPMedia.Runtime.Addons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\OPMediaBase\OPMedia.Runtime\OPMedia.Runtime.csproj">
+      <Project>{0A0114C0-4409-42F3-940C-31038104261C}</Project>
+      <Name>OPMedia.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\OPMediaBase\OPMedia.UI\OPMedia.UI.csproj">
+      <Project>{3405ACFC-77F4-470D-BF75-4754A8214998}</Project>
+      <Name>OPMedia.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\ProTONE\OPMedia.Runtime.ProTONE\OPMedia.Runtime.ProTONE.csproj">
+      <Project>{8C047807-786E-4B9C-8DF5-1DF99F75C874}</Project>
+      <Name>OPMedia.Runtime.ProTONE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\ProTONE\OPMedia.UI.ProTONE\OPMedia.UI.ProTONE.csproj">
+      <Project>{742E1775-5F08-40E3-97D1-E0EEEB7198F4}</Project>
+      <Name>OPMedia.UI.ProTONE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileExplorer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DiskDrive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player16.png" />
+    <None Include="Resources\ID316.png" />
+    <None Include="Resources\FileExplorer16.png" />
+    <None Include="Resources\Search16.png" />
+    <None Include="Resources\Rename16.png" />
+    <None Include="Resources\Reload16.png" />
+    <None Include="Resources\Paste16.png" />
+    <None Include="Resources\Up16.png" />
+    <None Include="Resources\Move.png" />
+    <None Include="Resources\Back16.png" />
+    <None Include="Resources\Forward16.png" />
+    <None Include="Resources\Cut16.png" />
+    <None Include="Resources\Delete16.png" />
+    <None Include="Resources\Copy16.png" />
+    <None Include="Resources\Catalog.png" />
+    <None Include="Resources\Catalog16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blank_cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnOpenDisk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lame-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New_Folder_Command.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New_Folder_Command16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

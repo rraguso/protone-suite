@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_ABORT">
+  <value>Intrerupere</value>
+</data>
+<data name="TXT_ABOUT">
+  <value>Despre {0}</value>
+</data>
+<data name="TXT_ADD">
+  <value>Adaugă...</value>
+</data>
+<data name="TXT_ADD_FILES">
+  <value>Adaugă fişiere ...</value>
+</data>
+<data name="TXT_ADD_FOLDER">
+  <value>Adaugă director ...</value>
+</data>
+<data name="TXT_ALL_FILES_FILTER">
+  <value>Toate fişierele (*.*)|*.*||</value>
+</data>
+<data name="TXT_ALTKEY">
+  <value>Alternativă</value>
+</data>
+<data name="TXT_APPHELP">
+  <value>Cuprins ...</value>
+</data>
+<data name="TXT_APPLY">
+  <value>Aplicare</value>
+</data>
+<data name="TXT_APP_RESTART">
+  <value>Este necesară repornirea programului</value>
+</data>
+<data name="TXT_ARGUMENTS">
+  <value>Specificaţi parametrii liniei de comandă pentru program:</value>
+</data>
+<data name="TXT_BACK">
+  <value>Înapoi</value>
+</data>
+<data name="TXT_BROWSE">
+  <value>Răsfoire ...</value>
+</data>
+<data name="TXT_BTNCLOSE">
+  <value>Inchidere</value>
+</data>
+<data name="TXT_BTNMAXIMIZE">
+  <value>Maximizare</value>
+</data>
+<data name="TXT_BTNMINIMIZE">
+  <value>Minimizare</value>
+</data>
+<data name="TXT_BTNRESTOREDOWN">
+  <value>Restaurare</value>
+</data>
+<data name="TXT_BUILDING_OBJECT_LIST">
+  <value>Se crează listă de obiecte ...</value>
+</data>
+<data name="TXT_CANCEL">
+  <value>Anulează</value>
+</data>
+<data name="TXT_CAUTION">
+  <value>Atenţie</value>
+</data>
+<data name="TXT_CHANGE">
+  <value>Modifică...</value>
+</data>
+<data name="TXT_CHOOSELOGPATH">
+  <value>Alegeţi directorul fişierelor jurnal:</value>
+</data>
+<data name="TXT_CHOOSEPROGRAM">
+  <value>Alegeţi programul pentru execuţie:</value>
+</data>
+<data name="TXT_CHOOSEWORKDIR">
+  <value>Alegeţi directorul de lucru al programului:</value>
+</data>
+<data name="TXT_CLEARLOG">
+  <value>Şterge Fişierul Jurnal</value>
+</data>
+<data name="TXT_CLEARWINDOW">
+  <value>Şterge Fereastra</value>
+</data>
+<data name="TXT_CLICK_LIST_TO_EDIT">
+  <value>Daţi click pe celulele evidenţiate ale listei pentru editare.</value>
+</data>
+<data name="TXT_CMDCFGKEYBOARD">
+  <value>Afişează scurtăturile.</value>
+</data>
+<data name="TXT_CMDGENERICAPPLY">
+  <value>Aplică modificările.</value>
+</data>
+<data name="TXT_CMDGENERICCOPY">
+  <value>Copiere date (sau fişiere)</value>
+</data>
+<data name="TXT_CMDGENERICCUT">
+  <value>Decupare date (sau fişiere)</value>
+</data>
+<data name="TXT_CMDGENERICDELETE">
+  <value>Ştergere date (sau fişiere)</value>
+</data>
+<data name="TXT_CMDGENERICNEW">
+  <value>Document nou.</value>
+</data>
+<data name="TXT_CMDGENERICOPEN">
+  <value>Deschide document</value>
+</data>
+<data name="TXT_CMDGENERICPASTE">
+  <value>Lipire date (sau fişiere)</value>
+</data>
+<data name="TXT_CMDGENERICREFRESH">
+  <value>Reîncarcare date</value>
+</data>
+<data name="TXT_CMDGENERICRENAME">
+  <value>Redenumire fişiere</value>
+</data>
+<data name="TXT_CMDGENERICSAVE">
+  <value>Salvează document</value>
+</data>
+<data name="TXT_CMDGENERICSEARCH">
+  <value>Căutare date (sau fişiere)</value>
+</data>
+<data name="TXT_CMDGENERICUNDO">
+  <value>Anulează schimbările</value>
+</data>
+<data name="TXT_CMDOPENHELP">
+  <value>Deschide fişierul manual</value>
+</data>
+<data name="TXT_CMDOPENSETTINGS">
+  <value>Afişează dialogul de Setări.</value>
+</data>
+<data name="TXT_CMDSHOWLOGCONSOLE">
+  <value>Afişează consola fişier jurnal</value>
+</data>
+<data name="TXT_CMDSWITCHWINDOWS">
+  <value>Comută intre ferestrele Extensiilor.</value>
+</data>
+<data name="TXT_COMMAND">
+  <value>Comandă</value>
+</data>
+<data name="TXT_CONFIRM">
+  <value>Confirmare</value>
+</data>
+<data name="TXT_CONFIRM_ABORT">
+  <value>Sunteţi sigur că doriţi abandonarea operaţiunii ?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE">
+  <value>Sunteţi sigur că doriţi ştergerea fişierului:&#xD;
+{0} ?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE_DIR">
+  <value>Directorul: {0} nu este gol.&#xD;
+Doriţi să-l ştergeti (inclusiv conţinutul sau) ?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE_EMPTYDIR">
+  <value>Sunteţi sigur că doriţi ştergerea directorului:&#xD;
+{0} ?</value>
+</data>
+<data name="TXT_CONFIRM_DELETE_ROHS">
+  <value>Fişierul {0} are unul sau mai multe din atributele: Read-Only/Hidden/System&#xD;
+Doriţi totuşi să îl ştergeti ?</value>
+</data>
+<data name="TXT_CONFIRM_OVERWRITE">
+  <value>Fişierul destinaţie: {0} este deja prezent. &#xD;
+Doriţi să fie suprascris ?</value>
+</data>
+<data name="TXT_CONFIRM_OVERWRITE_RO">
+  <value>Fişierul destinaţie: {0} este deja prezent şi are atributul Read-Only. &#xD;
+Doriţi să fie suprascris ?</value>
+</data>
+<data name="TXT_COPY">
+  <value>Copiere</value>
+</data>
+<data name="TXT_CUR_PROGRESS">
+  <value>{0}: {1} obiecte din {2} ({3}% finalizat)</value>
+</data>
+<data name="TXT_CUT">
+  <value>Tăiere</value>
+</data>
+<data name="TXT_DEFINE_PROGRAM">
+  <value>[ Definiţi programul pentru execuţie ]</value>
+</data>
+<data name="TXT_DELETE">
+  <value>Ştergere</value>
+</data>
+<data name="TXT_DESCRIPTION">
+  <value>Descriere comandă</value>
+</data>
+<data name="TXT_DESC_COPY_TASK">
+  <value>Copiere</value>
+</data>
+<data name="TXT_DESC_DELETE_TASK">
+  <value>Ştergere</value>
+</data>
+<data name="TXT_DESC_MOVE_TASK">
+  <value>Mutare</value>
+</data>
+<data name="TXT_DOUBLE_CLICK_TO_EDIT">
+  <value>dublu click pentru editare</value>
+</data>
+<data name="TXT_DOWNLOAD">
+  <value>Descarcă</value>
+</data>
+<data name="TXT_DRAWBORDERS">
+  <value>Desenează marginile şi bara de titlu (recomandat)</value>
+</data>
+<data name="TXT_EDITKEYDESC">
+  <value>Apasaţi noua combinaţie de taste pentru: {0}. &#xD;
+Scurtătura curenta este: {1}.</value>
+</data>
+<data name="TXT_ENABLESKINNEDBORDERS">
+  <value>Margini rotunjite</value>
+</data>
+<data name="TXT_ENABLE_LOG">
+  <value>Activează jurnalizarea</value>
+</data>
+<data name="TXT_ERROR">
+  <value>Eroare</value>
+</data>
+<data name="TXT_ERRORS">
+  <value>Înregistrează erorile în jurnal</value>
+</data>
+<data name="TXT_ERRORS_COPY_TASK">
+  <value>Au apărut câteva erori în timpul copierii fişierelor specificate.&#xD;
+Examinaţi lista de mai jos pentru mai multe detalii</value>
+</data>
+<data name="TXT_ERRORS_DELETE_TASK">
+  <value>Au apărut câteva erori în timpul ştergerii fişierelor specificate.&#xD;
+Examinaţi lista de mai jos pentru mai multe detalii</value>
+</data>
+<data name="TXT_ERRORS_ENCOUNTERED">
+  <value>Câteva erori au fost întâlnite în timpul operaţiunii.</value>
+</data>
+<data name="TXT_ERRORS_MOVE_TASK">
+  <value>Au apărut câteva erori în timpul mutării fişierelor specificate.&#xD;
+Examinaţi lista de mai jos pentru mai multe detalii</value>
+</data>
+<data name="TXT_EVERYDAY">
+  <value>Fiecare zi</value>
+</data>
+<data name="TXT_EXIT">
+  <value>Ieşire</value>
+</data>
+<data name="TXT_FILE">
+  <value>Fişier</value>
+</data>
+<data name="TXT_FILENAME">
+  <value>Nume Fişier</value>
+</data>
+<data name="TXT_FOLDERNOTACCESSIBLE">
+  <value>Acest director nu mai este accesibil. Este posibil să fi fost mutat, şters, sau discul său ar fi putut fi scos din computer.</value>
+</data>
+<data name="TXT_FORWARD">
+  <value>Înainte</value>
+</data>
+<data name="TXT_FREEZEWINDOW">
+  <value>Blochează fereastra</value>
+</data>
+<data name="TXT_FRIDAY">
+  <value>Vineri</value>
+</data>
+<data name="TXT_S_GENERALSETTINGS">
+  <value>General</value>
+</data>
+<data name="TXT_HEAVY_TRACE">
+  <value>Activează jurnal de depanare detaliat</value>
+</data>
+<data name="TXT_HELP">
+  <value>Ajutor</value>
+</data>
+<data name="TXT_INFO">
+  <value>Înregistrează mesajele informative în jurnal</value>
+</data>
+<data name="TXT_INSERT_DISK">
+  <value>Introduceţi discul</value>
+</data>
+<data name="TXT_INSERT_MEDIA">
+  <value>Introduceţi discul etichetat {0} (descriere: {1}) în unitatea {2}</value>
+</data>
+<data name="TXT_KEY">
+  <value>Scurtătură</value>
+</data>
+<data name="TXT_KEYCOMMANDEDITOR">
+  <value>Definire taste pentru {0}</value>
+</data>
+<data name="TXT_S_KEYMAP">
+  <value>Tastatură</value>
+</data>
+<data name="TXT_S_KEYMAP_DESC">
+  <value>Pentru a modifica o scurtătură, daţi click pe linkurile asociate acesteia în tabelul de mai jos. Scurtăturile cu linkuri inactive nu pot fi modificate de către utilizator (Ex: OpenHelp = F1, etc).</value>
+</data>
+<data name="TXT_LANGUAGE">
+  <value>Limbă</value>
+</data>
+<data name="TXT_LOGFILENAME">
+  <value>Nume fişier jurnal:</value>
+</data>
+<data name="TXT_S_LOGGINGSETTINGS">
+  <value>Jurnal</value>
+</data>
+<data name="TXT_LOGLINECONSOLE">
+  <value>Consolă fişier jurnal</value>
+</data>
+<data name="TXT_LOGLINECOUNT">
+  <value>Număr intrări jurnal:</value>
+</data>
+<data name="TXT_LOG_DESC">
+  <value>Această versiune este compilată cu jurnalizare implicită.&#xD;
+Toate nivelele de jurnalizare sunt implicit active.</value>
+</data>
+<data name="TXT_LOG_KEEPDAYS">
+  <value>Numărul de zile de păstrare a fişierelor jurnal &#xD;
+(min=2, max=10):</value>
+</data>
+<data name="TXT_LOG_PATH">
+  <value>Director fişiere jurnal:</value>
+</data>
+<data name="TXT_MODIFY">
+  <value>Modifică</value>
+</data>
+<data name="TXT_MONDAY">
+  <value>Luni</value>
+</data>
+<data name="TXT_MULTIRENAME">
+  <value>Redenumire Multiplă Fişiere</value>
+</data>
+<data name="TXT_NA">
+  <value>Nedisponibil</value>
+</data>
+<data name="TXT_S_NETWORK_SETTINGS">
+  <value>Reţea</value>
+</data>
+<data name="TXT_NEW">
+  <value>Nou</value>
+</data>
+<data name="TXT_NO">
+  <value>Nu</value>
+</data>
+<data name="TXT_NO_NETWORK">
+  <value>Atenţie: Nu există conexiuni de reţea funcţionale.</value>
+</data>
+<data name="TXT_OFF">
+  <value>OPRIT</value>
+</data>
+<data name="TXT_OK">
+  <value>OK</value>
+</data>
+<data name="TXT_ON">
+  <value>PORNIT</value>
+</data>
+<data name="TXT_OPEN">
+  <value>Deschide</value>
+</data>
+<data name="TXT_OR">
+  <value>sau</value>
+</data>
+<data name="TXT_PASSWORD">
+  <value>Parolă</value>
+</data>
+<data name="TXT_PASTE">
+  <value>Lipire</value>
+</data>
+<data name="TXT_PORT_NAME">
+  <value>Nume Port Serial:</value>
+</data>
+<data name="TXT_PORT_SETTINGS">
+  <value>Setări Port Serial:</value>
+</data>
+<data name="TXT_PROCEED">
+  <value>Continuare</value>
+</data>
+<data name="TXT_PROGRAMSTARTUPINFO">
+  <value>Informaţii lansare program</value>
+</data>
+<data name="TXT_PROGRAMS_FILTER">
+  <value>Fişiere executabile (*.exe)|*.exe|Toate fişierele (*.*)|*.*||</value>
+</data>
+<data name="TXT_PROGRAM_DEF">
+  <value>Programul executat (pentru modificare daţi click pe pe link-ul de mai jos):</value>
+</data>
+<data name="TXT_READONLY">
+  <value>Acces doar citire (Read-Only)</value>
+</data>
+<data name="TXT_ARCHIVE">
+  <value>Fişier 'Arhivă'</value>
+</data>
+<data name="TXT_HIDDEN">
+  <value>Fişier 'Ascuns' (hidden)</value>
+</data>
+<data name="TXT_SYSTEM">
+  <value>Fişier 'Sistem'</value>
+</data>
+<data name="TXT_REFRESH">
+  <value>Reîncărcare</value>
+</data>
+<data name="TXT_SATURDAY">
+  <value>Sâmbăta</value>
+</data>
+<data name="TXT_SAVE">
+  <value>Salvare</value>
+</data>
+<data name="TXT_SAVE_AS">
+  <value>Salvare ca...</value>
+</data>
+<data name="TXT_SEARCH">
+  <value>Căutare</value>
+</data>
+<data name="TXT_SERIALPORTLCFG">
+  <value>Configurare Port Serial</value>
+</data>
+<data name="TXT_SERIAL_PORT_NAME">
+  <value>Setări pentru Portul Serial: </value>
+</data>
+<data name="TXT_SERVER">
+  <value>Server</value>
+</data>
+<data name="TXT_SETSKIN">
+  <value>Setare tema interfaţă grafică (pentru toată suita ProTONE):</value>
+</data>
+<data name="TXT_SETTINGS">
+  <value>Setări program</value>
+</data>
+<data name="TXT_SETUILANGUAGE">
+  <value>Setare limbă interfaţă grafică (pentru toată suita ProTONE):</value>
+</data>
+<data name="TXT_SHOWLOG">
+  <value>Afişează fişierul jurnal ...</value>
+</data>
+<data name="TXT_SHOWSPLITTERS">
+  <value>Afişează separatorii de panou în fereastra principală</value>
+</data>
+<data name="TXT_SIZE">
+  <value>Dimensiune</value>
+</data>
+<data name="TXT_SUCCESS">
+  <value>Sarcină îndeplinită cu succes.</value>
+</data>
+<data name="TXT_SUCCESS_COPY_TASK">
+  <value>Copierea fişierelor s-a încheiat cu succes.</value>
+</data>
+<data name="TXT_SUCCESS_DELETE_TASK">
+  <value>Ştergerea fişierelor s-a încheiat cu succes.</value>
+</data>
+<data name="TXT_SUCCESS_MOVE_TASK">
+  <value>Mutarea fişierelor s-a încheiat cu succes.</value>
+</data>
+<data name="TXT_SUNDAY">
+  <value>Duminică</value>
+</data>
+<data name="TXT_TASK_CANCEL">
+  <value>Intrerupeţi sarcinile în execuţie ?</value>
+</data>
+<data name="TXT_TASK_CANCEL_MSG">
+  <value>Sunteţi sigur că doriţi să intrerupeţi sarcinile în execuţie ?</value>
+</data>
+<data name="TXT_SPECIFYURL">
+  <value>Definire URL:</value>
+</data>
+<data name="TXT_TCPIPINVALIDFORMAT">
+  <value>Textul introdus nu reprezintă un URL valid.</value>
+</data>
+<data name="TXT_TCPIPURI">
+  <value>Introduceţi URL-ul:</value>
+</data>
+<data name="TXT_THEREARENOITEMS">
+  <value>Nu exista obiecte afişabile în acest panou.</value>
+</data>
+<data name="TXT_THURSDAY">
+  <value>Joi</value>
+</data>
+<data name="TXT_TRACE">
+  <value>Înregistrează mesajele de depanare în fişierul jurnal</value>
+</data>
+<data name="TXT_TUESDAY">
+  <value>Marţi</value>
+</data>
+<data name="TXT_UNDO">
+  <value>Anulează</value>
+</data>
+<data name="TXT_UP">
+  <value>Sus</value>
+</data>
+<data name="TXT_USERNAME">
+  <value>Utilizator</value>
+</data>
+<data name="TXT_VERSION">
+  <value>Versiune: {0}</value>
+</data>
+<data name="TXT_WAIT_COPY">
+  <value>Aşteptaţi copierea fişierelor ...</value>
+</data>
+<data name="TXT_WAIT_DELETE">
+  <value>Aşteptaţi ştergerea fişierelor ...</value>
+</data>
+<data name="TXT_WAIT_MOVE">
+  <value>Aşteptaţi mutarea fişierelor ...</value>
+</data>
+<data name="TXT_WARNING">
+  <value>Înregistrează mesajele de avertizare în jurnal</value>
+</data>
+<data name="TXT_WEDNESDAY">
+  <value>Miercuri</value>
+</data>
+<data name="TXT_WIZARDBACK">
+  <value>&lt; Înapoi</value>
+</data>
+<data name="TXT_WIZARDCANCEL">
+  <value>Anulare</value>
+</data>
+<data name="TXT_WIZARDFINISH">
+  <value>Finalizare</value>
+</data>
+<data name="TXT_WIZARDNEXT">
+  <value>Înainte &gt;</value>
+</data>
+<data name="TXT_WIZARDOK">
+  <value>OK</value>
+</data>
+<data name="TXT_WIZARDREPEAT">
+  <value>Reluare utilitar</value>
+</data>
+<data name="TXT_WIZARDSTEPDELIMITER">
+  <value>din</value>
+</data>
+<data name="TXT_WIZARDSTEPTEXT">
+  <value>Pasul </value>
+</data>
+<data name="TXT_WIZFINISHED">
+  <value>a finalizat execuţia sarcinilor.</value>
+</data>
+<data name="TXT_WIZFINISHING">
+  <value>este în execuţie, vă rugăm aşteptaţi...</value>
+</data>
+<data name="TXT_WIZSTEPRESULTS">
+  <value>Rezultat</value>
+</data>
+<data name="TXT_WIZTASKSFINISHED">
+  <value>Toate sarcinile utilitarului au fost executate cu succes !</value>
+</data>
+<data name="TXT_WIZTASKSFINISHED_ERRORS">
+  <value>Sarcinile utilitarului au fost executate, dar au fost intâlnite câteva erori. Detalii în listă de mai jos.</value>
+</data>
+<data name="TXT_WIZTASKSRUNNING">
+  <value>Va rugăm aşteptaţi cât timp utilitarul este în execuţie...</value>
+</data>
+<data name="TXT_WORKDIR">
+  <value>Director de lucru:</value>
+</data>
+<data name="TXT_YES">
+  <value>Da</value>
+</data>
+<data name="TXT_YESALL">
+  <value>Da pt. toate</value>
+</data>
+<data name="TXT_DEFINE_PROXYSERVERADDRESS">
+  <value>[ Specificaţi adresa serverului proxy ]</value>
+</data>
+<data name="TXT_DEFINE_PROXYSERVERUSERNAME">
+  <value>[ Specificaţi numele de utilizator ]</value>
+</data>
+<data name="TXT_PROXYTYPE">
+  <value>Tip server proxy:</value>
+</data>
+<data name="TXT_PROXYADDRESS">
+  <value>Adresă server proxy:</value>
+</data>
+<data name="TXT_PROXYPORT">
+  <value>Port server proxy:</value>
+</data>
+<data name="TXT_PROXYUSERNAME">
+  <value>Nume utilizator:</value>
+</data>
+<data name="TXT_PROXYPASSWORD">
+  <value>Parolă:</value>
+</data>
+<data name="TXT_LEVEL_AUTOMATIC">
+  <value>Mesaj automat</value>
+</data>
+<data name="TXT_LEVEL_ERROR">
+  <value>Mesaj de eroare</value>
+</data>
+<data name="TXT_LEVEL_EXCEPTION">
+  <value>Mesaj de eroare fatală</value>
+</data>
+<data name="TXT_LEVEL_HEAVYTRACE">
+  <value>Mesaj de depanare detaliat</value>
+</data>
+<data name="TXT_LEVEL_INFO">
+  <value>Mesaj informativ</value>
+</data>
+<data name="TXT_LEVEL_TRACE">
+  <value>Mesaj de depanare</value>
+</data>
+<data name="TXT_LEVEL_WARNING">
+  <value>Mesaj de avertizare</value>
+</data>
+<data name="TXT_RESULTS">
+  <value>Rezultate:</value>
+</data>
+<data name="TXT_PRIMARY_MONITOR">
+  <value> [MONITOR PRINCIPAL]</value>
+</data>
+<data name="TXT_CONFIRM_PROPERTYSAVE">
+  <value>Proprietăţile obiectului au fost modificate. Doriţi sa salvaţi modificările ?</value>
+</data>
+<data name="TXT_CONFIRMSAVECHANGES">
+  <value>Salvaţi modificările ?</value>
+</data>
+<data name="TXT_DUPPLICATE_SHORTCUT">
+  <value>Scurtătura este deja folosită</value>
+</data>
+<data name="TXT_DUP_SHORTCUT_FIXED">
+  <value>Combinaţia de taste '{0}' este deja alocată pentru '{1}' şi nu poate fi modificată.&#xD;
+Vă rugăm introduceţi o altă combinaţie.</value>
+</data>
+<data name="TXT_DUP_SHORTCUT_CONFIRM">
+  <value>Combinaţia de taste '{0}' este deja alocată pentru '{1}'.&#xD;
+Doriţi să o realocaţi pentru '{2}'?</value>
+</data>
+<data name="TXT_CONFIRM_RESTORE">
+  <value>Suneţi sigur că doriţi încărcarea setarilor implicite?</value>
+</data>
+<data name="TXT_RESTORESHORTCUTSDESC">
+  <value>Folosiţi 'Restaurează setări implicite' pentru a încărca configuraţia implicită a scurtăturilor.</value>
+</data>
+<data name="TXT_RESTOREDEFAULTS">
+  <value>Restaurează setări implicite</value>
+</data>
+<data name="TXT_PID">
+  <value>ID proces</value>
+</data>
+<data name="TXT_TID">
+  <value>ID thread</value>
+</data>
+<data name="TXT_KEEPONTOP">
+  <value>Menţine fereastra deasupra altora</value>
+</data>
+<data name="TXT_SAVEWINDOW">
+  <value>Salvează fereastra jurnal ca ...</value>
+</data>
+<data name="TXT_SAVELOGFILE">
+  <value>Salvează fişierul jurnal ca ...</value>
+</data>
+<data name="TXT_SHOWTRACE">
+  <value>Afişează mesajele de depanare</value>
+</data>
+<data name="TXT_SHOWINFO">
+  <value>Afişează mesajele informative</value>
+</data>
+<data name="TXT_SHOWWARNING">
+  <value>Afişează mesajele de avertizare</value>
+</data>
+<data name="TXT_SHOWERROR">
+  <value>Afişează mesajele de eroare</value>
+</data>
+<data name="TXT_SAVELOGORWINDOW">
+  <value>Salvează fişierul jurnal sau fereastra</value>
+</data>
+<data name="TXT_NOTIFYUPDATE">
+  <value>O nouă versiune de program este disponibilă: {0}.&#xD;
+Doriţi să actualizaţi la această versiune?</value>
+</data>
+<data name="TXT_CONFIRMUPDATE">
+  <value>Confirmaţi actualizarea programului</value>
+</data>
+<data name="TXT_WAITDOWNLOADUPDATE">
+  <value>Vă rugam asteptaţi descarcarea fişierelor de actualizare. Puteţi apăsa ESC pentru a opri descărcarea şi a păstra versiunea de aplicaţie existentă.</value>
+</data>
+<data name="TXT_ALLOWAUTOUPDATES">
+  <value>Permite actualizarea automată a programului</value>
+</data>
+<data name="TXT_CHECKUPDATE">
+  <value>Verifică actualizări program</value>
+</data>
+<data name="TXT_DISABLEAUTODOWNLOADS">
+  <value>Dezactivează actualizările automate</value>
+</data>
+<data name="TXT_NOUPDATEREQUIRED">
+  <value>Programul dvs. are ultima versiune disponibilă.&#xD;
+Pentru moment, nu este nevoie să actualizati programul.</value>
+</data>
+<data name="TXT_CONFIRM_MOVE">
+  <value>Sunteţi sigur că doriţi mutarea fişierului:&#xD;
+{0} ?</value>
+</data>
+<data name="TXT_CONFIRM_MOVE_DIR">
+  <value>Directorul: {0} nu este gol.&#xD;
+Doriţi să-l mutaţi cu tot conţinutul sau ?</value>
+</data>
+<data name="TXT_CONFIRM_MOVE_EMPTYDIR">
+  <value>Sunteţi sigur că doriţi mutarea directorului:&#xD;
+{0} ?</value>
+</data>
+<data name="TXT_CONFIRM_MOVE_ROHS">
+  <value>Fişierul {0} are unul sau mai multe din atributele: Read-Only/Hidden/System&#xD;
+Doriţi totuşi să îl mutaţi ?</value>
+</data>
+<data name="TXT_NOPROXY">
+  <value>Fără proxy</value>
+</data>
+<data name="TXT_HTTPPROXY">
+  <value>Proxy HTTP</value>
+</data>
+<data name="TXT_SOCKS4PROXY">
+  <value>Proxy SOCKS4</value>
+</data>
+<data name="TXT_SOCKS5PROXY">
+  <value>Proxy SOCKS5</value>
+</data>
+<data name="TXT_IEPROXY">
+  <value>Foloseşte setările de proxy din Internet Explorer</value>
+</data>
+<data name="TXT_FILE_TYPE">
+  <value>Tipul fişierului</value>
+</data>
+<data name="TXT_LOOK_IN">
+  <value>Caută în</value>
+</data>
+<data name="TXT_SAMPLE">
+  <value>Exemplu:</value>
+</data>
+<data name="TXT_FONT">
+  <value>Font:</value>
+</data>
+<data name="TXT_FONT_STYLE">
+  <value>Stilul fontului:</value>
+</data>
+<data name="TXT_SCRIPT">
+  <value>Set de caractere:</value>
+</data>
+<data name="TXT_CHOOSE_COLOR">
+  <value>Alegeţi o culoare:</value>
+</data>
+<data name="TXT_ACTIVE">
+  <value>Activ</value>
+</data>
+<data name="TXT_FLAG_ERRORS">
+  <value>Arată&#xD;
+Erorile</value>
+</data>
+<data name="TXT_FLAG_WARNINGS">
+  <value>Arată Mesaje&#xD;
+de Avertizare</value>
+</data>
+<data name="TXT_FLAG_INFOS">
+  <value>Arată Mesaje&#xD;
+Informative</value>
+</data>
+<data name="TXT_FLAG_TRACES">
+  <value>Arată&#xD;
+Mesaje Depanare</value>
+</data>
+<data name="TXT_LOGFILE_FILTER">
+  <value>Fişiere jurnal  (*.log)|*.log||</value>
+</data>
+<data name="TXT_SAVELOGFILE_PART">
+  <value>Salvează fişierul jurnal parţial ca ...</value>
+</data>
+<data name="TXT_DRIVE_DESC_FORMAT">
+  <value>{0}  [{1}]  [{2}]  [{3} MB liberi]  [{4}]</value>
+</data>
+<data name="TXT_SELECT_FOLDER">
+  <value>Selectați un director:</value>
+</data>
+<data name="TXT_NEW_FOLDER">
+  <value>Creare director nou</value>
+</data>
+<data name="TXT_FORMAT_UNKNOWN">
+  <value>Format necunoscut</value>
+</data>
+<data name="TXT_NOT_READY">
+  <value>Nedisponibil</value>
+</data>
+<data name="TXT_NO_LABEL">
+  <value>Neetichetat</value>
+</data>
+<data name="TXT_NO_NAME">
+  <value>Nedenumit</value>
+</data>
+<data name="TXT_READY">
+  <value>Disponibil</value>
+</data>
+<data name="TXT_CURRENT_PATH">
+  <value>Cale curenta: {0}</value>
+</data>
+<data name="TXT_DISABLE">
+  <value>Dezactivare</value>
+</data>
+<data name="TXT_EDIT">
+  <value>Editare</value>
+</data>
+<data name="TXT_ENABLE">
+  <value>Activare</value>
+</data>
+<data name="TXT_ENABLED">
+  <value>Activ</value>
+</data>
+<data name="TXT_EXPORT">
+  <value>Export</value>
+</data>
+<data name="TXT_EXPORT_FULL">
+  <value>Export complet...</value>
+</data>
+<data name="TXT_EXPORT_PARTIAL">
+  <value>Export parțial...</value>
+</data>
+<data name="TXT_IMPORT">
+  <value>Import</value>
+</data>
+<data name="TXT_IMPORT_FULL">
+  <value>Import complet...</value>
+</data>
+<data name="TXT_IMPORT_PARTIAL">
+  <value>Import parțial (cu alipire)...</value>
+</data>
+<data name="TXT_INPUT_DATA">
+  <value>Date intrare</value>
+</data>
+<data name="TXT_OUTPUT_DATA">
+  <value>Date ieşire</value>
+</data>
+<data name="TXT_DISK_CDR">
+  <value>Disc optic (CD, DVD sau BlueRay)</value>
+</data>
+<data name="TXT_DISK_FIL">
+  <value>Fişier</value>
+</data>
+<data name="TXT_DISK_FLD">
+  <value>Director</value>
+</data>
+<data name="TXT_DISK_HDD">
+  <value>Disc fix (hard disk)</value>
+</data>
+<data name="TXT_DISK_NET">
+  <value>Disc de reţea</value>
+</data>
+<data name="TXT_DISK_NRT">
+  <value>Disc fără director radacina</value>
+</data>
+<data name="TXT_DISK_RAM">
+  <value>Disc RAM virtual</value>
+</data>
+<data name="TXT_DISK_REM">
+  <value>Disc portabil (discheta sau stick USB).</value>
+</data>
+<data name="TXT_DISK_UNK">
+  <value>Disc de tip necunoscut</value>
+</data>
+<data name="TXT_NEW_FILENAME">
+  <value>Nume nou fişier</value>
+</data>
+<data name="TXT_OLD_FILENAME">
+  <value>Nume vechi fişier</value>
+</data>
+<data name="TXT_ATTRIBUTES">
+  <value>Atribute</value>
+</data>
+<data name="TXT_CREATIONDATE">
+  <value>Creat la data</value>
+</data>
+<data name="TXT_EXTENSION">
+  <value>Extensie</value>
+</data>
+<data name="TXT_FILESIZE">
+  <value>Dimensiune</value>
+</data>
+<data name="TXT_FILESYSTEMINFO">
+  <value>Informaţii fişier</value>
+</data>
+<data name="TXT_LASTACCESSDATE">
+  <value>Ultimul acces</value>
+</data>
+<data name="TXT_LASTCHANGEDATE">
+  <value>Ultima modificare</value>
+</data>
+<data name="TXT_NAME">
+  <value>Nume</value>
+</data>
+<data name="TXT_PARENT">
+  <value>Director părinte</value>
+</data>
+<data name="TXT_PATH">
+  <value>Cale</value>
+</data>
+<data name="TXT_DESC">
+  <value>Descriere</value>
+</data>
+<data name="TXT_LOGMESSAGE">
+  <value>Mesaj Jurnal</value>
+</data>
+<data name="TXT_MODULENAME">
+  <value>Nume Modul</value>
+</data>
+<data name="TXT_TIMESTAMP">
+  <value>Marcaj temporal</value>
+</data>
+<data name="TXT_CONFIRM_CREATE">
+  <value>Fişierul {0} nu există încă. &#xD;
+Doriţi să fie creat ?</value>
+</data>
+<data name="TXT_ASSISTANCE">
+  <value>Asistenţă</value>
+</data>
+<data name="TXT_CHOOSE_FAVORITE">
+  <value>Selectaţi un director favorit:</value>
+</data>
+<data name="TXT_CMDFAVMANAGER">
+  <value>Gestioneaza Directoarele favorite</value>
+</data>
+<data name="TXT_FAVORITES">
+  <value>Favorite</value>
+</data>
+<data name="TXT_FAVORITES_ADD">
+  <value>Adaugă la Directoare favorite</value>
+</data>
+<data name="TXT_FAVORITES_MANAGE">
+  <value>Gestionează Directoarele favorite ...</value>
+</data>
+<data name="TXT_MANAGE_FAVORITES">
+  <value>Definiți Directoarele Favorite:</value>
+</data>
+<data name="TXT_PROCESSING_FILE">
+  <value>Se procesează fișierul</value>
+</data>
+<data name="TXT_SCANNING">
+  <value>Se scanează</value>
+</data>
+<data name="TXT_NEWFOLDER">
+  <value>Creează Director Nou</value>
+</data>
+<data name="TXT_PARENTFILETYPES">
+  <value>Tipuri de fișiere 'părinte':</value>
+</data>
+<data name="TXT_CHILDFILETYPES">
+  <value>Tipuri de fișiere 'copil':</value>
+</data>
+<data name="TXT_USE_LINKEDFILES">
+  <value>Manipulează fișierele înlănţuite ca un singur element</value>
+</data>
+<data name="TXT_FILE_NOT_FOUND">
+  <value>Fișierul nu a fost găsit: {0}</value>
+</data>
+<data name="TXT_RECENT_FILE_REMOVED">
+  <value>Fișierul va fi eliminat din lista de fișiere recent deschise.</value>
+</data>
+<data name="TXT_S_CONTROL">
+  <value>Control</value>
+</data>
+<data name="TXT_S_TROUBLESHOOTING">
+  <value></value>
+</data>
+<data name="TXT_EDIT_KEY">
+  <value>Configurare scurtătură</value>
+</data>
+<data name="TXT_RESULTING_COLOR">
+  <value>Culoare rezultat:</value>
+</data>
+    
+</root>
