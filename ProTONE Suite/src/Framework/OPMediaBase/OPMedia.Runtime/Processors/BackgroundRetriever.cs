@@ -22,7 +22,7 @@ namespace OPMedia.Runtime.Processors
         private WebClient _retriever = new WebClient();
         private string _pendingDownloadFile = string.Empty;
 
-        public event NewFileRetrievedEventHandler NewFileRetrieved = null;
+        public event FileRetrieveCompleteEventHandler NewFileRetrieved = null;
 
         ProxySettings _ns = null;
         string _descName = string.Empty;

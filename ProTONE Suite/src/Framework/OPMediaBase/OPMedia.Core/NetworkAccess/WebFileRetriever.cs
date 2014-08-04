@@ -9,7 +9,7 @@ using OPMedia.Core.Logging;
 
 namespace OPMedia.Core.NetworkAccess
 {
-    public delegate void NewFileRetrievedEventHandler(string path, bool success, string errorDetails);
+    public delegate void FileRetrieveCompleteEventHandler(string path, bool success, string errorDetails);
 
     public class WebFileRetriever : IDisposable
     {
@@ -18,7 +18,7 @@ namespace OPMedia.Core.NetworkAccess
         string _destinationPath = string.Empty;
         WebClient _retriever = null;
 
-        public event NewFileRetrievedEventHandler NewFileRetrieved = null;
+        public event FileRetrieveCompleteEventHandler FileRetrieveComplete = null;
 
         public WebFileRetriever(ProxySettings ns, string downloadUrl, string destinationPath, bool runAsBackgroundThread)
         {
@@ -46,9 +46,9 @@ namespace OPMedia.Core.NetworkAccess
             catch (Exception ex)
             {
                 Logger.LogWarning(ex.Message);
-                if (NewFileRetrieved != null)
+                if (FileRetrieveComplete != null)
                 {
-                    NewFileRetrieved(_destinationPath, false, ex.Message);
+                    FileRetrieveComplete(_destinationPath, false, ex.Message);
                 }
             }
         }
@@ -66,9 +66,9 @@ namespace OPMedia.Core.NetworkAccess
             _retriever.Proxy = AppConfig.GetWebProxy();
             _retriever.DownloadFile(new Uri(_downloadUrl), _destinationPath);
 
-            if (NewFileRetrieved != null)
+            if (FileRetrieveComplete != null)
             {
-                NewFileRetrieved(_destinationPath, true, string.Empty);
+                FileRetrieveComplete(_destinationPath, true, string.Empty);
             }
 
             Dispose();

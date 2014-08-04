@@ -43,9 +43,16 @@ namespace OPMedia.Core
         {
             get
             {
-                if (string.IsNullOrEmpty(_appName))
+                try
                 {
-                    return Process.GetCurrentProcess().MainModule.FileVersionInfo.FileDescription;
+                    if (string.IsNullOrEmpty(_appName))
+                    {
+                        return Assembly.GetEntryAssembly().GetName().Name;
+                    }
+                }
+                catch 
+                {
+                    _appName = "Unknown";
                 }
 
                 return _appName;

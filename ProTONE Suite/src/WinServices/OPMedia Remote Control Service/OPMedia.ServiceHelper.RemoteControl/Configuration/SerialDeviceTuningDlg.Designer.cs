@@ -91,6 +91,7 @@ namespace OPMedia.ServiceHelper.RCCService.Configuration
             this.cgICWG.Maximum = 50000D;
             this.cgICWG.Name = "cgICWG";
             this.cgICWG.NrTicks = 100;
+            this.cgICWG.OverrideBackColor = System.Drawing.Color.Empty;
             this.cgICWG.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.cgICWG.ShowTicks = true;
             this.cgICWG.Size = new System.Drawing.Size(526, 15);
@@ -111,6 +112,7 @@ namespace OPMedia.ServiceHelper.RCCService.Configuration
             this.cgMinCW.Maximum = 50D;
             this.cgMinCW.Name = "cgMinCW";
             this.cgMinCW.NrTicks = 20;
+            this.cgMinCW.OverrideBackColor = System.Drawing.Color.Empty;
             this.cgMinCW.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.cgMinCW.ShowTicks = true;
             this.cgMinCW.Size = new System.Drawing.Size(526, 15);
@@ -131,6 +133,7 @@ namespace OPMedia.ServiceHelper.RCCService.Configuration
             this.cgMaxCW.Maximum = 100D;
             this.cgMaxCW.Name = "cgMaxCW";
             this.cgMaxCW.NrTicks = 20;
+            this.cgMaxCW.OverrideBackColor = System.Drawing.Color.Empty;
             this.cgMaxCW.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.cgMaxCW.ShowTicks = true;
             this.cgMaxCW.Size = new System.Drawing.Size(526, 15);
@@ -151,6 +154,7 @@ namespace OPMedia.ServiceHelper.RCCService.Configuration
             this.cgMinCWOcc.Maximum = 10D;
             this.cgMinCWOcc.Name = "cgMinCWOcc";
             this.cgMinCWOcc.NrTicks = 5;
+            this.cgMinCWOcc.OverrideBackColor = System.Drawing.Color.Empty;
             this.cgMinCWOcc.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.cgMinCWOcc.ShowTicks = true;
             this.cgMinCWOcc.Size = new System.Drawing.Size(526, 15);

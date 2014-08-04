@@ -732,30 +732,6 @@
     <None Include="Resources\RestoreButton.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\waitframe0.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\waitframe1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\waitframe2.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\waitframe3.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\waitframe4.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\waitframe5.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\waitframe6.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\waitframe7.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <SplashScreen Include="Resources\main.png" />
   </ItemGroup>
   <ItemGroup>
@@ -812,6 +788,8 @@
   <ItemGroup>
     <Content Include="Resources\Assistance.png" />
     <Content Include="Resources\ControlPanel.png" />
+    <None Include="Resources\waitframe.bmp" />
+    <Content Include="Resources\hourglass.png" />
     <Content Include="Resources\Troubleshooting.png" />
     <Content Include="Resources\TVState0.bmp" />
     <Content Include="Resources\TVState1.bmp" />

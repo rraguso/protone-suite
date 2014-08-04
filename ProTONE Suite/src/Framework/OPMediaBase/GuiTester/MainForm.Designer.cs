@@ -32,12 +32,13 @@
             this.opmTextBox21 = new OPMedia.UI.Controls.OPMTextBox();
             this.opmComboBox1 = new OPMedia.UI.Controls.OPMComboBox();
             this.opmComboBox2 = new OPMedia.UI.Controls.OPMComboBox();
-            this.peDisplay = new OPMedia.UI.Controls.PropertyEditor.OPMPropertyEditor();
             this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.opmPanel1 = new OPMedia.UI.Controls.OPMPanel();
+            this.waitingPictureBox1 = new OPMedia.UI.Controls.WaitingPictureBox();
             this.pnlContent.SuspendLayout();
             this.opmTableLayoutPanel1.SuspendLayout();
             this.opmPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.waitingPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContent
@@ -117,22 +118,10 @@
             this.opmComboBox2.Size = new System.Drawing.Size(121, 23);
             this.opmComboBox2.TabIndex = 4;
             // 
-            // peDisplay
-            // 
-            this.peDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.peDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.peDisplay.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.peDisplay.Location = new System.Drawing.Point(3, 109);
-            this.peDisplay.Name = "peDisplay";
-            this.peDisplay.OverrideBackColor = System.Drawing.Color.Empty;
-            this.peDisplay.Size = new System.Drawing.Size(341, 213);
-            this.peDisplay.TabIndex = 5;
-            // 
             // opmTableLayoutPanel1
             // 
             this.opmTableLayoutPanel1.ColumnCount = 1;
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.Controls.Add(this.peDisplay, 0, 1);
             this.opmTableLayoutPanel1.Controls.Add(this.opmPanel1, 0, 0);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -146,6 +135,7 @@
             // 
             // opmPanel1
             // 
+            this.opmPanel1.Controls.Add(this.waitingPictureBox1);
             this.opmPanel1.Controls.Add(this.opmTextBox21);
             this.opmPanel1.Controls.Add(this.opmComboBox2);
             this.opmPanel1.Controls.Add(this.opmButton1);
@@ -156,6 +146,14 @@
             this.opmPanel1.Size = new System.Drawing.Size(341, 100);
             this.opmPanel1.TabIndex = 6;
             // 
+            // waitingPictureBox1
+            // 
+            this.waitingPictureBox1.Location = new System.Drawing.Point(158, 55);
+            this.waitingPictureBox1.Name = "waitingPictureBox1";
+            this.waitingPictureBox1.Size = new System.Drawing.Size(118, 34);
+            this.waitingPictureBox1.TabIndex = 5;
+            this.waitingPictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(349, 348);
@@ -164,6 +162,7 @@
             this.pnlContent.ResumeLayout(false);
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.waitingPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -174,9 +173,9 @@
         private OPMedia.UI.Controls.OPMTextBox opmTextBox21;
         private OPMedia.UI.Controls.OPMComboBox opmComboBox1;
         private OPMedia.UI.Controls.OPMComboBox opmComboBox2;
-        private OPMedia.UI.Controls.PropertyEditor.OPMPropertyEditor peDisplay;
         private OPMedia.UI.Controls.OPMTableLayoutPanel opmTableLayoutPanel1;
         private OPMedia.UI.Controls.OPMPanel opmPanel1;
+        private OPMedia.UI.Controls.WaitingPictureBox waitingPictureBox1;
 
 
 

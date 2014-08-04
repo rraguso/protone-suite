@@ -18,10 +18,6 @@ namespace GuiTester
 
         void MainForm_Load(object sender, EventArgs e)
         {
-            //NativeFileInfo nfi1 = new NativeFileInfo("d:\\UA5200_Numbers.bak", false);
-            NativeFileInfo nfi2 = new ID3FileInfo("d:\\Atb - Sunburn.mp3", true);
-
-            peDisplay.DisplayProperties(new List<object> { nfi2 });
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Diagnostics;
 
 namespace OPMedia.UI.Dialogs
 {
-    public partial class InsertDriveNotifyDialog : ThemeForm
+    public partial class InsertDriveNotifyDialog : ToolForm
     {
         string _reqLabel, _reqLabelEx;
         DriveType _reqDriveType;
