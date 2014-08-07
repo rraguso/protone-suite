@@ -499,9 +499,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Icon = Resources.btnSavePlaylist.ToIcon((uint)Color.White.ToArgb());
 
             dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
-            dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
-
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
             dlg.ShowAddToFavorites = true;
+
             dlg.ShowNewFolder = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
@@ -567,8 +567,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.Icon = Resources.btnLoadPlaylist.ToIcon((uint)Color.White.ToArgb());
 
             dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
-            dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
-
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
             dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
@@ -588,17 +587,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     ProTONEConfig.PL_LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
-        }
-
-        private bool AddToFavoriteFolders(string path)
-        {
-            List<string> favorites = new List<string>(ProTONEConfig.GetFavoriteFolders("FavoriteFolders"));
-            if (favorites.Contains(path))
-                return false;
-
-            favorites.Add(path);
-            ProTONEConfig.SetFavoriteFolders(favorites, "FavoriteFolders");
-            return true;
         }
 
         void playlist_PlaylistUpdated(int item1, int item2, UpdateType updateType)

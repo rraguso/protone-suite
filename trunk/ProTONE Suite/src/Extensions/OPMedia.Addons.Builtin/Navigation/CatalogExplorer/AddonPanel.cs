@@ -701,6 +701,10 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.DefaultExt = "ctx";
             dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
+            
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+            dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -730,6 +734,10 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             dlg.Title = Translator.Translate("TXT_OPENCATALOG");
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
+
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+            dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -769,6 +777,10 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
                 dlg.Title = Translator.Translate("TXT_MERGECATALOG");
                 dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
                 dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
+                
+                dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
+                dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+                dlg.ShowAddToFavorites = true;
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {

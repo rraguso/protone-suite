@@ -90,6 +90,11 @@ namespace OPMedia.Addons.Builtin.ID3Prop.ID3Wizard
             dlg.InheritAppIcon = false;
             dlg.Icon = Resources.ID316.ToIcon();
 
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+            dlg.ShowAddToFavorites = true;
+
+
             if (dlg.ShowDialog() == DialogResult.OK && dlg.FileNames.Length > 0)
             {
                 foreach (string file in dlg.FileNames)

@@ -17,6 +17,7 @@ using OPMedia.UI.Properties;
 
 namespace OPMedia.UI.Controls.Dialogs
 {
+    public delegate List<Environment.SpecialFolder> FillSpecialFoldersHandler();
     public delegate List<string> FillFavoriteFoldersHandler();
     public delegate bool AddToFavoriteFoldersHandler(string path);
 
@@ -33,6 +34,7 @@ namespace OPMedia.UI.Controls.Dialogs
         public int FilterIndex { get; set; }
         public string[] FileNames { get; protected set; }
 
+        public event FillSpecialFoldersHandler FillSpecialFoldersEvt = null;
         public event FillFavoriteFoldersHandler FillFavoriteFoldersEvt = null;
         public event AddToFavoriteFoldersHandler AddToFavoriteFolders = null;
 
@@ -98,15 +100,6 @@ namespace OPMedia.UI.Controls.Dialogs
         private Timer _tmrUpdateUi = null;
 
         private ImageList ilDrives = null;
-
-        private Environment.SpecialFolder[] SpecialFolders = new Environment.SpecialFolder[]
-            {
-                Environment.SpecialFolder.Desktop,
-                Environment.SpecialFolder.Favorites,
-                Environment.SpecialFolder.CDBurning,
-                Environment.SpecialFolder.MyDocuments,
-                Environment.SpecialFolder.Recent,
-            };
 
         public OPMFileDialog()
         {
@@ -285,8 +278,22 @@ namespace OPMedia.UI.Controls.Dialogs
             SetTitle(this.Title);
             FillDriveList();
             FillFilterList();
+
             FillSpecialFolders();
             FillFavoriteFolders();
+
+            if (tsSpecialFolders.Items.Count < 1)
+            {
+                tsSpecialFolders.Visible = false;
+
+                pnlLayout.SetCellPosition(lblCurrentPath, new TableLayoutPanelCellPosition(0, 3));
+                pnlLayout.SetColumnSpan(lblCurrentPath, 4);
+                lblCurrentPath.Margin = new System.Windows.Forms.Padding(3);
+
+                pnlLayout.SetCellPosition(lvExplorer, new TableLayoutPanelCellPosition(0, 4));
+                pnlLayout.SetColumnSpan(lvExplorer, 5);
+                lvExplorer.Margin = new System.Windows.Forms.Padding(3);
+            }
 
             cmbDiskDrives.SelectedIndexChanged += new EventHandler(cmbDiskDrives_SelectedIndexChanged);
             tsSpecialFolders.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsSpecialFolders_ItemClicked);
@@ -341,10 +348,21 @@ namespace OPMedia.UI.Controls.Dialogs
 
             foreach (ToolStripItem tsi in tsSpecialFolders.Items)
             {
-                SpecialFolderButton button = tsi as SpecialFolderButton;
-                if (button != null)
+                OPMToolStripButton btn = tsi as OPMToolStripButton;
+                if (btn != null)
                 {
-                    button.Checked = (button.Path == lvExplorer.Path);
+                    string path = string.Empty;
+                    SpecialFolderButton sfBtn = btn as SpecialFolderButton;
+                    if (sfBtn != null)
+                    {
+                        path = sfBtn.Path;
+                    }
+                    else
+                    {
+                        path = btn.Tag as string;
+                    }
+
+                    btn.Checked = (path == lvExplorer.Path);
                 }
             }
         }
@@ -450,14 +468,21 @@ namespace OPMedia.UI.Controls.Dialogs
 
         private void FillSpecialFolders()
         {
-            foreach (Environment.SpecialFolder sf in SpecialFolders)
+            if (FillSpecialFoldersEvt != null)
             {
-                try
+                List<Environment.SpecialFolder> specialFolders = FillSpecialFoldersEvt();
+                if (specialFolders != null)
                 {
-                    SpecialFolderButton btn = new SpecialFolderButton(sf);
-                    tsSpecialFolders.Items.Add(btn);
+                    foreach (Environment.SpecialFolder sf in specialFolders)
+                    {
+                        try
+                        {
+                            SpecialFolderButton btn = new SpecialFolderButton(sf);
+                            tsSpecialFolders.Items.Add(btn);
+                        }
+                        catch { }
+                    }
                 }
-                catch { }
             }
         }
 
@@ -892,7 +917,7 @@ namespace OPMedia.UI.Controls.Dialogs
         public bool AddExtension { get; set; }
         public string DefaultExt { get; set; }
 
-        public OPMSaveFileDialog()
+        internal OPMSaveFileDialog()
             : base()
         {
             this.Title = "Save file as:";
@@ -903,7 +928,7 @@ namespace OPMedia.UI.Controls.Dialogs
     {
         public bool Multiselect { get; set; }
 
-        public OPMOpenFileDialog() : base()
+        internal OPMOpenFileDialog() : base()
         {
             this.Title = "Open file:";
         }

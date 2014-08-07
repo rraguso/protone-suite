@@ -202,6 +202,17 @@ namespace OPMedia.Runtime.ProTONE.Configuration
             }
         }
 
+        public static bool AddToFavoriteFolders(string path)
+        {
+            List<string> favorites = new List<string>(ProTONEConfig.GetFavoriteFolders("FavoriteFolders"));
+            if (favorites.Contains(path))
+                return false;
+
+            favorites.Add(path);
+            ProTONEConfig.SetFavoriteFolders(favorites, "FavoriteFolders");
+            return true;
+        }
+
 
         public static bool UseLinkedFiles
         {
