@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.pnlLayout = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.opmLabel1 = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel2 = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel3 = new OPMedia.UI.Controls.OPMLabel();
@@ -44,49 +44,49 @@
             this.btnNewFolder = new OPMedia.UI.Controls.OPMButton();
             this.btnAddToFavorites = new OPMedia.UI.Controls.OPMButton();
             this.pnlContent.SuspendLayout();
-            this.opmTableLayoutPanel1.SuspendLayout();
+            this.pnlLayout.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContent
             // 
-            this.pnlContent.Controls.Add(this.opmTableLayoutPanel1);
+            this.pnlContent.Controls.Add(this.pnlLayout);
             // 
-            // opmTableLayoutPanel1
+            // pnlLayout
             // 
-            this.opmTableLayoutPanel1.AutoSize = true;
-            this.opmTableLayoutPanel1.ColumnCount = 5;
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.opmTableLayoutPanel1.Controls.Add(this.opmLabel1, 0, 1);
-            this.opmTableLayoutPanel1.Controls.Add(this.opmLabel2, 0, 5);
-            this.opmTableLayoutPanel1.Controls.Add(this.opmLabel3, 0, 6);
-            this.opmTableLayoutPanel1.Controls.Add(this.cmbDiskDrives, 1, 1);
-            this.opmTableLayoutPanel1.Controls.Add(this.cmbFilter, 1, 6);
-            this.opmTableLayoutPanel1.Controls.Add(this.txtFileNames, 1, 5);
-            this.opmTableLayoutPanel1.Controls.Add(this.btnOK, 3, 5);
-            this.opmTableLayoutPanel1.Controls.Add(this.btnCancel, 3, 6);
-            this.opmTableLayoutPanel1.Controls.Add(this.lvExplorer, 1, 4);
-            this.opmTableLayoutPanel1.Controls.Add(this.lblCurrentPath, 1, 3);
-            this.opmTableLayoutPanel1.Controls.Add(this.tsSpecialFolders, 0, 4);
-            this.opmTableLayoutPanel1.Controls.Add(this.pnlButtons, 4, 3);
-            this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
-            this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.RowCount = 7;
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(640, 492);
-            this.opmTableLayoutPanel1.TabIndex = 0;
+            this.pnlLayout.AutoSize = true;
+            this.pnlLayout.ColumnCount = 5;
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.pnlLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.pnlLayout.Controls.Add(this.opmLabel1, 0, 1);
+            this.pnlLayout.Controls.Add(this.opmLabel2, 0, 5);
+            this.pnlLayout.Controls.Add(this.opmLabel3, 0, 6);
+            this.pnlLayout.Controls.Add(this.cmbDiskDrives, 1, 1);
+            this.pnlLayout.Controls.Add(this.cmbFilter, 1, 6);
+            this.pnlLayout.Controls.Add(this.txtFileNames, 1, 5);
+            this.pnlLayout.Controls.Add(this.btnOK, 3, 5);
+            this.pnlLayout.Controls.Add(this.btnCancel, 3, 6);
+            this.pnlLayout.Controls.Add(this.lvExplorer, 1, 4);
+            this.pnlLayout.Controls.Add(this.lblCurrentPath, 1, 3);
+            this.pnlLayout.Controls.Add(this.tsSpecialFolders, 0, 4);
+            this.pnlLayout.Controls.Add(this.pnlButtons, 4, 3);
+            this.pnlLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLayout.Location = new System.Drawing.Point(0, 0);
+            this.pnlLayout.Name = "pnlLayout";
+            this.pnlLayout.OverrideBackColor = System.Drawing.Color.Empty;
+            this.pnlLayout.RowCount = 7;
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlLayout.Size = new System.Drawing.Size(648, 497);
+            this.pnlLayout.TabIndex = 0;
             // 
             // opmLabel1
             // 
@@ -108,7 +108,7 @@
             this.opmLabel2.AutoSize = true;
             this.opmLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel2.Location = new System.Drawing.Point(0, 430);
+            this.opmLabel2.Location = new System.Drawing.Point(0, 435);
             this.opmLabel2.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.opmLabel2.Name = "opmLabel2";
             this.opmLabel2.OverrideBackColor = System.Drawing.Color.Empty;
@@ -123,7 +123,7 @@
             this.opmLabel3.AutoSize = true;
             this.opmLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel3.Location = new System.Drawing.Point(0, 461);
+            this.opmLabel3.Location = new System.Drawing.Point(0, 466);
             this.opmLabel3.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.opmLabel3.Name = "opmLabel3";
             this.opmLabel3.OverrideBackColor = System.Drawing.Color.Empty;
@@ -135,54 +135,72 @@
             // 
             // cmbDiskDrives
             // 
-            this.opmTableLayoutPanel1.SetColumnSpan(this.cmbDiskDrives, 4);
+            this.pnlLayout.SetColumnSpan(this.cmbDiskDrives, 4);
             this.cmbDiskDrives.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbDiskDrives.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbDiskDrives.FormattingEnabled = true;
             this.cmbDiskDrives.Location = new System.Drawing.Point(85, 5);
-            this.cmbDiskDrives.Margin = new System.Windows.Forms.Padding(0);
+            this.cmbDiskDrives.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.cmbDiskDrives.Name = "cmbDiskDrives";
             this.cmbDiskDrives.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cmbDiskDrives.Size = new System.Drawing.Size(555, 23);
+            this.cmbDiskDrives.Size = new System.Drawing.Size(560, 23);
             this.cmbDiskDrives.TabIndex = 1;
             // 
             // cmbFilter
             // 
+            this.pnlLayout.SetColumnSpan(this.cmbFilter, 2);
             this.cmbFilter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Location = new System.Drawing.Point(85, 466);
-            this.cmbFilter.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.cmbFilter.Location = new System.Drawing.Point(85, 471);
+            this.cmbFilter.Margin = new System.Windows.Forms.Padding(0, 5, 10, 0);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cmbFilter.Size = new System.Drawing.Size(439, 23);
+            this.cmbFilter.Size = new System.Drawing.Size(467, 23);
             this.cmbFilter.TabIndex = 7;
             this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
             // 
             // txtFileNames
             // 
-            this.txtFileNames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txtFileNames.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.txtFileNames.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.pnlLayout.SetColumnSpan(this.txtFileNames, 2);
             this.txtFileNames.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFileNames.Location = new System.Drawing.Point(85, 435);
-            this.txtFileNames.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.txtFileNames.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.txtFileNames.Location = new System.Drawing.Point(85, 440);
+            this.txtFileNames.Margin = new System.Windows.Forms.Padding(0, 5, 10, 0);
+            this.txtFileNames.MaximumSize = new System.Drawing.Size(2000, 20);
+            this.txtFileNames.MaxLength = 32767;
+            this.txtFileNames.MinimumSize = new System.Drawing.Size(20, 20);
+            this.txtFileNames.Multiline = false;
             this.txtFileNames.Name = "txtFileNames";
+            this.txtFileNames.OverrideBackColor = System.Drawing.Color.Empty;
             this.txtFileNames.OverrideForeColor = System.Drawing.Color.Empty;
-            this.txtFileNames.Size = new System.Drawing.Size(439, 22);
+            this.txtFileNames.Padding = new System.Windows.Forms.Padding(3);
+            this.txtFileNames.PasswordChar = '\0';
+            this.txtFileNames.ReadOnly = false;
+            this.txtFileNames.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFileNames.ShortcutsEnabled = true;
+            this.txtFileNames.Size = new System.Drawing.Size(467, 20);
             this.txtFileNames.TabIndex = 5;
+            this.txtFileNames.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtFileNames.UseSystemPasswordChar = false;
+            this.txtFileNames.WordWrap = true;
             this.txtFileNames.TextChanged += new System.EventHandler(this.txtFileNames_TextChanged);
             // 
             // btnOK
             // 
             this.btnOK.AutoSize = true;
             this.btnOK.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.opmTableLayoutPanel1.SetColumnSpan(this.btnOK, 2);
+            this.pnlLayout.SetColumnSpan(this.btnOK, 2);
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Location = new System.Drawing.Point(557, 433);
+            this.btnOK.Location = new System.Drawing.Point(565, 438);
             this.btnOK.MinimumSize = new System.Drawing.Size(70, 20);
             this.btnOK.Name = "btnOK";
             this.btnOK.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnOK.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnOK.ShowDropDown = false;
             this.btnOK.Size = new System.Drawing.Size(80, 25);
             this.btnOK.TabIndex = 8;
             this.btnOK.Text = "TXT_OK";
@@ -193,14 +211,15 @@
             // 
             this.btnCancel.AutoSize = true;
             this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.opmTableLayoutPanel1.SetColumnSpan(this.btnCancel, 2);
+            this.pnlLayout.SetColumnSpan(this.btnCancel, 2);
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(557, 464);
+            this.btnCancel.Location = new System.Drawing.Point(565, 469);
             this.btnCancel.MinimumSize = new System.Drawing.Size(70, 20);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnCancel.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnCancel.ShowDropDown = false;
             this.btnCancel.Size = new System.Drawing.Size(80, 25);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "TXT_CANCEL";
@@ -209,16 +228,17 @@
             // 
             // lvExplorer
             // 
-            this.opmTableLayoutPanel1.SetColumnSpan(this.lvExplorer, 4);
+            this.lvExplorer.AllowEditing = true;
+            this.pnlLayout.SetColumnSpan(this.lvExplorer, 4);
             this.lvExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvExplorer.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.lvExplorer.LabelEdit = true;
             this.lvExplorer.Location = new System.Drawing.Point(85, 59);
-            this.lvExplorer.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lvExplorer.Margin = new System.Windows.Forms.Padding(0, 0, 3, 5);
             this.lvExplorer.MultiSelect = false;
             this.lvExplorer.Name = "lvExplorer";
             this.lvExplorer.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvExplorer.Size = new System.Drawing.Size(555, 366);
+            this.lvExplorer.Size = new System.Drawing.Size(560, 371);
             this.lvExplorer.TabIndex = 3;
             this.lvExplorer.UseCompatibleStateImageBehavior = false;
             this.lvExplorer.View = System.Windows.Forms.View.Details;
@@ -226,7 +246,7 @@
             // lblCurrentPath
             // 
             this.lblCurrentPath.AutoSize = true;
-            this.opmTableLayoutPanel1.SetColumnSpan(this.lblCurrentPath, 3);
+            this.pnlLayout.SetColumnSpan(this.lblCurrentPath, 3);
             this.lblCurrentPath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCurrentPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCurrentPath.FontSize = OPMedia.UI.Themes.FontSizes.Small;
@@ -235,7 +255,7 @@
             this.lblCurrentPath.Name = "lblCurrentPath";
             this.lblCurrentPath.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblCurrentPath.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblCurrentPath.Size = new System.Drawing.Size(498, 20);
+            this.lblCurrentPath.Size = new System.Drawing.Size(503, 20);
             this.lblCurrentPath.TabIndex = 9;
             this.lblCurrentPath.Text = "opmLabel4";
             this.lblCurrentPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -249,9 +269,11 @@
             this.tsSpecialFolders.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.tsSpecialFolders.Location = new System.Drawing.Point(0, 59);
             this.tsSpecialFolders.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.tsSpecialFolders.MaximumSize = new System.Drawing.Size(110, 3700);
+            this.tsSpecialFolders.MinimumSize = new System.Drawing.Size(80, 300);
             this.tsSpecialFolders.Name = "tsSpecialFolders";
             this.tsSpecialFolders.ShowBorder = true;
-            this.tsSpecialFolders.Size = new System.Drawing.Size(85, 366);
+            this.tsSpecialFolders.Size = new System.Drawing.Size(85, 371);
             this.tsSpecialFolders.TabIndex = 2;
             this.tsSpecialFolders.Text = "opmToolStrip1";
             this.tsSpecialFolders.VerticalGradient = false;
@@ -263,10 +285,10 @@
             this.pnlButtons.Controls.Add(this.btnNewFolder);
             this.pnlButtons.Controls.Add(this.btnAddToFavorites);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlButtons.Location = new System.Drawing.Point(596, 36);
+            this.pnlButtons.Location = new System.Drawing.Point(601, 36);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.OverrideBackColor = System.Drawing.Color.Empty;
-            this.pnlButtons.Size = new System.Drawing.Size(41, 20);
+            this.pnlButtons.Size = new System.Drawing.Size(44, 20);
             this.pnlButtons.TabIndex = 10;
             this.pnlButtons.WrapContents = false;
             // 
@@ -278,6 +300,7 @@
             this.btnNewFolder.Name = "btnNewFolder";
             this.btnNewFolder.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnNewFolder.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnNewFolder.ShowDropDown = false;
             this.btnNewFolder.Size = new System.Drawing.Size(20, 20);
             this.btnNewFolder.TabIndex = 11;
             this.btnNewFolder.UseVisualStyleBackColor = true;
@@ -288,12 +311,13 @@
             this.btnAddToFavorites.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAddToFavorites.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToFavorites.Location = new System.Drawing.Point(21, 0);
-            this.btnAddToFavorites.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.btnAddToFavorites.Margin = new System.Windows.Forms.Padding(1, 0, 3, 0);
             this.btnAddToFavorites.MaximumSize = new System.Drawing.Size(20, 20);
             this.btnAddToFavorites.MinimumSize = new System.Drawing.Size(20, 20);
             this.btnAddToFavorites.Name = "btnAddToFavorites";
             this.btnAddToFavorites.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnAddToFavorites.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnAddToFavorites.ShowDropDown = false;
             this.btnAddToFavorites.Size = new System.Drawing.Size(20, 20);
             this.btnAddToFavorites.TabIndex = 10;
             this.btnAddToFavorites.UseVisualStyleBackColor = true;
@@ -306,8 +330,8 @@
             this.Name = "OPMFileDialog";
             this.pnlContent.ResumeLayout(false);
             this.pnlContent.PerformLayout();
-            this.opmTableLayoutPanel1.ResumeLayout(false);
-            this.opmTableLayoutPanel1.PerformLayout();
+            this.pnlLayout.ResumeLayout(false);
+            this.pnlLayout.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -315,7 +339,7 @@
 
         #endregion
 
-        private OPMedia.UI.Controls.OPMTableLayoutPanel opmTableLayoutPanel1;
+        private OPMedia.UI.Controls.OPMTableLayoutPanel pnlLayout;
         private OPMedia.UI.Controls.OPMLabel opmLabel1;
         private OPMedia.UI.Controls.OPMComboBox cmbDiskDrives;
         private OPMedia.UI.Controls.OPMLabel opmLabel2;

@@ -21,6 +21,7 @@ using OPMedia.UI.Controls.Dialogs;
 using OPMedia.Addons.Builtin.Properties;
 using OPMedia.Core.Configuration;
 using OPMedia.Addons.Builtin.Configuration;
+using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
 {
@@ -79,6 +80,10 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.DefaultExt = "ctx";
             dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
+
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+            dlg.ShowAddToFavorites = true;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {

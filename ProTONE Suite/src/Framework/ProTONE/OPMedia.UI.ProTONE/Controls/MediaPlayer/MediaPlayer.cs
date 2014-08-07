@@ -539,7 +539,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             dlg.InitialDirectory = ProTONEConfig.LastOpenedFolder;
 
             dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
-            dlg.AddToFavoriteFolders += (s) => { return AddToFavoriteFolders(s); };
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
             dlg.ShowAddToFavorites = true;
 
             dlg.OpenDropDownOptions = new List<OpenOption>(new OpenOption[]
@@ -577,17 +577,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     ProTONEConfig.LastOpenedFolder = dlg.InitialDirectory;
                 }
             }
-        }
-
-        private bool AddToFavoriteFolders(string path)
-        {
-            List<string> favorites = new List<string>(ProTONEConfig.GetFavoriteFolders("FavoriteFolders"));
-            if (favorites.Contains(path))
-                return false;
-
-            favorites.Add(path);
-            ProTONEConfig.SetFavoriteFolders(favorites, "FavoriteFolders");
-            return true;
         }
 
         private void LoadFiles(string[] fileNames)
