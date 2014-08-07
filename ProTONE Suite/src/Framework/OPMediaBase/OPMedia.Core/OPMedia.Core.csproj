@@ -98,7 +98,6 @@
     <Compile Include="Win32\ComTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Win32\Shell32.cs" />
-    <Compile Include="Win32\RegistryEmulation.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\catalog.ico">

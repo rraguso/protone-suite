@@ -469,16 +469,26 @@ namespace OPMedia.UI.Dialogs
         {
             if (lvLogLines.SelectedItems != null && lvLogLines.SelectedItems.Count > 0)
             {
+                string details = null;
+
                 ListViewItem selItem = lvLogLines.SelectedItems[0];
                 List<string> extraLines = selItem.Tag as List<string>;
                 if (extraLines != null && extraLines.Count > 0)
                 {
                     StringBuilder sb = new StringBuilder();
-                    extraLines.ForEach(s => sb.AppendLine(s) );
-                    new LogFileConsoleDetail(sb.ToString()).ShowDialog(this);
+                    extraLines.ForEach(s => sb.AppendLine(s));
+                    details = sb.ToString();
+                }
+                else
+                {
+                    details = selItem.Tag as string;
+                }
+
+                if (string.IsNullOrEmpty(details) == false)
+                {
+                    new LogFileConsoleDetail(details).ShowDialog(this);
                 }
             }
         }
-
     }
 }

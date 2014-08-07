@@ -6,14 +6,7 @@ using System.Windows.Forms;
 using OPMedia.Runtime.ProTONE.Rendering;
 using System.Globalization;
 using OPMedia.Runtime.ProTONE.Rendering.Base;
-
-#if HAVE_DSHOW
 using OPMedia.Runtime.ProTONE.Rendering.DS;
-#endif
-#if HAVE_MONO
-using OPMedia.Runtime.ProTONE.Rendering.Mono;
-#endif
-
 
 namespace OPMedia.Runtime.ProTONE.Playlists
 {

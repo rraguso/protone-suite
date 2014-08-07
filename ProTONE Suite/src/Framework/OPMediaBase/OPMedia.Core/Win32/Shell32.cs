@@ -283,37 +283,6 @@ namespace OPMedia.Core
 
         public static readonly Guid IID_IImageList = new Guid("46EB5926-582E-4017-9FDF-E8998DAA0950");
 
-
-#if HAVE_MONO
-        public static int SHGetImageList(int iImageList, ref Guid riid, ref IntPtr hIL)
-        {
-            return -1;
-        }
-
-        public static IntPtr SHGetFileInfo(string pszPath, int dwFileAttributes, ref SHFILEINFO psfi,
-            uint cbFileInfo, uint uFlags)
-        {
-            return IntPtr.Zero;
-        }
-
-        public static uint ExtractIconEx(string lpszFile, int nIconIndex, IntPtr[] phiconLarge,
-            IntPtr[] phiconSmall, uint nIcons)
-        {
-            return 0;
-        }
-
-        public static uint DragQueryFile(IntPtr hDrop, uint iFile, StringBuilder buffer, int cch)
-        {
-            return 0;
-        }
-
-        public static void SHChangeNotify(HChangeNotifyEventID wEventId,
-                                   HChangeNotifyFlags uFlags,
-                                   IntPtr dwItem1,
-                                   IntPtr dwItem2)
-        {
-        }
-#else        
         [DllImport(SHELL32)]
         public extern static int SHGetImageList(int iImageList, ref Guid riid, ref IntPtr hIL);
 
@@ -333,22 +302,12 @@ namespace OPMedia.Core
                                    HChangeNotifyFlags uFlags,
                                    IntPtr dwItem1,
                                    IntPtr dwItem2);
-
-#endif
-
     }
 
 
     public static class ComCtl32
     {
-#if HAVE_MONO
-        public static IntPtr ImageList_GetIcon(IntPtr hIL, int i, int flags)
-        {
-            return IntPtr.Zero;
-        }
-#else
         [DllImport("comctl32.dll", SetLastError = true)]
         public static extern IntPtr ImageList_GetIcon(IntPtr hIL, int i, int flags);
-#endif
     }
 }

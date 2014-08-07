@@ -98,7 +98,7 @@ namespace OPMedia.Core.Configuration
                 try
                 {
                     // Is the install language setting overriden by current user ?
-                    using (RegistryKey key = Registry.CurrentUser.Emu_OpenSubKey(ConfigRegPath))
+                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey(ConfigRegPath))
                     {
                         if (key == null)
                         {
@@ -125,7 +125,7 @@ namespace OPMedia.Core.Configuration
 
                 try
                 {
-                    using (RegistryKey key = Registry.CurrentUser.Emu_OpenSubKey(ConfigRegPath))
+                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey(ConfigRegPath))
                     {
                         if (key == null)
                         {
@@ -166,7 +166,7 @@ namespace OPMedia.Core.Configuration
                     {
                         _tmrReadRegistry.Stop();
 
-                        using (RegistryKey key = Registry.CurrentUser.Emu_OpenSubKey(ConfigRegPath))
+                        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(ConfigRegPath))
                         {
                             if (key != null)
                             {
@@ -279,7 +279,7 @@ namespace OPMedia.Core.Configuration
                 {
                     if (ApplicationInfo.IsSuiteApplication)
                     {
-                        RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite");
+                        RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite");
                         if (key != null)
                         {
                             retVal = key.GetValue("InstallPathOverride") as string;
@@ -342,7 +342,7 @@ namespace OPMedia.Core.Configuration
 
                     try
                     {
-                        using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(ConfigRegPath))
+                        using (RegistryKey key = Registry.CurrentUser.CreateSubKey(ConfigRegPath))
                         {
                             if (key != null)
                             {
@@ -375,7 +375,7 @@ namespace OPMedia.Core.Configuration
                 {
                     if (value != _languageId)
                     {
-                        using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(ConfigRegPath))
+                        using (RegistryKey key = Registry.CurrentUser.CreateSubKey(ConfigRegPath))
                         {
                             if (key != null)
                             {
@@ -397,7 +397,7 @@ namespace OPMedia.Core.Configuration
         {
             get
             {
-                using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(ConfigRegPath))
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(ConfigRegPath))
                 {
                     if (key != null)
                     {
@@ -417,7 +417,7 @@ namespace OPMedia.Core.Configuration
                 {
                     if (UseOnlineDocumentation)
                     {
-                        using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(ConfigRegPath))
+                        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(ConfigRegPath))
                         {
                             if (key != null)
                             {
@@ -442,7 +442,7 @@ namespace OPMedia.Core.Configuration
         {
             get
             {
-                using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(ConfigRegPath))
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(ConfigRegPath))
                 {
                     if (key != null)
                     {
@@ -459,7 +459,7 @@ namespace OPMedia.Core.Configuration
         {
             get
             {
-                using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(ConfigRegPath))
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(ConfigRegPath))
                 {
                     if (key != null)
                     {
@@ -475,7 +475,7 @@ namespace OPMedia.Core.Configuration
         {
             get
             {
-                using (RegistryKey key = Registry.CurrentUser.Emu_OpenSubKey(ConfigRegPath))
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(ConfigRegPath))
                 {
                     if (key != null)
                     {
@@ -491,7 +491,7 @@ namespace OPMedia.Core.Configuration
             {
                 try
                 {
-                    using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(ConfigRegPath))
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(ConfigRegPath))
                     {
                         if (key != null)
                         {

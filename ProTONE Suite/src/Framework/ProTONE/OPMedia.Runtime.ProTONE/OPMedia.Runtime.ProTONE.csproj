@@ -135,8 +135,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\Base\StreamRenderer.cs" />
     <Compile Include="Rendering\Base\Technology.cs" />
-    <Compile Include="Rendering\Mono\MonoRenderer.cs" />
-    <Compile Include="Rendering\Mono\MonoTechnology.cs" />
     <Compile Include="RemoteControlHelper.cs" />
     <Compile Include="RemoteControl\RemoteControllableApplication.cs" />
     <Compile Include="Rendering\SHOUTCast\ShoutCastStream.cs" />

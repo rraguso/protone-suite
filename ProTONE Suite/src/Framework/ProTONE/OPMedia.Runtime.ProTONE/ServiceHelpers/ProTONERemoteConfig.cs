@@ -20,7 +20,7 @@ namespace OPMedia.Runtime.ProTONE.ServiceHelpers
                 bool retVal = false;
                 try
                 {
-                    RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite");
+                    RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite");
                     if (key != null)
                     {
                         retVal = ((int)key.GetValue("EnableRemoteControl", 0) != 0);
@@ -35,7 +35,7 @@ namespace OPMedia.Runtime.ProTONE.ServiceHelpers
 
             set
             {
-                using (RegistryKey key = Registry.LocalMachine.Emu_CreateSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite"))
+                using (RegistryKey key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite"))
                 {
                     if (key != null)
                     {

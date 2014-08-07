@@ -104,15 +104,9 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 volumePath = System.IO.Path.Combine(path, "VIDEO_TS");
             }
 
-#if HAVE_DSHOW
             FetchDVDInformation_DS(volumePath);
-#endif
-#if HAVE_MONO
-            FetchDVDInformation_MONO(volumePath);
-#endif
         }
 
-#if HAVE_DSHOW
         private void FetchDVDInformation_DS(string volumePath)
         {
             IDvdGraphBuilder dvdGraphBuilder =
@@ -206,12 +200,5 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 catch { }
             }
         }
-#endif
-
-#if HAVE_MONO
-        private void FetchDVDInformation_MONO(string volumePath)
-        {
-        }
-#endif
     }
 }

@@ -10,6 +10,7 @@ using OPMedia.UI.Dialogs;
 using System.IO;
 using OPMedia.Core;
 using System.Drawing;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.UI.ProTONE.Dialogs
 {
@@ -18,14 +19,14 @@ namespace OPMedia.UI.ProTONE.Dialogs
         private System.Windows.Forms.ListBox lbDvdMedias;
         private OPMButton btnCancel;
         private OPMButton btnOk;
-        private System.Windows.Forms.Timer tmrUpdateUi;
         private System.ComponentModel.IContainer components;
         private OPMLabel label2;
         private OPMButton btnOpenDvdFolder;
         private OPMLabel label1;
         private OPMTableLayoutPanel opmLayoutPanel1;
-
         private DvdMedia _selectedMedia = null;
+
+        private System.Windows.Forms.Timer tmrUpdateUi;
 
         public DvdMedia SelectedMedia
         {
@@ -39,24 +40,37 @@ namespace OPMedia.UI.ProTONE.Dialogs
             : base("TXT_SELECT_DVD")
         {
             InitializeComponent();
-            this.Load += new EventHandler(SelectDvdMediaDlg_Load);
-            this.HandleDestroyed += new EventHandler(SelectDvdMediaDlg_HandleDestroyed);
 
             this.AllowResize = false;
             this.InheritAppIcon = false;
             this.Icon = OPMedia.UI.ProTONE.Properties.Resources.btnOpenDisk.ToIcon((uint)Color.White.ToArgb());
+
+            this.HandleDestroyed += new EventHandler(OnHandleDestroyed);
+            this.Shown += new EventHandler(OnFormShown);
         }
 
-        void SelectDvdMediaDlg_HandleDestroyed(object sender, EventArgs e)
+        void OnHandleDestroyed(object sender, EventArgs e)
         {
-            tmrUpdateUi.Stop();
-            tmrUpdateUi.Dispose();
-            tmrUpdateUi = null;
+            if (tmrUpdateUi != null)
+            {
+                tmrUpdateUi.Stop();
+                tmrUpdateUi.Dispose();
+                tmrUpdateUi = null;
+            }
         }
 
-        void SelectDvdMediaDlg_Load(object sender, EventArgs e)
+        void OnFormShown(object sender, EventArgs e)
         {
-            FillDvdMedias();
+            RefreshDvdMedias();
+
+            if (tmrUpdateUi == null)
+            {
+                tmrUpdateUi = new System.Windows.Forms.Timer();
+                tmrUpdateUi.Interval = 5000;
+                tmrUpdateUi.Tick += new System.EventHandler(this.tmrUpdateUi_Tick);
+            }
+
+            tmrUpdateUi.Start();
         }
 
         private void RefreshDvdMedias()
@@ -87,7 +101,6 @@ namespace OPMedia.UI.ProTONE.Dialogs
             this.lbDvdMedias = new System.Windows.Forms.ListBox();
             this.btnCancel = new OPMedia.UI.Controls.OPMButton();
             this.btnOk = new OPMedia.UI.Controls.OPMButton();
-            this.tmrUpdateUi = new System.Windows.Forms.Timer(this.components);
             this.label2 = new OPMedia.UI.Controls.OPMLabel();
             this.btnOpenDvdFolder = new OPMedia.UI.Controls.OPMButton();
             this.opmLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
@@ -153,11 +166,6 @@ namespace OPMedia.UI.ProTONE.Dialogs
             this.btnOk.Size = new System.Drawing.Size(72, 24);
             this.btnOk.TabIndex = 4;
             this.btnOk.Text = "TXT_OK";
-            // 
-            // tmrUpdateUi
-            // 
-            this.tmrUpdateUi.Interval = 5000;
-            this.tmrUpdateUi.Tick += new System.EventHandler(this.tmrUpdateUi_Tick);
             // 
             // label2
             // 
@@ -226,15 +234,21 @@ namespace OPMedia.UI.ProTONE.Dialogs
 
         private void tmrUpdateUi_Tick(object sender, EventArgs e)
         {
-            FillDvdMedias();
+            try
+            {
+                tmrUpdateUi.Stop();
+                RefreshDvdMedias();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+            }
+            finally
+            {
+                tmrUpdateUi.Start();
+            }
         }
 
-        private void FillDvdMedias()
-        {
-            tmrUpdateUi.Stop();
-            RefreshDvdMedias();
-            tmrUpdateUi.Start();
-        }
 
         private void btnOpenDvdFolder_Click(object sender, EventArgs e)
         {

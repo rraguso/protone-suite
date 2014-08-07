@@ -21,7 +21,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
             try
             {
                 string keyPath = string.Format(@"SOFTWARE\Classes\CLSID\{0}\InprocServer32", CLSID);
-                using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(keyPath))
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(keyPath))
                 {
                     if (key != null)
                     {
