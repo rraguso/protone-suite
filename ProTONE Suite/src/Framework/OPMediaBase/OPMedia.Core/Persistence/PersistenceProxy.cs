@@ -107,7 +107,7 @@ namespace OPMedia.Core
             }
         }
 
-        public static T ReadObject<T>(string persistenceId, T defaultValue, bool usePersistenceContext = false)
+        public static T ReadObject<T>(string persistenceId, T defaultValue, bool usePersistenceContext = true)
         {
             T retVal = defaultValue;
 
@@ -149,7 +149,7 @@ namespace OPMedia.Core
             return retVal;
         }
 
-        public static void SaveObject<T>(string persistenceId, T objectContent, bool usePersistenceContext = false)
+        public static void SaveObject<T>(string persistenceId, T objectContent, bool usePersistenceContext = true)
         {
             try
             {
@@ -167,7 +167,7 @@ namespace OPMedia.Core
             }
         }
 
-        public static void DeleteObject(string persistenceId, bool usePersistenceContext = false)
+        public static void DeleteObject(string persistenceId, bool usePersistenceContext = true)
         {
             try
             {
