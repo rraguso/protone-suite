@@ -69,7 +69,6 @@ namespace OPMedia.UI.Dialogs
             : this()
         {
             _allowChooseLog = allowChooseLog;
-            this.ShowInTaskbar = _allowChooseLog;
         }
 
         private LogFileConsoleDialog() : base("TXT_LOGLINECONSOLE")
@@ -77,6 +76,8 @@ namespace OPMedia.UI.Dialogs
             _allowChooseLog = false;
 
             InitializeComponent();
+
+            this.ShowInTaskbar = true;
 
             lvLogLines.GridLines = true;
             cmbLogLineCount.SelectedIndex = 0;
@@ -479,10 +480,10 @@ namespace OPMedia.UI.Dialogs
                     extraLines.ForEach(s => sb.AppendLine(s));
                     details = sb.ToString();
                 }
-                else
-                {
-                    details = selItem.Tag as string;
-                }
+                //else
+                //{
+                //    details = selItem.Tag as string;
+                //}
 
                 if (string.IsNullOrEmpty(details) == false)
                 {

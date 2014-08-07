@@ -318,7 +318,10 @@ namespace OPMedia.ProTONE
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (MainThread.AreModalFormsOpen)
+            {
+                MainThread.ModalForm.Activate();
                 return;
+            }
 
             if (Visible)
             {
@@ -375,6 +378,11 @@ namespace OPMedia.ProTONE
         void cmsMain_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = MainThread.AreModalFormsOpen;
+            if (e.Cancel)
+            {
+                MainThread.ModalForm.Activate();
+                return;
+            }
 
             cmsMain.SuspendLayout();
 
