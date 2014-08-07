@@ -413,135 +413,7 @@ namespace OPMedia.Core
         #endregion
 
         #region OS_Dependent
-#if HAVE_MONO
-        public static void OutputDebugString(string _text)
-        {
-        }
 
-        public static void CopyMemory(IntPtr Destination, IntPtr Source, int Length)
-        {
-        }
-
-        public static DriveTypes GetDriveType(string drive)
-        {
-            return DriveTypes.DRIVE_FIXED;
-        }
-
-        public static IntPtr CreateFile(string FileName, uint DesiredAccess,
-          uint ShareMode, IntPtr lpSecurityAttributes,
-          uint CreationDisposition, uint dwFlagsAndAttributes,
-          IntPtr hTemplateFile)
-        {
-            return IntPtr.Zero;
-        }
-
-        public static int CloseHandle(IntPtr hObject)
-        {
-            return -1;
-        }
-
-        public static int DeviceIoControl(IntPtr hDevice, uint IoControlCode,
-          IntPtr lpInBuffer, uint InBufferSize,
-          IntPtr lpOutBuffer, uint nOutBufferSize,
-          ref uint lpBytesReturned,
-          IntPtr lpOverlapped)
-        {
-            return -1;
-        }
-
-        public static int DeviceIoControl(IntPtr hDevice, uint IoControlCode,
-          IntPtr InBuffer, uint InBufferSize,
-          [Out] CDROM_TOC OutTOC, uint OutBufferSize,
-          ref uint BytesReturned,
-          IntPtr Overlapped)
-        {
-            return -1;
-        }
-
-        public static int DeviceIoControl(IntPtr hDevice, uint IoControlCode,
-          [In] PREVENT_MEDIA_REMOVAL InMediaRemoval, uint InBufferSize,
-          IntPtr OutBuffer, uint OutBufferSize,
-          ref uint BytesReturned,
-          IntPtr Overlapped)
-        {
-            return -1;
-        }
-
-        public static int DeviceIoControl(IntPtr hDevice, uint IoControlCode,
-          [In] RAW_READ_INFO rri, uint InBufferSize,
-          [In, Out] byte[] OutBuffer, uint OutBufferSize,
-          ref uint BytesReturned,
-          IntPtr Overlapped)
-        {
-            return -1;
-        }
-
-        public static Int32 GlobalSize(IntPtr hmem)
-        {
-            return -1;
-        }
-
-        public static IntPtr LoadLibrary(string lpModuleName)
-        {
-            return IntPtr.Zero;
-        }
-
-        public static IntPtr GetModuleHandle(string lpModuleName)
-        {
-            return IntPtr.Zero;
-        }
-
-        public static IntPtr GetProcAddress(IntPtr hModule, string lpProcName)
-        {
-            return IntPtr.Zero;
-        }
-
-        public static long GetVolumeInformation(string PathName, StringBuilder VolumeNameBuffer, UInt32 VolumeNameSize,
-            ref UInt32 VolumeSerialNumber, ref UInt32 MaximumComponentLength, ref UInt32 FileSystemFlags,
-            StringBuilder FileSystemNameBuffer, UInt32 FileSystemNameSize)
-        {
-            return 0;
-        }
-
-        public static int GetLastError()
-        {
-            return -1;
-        }
-
-        public static bool FreeLibrary(IntPtr hModule)
-        {
-            return false;
-        }
-
-        public static bool CopyFileEx(string lpExistingFileName, string lpNewFileName,
-            CopyProgressRoutine lpProgressRoutine, IntPtr lpData, ref bool pbCancel, int dwCopyFlags)
-        {
-            return false;
-        }
-
-        public static uint GetPrivateProfileInt(string lpAppName, string lpKeyName,
-           int nDefault, string lpFileName)
-        {
-            return 0xFFFFFFFF;
-        }
-
-        public static uint GetPrivateProfileString(
-           string lpAppName,
-           string lpKeyName,
-           string lpDefault,
-           StringBuilder lpReturnedString,
-           uint nSize,
-           string lpFileName)
-        {
-            return 0xFFFFFFFF;
-        }
-
-        public static bool WritePrivateProfileString(string lpAppName,
-           string lpKeyName, string lpString, string lpFileName)
-        {
-            return false;
-        }
-#else
         [DllImport(KERNEL32, EntryPoint = "OutputDebugStringW", CharSet = CharSet.Unicode)]
         public static extern void OutputDebugString(string _text);
 
@@ -698,7 +570,7 @@ namespace OPMedia.Core
         [DllImport(KERNEL32, CharSet = CharSet.Auto)]
         public static extern bool WritePrivateProfileString(string lpAppName,
            string lpKeyName, string lpString, string lpFileName);
-#endif
+
         #endregion
     }
 

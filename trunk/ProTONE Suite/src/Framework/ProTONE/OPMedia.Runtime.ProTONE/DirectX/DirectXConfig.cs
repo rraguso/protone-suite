@@ -82,7 +82,7 @@ namespace OPMedia.Runtime.ProTONE.DirectX
                 // Read from Registry
                 try
                 {
-                    using (RegistryKey key = Registry.LocalMachine.Emu_OpenSubKey(DxRegPath))
+                    using (RegistryKey key = Registry.LocalMachine.OpenSubKey(DxRegPath))
                     {
                         if (key != null)
                         {

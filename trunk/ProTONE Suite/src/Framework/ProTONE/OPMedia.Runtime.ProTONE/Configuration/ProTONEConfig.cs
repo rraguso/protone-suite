@@ -167,7 +167,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
             {
                 __favoriteFolders = new List<string>();
 
-                using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(AppConfig.ConfigRegPath))
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(AppConfig.ConfigRegPath))
                 {
                     if (key != null)
                     {
@@ -189,7 +189,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
             __favoriteFolders.Clear();
             __favoriteFolders.AddRange(folders);
 
-            using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(AppConfig.ConfigRegPath))
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(AppConfig.ConfigRegPath))
             {
                 if (key != null)
                 {
@@ -218,7 +218,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
                 try
                 {
-                    using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(AppConfig.ConfigRegPath))
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(AppConfig.ConfigRegPath))
                     {
                         if (key != null)
                         {
@@ -271,7 +271,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
                         str = str.Trim('\\').Trim('/');
 
-                        using (RegistryKey key = Registry.CurrentUser.Emu_CreateSubKey(AppConfig.ConfigRegPath))
+                        using (RegistryKey key = Registry.CurrentUser.CreateSubKey(AppConfig.ConfigRegPath))
                         {
                             if (key != null)
                             {

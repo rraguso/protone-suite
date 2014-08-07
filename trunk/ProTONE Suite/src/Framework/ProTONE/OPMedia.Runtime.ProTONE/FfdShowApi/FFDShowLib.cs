@@ -139,7 +139,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
     {
       get
       {
-        using (RegistryKey preferencesKey = Registry.CurrentUser.Emu_OpenSubKey(ffdshowRegKey))
+        using (RegistryKey preferencesKey = Registry.CurrentUser.OpenSubKey(ffdshowRegKey))
         {
           if (preferencesKey != null)
           {
@@ -163,7 +163,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
           }
         }
         if (found)
-          using (RegistryKey preferencesKey = Registry.CurrentUser.Emu_CreateSubKey(ffdshowRegKey))
+          using (RegistryKey preferencesKey = Registry.CurrentUser.CreateSubKey(ffdshowRegKey))
           {
             if (preferencesKey != null)
             {
@@ -180,7 +180,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
     {
       get
       {
-        using (RegistryKey preferencesKey = Registry.CurrentUser.Emu_OpenSubKey(ffdshowAudioRegKey))
+        using (RegistryKey preferencesKey = Registry.CurrentUser.OpenSubKey(ffdshowAudioRegKey))
         {
           if (preferencesKey != null)
           {
@@ -203,7 +203,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
           }
         }
         if (!found) return;
-        using (RegistryKey preferencesKey = Registry.CurrentUser.Emu_CreateSubKey(ffdshowAudioRegKey))
+        using (RegistryKey preferencesKey = Registry.CurrentUser.CreateSubKey(ffdshowAudioRegKey))
         {
           if (preferencesKey != null)
           {
@@ -1444,7 +1444,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
     {
       get
       {
-        using (RegistryKey preferencesKey = Registry.CurrentUser.Emu_OpenSubKey(ffdshowAudioRegKey))
+        using (RegistryKey preferencesKey = Registry.CurrentUser.OpenSubKey(ffdshowAudioRegKey))
         {
           if (preferencesKey != null)
           {
@@ -1462,7 +1462,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
     {
       get
       {
-        using (RegistryKey preferencesKey = Registry.CurrentUser.Emu_OpenSubKey(ffdshowRegKey))
+        using (RegistryKey preferencesKey = Registry.CurrentUser.OpenSubKey(ffdshowRegKey))
         {
           if (preferencesKey != null)
           {
@@ -1541,7 +1541,7 @@ namespace OPMedia.Runtime.ProTONE.FfdShowApi
       {
         try
         {
-          using (RegistryKey ffdshowGlobalKey = Registry.LocalMachine.Emu_OpenSubKey(FFDShowRegKey))
+          using (RegistryKey ffdshowGlobalKey = Registry.LocalMachine.OpenSubKey(FFDShowRegKey))
           {
             return (int)ffdshowGlobalKey.GetValue("revision", 0);
           }

@@ -57,25 +57,6 @@ namespace OPMedia.Core
     {
         const string GDI32 = "gdi32.dll";
 
-#if HAVE_MONO
-
-        public static IntPtr CreateSolidBrush(int crColor)
-        {
-            return IntPtr.Zero;
-        }
-
-        public static uint SetTextColor(IntPtr hdc, int crColor)
-        {
-            return uint.MinValue;
-        }
-
-        public static uint SetBkColor(IntPtr hdc, int crColor)
-        {
-            return uint.MinValue;
-        }
-
-#else
-
         [DllImport(GDI32, ExactSpelling = true, SetLastError = true)]
         public static extern IntPtr CreateSolidBrush(int crColor);
 
@@ -84,8 +65,5 @@ namespace OPMedia.Core
 
         [DllImport(GDI32, ExactSpelling = true, SetLastError = true)]
         public static extern uint SetBkColor(IntPtr hdc, int crColor);
-
-#endif
-
     }
 }

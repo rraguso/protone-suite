@@ -89,6 +89,12 @@ namespace OPMedia.UI.Themes
             if (this != MainThread.MainWindow)
             {
                 owner = MainThread.MainWindow;
+                this.ShowInTaskbar = (owner == null || owner.Visible == false);
+                if (this.ShowInTaskbar)
+                {
+                    this.InheritAppIcon = true;
+                    ApplyIcons();
+                }
             }
 
             return base.ShowDialog(owner);
@@ -148,6 +154,7 @@ namespace OPMedia.UI.Themes
                         !User32.IsWindowVisible(owner.Handle))
                     {
                         owner = NativeWindow.FromHandle(User32.GetDesktopWindow());
+                        //this.ShowInTaskbar = true;
                     }
 
                     bool centerParent = (owner != null &&
