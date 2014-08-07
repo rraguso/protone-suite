@@ -10,13 +10,13 @@ namespace OPMedia.Core
     public interface IPersistenceService
     {
         [OperationContract]
-        string ReadObject(string persistenceId);
+        string ReadObject(string persistenceId, string persistenceContext);
 
         [OperationContract]
-        void SaveObject(string persistenceId, string objectContent);
+        void SaveObject(string persistenceId, string persistenceContext, string objectContent);
 
         [OperationContract]
-        void DeleteObject(string persistenceId);
+        void DeleteObject(string persistenceId, string persistenceContext);
 
     }
 }
