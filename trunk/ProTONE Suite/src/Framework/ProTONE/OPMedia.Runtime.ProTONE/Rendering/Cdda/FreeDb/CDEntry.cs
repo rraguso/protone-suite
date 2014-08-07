@@ -97,7 +97,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
 
         public static CDEntry LoadPersistentDisc(string discId)
         {
-            string xml = PersistenceProxy.ReadObject("CDA:" + discId, string.Empty);
+            string xml = PersistenceProxy.ReadObject("CDA:" + discId, string.Empty, false);
             if (!string.IsNullOrEmpty(xml))
             {
                 XmlReaderSettings settings = new XmlReaderSettings();
@@ -134,7 +134,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb
                 xs.Serialize(xw, this, ns);
             }
 
-            PersistenceProxy.SaveObject("CDA:" + this.Discid, xml.ToValidXml());
+            PersistenceProxy.SaveObject("CDA:" + this.Discid, xml.ToValidXml(), false);
         }
 
         public CDEntry(string discId) : this()

@@ -54,11 +54,6 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
     public static class ProTONEConfig
     {
-       
-
-
-
-
         #region Calculated Level 2 settings
 
         public static bool IsPlayer
@@ -155,7 +150,8 @@ namespace OPMedia.Runtime.ProTONE.Configuration
         {
             get
             {
-                return @"BSP_V1;http://api.bsplayer-subtitles.com/v1.php;1\Osdb;http://api.opensubtitles.org/xml-rpc;1\NuSoap;http://api.getsubtitle.com/server.php;0";
+                const string defaultValue = @"BSP_V1;http://api.bsplayer-subtitles.com/v1.php;1\Osdb;http://api.opensubtitles.org/xml-rpc;1\NuSoap;http://api.getsubtitle.com/server.php;0";
+                return PersistenceProxy.ReadObject("DefaultSubtitleURIs", defaultValue, false);
             }
         }
 

@@ -37,7 +37,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
         public static RadioStationsData Load()
         {
-            string xml = PersistenceProxy.ReadObject("RadioStationsData", string.Empty);
+            string xml = PersistenceProxy.ReadObject("RadioStationsData", string.Empty, false);
             if (!string.IsNullOrEmpty(xml))
             {
                 XmlReaderSettings settings = new XmlReaderSettings();
@@ -51,7 +51,7 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
             return null;
         }
-
+        /*
         public void SavePersistentList()
         {
             StringBuilder xml = new StringBuilder();
@@ -76,6 +76,6 @@ namespace OPMedia.Runtime.ProTONE.Playlists
 
             PersistenceProxy.SaveObject("RadioStationsData", xml.ToValidXml());
         }
-
+        */
     }
 }

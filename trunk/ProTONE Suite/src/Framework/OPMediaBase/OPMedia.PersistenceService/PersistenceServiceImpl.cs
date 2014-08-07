@@ -19,8 +19,12 @@ namespace OPMedia.PersistenceService
                 using (Persistence db = new Persistence("Persistence.sdf"))
                 {
                     var s = (from po in db.PersistedObjects
-                             where po.PersistenceID == persistenceId
-                             select po.Content).FirstOrDefault();
+                            where
+                            ( 
+                                po.PersistenceID == persistenceId
+                                && (string.IsNullOrEmpty(persistenceContext) || string.Compare(persistenceContext, po.PersistenceContext, true) == 0)
+                            )
+                            select po.Content).FirstOrDefault();
 
                     return s;
                 }
@@ -44,7 +48,11 @@ namespace OPMedia.PersistenceService
                 using (Persistence db = new Persistence("Persistence.sdf"))
                 {
                     var obj = (from po in db.PersistedObjects
-                                where po.PersistenceID == persistenceId
+                                where
+                                (
+                                    po.PersistenceID == persistenceId
+                                    && (string.IsNullOrEmpty(persistenceContext) || string.Compare(persistenceContext, po.PersistenceContext, true) == 0)
+                                )
                                 select po);
 
                     using (TransactionScope ts = new TransactionScope(TransactionScopeOption.RequiresNew, opt))
@@ -58,6 +66,9 @@ namespace OPMedia.PersistenceService
                         PersistedObjects po = new PersistedObjects();
                         po.PersistenceID = persistenceId;
                         po.Content = objectContent;
+
+                        po.PersistenceContext = string.IsNullOrEmpty(persistenceContext) ?
+                            string.Empty : persistenceContext;
 
                         db.PersistedObjects.InsertOnSubmit(po);
                         db.SubmitChanges();
@@ -83,8 +94,12 @@ namespace OPMedia.PersistenceService
                 using (Persistence db = new Persistence("Persistence.sdf"))
                 {
                     var obj = (from po in db.PersistedObjects
-                               where po.PersistenceID == persistenceId
-                               select po);
+                                where
+                                (
+                                    po.PersistenceID == persistenceId
+                                    && (string.IsNullOrEmpty(persistenceContext) || string.Compare(persistenceContext, po.PersistenceContext, true) == 0)
+                                )
+                                select po);
 
                     using (TransactionScope ts = new TransactionScope(TransactionScopeOption.RequiresNew, opt))
                     {
