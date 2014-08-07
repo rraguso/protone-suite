@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using OPMedia.Core.Logging;
+using System.Security.Principal;
 
 namespace OPMedia.Core
 {
     public class PersistenceProxy : IDisposable, IPersistenceService
     {
         protected static IPersistenceService _proxy = null;
+
+        protected string _persistenceContext = string.Empty;
 
         protected static PersistenceProxy CreateProxy()
         {
@@ -18,6 +21,23 @@ namespace OPMedia.Core
 
         protected PersistenceProxy()
         {
+            try
+            {
+                try
+                {
+                    _persistenceContext = WindowsIdentity.GetCurrent().Name;
+                }
+                catch
+                {
+                    _persistenceContext = string.Format("{0}\\{1}", 
+                        Environment.UserDomainName, Environment.UserName);
+                }
+            }
+            catch
+            {
+                _persistenceContext = string.Empty;
+            }
+
             Open();
         }
 
@@ -43,11 +63,11 @@ namespace OPMedia.Core
             _proxy = null;
         }
 
-        string IPersistenceService.ReadObject(string persistenceId)
+        string IPersistenceService.ReadObject(string persistenceId, string persistenceContext)
         {
             try
             {
-                return _proxy.ReadObject(persistenceId);
+                return _proxy.ReadObject(persistenceId, persistenceContext);
             }
             catch(Exception ex)
             {
@@ -59,11 +79,11 @@ namespace OPMedia.Core
             return null;
         }
 
-        void IPersistenceService.SaveObject(string persistenceId, string objectContent)
+        void IPersistenceService.SaveObject(string persistenceId, string persistenceContext, string objectContent)
         {
             try
             {
-                _proxy.SaveObject(persistenceId, objectContent);
+                _proxy.SaveObject(persistenceId, persistenceContext, objectContent);
             }
             catch(Exception ex)
             {
@@ -73,11 +93,11 @@ namespace OPMedia.Core
             }
         }
 
-        void IPersistenceService.DeleteObject(string persistenceId)
+        void IPersistenceService.DeleteObject(string persistenceId, string persistenceContext)
         {
             try
             {
-                _proxy.DeleteObject(persistenceId);
+                _proxy.DeleteObject(persistenceId, persistenceContext);
             }
             catch (Exception ex)
             {
@@ -87,7 +107,7 @@ namespace OPMedia.Core
             }
         }
 
-        public static T ReadObject<T>(string persistenceId, T defaultValue)
+        public static T ReadObject<T>(string persistenceId, T defaultValue, bool usePersistenceContext = false)
         {
             T retVal = defaultValue;
 
@@ -95,7 +115,10 @@ namespace OPMedia.Core
             {
                 using (PersistenceProxy pp = new PersistenceProxy())
                 {
-                    string content = (pp as IPersistenceService).ReadObject(persistenceId);
+                    string content = usePersistenceContext ?
+                        (pp as IPersistenceService).ReadObject(persistenceId, pp._persistenceContext) :
+                        (pp as IPersistenceService).ReadObject(persistenceId, string.Empty);
+
                     if (!string.IsNullOrEmpty(content))
                     {
                         try
@@ -126,13 +149,16 @@ namespace OPMedia.Core
             return retVal;
         }
 
-        public static void SaveObject<T>(string persistenceId, T objectContent)
+        public static void SaveObject<T>(string persistenceId, T objectContent, bool usePersistenceContext = false)
         {
             try
             {
                 using (PersistenceProxy pp = new PersistenceProxy())
                 {
-                    (pp as IPersistenceService).SaveObject(persistenceId, objectContent.ToString());
+                    if (usePersistenceContext)
+                        (pp as IPersistenceService).SaveObject(persistenceId, pp._persistenceContext, objectContent.ToString());
+                    else
+                        (pp as IPersistenceService).SaveObject(persistenceId, string.Empty, objectContent.ToString());
                 }
             }
             catch (Exception ex)
@@ -141,13 +167,16 @@ namespace OPMedia.Core
             }
         }
 
-        public static void DeleteObject(string persistenceId)
+        public static void DeleteObject(string persistenceId, bool usePersistenceContext = false)
         {
             try
             {
                 using (PersistenceProxy pp = new PersistenceProxy())
                 {
-                    (pp as IPersistenceService).DeleteObject(persistenceId);
+                    if (usePersistenceContext)
+                        (pp as IPersistenceService).DeleteObject(persistenceId, pp._persistenceContext);
+                    else
+                        (pp as IPersistenceService).DeleteObject(persistenceId, string.Empty);
                 }
             }
             catch (Exception ex)

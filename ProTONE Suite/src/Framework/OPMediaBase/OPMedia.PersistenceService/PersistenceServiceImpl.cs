@@ -12,7 +12,7 @@ namespace OPMedia.PersistenceService
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.PerCall)]
     public class PersistenceServiceImpl : IPersistenceService
     {
-        public string ReadObject(string persistenceId)
+        public string ReadObject(string persistenceId, string persistenceContext)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace OPMedia.PersistenceService
             return null;
         }
 
-        public void SaveObject(string persistenceId, string objectContent)
+        public void SaveObject(string persistenceId, string persistenceContext, string objectContent)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace OPMedia.PersistenceService
             }
         }
 
-        public void DeleteObject(string persistenceId)
+        public void DeleteObject(string persistenceId, string persistenceContext)
         {
             try
             {
