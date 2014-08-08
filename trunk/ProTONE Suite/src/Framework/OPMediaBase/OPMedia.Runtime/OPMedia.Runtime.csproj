@@ -59,14 +59,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DSP\NAudioFFT.cs" />
-    <Compile Include="EventArgs.cs" />
     <Compile Include="FileInformation\FileHash.cs" />
     <Compile Include="FileInformation\FileRoutines.cs" />
     <Compile Include="FileInformation\NativeFileInfo.cs" />
     <Compile Include="InterProcessCommunication\InterProcessComm.cs" />
     <Compile Include="InterProcessCommunication\WmCopyDataReceiver.cs" />
     <Compile Include="InterProcessCommunication\WmCopyDataSender.cs" />
-    <Compile Include="ListWithEvents.cs" />
     <Compile Include="Processors\BackgroundRetriever.cs" />
     <Compile Include="Shortcuts\ShortcutMapper.cs" />
     <Compile Include="Processors\QueuedProcessor.cs" />
