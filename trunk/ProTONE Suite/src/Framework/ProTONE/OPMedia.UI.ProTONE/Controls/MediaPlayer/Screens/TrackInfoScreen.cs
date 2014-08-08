@@ -80,7 +80,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
         
         public void ShowPlaylistItem(PlaylistItem plItem, bool callByProperty)
         {
-            if (plItem == null)
+            if (plItem == null && callByProperty)
             {
                 List<PlaylistItem> plItems = playlistScreen.GetPlaylistItems();
                 if (plItems != null && plItems.Count > 0)
@@ -89,9 +89,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                 }
             }
 
+            pgProperties.Tag = null;
+            pgProperties.SelectedObject = null;
             pgProperties.Visible = false;
             lblNoInfo.Visible = true;
-
+            lblItem.Text = string.Empty;
+            _canSaveData = false;
 
             if (plItem != null)
             {
