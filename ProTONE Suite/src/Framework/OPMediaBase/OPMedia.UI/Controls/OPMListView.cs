@@ -466,46 +466,46 @@ namespace OPMedia.UI.Controls
         /// </summary>
         protected override void WndProc(ref Message m)
         {
-            Color nonEditableColor = GetBackColor();
             switch (m.Msg)
             {
                 case WM_PAINT:
-
-                    // Set distinctive background for editable fields and also reposition the
-					// subitem being edited (if any)
-					ListViewItem.ListViewSubItem editedSubItem = null;
-					foreach (ListViewItem item in Items)
                     {
-						int subItemIndex = 0;
-						foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                        // Set distinctive background for editable fields and also reposition the
+                        // subitem being edited (if any)
+                        ListViewItem.ListViewSubItem editedSubItem = null;
+                        foreach (ListViewItem item in Items)
                         {
-							Control editControl = null;
-							OPMListViewSubItem editableSubItem = subItem as OPMListViewSubItem;
-							if (editableSubItem != null)
-							{
-								if (!editableSubItem.ReadOnly)
-								{
-									editControl = editableSubItem.EditControl;
-								}
-							}
-
-                            if (editControl != null)
+                            int subItemIndex = 0;
+                            foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
                             {
-								if (item.Index == EditedRow && subItemIndex == EditedColumn)
-								{
-									editedSubItem = subItem;
-								}
-                            }
+                                Control editControl = null;
+                                OPMListViewSubItem editableSubItem = subItem as OPMListViewSubItem;
+                                if (editableSubItem != null)
+                                {
+                                    if (!editableSubItem.ReadOnly)
+                                    {
+                                        editControl = editableSubItem.EditControl;
+                                    }
+                                }
 
-                            subItemIndex++;
+                                if (editControl != null)
+                                {
+                                    if (item.Index == EditedRow && subItemIndex == EditedColumn)
+                                    {
+                                        editedSubItem = subItem;
+                                    }
+                                }
+
+                                subItemIndex++;
+                            }
+                        }
+
+                        // Reposition edit control.
+                        if (editedSubItem != null && activeEditControl != null)
+                        {
+                            DisplayEditControl(true, activeEditControl, editedSubItem);
                         }
                     }
-
-                    // Reposition edit control.
-					if (editedSubItem != null  && activeEditControl != null)
-					{
-						DisplayEditControl(true, activeEditControl, editedSubItem);
-					}
                     break;
             }
 

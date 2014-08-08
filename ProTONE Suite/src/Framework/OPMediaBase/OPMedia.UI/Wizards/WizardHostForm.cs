@@ -396,6 +396,9 @@ namespace OPMedia.UI.Wizards
             stepButtons.StepCancel += new StepButtonsCtl.StepButtonEventHandler(OnWizardCancel);
             stepButtons.StepOK += new StepButtonsCtl.StepButtonEventHandler(OnFinishPageExit);
 
+            this.AcceptButton = stepButtons.btnOK;
+            this.CancelButton = stepButtons.btnCancel;
+
             wizardPages = new List<WizardBaseCtl>();
 
             lblSeparator.BackColor = lblSeparator2.BackColor = ThemeManager.BorderColor;
@@ -692,15 +695,9 @@ namespace OPMedia.UI.Wizards
         /// false otherwise.</returns>
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            // Allow to cancel the wizard using Escape key.
-            if (keyData == Keys.Escape)
-            {
-                HandledEventArgs e = new HandledEventArgs();
-                e.Handled = false;
-                OnWizardCancel(this, e);
-                return true;
-            }
-
+            if ((keyData == Keys.Escape || keyData == Keys.Enter) && this.SuppressKeyPress)
+                return false;
+            
             if (keyData == Keys.F1)
             {
                 string wizName = wizardName.Replace("TXT_", "").ToLowerInvariant();

@@ -252,7 +252,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             if (_oldActiveScreen == this.BookmarkScreen)
             {
-                this.BookmarkScreen.SaveBookmarks();
+                this.BookmarkScreen.SaveBookmarks(false);
             }
             else if (_oldActiveScreen == this.TrackInfoScreen)
             {
