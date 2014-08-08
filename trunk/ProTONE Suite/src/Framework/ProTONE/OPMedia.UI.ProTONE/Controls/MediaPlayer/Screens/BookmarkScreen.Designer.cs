@@ -33,7 +33,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         {
             this.lblItem = new OPMedia.UI.Controls.OPMLabel();
             this.lvBookmarks = new OPMedia.UI.Controls.OPMListView();
-            this.colEmpty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colIcon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblDesc = new OPMedia.UI.Controls.OPMLabel();
@@ -76,7 +76,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             // 
             this.lvBookmarks.AllowEditing = true;
             this.lvBookmarks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colEmpty,
+            this.colIcon,
             this.colTime,
             this.colText});
             this.lvBookmarks.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -93,11 +93,11 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             this.lvBookmarks.View = System.Windows.Forms.View.Details;
             this.lvBookmarks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvBookmarks_MouseDoubleClick);
             // 
-            // colEmpty
+            // colIcon
             // 
-            this.colEmpty.Name = "colEmpty";
-            this.colEmpty.Text = "";
-            this.colEmpty.Width = 0;
+            this.colIcon.Name = "colIcon";
+            this.colIcon.Text = "";
+            this.colIcon.Width = 20;
             // 
             // colTime
             // 
@@ -299,7 +299,6 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         private ColumnHeader colText;
         private OPMTableLayoutPanel pnlLayout;
         private OPMFlowLayoutPanel pnlButtons;
-        private ColumnHeader colEmpty;
         private MediaPlayer.PlaylistScreen playlistScreen;
         private OPMTableLayoutPanel pnlBookmarkEdit;
         private OPMLabel lblNoInfo;

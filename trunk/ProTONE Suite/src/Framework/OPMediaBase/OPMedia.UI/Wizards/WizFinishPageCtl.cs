@@ -64,16 +64,16 @@ namespace OPMedia.UI.Wizards
             Wizard.FormClosing += new FormClosingEventHandler(hostForm_FormClosing);
         }
 
-		protected override bool ProcessDialogKey(Keys keyData)
-        {
-            if (keyData == Keys.Escape || keyData == Keys.Enter)
-            {
-                Wizard.DialogResult = DialogResult.OK;
-                return true;
-            }
+        //protected override bool ProcessDialogKey(Keys keyData)
+        //{
+        //    if (keyData == Keys.Escape || keyData == Keys.Enter)
+        //    {
+        //        Wizard.DialogResult = DialogResult.OK;
+        //        return true;
+        //    }
 
-            return base.ProcessDialogKey(keyData);
-        }
+        //    return base.ProcessDialogKey(keyData);
+        //}
 
         void hostForm_FormClosing(object sender, FormClosingEventArgs e)
         {

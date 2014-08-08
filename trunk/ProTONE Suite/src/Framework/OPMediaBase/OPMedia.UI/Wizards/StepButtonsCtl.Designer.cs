@@ -53,6 +53,7 @@ namespace OPMedia.UI.Wizards
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnPrevious.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnPrevious.ShowDropDown = false;
             this.btnPrevious.Size = new System.Drawing.Size(75, 25);
             this.btnPrevious.TabIndex = 0;
             this.btnPrevious.Text = "TXT_WIZARDBACK";
@@ -69,6 +70,7 @@ namespace OPMedia.UI.Wizards
             this.btnNext.Name = "btnNext";
             this.btnNext.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnNext.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnNext.ShowDropDown = false;
             this.btnNext.Size = new System.Drawing.Size(75, 25);
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "TXT_WIZARDNEXT";
@@ -78,7 +80,6 @@ namespace OPMedia.UI.Wizards
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.AutoSize = true;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(246, 3);
             this.btnCancel.MaximumSize = new System.Drawing.Size(75, 25);
@@ -86,6 +87,7 @@ namespace OPMedia.UI.Wizards
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnCancel.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnCancel.ShowDropDown = false;
             this.btnCancel.Size = new System.Drawing.Size(75, 25);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "TXT_WIZARDCANCEL";
@@ -102,6 +104,7 @@ namespace OPMedia.UI.Wizards
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnFinish.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnFinish.ShowDropDown = false;
             this.btnFinish.Size = new System.Drawing.Size(75, 25);
             this.btnFinish.TabIndex = 2;
             this.btnFinish.Text = "TXT_WIZARDFINISH";
@@ -136,6 +139,7 @@ namespace OPMedia.UI.Wizards
             this.btnOK.Name = "btnOK";
             this.btnOK.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnOK.OverrideForeColor = System.Drawing.Color.Empty;
+            this.btnOK.ShowDropDown = false;
             this.btnOK.Size = new System.Drawing.Size(97, 25);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "TXT_WIZARDOK";
@@ -190,13 +194,13 @@ namespace OPMedia.UI.Wizards
 
         #endregion
 
-        private OPMButton btnPrevious;
-        private OPMButton btnNext;
-        private OPMButton btnCancel;
-        private OPMButton btnFinish;
         private OPMFlowLayoutPanel pnlMovementButtons;
         private OPMTableLayoutPanel panel;
-        private OPMButton btnOK;
         private OPMCheckBox chkRepeatWizard;
+        private OPMButton btnPrevious;
+        private OPMButton btnNext;
+        internal OPMButton btnOK;
+        internal OPMButton btnCancel;
+        private OPMButton btnFinish;
     }
 }

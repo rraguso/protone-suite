@@ -35,8 +35,6 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
     {
         IWindowsFormsEditorService _wfes = null;
 
-        readonly int[] widths = new int[] { 1, 75, 110 };
-
         PlaylistItem _plItem = null;
         ToolTip _tip = new ToolTip();
         Timer _timer = new Timer();
@@ -45,6 +43,8 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
         TextBox _txtEditComment = new TextBox();
         bool _showFilePath;
         bool _canAddToCurrent;
+
+        ImageList _il = null;
 
         public void CopyPlaylist(PlaylistScreen source)
         {
@@ -77,35 +77,6 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                 _showEmbeddedPlaylist = value;
                 ShowPlaylist();
             }
-        }
-
-        public void LoadnewPlaylistItem(PlaylistItem plItem, bool callFromProperty)
-        {
-            try
-            {
-                if (plItem == null && _plItem != null)
-                {
-                    SaveBookmarks();
-                }
-            }
-            catch
-            {
-            }
-
-            _plItem = plItem;
-
-            if (_plItem != null && _plItem.MediaFileInfo != null)
-            {
-                _plItem.MediaFileInfo.BookmarkCollectionChanged -=
-                    new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
-                _plItem.MediaFileInfo.BookmarkCollectionChanged +=
-                    new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
-            }
-
-            LoadBookmarks();
-
-            if (callFromProperty)
-                playlistScreen.SetFirstSelectedPlaylistItem(_plItem);
         }
 
         public BookmarkScreen(IWindowsFormsEditorService wfes, PlaylistItem plItem) : this()
@@ -144,6 +115,12 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             _timer.Tick += new EventHandler(_timer_Tick);
             _timer.Enabled = true;
 
+            _il = new ImageList();
+            _il.ColorDepth = ColorDepth.Depth32Bit;
+            _il.ImageSize = new System.Drawing.Size(16, 16);
+            _il.Images.Add(OPMedia.Core.Properties.Resources.bookmark);
+            lvBookmarks.SmallImageList = _il;
+
             ManageAddCurrentButtonState();
 
             _dtpEditTime.ShowUpDown = true;
@@ -165,8 +142,13 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             ShowPlaylist();
         }
 
+        bool _selectEventDisabled = false;
+
         void playlistScreen_SelectedItemChanged(PlaylistItem newSelectedItem)
         {
+            if (_selectEventDisabled)
+                return;
+
             LoadnewPlaylistItem(newSelectedItem, false);
         }
 
@@ -177,47 +159,24 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
         void lvBookmarks_SubItemEdited(object sender, ListViewSubItemEventArgs args)
         {
-            SaveBookmarks();
+            SaveBookmarks(true);
         }
 
         void lvBookmarks_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
-            e.Cancel = true;
-
-            if (e.ColumnIndex != colText.Index)
-            {
-                e.NewWidth = widths[e.ColumnIndex];
-            }
-            else
-            {
-                int w = 0;
-                foreach (ColumnHeader ch in lvBookmarks.Columns)
-                {
-                    if (ch != colText)
-                    {
-                        w += widths[ch.Index];
-                    }
-                }
-                w += 5;
-
-                e.NewWidth = colText.Width = (lvBookmarks.Width - w - SystemInformation.VerticalScrollBarWidth);
-            }
+            ApplyColumnWidths();
         }
 
         void lvBookmarks_Resize(object sender, EventArgs e)
         {
-            int w = 0;
-            foreach (ColumnHeader ch in lvBookmarks.Columns)
-            {
-                if (ch != colText)
-                {
-                    ch.Width = widths[ch.Index];
-                    w += ch.Width;
-                }
-            }
-            w += 5;
+            ApplyColumnWidths();
+        }
 
-            colText.Width = (lvBookmarks.Width - w);
+        void ApplyColumnWidths()
+        {
+            colIcon.Width = 20;
+            int w = lvBookmarks.Width - SystemInformation.VerticalScrollBarWidth - colIcon.Width;
+            colTime.Width = colText.Width = w / 2;
         }
 
         void _timer_Tick(object sender, EventArgs e)
@@ -242,6 +201,46 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             }
         }
 
+        public void LoadnewPlaylistItem(PlaylistItem plItem, bool callFromProperty)
+        {
+            try
+            {
+                if (_plItem != null && _plItem.MediaFileInfo != null)
+                {
+                    _plItem.MediaFileInfo.BookmarkCollectionChanged -=
+                        new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
+                }
+
+                if (plItem == null && callFromProperty)
+                {
+                    List<PlaylistItem> plItems = playlistScreen.GetPlaylistItems();
+                    if (plItems != null && plItems.Count > 0)
+                    {
+                        plItem = plItems[0];
+                    }
+                }
+
+                _plItem = plItem;
+
+                if (_plItem != null && callFromProperty)
+                {
+                    playlistScreen.SetFirstSelectedPlaylistItem(_plItem);
+                }
+
+                LoadBookmarks();
+
+                if (_plItem != null && _plItem.MediaFileInfo != null)
+                {
+                    _plItem.MediaFileInfo.BookmarkCollectionChanged +=
+                        new EventHandler(MediaFileInfo_BookmarkCollectionChanged);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+            }
+        }
+
         private void LoadBookmarks()
         {
             this.SuspendLayoutEx();
@@ -255,23 +254,10 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                 lblItem.Text = string.Empty;
 
                 if (_plItem == null)
-                {
-                    List<PlaylistItem> plItems = playlistScreen.GetPlaylistItems();
-                    if (plItems != null && plItems.Count > 0)
-                    {
-                        _plItem = plItems[0];
-                    }
-
-                    if (_plItem == null)
-                    {
-                        this.Enabled = false;
-                        return;
-                    }
-                }
+                    return;
 
                 try
                 {
-                    this.Enabled = true;
                     lblItem.Text = _plItem.MediaFileInfo.Path;
 
                     if (_plItem.SupportsBookmarkInfo &&
@@ -280,7 +266,6 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                         pnlBookmarkEdit.Visible = true;
                         lblNoInfo.Visible = false;
 
-                        lvBookmarks.Enabled = true;
                         pbAdd.Visible = pbDelete.Visible = _plItem.IsBookmarkInfoEditable;
                         lvBookmarks.AllowEditing = _plItem.IsBookmarkInfoEditable;
 
@@ -292,12 +277,11 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                         foreach (Bookmark bmk in bmkList)
                         {
                             string[] subItems = new string[]
-                        {
-                            string.Empty,
-                            bmk.PlaybackTime.ToString(),
-                            bmk.Title
-                        };
-
+                            {
+                                string.Empty,
+                                bmk.PlaybackTime.ToString(),
+                                bmk.Title
+                            };
 
                             int i = 0;
                             ListViewItem item = new ListViewItem(subItems[i++]);
@@ -327,7 +311,6 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                         pbAdd.Visible = pbDelete.Visible = pbAddCurrent.Visible = false;
                         lvBookmarks.Enabled = false;
                         lvBookmarks.AllowEditing = false;
-
                     }
                 }
                 catch (Exception ex)
@@ -374,7 +357,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
             item = lvBookmarks.Items.Add(item);
 
-            SaveBookmarks();
+            SaveBookmarks(true);
 
             item.Selected = true;
 
@@ -407,7 +390,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
 
             item = lvBookmarks.Items.Add(item);
 
-            SaveBookmarks();
+            SaveBookmarks(true);
 
             item.Selected = true;
 
@@ -420,7 +403,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             {
                 lvBookmarks.Items.Remove(lvBookmarks.SelectedItems[0]);
 
-                SaveBookmarks();
+                SaveBookmarks(true);
 
                 lvBookmarks.Select();
                 lvBookmarks.Focus();
@@ -433,7 +416,7 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
             }
         }
 
-        public void SaveBookmarks()
+        public void SaveBookmarks(bool reloadAfterSave)
         {
             if (_plItem != null &&
                 _plItem.MediaFileInfo != null &&
@@ -464,8 +447,11 @@ namespace OPMedia.UI.ProTONE.Controls.BookmarkManagement
                     }
                 }
 
-                _plItem.MediaFileInfo.SaveBookmarks();
-                LoadBookmarks();
+                _plItem.MediaFileInfo.SaveBookmarks(reloadAfterSave);
+                if (reloadAfterSave)
+                {
+                    LoadBookmarks();
+                }
             }
         }
 

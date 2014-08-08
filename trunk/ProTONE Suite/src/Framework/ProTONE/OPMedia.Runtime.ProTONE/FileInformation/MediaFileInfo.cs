@@ -204,9 +204,9 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             _bookmarkInfo.LoadBookmarks(true, throwException);
         }
 
-        public void SaveBookmarks()
+        public void SaveBookmarks(bool reloadAfterSave)
         {
-            _bookmarkInfo.SaveBookmarks();
+            _bookmarkInfo.SaveBookmarks(reloadAfterSave);
         }
 
         protected MediaFileInfo()

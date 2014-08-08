@@ -120,7 +120,7 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
             }
         }
 
-        internal void SaveBookmarks()
+        internal void SaveBookmarks(bool reloadAfterSave)
         {
             try
             {
@@ -153,7 +153,7 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
                 ErrorDispatcher.DispatchError(ex);
             }
 
-            if (File.Exists(_path))
+            if (reloadAfterSave && File.Exists(_path))
             {
                 LoadBookmarks(true, true);
             }
