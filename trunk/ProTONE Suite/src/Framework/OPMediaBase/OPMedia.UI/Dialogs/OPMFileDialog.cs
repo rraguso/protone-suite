@@ -140,12 +140,39 @@ namespace OPMedia.UI.Controls.Dialogs
             {
                 OPMToolStripMenuItem tsmi = new OPMToolStripMenuItem(opt.OptionTitle);
                 tsmi.Tag = opt.OptionTag;
+
+                tsmi.Click -= new EventHandler(tsmi_Click);
                 tsmi.Click += new EventHandler(tsmi_Click);
+                
                 _cmsDynamic.Items.Add(tsmi);
             }
 
+            _cmsDynamic.Opened -= new EventHandler(_cmsDynamic_Opened);
+            _cmsDynamic.Opened += new EventHandler(_cmsDynamic_Opened);
+
             Point p = new Point(0, btnOK.Height);
             _cmsDynamic.Show(btnOK, p, ToolStripDropDownDirection.Default);
+            
+        }
+
+        void _cmsDynamic_Opened(object sender, EventArgs e)
+        {
+            _cmsDynamic.Opened -= new EventHandler(_cmsDynamic_Opened);
+
+            Point ptButton = PointToScreen(btnOK.Location);
+            Point ptMenu = _cmsDynamic.PointToScreen(_cmsDynamic.DisplayRectangle.Location);
+
+            Screen scButton = Screen.FromPoint(ptButton);
+            Screen scMenu = Screen.FromPoint(ptMenu);
+
+            if (scButton != null && scMenu != null &&
+                scButton.DeviceName != scMenu.DeviceName)
+            {
+                int dx = ptButton.X - ptMenu.X;
+
+                Point p = new Point(dx, btnOK.Height);
+                _cmsDynamic.Show(btnOK, p, ToolStripDropDownDirection.Default);
+            }
         }
 
         void tsmi_Click(object sender, EventArgs e)
