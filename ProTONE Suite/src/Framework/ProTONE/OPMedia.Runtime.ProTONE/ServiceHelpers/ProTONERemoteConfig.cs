@@ -17,31 +17,12 @@ namespace OPMedia.Runtime.ProTONE.ServiceHelpers
         {
             get
             {
-                bool retVal = false;
-                try
-                {
-                    RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite");
-                    if (key != null)
-                    {
-                        retVal = ((int)key.GetValue("EnableRemoteControl", 0) != 0);
-                    }
-                }
-                catch
-                {
-                }
-
-                return retVal;
+                return PersistenceProxy.ReadObject("EnableRemoteControl", false, false);
             }
 
             set
             {
-                using (RegistryKey key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\OPMedia Research\ProTONE Suite"))
-                {
-                    if (key != null)
-                    {
-                        key.SetValue("EnableRemoteControl", value ? 1 : 0);
-                    }
-                }
+                PersistenceProxy.SaveObject("EnableRemoteControl", value, false);
             }
         }
 

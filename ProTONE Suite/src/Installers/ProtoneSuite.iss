@@ -333,7 +333,7 @@ Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: wvc1; Val
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: wmvp; ValueData: $0000000c; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: wvp2; ValueData: $0000000c; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: dword; ValueName: zmbv; ValueData: $00000001; Components: itemCodecs\itemFFDShow
-Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: string; ValueName: pth; ValueData: C:\Windows\system32; Components: itemCodecs\itemFFDShow
+Root: HKLM; SubKey: Software\GNU\ffdshow; ValueType: string; ValueName: pth; ValueData: {app}\Codecs; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: dword; ValueName: postprocH264mode; ValueData: $00000000; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: dword; ValueName: resizeMethod; ValueData: $00000009; Components: itemCodecs\itemFFDShow
 Root: HKCU; SubKey: Software\GNU\ffdshow\default; ValueType: dword; ValueName: subIsExpand; ValueData: $00000000; Components: itemCodecs\itemFFDShow
@@ -1533,8 +1533,6 @@ Root: HKLM; SubKey: Software\GNU\ffdshow_vfw; ValueType: dword; ValueName: div3;
 Root: HKLM; SubKey: Software\GNU\ffdshow_vfw; ValueType: dword; ValueName: dx50; ValueData: $00000001; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow_vfw; ValueType: dword; ValueName: xvid; ValueData: $00000001; Components: itemCodecs\itemFFDShow
 Root: HKLM; SubKey: Software\GNU\ffdshow_vfw; ValueType: dword; ValueName: mp4v; ValueData: $00000001; Components: itemCodecs\itemFFDShow
-Root: HKCU; SubKey: Software\OPMedia Research\ProTONE Suite; ValueType: dword; ValueName: UseLinkedFiles; ValueData: $00000001
-Root: HKCU; SubKey: Software\OPMedia Research\ProTONE Suite; ValueType: string; ValueName: LinkedFiles; ValueData: "AU;AIF;AIFF;CDA;FLAC;MID;MIDI;MP1;MP2;MP3;MPA;RAW;RMI;SND;WAV;WMA/BMK\AVI;DIVX;QT;M1V;M2V;MOD;MOV;MPG;MPEG;VOB;WM;WMV;MKV;MP4/SUB;SRT;USF;ASS;SSA;BMK"
 
 [UninstallDelete]
 Name: {app}\InstallUtil.InstallLog; Type: files

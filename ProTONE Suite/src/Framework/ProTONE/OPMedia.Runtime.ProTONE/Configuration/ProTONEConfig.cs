@@ -54,6 +54,13 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
     public static class ProTONEConfig
     {
+        public const string DefaultSubtitleURIs = 
+            @"BSP_V1;http://api.bsplayer-subtitles.com/v1.php;1\Osdb;http://api.opensubtitles.org/xml-rpc;1\NuSoap;http://api.getsubtitle.com/server.php;0";
+
+        public const string DefaultLinkedFiles =
+            @"AU;AIF;AIFF;CDA;FLAC;MID;MIDI;MP1;MP2;MP3;MPA;RAW;RMI;SND;WAV;WMA/BMK\AVI;DIVX;QT;M1V;M2V;MOD;MOV;MPG;MPEG;VOB;WM;WMV;MKV;MP4/SUB;SRT;USF;ASS;SSA;BMK";
+
+
         #region Calculated Level 2 settings
 
         public static bool IsPlayer
@@ -146,15 +153,6 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
         #region Level 2 Settings using Registry (Per-user settings)
 
-        public static string DefaultSubtitleURIs
-        {
-            get
-            {
-                const string defaultValue = @"BSP_V1;http://api.bsplayer-subtitles.com/v1.php;1\Osdb;http://api.opensubtitles.org/xml-rpc;1\NuSoap;http://api.getsubtitle.com/server.php;0";
-                return PersistenceProxy.ReadObject("DefaultSubtitleURIs", defaultValue, false);
-            }
-        }
-
         private static List<string> __favoriteFolders = null;
 
         public static List<string> GetFavoriteFolders(string favFoldersHiveName)
@@ -163,17 +161,11 @@ namespace OPMedia.Runtime.ProTONE.Configuration
             {
                 __favoriteFolders = new List<string>();
 
-                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(AppConfig.ConfigRegPath))
+                string str = PersistenceProxy.ReadObject(favFoldersHiveName, string.Empty);
+                if (!string.IsNullOrEmpty(str))
                 {
-                    if (key != null)
-                    {
-                        string str = key.GetValue(favFoldersHiveName, string.Empty) as string;
-                        if (!string.IsNullOrEmpty(str))
-                        {
-                            string[] favFolders = StringUtils.ToStringArray(str, '?');
-                            __favoriteFolders.AddRange(favFolders);
-                        }
-                    }
+                    string[] favFolders = StringUtils.ToStringArray(str, '?');
+                    __favoriteFolders.AddRange(favFolders);
                 }
             }
 
@@ -185,17 +177,11 @@ namespace OPMedia.Runtime.ProTONE.Configuration
             __favoriteFolders.Clear();
             __favoriteFolders.AddRange(folders);
 
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(AppConfig.ConfigRegPath))
-            {
-                if (key != null)
-                {
-                    string favFolders = StringUtils.FromStringArray(__favoriteFolders.ToArray(), '?');
-                    if (favFolders == null)
-                        favFolders = string.Empty;
+            string favFolders = StringUtils.FromStringArray(__favoriteFolders.ToArray(), '?');
+            if (favFolders == null)
+                favFolders = string.Empty;
 
-                    key.SetValue(favFoldersHiveName, favFolders);
-                }
-            }
+            PersistenceProxy.SaveObject(favFoldersHiveName, favFolders);
         }
 
         public static bool AddToFavoriteFolders(string path)
@@ -225,30 +211,24 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
                 try
                 {
-                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(AppConfig.ConfigRegPath))
+                    string st = PersistenceProxy.ReadObject("LinkedFiles", DefaultLinkedFiles);
+                    string[] pairs = StringUtils.ToStringArray(st, '\\');
+                    if (pairs != null && pairs.Length > 0)
                     {
-                        if (key != null)
+                        foreach (string pair in pairs)
                         {
-                            string st = key.GetValue("LinkedFiles", string.Empty) as string;
-                            string[] pairs = StringUtils.ToStringArray(st, '\\');
-                            if (pairs != null && pairs.Length > 0)
+                            string[] nameValue = StringUtils.ToStringArray(pair, '/');
+                            if (nameValue != null && nameValue.Length > 0)
                             {
-                                foreach (string pair in pairs)
-                                {
-                                    string[] nameValue = StringUtils.ToStringArray(pair, '/');
-                                    if (nameValue != null && nameValue.Length > 0)
-                                    {
-                                        string name = nameValue[0];
-                                        string value = nameValue.Length > 1 ? nameValue[1] : string.Empty;
+                                string name = nameValue[0];
+                                string value = nameValue.Length > 1 ? nameValue[1] : string.Empty;
 
-                                        try
-                                        {
-                                            _table.Add(name, value);
-                                        }
-                                        catch
-                                        {
-                                        }
-                                    }
+                                try
+                                {
+                                    _table.Add(name, value);
+                                }
+                                catch
+                                {
                                 }
                             }
                         }
@@ -278,13 +258,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
                         str = str.Trim('\\').Trim('/');
 
-                        using (RegistryKey key = Registry.CurrentUser.CreateSubKey(AppConfig.ConfigRegPath))
-                        {
-                            if (key != null)
-                            {
-                                key.SetValue("LinkedFiles", str);
-                            }
-                        }
+                        PersistenceProxy.SaveObject("LinkedFiles", str);
                     }
 
                     _table = value;
