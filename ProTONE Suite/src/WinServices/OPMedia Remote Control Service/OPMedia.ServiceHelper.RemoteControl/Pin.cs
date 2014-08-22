@@ -150,14 +150,15 @@ namespace OPMedia.ServiceHelper.RCCService
 
     public abstract class OutputPin : Pin
     {
-        public virtual string TranslateToOutputPinFormat(string data, RCCServiceConfig.RemoteButtonsRow button)
+        protected virtual string TranslateToOutputPinFormat(string data, RCCServiceConfig.RemoteButtonsRow button)
         {
             return data;
         }
 
-        public void SendRequest(string request)
+        public void SendRequest(string request, RCCServiceConfig.RemoteButtonsRow button)
         {
-            SendRequestInternal(request);
+            string translatedRequest = TranslateToOutputPinFormat(request, button);
+            SendRequestInternal(translatedRequest);
         }
 
         protected abstract void SendRequestInternal(string request);

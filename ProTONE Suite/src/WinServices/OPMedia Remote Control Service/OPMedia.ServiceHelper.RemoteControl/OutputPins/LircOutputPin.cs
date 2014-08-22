@@ -160,11 +160,16 @@ namespace OPMedia.ServiceHelper.RCCService.OutputPins
 
         public static string ThisMachineName = Environment.MachineName.ToLowerInvariant();
 
-        public override string TranslateToOutputPinFormat(string data, RCCServiceConfig.RemoteButtonsRow button)
+        protected override string TranslateToOutputPinFormat(string data, RCCServiceConfig.RemoteButtonsRow button)
         {
-            // keyCode repeat command remoteName
-            string output = string.Format("{0} {1} {2} {3}",
-                data, 0, button.OutputData.Replace(" ", ""), button.RemoteName.Replace(" ", ""));
+            string output = data;
+
+            if (button != null)
+            {
+                // keyCode repeat command remoteName
+                output = string.Format("{0} {1} {2} {3}",
+                    data, 0, button.OutputData.Replace(" ", ""), button.RemoteName.Replace(" ", ""));
+            }
 
             return output;
         }

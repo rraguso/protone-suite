@@ -241,17 +241,21 @@ namespace OPMedia.ServiceHelper.RCCService
                             OutputPin destination = _outputPins[row.OutputPinName + row.OutputPinCfgData];
                             if (destination != null)
                             {
-                                string destName = destination.GetType().Name;
-                                string translatedRequest = TranslateToOutputPinFormat(row.RemoteName, request);
+                                bool canDispatch = false;
+                                RCCServiceConfig.RemoteButtonsRow button = null;
 
-                                if (!string.IsNullOrEmpty(translatedRequest))
+                                if (origin is RemotingInputPin && destination is ProTONEOutputPin)
                                 {
-                                    Logger.LogInfo("Sending message {0} to {1} as result of message {2} from {3}",
-                                        translatedRequest.ToString(), row.OutputPinName,
-                                        request.ToString(), originName);
-
-                                    destination.SendRequest(translatedRequest);
+                                    // This pin combination is always allowed to pass.
+                                    canDispatch = true;
                                 }
+                                else
+                                {
+                                    canDispatch = DispatchToOutputPin(row.RemoteName, request, out button);
+                                }
+
+                                if (canDispatch)
+                                    destination.SendRequest(request, button);
 
                                 return;
                             }
@@ -272,68 +276,55 @@ namespace OPMedia.ServiceHelper.RCCService
             Logger.LogInfo("There is no valid output pin connected to input pin {0}. Check the service configuration ...", originName);
         }
 
-        private string TranslateFromOutputPinFormat(string remoteName, string response)
+        private bool DispatchToOutputPin(string remoteName, string request, out RCCServiceConfig.RemoteButtonsRow button)
         {
-            return response;
-        }
-
-        private string TranslateToOutputPinFormat(string remoteName, string request)
-        {
-            string trans = string.Empty;
+            bool canDispatch = false;
+            button = null;
 
             RCCServiceConfig.RemoteControlRow remote = _config.RemoteControl.FindByRemoteName(remoteName);
-
             if (remote != null && remote.Enabled)
             {
-                if (remote.InputPinName == typeof(RemotingInputPin).Name &&
-                    remote.OutputPinName == typeof(ProTONEOutputPin).Name)
-                {
-                    return request;
-                }
-
                 var rows = from btn in _config.RemoteButtons
-                           where (btn.Enabled && btn.RemoteName == remoteName && btn.InputData == request.ToString())
+                           where (btn.Enabled && btn.RemoteName == remoteName && btn.InputData == request)
                            select btn;
 
                 if (rows != null && rows.Count() > 0)
                 {
-                    RCCServiceConfig.RemoteButtonsRow btn = rows.First();
+                    button = rows.First();
 
-                    if (TimedButtonProcessing.CanProcessData(remoteName, btn.TimedRepeatRate, request.ToString()))
+                    if (TimedButtonProcessing.CanProcessData(remoteName, button.TimedRepeatRate, request))
                     {
-                        Pin p = Pin.FindPinByName(remote.OutputPinName);
-                        if (p != null && p is OutputPin)
-                        {
-                            trans = (p as OutputPin).TranslateToOutputPinFormat(request.ToString(), btn);
-                        }
+                        canDispatch = true;
+
+                        Logger.LogInfo("OK to dispatch command on remote '{0}'", remoteName);
                     }
                     else
                     {
-                        if (btn.TimedRepeatRate > 0)
+                        if (button.TimedRepeatRate > 0)
                         {
-                            Logger.LogInfo("Can't dispatch command. Must wait {0} seconds before processing this data again: {1}",
-                                rows.First().TimedRepeatRate, request);
+                            Logger.LogInfo("Can't dispatch command on remote '{2}'. Must wait {0} seconds before processing this data again: {1}",
+                                rows.First().TimedRepeatRate, request, remoteName);
                         }
                         else
                         {
-                            Logger.LogInfo("Can't dispatch command. This data is to be only processed once: {0}",
-                                request);
+                            Logger.LogInfo("Can't dispatch command on remote '{1}'. This data is to be only processed once: {0}",
+                                request, remoteName);
                         }
                     }
                 }
                 else
                 {
-                    Logger.LogInfo("Can't dispatch command. Either there are no buttons defined for this data: {0} or they are disabled.",
-                        request);
+                    Logger.LogInfo("Can't dispatch command on remote '{1}'. Either there are no buttons defined for this data: {0} or they are disabled.",
+                        request, remoteName);
                 }
             }
             else
             {
-                Logger.LogInfo("Can't dispatch command. The origin remote control: {0} seems to be disabled.",
+                Logger.LogInfo("Can't dispatch command on remote '{0}' as it seems to be disabled.",
                     remoteName);
             }
 
-            return trans;
+            return canDispatch;
         }
 
         private void RaiseInputPinDataEvent(InputPin origin, string request)

@@ -11,11 +11,18 @@ namespace OPMedia.ServiceHelper.RCCService.OutputPins
 {
     public class HotkeyOutputPin : OutputPin
     {
-        public override string TranslateToOutputPinFormat(string data, RCCServiceConfig.RemoteButtonsRow button)
+        protected override string TranslateToOutputPinFormat(string data, RCCServiceConfig.RemoteButtonsRow button)
         {
-            // keyCode, repeat, command, windowName, remoteName
-            return string.Format("{0},{1},{2},{3},{4}",
-                data, 0, button.OutputData, button.TargetWndName, button.RemoteName);
+            string output = data;
+
+            if (button != null)
+            {
+                // keyCode, repeat, command, windowName, remoteName
+                output = string.Format("{0},{1},{2},{3},{4}",
+                    data, 0, button.OutputData, button.TargetWndName, button.RemoteName);
+            }
+
+            return output;
         }
 
         public override bool IsConfigurable
