@@ -29,7 +29,6 @@ using OPMedia.Runtime.Addons.Controls;
 using OPMedia.UI.HelpSupport;
 using OPMedia.UI.Properties;
 using System.Diagnostics;
-using OPMedia.Runtime.Addons.Configuration;
 
 namespace OPMedia.Runtime.Addons
 {
