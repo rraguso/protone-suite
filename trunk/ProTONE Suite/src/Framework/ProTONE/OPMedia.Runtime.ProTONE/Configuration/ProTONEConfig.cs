@@ -151,7 +151,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
 
         #endregion
 
-        #region Level 2 Settings using Registry (Per-user settings)
+        #region Level 2 Settings using Persistence Service (Per-user settings)
 
         private static List<string> __favoriteFolders = null;
 
