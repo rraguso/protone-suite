@@ -17,9 +17,12 @@ namespace OPMedia.ServiceHelper.RCCService.OutputPins
 {
     public class ProTONEOutputPin : OutputPin
     {
-        public override string TranslateToOutputPinFormat(string data, RCCServiceConfig.RemoteButtonsRow button)
+        protected override string TranslateToOutputPinFormat(string data, RCCServiceConfig.RemoteButtonsRow button)
         {
-            return button.OutputData;
+            if (button != null)
+                return button.OutputData;
+
+            return data;
         }
 
         public override bool IsConfigurable
