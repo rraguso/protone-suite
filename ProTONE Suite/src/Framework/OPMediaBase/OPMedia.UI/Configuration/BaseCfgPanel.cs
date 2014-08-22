@@ -30,7 +30,7 @@ namespace OPMedia.UI.Configuration
         public event EventHandler ModifiedActive = null;
 
         private bool _modified = false;
-        public new bool Modified
+        public bool Modified
         {
             get
             {

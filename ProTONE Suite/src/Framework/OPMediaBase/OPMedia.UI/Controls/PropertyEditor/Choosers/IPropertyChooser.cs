@@ -35,7 +35,8 @@ namespace OPMedia.UI.Controls.PropertyEditor.Choosers
 
         public static bool IsEnumType(this Type t)
         {
-            return (t is Enum);
+            return false;
+            //return (t is Enum);
         }
     }
 }

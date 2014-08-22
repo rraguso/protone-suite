@@ -191,7 +191,7 @@ namespace OPMedia.Core
                     }
                 }
             }
-            catch(Exception ex)
+            catch
             {
             }
 

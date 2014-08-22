@@ -56,7 +56,7 @@ namespace OPMedia.UI.Controls
         Point _lastPos = new Point();
 
         Color _overrideElapsedBackColor = Color.Empty;
-        Color _overrideBackColor = Color.Empty;
+        //Color _overrideBackColor = Color.Empty;
 
 
         #endregion
@@ -66,8 +66,8 @@ namespace OPMedia.UI.Controls
         public Color OverrideElapsedBackColor
         { get { return _overrideElapsedBackColor; } set { _overrideElapsedBackColor = value; Invalidate(true); } }
 
-        public Color OverrideBackColor
-        { get { return _overrideBackColor; } set { _overrideBackColor = value; Invalidate(true); } }
+        //public Color OverrideBackColor
+        //{ get { return _overrideBackColor; } set { _overrideBackColor = value; Invalidate(true); } }
 
         [DefaultValue(GaugeMode.BandToStart)]
         public GaugeMode GaugeMode

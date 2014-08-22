@@ -25,8 +25,6 @@ namespace OPMedia.UI.Configuration
             }
         }
 
-        int logPageIndex = -1;
-
         public ControlAppPanel()
             : base()
         {

@@ -110,13 +110,6 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [Browsable(false)]
-        public virtual Dictionary<string, string> ExtendedInfo
-        {
-            get { return null; }
-            set { }
-        }
-
-        [Browsable(false)]
         [ReadOnly(true)]
         public virtual TimeSpan? Duration
         {

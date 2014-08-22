@@ -950,7 +950,6 @@ namespace OPMedia.UI.Themes
         private void ApplyDrawingValues()
         {
             float inactiveLightPercent = 0.8f;
-            float activeLightPercent = 0.6f;
 
             if (_brBackground != null)
                 _brBackground.Dispose();
