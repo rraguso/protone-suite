@@ -29,6 +29,7 @@ using OPMedia.Runtime.Addons.Controls;
 using OPMedia.UI.HelpSupport;
 using OPMedia.UI.Properties;
 using System.Diagnostics;
+using System.IO;
 
 namespace OPMedia.Runtime.Addons
 {
@@ -95,12 +96,24 @@ namespace OPMedia.Runtime.Addons
             {
                 pnlOpMedia.Orientation = Orientation.Vertical;
                 pnlLocalContent.Orientation = Orientation.Horizontal;
+
+                using (MemoryStream ms = new MemoryStream(OPMedia.UI.Properties.Resources.SplitH))
+                    pnlOpMedia.Cursor = new Cursor(ms);
+                using (MemoryStream ms = new MemoryStream(OPMedia.UI.Properties.Resources.SplitV))
+                    pnlLocalContent.Cursor = new Cursor(ms);
             }
             else
             {
                 pnlOpMedia.Orientation = Orientation.Horizontal;
                 pnlLocalContent.Orientation = Orientation.Vertical;
+
+                using (MemoryStream ms = new MemoryStream(OPMedia.UI.Properties.Resources.SplitV))
+                    pnlOpMedia.Cursor = new Cursor(ms);
+                using (MemoryStream ms = new MemoryStream(OPMedia.UI.Properties.Resources.SplitH))
+                    pnlLocalContent.Cursor = new Cursor(ms);
             }
+
+            pnlNavContainer.Cursor = pnlPreview.Cursor = pnlProperties.Cursor = Cursors.Default;
         }
 
         protected AddonHostForm()
