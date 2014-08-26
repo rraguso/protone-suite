@@ -319,6 +319,11 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             Wizard.CanMoveNext = ((BkgTask as Task).Tracks.Count > 0);
         }
 
+        private void WizCdRipperStep1_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

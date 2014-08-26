@@ -206,10 +206,10 @@
             // pbWaiting
             // 
             this.pbWaiting.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbWaiting.Location = new System.Drawing.Point(411, 19);
-            this.pbWaiting.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pbWaiting.Location = new System.Drawing.Point(411, 24);
+            this.pbWaiting.Margin = new System.Windows.Forms.Padding(3, 5, 0, 3);
             this.pbWaiting.Name = "pbWaiting";
-            this.pbWaiting.Size = new System.Drawing.Size(32, 32);
+            this.pbWaiting.Size = new System.Drawing.Size(24, 24);
             this.pbWaiting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbWaiting.TabIndex = 6;
             this.pbWaiting.TabStop = false;
@@ -221,6 +221,7 @@
             this.Controls.Add(this.opmTableLayoutPanel1);
             this.Name = "WizCdRipperStep1";
             this.Size = new System.Drawing.Size(600, 400);
+            this.Load += new System.EventHandler(this.WizCdRipperStep1_Load);
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmTableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbWaiting)).EndInit();
