@@ -794,11 +794,11 @@
     <EmbeddedResource Include="Resources\SizeUp.cur" />
     <EmbeddedResource Include="Resources\SizeLeft.cur" />
     <EmbeddedResource Include="Resources\SizeRight.cur" />
+    <EmbeddedResource Include="Resources\SizeLT.cur" />
+    <EmbeddedResource Include="Resources\SizeRB.cur" />
+    <EmbeddedResource Include="Resources\SizeRT.cur" />
+    <EmbeddedResource Include="Resources\SizeLB.cur" />
     <Content Include="Resources\hourglass.png" />
-    <None Include="Resources\loaderA64.gif" />
-    <None Include="Resources\loaderA32.gif" />
-    <None Include="Resources\loader64.gif" />
-    <None Include="Resources\loading_animation.gif" />
     <Content Include="Resources\Troubleshooting.png" />
     <Content Include="Resources\TVState0.bmp" />
     <Content Include="Resources\TVState1.bmp" />

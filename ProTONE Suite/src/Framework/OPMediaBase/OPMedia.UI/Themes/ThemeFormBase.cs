@@ -21,6 +21,7 @@ using OPMedia.Core.GlobalEvents;
 using System.Drawing.Text;
 using OPMedia.UI.Controls.ThemedScrollBars;
 using System.Reflection;
+using System.IO;
 
 namespace OPMedia.UI.Themes
 {
@@ -238,10 +239,30 @@ namespace OPMedia.UI.Themes
 
             InitializeComponent();
 
-           _rmTop.Cursor = new Cursor(Assembly.GetExecutingAssembly().GetManifestResourceStream("OPMedia.UI.Resources.SizeUp.cur"));
-           _rmLeft.Cursor = new Cursor(Assembly.GetExecutingAssembly().GetManifestResourceStream("OPMedia.UI.Resources.SizeLeft.cur"));
-           _rmRight.Cursor = new Cursor(Assembly.GetExecutingAssembly().GetManifestResourceStream("OPMedia.UI.Resources.SizeRight.cur"));
-           _rmBottom.Cursor = new Cursor(Assembly.GetExecutingAssembly().GetManifestResourceStream("OPMedia.UI.Resources.SizeDown.cur"));
+            using (MemoryStream ms = new MemoryStream(Resources.SizeDown))
+                _rmBottom.Cursor = new Cursor(ms);
+
+            using (MemoryStream ms = new MemoryStream(Resources.SizeLeft))
+                _rmLeft.Cursor = new Cursor(ms);
+
+            using (MemoryStream ms = new MemoryStream(Resources.SizeRight))
+                _rmRight.Cursor = new Cursor(ms);
+
+            using (MemoryStream ms = new MemoryStream(Resources.SizeUp))
+                _rmTop.Cursor = new Cursor(ms);
+
+            using (MemoryStream ms = new MemoryStream(Resources.SizeLT))
+                _rmLT.Cursor = new Cursor(ms);
+
+            using (MemoryStream ms = new MemoryStream(Resources.SizeLB))
+                _rmLB.Cursor = new Cursor(ms);
+
+            using (MemoryStream ms = new MemoryStream(Resources.SizeRT))
+                _rmRT.Cursor = new Cursor(ms);
+
+            using (MemoryStream ms = new MemoryStream(Resources.SizeRB))
+                _rmRB.Cursor = new Cursor(ms);
+
 
 
             _ttm = new OPMToolTipManager(this);
