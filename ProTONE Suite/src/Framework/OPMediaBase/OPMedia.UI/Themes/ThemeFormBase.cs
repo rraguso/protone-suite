@@ -20,6 +20,7 @@ using System.Threading;
 using OPMedia.Core.GlobalEvents;
 using System.Drawing.Text;
 using OPMedia.UI.Controls.ThemedScrollBars;
+using System.Reflection;
 
 namespace OPMedia.UI.Themes
 {
@@ -237,6 +238,12 @@ namespace OPMedia.UI.Themes
 
             InitializeComponent();
 
+           _rmTop.Cursor = new Cursor(Assembly.GetExecutingAssembly().GetManifestResourceStream("OPMedia.UI.Resources.SizeUp.cur"));
+           _rmLeft.Cursor = new Cursor(Assembly.GetExecutingAssembly().GetManifestResourceStream("OPMedia.UI.Resources.SizeLeft.cur"));
+           _rmRight.Cursor = new Cursor(Assembly.GetExecutingAssembly().GetManifestResourceStream("OPMedia.UI.Resources.SizeRight.cur"));
+           _rmBottom.Cursor = new Cursor(Assembly.GetExecutingAssembly().GetManifestResourceStream("OPMedia.UI.Resources.SizeDown.cur"));
+
+
             _ttm = new OPMToolTipManager(this);
 
             this.FormButtons = FormButtons.All;
@@ -347,7 +354,6 @@ namespace OPMedia.UI.Themes
             // _rmTop
             // 
             this._rmTop.BackColor = System.Drawing.Color.Blue;
-            this._rmTop.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this._rmTop.Dock = System.Windows.Forms.DockStyle.Top;
             this._rmTop.Location = new System.Drawing.Point(0, 0);
             this._rmTop.Margin = new System.Windows.Forms.Padding(0);
@@ -362,7 +368,6 @@ namespace OPMedia.UI.Themes
             // _rmLT
             // 
             this._rmLT.BackColor = System.Drawing.Color.Blue;
-            this._rmLT.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
             this._rmLT.Location = new System.Drawing.Point(0, 0);
             this._rmLT.Margin = new System.Windows.Forms.Padding(0);
             this._rmLT.Name = "_rmLT";
@@ -376,7 +381,6 @@ namespace OPMedia.UI.Themes
             // _rmRT
             // 
             this._rmRT.BackColor = System.Drawing.Color.Blue;
-            this._rmRT.Cursor = System.Windows.Forms.Cursors.SizeNESW;
             this._rmRT.Location = new System.Drawing.Point(271, 0);
             this._rmRT.Margin = new System.Windows.Forms.Padding(0);
             this._rmRT.Name = "_rmRT";
@@ -390,7 +394,6 @@ namespace OPMedia.UI.Themes
             // _rmRB
             // 
             this._rmRB.BackColor = System.Drawing.Color.Blue;
-            this._rmRB.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
             this._rmRB.Location = new System.Drawing.Point(271, 235);
             this._rmRB.Margin = new System.Windows.Forms.Padding(0);
             this._rmRB.Name = "_rmRB";
@@ -404,7 +407,6 @@ namespace OPMedia.UI.Themes
             // _rmLeft
             // 
             this._rmLeft.BackColor = System.Drawing.Color.Blue;
-            this._rmLeft.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this._rmLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this._rmLeft.Location = new System.Drawing.Point(0, 5);
             this._rmLeft.Margin = new System.Windows.Forms.Padding(0);
@@ -419,7 +421,6 @@ namespace OPMedia.UI.Themes
             // _rmLB
             // 
             this._rmLB.BackColor = System.Drawing.Color.Blue;
-            this._rmLB.Cursor = System.Windows.Forms.Cursors.SizeNESW;
             this._rmLB.Location = new System.Drawing.Point(10, 235);
             this._rmLB.Margin = new System.Windows.Forms.Padding(0);
             this._rmLB.Name = "_rmLB";
@@ -433,7 +434,6 @@ namespace OPMedia.UI.Themes
             // _rmBottom
             // 
             this._rmBottom.BackColor = System.Drawing.Color.Blue;
-            this._rmBottom.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this._rmBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._rmBottom.Location = new System.Drawing.Point(5, 387);
             this._rmBottom.Margin = new System.Windows.Forms.Padding(0);
@@ -448,7 +448,6 @@ namespace OPMedia.UI.Themes
             // _rmRight
             // 
             this._rmRight.BackColor = System.Drawing.Color.Blue;
-            this._rmRight.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this._rmRight.Dock = System.Windows.Forms.DockStyle.Right;
             this._rmRight.Location = new System.Drawing.Point(418, 5);
             this._rmRight.Margin = new System.Windows.Forms.Padding(0);
@@ -495,7 +494,7 @@ namespace OPMedia.UI.Themes
             SetStyle(cs, true);
 
             int minW = Math.Max(200, this.MinimumSize.Width);
-            int minH = Math.Max(100, this.MinimumSize.Height);
+            int minH = Math.Max(85, this.MinimumSize.Height);
             this.MinimumSize = new Size(minW, minH);
 
             ApplyWindowParams(true);

@@ -38,8 +38,7 @@ namespace OPMedia.RCCManager.InputData
             // 
             // InputDataDetector
             // 
-            this.ClientSize = new System.Drawing.Size(270, 100);
-            this.MinimumSize = new System.Drawing.Size(270, 100);
+            this.ClientSize = new System.Drawing.Size(254, 70);
             this.Name = "InputDataDetector";
             this.ResumeLayout(false);
 

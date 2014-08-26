@@ -8,36 +8,13 @@ using System.Drawing;
 using OPMedia.UI.Properties;
 using System.ComponentModel;
 using OPMedia.Core;
+using System.Drawing.Imaging;
 
 namespace OPMedia.UI.Controls
 {
     public class WaitingPictureBox : PictureBox
     {
-        private int _i = 1;
         private System.Timers.Timer _timer = null;
-
-        Bitmap _startImage = null;
-
-        private readonly List<int[]> _fillerPatterns = new List<int[]>()
-        {
-            new int[] { 0, 0, 0, 0 },
-            new int[] { 0, 0, 0, 1 },
-            new int[] { 0, 0, 1, 1 },
-            new int[] { 0, 1, 1, 1 },
-            new int[] { 1, 1, 1, 1 },
-            new int[] { 1, 1, 1, 2 },
-            new int[] { 1, 1, 2, 2 },
-            new int[] { 1, 2, 2, 2 },
-            new int[] { 2, 2, 2, 2 },
-            new int[] { 2, 2, 2, 1 },
-            new int[] { 2, 2, 1, 1 },
-            new int[] { 2, 1, 1, 1 },
-            new int[] { 1, 1, 1, 1 },
-            new int[] { 1, 1, 1, 0 },
-            new int[] { 1, 1, 0, 0 },
-            new int[] { 1, 0, 0, 0 },
-            new int[] { 0, 0, 0, 0 },
-        };
 
         [ReadOnly(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -49,42 +26,30 @@ namespace OPMedia.UI.Controls
             }
         }
 
-        int _period = 200;
-        //public int AnimationTimer
-        //{
-        //    get
-        //    {
-        //        return _period;
-        //    }
+        int _period = 300;
+        private int _currentFrame = -1;
 
-        //    set
-        //    {
-        //        _period = value; UpdateTimer();
-        //    }
-        //}
+        ImageList _frames = null;
 
-        [ReadOnly(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Size MinimumSize
-        {
-            get { return base.MinimumSize; }
-        }
-
-        [ReadOnly(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Size MaximumSize
-        {
-            get { return base.MaximumSize; }
-        }
-        
         public WaitingPictureBox()
             : base()
         {
-            _startImage = Resources.waitframe;
-            this.HandleCreated += new EventHandler(WaitingPictureBox_HandleCreated);
+            Bitmap gifImage = Resources.waiting;
+            FrameDimension dimension = new FrameDimension(gifImage.FrameDimensionsList[0]);
+            int frameCount = gifImage.GetFrameCount(dimension);
 
-            base.MinimumSize = new Size(36, 8);
-            base.MaximumSize = new Size(36, 8);
+            _frames = new ImageList();
+            _frames.ImageSize = gifImage.Size;
+            _frames.ColorDepth = ColorDepth.Depth32Bit;
+            _frames.TransparentColor = gifImage.GetPixel(0, 0);
+
+            for (int i = 0; i < frameCount; i++)
+            {
+                gifImage.SelectActiveFrame(dimension, i);
+                _frames.Images.Add(gifImage.Clone() as Bitmap);
+            }
+
+            this.HandleCreated += new EventHandler(WaitingPictureBox_HandleCreated);
         }
 
         void WaitingPictureBox_HandleCreated(object sender, EventArgs e)
@@ -92,6 +57,7 @@ namespace OPMedia.UI.Controls
             if (!DesignMode)
             {
                 UpdateTimer();
+                DisplayNextFrame();
             }
         }
 
@@ -118,75 +84,31 @@ namespace OPMedia.UI.Controls
             try
             {
                 _timer.Enabled = false;
-                _i %= _fillerPatterns.Count;
-
-                Bitmap image = GetImageForCurrentStep();
-                if (image != null)
-                {
-                    image.MakeTransparent(Color.Magenta);
-                }
-
-                MainThread.Post((d) => { base.Image = image; Application.DoEvents(); });
+                MainThread.Post((d) => DisplayNextFrame());
             }
             catch{}
             finally 
             {
-                _i++;
                 _timer.Enabled = true;
             }
         }
 
-        private Bitmap GetImageForCurrentStep()
+        private void DisplayNextFrame()
         {
-            Color c1 = ThemeManager.GradientHoverColor1;
-            Color c2 = ThemeManager.GradientHoverColor2;
-            Color c3 = ThemeManager.GradientNormalColor2;
-
-            int[] fillerPattern = _fillerPatterns[_i];
-            Color[] filler = new Color[fillerPattern.Length];
-
-            for (int i = 0; i < fillerPattern.Length; i++)
+            Bitmap frame = GetNextFrame() as Bitmap;
+            if (frame != null)
             {
-                int f = fillerPattern[i];
-                switch (f)
-                {
-                    case 0:
-                        filler[i] = c1;
-                        break;
-                    case 1:
-                        filler[i] = c2;
-                        break;
-                    case 2:
-                        filler[i] = c3;
-                        break;
-                }
+                base.Image = frame;
             }
-           
-            return GenerateImage(filler);
+            Application.DoEvents();
+
         }
 
-        private Bitmap GenerateImage(Color[] filler)
+        private Image GetNextFrame()
         {
-            Bitmap bmp = _startImage.Clone() as Bitmap;
-
-            for (int i = 1; i < bmp.Width - 1; i++)
-            for (int j = 1; j < bmp.Height - 1; j++)
-            {
-                if (i % 9 == 0 || i % 9 == 7 || i % 9 == 8)
-                    continue;
-
-                int idx = i / 9;
-                try
-                {
-                    if (filler[idx] != Color.Empty)
-                    {
-                        bmp.SetPixel(i, j, filler[idx]);
-                    }
-                }
-                catch { }
-            }
-
-            return bmp;
+            _currentFrame += 1;
+            _currentFrame %= _frames.Images.Count;
+            return _frames.Images[_currentFrame];
         }
     }
 }
