@@ -81,6 +81,11 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             this.AddonImage = Resources.Catalog;
             this.SmallAddonImage = Resources.Catalog16;
 
+            using (MemoryStream ms = new MemoryStream(OPMedia.UI.Properties.Resources.SplitH))
+                pnlSplitter.Cursor = new Cursor(ms);
+
+            tvCatalog.Cursor = lvCatalogFolder.Cursor = Cursors.Default;
+
             updateUiTimer = new System.Windows.Forms.Timer();
             updateUiTimer.Enabled = true;
             updateUiTimer.Interval = (int)(BuiltinAddonConfig.FEPreviewTimer * 1000);

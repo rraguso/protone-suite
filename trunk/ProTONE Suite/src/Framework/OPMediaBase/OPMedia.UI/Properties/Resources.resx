@@ -241,4 +241,10 @@
   <data name="SizeUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\sizeup.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="SplitH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\splith.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SplitV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\splitv.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

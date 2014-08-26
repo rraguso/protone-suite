@@ -798,6 +798,8 @@
     <EmbeddedResource Include="Resources\SizeRB.cur" />
     <EmbeddedResource Include="Resources\SizeRT.cur" />
     <EmbeddedResource Include="Resources\SizeLB.cur" />
+    <EmbeddedResource Include="Resources\SplitH.cur" />
+    <EmbeddedResource Include="Resources\SplitV.cur" />
     <Content Include="Resources\hourglass.png" />
     <Content Include="Resources\Troubleshooting.png" />
     <Content Include="Resources\TVState0.bmp" />
