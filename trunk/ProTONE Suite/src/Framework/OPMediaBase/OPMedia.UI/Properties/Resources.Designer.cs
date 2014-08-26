@@ -383,9 +383,9 @@ namespace OPMedia.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap waitframe {
+        public static System.Drawing.Bitmap waiting {
             get {
-                object obj = ResourceManager.GetObject("waitframe", resourceCulture);
+                object obj = ResourceManager.GetObject("waiting", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

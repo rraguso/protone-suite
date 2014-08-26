@@ -788,8 +788,17 @@
   <ItemGroup>
     <Content Include="Resources\Assistance.png" />
     <Content Include="Resources\ControlPanel.png" />
+    <None Include="Resources\waiting.gif" />
     <None Include="Resources\waitframe.bmp" />
+    <EmbeddedResource Include="Resources\SizeDown.cur" />
+    <EmbeddedResource Include="Resources\SizeUp.cur" />
+    <EmbeddedResource Include="Resources\SizeLeft.cur" />
+    <EmbeddedResource Include="Resources\SizeRight.cur" />
     <Content Include="Resources\hourglass.png" />
+    <None Include="Resources\loaderA64.gif" />
+    <None Include="Resources\loaderA32.gif" />
+    <None Include="Resources\loader64.gif" />
+    <None Include="Resources\loading_animation.gif" />
     <Content Include="Resources\Troubleshooting.png" />
     <Content Include="Resources\TVState0.bmp" />
     <Content Include="Resources\TVState1.bmp" />

@@ -46,12 +46,12 @@ namespace OPMedia.UI.Dialogs
             // 
             this.lblNotifyText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNotifyText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNotifyText.Location = new System.Drawing.Point(45, 0);
+            this.lblNotifyText.Location = new System.Drawing.Point(41, 0);
             this.lblNotifyText.Name = "lblNotifyText";
             this.lblNotifyText.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNotifyText.OverrideForeColor = System.Drawing.Color.Empty;
             this.opmTableLayoutPanel1.SetRowSpan(this.lblNotifyText, 3);
-            this.lblNotifyText.Size = new System.Drawing.Size(220, 47);
+            this.lblNotifyText.Size = new System.Drawing.Size(208, 47);
             this.lblNotifyText.TabIndex = 8;
             this.lblNotifyText.Text = "fdsfdsf";
             this.lblNotifyText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -60,10 +60,10 @@ namespace OPMedia.UI.Dialogs
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 7);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 8);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
@@ -83,13 +83,13 @@ namespace OPMedia.UI.Dialogs
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(268, 47);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(252, 47);
             this.opmTableLayoutPanel1.TabIndex = 9;
             // 
             // GenericWaitDialog
             // 
-            this.ClientSize = new System.Drawing.Size(270, 70);
-            this.MinimumSize = new System.Drawing.Size(270, 70);
+            this.ClientSize = new System.Drawing.Size(254, 70);
+            this.MinimumSize = new System.Drawing.Size(200, 70);
             this.Name = "GenericWaitDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlContent.ResumeLayout(false);

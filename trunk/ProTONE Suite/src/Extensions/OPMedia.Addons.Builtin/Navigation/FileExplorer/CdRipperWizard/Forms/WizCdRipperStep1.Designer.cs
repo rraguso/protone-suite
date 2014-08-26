@@ -112,11 +112,11 @@
             this.cmbAudioCDDrives.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbAudioCDDrives.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbAudioCDDrives.FormattingEnabled = true;
-            this.cmbAudioCDDrives.Location = new System.Drawing.Point(0, 22);
-            this.cmbAudioCDDrives.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.cmbAudioCDDrives.Location = new System.Drawing.Point(0, 24);
+            this.cmbAudioCDDrives.Margin = new System.Windows.Forms.Padding(0, 5, 0, 3);
             this.cmbAudioCDDrives.Name = "cmbAudioCDDrives";
             this.cmbAudioCDDrives.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cmbAudioCDDrives.Size = new System.Drawing.Size(382, 23);
+            this.cmbAudioCDDrives.Size = new System.Drawing.Size(384, 23);
             this.cmbAudioCDDrives.TabIndex = 1;
             this.cmbAudioCDDrives.SelectedIndexChanged += new System.EventHandler(this.OnDriveSelected);
             // 
@@ -126,7 +126,7 @@
             this.opmTableLayoutPanel1.SetColumnSpan(this.opmLabel2, 3);
             this.opmLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel2.Location = new System.Drawing.Point(0, 51);
+            this.opmLabel2.Location = new System.Drawing.Point(0, 54);
             this.opmLabel2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.opmLabel2.Name = "opmLabel2";
             this.opmLabel2.OverrideBackColor = System.Drawing.Color.Empty;
@@ -149,12 +149,12 @@
             this.colGenre});
             this.opmTableLayoutPanel1.SetColumnSpan(this.lvTracks, 3);
             this.lvTracks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvTracks.Location = new System.Drawing.Point(0, 67);
+            this.lvTracks.Location = new System.Drawing.Point(0, 70);
             this.lvTracks.Margin = new System.Windows.Forms.Padding(0);
             this.lvTracks.MultiSelect = false;
             this.lvTracks.Name = "lvTracks";
             this.lvTracks.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvTracks.Size = new System.Drawing.Size(600, 321);
+            this.lvTracks.Size = new System.Drawing.Size(600, 318);
             this.lvTracks.TabIndex = 3;
             this.lvTracks.UseCompatibleStateImageBehavior = false;
             this.lvTracks.View = System.Windows.Forms.View.Details;
@@ -192,8 +192,8 @@
             // 
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Reload16;
-            this.btnRefresh.Location = new System.Drawing.Point(383, 22);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(1, 3, 3, 3);
+            this.btnRefresh.Location = new System.Drawing.Point(385, 24);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(1, 5, 0, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.OverrideBackColor = System.Drawing.Color.Empty;
             this.btnRefresh.OverrideForeColor = System.Drawing.Color.Empty;
@@ -206,10 +206,10 @@
             // pbWaiting
             // 
             this.pbWaiting.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbWaiting.Location = new System.Drawing.Point(412, 30);
-            this.pbWaiting.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
+            this.pbWaiting.Location = new System.Drawing.Point(411, 19);
+            this.pbWaiting.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.pbWaiting.Name = "pbWaiting";
-            this.pbWaiting.Size = new System.Drawing.Size(36, 8);
+            this.pbWaiting.Size = new System.Drawing.Size(32, 32);
             this.pbWaiting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbWaiting.TabIndex = 6;
             this.pbWaiting.TabStop = false;

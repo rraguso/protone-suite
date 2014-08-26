@@ -4,7 +4,6 @@ using System.Text;
 
 using OPMedia.UI;
 using System.Windows.Forms;
-using OPMedia.UI.ProTONE;
 using OPMedia.UI.Configuration;
 using OPMedia.ServiceHelper.RCCService.Configuration;
 using OPMedia.Core.Logging;

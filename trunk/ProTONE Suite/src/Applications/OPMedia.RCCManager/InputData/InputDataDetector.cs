@@ -23,6 +23,7 @@ namespace OPMedia.RCCManager.InputData
         public InputDataDetector(string inputPinName, string inputPinCfgData) : base()
         {
             InitializeComponent();
+            SetTitle("TXT_DETECT");
 
             _inputPinWatcher = new InputPinProbe(inputPinName, inputPinCfgData);
             _inputPinWatcher.InputPinData += new InputPinProbeHandler(_inputPinWatcher_InputPinData);

@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using OPMedia.UI.Themes;
-using OPMedia.UI.ProTONE.Configuration;
 using OPMedia.Runtime.ProTONE.ServiceHelpers;
 using OPMedia.ServiceHelper.RCCService.InputPins;
 using System.IO.Ports;

@@ -10,12 +10,12 @@ using OPMedia.Runtime.ServiceHelpers;
 using OPMedia.Runtime;
 using OPMedia.ServiceHelper.RCCService.Configuration;
 using OPMedia.Runtime.Shortcuts;
-using OPMedia.UI.ProTONE.Controls.MediaPlayer;
 using OPMedia.UI.Themes;
 using OPMedia.UI;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.HelpSupport;
 using OPMedia.Runtime.ProTONE;
+using OPMedia.UI.ProTONE.Controls.MediaPlayer;
 
 namespace OPMedia.RCCManager
 {

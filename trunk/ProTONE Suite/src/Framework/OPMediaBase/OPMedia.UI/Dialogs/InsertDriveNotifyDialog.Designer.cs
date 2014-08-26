@@ -33,7 +33,6 @@ namespace OPMedia.UI.Dialogs
             this.components = new System.ComponentModel.Container();
             this.tmrRescan = new System.Windows.Forms.Timer(this.components);
             this.lblNotifyText = new OPMedia.UI.Controls.OPMLabel();
-            this.btnCancel = new OPMedia.UI.Controls.OPMButton();
             this.pictureBox1 = new OPMedia.UI.Controls.WaitingPictureBox();
             this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.pnlContent.SuspendLayout();
@@ -55,39 +54,22 @@ namespace OPMedia.UI.Dialogs
             // 
             this.lblNotifyText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNotifyText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNotifyText.Location = new System.Drawing.Point(45, 0);
+            this.lblNotifyText.Location = new System.Drawing.Point(41, 0);
             this.lblNotifyText.Name = "lblNotifyText";
             this.lblNotifyText.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblNotifyText.OverrideForeColor = System.Drawing.Color.Empty;
             this.opmTableLayoutPanel1.SetRowSpan(this.lblNotifyText, 3);
-            this.lblNotifyText.Size = new System.Drawing.Size(220, 42);
+            this.lblNotifyText.Size = new System.Drawing.Size(208, 46);
             this.lblNotifyText.TabIndex = 0;
             this.lblNotifyText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.AutoSize = true;
-            this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(185, 48);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.OverrideBackColor = System.Drawing.Color.Empty;
-            this.btnCancel.OverrideForeColor = System.Drawing.Color.Empty;
-            this.btnCancel.ShowDropDown = false;
-            this.btnCancel.Size = new System.Drawing.Size(80, 26);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "TXT_CANCEL";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 17);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 7);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 8);
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -97,7 +79,6 @@ namespace OPMedia.UI.Dialogs
             this.opmTableLayoutPanel1.ColumnCount = 2;
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.Controls.Add(this.btnCancel, 1, 3);
             this.opmTableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
             this.opmTableLayoutPanel1.Controls.Add(this.lblNotifyText, 1, 0);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -109,18 +90,17 @@ namespace OPMedia.UI.Dialogs
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(268, 77);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(252, 47);
             this.opmTableLayoutPanel1.TabIndex = 0;
             // 
             // InsertDriveNotifyDialog
             // 
-            this.ClientSize = new System.Drawing.Size(270, 100);
-            this.MinimumSize = new System.Drawing.Size(270, 100);
+            this.ClientSize = new System.Drawing.Size(254, 70);
+            this.MinimumSize = new System.Drawing.Size(200, 70);
             this.Name = "InsertDriveNotifyDialog";
             this.pnlContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.opmTableLayoutPanel1.ResumeLayout(false);
-            this.opmTableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -129,7 +109,6 @@ namespace OPMedia.UI.Dialogs
 
         private System.Windows.Forms.Timer tmrRescan;
         private OPMLabel lblNotifyText;
-        private OPMButton btnCancel;
         private WaitingPictureBox pictureBox1;
         private OPMTableLayoutPanel opmTableLayoutPanel1;
     }
