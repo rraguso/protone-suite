@@ -131,9 +131,23 @@ namespace OPMedia.UI.Controls
 
         #endregion
 
+        public new void Focus()
+        {
+            this.Select();
+            txtField.Select();
+            txtField.Focus();
+        }
+
+        public void SelectAll()
+        {
+            txtField.SelectAll();
+        }
+
         public OPMTextBox()
             : base()
         {
+
+
             InitializeComponent();
             OnThemeUpdatedInternal();
 
@@ -147,6 +161,12 @@ namespace OPMedia.UI.Controls
 
             txtField.Enter += new EventHandler(txtField_Enter);
             txtField.Leave += new EventHandler(txtField_Leave);
+            txtField.TextChanged += new EventHandler(txtField_TextChanged);
+        }
+
+        void txtField_TextChanged(object sender, EventArgs e)
+        {
+            base.OnTextChanged(e);
         }
 
         void txtField_Leave(object sender, EventArgs e)
