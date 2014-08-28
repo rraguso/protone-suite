@@ -163,21 +163,20 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             PlaylistItem pli = null;
 
-            Image img = null, imgSmall = null;
+            Image img = null;
             if (!string.IsNullOrEmpty(_mediaName))
             {
-                img = ImageProvider.GetIcon(_mediaName, true);
-                imgSmall = ImageProvider.GetIcon(_mediaName, false);
-
                 try
                 {
                     if (DvdMedia.FromPath(_mediaName) != null)
                     {
                         pli = new DvdPlaylistItem(_mediaName);
+                        img = pli.GetImage(false);
                     }
                     else
                     {
                         pli = new PlaylistItem(_mediaName, false);
+                        img = pli.GetImage(false);
                     }
                 }
                 catch
@@ -185,7 +184,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 }
             }
 
-            tslFileType.Image = imgSmall;
+            if (img == null)
+                img = ImageProvider.GetIcon(_mediaName, false);
+
+            tslFileType.Image = img;
             tslFileType.Tag = pli;
         }
 
@@ -252,13 +254,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 else if (lbl == tslFileType)
                 {
                     PlaylistItem pli = lbl.Tag as PlaylistItem;
-                    Image img = ImageProvider.GetIcon(_mediaName, true);
                     if (pli != null)
                     {
-                        _tip.ShowToolTip(StringUtils.Limit(pli.DisplayName, 60), pli.MediaInfo, img, pli.MediaFileInfo.CustomImage);
+                        _tip.ShowToolTip(StringUtils.Limit(pli.DisplayName, 60), pli.MediaInfo, pli.GetImage(true), 
+                            pli.MediaFileInfo.CustomImage);
                     }
                     else
                     {
+                        Image img = ImageProvider.GetIcon(_mediaName, true); 
                         _tip.ShowSimpleToolTip(_mediaName, img);
                     } 
                 }
