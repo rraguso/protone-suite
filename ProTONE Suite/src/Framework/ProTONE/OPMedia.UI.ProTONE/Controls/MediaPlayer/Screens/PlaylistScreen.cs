@@ -669,17 +669,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     lvItem.SubItems[colTime.Index].Text = duration.ToString();
                 }
 
-                Image img = ImageProvider.GetIcon(plItem.Path, false);
-                lvItem.SubItems[colIcon.Index].Tag = new ExtendedSubItemDetail(img, null);
-
+                lvItem.SubItems[colIcon.Index].Tag = new ExtendedSubItemDetail(plItem.GetImage(false), null);
                 UpdateMiscIcon(lvItem);
             }
-        }
-
-        private int GetIcon(string strFile)
-        {
-            ilImages.Images.Add(ImageProvider.GetIcon(strFile, false));
-            return ilImages.Images.Count - 1;
         }
 
         void lvPlaylist_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -900,11 +892,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                             {
                                 pli.DeepLoad();
 
-                                Image img = ImageProvider.GetIcon(pli.Path, true);
-
                                 Image customImage = pli.MediaFileInfo.CustomImage;
 
-                                _ttm.ShowToolTip(StringUtils.Limit(pli.DisplayName, 60), pli.MediaInfo, img, customImage);
+                                _ttm.ShowToolTip(StringUtils.Limit(pli.DisplayName, 60), pli.MediaInfo, pli.GetImage(true), customImage);
                                 set = true;
                             }
                         }

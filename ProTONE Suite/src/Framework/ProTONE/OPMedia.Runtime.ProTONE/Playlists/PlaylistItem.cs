@@ -246,6 +246,38 @@ namespace OPMedia.Runtime.ProTONE.Playlists
             }
         }
 
+        public Image GetImage(bool large)
+        {
+            Image img = null;
+
+            if (mi != null)
+            {
+                if (mi.IsDVDVolume)
+                {
+                    img = ImageProvider.GetShell32Icon(Shell32Icon.DvdDisk, large);
+                }
+                else switch (mi.MediaType.ToUpperInvariant())
+                    {
+                        case "URL":
+                            img = ImageProvider.GetShell32Icon(Shell32Icon.Internet, large);
+                            break;
+
+                        case "CDA":
+                            img = ImageProvider.GetShell32Icon(Shell32Icon.CompactDisk, large);
+                            break;
+
+                        default:
+                            img = ImageProvider.GetIcon(mi.Path, large);
+                            break;
+                    }
+            }
+
+            if (img == null)
+                img = ImageProvider.GetShell32Icon(Shell32Icon.BlankFile, large);
+
+            return img;
+        }
+
         public virtual Dictionary<PlaylistSubItem, List<PlaylistSubItem>> GetSubmenu()
         {
             if (mi.Bookmarks != null && mi.Bookmarks.Count > 0)

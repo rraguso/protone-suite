@@ -25,18 +25,25 @@ namespace OPMedia.Core
 {
     public enum Shell32Icon
     {
+        BlankFile =      0,
         GenericFile =    1,
         GenericFolder =  4,
+        
         DriveRemovable = 7,
         DriveFixed =     8,
         DriveNetwork =   9,
         DriveNoRoot =    10,
         DriveCdrom =     11,
         DriveRamdisk =   12,
+        
+        Internet =       13,
         DesktopFolder =  34,
         DriveUnknown =   53,
 
         GenericFileSystem = 84,
+
+        DvdDisk = 113,
+        CompactDisk = 188,
         
         AutomaticProcess = 165,
     }
