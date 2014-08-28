@@ -878,7 +878,7 @@ namespace OPMedia.UI.Controls
             {
                 (editControl as ComboBox).Font = ThemeManager.SmallestFont;
                 (editControl as ComboBox).ItemHeight = ThemeManager.SmallestFont.Height + 2;
-                (editControl as ComboBox).DropDownHeight = 3 * this.Font.Height;
+                (editControl as ComboBox).DropDownHeight = 6 * this.Font.Height + 4;
             }
             else if (editControl is MultilineEditTextBox)
             {
@@ -1130,9 +1130,19 @@ namespace OPMedia.UI.Controls
             activeEditControl.Bounds = new Rectangle(editedSubItem.Bounds.Left, editedSubItem.Bounds.Top,
                 editedSubItem.Bounds.Width, editedSubItem.Bounds.Height);
 
+            if (editControl is OPMComboBox)
+            {
+                activeEditControl.Bounds = new Rectangle(editedSubItem.Bounds.Left - 1, editedSubItem.Bounds.Top,
+                    editedSubItem.Bounds.Width + 1, editedSubItem.Bounds.Height);
+            }
+            else
+            {
+                activeEditControl.Bounds = new Rectangle(editedSubItem.Bounds.Left, editedSubItem.Bounds.Top,
+                    editedSubItem.Bounds.Width, editedSubItem.Bounds.Height);
+            }
+
             activeEditControl.Height = origHeight;
-
-
+            
             // Enable the control
             activeEditControl.Visible = true;
             activeEditControl.Enabled = true;

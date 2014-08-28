@@ -91,6 +91,12 @@ namespace OPMedia.UI.Controls
             get { return base.FlatStyle; }
         }
 
+        bool _disableRoundCorners = false;
+        public OPMComboBox(bool disableRoundCorners) : this()
+        {
+            _disableRoundCorners = disableRoundCorners;
+        }
+
         public OPMComboBox()
             : base()
         {
@@ -322,7 +328,8 @@ namespace OPMedia.UI.Controls
 
             using (Pen p = new Pen(cb, pw))
             using (Brush b = new LinearGradientBrush(rc, c1, c2, 90))
-            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rc, ThemeManager.CornerSize))
+            using (GraphicsPath path = ImageProcessing.GenerateRoundCornersBorder(rc, 
+                _disableRoundCorners ? 0 : ThemeManager.CornerSize))
             {
                 g.FillPath(b, path);
                 g.DrawPath(p, path);
