@@ -370,6 +370,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering
                 return renderingTechnology.FFTWindowSize;
             }
         }
+        public double MaxFFTLevel
+        {
+            get
+            {
+                return renderingTechnology.MaxLevel * renderingTechnology.FFTWindowSize;
+            }
+        }
 
         #endregion
 

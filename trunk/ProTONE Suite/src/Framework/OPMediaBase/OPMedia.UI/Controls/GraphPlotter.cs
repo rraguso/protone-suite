@@ -87,6 +87,8 @@ namespace OPMedia.UI.Controls
             double min = MinVal.GetValueOrDefault();
             double max = MaxVal.GetValueOrDefault();
 
+            int dataSetLen = data.Length;
+
             foreach (double d in data)
             {
                 if (min > d)
@@ -124,14 +126,15 @@ namespace OPMedia.UI.Controls
 
                     if (IsHistogram)
                     {
+                        int w = this.Width / dataSetLen;
+
                         if (color == Color.Transparent)
                         {
                             Color clStart1 = ThemeManager.GradientGaugeColor1;
                             Color clEnd1 = ThemeManager.GradientGaugeColor2;
                             using (Brush b = new LinearGradientBrush(rc, clStart1, clEnd1, -90f))
                             {
-                                int w = 3;
-                                Rectangle rcBar = new Rectangle(pt.X, pt.Y, w, rc.Bottom - pt.Y);
+                                Rectangle rcBar = new Rectangle(pt.X - w, pt.Y, w, rc.Bottom - pt.Y);
                                 g.FillRectangle(b, rcBar);
                             }
                         }
@@ -139,8 +142,7 @@ namespace OPMedia.UI.Controls
                         {
                             using (Brush b = new SolidBrush(color))
                             {
-                                int w = 3;
-                                Rectangle rcBar = new Rectangle(pt.X, pt.Y, w, rc.Bottom - pt.Y);
+                                Rectangle rcBar = new Rectangle(pt.X - w, pt.Y, w, rc.Bottom - pt.Y);
                                 g.FillRectangle(b, rcBar);
                             }
                         }

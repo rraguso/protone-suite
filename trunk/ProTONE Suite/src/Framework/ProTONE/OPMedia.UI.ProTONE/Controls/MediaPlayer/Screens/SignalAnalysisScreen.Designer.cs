@@ -116,7 +116,7 @@
             this.gpSpectrogram.OverrideBackColor = System.Drawing.Color.Empty;
             this.gpSpectrogram.ShowXAxis = false;
             this.gpSpectrogram.ShowYAxis = false;
-            this.gpSpectrogram.LogarithmicXAxis = true;
+            this.gpSpectrogram.LogarithmicXAxis = false;
             this.gpSpectrogram.LogarithmicYAxis = false;
             this.gpSpectrogram.IsHistogram = true;
             this.gpSpectrogram.Size = new System.Drawing.Size(303, 68);

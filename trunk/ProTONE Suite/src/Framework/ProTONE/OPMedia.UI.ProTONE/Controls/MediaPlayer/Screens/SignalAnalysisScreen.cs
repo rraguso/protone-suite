@@ -26,6 +26,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
     {
         private System.Windows.Forms.Timer _tmrUpdate = new System.Windows.Forms.Timer();
 
+        const int BandCount = 64; // always a power of 2
+        private double[] _bands = new double[BandCount];
+
         #region Constructor
 
         public SignalAnalysisScreen()
@@ -116,7 +119,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 
                 if (ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Spectrogram))
                 {
+                    double maxFftLevel = SpectrogramTransferFunction(MediaRenderer.DefaultInstance.MaxFFTLevel);
+
                     gpSpectrogram.Reset(false);
+                    gpSpectrogram.MinVal = maxFftLevel / 2;
+                    gpSpectrogram.MaxVal = maxFftLevel;
 
                     double[] spectrogramData = MediaRenderer.DefaultInstance.SpectrogramData;
                     if (spectrogramData != null && spectrogramData.Length > 0)
@@ -124,26 +131,43 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                         double[] spectrogramData2 = new double[spectrogramData.Length];
                         Array.Clear(spectrogramData2, 0, spectrogramData.Length);
 
-                        double max = 0;
-                        int idx = 0;
+                        double[] bands = new double[BandCount];
+                        Array.Clear(bands, 0, BandCount);
 
-                        for (int i = 0; i < spectrogramData.Length; i++)
+                        int jBand = 0;
+
+                        int div = spectrogramData.Length / (BandCount);
+
+                        try
                         {
-                            if (max < spectrogramData[i])
+                            for (int i = 0; i < spectrogramData.Length; i++)
                             {
-                                max = spectrogramData[i];
-                                idx = i;
+                                int bandPos = i % div;
+                                if (i > 0 && bandPos == 0)
+                                    jBand++;
+
+                                bands[jBand] = (bands[jBand] * bandPos + spectrogramData[i]) / (bandPos + 1);
                             }
+
+                            for (int i = 0; i < BandCount; i++)
+                            {
+                                bands[i] = Math.Max(0, Math.Min(maxFftLevel, SpectrogramTransferFunction(bands[i])));
+                                _bands[i] = 0.5 * (_bands[i] + bands[i]);
+                            }
+
+                            gpSpectrogram.AddDataRange(_bands, Color.Transparent);
                         }
-
-                        spectrogramData2[idx] = max;
-
-                        gpSpectrogram.AddDataRange(spectrogramData, ThemeManager.BorderColor);
-                        gpSpectrogram.AddDataRange(spectrogramData2, ThemeManager.LinkColor);
+                        catch (Exception ex)
+                        {
+                            string s = ex.Message;
+                            gpSpectrogram.Reset(true);
+                            Array.Clear(_bands, 0, _bands.Length);
+                        }
                     }
                     else
                     {
                         gpSpectrogram.Reset(true);
+                        Array.Clear(_bands, 0, _bands.Length);
                     }
                 }
             }
@@ -151,6 +175,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             {
                 _tmrUpdate.Start();
             }
+        }
+
+        private double SpectrogramTransferFunction(double d)
+        {
+            return Math.Log(d);
+            //return d;
         }
 
         #endregion
