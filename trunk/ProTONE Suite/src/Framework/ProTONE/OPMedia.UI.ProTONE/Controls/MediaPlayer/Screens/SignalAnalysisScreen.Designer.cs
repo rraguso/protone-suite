@@ -28,58 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ggLeft = new OPMedia.UI.Controls.GradientGauge();
-            this.ggRight = new OPMedia.UI.Controls.GradientGauge();
+            this.vuLeft = new VuMeterGauge();
+            this.vuRight = new VuMeterGauge();
             this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.gpWaveform = new OPMedia.UI.Controls.GraphPlotter();
-            this.gpSpectrogram = new OPMedia.UI.Controls.GraphPlotter();
+            this.spSpectrogram = new SpectrogramPlotter();
             this.opmTableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ggLeft
             // 
-            this.ggLeft.AllowDragging = false;
-            this.ggLeft.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ggLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ggLeft.Enabled = false;
-            this.ggLeft.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.ggLeft.Location = new System.Drawing.Point(3, 3);
-            this.ggLeft.Maximum = 10000;
-            this.ggLeft.Name = "ggLeft";
-            this.ggLeft.NrTicks = 20;
-            this.ggLeft.OverrideElapsedBackColor = System.Drawing.Color.Empty;
-            this.ggLeft.ShowTicks = true;
-            this.ggLeft.Size = new System.Drawing.Size(303, 14);
-            this.ggLeft.TabIndex = 0;
-            this.ggLeft.Value = 0D;
-            this.ggLeft.Vertical = false;
+            this.vuLeft.AllowDragging = false;
+            this.vuLeft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.vuLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vuLeft.Enabled = false;
+            this.vuLeft.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.vuLeft.Location = new System.Drawing.Point(3, 3);
+            this.vuLeft.Maximum = 10000;
+            this.vuLeft.Name = "ggLeft";
+            this.vuLeft.NrTicks = 20;
+            this.vuLeft.OverrideElapsedBackColor = System.Drawing.Color.Empty;
+            this.vuLeft.ShowTicks = true;
+            this.vuLeft.Size = new System.Drawing.Size(303, 14);
+            this.vuLeft.TabIndex = 0;
+            this.vuLeft.Value = 0D;
+            this.vuLeft.Vertical = false;
             // 
             // ggRight
             // 
-            this.ggRight.AllowDragging = false;
-            this.ggRight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ggRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ggRight.Enabled = false;
-            this.ggRight.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.ggRight.Location = new System.Drawing.Point(3, 23);
-            this.ggRight.Maximum = 10000;
-            this.ggRight.Name = "ggRight";
-            this.ggRight.NrTicks = 20;
-            this.ggRight.OverrideElapsedBackColor = System.Drawing.Color.Empty;
-            this.ggRight.ShowTicks = true;
-            this.ggRight.Size = new System.Drawing.Size(303, 14);
-            this.ggRight.TabIndex = 1;
-            this.ggRight.Value = 0D;
-            this.ggRight.Vertical = false;
+            this.vuRight.AllowDragging = false;
+            this.vuRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.vuRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vuRight.Enabled = false;
+            this.vuRight.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.vuRight.Location = new System.Drawing.Point(3, 23);
+            this.vuRight.Maximum = 10000;
+            this.vuRight.Name = "ggRight";
+            this.vuRight.NrTicks = 20;
+            this.vuRight.OverrideElapsedBackColor = System.Drawing.Color.Empty;
+            this.vuRight.ShowTicks = true;
+            this.vuRight.Size = new System.Drawing.Size(303, 14);
+            this.vuRight.TabIndex = 1;
+            this.vuRight.Value = 0D;
+            this.vuRight.Vertical = false;
             // 
             // opmTableLayoutPanel1
             // 
             this.opmTableLayoutPanel1.ColumnCount = 1;
             this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.Controls.Add(this.ggLeft, 0, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.ggRight, 0, 1);
+            this.opmTableLayoutPanel1.Controls.Add(this.vuLeft, 0, 0);
+            this.opmTableLayoutPanel1.Controls.Add(this.vuRight, 0, 1);
             this.opmTableLayoutPanel1.Controls.Add(this.gpWaveform, 0, 2);
-            this.opmTableLayoutPanel1.Controls.Add(this.gpSpectrogram, 0, 3);
+            this.opmTableLayoutPanel1.Controls.Add(this.spSpectrogram, 0, 3);
             this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmTableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
@@ -109,18 +109,18 @@
             // 
             // gpSpectrogram
             // 
-            this.gpSpectrogram.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpSpectrogram.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.gpSpectrogram.Location = new System.Drawing.Point(3, 116);
-            this.gpSpectrogram.Name = "gpSpectrogram";
-            this.gpSpectrogram.OverrideBackColor = System.Drawing.Color.Empty;
-            this.gpSpectrogram.ShowXAxis = false;
-            this.gpSpectrogram.ShowYAxis = false;
-            this.gpSpectrogram.LogarithmicXAxis = false;
-            this.gpSpectrogram.LogarithmicYAxis = false;
-            this.gpSpectrogram.IsHistogram = true;
-            this.gpSpectrogram.Size = new System.Drawing.Size(303, 68);
-            this.gpSpectrogram.TabIndex = 3;
+            this.spSpectrogram.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spSpectrogram.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
+            this.spSpectrogram.Location = new System.Drawing.Point(3, 116);
+            this.spSpectrogram.Name = "gpSpectrogram";
+            this.spSpectrogram.OverrideBackColor = System.Drawing.Color.Empty;
+            this.spSpectrogram.ShowXAxis = false;
+            this.spSpectrogram.ShowYAxis = false;
+            this.spSpectrogram.LogarithmicXAxis = false;
+            this.spSpectrogram.LogarithmicYAxis = false;
+            this.spSpectrogram.IsHistogram = true;
+            this.spSpectrogram.Size = new System.Drawing.Size(303, 68);
+            this.spSpectrogram.TabIndex = 3;
             // 
             // VisualEffectsScreen
             // 
@@ -136,11 +136,11 @@
 
         #endregion
 
-        private UI.Controls.GradientGauge ggLeft;
-        private UI.Controls.GradientGauge ggRight;
+        private VuMeterGauge vuLeft;
+        private VuMeterGauge vuRight;
         private UI.Controls.OPMTableLayoutPanel opmTableLayoutPanel1;
         private UI.Controls.GraphPlotter gpWaveform;
-        private UI.Controls.GraphPlotter gpSpectrogram;
+        private SpectrogramPlotter spSpectrogram;
 
 
     }

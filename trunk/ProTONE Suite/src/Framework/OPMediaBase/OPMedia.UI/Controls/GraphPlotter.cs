@@ -130,13 +130,7 @@ namespace OPMedia.UI.Controls
 
                         if (color == Color.Transparent)
                         {
-                            Color clStart1 = ThemeManager.GradientGaugeColor1;
-                            Color clEnd1 = ThemeManager.GradientGaugeColor2;
-                            using (Brush b = new LinearGradientBrush(rc, clStart1, clEnd1, -90f))
-                            {
-                                Rectangle rcBar = new Rectangle(pt.X - w, pt.Y, w, rc.Bottom - pt.Y);
-                                g.FillRectangle(b, rcBar);
-                            }
+                            DrawCustomHistoBar(g, rc, w, pt);
                         }
                         else
                         {
@@ -162,6 +156,17 @@ namespace OPMedia.UI.Controls
                     string s = ex.Message;
                 }
 
+            }
+        }
+
+        protected virtual void DrawCustomHistoBar(Graphics g, Rectangle rc, int w, Point pt)
+        {
+            Color clStart1 = ThemeManager.GradientGaugeColor1;
+            Color clEnd1 = ThemeManager.GradientGaugeColor2;
+            using (Brush b = new LinearGradientBrush(rc, clStart1, clEnd1, -90f))
+            {
+                Rectangle rcBar = new Rectangle(pt.X - w, pt.Y, w, rc.Bottom - pt.Y);
+                g.FillRectangle(b, rcBar);
             }
         }
     }

@@ -114,6 +114,12 @@
     <Compile Include="Controls\OSD\OSDLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\SpectrogramPlotter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VuMeterGauge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Dialogs\FavoriteFoldersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
