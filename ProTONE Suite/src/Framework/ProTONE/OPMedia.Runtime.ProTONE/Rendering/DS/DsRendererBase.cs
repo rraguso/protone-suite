@@ -715,7 +715,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             // Use extended sleep since Thread.Sleep is too low-resolution.
             //ThreadScheduler.SleepEx(delay);
 
-            if (delay > 0)
+            if (delay > 0 && delay < 1)
                 Thread.Sleep(TimeSpan.FromSeconds(delay));
 
             FilterState ms = GetFilterState();
