@@ -26,7 +26,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
     {
         private System.Windows.Forms.Timer _tmrUpdate = new System.Windows.Forms.Timer();
 
-        const int BandCount = 64; // always a power of 2
+        public const int BandCount = 64; // always a power of 2
         private double[] _bands = new double[BandCount];
 
         #region Constructor
@@ -48,14 +48,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             bool showWaveform = ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Waveform);
             bool showSpectrogram = ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Spectrogram);
 
-            ggLeft.Visible = ggRight.Visible = showVU;
+            vuLeft.Visible = vuRight.Visible = showVU;
 
             opmTableLayoutPanel1.RowStyles[0] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 20F : 0F);
             opmTableLayoutPanel1.RowStyles[1] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 20F : 0F);
 
             gpWaveform.Visible = showWaveform;
 
-            gpSpectrogram.Visible = showSpectrogram;
+            spSpectrogram.Visible = showSpectrogram;
 
             if (showSpectrogram && showWaveform)
             {
@@ -90,13 +90,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     AudioSampleData vuData = MediaRenderer.DefaultInstance.VuMeterData;
                     if (vuData != null)
                     {
-                        ggLeft.Value = 0.5 * (ggLeft.Value + ggLeft.Maximum * vuData.LVOL);
-                        ggRight.Value = 0.5 * (ggRight.Value + ggRight.Maximum * vuData.RVOL);
+                        vuLeft.Value = 0.5 * (vuLeft.Value + vuLeft.Maximum * vuData.LVOL);
+                        vuRight.Value = 0.5 * (vuRight.Value + vuRight.Maximum * vuData.RVOL);
                     }
                     else
                     {
-                        ggLeft.Value = 0;
-                        ggRight.Value = 0;
+                        vuLeft.Value = 0;
+                        vuRight.Value = 0;
                     }
                 }
 
@@ -109,7 +109,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     {
                         gpWaveform.MinVal = -1 * MediaRenderer.DefaultInstance.MaxLevel;
                         gpWaveform.MaxVal = MediaRenderer.DefaultInstance.MaxLevel;
-                        gpWaveform.AddDataRange(waveformData, ThemeManager.LinkColor);
+                        gpWaveform.AddDataRange(waveformData, ThemeManager.GradientGaugeColor1);
                     }
                     else
                     {
@@ -121,9 +121,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                 {
                     double maxFftLevel = SpectrogramTransferFunction(MediaRenderer.DefaultInstance.MaxFFTLevel);
 
-                    gpSpectrogram.Reset(false);
-                    gpSpectrogram.MinVal = maxFftLevel / 2;
-                    gpSpectrogram.MaxVal = maxFftLevel;
+                    spSpectrogram.Reset(false);
+                    spSpectrogram.MinVal = maxFftLevel / 2;
+                    spSpectrogram.MaxVal = maxFftLevel;
 
                     double[] spectrogramData = MediaRenderer.DefaultInstance.SpectrogramData;
                     if (spectrogramData != null && spectrogramData.Length > 0)
@@ -155,18 +155,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                                 _bands[i] = 0.5 * (_bands[i] + bands[i]);
                             }
 
-                            gpSpectrogram.AddDataRange(_bands, Color.Transparent);
+                            spSpectrogram.AddDataRange(_bands, Color.Transparent);
                         }
                         catch (Exception ex)
                         {
                             string s = ex.Message;
-                            gpSpectrogram.Reset(true);
+                            spSpectrogram.Reset(true);
                             Array.Clear(_bands, 0, _bands.Length);
                         }
                     }
                     else
                     {
-                        gpSpectrogram.Reset(true);
+                        spSpectrogram.Reset(true);
                         Array.Clear(_bands, 0, _bands.Length);
                     }
                 }

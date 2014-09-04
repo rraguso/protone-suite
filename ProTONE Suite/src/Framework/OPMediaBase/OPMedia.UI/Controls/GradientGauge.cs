@@ -22,6 +22,10 @@ namespace OPMedia.UI.Controls
 {
     public partial class GradientGauge : ControlGauge
     {
+        public GradientGauge()
+        {
+        }
+
         #region Implementation
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -34,20 +38,12 @@ namespace OPMedia.UI.Controls
                 Point[] ptBegin = null;
                 Point[] ptEnd = null;
 
-                Color clStart1 = ThemeManager.GradientGaugeColor1;
-                Color clEnd1 = ThemeManager.GradientGaugeColor2;
+                Brush b1H = null;
+                Brush b2H = null;
+                Brush b1V = null;
+                Brush b2V = null;
 
-                Color clStart2 = ThemeManager.GradientNormalColor1;
-                Color clEnd2 = ThemeManager.GradientNormalColor1;
-
-                Brush b1H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
-                    clStart1, clEnd1, 0f);
-                Brush b2H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
-                    clStart2, clEnd2, 0f);
-                Brush b1V = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
-                    clStart1, clEnd1, -90f);
-                Brush b2V = new LinearGradientBrush(new Rectangle(0, 0, Width, Height),
-                    clStart2, clEnd2, -90f);
+                CustomizeBrushes(ref b1H, ref b2H, ref b1V, ref b2V);
 
                 Pen p1, p2;
 
@@ -114,6 +110,20 @@ namespace OPMedia.UI.Controls
             {
                 string s = ex.Message;
             }
+        }
+
+        protected virtual void CustomizeBrushes(ref Brush b1H, ref Brush b2H, ref Brush b1V, ref Brush b2V)
+        {
+            Color clStart1 = ThemeManager.GradientGaugeColor1;
+            Color clEnd1 = ThemeManager.GradientGaugeColor2;
+            Color clStart2 = ThemeManager.GradientNormalColor1;
+            Color clEnd2 = ThemeManager.GradientNormalColor1;
+
+            b1H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), clStart1, clEnd1, 0f);
+            b2H = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), clStart2, clEnd2, 0f);
+
+            b1V = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), clStart1, clEnd1, -90f);
+            b2V = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), clStart2, clEnd2, -90f);
         }
         #endregion
     }

@@ -58,6 +58,7 @@
     <Compile Include="DSP\FFT.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DSP\FFTHelper.cs" />
     <Compile Include="DSP\NAudioFFT.cs" />
     <Compile Include="FileInformation\FileHash.cs" />
     <Compile Include="FileInformation\FileRoutines.cs" />
