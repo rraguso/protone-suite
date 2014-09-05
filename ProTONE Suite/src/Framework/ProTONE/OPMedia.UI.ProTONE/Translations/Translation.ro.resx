@@ -1078,16 +1078,16 @@ fereastră video</value>
   <value>ATENȚIE: Programul începe întotdeauna cu evenimentul "lista de redare la sfârşit" dezactivat!</value>
 </data>
 <data name="TXT_SHOW_PLAYLIST">
-  <value></value>
+  <value>Arata tab-ul "Playlist"</value>
 </data>
 <data name="TXT_SHOW_TRACKINFO">
-  <value></value>
+  <value>Arata tab-ul "Urmărire informații"</value>
 </data>
 <data name="TXT_SHOW_SIGNALANALISYS">
-  <value></value>
+  <value>Arata fila "Signal Analiză"</value>
 </data>
 <data name="TXT_SHOW_BOOKMARKINFO">
-  <value></value>
+  <value>Arata fila "Bookmark Informații"</value>
 </data>
 <data name="TXT_HINT_PLAYLISTTAB">
   <value></value>
@@ -1102,13 +1102,13 @@ fereastră video</value>
   <value></value>
 </data>
 <data name="TXT_SHOW_VUMETER">
-  <value></value>
+  <value>Arată VU-Meter</value>
 </data>
 <data name="TXT_SHOW_WAVEFORM">
-  <value></value>
+  <value>Arată forma de undă</value>
 </data>
 <data name="TXT_SHOW_SPECTROGRAM">
-  <value></value>
+  <value>Arată spectograma</value>
 </data>
 <data name="TXT_MEDIA_SCREENS">
   <value></value>
@@ -1118,6 +1118,15 @@ fereastră video</value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
   <value>Alege culoarea pentru subtitrare:</value>
+</data>
+<data name="TXT_SIGNALLEVEL">
+  <value>Nivel semnal:</value>
+</data>
+<data name="TXT_SIGNALWAVEFORM">
+  <value>Forma de undă a semnalului:</value>
+</data>
+<data name="TXT_SIGNALSPECTRUM">
+  <value>Spectrograma semnalului:</value>
 </data>
     
 </root>

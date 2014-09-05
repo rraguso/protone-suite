@@ -48,35 +48,35 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             bool showWaveform = ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Waveform);
             bool showSpectrogram = ProTONEConfig.SignalAnalisysFunctionActive(SignalAnalisysFunction.Spectrogram);
 
-            vuLeft.Visible = vuRight.Visible = showVU;
+            pnlVuMeter.Visible = showVU;
 
-            opmTableLayoutPanel1.RowStyles[0] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 20F : 0F);
-            opmTableLayoutPanel1.RowStyles[1] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 20F : 0F);
+            opmTableLayoutPanel1.RowStyles[0] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 58F : 0F);
 
-            gpWaveform.Visible = showWaveform;
+            pnlWaveform.Visible = showWaveform;
 
-            spSpectrogram.Visible = showSpectrogram;
+            pnlSpectrogram.Visible = showSpectrogram;
 
             if (showSpectrogram && showWaveform)
             {
+                opmTableLayoutPanel1.RowStyles[1] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F);
                 opmTableLayoutPanel1.RowStyles[2] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F);
-                opmTableLayoutPanel1.RowStyles[3] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F);
             }
             else if (showWaveform)
             {
-                opmTableLayoutPanel1.RowStyles[2] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F);
-                opmTableLayoutPanel1.RowStyles[3] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F);
+                opmTableLayoutPanel1.RowStyles[1] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F);
+                opmTableLayoutPanel1.RowStyles[2] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F);
             }
             else if (showSpectrogram)
             {
-                opmTableLayoutPanel1.RowStyles[2] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F);
-                opmTableLayoutPanel1.RowStyles[3] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F);
+                opmTableLayoutPanel1.RowStyles[1] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F);
+                opmTableLayoutPanel1.RowStyles[2] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F);
             }
             else
             {
+                opmTableLayoutPanel1.RowStyles[1] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F);
                 opmTableLayoutPanel1.RowStyles[2] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F);
-                opmTableLayoutPanel1.RowStyles[3] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F);
             }
+
         }
 
         void _tmrUpdate_Tick(object sender, EventArgs e)
@@ -121,9 +121,20 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                 {
                     double maxFftLevel = SpectrogramTransferFunction(MediaRenderer.DefaultInstance.MaxFFTLevel);
 
+                    try
+                    {
+                        lblFqMin.Text = string.Format("1 Hz");
+                        lblFqMax.Text = string.Format("{0} Hz", (MediaRenderer.DefaultInstance.ActualAudioFormat.nSamplesPerSec / 2));
+                    }
+                    catch
+                    {
+                        lblFqMin.Text = "??";
+                        lblFqMax.Text = "??";
+                    }
+
                     spSpectrogram.Reset(false);
-                    spSpectrogram.MinVal = maxFftLevel / 2;
-                    spSpectrogram.MaxVal = maxFftLevel;
+                    spSpectrogram.MinVal = maxFftLevel / 2; // Min level = -6 dBM
+                    spSpectrogram.MaxVal = maxFftLevel; // Max level = -6 dBM
 
                     double[] spectrogramData = MediaRenderer.DefaultInstance.SpectrogramData;
                     if (spectrogramData != null && spectrogramData.Length > 0)

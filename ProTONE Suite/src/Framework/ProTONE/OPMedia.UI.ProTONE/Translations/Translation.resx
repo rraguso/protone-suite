@@ -1119,5 +1119,14 @@ window position</value>
 <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
   <value>Choose color for subtitle:</value>
 </data>
+<data name="TXT_SIGNALLEVEL">
+  <value>Signal Level:</value>
+</data>
+<data name="TXT_SIGNALWAVEFORM">
+  <value>Signal Waveform:</value>
+</data>
+<data name="TXT_SIGNALSPECTRUM">
+  <value>Signal Spectrogram:</value>
+</data>
     
 </root>
