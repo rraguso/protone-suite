@@ -55,7 +55,7 @@ namespace OPMedia.UI.Controls
             ThemeManager.PrepareGraphics(g);
 
             Rectangle rc = this.ClientRectangle;
-            rc.Inflate(-1, -10);
+            rc.Inflate(-1, -1);
 
             using (Pen p = new Pen(ThemeManager.BorderColor))
             {

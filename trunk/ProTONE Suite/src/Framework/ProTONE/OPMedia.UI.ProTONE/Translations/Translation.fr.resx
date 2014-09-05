@@ -1078,16 +1078,16 @@ de la fenêtre vidéo</value>
   <value>ATTENTION: L'eveniment "termination de list de lecture" état marche / arrêt n'est pas mémorisée entre les sessions du programme!</value>
 </data>
 <data name="TXT_SHOW_PLAYLIST">
-  <value></value>
+  <value>Afficher l'onglet "Playlist"</value>
 </data>
 <data name="TXT_SHOW_TRACKINFO">
-  <value></value>
+  <value>Afficher l'onglet "Informations sur la piste"</value>
 </data>
 <data name="TXT_SHOW_SIGNALANALISYS">
-  <value></value>
+  <value>Afficher l'onglet "Signal Analisys"</value>
 </data>
 <data name="TXT_SHOW_BOOKMARKINFO">
-  <value></value>
+  <value>Afficher l'onglet "Informations Bookmark"</value>
 </data>
 <data name="TXT_HINT_PLAYLISTTAB">
   <value></value>
@@ -1102,13 +1102,13 @@ de la fenêtre vidéo</value>
   <value></value>
 </data>
 <data name="TXT_SHOW_VUMETER">
-  <value></value>
+  <value>Afficher VU-mètre</value>
 </data>
 <data name="TXT_SHOW_WAVEFORM">
-  <value></value>
+  <value>Afficher la forme d'onde</value>
 </data>
 <data name="TXT_SHOW_SPECTROGRAM">
-  <value></value>
+  <value>Afficher spectrogramme</value>
 </data>
 <data name="TXT_MEDIA_SCREENS">
   <value></value>
@@ -1118,6 +1118,15 @@ de la fenêtre vidéo</value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
   <value>Choisissez la couleur des sous-titres:</value>
+</data>
+<data name="TXT_SIGNALLEVEL">
+  <value>Niveau du signal:</value>
+</data>
+<data name="TXT_SIGNALWAVEFORM">
+  <value>Forme d'onde de signal:</value>
+</data>
+<data name="TXT_SIGNALSPECTRUM">
+  <value>Signal spectrogramme:</value>
 </data>
     
 </root>
