@@ -24,14 +24,8 @@ namespace OPMedia.UI.Controls
         {
 
             base.BackColor = ThemeManager.BackColor;
-
-            EventDispatch.RegisterHandler(this);
-            base.HandleDestroyed += new EventHandler(OPMTableLayoutPanel_HandleDestroyed);
-        }
-
-        void OPMTableLayoutPanel_HandleDestroyed(object sender, EventArgs e)
-        {
-            EventDispatch.UnregisterHandler(this);
+            this.HandleCreated += (s, e) => EventDispatch.RegisterHandler(this);
+            this.HandleDestroyed += (s, e) => EventDispatch.UnregisterHandler(this);
         }
 
         [EventSink(EventNames.ThemeUpdated)]

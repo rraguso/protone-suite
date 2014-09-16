@@ -228,7 +228,11 @@ namespace OPMedia.UI.Themes
 
                     case OPMShortcut.CmdShowLogConsole:
                         LogFileConsoleDialog.ShowLogConsole();
+                        args.Handled = true;
+                        return;
 
+                    case OPMShortcut.CmdDumpDebugStats:
+                        EventDispatch.DumpStatistics();
                         args.Handled = true;
                         return;
 
@@ -296,6 +300,7 @@ namespace OPMedia.UI.Themes
             {
                 case OPMShortcut.CmdOpenHelp:
                 case OPMShortcut.CmdShowLogConsole:
+                case OPMShortcut.CmdDumpDebugStats:
                     return true;
 
                 default:

@@ -61,7 +61,6 @@ namespace OPMedia.Core
                 }
 
                 GC.Collect();
-                DumpStatistics();
             }
         }
 
@@ -108,7 +107,6 @@ namespace OPMedia.Core
             }
 
             GC.Collect();
-            DumpStatistics();
         }
 
         private static Dictionary<object, MethodInfo> SafeCopy(Dictionary<object, MethodInfo> original)
@@ -233,27 +231,25 @@ namespace OPMedia.Core
             MessageBox.Show(message, title, MessageBoxButtons.OK, icon);
         }
 
-        [Conditional("DUMP_EVENTDISPATCH_STATS")]
-        private static void DumpStatistics()
+        public static void DumpStatistics()
         {
-            StringBuilder sb = new StringBuilder();
+            Debug.WriteLine("EventDispatch: # of registered events: {0}", _invocationMap.Count);
 
             int objectCount = 0;
             foreach (KeyValuePair<string, Dictionary<object, MethodInfo>> kvp in _invocationMap)
             {
-                Debug.WriteLine("EventDispatch: Event: {0} has {1} registered objects: ", 
+                Debug.WriteLine("    EventDispatch: Event: {0} has {1} registered objects: ", 
                     kvp.Key, kvp.Value.Count);
 
                 foreach (object obj in kvp.Value.Keys)
                 {
-                    Debug.WriteLine("EventDispatch:    Registered object:  {0}", obj);
+                    Debug.WriteLine("        EventDispatch: Registered object:  {0}", obj);
                 }
 
                 objectCount += kvp.Value.Count;
 
             }
 
-            //Debug.WriteLine("EventDispatch: # of registered events: {0}", _invocationMap.Count);
             Debug.WriteLine("EventDispatch: # of registered objects: {0}", objectCount);
         }
 

@@ -43,9 +43,9 @@ namespace OPMedia.UI.Controls
             base.BackColor = ThemeManager.BackColor;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.SetStyle(ControlStyles.UserPaint, true);
-            
-            EventDispatch.RegisterHandler(this);
-            base.HandleDestroyed += new EventHandler(OPMTableLayoutPanel_HandleDestroyed);
+
+            this.HandleCreated += (s, e) => EventDispatch.RegisterHandler(this);
+            this.HandleDestroyed += (s, e) => EventDispatch.UnregisterHandler(this);
         }
 
         void OPMTableLayoutPanel_HandleDestroyed(object sender, EventArgs e)

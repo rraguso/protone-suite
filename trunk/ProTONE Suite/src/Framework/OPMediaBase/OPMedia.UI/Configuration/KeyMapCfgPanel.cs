@@ -100,6 +100,9 @@ namespace OPMedia.UI.Configuration
 
                 foreach(OPMShortcut cmd in shortcuts)
                 {
+                    if (ShortcutMapper.IsHiddenShortcut(cmd))
+                        continue;
+
                     string cmdName = cmd.ToString();
                     string desc = Translator.Translate("TXT_" + cmdName.ToUpperInvariant());
                     KeysConverter kc = new KeysConverter();

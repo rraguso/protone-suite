@@ -352,8 +352,6 @@ namespace OPMedia.UI.Controls
             this.GotFocus += new EventHandler(OnEntered);
             this.Enter += new EventHandler(OnEntered);
 
-            EventDispatch.RegisterHandler(this);
-
             OnSelectedIndexChanged(this, EventArgs.Empty);
         }
 
@@ -403,6 +401,8 @@ namespace OPMedia.UI.Controls
         OPMListViewHeaderWrapper _headerWrap = null;
         void OPMListView_HandleCreated(object sender, EventArgs e)
         {
+            EventDispatch.RegisterHandler(this);
+
             if (base.HeaderStyle != ColumnHeaderStyle.None)
             {
                 _headerWrap = new OPMListViewHeaderWrapper(this);
