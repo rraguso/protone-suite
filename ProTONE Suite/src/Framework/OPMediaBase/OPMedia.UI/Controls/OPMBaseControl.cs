@@ -112,13 +112,8 @@ namespace OPMedia.UI.Controls
             this.SetStyle(ControlStyles.DoubleBuffer, true);
             this.DoubleBuffered = true;
 
-            EventDispatch.RegisterHandler(this);
-            this.HandleDestroyed += new EventHandler(OPMBaseControl_HandleDestroyed);
-        }
-
-        void OPMBaseControl_HandleDestroyed(object sender, EventArgs e)
-        {
-            EventDispatch.UnregisterHandler(this);
+            this.HandleCreated += (s, e) => EventDispatch.RegisterHandler(this);
+            this.HandleDestroyed += (s, e) => EventDispatch.UnregisterHandler(this);
         }
 
         private void InitializeComponent()

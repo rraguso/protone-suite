@@ -71,6 +71,8 @@ namespace OPMedia.Runtime.Shortcuts
                 case OPMShortcut.CmdGenericUndo:
                 case OPMShortcut.CmdOpenHelp:
                 case OPMShortcut.CmdShowLogConsole:
+                case OPMShortcut.CmdDumpDebugStats:
+
                 case OPMShortcut.CmdSwitchWindows:
 
                 case OPMShortcut.CmdGenericCopy:
@@ -88,10 +90,28 @@ namespace OPMedia.Runtime.Shortcuts
             }
         }
 
+        public static bool IsHiddenShortcut(OPMShortcut cmd)
+        {
+            switch (cmd)
+            {
+                case OPMShortcut.CmdDumpDebugStats:
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+
         public static bool IsConfigurableShortcutKey(Keys key)
         {
             OPMShortcut cmd = MapCommand(key);
             return IsConfigurableShortcut(cmd);
+        }
+
+        public static bool IsHiddenShortcutKey(Keys key)
+        {
+            OPMShortcut cmd = MapCommand(key);
+            return IsHiddenShortcut(cmd);
         }
 
         public static void Load()
@@ -299,6 +319,7 @@ namespace OPMedia.Runtime.Shortcuts
                     new KeyEventArgs(Keys.Control | Keys.Alt | Keys.C),
                     new KeyEventArgs(Keys.Control | Keys.Alt | Keys.K),
                     new KeyEventArgs(Keys.F12),
+                    new KeyEventArgs(Keys.Control | Keys.Alt | Keys.F12),
 
                     // Commands not related to player
                     new KeyEventArgs(Keys.Control | Keys.O),
@@ -381,6 +402,7 @@ namespace OPMedia.Runtime.Shortcuts
                 new KeyEventArgs(Keys.Control | Keys.Alt | Keys.C),
                 new KeyEventArgs(Keys.Control | Keys.Alt | Keys.K),
                 new KeyEventArgs(Keys.F12),
+                new KeyEventArgs(Keys.Control | Keys.Alt | Keys.F12),
 
                 // Commands not related to player
                 new KeyEventArgs(Keys.Control | Keys.O),
@@ -488,6 +510,7 @@ namespace OPMedia.Runtime.Shortcuts
         CmdOpenSettings,
         CmdCfgKeyboard,
         CmdShowLogConsole,
+        CmdDumpDebugStats,
 
         // Commands not related to player
         CmdGenericOpen,

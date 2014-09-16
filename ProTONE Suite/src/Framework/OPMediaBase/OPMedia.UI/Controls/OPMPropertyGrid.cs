@@ -42,16 +42,11 @@ namespace OPMedia.UI.Controls
         public OPMPropertyGrid()
             : base()
         {
-            ApplyTheme(); 
-            
-            EventDispatch.RegisterHandler(this);
-            this.HandleDestroyed += new EventHandler(OPMPropertyGrid_HandleDestroyed);
+            ApplyTheme();
+            this.HandleCreated += (s, e) => EventDispatch.RegisterHandler(this);
+            this.HandleDestroyed += (s, e) => EventDispatch.UnregisterHandler(this);
         }
 
-        void OPMPropertyGrid_HandleDestroyed(object sender, EventArgs e)
-        {
-            EventDispatch.UnregisterHandler(this);
-        }
 
         [EventSink(EventNames.ThemeUpdated)]
         public void ApplyTheme()

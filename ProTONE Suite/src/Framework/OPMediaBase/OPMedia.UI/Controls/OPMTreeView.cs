@@ -51,8 +51,8 @@ namespace OPMedia.UI.Controls
 
             this.DrawNode += new DrawTreeNodeEventHandler(OPMTreeView_DrawNode);
 
-            EventDispatch.RegisterHandler(this);
-            this.HandleDestroyed += new EventHandler(OPMTreeView_HandleDestroyed);
+            this.HandleCreated += (s, e) => EventDispatch.RegisterHandler(this);
+            this.HandleDestroyed += (s, e) => EventDispatch.UnregisterHandler(this);
         }
 
         void OPMTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -99,11 +99,6 @@ namespace OPMedia.UI.Controls
 
                 e.Graphics.DrawString(e.Node.Text, f, bFore, rc, sf);
             }
-        }
-
-        void OPMTreeView_HandleDestroyed(object sender, EventArgs e)
-        {
-            EventDispatch.UnregisterHandler(this);
         }
 
         [EventSink(EventNames.ThemeUpdated)]

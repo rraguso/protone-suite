@@ -197,14 +197,8 @@ namespace OPMedia.UI.Controls
             : base()
         {
             OnThemeUpdated();
-
-            EventDispatch.RegisterHandler(this);
-            this.HandleDestroyed += new EventHandler(OPMLinkLabel_HandleDestroyed);
-        }
-
-        void OPMLinkLabel_HandleDestroyed(object sender, EventArgs e)
-        {
-            EventDispatch.UnregisterHandler(this);
+            this.HandleCreated += (s, e) => EventDispatch.RegisterHandler(this);
+            this.HandleDestroyed += (s, e) => EventDispatch.UnregisterHandler(this);
         }
 
         [EventSink(EventNames.ThemeUpdated)]
@@ -236,14 +230,8 @@ namespace OPMedia.UI.Controls
             : base()
         {
             OnThemeUpdated();
-
-             EventDispatch.RegisterHandler(this);
-             this.HandleDestroyed += new EventHandler(OPMLinkLabel_HandleDestroyed);
-        }
-
-        void OPMLinkLabel_HandleDestroyed(object sender, EventArgs e)
-        {
-            EventDispatch.UnregisterHandler(this);
+            this.HandleCreated += (s, e) => EventDispatch.RegisterHandler(this);
+            this.HandleDestroyed += (s, e) => EventDispatch.UnregisterHandler(this);
         }
 
         [EventSink(EventNames.ThemeUpdated)]
