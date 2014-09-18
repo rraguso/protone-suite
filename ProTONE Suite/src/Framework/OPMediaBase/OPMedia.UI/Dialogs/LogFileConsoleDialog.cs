@@ -395,7 +395,7 @@ namespace OPMedia.UI.Dialogs
 
         private void OnSaveWindow(object sender, EventArgs e)
         {
-            OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+            OPMSaveFileDialog dlg = new OPMSaveFileDialog();
             dlg.Title = Translator.Translate("TXT_SAVELOGFILE_PART");
             dlg.Filter = Translator.Translate("TXT_LOGFILE_FILTER");
             dlg.DefaultExt = "log";
@@ -421,7 +421,7 @@ namespace OPMedia.UI.Dialogs
 
         private void OnSaveLogFile(object sender, EventArgs e)
         {
-            OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+            OPMSaveFileDialog dlg = new OPMSaveFileDialog();
             dlg.Title = Translator.Translate("TXT_SAVELOGFILE");
             dlg.Filter = Translator.Translate("TXT_LOGFILE_FILTER");
             dlg.DefaultExt = "log";

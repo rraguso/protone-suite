@@ -488,7 +488,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             filter += Translator.Translate("TXT_ALL_FILES_FILTER");
             filter = filter.Replace("TXT_PLAYLISTS", Translator.Translate("TXT_PLAYLISTS"));
 
-            OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+            OPMSaveFileDialog dlg = new OPMSaveFileDialog();
             dlg.Title = Translator.Translate("TXT_SAVEPLAYLIST");
             dlg.Filter = filter;
             dlg.DefaultExt = "m3u";
@@ -556,7 +556,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             filter += Translator.Translate("TXT_ALL_FILES_FILTER");
             filter = filter.Replace("TXT_PLAYLISTS", Translator.Translate("TXT_PLAYLISTS"));
 
-            OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
             dlg.Multiselect = true;
             dlg.Title = Translator.Translate("TXT_LOADPLAYLIST");
             dlg.Filter = filter;

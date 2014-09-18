@@ -11,6 +11,7 @@ using System.IO;
 using OPMedia.Core.Utilities;
 using System.Threading;
 using OPMedia.Core.TranslationSupport;
+using OPMedia.Core;
 
 namespace OPMedia.UI.Dialogs
 {
@@ -32,6 +33,9 @@ namespace OPMedia.UI.Dialogs
             this.InheritAppIcon = false;
 
             this.Description = Translator.Translate("TXT_SELECT_FOLDER");
+
+            this.ShowNewFolderButton = true;
+            this.SelectedPath = PathUtils.CurrentDir;
 
             btnOK.Enabled = false;
             tvExplorer.LabelEdit = true;

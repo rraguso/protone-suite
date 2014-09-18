@@ -75,7 +75,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.ImportWizard.Controls
 
         private void OnBrowseCatalog(object sender, EventArgs e)
         {
-            OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+            OPMSaveFileDialog dlg = new OPMSaveFileDialog();
             dlg.Title = Translator.Translate("TXT_SELECTCATALOG");
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.DefaultExt = "ctx";

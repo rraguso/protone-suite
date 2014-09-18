@@ -305,7 +305,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
 
             tsmiProTONEEnqueue.Enabled = tsmiProTONEPlay.Enabled = enable;
 
-            //tsmiID3Wizard.Enabled = (lvResults.SelectedItems.SelectedItems.Count == 1);
+            //tsmiTaggingWizard.Enabled = (lvResults.SelectedItems.SelectedItems.Count == 1);
         }
 
         private void OnToolAction(object sender, EventArgs e)

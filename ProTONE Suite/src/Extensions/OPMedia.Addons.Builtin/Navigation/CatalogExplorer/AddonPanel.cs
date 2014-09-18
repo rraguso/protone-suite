@@ -701,7 +701,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
         private void SaveCatalogWithDialog()
         {
-            OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+            OPMSaveFileDialog dlg = new OPMSaveFileDialog();
             dlg.Title = Translator.Translate("TXT_SAVECATALOG");
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.DefaultExt = "ctx";
@@ -735,7 +735,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
         {
             tsbOpen.HideDropDown();
 
-            OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
             dlg.Title = Translator.Translate("TXT_OPENCATALOG");
             dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
             dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
@@ -778,7 +778,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
         {
             if (_cat != null && _cat.IsValid)
             {
-                OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+                OPMOpenFileDialog dlg = new OPMOpenFileDialog();
                 dlg.Title = Translator.Translate("TXT_MERGECATALOG");
                 dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
                 dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;

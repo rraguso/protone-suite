@@ -86,7 +86,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.txtHints.ShortcutsEnabled = false;
             this.txtHints.Size = new System.Drawing.Size(315, 184);
             this.txtHints.TabIndex = 6;
-            this.txtHints.Text = "TXT_ID3PATTERNS";
+            this.txtHints.Text = "TXT_TAGGINGPATTERNS";
             // 
             // chkUseMetadata
             // 

@@ -50,7 +50,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.contextMenuStrip = new OPMedia.UI.Controls.OPMContextMenuStrip();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.toolStripSeparator1 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
-            this.tsmiID3Wizard = new OPMedia.UI.Controls.OPMToolStripMenuItem();
+            this.tsmiTaggingWizard = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiSep4 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
             this.tsmiProTONEPlay = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiProTONEEnqueue = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -244,7 +244,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiDelete,
             this.toolStripSeparator1,
-            this.tsmiID3Wizard,
+            this.tsmiTaggingWizard,
             this.tsmiSep4,
             this.tsmiProTONEPlay,
             this.tsmiProTONEEnqueue,
@@ -270,15 +270,15 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(198, 6);
             // 
-            // tsmiID3Wizard
+            // tsmiTaggingWizard
             // 
-            this.tsmiID3Wizard.Image = global::OPMedia.Addons.Builtin.Properties.Resources.ID3;
-            this.tsmiID3Wizard.Name = "tsmiID3Wizard";
-            this.tsmiID3Wizard.Size = new System.Drawing.Size(201, 22);
-            this.tsmiID3Wizard.Tag = "ToolActionID3Wizard";
-            this.tsmiID3Wizard.Text = "TXT_ID3WIZARD";
-            this.tsmiID3Wizard.Visible = false;
-            this.tsmiID3Wizard.Click += new System.EventHandler(this.OnToolAction);
+            this.tsmiTaggingWizard.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Tagging;
+            this.tsmiTaggingWizard.Name = "tsmiTaggingWizard";
+            this.tsmiTaggingWizard.Size = new System.Drawing.Size(201, 22);
+            this.tsmiTaggingWizard.Tag = "ToolActionTaggingWizard";
+            this.tsmiTaggingWizard.Text = "TXT_TAGGINGWIZARD";
+            this.tsmiTaggingWizard.Visible = false;
+            this.tsmiTaggingWizard.Click += new System.EventHandler(this.OnToolAction);
             // 
             // tsmiSep4
             // 
@@ -507,7 +507,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.SearchWizard.Controls
         private OPMContextMenuStrip contextMenuStrip;
         private OPMToolStripMenuItem tsmiDelete;
         private OPMMenuStripSeparator tsmiSep4;
-        private OPMToolStripMenuItem tsmiID3Wizard;
+        private OPMToolStripMenuItem tsmiTaggingWizard;
         private OPMMenuStripSeparator toolStripSeparator1;
         private OPMToolStripMenuItem goToItemToolStripMenuItem;
         private OPMToolStripMenuItem tsmiProTONEPlay;

@@ -56,7 +56,7 @@ namespace OPMedia.UI.Dialogs
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            OPMFolderBrowserDialog dlg = CommonDialogHelper.NewOPMFolderBrowserDialog();
+            OPMFolderBrowserDialog dlg = new OPMFolderBrowserDialog();
             dlg.Description = Translator.Translate("TXT_CHOOSE_FAVORITE");
 
             if (dlg.ShowDialog() == DialogResult.OK)

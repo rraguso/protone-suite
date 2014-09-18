@@ -252,7 +252,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
 
         private void btnOpenDvdFolder_Click(object sender, EventArgs e)
         {
-            OPMFolderBrowserDialog dlg = CommonDialogHelper.NewOPMFolderBrowserDialog();
+            OPMFolderBrowserDialog dlg = new OPMFolderBrowserDialog();
             dlg.ShowNewFolderButton = false;
             dlg.Description = Translator.Translate("TXT_LOAD_DVD_FOLDER");
             dlg.PerformPathValidation += new PerformPathValidationHandler(dlg_PerformPathValidation);

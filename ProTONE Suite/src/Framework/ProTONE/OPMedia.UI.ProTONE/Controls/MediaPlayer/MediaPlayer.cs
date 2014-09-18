@@ -516,7 +516,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void LoadFiles()
         {
-            OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
             dlg.Title = Translator.Translate("TXT_LOADMEDIAFILES");
             dlg.Multiselect = true;
 

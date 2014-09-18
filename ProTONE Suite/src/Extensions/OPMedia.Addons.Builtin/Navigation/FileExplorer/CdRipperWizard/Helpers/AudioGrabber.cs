@@ -8,7 +8,7 @@ using OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms;
 using System.IO;
 using OPMedia.Runtime.ProTONE.FileInformation;
-using OPMedia.Addons.Builtin.ID3Prop.ID3Wizard;
+using OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard;
 using OPMedia.Core.Utilities;
 using System.Threading;
 

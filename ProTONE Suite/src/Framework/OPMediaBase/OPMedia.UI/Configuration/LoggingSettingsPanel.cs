@@ -98,7 +98,7 @@ namespace OPMedia.UI.Configuration
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            OPMFolderBrowserDialog fld = CommonDialogHelper.NewOPMFolderBrowserDialog();
+            OPMFolderBrowserDialog fld = new OPMFolderBrowserDialog();
             fld.SelectedPath = txtLogPath.Text;
             fld.Description = Translator.Translate("TXT_CHOOSELOGPATH");
 

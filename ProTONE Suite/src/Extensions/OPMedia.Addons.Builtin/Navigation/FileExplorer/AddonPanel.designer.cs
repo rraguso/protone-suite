@@ -59,7 +59,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiRename = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiDelete = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiSep4 = new OPMedia.UI.Controls.OPMMenuStripSeparator();
-            this.tsmiID3Wizard = new OPMedia.UI.Controls.OPMToolStripMenuItem();
+            this.tsmiTaggingWizard = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiSepProTONE = new OPMedia.UI.Controls.OPMMenuStripSeparator();
             this.tsmiProTONEPlay = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.tsmiProTONEEnqueue = new OPMedia.UI.Controls.OPMToolStripMenuItem();
@@ -86,7 +86,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbRename = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbDelete = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbSep5 = new OPMedia.UI.Controls.OPMToolStripSeparator();
-            this.tsbID3Wizard = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.tsbTaggingWizard = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tsbCdRipperWizard = new OPMedia.UI.Controls.OPMToolStripButton();
             this.tableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.tableLayoutPanel2 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
@@ -149,7 +149,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiRename,
             this.tsmiDelete,
             this.tsmiSep4,
-            this.tsmiID3Wizard,
+            this.tsmiTaggingWizard,
             this.tsmiSepProTONE,
             this.tsmiProTONEPlay,
             this.tsmiProTONEEnqueue});
@@ -344,15 +344,15 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsmiSep4.Name = "tsmiSep4";
             this.tsmiSep4.Size = new System.Drawing.Size(208, 6);
             // 
-            // tsmiID3Wizard
+            // tsmiTaggingWizard
             // 
-            this.tsmiID3Wizard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.tsmiID3Wizard.Image = global::OPMedia.Addons.Builtin.Properties.Resources.ID316;
-            this.tsmiID3Wizard.Name = "tsmiID3Wizard";
-            this.tsmiID3Wizard.Size = new System.Drawing.Size(211, 22);
-            this.tsmiID3Wizard.Tag = "ToolActionID3Wizard";
-            this.tsmiID3Wizard.Text = "TXT_ID3WIZARD";
-            this.tsmiID3Wizard.Click += new System.EventHandler(this.OnToolAction);
+            this.tsmiTaggingWizard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.tsmiTaggingWizard.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Tagging16;
+            this.tsmiTaggingWizard.Name = "tsmiTaggingWizard";
+            this.tsmiTaggingWizard.Size = new System.Drawing.Size(211, 22);
+            this.tsmiTaggingWizard.Tag = "ToolActionTaggingWizard";
+            this.tsmiTaggingWizard.Text = "TXT_TAGGINGWIZARD";
+            this.tsmiTaggingWizard.Click += new System.EventHandler(this.OnToolAction);
             // 
             // tsmiSepProTONE
             // 
@@ -411,7 +411,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbRename,
             this.tsbDelete,
             this.tsbSep5,
-            this.tsbID3Wizard,
+            this.tsbTaggingWizard,
             this.tsbCdRipperWizard});
             this.toolStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
@@ -694,19 +694,19 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             this.tsbSep5.Name = "tsbSep5";
             this.tsbSep5.Size = new System.Drawing.Size(6, 46);
             // 
-            // tsbID3Wizard
+            // tsbTaggingWizard
             // 
-            this.tsbID3Wizard.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbID3Wizard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.tsbID3Wizard.Image = global::OPMedia.Addons.Builtin.Properties.Resources.ID3;
-            this.tsbID3Wizard.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.tsbID3Wizard.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbID3Wizard.Name = "tsbID3Wizard";
-            this.tsbID3Wizard.Size = new System.Drawing.Size(91, 43);
-            this.tsbID3Wizard.Tag = "ToolActionID3Wizard";
-            this.tsbID3Wizard.Text = "TXT_ID3WIZARD";
-            this.tsbID3Wizard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbID3Wizard.Click += new System.EventHandler(this.OnToolAction);
+            this.tsbTaggingWizard.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbTaggingWizard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.tsbTaggingWizard.Image = global::OPMedia.Addons.Builtin.Properties.Resources.Tagging;
+            this.tsbTaggingWizard.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tsbTaggingWizard.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTaggingWizard.Name = "tsbTaggingWizard";
+            this.tsbTaggingWizard.Size = new System.Drawing.Size(91, 43);
+            this.tsbTaggingWizard.Tag = "ToolActionTaggingWizard";
+            this.tsbTaggingWizard.Text = "TXT_TAGGINGWIZARD";
+            this.tsbTaggingWizard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbTaggingWizard.Click += new System.EventHandler(this.OnToolAction);
             // 
             // tsbCdRipperWizard
             // 
@@ -828,8 +828,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         private OPMToolStripMenuItem tsmiFavorites;
         private OPMMenuStripSeparator tsmiSep5;
         private OPMToolStripDropDownButton tsbDrives;
-        private OPMToolStripMenuItem tsmiID3Wizard;
-        private OPMToolStripButton tsbID3Wizard;
+        private OPMToolStripMenuItem tsmiTaggingWizard;
+        private OPMToolStripButton tsbTaggingWizard;
         private OPMToolStripMenuItem tsmiFavoritesAdd;
         private OPMToolStripMenuItem tsmiFavoritesManage;
         private OPMMenuStripSeparator tsmiSepProTONE;
