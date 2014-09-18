@@ -644,7 +644,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
 
             tsmiProTONEEnqueue.Enabled = tsmiProTONEPlay.Enabled = enable;
 
-            tsmiID3Wizard.Enabled = (lvResults.SelectedItems.Count == 1);
+            tsmiTaggingWizard.Enabled = (lvResults.SelectedItems.Count == 1);
         }
 
         private void OnToolAction(object sender, EventArgs e)
@@ -731,7 +731,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            OPMFolderBrowserDialog dlg = CommonDialogHelper.NewOPMFolderBrowserDialog();
+            OPMFolderBrowserDialog dlg = new OPMFolderBrowserDialog();
             dlg.SelectedPath = theTask.SearchPath;
 
             if (dlg.ShowDialog(this) == DialogResult.OK)

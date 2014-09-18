@@ -155,7 +155,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
                 PictureInfo pi = lvPictures.SelectedItems[0].Tag as PictureInfo;
                 if (pi != null)
                 {
-                    OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+                    OPMOpenFileDialog dlg = new OPMOpenFileDialog();
                     dlg.Filter = "All image files|*.bmp;*.jpg;*.jpeg;*.jpe;*.jfif;*.gif;*.tif;*.tiff;*.png;*.ico;||";
 
                     if (dlg.ShowDialog() == DialogResult.OK)
@@ -192,7 +192,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
                 PictureInfo pi = lvPictures.SelectedItems[0].Tag as PictureInfo;
                 if (pi != null)
                 {
-                    OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+                    OPMSaveFileDialog dlg = new OPMSaveFileDialog();
                     dlg.Filter = "All image files|*.bmp;*.jpg;*.jpeg;*.jpe;*.jfif;*.gif;*.tif;*.tiff;*.png;*.ico;||";
 
                     if (dlg.ShowDialog() == DialogResult.OK)

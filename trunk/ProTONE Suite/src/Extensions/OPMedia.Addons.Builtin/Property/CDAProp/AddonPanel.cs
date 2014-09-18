@@ -9,7 +9,7 @@ using System.IO;
 using OPMedia.Core;
 using OPMedia.Core.Logging;
 using OPMedia.Runtime.ProTONE.FileInformation;
-using OPMedia.Addons.Builtin.ID3Prop.ID3Wizard;
+using OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard;
 using OPMedia.Runtime.Addons.AddonsBase.Prop;
 using OPMedia.UI.Wizards;
 using OPMedia.Core.TranslationSupport;

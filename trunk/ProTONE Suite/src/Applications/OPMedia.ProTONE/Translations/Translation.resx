@@ -126,7 +126,7 @@
 </data>
 <data name="TXT_3RDPARTY_COPYRIGHT_NOTICE">
   <value>{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset204 Segoe UI;}{\f1\fnil\fcharset0 Segoe UI;}}
-\viewkind4\uc1\pard\b\f0\fs17 ID3\f1  Support\b0\f0 : \f1 TagLib# (https://github.com/mono/taglib-sharp)\f0\par
+\viewkind4\uc1\pard\b\f0\fs17 Tagging\f1  Support\b0\f0 : \f1 TagLib# (https://github.com/mono/taglib-sharp)\f0\par
 Copyright \'a9  2006-2007 Brian Nickel, \'a9 2009-2010 Other contributors\par
 \par
 \b XML-RPC\f1  Support\f0 : \b0 XML-RPC.NET (http://www.xml-rpc.net/)\par

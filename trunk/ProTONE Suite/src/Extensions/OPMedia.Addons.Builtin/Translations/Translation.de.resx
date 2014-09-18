@@ -157,8 +157,8 @@
 <data name="TXT_CMDCHANGEDISK">
   <value>Ändern logischer Datenträger</value>
 </data>
-<data name="TXT_CMDID3WIZARD">
-  <value>Starten Sie ID3-Assistent</value>
+<data name="TXT_CMDTAGGINGWIZARD">
+  <value>Starten Etikettieren-Assistent</value>
 </data>
 <data name="TXT_CMDNAVIGATEBACK">
   <value>Navigieren Sie zurück</value>
@@ -176,18 +176,18 @@
   <value>Geben Sie eine Beschreibung für den Eintrag hinzugefügt werden:</value>
 </data>
 <data name="TXT_ERROR_INVALID_CATALOG">
-  <value>Diese Datei stellt keine gültige Media Catalog:
-
+  <value>Diese Datei stellt keine gültige Media Catalog:&#xD;
+&#xD;
 {0}</value>
 </data>
 <data name="TXT_ERROR_MERGE_SAME_CATALOG">
-  <value>Sie können nicht zusammengeführt werden einen Katalog in sich:
-
+  <value>Sie können nicht zusammengeführt werden einen Katalog in sich:&#xD;
+&#xD;
 {0}</value>
 </data>
 <data name="TXT_ERR_MERGE_FAILED">
-  <value>Merge Kataloge sind gescheitert. Details:
-
+  <value>Merge Kataloge sind gescheitert. Details:&#xD;
+&#xD;
 {0}</value>
 </data>
 <data name="TXT_FILENAMEPATTERN">
@@ -197,28 +197,28 @@
   <value>Ordnername Muster:</value>
 </data>
 <data name="TXT_FSTAGEDITOR">
-  <value>Füllen Sie ID3-Infos über Datei / Ordner-Namen</value>
+  <value>Generieren Etiketten auf Datei / Ordnernamen erzeugen</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA">
-  <value>Link-Media-Dateien, um Dateien bookmark
+  <value>Link-Media-Dateien, um Dateien bookmark&#xD;
 (Halten Sie die Maustaste schwebte auf diesen Text, um einen erklärenden Tooltip zeigen)</value>
 </data>
 <data name="TXT_GROUP_BMKWITHMEDIA_DESC">
-  <value>Bookmark-Dateien (BMK) enthalten Informationen über besondere Momente in einer Mediendatei. Es ist sehr wichtig, dass
-BMK Dateien in der Nähe der erhältlichen Mediendateien (auch als "Stamm-Dateien ') angeordnet sind.
-
-Wenn Sie dieses Feld ckeck, die Datei-Browser wird immer überlegen, stellen eine einzelne Entität, die eine Medien-Datei und die zugehörigen Lesezeichen-Datei.
-Dies bedeutet, dass ein kopieren, umbenennen, verschieben oder löschen Betrieb
-aus dem Datei-Browser auf eine dieser Dateien automatisch ausgestellt propagiert auf die andere Datei auch.
-
-Halten Sie dieses Kontrollkästchen deaktiviert, wenn Sie sie als verschiedene Entitäten zu betrachten und mit ihnen umgehen
+  <value>Bookmark-Dateien (BMK) enthalten Informationen über besondere Momente in einer Mediendatei. Es ist sehr wichtig, dass&#xD;
+BMK Dateien in der Nähe der erhältlichen Mediendateien (auch als "Stamm-Dateien ') angeordnet sind.&#xD;
+&#xD;
+Wenn Sie dieses Feld ckeck, die Datei-Browser wird immer überlegen, stellen eine einzelne Entität, die eine Medien-Datei und die zugehörigen Lesezeichen-Datei.&#xD;
+Dies bedeutet, dass ein kopieren, umbenennen, verschieben oder löschen Betrieb&#xD;
+aus dem Datei-Browser auf eine dieser Dateien automatisch ausgestellt propagiert auf die andere Datei auch.&#xD;
+&#xD;
+Halten Sie dieses Kontrollkästchen deaktiviert, wenn Sie sie als verschiedene Entitäten zu betrachten und mit ihnen umgehen&#xD;
 in den Windows-Explorer-Stil wollen.</value>
 </data>
-<data name="TXT_ID3FILESFILTER">
-  <value>MPEG Audio-Dateien (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
+<data name="TXT_TAGGEDFILESFILTER">
+  <value>Audio-Dateien mit Etiketten (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
 </data>
-<data name="TXT_ID3WIZARD">
-  <value>ID3-Assistent</value>
+<data name="TXT_TAGGINGWIZARD">
+  <value>Etikettieren-Assistent</value>
 </data>
 <data name="TXT_IMPORTWIZARD">
   <value>Import-Assistent</value>
@@ -236,7 +236,7 @@ in den Windows-Explorer-Stil wollen.</value>
   <value>Behält das ursprüngliche Wort Gehäuse</value>
 </data>
 <data name="TXT_LAUNCH_WIZARD">
-  <value>Starten Sie ID3-Assistent ...</value>
+  <value>Starten Etikettieren-Assistent ...</value>
 </data>
 <data name="TXT_MAINTAIN_CATALOG_HISTORY">
   <value>Denken Sie daran, offen Kataloge Geschichte</value>
@@ -289,8 +289,8 @@ in den Windows-Explorer-Stil wollen.</value>
 <data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL">
   <value>Datei-Browser</value>
 </data>
-<data name="TXT_OPMEDIAADDONSBUILTINID3PROPADDONPANEL">
-  <value>Bearbeiten von ID3 auf MP1/MP2/MP3 Dateien im Datei-Browser</value>
+<data name="TXT_OPMEDIAADDONSBUILTINTAGGEDFILEPROPADDONPANEL">
+  <value>Bearbeiten von Etiketten auf MP1/MP2/MP3 Dateien im Datei-Browser</value>
 </data>
 <data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL">
   <value>Alle Bilddateien (JPG, GIF, BMP, PNG, etc.)</value>
@@ -322,24 +322,24 @@ in den Windows-Explorer-Stil wollen.</value>
 <data name="TXT_PREVIEW">
   <value>Vorschau der Ergebnisse ...</value>
 </data>
-<data name="TXT_PREVIEW_DESC_EDITID3">
-  <value>Vorschau Ergebnisse der 'Edit ID3-Infos' Aufgabe:</value>
+<data name="TXT_PREVIEW_DESC_EDITTAG">
+  <value>Vorschau Ergebnisse der 'Bearbeiten von Etiketten' Aufgabe:</value>
 </data>
-<data name="TXT_PREVIEW_DESC_FILLID3BYFS">
-  <value>Vorschau Ergebnisse der "Fill ID3-Infos 'Aufgabe:</value>
+<data name="TXT_PREVIEW_DESC_FILLTAGBYFS">
+  <value>Vorschau Ergebnisse der "Generieren Etiketten auf Datei / Ordnernamen erzeugen' Aufgabe:</value>
 </data>
 <data name="TXT_PREVIEW_DESC_MULTIRENAME">
-  <value>Vorschau Ergebnisse "Redenumire Fişiere 'Aufgabe:</value>
+  <value>Vorschau Ergebnisse "Umbenennen von Dateien' Aufgabe:</value>
 </data>
 <data name="TXT_PREVIEW_FORM">
   <value>Vorschau Ergebnisse</value>
 </data>
 <data name="TXT_PREVIEW_TIMER">
-  <value>Automatische Vorschau Timer (Sekunden)
+  <value>Automatische Vorschau Timer (Sekunden)&#xD;
 (0 = Deaktivieren Sie die automatische Vorschau):</value>
 </data>
 <data name="TXT_PROPERTYSEARCH">
-  <value>Suche Metadaten (z.B. ID3)</value>
+  <value>Suche Metadaten (z.B. Ettiketten)</value>
 </data>
 <data name="TXT_RECURSIVESEARCH">
   <value>Suche in Unterordnern</value>
@@ -369,9 +369,9 @@ in den Windows-Explorer-Stil wollen.</value>
   <value>Scan-Fehler</value>
 </data>
 <data name="TXT_SCAN_ERROR_MSG">
-  <value>Ein nicht-tödlicher Fehler beim Scannen Objekt:. {0}
-Die Fehlermeldung lautet:. {1}
-
+  <value>Ein nicht-tödlicher Fehler beim Scannen Objekt:. {0}&#xD;
+Die Fehlermeldung lautet:. {1}&#xD;
+&#xD;
 Möchten Sie fortfahren Scannen wollen?</value>
 </data>
 <data name="TXT_SEARCHFOLDER">
@@ -401,28 +401,28 @@ Möchten Sie fortfahren Scannen wollen?</value>
 <data name="TXT_SELECTCATALOG">
   <value>Geben Sie den Katalog, um die importierten Dateien hinzu:</value>
 </data>
-<data name="TXT_SELECTID3FILES">
+<data name="TXT_SELECTTAGGEDFILES">
   <value>Wählen Sie Audio-Dateien bearbeitet werden, um ...</value>
 </data>
-<data name="TXT_SELECTID3FOLDER">
-  <value>Wählen Sie einen Ordner mit MPEG-Audio-Dateien:</value>
+<data name="TXT_SELECTTAGGEDFILESFOLDER">
+  <value>Wählen Sie einen Ordner mit Audio-Dateien bearbeitet werden, um ...</value>
 </data>
 <data name="TXT_SELECTINSERTPOINT">
-  <value>Wählen Sie die Einfügemarke innerhalb des ausgewählten Katalog
+  <value>Wählen Sie die Einfügemarke innerhalb des ausgewählten Katalog&#xD;
 (drücken Sie F5, um den Baum neu zu laden):</value>
 </data>
 <data name="TXT_SENTENCECASE">
   <value>Profitieren erste Wort</value>
 </data>
 <data name="TXT_SHORTCUT">
-  <value>
+  <value>&#xD;
 Tastenkürzel: {0}</value>
 </data>
 <data name="TXT_SUPPLY_CATALOG_DESC">
   <value>Geben Sie eine Beschreibung für Ihren Katalog ...</value>
 </data>
 <data name="TXT_TAGEDITOR">
-  <value>Bearbeiten von ID3 Infos</value>
+  <value>Bearbeiten von Etiketten</value>
 </data>
 <data name="TXT_TOTAL_ITEMS_FOUND">
   <value>Gesamt: {0} item (s) gefunden. Verwenden Sie das Menü der rechten Maustaste weiter zu verarbeiten diese Artikel.</value>
@@ -443,14 +443,14 @@ Tastenkürzel: {0}</value>
   <value>Geben Sie den Katalog, um die importierten Dateien hinzu:</value>
 </data>
 <data name="TXT_WIZCATSTEP2_DESC">
-  <value>Wählen Sie den Ordner oder die Diskette mit der zu importierenden Objekte
+  <value>Wählen Sie den Ordner oder die Diskette mit der zu importierenden Objekte&#xD;
 (drücken Sie F5, um den Baum neu zu laden):</value>
 </data>
-<data name="TXT_WIZID3STEP1_DESC">
-  <value>Bitte angeben, welche Dateien Sie bearbeiten möchten.
+<data name="TXT_WIZTAGGINGSTEP1_DESC">
+  <value>Bitte angeben, welche Dateien Sie bearbeiten möchten.&#xD;
 Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entfernen "Tasten, um die Dateien zu konfigurieren.</value>
 </data>
-<data name="TXT_WIZID3STEP2_DESC">
+<data name="TXT_WIZTAGGINGSTEP2_DESC">
   <value>Bitte angeben, wie sollten diese Dateien verarbeitet werden:</value>
 </data>
 <data name="TXT_WORDHANDLING">
@@ -462,8 +462,8 @@ Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entferne
 <data name="TXT_CATALOGINFO">
   <value>Katalog Datei-Informationen</value>
 </data>
-<data name="TXT_ID3INFO_PATTERNS">
-  <value>ID3 Info Patterns</value>
+<data name="TXT_TAGINFO_PATTERNS">
+  <value>Etikettieren-Muster</value>
 </data>
 <data name="TXT_INTERNALLABEL">
   <value>Interne Medien Etikett</value>
@@ -508,7 +508,7 @@ Verwenden Sie die 'Dateien hinzufügen', 'Ordner hinzufügen', 'Dateien entferne
   <value>CD Ripper</value>
 </data>
 <data name="TXT_GRABBERHINT_STEP1">
-  <value>Klicken Sie auf Zellen der Liste, um sie zu bearbeiten.
+  <value>Klicken Sie auf Zellen der Liste, um sie zu bearbeiten.&#xD;
 Beim Check Bildern zu entscheiden, ob eine Spur oder nicht greifen Doppelklick.</value>
 </data>
 <data name="TXT_OPTIONS_VBR">
@@ -571,8 +571,8 @@ Beim Check Bildern zu entscheiden, ob eine Spur oder nicht greifen Doppelklick.<
 <data name="TXT_CONFIG_NOT_REQUIRED">
   <value>Dieses Format erfordert keine Konfigurationsoptionen.</value>
 </data>
-<data name="TXT_GENERATE_ID3">
-  <value>Generieren ID3 Infos auf CD-Track-Eigenschaften basierend</value>
+<data name="TXT_GENERATE_TAG">
+  <value>Generieren Etiketten auf CD-Track-Eigenschaften basierend</value>
 </data>
 <data name="TXT_PROCESSING_TRACK">
   <value>Importieren CD-Spur Nr. {0} in Datei: {1}</value>

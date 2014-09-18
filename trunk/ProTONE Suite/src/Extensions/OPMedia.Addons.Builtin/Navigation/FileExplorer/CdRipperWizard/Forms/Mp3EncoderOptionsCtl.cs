@@ -140,10 +140,10 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             };
 
             // --- 11 ----
-            chkGenerateID3.Checked = this.Task.GenerateTagsFromTrackMetadata;
-            chkGenerateID3.CheckedChanged += (s, a) =>
+            chkGenerateTag.Checked = this.Task.GenerateTagsFromTrackMetadata;
+            chkGenerateTag.CheckedChanged += (s, a) =>
             {
-                this.Task.GenerateTagsFromTrackMetadata = chkGenerateID3.Checked;
+                this.Task.GenerateTagsFromTrackMetadata = chkGenerateTag.Checked;
             };
         }
 

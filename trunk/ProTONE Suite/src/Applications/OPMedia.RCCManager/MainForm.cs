@@ -644,7 +644,7 @@ namespace OPMedia.RCCManager
 
         private void tsmiImportMerge_Click(object sender, EventArgs e)
         {
-            OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
             dlg.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Templates\\RemoteControl");
             dlg.Filter = Translator.Translate("TXT_CONFIG_FILES_FILTER");
             dlg.Title = Translator.Translate("TXT_IMPORT_PARTIAL");
@@ -663,7 +663,7 @@ namespace OPMedia.RCCManager
 
         private void tsmiImportReplace_Click(object sender, EventArgs e)
         {
-            OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
             dlg.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Templates\\RemoteControl");
             dlg.Filter = Translator.Translate("TXT_CONFIG_FILES_FILTER");
             dlg.Title = Translator.Translate("TXT_IMPORT_FULL");
@@ -725,7 +725,7 @@ namespace OPMedia.RCCManager
 
                     partialConfig.RemoteControl.AcceptChanges();
 
-                    OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+                    OPMSaveFileDialog dlg = new OPMSaveFileDialog();
                     dlg.Filter = Translator.Translate("TXT_CONFIG_FILES_FILTER");
                     dlg.DefaultExt = "config";
                     dlg.Title = Translator.Translate("TXT_EXPORT_PARTIAL");
@@ -744,7 +744,7 @@ namespace OPMedia.RCCManager
 
         private void tsmiExportFull_Click(object sender, EventArgs e)
         {
-            OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+            OPMSaveFileDialog dlg = new OPMSaveFileDialog();
             dlg.Filter = Translator.Translate("TXT_CONFIG_FILES_FILTER");
             dlg.DefaultExt = "config";
             dlg.Title = Translator.Translate("TXT_EXPORT_FULL");

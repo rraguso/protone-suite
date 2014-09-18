@@ -135,6 +135,12 @@
     <Compile Include="Configuration\UrlCfgDlg.Designer.cs">
       <DependentUpon>UrlCfgDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\OPMFontChooserCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OPMFontChooserCtl.Designer.cs">
+      <DependentUpon>OPMFontChooserCtl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GraphPlotter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,11 +282,11 @@
     <Compile Include="Controls\ProgramStartupInfoCtl.Designer.cs">
       <DependentUpon>ProgramStartupInfoCtl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\CommonDialogHelper.cs">
-      <SubType>Code</SubType>
+    <Compile Include="Dialogs\OPMFontChooserDialog.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\CommonDialogs.cs">
-      <SubType>Component</SubType>
+    <Compile Include="Dialogs\OPMFontChooserDialog.Designer.cs">
+      <DependentUpon>OPMFontChooserDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\LogFileConsoleDetail.cs">
       <SubType>Form</SubType>
@@ -488,6 +494,9 @@
     <EmbeddedResource Include="Configuration\TroubleshootingPanel.resx">
       <DependentUpon>TroubleshootingPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OPMFontChooserCtl.resx">
+      <DependentUpon>OPMFontChooserCtl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\FileAttributesBrowserCtl.resx">
       <DependentUpon>FileAttributesBrowserCtl.cs</DependentUpon>
     </EmbeddedResource>
@@ -514,6 +523,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PropertyEditor\OPMPropertyEditor.resx">
       <DependentUpon>OPMPropertyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\OPMFontChooserDialog.resx">
+      <DependentUpon>OPMFontChooserDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\LogFileConsoleDetail.resx">
       <DependentUpon>LogFileConsoleDetail.cs</DependentUpon>

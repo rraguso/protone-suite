@@ -128,6 +128,11 @@
     <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEDeleteFilesTask.cs" />
     <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEFileTaskSupport.cs" />
     <Compile Include="Navigation\FileExplorer\FileOperations\Tasks\FEMoveFilesTask.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Property\Bookmarks\AddonPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,10 +145,10 @@
     <Compile Include="Property\CDAProp\AddonPanel.Designer.cs">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\PreviewForm.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\PreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\PreviewForm.Designer.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\PreviewForm.Designer.cs">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\CatalogExplorer\MediaCatalogCfgPanel.cs">
@@ -171,10 +176,10 @@
       <DependentUpon>WizFESearchStep1Ctl.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\FileExplorer\SearchWizard\Tasks\Task.cs" />
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\FSTagEditorPanel.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\FSTagEditorPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\FSTagEditorPanel.Designer.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\FSTagEditorPanel.Designer.cs">
       <DependentUpon>FSTagEditorPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Property\CatalogItemPropFE\CatalogItemPropFE.cs">
@@ -201,44 +206,44 @@
     <Compile Include="Navigation\FileExplorer\AddonPanel.designer.cs">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Property\ID3Prop\AddonPanel.cs">
+    <Compile Include="Property\TaggedFileProp\AddonPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Property\ID3Prop\AddonPanel.Designer.cs">
+    <Compile Include="Property\TaggedFileProp\AddonPanel.Designer.cs">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\EditPanelBase.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\EditPanelBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\EditPanelBase.Designer.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\EditPanelBase.Designer.cs">
       <DependentUpon>EditPanelBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Helpers\ID3FileRenamer.cs" />
-    <Compile Include="Property\ID3Prop\ID3Wizard\Helpers\ID3Tagger.cs" />
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\MultiRenamePanel.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Helpers\TaggedMediaFileRenamer.cs" />
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Helpers\MediaFileTagger.cs" />
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\MultiRenamePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\MultiRenamePanel.Designer.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\MultiRenamePanel.Designer.cs">
       <DependentUpon>MultiRenamePanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\TagEditorPanel.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\TagEditorPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\TagEditorPanel.Designer.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\TagEditorPanel.Designer.cs">
       <DependentUpon>TagEditorPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Task\Task.cs" />
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step1Ctl.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Task\Task.cs" />
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\WizTagStep1Ctl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step1Ctl.Designer.cs">
-      <DependentUpon>WizId3Step1Ctl.cs</DependentUpon>
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\WizTagStep1Ctl.Designer.cs">
+      <DependentUpon>WizTagStep1Ctl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step2Ctl.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\WizTagStep2Ctl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step2Ctl.Designer.cs">
-      <DependentUpon>WizId3Step2Ctl.cs</DependentUpon>
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\WizTagStep2Ctl.Designer.cs">
+      <DependentUpon>WizTagStep2Ctl.cs</DependentUpon>
     </Compile>
     <Compile Include="Preview\Images\AddonPanel.cs">
       <SubType>UserControl</SubType>
@@ -285,11 +290,6 @@
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Property\VideoProp\AddonPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -336,26 +336,26 @@
     <EmbeddedResource Include="Preview\Player\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\ID3Prop\AddonPanel.resx">
+    <EmbeddedResource Include="Property\TaggedFileProp\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\FSTagEditorPanel.resx">
+    <EmbeddedResource Include="Property\TaggedFileProp\TaggingWizard\Controls\FSTagEditorPanel.resx">
       <DependentUpon>FSTagEditorPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\MultiRenamePanel.resx">
+    <EmbeddedResource Include="Property\TaggedFileProp\TaggingWizard\Controls\MultiRenamePanel.resx">
       <DependentUpon>MultiRenamePanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\PreviewForm.resx">
+    <EmbeddedResource Include="Property\TaggedFileProp\TaggingWizard\Controls\PreviewForm.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\TagEditorPanel.resx">
+    <EmbeddedResource Include="Property\TaggedFileProp\TaggingWizard\Controls\TagEditorPanel.resx">
       <DependentUpon>TagEditorPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step1Ctl.resx">
-      <DependentUpon>WizId3Step1Ctl.cs</DependentUpon>
+    <EmbeddedResource Include="Property\TaggedFileProp\TaggingWizard\Controls\WizTagStep1Ctl.resx">
+      <DependentUpon>WizTagStep1Ctl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Property\ID3Prop\ID3Wizard\Controls\WizId3Step2Ctl.resx">
-      <DependentUpon>WizId3Step2Ctl.cs</DependentUpon>
+    <EmbeddedResource Include="Property\TaggedFileProp\TaggingWizard\Controls\WizTagStep2Ctl.resx">
+      <DependentUpon>WizTagStep2Ctl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\CatalogExplorer\MediaCatalogCfgPanel.resx">
       <DependentUpon>MediaCatalogCfgPanel.cs</DependentUpon>
@@ -420,7 +420,6 @@
     <None Include="Resources\none.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\id3.PNG" />
     <None Include="Resources\Save.png" />
   </ItemGroup>
   <ItemGroup>
@@ -527,7 +526,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\player16.png" />
-    <None Include="Resources\ID316.png" />
     <None Include="Resources\FileExplorer16.png" />
     <None Include="Resources\Search16.png" />
     <None Include="Resources\Rename16.png" />
@@ -557,6 +555,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\New_Folder_Command16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Tagging.png" />
+    <Content Include="Resources\Tagging16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

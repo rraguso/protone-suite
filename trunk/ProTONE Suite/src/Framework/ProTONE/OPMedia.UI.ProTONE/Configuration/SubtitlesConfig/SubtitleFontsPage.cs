@@ -88,7 +88,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         private void btnSubFont_Click(object sender, EventArgs e)
         {
-            if (ChooseFont(ref _subFont))
+            if (ChooseFont(ref _subFont, "TXT_CHOOSE_FONT_FOR_SUBTITLE"))
             {
                 lblSubText1.Font = _subFont;
                 lblSubText2.Font = _subFont;
@@ -98,7 +98,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         private void btnOsdFont_Click(object sender, EventArgs e)
         {
-            if (ChooseFont(ref _osdFont))
+            if (ChooseFont(ref _osdFont, "TXT_CHOOSE_FONT_FOR_OSD"))
             {
                 lblOsdText.Font = _osdFont;
                 lblOsdText2.Font = _osdFont;
@@ -126,10 +126,12 @@ namespace OPMedia.UI.ProTONE.Configuration
             }
         }
 
-        private bool ChooseFont(ref Font f)
+        private bool ChooseFont(ref Font f, string reason)
         {
-            OPMFontDialog dlg = new OPMFontDialog();
+            OPMFontChooserDialog dlg = new OPMFontChooserDialog();
             dlg.Font = f;
+            dlg.Description = Translator.Translate(reason);
+            dlg.SetTitle("TXT_CHOOSE_FONT");
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -142,7 +144,6 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         private bool ChooseColor(ref Color c, string reason)
         {
-            //OPMColorDialog dlg = new OPMColorDialog();
             OPMColorChooserDialog dlg = new OPMColorChooserDialog();
             dlg.Color = c;
             dlg.Description = Translator.Translate(reason);

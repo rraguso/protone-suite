@@ -133,7 +133,7 @@ namespace OPMedia.UI.Controls
 
         public new void Focus()
         {
-            this.Select();
+            base.Select();
             txtField.Select();
             txtField.Focus();
         }
@@ -162,6 +162,13 @@ namespace OPMedia.UI.Controls
             txtField.Enter += new EventHandler(txtField_Enter);
             txtField.Leave += new EventHandler(txtField_Leave);
             txtField.TextChanged += new EventHandler(txtField_TextChanged);
+
+            txtField.KeyDown += new KeyEventHandler(txtField_KeyDown);
+        }
+
+        void txtField_KeyDown(object sender, KeyEventArgs e)
+        {
+            OnKeyDown(e);
         }
 
         void txtField_TextChanged(object sender, EventArgs e)

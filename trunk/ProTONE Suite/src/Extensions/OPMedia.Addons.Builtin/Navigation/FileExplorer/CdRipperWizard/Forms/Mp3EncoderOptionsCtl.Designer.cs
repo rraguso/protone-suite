@@ -45,7 +45,7 @@
             this.cmbVbrMax = new OPMedia.UI.Controls.OPMComboBox();
             this.grpAdditional = new OPMedia.UI.Controls.OPMGroupBox();
             this.opmTableLayoutPanel2 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.chkGenerateID3 = new OPMedia.UI.Controls.OPMCheckBox();
+            this.chkGenerateTag = new OPMedia.UI.Controls.OPMCheckBox();
             this.chkCopyright = new OPMedia.UI.Controls.OPMCheckBox();
             this.chkOriginal = new OPMedia.UI.Controls.OPMCheckBox();
             this.chkCRC = new OPMedia.UI.Controls.OPMCheckBox();
@@ -363,7 +363,7 @@
             this.opmTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.opmTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel2.Controls.Add(this.chkGenerateID3, 0, 1);
+            this.opmTableLayoutPanel2.Controls.Add(this.chkGenerateTag, 0, 1);
             this.opmTableLayoutPanel2.Controls.Add(this.chkCopyright, 0, 0);
             this.opmTableLayoutPanel2.Controls.Add(this.chkOriginal, 1, 0);
             this.opmTableLayoutPanel2.Controls.Add(this.chkCRC, 2, 0);
@@ -381,20 +381,20 @@
             this.opmTableLayoutPanel2.Size = new System.Drawing.Size(411, 70);
             this.opmTableLayoutPanel2.TabIndex = 0;
             // 
-            // chkGenerateID3
+            // chkGenerateTag
             // 
-            this.chkGenerateID3.AutoSize = true;
-            this.opmTableLayoutPanel2.SetColumnSpan(this.chkGenerateID3, 4);
-            this.chkGenerateID3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkGenerateID3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkGenerateID3.Location = new System.Drawing.Point(5, 35);
-            this.chkGenerateID3.Margin = new System.Windows.Forms.Padding(0);
-            this.chkGenerateID3.Name = "chkGenerateID3";
-            this.chkGenerateID3.OverrideForeColor = System.Drawing.Color.Empty;
-            this.chkGenerateID3.Size = new System.Drawing.Size(406, 35);
-            this.chkGenerateID3.TabIndex = 10;
-            this.chkGenerateID3.Text = "TXT_GENERATE_ID3";
-            this.chkGenerateID3.UseVisualStyleBackColor = true;
+            this.chkGenerateTag.AutoSize = true;
+            this.opmTableLayoutPanel2.SetColumnSpan(this.chkGenerateTag, 4);
+            this.chkGenerateTag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkGenerateTag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkGenerateTag.Location = new System.Drawing.Point(5, 35);
+            this.chkGenerateTag.Margin = new System.Windows.Forms.Padding(0);
+            this.chkGenerateTag.Name = "chkGenerateTag";
+            this.chkGenerateTag.OverrideForeColor = System.Drawing.Color.Empty;
+            this.chkGenerateTag.Size = new System.Drawing.Size(406, 35);
+            this.chkGenerateTag.TabIndex = 10;
+            this.chkGenerateTag.Text = "TXT_GENERATE_TAG";
+            this.chkGenerateTag.UseVisualStyleBackColor = true;
             // 
             // chkCopyright
             // 
@@ -563,7 +563,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private UI.Controls.OPMLabel opmLabel8;
         private UI.Controls.OPMLinkLabel opmLinkLabel1;
-        private UI.Controls.OPMCheckBox chkGenerateID3;
+        private UI.Controls.OPMCheckBox chkGenerateTag;
         private UI.Controls.OPMCheckBox chkPrivate;
 
     }

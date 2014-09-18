@@ -84,6 +84,7 @@
     <Compile Include="FileInformation\GenericFileInfo.cs" />
     <Compile Include="FileInformation\ID3FileInfo.cs" />
     <Compile Include="FileInformation\DvdMedia.cs" />
+    <Compile Include="FileInformation\ITaggedMediaFileInfo.cs" />
     <Compile Include="FileInformation\MediaFileInfo.cs" />
     <Compile Include="FileInformation\VideoDvdInformation.cs" />
     <Compile Include="FileInformation\VideoFileInfo.cs" />

@@ -24,7 +24,7 @@ using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
-    public class ID3FileInfo : MediaFileInfo
+    public class ID3FileInfo : MediaFileInfo, ITaggedMediaFileInfo
     {
         TagLib.Mpeg.AudioFile af = null;
         ID3ArtworkInfo artworkInfo = null;
@@ -61,7 +61,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [Browsable(false)]
-        public bool HasID3
+        public bool HasTag
         { 
             get 
             { 
@@ -74,11 +74,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [TranslatableDisplayName("TXT_ARTIST")]
-        [TranslatableCategory("TXT_ID3INFO")]
+        [TranslatableCategory("TXT_TAGINFO")]
         [Browsable(true)]
         public override string Artist
         {
-            get { return HasID3 ? BuildCleanString(_tag.FirstPerformer) : null; }
+            get { return HasTag ? BuildCleanString(_tag.FirstPerformer) : null; }
             set
             {
                 try
@@ -94,11 +94,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [TranslatableDisplayName("TXT_ALBUM")]
-        [TranslatableCategory("TXT_ID3INFO")]
+        [TranslatableCategory("TXT_TAGINFO")]
         [Browsable(true)]
         public override string Album
         {
-            get { return HasID3 ? BuildCleanString(_tag.Album) : null; }
+            get { return HasTag ? BuildCleanString(_tag.Album) : null; }
             set
             {
                 try
@@ -114,11 +114,11 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [TranslatableDisplayName("TXT_TITLE")]
-        [TranslatableCategory("TXT_ID3INFO")]
+        [TranslatableCategory("TXT_TAGINFO")]
         [Browsable(true)]
         public override string Title
         {
-            get { return HasID3 ? BuildCleanString(_tag.Title) : null; }
+            get { return HasTag ? BuildCleanString(_tag.Title) : null; }
             set
             {
                 try
@@ -134,12 +134,13 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [TranslatableDisplayName("TXT_COMMENTS")]
-        [TranslatableCategory("TXT_ID3INFO")]
+        [TranslatableCategory("TXT_TAGINFO")]
         [Browsable(true)]
-        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor)), Localizable(true)]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", 
+            typeof(UITypeEditor)), Localizable(true)]
         public override string Comments
         {
-            get { return HasID3 ? BuildCleanString(_tag.Comment) : null; }
+            get { return HasTag ? BuildCleanString(_tag.Comment) : null; }
             set
             {
                 try
@@ -172,12 +173,12 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [TranslatableDisplayName("TXT_GENRE")]
-        [TranslatableCategory("TXT_ID3INFO")]
+        [TranslatableCategory("TXT_TAGINFO")]
         [Browsable(true)]
         [Editor("OPMedia.Runtime.ProTONE.GenrePropertyBrowser, OPMedia.Runtime.ProTONE", typeof(UITypeEditor))]
         public override string Genre
         {
-            get { return HasID3 ? BuildCleanString(_tag.FirstGenre) : null; }
+            get { return HasTag ? BuildCleanString(_tag.FirstGenre) : null; }
             set
             {
                 try
@@ -193,7 +194,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [TranslatableDisplayName("TXT_TRACK")]
-        [TranslatableCategory("TXT_ID3INFO")]
+        [TranslatableCategory("TXT_TAGINFO")]
         [Browsable(true)]
         [DefaultValue((short)1)]
         public override short? Track
@@ -201,7 +202,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             get 
             { 
                 short? retVal = new Nullable<short>();
-                if (HasID3 && _tag.Track > 0 && _tag.Track < 255)
+                if (HasTag && _tag.Track > 0 && _tag.Track < 255)
                 {
                     retVal = (short)_tag.Track;
                 }
@@ -232,14 +233,14 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         }
 
         [TranslatableDisplayName("TXT_YEAR")]
-        [TranslatableCategory("TXT_ID3INFO")]
+        [TranslatableCategory("TXT_TAGINFO")]
         [Browsable(true)]
         public override short? Year
         {
             get 
             { 
                 short? retVal = new Nullable<short>();
-                if (HasID3 && _tag.Year > 1000 && _tag.Year < 9999)
+                if (HasTag && _tag.Year > 1000 && _tag.Year < 9999)
                 {
                     retVal = (short)_tag.Year;
                 }
@@ -281,7 +282,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 info.Add("TXT_CHANNELS:", Channels.GetValueOrDefault().ToString());
                 info.Add("TXT_FREQUENCY:", Frequency.GetValueOrDefault().ToString());
 
-                if (HasID3)
+                if (HasTag)
                 {
                     info.Add(string.Empty, null); // separator
                     bool removeSep = true;
@@ -384,7 +385,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [SingleSelectionBrowsable]
         [Editor("OPMedia.UI.ProTONE.Dialogs.ID3ArtworkPropertyBrowser, OPMedia.UI.ProTONE", typeof(UITypeEditor))]
         [TranslatableDisplayName("TXT_ARTWORK")]
-        [TranslatableCategory("TXT_ID3INFO")]
+        [TranslatableCategory("TXT_TAGINFO")]
         public ID3ArtworkInfo ArtworkInfo
         {
             get 

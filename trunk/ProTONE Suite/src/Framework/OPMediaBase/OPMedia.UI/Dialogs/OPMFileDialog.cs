@@ -944,10 +944,13 @@ namespace OPMedia.UI.Controls.Dialogs
         public bool AddExtension { get; set; }
         public string DefaultExt { get; set; }
 
-        internal OPMSaveFileDialog()
+        public OPMSaveFileDialog()
             : base()
         {
             this.Title = "Save file as:";
+            this.AddExtension = true;
+            this.CreatePrompt = true;
+            this.OverwritePrompt = true;
         }
     }
 
@@ -955,9 +958,10 @@ namespace OPMedia.UI.Controls.Dialogs
     {
         public bool Multiselect { get; set; }
 
-        internal OPMOpenFileDialog() : base()
+        public OPMOpenFileDialog() : base()
         {
             this.Title = "Open file:";
+            this.Multiselect = false;
         }
     }
 

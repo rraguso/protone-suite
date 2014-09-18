@@ -384,7 +384,7 @@ namespace SkinBuilder.Navigation
         {
             tsbOpen.HideDropDown();
 
-            OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
             dlg.Title = Translator.Translate("TXT_OPENTHEMEFILE");
             dlg.Filter = Translator.Translate("TXT_THEMEFILE_FILTER");
             dlg.InitialDirectory = SkinBuilderConfiguration.LastOpenedFolder;
@@ -457,7 +457,7 @@ namespace SkinBuilder.Navigation
         {
             if (_themeFile != null)
             {
-                OPMSaveFileDialog dlg = CommonDialogHelper.NewOPMSaveFileDialog();
+                OPMSaveFileDialog dlg = new OPMSaveFileDialog();
                 dlg.Title = Translator.Translate("TXT_SAVETHEMEFILE");
                 dlg.Filter = Translator.Translate("TXT_THEMEFILE_FILTER");
                 dlg.DefaultExt = "thm";

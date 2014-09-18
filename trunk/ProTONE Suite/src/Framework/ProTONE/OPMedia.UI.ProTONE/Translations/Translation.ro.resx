@@ -173,95 +173,95 @@
   <value>Timp Bookmark:</value>
 </data>
 <data name="TXT_BTNCLEAR">
-  <value>Goleşte lista de redare.&#xD;&#xD;
+  <value>Goleşte lista de redare.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNDELETE">
-  <value>Şterge obiectele selectate.&#xD;&#xD;
+  <value>Şterge obiectele selectate.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNFULLSCREEN">
-  <value>Comută modul Ecran Panoramic&#xD;&#xD;
+  <value>Comută modul Ecran Panoramic&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNFWD">
-  <value>Derulare înainte cu 5 secunde.&#xD;&#xD;
+  <value>Derulare înainte cu 5 secunde.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNJUMPTOITEM">
-  <value>Deschide dialogul 'Salt în lista de redare'.&#xD;&#xD;
+  <value>Deschide dialogul 'Salt în lista de redare'.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNLOAD">
-  <value>Încarcă fişier(e).&#xD;&#xD;
+  <value>Încarcă fişier(e).&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNLOADPLAYLIST">
-  <value>Încarcă lista de redare.&#xD;&#xD;
+  <value>Încarcă lista de redare.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNLOOPPLAY">
-  <value>Comută redarea în bucla.&#xD;&#xD;
+  <value>Comută redarea în bucla.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNMOVEDOWN">
-  <value>Mută obiectele selectate cu o poziţie mai jos în lista de redare.&#xD;&#xD;
+  <value>Mută obiectele selectate cu o poziţie mai jos în lista de redare.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNMOVEUP">
-  <value>Mută obiectele selectate cu o poziţie mai sus în lista de redare.&#xD;&#xD;
+  <value>Mută obiectele selectate cu o poziţie mai sus în lista de redare.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNNEXT">
-  <value>Redă următorul fişier din lista de redare.&#xD;&#xD;
+  <value>Redă următorul fişier din lista de redare.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNOPENDISK">
-  <value>Deschide dialogul de încărcare mediu DVD.&#xD;&#xD;
+  <value>Deschide dialogul de încărcare mediu DVD.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNOPENSETTINGS">
-  <value>Afişează dialogul de Setări.&#xD;&#xD;
+  <value>Afişează dialogul de Setări.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNPAUSE">
-  <value>Pune redarea în pauză.&#xD;&#xD;
+  <value>Pune redarea în pauză.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNPLAY">
-  <value>Redare fişier.&#xD;&#xD;
+  <value>Redare fişier.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNPLAYLISTEND">
-  <value>Activează 'acțiunea la sfârşitul listei de redare'.&#xD;&#xD;
+  <value>Activează 'acțiunea la sfârşitul listei de redare'.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNPREV">
-  <value>Redă fişierul precedent din lista de redare.&#xD;&#xD;
+  <value>Redă fişierul precedent din lista de redare.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNREW">
-  <value>Derulare înapoi cu 5 secunde.&#xD;&#xD;
+  <value>Derulare înapoi cu 5 secunde.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNSAVEPLAYLIST">
-  <value>Salvează lista de redare.&#xD;&#xD;
+  <value>Salvează lista de redare.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNSTOP">
-  <value>Oprire redare.&#xD;&#xD;
+  <value>Oprire redare.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNTOGGLESHUFFLE">
-  <value>Activează redarea în mod aleator.&#xD;&#xD;
+  <value>Activează redarea în mod aleator.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNVOLDN">
-  <value>Scădere volum cu 5%.&#xD;&#xD;
+  <value>Scădere volum cu 5%.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_BTNVOLUP">
-  <value>Creştere volum cu 5%.&#xD;&#xD;
+  <value>Creştere volum cu 5%.&#xD;&#xD;&#xD;
 Scurtătură: {0}</value>
 </data>
 <data name="TXT_CMDADDBOOKMARK">
@@ -376,7 +376,7 @@ Scurtătură: {0}</value>
   <value>Editor imagini ID3</value>
 </data>
 <data name="TXT_ELAPSED_TIME">
-  <value>Timp scurs.&#xD;&#xD;
+  <value>Timp scurs.&#xD;&#xD;&#xD;
 Dublu click pentru a comuta pe timp rămas.</value>
 </data>
 <data name="TXT_ENABLEREMOTECONTROL">
@@ -434,7 +434,7 @@ Dublu click pentru a comuta pe timp rămas.</value>
   <value>Încarcă listă de redare ...</value>
 </data>
 <data name="TXT_LOAD_DVD_FOLDER">
-  <value>Selectaţi un director cu conţinut DVD video&#xD;&#xD;
+  <value>Selectaţi un director cu conţinut DVD video&#xD;&#xD;&#xD;
 (Fie un director VIDEO_TS, fie părintele acestuia):</value>
 </data>
 <data name="TXT_MATCHING_ITEMS">
@@ -453,7 +453,7 @@ Dublu click pentru a comuta pe timp rămas.</value>
   <value>Afişează mesaje de notifcare atunci când se schimbă starea mediului redat</value>
 </data>
 <data name="TXT_MINMOVIEDURATION">
-  <value>Nu descărca subtitrarea când clipul este mai scurt de&#xD;&#xD;
+  <value>Nu descărca subtitrarea când clipul este mai scurt de&#xD;&#xD;&#xD;
 (0 = descarcă mereu)</value>
 </data>
 <data name="TXT_MNUAUDIO">
@@ -499,7 +499,7 @@ Dublu click pentru a comuta pe timp rămas.</value>
   <value>Această opţiune nu este accesibilă în acest moment.</value>
 </data>
 <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
-  <value>Această opţiune nu este accesibilă în acest moment.&#xD;&#xD;
+  <value>Această opţiune nu este accesibilă în acest moment.&#xD;&#xD;&#xD;
 Trebuie să instalaţi suita de codecuri FFDShow pentru a avea acces la această opțiune.</value>
 </data>
 <data name="TXT_NO_LANG">
@@ -548,9 +548,9 @@ Trebuie să instalaţi suita de codecuri FFDShow pentru a avea acces la această
   <value>Volum: {0}%</value>
 </data>
 <data name="TXT_OVERWRITE_SUBTITLE">
-  <value>Clipul selectat are deja o subtitrare. &#xD;&#xD;
-Daca o altă subtitrare va fi gasită pe Internet, aceasta o va suprascrie pe cea existentă.&#xD;&#xD;
-&#xD;&#xD;
+  <value>Clipul selectat are deja o subtitrare. &#xD;&#xD;&#xD;
+Daca o altă subtitrare va fi gasită pe Internet, aceasta o va suprascrie pe cea existentă.&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
 Sunteţi sigur că vreti să cautati o altă subtitrare ?</value>
 </data>
 <data name="TXT_PAUSED">
@@ -581,8 +581,8 @@ Sunteţi sigur că vreti să cautati o altă subtitrare ?</value>
   <value>Limba preferată pt. subtitrare:</value>
 </data>
 <data name="TXT_PROCEED_SCHEDULED_ACTION">
-  <value>ProTONE Player incearcă să {0}. Acest lucru are loc intrucât aţi configurat programul să procedeze astfel când {1}. Doriţi să continuaţi ?&#xD;&#xD;
-&#xD;&#xD;
+  <value>ProTONE Player incearcă să {0}. Acest lucru are loc intrucât aţi configurat programul să procedeze astfel când {1}. Doriţi să continuaţi ?&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
 Puteţi întrerupe această operaţiune daca daţi click pe Întrerupere înainte de a se scurge timpul alocat. În momentul în care acest timp s-a scurs, se va presupune implicit că doriţi să continuaţi.</value>
 </data>
 <data name="TXT_PROTONE_ENQUEUE">
@@ -592,15 +592,15 @@ Puteţi întrerupe această operaţiune daca daţi click pe Întrerupere înaint
   <value>Redare în ProTONE Player</value>
 </data>
 <data name="TXT_REMAINING_TIME">
-  <value>Timp rămas. &#xD;&#xD;
+  <value>Timp rămas. &#xD;&#xD;&#xD;
 Dublu click pentru a comuta pe timp scurs</value>
 </data>
 <data name="TXT_REMOTECONTROLCFG">
   <value>Telecomandă</value>
 </data>
 <data name="TXT_REMOTECONTROLDEFINITION">
-  <value>Pentru a defini programele şi dispozitivele ce pot controla ProTONE Player, trebuie să folosiţi ProTONE RCC Manager.&#xD;
-&#xD;&#xD;
+  <value>Pentru a defini programele şi dispozitivele ce pot controla ProTONE Player, trebuie să folosiţi ProTONE RCC Manager.&#xD;&#xD;
+&#xD;&#xD;&#xD;
 Daţi click pe butonul de mai jos pentru a lansa ProTONE RCC Manager ...</value>
 </data>
 <data name="TXT_RIGHTVOL">
@@ -625,7 +625,7 @@ Daţi click pe butonul de mai jos pentru a lansa ProTONE RCC Manager ...</value>
   <value>Timer</value>
 </data>
 <data name="TXT_SCHEDULERWAITTIMERPROCEED">
-  <value>Numărul de minute de aşteptare a confirmării&#xD;&#xD;
+  <value>Numărul de minute de aşteptare a confirmării&#xD;&#xD;&#xD;
 (0 = nu cere confirmarea, continuă implicit):</value>
 </data>
 <data name="TXT_SEARCH_SUBTITLES">
@@ -689,7 +689,7 @@ Daţi click pe butonul de mai jos pentru a lansa ProTONE RCC Manager ...</value>
   <value>Căutarea subtitrărilor a fost intreruptă ca urmare a unei erori.</value>
 </data>
 <data name="TXT_SUB_HINTS">
-  <value>Indicație: Rezultatele sunt ordonate după aceste criterii (în aceasta ordine): coloana selectată, limbă (Limba preferată la început), &#xD;&#xD;
+  <value>Indicație: Rezultatele sunt ordonate după aceste criterii (în aceasta ordine): coloana selectată, limbă (Limba preferată la început), &#xD;&#xD;&#xD;
 ordinea definirii serverelor în pagina de setări pentru Subtitrare (prio). Daţi click pe un cap de coloană pentru a selecta un alt criteriu de sortare.</value>
 </data>
 <data name="TXT_SUB_LOAD">
@@ -708,12 +708,12 @@ ordinea definirii serverelor în pagina de setări pentru Subtitrare (prio). Da�
   <value>Codecurile multimedia sunt instalate şi configurate corect.</value>
 </data>
 <data name="TXT_TIMESCALE">
-  <value>Axa timpului.&#xD;&#xD;
+  <value>Axa timpului.&#xD;&#xD;&#xD;
 Click pentru redare de la momentul: {0}</value>
 </data>
 <data name="TXT_TIMESCALE_BOOKMARK">
-  <value>Axa timpului.&#xD;&#xD;
-Click pentru redare de la Bookmark: "{1}"&#xD;&#xD;
+  <value>Axa timpului.&#xD;&#xD;&#xD;
+Click pentru redare de la Bookmark: "{1}"&#xD;&#xD;&#xD;
 Timpul Bookmarkului: {0}</value>
 </data>
 <data name="TXT_TOTAL_TIME">
@@ -741,7 +741,7 @@ Timpul Bookmarkului: {0}</value>
   <value>Fişiere video - înaltă definiţie</value>
 </data>
 <data name="TXT_VOLSCALE">
-  <value>Axa volumului.&#xD;&#xD;
+  <value>Axa volumului.&#xD;&#xD;&#xD;
 Daţi click pentru a seta volumul la {0} %</value>
 </data>
 <data name="TXT_INSTALLCOMPONENT">
@@ -757,18 +757,18 @@ Daţi click pentru a seta volumul la {0} %</value>
   <value>Diverse</value>
 </data>
 <data name="TXT_METADATAPATTERNS">
-  <value>Şabloanele pentru formatarea elementelor listei de redare se bazeaza pe combinatia acestor cuvinte cheie:&#xD;&#xD;
-    &#xD;&#xD;
-&lt;A&gt; = nume artist din metadata;&#xD;&#xD;
-&lt;B&gt; = nume album din metadata;&#xD;&#xD;
-&lt;T&gt; = titlu piesă din metadata;&#xD;&#xD;
-&lt;C&gt; = comentarii din metadata;&#xD;&#xD;
-&lt;G&gt; = gen muzical din metadata;&#xD;&#xD;
-&lt;#&gt; = index piesă din metadata;&#xD;&#xD;
+  <value>Şabloanele pentru formatarea elementelor listei de redare se bazeaza pe combinatia acestor cuvinte cheie:&#xD;&#xD;&#xD;
+    &#xD;&#xD;&#xD;
+&lt;A&gt; = nume artist din metadata;&#xD;&#xD;&#xD;
+&lt;B&gt; = nume album din metadata;&#xD;&#xD;&#xD;
+&lt;T&gt; = titlu piesă din metadata;&#xD;&#xD;&#xD;
+&lt;C&gt; = comentarii din metadata;&#xD;&#xD;&#xD;
+&lt;G&gt; = gen muzical din metadata;&#xD;&#xD;&#xD;
+&lt;#&gt; = index piesă din metadata;&#xD;&#xD;&#xD;
 &lt;Y&gt; = an din metadata.</value>
 </data>
 <data name="TXT_DISPLAY_FILENAME">
-  <value>Nici o opţiune de formatare nu a fost specificată.&#xD;&#xD;
+  <value>Nici o opţiune de formatare nu a fost specificată.&#xD;&#xD;&#xD;
 Programul va afişa numele de fişier în lista de redare.</value>
 </data>
 <data name="TXT_FILENAME_FORMAT">
@@ -808,8 +808,8 @@ Programul va afişa numele de fişier în lista de redare.</value>
   <value>Aţi specificat un mediu DVD invalid. Vă rugam reselectaţi.</value>
 </data>
 <data name="TXT_PANELSHIDDEN_NOADMIN">
-  <value>Întrucât contul dvs. de utilizator nu are drepturi de administrator, nu veţi putea vizualiza setările pt. Fişiere suportate şi pentru Telecomandă.&#xD;&#xD;
-&#xD;&#xD;
+  <value>Întrucât contul dvs. de utilizator nu are drepturi de administrator, nu veţi putea vizualiza setările pt. Fişiere suportate şi pentru Telecomandă.&#xD;&#xD;&#xD;
+&#xD;&#xD;&#xD;
 Pentru a accesa aceste setări, trebuie să lansaţi ProTONE Player sub un cont de utilizator care are drepturi de administrator.</value>
 </data>
 <data name="TXT_MNUCLEAR">
@@ -944,8 +944,8 @@ Pentru a accesa aceste setări, trebuie să lansaţi ProTONE Player sub un cont 
 <data name="TXT_GENRE">
   <value>Gen muzical</value>
 </data>
-<data name="TXT_ID3INFO">
-  <value>Informaţie Câmp ID3</value>
+<data name="TXT_TAGINFO">
+  <value>Etichete Media</value>
 </data>
 <data name="TXT_TITLE">
   <value>Titlu</value>
@@ -968,23 +968,23 @@ Pentru a accesa aceste setări, trebuie să lansaţi ProTONE Player sub un cont 
 <data name="TXT_PICTURE_TYPE">
   <value>Tip imagine ID3</value>
 </data>
-<data name="TXT_ID3PATTERNS">
-  <value>Şabloanele pentru câmpurile ID3 se bazeaza pe combinatia acestor cuvinte cheie:&#xD;&#xD;
-    &#xD;&#xD;
-&lt;N&gt; = nume fişier; &#xD;&#xD;
-&lt;F&gt; = nume director;&#xD;&#xD;
-&lt;A&gt; = nume artist din câmpul ID3;&#xD;&#xD;
-&lt;B&gt; = nume album din câmpul ID3;&#xD;&#xD;
-&lt;T&gt; = titlu piesă din câmpul ID3;&#xD;&#xD;
-&lt;C&gt; = comentarii din câmpul ID3;&#xD;&#xD;
-&lt;G&gt; = gen muzical din câmpul ID3;&#xD;&#xD;
-&lt;#&gt; = index piesă din câmpul ID3;&#xD;&#xD;
-&lt;Y&gt; = an din câmpul ID3.&#xD;&#xD;
-&#xD;&#xD;
+<data name="TXT_TAGGINGPATTERNS">
+  <value>Şabloanele pentru etichetare se bazeaza pe combinatia acestor cuvinte cheie:&#xD;&#xD;&#xD;
+    &#xD;&#xD;&#xD;
+&lt;N&gt; = nume fişier; &#xD;&#xD;&#xD;
+&lt;F&gt; = nume director;&#xD;&#xD;&#xD;
+&lt;A&gt; = nume artist (din tag)&#xD;&#xD;
+&lt;B&gt; = nume album (din tag)&#xD;&#xD;
+&lt;T&gt; = titlu piesă (din tag)&#xD;&#xD;
+&lt;C&gt; = comentarii (din tag)&#xD;&#xD;
+&lt;G&gt; = gen muzical (din tag)&#xD;&#xD;
+&lt;#&gt; = index piesă (din tag)&#xD;&#xD;
+&lt;Y&gt; = an (din tag)&#xD;&#xD;
+&#xD;&#xD;&#xD;
 Se admit şi domenii de caractere precum: &lt;N2-12,14-20&gt;.</value>
 </data>
 <data name="TXT_RESETVIDEOPOSITION">
-  <value>Reiniţializare pozitie &#xD;&#xD;
+  <value>Reiniţializare pozitie &#xD;&#xD;&#xD;
 fereastră video</value>
 </data>
 <data name="TXT_RESETVIDEOPOSITION_HINT">

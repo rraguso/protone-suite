@@ -19,7 +19,7 @@ using OPMedia.UI.Controls;
 using OPMedia.Runtime;
 using System.IO;
 using OPMedia.Runtime.Addons.AddonsBase.Navigation;
-using OPMedia.Addons.Builtin.ID3Prop;
+using OPMedia.Addons.Builtin.TaggedFileProp;
 using OPMedia.Core;
 using OPMedia.UI.Themes;
 using OPMedia.UI.Wizards;
@@ -238,8 +238,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         args.Handled = true;
                         break;
 
-                    case OPMShortcut.CmdID3Wizard:
-                        HandleAction(ToolAction.ToolActionID3Wizard);
+                    case OPMShortcut.CmdTaggingWizard:
+                        HandleAction(ToolAction.ToolActionTaggingWizard);
                         args.Handled = true;
                         break;
 
@@ -586,22 +586,22 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                                     }
                                     break;
 
-                                case ToolAction.ToolActionID3Wizard:
+                                case ToolAction.ToolActionTaggingWizard:
                                     {
-                                        ID3Prop.ID3Wizard.Task taskID3 = new ID3Prop.ID3Wizard.Task();
+                                        TaggedFileProp.TaggingWizard.Task taskTagging = new TaggedFileProp.TaggingWizard.Task();
                                         foreach (string item in taskSearch.MatchingItems)
                                         {
                                             if (Directory.Exists(item))
                                             {
-                                                taskID3.Files.AddRange(Directory.EnumerateFiles(item, "*.mp?", SearchOption.AllDirectories));
+                                                taskTagging.Files.AddRange(Directory.EnumerateFiles(item, "*.mp?", SearchOption.AllDirectories));
                                             }
                                             else if (File.Exists(item))
                                             {
-                                                taskID3.Files.Add(item);
+                                                taskTagging.Files.Add(item);
                                             }
                                         }
                                         
-                                        ID3WizardMain.Execute(FindForm(), taskID3);
+                                        TaggingWizardMain.Execute(FindForm(), taskTagging);
                                         ReloadProperties();
                                     }
                                     break;
@@ -632,22 +632,22 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         GlobalReload();
                         return;
 
-                    case ToolAction.ToolActionID3Wizard:
+                    case ToolAction.ToolActionTaggingWizard:
                         {
-                            ID3Prop.ID3Wizard.Task taskID3 = new ID3Prop.ID3Wizard.Task();
+                            TaggedFileProp.TaggingWizard.Task taskTagging = new TaggedFileProp.TaggingWizard.Task();
                             foreach(string item in opmShellList.SelectedPaths)
                             {
                                 if (Directory.Exists(item))
                                 {
-                                    taskID3.Files.AddRange(Directory.EnumerateFiles(item, "*.mp?", SearchOption.AllDirectories));
+                                    taskTagging.Files.AddRange(Directory.EnumerateFiles(item, "*.mp?", SearchOption.AllDirectories));
                                 }
                                 else if (File.Exists(item))
                                 {
-                                    taskID3.Files.Add(item);
+                                    taskTagging.Files.Add(item);
                                 }
                             }
                             
-                            ID3WizardMain.Execute(FindForm(), taskID3);
+                            TaggingWizardMain.Execute(FindForm(), taskTagging);
                             ReloadProperties();
                         }
                         return;
@@ -891,8 +891,8 @@ namespace OPMedia.Addons.Builtin.FileExplorer
                         }
                         break;
 
-                    case ToolAction.ToolActionID3Wizard:
-                        BuildMenuText(btn, "TXT_ID3WIZARD", string.Empty, OPMShortcut.CmdID3Wizard);
+                    case ToolAction.ToolActionTaggingWizard:
+                        BuildMenuText(btn, "TXT_TAGGINGWIZARD", string.Empty, OPMShortcut.CmdTaggingWizard);
                         break;
 
                     case ToolAction.ToolActionCdRipper:
@@ -1204,7 +1204,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer
         ToolActionRename,
         ToolActionDelete,
 
-        ToolActionID3Wizard,
+        ToolActionTaggingWizard,
         ToolActionCdRipper,
 
         ToolActionJumpToItem,

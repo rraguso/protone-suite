@@ -71,7 +71,7 @@ namespace OPMedia.UI.Dialogs
 
         private void OnChoosePath(object sender, EventArgs e)
         {
-            OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
             dlg.Filter = Translator.Translate("TXT_PROGRAMS_FILTER");
             dlg.Title = Translator.Translate("TXT_CHOOSEPROGRAM");
             dlg.InitialDirectory = 
@@ -87,7 +87,7 @@ namespace OPMedia.UI.Dialogs
 
         private void OnChooseWorkDir(object sender, EventArgs e)
         {
-            OPMFolderBrowserDialog fld = CommonDialogHelper.NewOPMFolderBrowserDialog();
+            OPMFolderBrowserDialog fld = new OPMFolderBrowserDialog();
             fld.SelectedPath = txtLaunchPath.Text;
             fld.Description = Translator.Translate("TXT_CHOOSEWORKDIR");
 

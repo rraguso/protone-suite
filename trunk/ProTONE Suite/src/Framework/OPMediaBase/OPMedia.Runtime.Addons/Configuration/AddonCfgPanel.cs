@@ -218,7 +218,7 @@ namespace OPMedia.Runtime.Addons.Configuration
 
         private void OnInstallAddons(object sender, EventArgs e)
         {
-            OPMOpenFileDialog dlg = CommonDialogHelper.NewOPMOpenFileDialog();
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
             dlg.Filter = Translator.Translate("TXT_INSTALLADDONFILTER");
             dlg.Title = Translator.Translate("TXT_INSTALLADDONS");
 
