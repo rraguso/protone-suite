@@ -1071,5 +1071,20 @@ Do you want to create it ?</value>
 <data name="TXT_RESULTING_COLOR">
   <value>Resulting color:</value>
 </data>
+<data name="TXT_SAMPLE_TEXT">
+  <value>Sample Text</value>
+</data>
+<data name="TXT_FONTFAMILY">
+  <value>Font Family:</value>
+</data>
+<data name="TXT_FONTSIZE">
+  <value>Font Size:</value>
+</data>
+<data name="TXT_FONTCHARSET">
+  <value>Character Set:</value>
+</data>
+<data name="TXT_CHOOSE_FONT">
+  <value>Choose a font:</value>
+</data>
     
 </root>

@@ -1114,10 +1114,10 @@ de la fenêtre vidéo</value>
   <value></value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_OSD">
-  <value>Choisissez la couleur de l'OSD:</value>
+  <value>Choisissez une couleur de l'OSD:</value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
-  <value>Choisissez la couleur des sous-titres:</value>
+  <value>Choisissez une couleur de sous-titres:</value>
 </data>
 <data name="TXT_SIGNALLEVEL">
   <value>Niveau du signal:</value>
@@ -1127,6 +1127,12 @@ de la fenêtre vidéo</value>
 </data>
 <data name="TXT_SIGNALSPECTRUM">
   <value>Signal spectrogramme:</value>
+</data>
+<data name="TXT_CHOOSE_FONT_FOR_OSD">
+  <value>Choisissez une police pour l'OSD:</value>
+</data>
+<data name="TXT_CHOOSE_FONT_FOR_SUBTITLE">
+  <value>Choisissez une police des sous-titres:</value>
 </data>
     
 </root>

@@ -1073,5 +1073,20 @@ Voulez-vous le créer?</value>
 <data name="TXT_RESULTING_COLOR">
   <value>Couleur résultante:</value>
 </data>
+<data name="TXT_SAMPLE_TEXT">
+  <value>Exemple de texte</value>
+</data>
+<data name="TXT_FONTFAMILY">
+  <value>Famille de fonte:</value>
+</data>
+<data name="TXT_FONTSIZE">
+  <value>Taille de la fonte:</value>
+</data>
+<data name="TXT_FONTCHARSET">
+  <value>Set de caractères:</value>
+</data>
+<data name="TXT_CHOOSE_FONT">
+  <value>Choisissez une fonte:</value>
+</data>
     
 </root>

@@ -93,12 +93,12 @@
             this.opmLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.opmLabel4.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
-            this.opmLabel4.Location = new System.Drawing.Point(3, 136);
+            this.opmLabel4.Location = new System.Drawing.Point(3, 141);
             this.opmLabel4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.opmLabel4.Name = "opmLabel4";
             this.opmLabel4.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel4.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel4.Size = new System.Drawing.Size(143, 17);
+            this.opmLabel4.Size = new System.Drawing.Size(143, 15);
             this.opmLabel4.TabIndex = 12;
             this.opmLabel4.Text = "TXT_RESULTING_COLOR:";
             this.opmLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -110,12 +110,12 @@
             this.lblColorName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblColorName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblColorName.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
-            this.lblColorName.Location = new System.Drawing.Point(3, 0);
-            this.lblColorName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.lblColorName.Location = new System.Drawing.Point(8, 5);
+            this.lblColorName.Margin = new System.Windows.Forms.Padding(8, 5, 3, 3);
             this.lblColorName.Name = "lblColorName";
             this.lblColorName.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblColorName.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblColorName.Size = new System.Drawing.Size(373, 13);
+            this.lblColorName.Size = new System.Drawing.Size(368, 13);
             this.lblColorName.TabIndex = 10;
             this.lblColorName.Text = "[ edited color description ]";
             // 
@@ -125,7 +125,7 @@
             this.opmLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.opmLabel1.FontSize = OPMedia.UI.Themes.FontSizes.Small;
-            this.opmLabel1.Location = new System.Drawing.Point(3, 19);
+            this.opmLabel1.Location = new System.Drawing.Point(3, 24);
             this.opmLabel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.opmLabel1.Name = "opmLabel1";
             this.opmLabel1.OverrideBackColor = System.Drawing.Color.Empty;
@@ -141,7 +141,7 @@
             this.opmLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.opmLabel2.FontSize = OPMedia.UI.Themes.FontSizes.Small;
-            this.opmLabel2.Location = new System.Drawing.Point(3, 45);
+            this.opmLabel2.Location = new System.Drawing.Point(3, 50);
             this.opmLabel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.opmLabel2.Name = "opmLabel2";
             this.opmLabel2.OverrideBackColor = System.Drawing.Color.Empty;
@@ -157,7 +157,7 @@
             this.opmLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.opmLabel3.FontSize = OPMedia.UI.Themes.FontSizes.Small;
-            this.opmLabel3.Location = new System.Drawing.Point(3, 71);
+            this.opmLabel3.Location = new System.Drawing.Point(3, 76);
             this.opmLabel3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.opmLabel3.Name = "opmLabel3";
             this.opmLabel3.OverrideBackColor = System.Drawing.Color.Empty;
@@ -174,7 +174,7 @@
             this.cgR.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cgR.Dock = System.Windows.Forms.DockStyle.Top;
             this.cgR.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.cgR.Location = new System.Drawing.Point(29, 19);
+            this.cgR.Location = new System.Drawing.Point(29, 24);
             this.cgR.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cgR.Maximum = 255D;
             this.cgR.MaximumSize = new System.Drawing.Size(2550, 20);
@@ -196,7 +196,7 @@
             this.cgG.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cgG.Dock = System.Windows.Forms.DockStyle.Top;
             this.cgG.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.cgG.Location = new System.Drawing.Point(29, 45);
+            this.cgG.Location = new System.Drawing.Point(29, 50);
             this.cgG.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cgG.Maximum = 255D;
             this.cgG.MaximumSize = new System.Drawing.Size(2550, 20);
@@ -218,7 +218,7 @@
             this.cgB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cgB.Dock = System.Windows.Forms.DockStyle.Top;
             this.cgB.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.cgB.Location = new System.Drawing.Point(29, 71);
+            this.cgB.Location = new System.Drawing.Point(29, 76);
             this.cgB.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.cgB.Maximum = 255D;
             this.cgB.MaximumSize = new System.Drawing.Size(2550, 20);
@@ -238,7 +238,7 @@
             this.nudR.AutoSize = true;
             this.nudR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudR.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudR.Location = new System.Drawing.Point(329, 19);
+            this.nudR.Location = new System.Drawing.Point(329, 24);
             this.nudR.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
             this.nudR.Maximum = new decimal(new int[] {
             255,
@@ -254,7 +254,7 @@
             this.nudG.AutoSize = true;
             this.nudG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudG.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudG.Location = new System.Drawing.Point(329, 45);
+            this.nudG.Location = new System.Drawing.Point(329, 50);
             this.nudG.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
             this.nudG.Maximum = new decimal(new int[] {
             255,
@@ -270,7 +270,7 @@
             this.nudB.AutoSize = true;
             this.nudB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudB.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudB.Location = new System.Drawing.Point(329, 71);
+            this.nudB.Location = new System.Drawing.Point(329, 76);
             this.nudB.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
             this.nudB.Maximum = new decimal(new int[] {
             255,
@@ -284,7 +284,7 @@
             // txtColor
             // 
             this.txtColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtColor.Location = new System.Drawing.Point(32, 102);
+            this.txtColor.Location = new System.Drawing.Point(32, 107);
             this.txtColor.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.txtColor.Mask = "000 000 000";
             this.txtColor.MaximumSize = new System.Drawing.Size(120, 22);
@@ -2560,8 +2560,182 @@
             System.Drawing.SystemColors.GradientActiveCaption,
             System.Drawing.SystemColors.GradientInactiveCaption,
             System.Drawing.SystemColors.MenuBar,
+            System.Drawing.SystemColors.MenuHighlight,
+            System.Drawing.SystemColors.ActiveBorder,
+            System.Drawing.SystemColors.ActiveCaption,
+            System.Drawing.SystemColors.ActiveCaptionText,
+            System.Drawing.SystemColors.AppWorkspace,
+            System.Drawing.SystemColors.Control,
+            System.Drawing.SystemColors.ControlDark,
+            System.Drawing.SystemColors.ControlDarkDark,
+            System.Drawing.SystemColors.ControlLight,
+            System.Drawing.SystemColors.ControlLightLight,
+            System.Drawing.SystemColors.ControlText,
+            System.Drawing.SystemColors.Desktop,
+            System.Drawing.SystemColors.GrayText,
+            System.Drawing.SystemColors.Highlight,
+            System.Drawing.SystemColors.HighlightText,
+            System.Drawing.SystemColors.HotTrack,
+            System.Drawing.SystemColors.InactiveBorder,
+            System.Drawing.SystemColors.InactiveCaption,
+            System.Drawing.SystemColors.InactiveCaptionText,
+            System.Drawing.SystemColors.Info,
+            System.Drawing.SystemColors.InfoText,
+            System.Drawing.SystemColors.Menu,
+            System.Drawing.SystemColors.MenuText,
+            System.Drawing.SystemColors.ScrollBar,
+            System.Drawing.SystemColors.Window,
+            System.Drawing.SystemColors.WindowFrame,
+            System.Drawing.SystemColors.WindowText,
+            System.Drawing.Color.Transparent,
+            System.Drawing.Color.AliceBlue,
+            System.Drawing.Color.AntiqueWhite,
+            System.Drawing.Color.Aqua,
+            System.Drawing.Color.Aquamarine,
+            System.Drawing.Color.Azure,
+            System.Drawing.Color.Beige,
+            System.Drawing.Color.Bisque,
+            System.Drawing.Color.Black,
+            System.Drawing.Color.BlanchedAlmond,
+            System.Drawing.Color.Blue,
+            System.Drawing.Color.BlueViolet,
+            System.Drawing.Color.Brown,
+            System.Drawing.Color.BurlyWood,
+            System.Drawing.Color.CadetBlue,
+            System.Drawing.Color.Chartreuse,
+            System.Drawing.Color.Chocolate,
+            System.Drawing.Color.Coral,
+            System.Drawing.Color.CornflowerBlue,
+            System.Drawing.Color.Cornsilk,
+            System.Drawing.Color.Crimson,
+            System.Drawing.Color.Cyan,
+            System.Drawing.Color.DarkBlue,
+            System.Drawing.Color.DarkCyan,
+            System.Drawing.Color.DarkGoldenrod,
+            System.Drawing.Color.DarkGray,
+            System.Drawing.Color.DarkGreen,
+            System.Drawing.Color.DarkKhaki,
+            System.Drawing.Color.DarkMagenta,
+            System.Drawing.Color.DarkOliveGreen,
+            System.Drawing.Color.DarkOrange,
+            System.Drawing.Color.DarkOrchid,
+            System.Drawing.Color.DarkRed,
+            System.Drawing.Color.DarkSalmon,
+            System.Drawing.Color.DarkSeaGreen,
+            System.Drawing.Color.DarkSlateBlue,
+            System.Drawing.Color.DarkSlateGray,
+            System.Drawing.Color.DarkTurquoise,
+            System.Drawing.Color.DarkViolet,
+            System.Drawing.Color.DeepPink,
+            System.Drawing.Color.DeepSkyBlue,
+            System.Drawing.Color.DimGray,
+            System.Drawing.Color.DodgerBlue,
+            System.Drawing.Color.Firebrick,
+            System.Drawing.Color.FloralWhite,
+            System.Drawing.Color.ForestGreen,
+            System.Drawing.Color.Fuchsia,
+            System.Drawing.Color.Gainsboro,
+            System.Drawing.Color.GhostWhite,
+            System.Drawing.Color.Gold,
+            System.Drawing.Color.Goldenrod,
+            System.Drawing.Color.Gray,
+            System.Drawing.Color.Green,
+            System.Drawing.Color.GreenYellow,
+            System.Drawing.Color.Honeydew,
+            System.Drawing.Color.HotPink,
+            System.Drawing.Color.IndianRed,
+            System.Drawing.Color.Indigo,
+            System.Drawing.Color.Ivory,
+            System.Drawing.Color.Khaki,
+            System.Drawing.Color.Lavender,
+            System.Drawing.Color.LavenderBlush,
+            System.Drawing.Color.LawnGreen,
+            System.Drawing.Color.LemonChiffon,
+            System.Drawing.Color.LightBlue,
+            System.Drawing.Color.LightCoral,
+            System.Drawing.Color.LightCyan,
+            System.Drawing.Color.LightGoldenrodYellow,
+            System.Drawing.Color.LightGray,
+            System.Drawing.Color.LightGreen,
+            System.Drawing.Color.LightPink,
+            System.Drawing.Color.LightSalmon,
+            System.Drawing.Color.LightSeaGreen,
+            System.Drawing.Color.LightSkyBlue,
+            System.Drawing.Color.LightSlateGray,
+            System.Drawing.Color.LightSteelBlue,
+            System.Drawing.Color.LightYellow,
+            System.Drawing.Color.Lime,
+            System.Drawing.Color.LimeGreen,
+            System.Drawing.Color.Linen,
+            System.Drawing.Color.Magenta,
+            System.Drawing.Color.Maroon,
+            System.Drawing.Color.MediumAquamarine,
+            System.Drawing.Color.MediumBlue,
+            System.Drawing.Color.MediumOrchid,
+            System.Drawing.Color.MediumPurple,
+            System.Drawing.Color.MediumSeaGreen,
+            System.Drawing.Color.MediumSlateBlue,
+            System.Drawing.Color.MediumSpringGreen,
+            System.Drawing.Color.MediumTurquoise,
+            System.Drawing.Color.MediumVioletRed,
+            System.Drawing.Color.MidnightBlue,
+            System.Drawing.Color.MintCream,
+            System.Drawing.Color.MistyRose,
+            System.Drawing.Color.Moccasin,
+            System.Drawing.Color.NavajoWhite,
+            System.Drawing.Color.Navy,
+            System.Drawing.Color.OldLace,
+            System.Drawing.Color.Olive,
+            System.Drawing.Color.OliveDrab,
+            System.Drawing.Color.Orange,
+            System.Drawing.Color.OrangeRed,
+            System.Drawing.Color.Orchid,
+            System.Drawing.Color.PaleGoldenrod,
+            System.Drawing.Color.PaleGreen,
+            System.Drawing.Color.PaleTurquoise,
+            System.Drawing.Color.PaleVioletRed,
+            System.Drawing.Color.PapayaWhip,
+            System.Drawing.Color.PeachPuff,
+            System.Drawing.Color.Peru,
+            System.Drawing.Color.Pink,
+            System.Drawing.Color.Plum,
+            System.Drawing.Color.PowderBlue,
+            System.Drawing.Color.Purple,
+            System.Drawing.Color.Red,
+            System.Drawing.Color.RosyBrown,
+            System.Drawing.Color.RoyalBlue,
+            System.Drawing.Color.SaddleBrown,
+            System.Drawing.Color.Salmon,
+            System.Drawing.Color.SandyBrown,
+            System.Drawing.Color.SeaGreen,
+            System.Drawing.Color.SeaShell,
+            System.Drawing.Color.Sienna,
+            System.Drawing.Color.Silver,
+            System.Drawing.Color.SkyBlue,
+            System.Drawing.Color.SlateBlue,
+            System.Drawing.Color.SlateGray,
+            System.Drawing.Color.Snow,
+            System.Drawing.Color.SpringGreen,
+            System.Drawing.Color.SteelBlue,
+            System.Drawing.Color.Tan,
+            System.Drawing.Color.Teal,
+            System.Drawing.Color.Thistle,
+            System.Drawing.Color.Tomato,
+            System.Drawing.Color.Turquoise,
+            System.Drawing.Color.Violet,
+            System.Drawing.Color.Wheat,
+            System.Drawing.Color.White,
+            System.Drawing.Color.WhiteSmoke,
+            System.Drawing.Color.Yellow,
+            System.Drawing.Color.YellowGreen,
+            System.Drawing.SystemColors.ButtonFace,
+            System.Drawing.SystemColors.ButtonHighlight,
+            System.Drawing.SystemColors.ButtonShadow,
+            System.Drawing.SystemColors.GradientActiveCaption,
+            System.Drawing.SystemColors.GradientInactiveCaption,
+            System.Drawing.SystemColors.MenuBar,
             System.Drawing.SystemColors.MenuHighlight});
-            this.cmbKnownColors.Location = new System.Drawing.Point(152, 102);
+            this.cmbKnownColors.Location = new System.Drawing.Point(152, 107);
             this.cmbKnownColors.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.cmbKnownColors.Name = "cmbKnownColors";
             this.cmbKnownColors.OverrideForeColor = System.Drawing.Color.Empty;
@@ -2575,12 +2749,12 @@
             this.opmTableLayoutPanel1.SetColumnSpan(this.lblResultingColor, 2);
             this.lblResultingColor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblResultingColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblResultingColor.Location = new System.Drawing.Point(152, 136);
+            this.lblResultingColor.Location = new System.Drawing.Point(152, 141);
             this.lblResultingColor.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.lblResultingColor.Name = "lblResultingColor";
             this.lblResultingColor.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblResultingColor.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblResultingColor.Size = new System.Drawing.Size(224, 17);
+            this.lblResultingColor.Size = new System.Drawing.Size(224, 15);
             this.lblResultingColor.TabIndex = 13;
             // 
             // opmLabel5
@@ -2589,7 +2763,7 @@
             this.opmLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.opmLabel5.FontSize = OPMedia.UI.Themes.FontSizes.Small;
-            this.opmLabel5.Location = new System.Drawing.Point(3, 102);
+            this.opmLabel5.Location = new System.Drawing.Point(3, 107);
             this.opmLabel5.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
             this.opmLabel5.Name = "opmLabel5";
             this.opmLabel5.OverrideBackColor = System.Drawing.Color.Empty;
