@@ -1114,10 +1114,10 @@ fereastră video</value>
   <value></value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_OSD">
-  <value>Alege culoarea pentru OSD:</value>
+  <value>Alege o culoare pentru OSD:</value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
-  <value>Alege culoarea pentru subtitrare:</value>
+  <value>Alege o culoare pentru subtitrare:</value>
 </data>
 <data name="TXT_SIGNALLEVEL">
   <value>Nivel semnal:</value>
@@ -1127,6 +1127,12 @@ fereastră video</value>
 </data>
 <data name="TXT_SIGNALSPECTRUM">
   <value>Spectrograma semnalului:</value>
+</data>
+<data name="TXT_CHOOSE_FONT_FOR_OSD">
+  <value>Alege un font pt. OSD:</value>
+</data>
+<data name="TXT_CHOOSE_FONT_FOR_SUBTITLE">
+  <value>Alege un font pt. subtitrare:</value>
 </data>
     
 </root>

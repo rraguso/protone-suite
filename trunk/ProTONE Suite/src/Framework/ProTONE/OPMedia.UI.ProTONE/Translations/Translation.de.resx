@@ -1114,10 +1114,10 @@ Videofenster Position</value>
   <value></value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_OSD">
-  <value>Wählen Sie die Farbe für OSD:</value>
+  <value>Wählen Sie eine Farbe für OSD:</value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
-  <value>Wählen Sie die Farbe für Untertitel:</value>
+  <value>Wählen Sie eine Farbe für Untertitel:</value>
 </data>
 <data name="TXT_SIGNALLEVEL">
   <value>Signal Level:</value>
@@ -1127,6 +1127,12 @@ Videofenster Position</value>
 </data>
 <data name="TXT_SIGNALSPECTRUM">
   <value>Signal Spektrogramm:</value>
+</data>
+<data name="TXT_CHOOSE_FONT_FOR_OSD">
+  <value>Wählen Sie eine Schriftart für OSD:</value>
+</data>
+<data name="TXT_CHOOSE_FONT_FOR_SUBTITLE">
+  <value>Wählen Sie eine Schriftart für Untertitel:</value>
 </data>
     
 </root>

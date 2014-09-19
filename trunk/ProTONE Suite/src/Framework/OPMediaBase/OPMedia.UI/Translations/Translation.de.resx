@@ -1071,5 +1071,20 @@ Wollen Sie es schaffen?</value>
 <data name="TXT_RESULTING_COLOR">
   <value>Entstandene Farbe:</value>
 </data>
+<data name="TXT_SAMPLE_TEXT">
+  <value>Beispieltext</value>
+</data>
+<data name="TXT_FONTFAMILY">
+  <value>Schriftfamilie:</value>
+</data>
+<data name="TXT_FONTSIZE">
+  <value>Schriftgröße:</value>
+</data>
+<data name="TXT_FONTCHARSET">
+  <value>Zeichensatz:</value>
+</data>
+<data name="TXT_CHOOSE_FONT">
+  <value>Wählen Sie eine Schriftart:</value>
+</data>
     
 </root>

@@ -1114,10 +1114,10 @@ window position</value>
   <value>Media Screens</value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_OSD">
-  <value>Choose color for OSD:</value>
+  <value>Choose a color for OSD:</value>
 </data>
 <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
-  <value>Choose color for subtitle:</value>
+  <value>Choose a color for subtitle:</value>
 </data>
 <data name="TXT_SIGNALLEVEL">
   <value>Signal Level:</value>
@@ -1127,6 +1127,12 @@ window position</value>
 </data>
 <data name="TXT_SIGNALSPECTRUM">
   <value>Signal Spectrogram:</value>
+</data>
+<data name="TXT_CHOOSE_FONT_FOR_OSD">
+  <value>Choose a font for OSD:</value>
+</data>
+<data name="TXT_CHOOSE_FONT_FOR_SUBTITLE">
+  <value>Choose a font for subtitle:</value>
 </data>
     
 </root>

@@ -20,8 +20,8 @@ namespace OPMedia.UI.Dialogs
 
         public Font Font
         {
-            get { return ctlFontChooser.Font; }
-            set { ctlFontChooser.Font = value; }
+            get { return ctlFontChooser.SelectedFont; }
+            set { ctlFontChooser.SelectedFont = value; }
         }
 
         public OPMFontChooserDialog()

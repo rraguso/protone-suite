@@ -1062,13 +1062,28 @@ Doriţi să fie creat ?</value>
   <value>Control</value>
 </data>
 <data name="TXT_S_TROUBLESHOOTING">
-  <value></value>
+  <value>Suport</value>
 </data>
 <data name="TXT_EDIT_KEY">
   <value>Configurare scurtătură</value>
 </data>
 <data name="TXT_RESULTING_COLOR">
   <value>Culoare rezultat:</value>
+</data>
+<data name="TXT_SAMPLE_TEXT">
+  <value>Exemplu Text</value>
+</data>
+<data name="TXT_FONTFAMILY">
+  <value>Famila fontului:</value>
+</data>
+<data name="TXT_FONTSIZE">
+  <value>Dimensiune font:</value>
+</data>
+<data name="TXT_FONTCHARSET">
+  <value>Set de caractere:</value>
+</data>
+<data name="TXT_CHOOSE_FONT">
+  <value>Alege un font:</value>
 </data>
     
 </root>
