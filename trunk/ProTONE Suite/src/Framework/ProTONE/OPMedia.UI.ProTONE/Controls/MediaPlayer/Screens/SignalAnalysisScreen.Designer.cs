@@ -36,7 +36,7 @@
             this.lblFqMin = new OPMedia.UI.Controls.OPMLabel();
             this.lblFqMax = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel5 = new OPMedia.UI.Controls.OPMLabel();
-            this.opmLabel13 = new OPMedia.UI.Controls.OPMLabel();
+            this.lblSignalSpectrum = new OPMedia.UI.Controls.OPMLabel();
             this.pnlVuMeter = new System.Windows.Forms.TableLayoutPanel();
             this.opmLabel4 = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel3 = new OPMedia.UI.Controls.OPMLabel();
@@ -44,13 +44,13 @@
             this.vuLeft = new OPMedia.UI.ProTONE.Controls.VuMeterGauge();
             this.opmLabel1 = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel2 = new OPMedia.UI.Controls.OPMLabel();
-            this.opmLabel6 = new OPMedia.UI.Controls.OPMLabel();
+            this.lblSignalLevel = new OPMedia.UI.Controls.OPMLabel();
             this.pnlWaveform = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.gpWaveform = new OPMedia.UI.Controls.GraphPlotter();
             this.opmLabel7 = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel8 = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel9 = new OPMedia.UI.Controls.OPMLabel();
-            this.opmLabel12 = new OPMedia.UI.Controls.OPMLabel();
+            this.lblSignalWaveform = new OPMedia.UI.Controls.OPMLabel();
             this.opmContextMenuStrip1 = new OPMedia.UI.Controls.OPMContextMenuStrip();
             this.opmTableLayoutPanel1.SuspendLayout();
             this.pnlSpectrogram.SuspendLayout();
@@ -89,7 +89,7 @@
             this.pnlSpectrogram.Controls.Add(this.lblFqMin, 1, 4);
             this.pnlSpectrogram.Controls.Add(this.lblFqMax, 2, 4);
             this.pnlSpectrogram.Controls.Add(this.opmLabel5, 0, 2);
-            this.pnlSpectrogram.Controls.Add(this.opmLabel13, 1, 0);
+            this.pnlSpectrogram.Controls.Add(this.lblSignalSpectrum, 1, 0);
             this.pnlSpectrogram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSpectrogram.Location = new System.Drawing.Point(0, 214);
             this.pnlSpectrogram.Margin = new System.Windows.Forms.Padding(0, 5, 3, 3);
@@ -198,19 +198,19 @@
             this.opmLabel5.Text = "-3 dBM";
             this.opmLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // opmLabel13
+            // lblSignalSpectrum
             // 
-            this.opmLabel13.AutoSize = true;
-            this.pnlSpectrogram.SetColumnSpan(this.opmLabel13, 2);
-            this.opmLabel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmLabel13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel13.Location = new System.Drawing.Point(49, 0);
-            this.opmLabel13.Name = "opmLabel13";
-            this.opmLabel13.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmLabel13.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel13.Size = new System.Drawing.Size(218, 13);
-            this.opmLabel13.TabIndex = 11;
-            this.opmLabel13.Text = "TXT_SIGNALSPECTRUM";
+            this.lblSignalSpectrum.AutoSize = true;
+            this.pnlSpectrogram.SetColumnSpan(this.lblSignalSpectrum, 2);
+            this.lblSignalSpectrum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSignalSpectrum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSignalSpectrum.Location = new System.Drawing.Point(49, 0);
+            this.lblSignalSpectrum.Name = "lblSignalSpectrum";
+            this.lblSignalSpectrum.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblSignalSpectrum.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblSignalSpectrum.Size = new System.Drawing.Size(218, 13);
+            this.lblSignalSpectrum.TabIndex = 11;
+            this.lblSignalSpectrum.Text = "TXT_SIGNALSPECTRUM";
             // 
             // pnlVuMeter
             // 
@@ -226,7 +226,7 @@
             this.pnlVuMeter.Controls.Add(this.vuLeft, 1, 1);
             this.pnlVuMeter.Controls.Add(this.opmLabel1, 0, 1);
             this.pnlVuMeter.Controls.Add(this.opmLabel2, 0, 2);
-            this.pnlVuMeter.Controls.Add(this.opmLabel6, 1, 0);
+            this.pnlVuMeter.Controls.Add(this.lblSignalLevel, 1, 0);
             this.pnlVuMeter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlVuMeter.Location = new System.Drawing.Point(18, 5);
             this.pnlVuMeter.Margin = new System.Windows.Forms.Padding(18, 5, 0, 3);
@@ -337,19 +337,19 @@
             this.opmLabel2.Text = "R: 0";
             this.opmLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // opmLabel6
+            // lblSignalLevel
             // 
-            this.opmLabel6.AutoSize = true;
-            this.pnlVuMeter.SetColumnSpan(this.opmLabel6, 2);
-            this.opmLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmLabel6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel6.Location = new System.Drawing.Point(29, 0);
-            this.opmLabel6.Name = "opmLabel6";
-            this.opmLabel6.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmLabel6.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel6.Size = new System.Drawing.Size(223, 13);
-            this.opmLabel6.TabIndex = 6;
-            this.opmLabel6.Text = "TXT_SIGNALLEVEL";
+            this.lblSignalLevel.AutoSize = true;
+            this.pnlVuMeter.SetColumnSpan(this.lblSignalLevel, 2);
+            this.lblSignalLevel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSignalLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSignalLevel.Location = new System.Drawing.Point(29, 0);
+            this.lblSignalLevel.Name = "lblSignalLevel";
+            this.lblSignalLevel.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblSignalLevel.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblSignalLevel.Size = new System.Drawing.Size(223, 13);
+            this.lblSignalLevel.TabIndex = 6;
+            this.lblSignalLevel.Text = "TXT_SIGNALLEVEL";
             // 
             // pnlWaveform
             // 
@@ -360,7 +360,7 @@
             this.pnlWaveform.Controls.Add(this.opmLabel7, 0, 1);
             this.pnlWaveform.Controls.Add(this.opmLabel8, 0, 2);
             this.pnlWaveform.Controls.Add(this.opmLabel9, 0, 3);
-            this.pnlWaveform.Controls.Add(this.opmLabel12, 1, 0);
+            this.pnlWaveform.Controls.Add(this.lblSignalWaveform, 1, 0);
             this.pnlWaveform.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlWaveform.Location = new System.Drawing.Point(6, 70);
             this.pnlWaveform.Margin = new System.Windows.Forms.Padding(6, 5, 3, 3);
@@ -439,18 +439,18 @@
             this.opmLabel9.Text = "-MAX";
             this.opmLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // opmLabel12
+            // lblSignalWaveform
             // 
-            this.opmLabel12.AutoSize = true;
-            this.opmLabel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmLabel12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel12.Location = new System.Drawing.Point(43, 0);
-            this.opmLabel12.Name = "opmLabel12";
-            this.opmLabel12.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmLabel12.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel12.Size = new System.Drawing.Size(218, 13);
-            this.opmLabel12.TabIndex = 6;
-            this.opmLabel12.Text = "TXT_SIGNALWAVEFORM";
+            this.lblSignalWaveform.AutoSize = true;
+            this.lblSignalWaveform.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSignalWaveform.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSignalWaveform.Location = new System.Drawing.Point(43, 0);
+            this.lblSignalWaveform.Name = "lblSignalWaveform";
+            this.lblSignalWaveform.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblSignalWaveform.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblSignalWaveform.Size = new System.Drawing.Size(218, 13);
+            this.lblSignalWaveform.TabIndex = 6;
+            this.lblSignalWaveform.Text = "TXT_SIGNALWAVEFORM";
             // 
             // opmContextMenuStrip1
             // 
@@ -502,9 +502,9 @@
         private UI.Controls.OPMLabel lblFqMin;
         private UI.Controls.OPMLabel lblFqMax;
         private UI.Controls.OPMLabel opmLabel5;
-        private UI.Controls.OPMLabel opmLabel6;
-        private UI.Controls.OPMLabel opmLabel12;
-        private UI.Controls.OPMLabel opmLabel13;
+        private UI.Controls.OPMLabel lblSignalLevel;
+        private UI.Controls.OPMLabel lblSignalWaveform;
+        private UI.Controls.OPMLabel lblSignalSpectrum;
 
 
     }

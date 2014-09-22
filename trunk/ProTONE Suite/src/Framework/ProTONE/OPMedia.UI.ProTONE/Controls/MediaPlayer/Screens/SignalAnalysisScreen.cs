@@ -19,6 +19,8 @@ using OPMedia.Core.Configuration;
 using LocalEventNames = OPMedia.UI.ProTONE.GlobalEvents.EventNames;
 using OPMedia.Core.GlobalEvents;
 using OPMedia.Runtime.ProTONE.Configuration;
+using OPMedia.UI.ProTONE.Translations;
+using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 {
@@ -77,6 +79,15 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                 opmTableLayoutPanel1.RowStyles[2] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F);
             }
 
+            UpdateLabels();
+        }
+
+        [EventSink(EventNames.PerformTranslation)]
+        private void UpdateLabels()
+        {
+            lblSignalLevel.Text = Translator.Translate("TXT_SIGNALLEVEL");
+            lblSignalWaveform.Text = Translator.Translate("TXT_SIGNALWAVEFORM");
+            lblSignalSpectrum.Text = Translator.Translate("TXT_SIGNALSPECTRUM");
         }
 
         void _tmrUpdate_Tick(object sender, EventArgs e)

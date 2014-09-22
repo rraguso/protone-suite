@@ -705,10 +705,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         private void ExtractSamples(AudioSample smp)
         {
-            if (smp == null || _actualAudioFormat == null)
+            if (smp == null || _actualAudioFormat == null || mediaPosition == null)
                 return;
 
-            double mediaTime = this.MediaPosition;
+            double mediaTime = 0;
+            mediaPosition.get_CurrentPosition(out mediaTime);
+
             double delay = smp.SampleTime - mediaTime;
 
             // Sync the sample. 
