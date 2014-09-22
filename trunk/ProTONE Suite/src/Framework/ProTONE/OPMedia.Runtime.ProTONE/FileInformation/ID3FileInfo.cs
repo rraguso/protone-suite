@@ -385,7 +385,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [SingleSelectionBrowsable]
         [Editor("OPMedia.UI.ProTONE.Dialogs.ID3ArtworkPropertyBrowser, OPMedia.UI.ProTONE", typeof(UITypeEditor))]
         [TranslatableDisplayName("TXT_ARTWORK")]
-        [TranslatableCategory("TXT_TAGINFO")]
+        [TranslatableCategory("TXT_EXTRAINFO")]
         public ID3ArtworkInfo ArtworkInfo
         {
             get 
