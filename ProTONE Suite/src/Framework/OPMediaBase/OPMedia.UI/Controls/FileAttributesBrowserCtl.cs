@@ -103,10 +103,12 @@ namespace OPMedia.UI.Controls
             return value;
         }
 
+        // -----------------
         public static void ProcessObjectAttributes(List<object> lObjects, 
             List<Type> attributeTypesToIgnore = null,
             List<string> categoriesToIgnore = null)
         {
+            
             if (categoriesToIgnore != null)
             {
                 for (int i = 0; i < categoriesToIgnore.Count; i++)
@@ -123,16 +125,7 @@ namespace OPMedia.UI.Controls
 
                 foreach (PropertyDescriptor pd in TypeDescriptor.GetProperties(targetType))
                 {
-                    bool? shouldPropertyBeSeen = default(bool?);
-
-                    // translation
-                    foreach (Attribute attr in pd.Attributes)
-                    {
-                        if (attr is ITranslatableAttribute)
-                        {
-                            (attr as ITranslatableAttribute).PerformTranslation(pd);
-                        }
-                    }
+                    bool shouldPropertyBeSeen = pd.IsBrowsable;
 
                     // identify attributes that would indicate that the property should be hidden
                     foreach (Attribute attr in pd.Attributes)
@@ -144,21 +137,48 @@ namespace OPMedia.UI.Controls
                             break;
                         }
 
-                        if (categoriesToIgnore != null && categoriesToIgnore.Contains(Translator.Translate(pd.Category)))
+                        bool isOnIgnoreList = false;
+                        if (categoriesToIgnore != null)
+                        {
+                            foreach (string s in categoriesToIgnore)
+                            {
+                                string s1 = s.ToLowerInvariant();
+                                string s2 = Translator.Translate(pd.Category).ToLowerInvariant();
+
+                                if (s1 != null && s2 != null)
+                                {
+                                    if (s1.Contains(s2) || s2.Contains(s1))
+                                    {
+                                        isOnIgnoreList = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (isOnIgnoreList)
                         {
                             shouldPropertyBeSeen = false;
                             break;
                         }
                     }
 
-                    // hide the property if needed
-                    if (shouldPropertyBeSeen == false)
+                    UIExtensions.SetAttribute(pd.Name, "browsable", targetType, shouldPropertyBeSeen);
+
+                    if (shouldPropertyBeSeen)
                     {
-                        UIExtensions.SetAttribute(pd.Name, "browsable", targetType, false);
+                        // translation
+                        foreach (Attribute attr in pd.Attributes)
+                        {
+                            if (attr is ITranslatableAttribute)
+                            {
+                                (attr as ITranslatableAttribute).PerformTranslation(pd);
+                            }
+                        }
                     }
                 }
             }
         }
+        // -----------------
     }
-
 }

@@ -108,6 +108,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     List<string> categoriesToIgnore = new List<string>();
                     categoriesToIgnore.Add("TXT_EXTRAINFO");
                     categoriesToIgnore.Add("TXT_FILESYSTEMINFO");
+                    categoriesToIgnore.Add("TXT_MISC");
 
                     FileAttributesBrowser.ProcessObjectAttributes(lii, null, categoriesToIgnore);
 
