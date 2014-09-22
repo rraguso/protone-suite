@@ -108,6 +108,7 @@ namespace OPMedia.UI.Controls
             List<Type> attributeTypesToIgnore = null,
             List<string> categoriesToIgnore = null)
         {
+            bool complexFiltering = (categoriesToIgnore != null || attributeTypesToIgnore != null);
             
             if (categoriesToIgnore != null)
             {
@@ -125,6 +126,9 @@ namespace OPMedia.UI.Controls
 
                 foreach (PropertyDescriptor pd in TypeDescriptor.GetProperties(targetType))
                 {
+                    if (pd.IsBrowsable == false && complexFiltering)
+                        continue;
+
                     bool shouldPropertyBeSeen = pd.IsBrowsable;
 
                     // identify attributes that would indicate that the property should be hidden
