@@ -125,7 +125,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         [Editor("OPMedia.UI.ProTONE.Controls.BookmarkManagement.BookmarkPropertyBrowser, OPMedia.UI.ProTONE", typeof(UITypeEditor))]
         [TranslatableDisplayName("TXT_BOOKMARKLIST")]
-        [TranslatableCategory("TXT_BOOKMARKINFO")]
+        [TranslatableCategory("TXT_EXTRAINFO")]
         [BookmarksNode]
         [Browsable(true)]
         public PlaylistItem BookmarkManager
