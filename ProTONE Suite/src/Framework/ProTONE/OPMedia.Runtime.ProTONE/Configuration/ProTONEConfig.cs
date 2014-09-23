@@ -306,7 +306,7 @@ namespace OPMedia.Runtime.ProTONE.Configuration
         public static string SubtitleDownloadURIs
         {
             get { return ConfigFileManager.Default.GetValue("SubtitleDownloadURIs", DefaultSubtitleURIs); }
-            set { ConfigFileManager.Default.GetValue("SubtitleDownloadURIs", value); }
+            set { ConfigFileManager.Default.SetValue("SubtitleDownloadURIs", value); }
         }
 
         public static MediaScreen ShowMediaScreens
