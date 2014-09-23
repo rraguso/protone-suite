@@ -15,6 +15,7 @@ using OPMedia.Core;
 using OPMedia.Core.Utilities;
 using OPMedia.UI.Controls;
 using OPMedia.Runtime.ProTONE.Configuration;
+using OPMedia.UI.Themes;
 
 namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 {
@@ -29,6 +30,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
         public PlaylistOptionsPage()
         {
             InitializeComponent();
+
+            lblDisplayFileName.OverrideBackColor = ThemeManager.ColorValidationFailed;
 
             chkFileNameFormat.Checked = ProTONEConfig.UseFileNameFormat;
             chkUseMetadata.Checked = ProTONEConfig.UseMetadata;
