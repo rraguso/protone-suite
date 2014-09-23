@@ -158,7 +158,6 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableDisplayName("TXT_DURATION")]
         [TranslatableCategory("TXT_MEDIAINFO")]
         [SingleSelectionBrowsable]
-        [Browsable(true)]
         public override TimeSpan? Duration
         {
             get

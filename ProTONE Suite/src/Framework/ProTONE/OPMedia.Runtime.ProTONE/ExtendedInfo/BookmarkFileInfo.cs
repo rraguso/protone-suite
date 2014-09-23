@@ -23,25 +23,22 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
         public Dictionary<TimeSpan, Bookmark> Bookmarks
         { get { return _bookmarks; } }
 
-        [Browsable(true)]
         [TranslatableCategory("TXT_EXTRAINFO")]
         [TranslatableDisplayName("TXT_ISORPHAN")]
-        [BookmarksNode]
+        [SingleSelectionBrowsable]
         public bool IsOrphan
         { get { return !File.Exists(ParentMediaFile); } }
 
-        [Browsable(true)]
         [TranslatableDisplayName("TXT_PARENTMEDIAFILE")]
         [TranslatableCategory("TXT_EXTRAINFO")]
-        [BookmarksNode]
+        [SingleSelectionBrowsable]
         public string ParentMediaFile
         { get { return base.Path.ToLowerInvariant().Replace(".bmk", string.Empty); } }
 
-        [Browsable(true)]
         [Editor("OPMedia.UI.ProTONE.Controls.BookmarkManagement.BookmarkPropertyBrowser, OPMedia.UI.ProTONE", typeof(UITypeEditor))]
         [TranslatableDisplayName("TXT_BOOKMARKLIST")]
         [TranslatableCategory("TXT_EXTRAINFO")]
-        [BookmarksNode]
+        [SingleSelectionBrowsable]
         public PlaylistItem BookmarkManager
         {
             get { return new BoormarkEditablePlaylistItem(this.ParentMediaFile); }

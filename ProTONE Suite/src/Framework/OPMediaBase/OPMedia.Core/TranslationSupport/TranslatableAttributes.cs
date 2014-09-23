@@ -75,6 +75,7 @@ namespace OPMedia.Core.TranslationSupport
         public TranslatableDisplayNameAttribute(string tag)
         {
             Tag = tag;
+            base.DisplayNameValue = Translator.Translate(Tag) + ":";
         }
 
         public void PerformTranslation(PropertyDescriptor pd)
