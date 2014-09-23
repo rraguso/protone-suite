@@ -11,6 +11,7 @@ using OPMedia.Core.Logging;
 using System.Drawing.Design;
 using OPMedia.Runtime.ProTONE.Playlists;
 using OPMedia.Core.TranslationSupport;
+using TagLib.Mpeg;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -22,6 +23,15 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         private string mediaType;
         private BookmarkFileInfo _bookmarkInfo;
+
+        [Browsable(false)]
+        public MediaFileInfoSlim Slim
+        {
+            get
+            {
+                return new MediaFileInfoSlim(this);
+            }
+        }
 
         [Browsable(false)]
         public bool IsVideoFile
@@ -126,8 +136,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [Editor("OPMedia.UI.ProTONE.Controls.BookmarkManagement.BookmarkPropertyBrowser, OPMedia.UI.ProTONE", typeof(UITypeEditor))]
         [TranslatableDisplayName("TXT_BOOKMARKLIST")]
         [TranslatableCategory("TXT_EXTRAINFO")]
-        [BookmarksNode]
-        [Browsable(true)]
+        [SingleSelectionBrowsable]
         public PlaylistItem BookmarkManager
         {
             get {  return new BoormarkEditablePlaylistItem(this.Path); }
@@ -136,6 +145,24 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         [Browsable(false)]
         public virtual Image CustomImage
+        {
+            get { return null; }
+        }
+
+        [Browsable(false)]
+        public virtual Bitrate? Bitrate
+        {
+            get { return null; }
+        }
+        
+        [Browsable(false)]
+        public virtual ChannelMode? Channels
+        {
+            get { return null; }
+        }
+        
+        [Browsable(false)]
+        public virtual int? Frequency
         {
             get { return null; }
         }
@@ -347,6 +374,111 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         {
         }
 
-    }
 
+        public class MediaFileInfoSlim
+        {
+            private MediaFileInfo _mfi = null;
+
+            public MediaFileInfoSlim(MediaFileInfo mfi)
+            {
+                _mfi = mfi;
+            }
+
+            public void Save()
+            {
+                if (_mfi != null) _mfi.Save();
+            }
+
+            [TranslatableDisplayName("TXT_TITLE")]
+            [TranslatableCategory("TXT_TAGINFO")]
+            public string Title
+            {
+                get { return (_mfi != null) ? _mfi.Title : null; }
+                set { if (_mfi != null) _mfi.Title = value; }
+            }
+
+            [TranslatableDisplayName("TXT_ARTIST")]
+            [TranslatableCategory("TXT_TAGINFO")]
+            public string Artist
+            {
+                get { return (_mfi != null) ? _mfi.Artist : null; }
+                set { if (_mfi != null) _mfi.Artist = value; }
+            }
+
+            [TranslatableDisplayName("TXT_ALBUM")]
+            [TranslatableCategory("TXT_TAGINFO")]
+            public string Album
+            {
+                get { return (_mfi != null) ? _mfi.Album : null; }
+                set { if (_mfi != null) _mfi.Album = value; }
+            }
+
+            [TranslatableDisplayName("TXT_GENRE")]
+            [TranslatableCategory("TXT_TAGINFO")]
+            [Editor("OPMedia.Runtime.ProTONE.GenrePropertyBrowser, OPMedia.Runtime.ProTONE", typeof(UITypeEditor))]
+            public string Genre
+            {
+                get { return (_mfi != null) ? _mfi.Genre : null; }
+                set { if (_mfi != null) _mfi.Genre = value; }
+            }
+
+            [TranslatableDisplayName("TXT_COMMENTS")]
+            [TranslatableCategory("TXT_TAGINFO")]
+            [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+                typeof(UITypeEditor)), Localizable(true)]
+            public string Comments
+            {
+                get { return (_mfi != null) ? _mfi.Comments : null; }
+                set { if (_mfi != null) _mfi.Comments = value; }
+            }
+
+            [TranslatableDisplayName("TXT_TRACK")]
+            [TranslatableCategory("TXT_TAGINFO")]
+            [DefaultValue((short)1)]
+            public short? Track
+            {
+                get { return (_mfi != null) ? _mfi.Track : null; }
+                set { if (_mfi != null) _mfi.Track = value; }
+            }
+
+            [TranslatableDisplayName("TXT_YEAR")]
+            [TranslatableCategory("TXT_TAGINFO")]
+            public short? Year
+            {
+                get { return (_mfi != null) ? _mfi.Year : null; }
+                set { if (_mfi != null) _mfi.Year = value; }
+            }
+
+
+
+            [TranslatableDisplayName("TXT_BITRATE")]
+            [TranslatableCategory("TXT_MEDIAINFO")]
+            public Bitrate? Bitrate
+            {
+                get { return (_mfi != null) ? _mfi.Bitrate : null; }
+            }
+
+            [TranslatableDisplayName("TXT_CHANNELS")]
+            [TranslatableCategory("TXT_MEDIAINFO")]
+            public ChannelMode? Channels
+            {
+                get { return (_mfi != null) ? _mfi.Channels : null; }
+            }
+
+            [TranslatableDisplayName("TXT_FREQUENCY")]
+            [TranslatableCategory("TXT_MEDIAINFO")]
+            public int? Frequency
+            {
+                get { return (_mfi != null) ? _mfi.Frequency : null; }
+            }
+
+            [TranslatableDisplayName("TXT_DURATION")]
+            [TranslatableCategory("TXT_MEDIAINFO")]
+            [ReadOnly(true)]
+            public TimeSpan? Duration
+            {
+                get { return (_mfi != null) ? _mfi.Duration : null; }
+            }
+        }
+    }
 }

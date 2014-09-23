@@ -103,86 +103,43 @@ namespace OPMedia.UI.Controls
             return value;
         }
 
-        // -----------------
-        public static void ProcessObjectAttributes(List<object> lObjects, 
-            List<Type> attributeTypesToIgnore = null,
-            List<string> categoriesToIgnore = null)
+        public static void ProcessSingleObjectAttributes(object obj)
         {
-            bool complexFiltering = (categoriesToIgnore != null || attributeTypesToIgnore != null);
-            
-            if (categoriesToIgnore != null)
+            foreach (PropertyDescriptor pd in TypeDescriptor.GetProperties(obj.GetType()))
             {
-                for (int i = 0; i < categoriesToIgnore.Count; i++)
+                foreach (Attribute attr in pd.Attributes)
                 {
-                    categoriesToIgnore[i] = Translator.Translate(categoriesToIgnore[i]);
+                    if (attr is ITranslatableAttribute)
+                    {
+                        (attr as ITranslatableAttribute).PerformTranslation(pd);
+                    }
                 }
             }
+        }
 
+        public static void ProcessObjectAttributes(List<object> lObjects)
+        {
             if (lObjects.Count > 0)
             {
                 bool singleSelection = (lObjects.Count == 1);
 
-                Type targetType = lObjects[0].GetType();
-
-                foreach (PropertyDescriptor pd in TypeDescriptor.GetProperties(targetType))
+                foreach (PropertyDescriptor pd in TypeDescriptor.GetProperties(lObjects[0].GetType()))
                 {
-                    if (pd.IsBrowsable == false && complexFiltering)
-                        continue;
-
-                    bool shouldPropertyBeSeen = pd.IsBrowsable;
-
-                    // identify attributes that would indicate that the property should be hidden
                     foreach (Attribute attr in pd.Attributes)
                     {
-                        if (attr is SingleSelectionBrowsableAttribute)
+                        if (typeof(SingleSelectionBrowsableAttribute) == attr.GetType())
                         {
-                            shouldPropertyBeSeen = singleSelection;
-                            shouldPropertyBeSeen &= (attributeTypesToIgnore == null || !attributeTypesToIgnore.Contains(attr.GetType()));
-                            break;
+                            UIExtensions.SetAttribute(pd.Name, "browsable", typeof(NativeFileInfo), singleSelection);
                         }
 
-                        bool isOnIgnoreList = false;
-                        if (categoriesToIgnore != null)
+                        if (attr is ITranslatableAttribute)
                         {
-                            foreach (string s in categoriesToIgnore)
-                            {
-                                string s1 = s.ToLowerInvariant();
-                                string s2 = Translator.Translate(pd.Category).ToLowerInvariant();
-
-                                if (s1 != null && s2 != null)
-                                {
-                                    if (s1.Contains(s2) || s2.Contains(s1))
-                                    {
-                                        isOnIgnoreList = true;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-
-                        if (isOnIgnoreList)
-                        {
-                            shouldPropertyBeSeen = false;
-                            break;
-                        }
-                    }
-
-                    UIExtensions.SetAttribute(pd.Name, "browsable", targetType, shouldPropertyBeSeen);
-
-                    if (shouldPropertyBeSeen)
-                    {
-                        // translation
-                        foreach (Attribute attr in pd.Attributes)
-                        {
-                            if (attr is ITranslatableAttribute)
-                            {
-                                (attr as ITranslatableAttribute).PerformTranslation(pd);
-                            }
+                            (attr as ITranslatableAttribute).PerformTranslation(pd);
                         }
                     }
                 }
             }
         }
-        // -----------------
     }
+
 }

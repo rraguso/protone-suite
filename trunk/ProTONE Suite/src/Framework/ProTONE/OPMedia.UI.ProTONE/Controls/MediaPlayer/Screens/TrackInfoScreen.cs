@@ -49,19 +49,19 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
         {
             PlaylistItem plItem = pgProperties.Tag as PlaylistItem;
 
-            if (plItem != null && plItem.IsTrackInfoEditable &&
-                pgProperties.SelectedObjects != null)
+            if (plItem != null && plItem.IsTrackInfoEditable)
             {
-                foreach (MediaFileInfo mfi in pgProperties.SelectedObjects)
+                try
                 {
-                    try
+                    MediaFileInfo.MediaFileInfoSlim mfis = pgProperties.SelectedObject as MediaFileInfo.MediaFileInfoSlim;
+                    if (mfis != null)
                     {
-                        mfi.Save();
+                        mfis.Save();
                     }
-                    catch (Exception ex)
-                    {
-                        ErrorDispatcher.DispatchError(ex);
-                    }
+                }
+                catch (Exception ex)
+                {
+                    ErrorDispatcher.DispatchError(ex);
                 }
             }
 
@@ -102,21 +102,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 
                 if (plItem.SupportsTrackInfo)
                 {
-                    List<object> lii = new List<object>();
-                    lii.Add(plItem.MediaFileInfo);
-
-                    List<string> categoriesToIgnore = new List<string>();
-                    categoriesToIgnore.Add("TXT_EXTRAINFO");
-                    categoriesToIgnore.Add("TXT_FILESYSTEMINFO");
-                    categoriesToIgnore.Add("TXT_MISC");
-
-                    FileAttributesBrowser.ProcessObjectAttributes(lii, null, categoriesToIgnore);
-
                     pgProperties.Tag = plItem;
-                    pgProperties.SelectedObjects = lii.ToArray();
+
+                    FileAttributesBrowser.ProcessSingleObjectAttributes(plItem.MediaFileInfo.Slim);
+                    pgProperties.SelectedObject = plItem.MediaFileInfo.Slim;
+                    
                     pgProperties.Visible = true;
                     lblNoInfo.Visible = false;
-
                 }
             }
 
