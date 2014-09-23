@@ -73,7 +73,8 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             // 
             // txtHints
             // 
-            this.txtHints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txtHints.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.txtHints.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtHints.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtHints.FontSize = OPMedia.UI.Themes.FontSizes.Small;
             this.txtHints.Location = new System.Drawing.Point(0, 142);
@@ -81,12 +82,19 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.txtHints.MaxLength = 50;
             this.txtHints.Multiline = true;
             this.txtHints.Name = "txtHints";
+            this.txtHints.OverrideBackColor = System.Drawing.Color.Empty;
             this.txtHints.OverrideForeColor = System.Drawing.Color.Empty;
+            this.txtHints.Padding = new System.Windows.Forms.Padding(3);
+            this.txtHints.PasswordChar = '\0';
             this.txtHints.ReadOnly = true;
+            this.txtHints.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtHints.ShortcutsEnabled = false;
             this.txtHints.Size = new System.Drawing.Size(315, 184);
             this.txtHints.TabIndex = 6;
-            this.txtHints.Text = "TXT_TAGGINGPATTERNS";
+            this.txtHints.Text = "TXT_METADATAPATTERNS";
+            this.txtHints.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtHints.UseSystemPasswordChar = false;
+            this.txtHints.WordWrap = true;
             // 
             // chkUseMetadata
             // 
@@ -102,6 +110,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             // 
             // lblDisplayFileName
             // 
+            this.lblDisplayFileName.AutoSize = true;
             this.lblDisplayFileName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDisplayFileName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblDisplayFileName.Location = new System.Drawing.Point(0, 126);
