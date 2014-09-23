@@ -24,21 +24,20 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard.Controls
 
             _task = task;
 
-            this.Load += new EventHandler(PreviewForm_Load);
-
+            this.Load += new EventHandler(OnShown);
             this.Resize += new EventHandler(OnResize);
         }
 
         void OnResize(object sender, EventArgs e)
         {
-            int w = lvPreview.Width - SystemInformation.VerticalScrollBarWidth;
+            int w = lvPreview.Width - SystemInformation.VerticalScrollBarWidth - 5;
 
             switch (_task.TaskType)
             {
                 case TaskType.MultiRename:
                     {
-                        lvPreview.Columns[0].Width = w / 2;
-                        lvPreview.Columns[1].Width = w / 2;
+                        lvPreview.Columns["TXT_OLD_FILENAME"].Width = w / 2;
+                        lvPreview.Columns["TXT_NEW_FILENAME"].Width = w / 2;
                     }
                     break;
             
@@ -48,11 +47,11 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard.Controls
                     {
                         w -= 180;
 
-                        lvPreview.Columns["TXT_FILENAME"].Width = w / 6;
-                        lvPreview.Columns["TXT_ARTIST"].Width = w / 6;
-                        lvPreview.Columns["TXT_ALBUM"].Width = w / 6;
-                        lvPreview.Columns["TXT_TITLE"].Width = w / 6;
-                        lvPreview.Columns["TXT_COMMENTS"].Width = w / 6;
+                        lvPreview.Columns["TXT_FILENAME"].Width = w / 5;
+                        lvPreview.Columns["TXT_ARTIST"].Width = w / 5;
+                        lvPreview.Columns["TXT_ALBUM"].Width = w / 5;
+                        lvPreview.Columns["TXT_TITLE"].Width = w / 5;
+                        lvPreview.Columns["TXT_COMMENTS"].Width = w / 5;
 
                         lvPreview.Columns["TXT_GENRE"].Width = 60;
                         lvPreview.Columns["TXT_TRACK"].Width = 60;
@@ -62,7 +61,7 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard.Controls
             }
         }
 
-        void PreviewForm_Load(object sender, EventArgs e)
+        void OnShown(object sender, EventArgs e)
         {
             lvPreview.Items.Clear();
             lvPreview.Columns.Clear();
@@ -99,7 +98,6 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard.Controls
 
             ThemeManager.SetFont(lvPreview, FontSizes.Small);
             OnResize(sender, e);
-
         }
 
         private void FillFileNameColumns()
@@ -125,6 +123,7 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard.Controls
         {
             lvPreview.Columns.Add(text, Translator.Translate(text));
         }
+
 
         private void FillTagFields_1()
         {
@@ -156,6 +155,7 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard.Controls
             }
         }
 
+
         private void FillTagFields_2()
         {
             foreach (string file in _task.Files)
@@ -185,6 +185,8 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard.Controls
                 }
             }
         }
+
+
 
         private void FillNewFileNames()
         {
