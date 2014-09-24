@@ -132,24 +132,27 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                 {
                     double maxFftLevel = SpectrogramTransferFunction(MediaRenderer.DefaultInstance.MaxFFTLevel);
 
-                    try
-                    {
-                        lblFqMin.Text = string.Format("1 Hz");
-                        lblFqMax.Text = string.Format("{0} Hz", (MediaRenderer.DefaultInstance.ActualAudioFormat.nSamplesPerSec / 2));
-                    }
-                    catch
-                    {
-                        lblFqMin.Text = "??";
-                        lblFqMax.Text = "??";
-                    }
-
                     spSpectrogram.Reset(false);
                     spSpectrogram.MinVal = maxFftLevel / 2; // Min level = -6 dBM
                     spSpectrogram.MaxVal = maxFftLevel; // Max level = -6 dBM
 
+                    lblFqMin.Text = "??";
+                    lblFqMax.Text = "??";
+
                     double[] spectrogramData = MediaRenderer.DefaultInstance.SpectrogramData;
                     if (spectrogramData != null && spectrogramData.Length > 0)
                     {
+                        try
+                        {
+                            lblFqMin.Text = string.Format("1 Hz");
+                            lblFqMax.Text = string.Format("{0} Hz", (MediaRenderer.DefaultInstance.ActualAudioFormat.nSamplesPerSec / 2));
+                        }
+                        catch
+                        {
+                            lblFqMin.Text = "??";
+                            lblFqMax.Text = "??";
+                        }
+
                         double[] spectrogramData2 = new double[spectrogramData.Length];
                         Array.Clear(spectrogramData2, 0, spectrogramData.Length);
 

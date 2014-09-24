@@ -1142,6 +1142,7 @@ namespace OPMedia.UI.Controls
                         this.SelectedItems.Clear();
 
                         item.Selected = true;
+                        item.EnsureVisible();
 
                         OnSelectFile(itemPath);
 
