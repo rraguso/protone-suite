@@ -76,6 +76,22 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 
             playlistScreen.SelectedItemChanged += new SelectedItemChangedHandler(playlistScreen_SelectedItemChanged);
 
+            pgProperties.Enter += new EventHandler(pgProperties_Enter);
+            pgProperties.Leave += new EventHandler(pgProperties_Leave);
+        }
+
+        void pgProperties_Leave(object sender, EventArgs e)
+        {
+            ThemeForm frm = FindForm() as ThemeForm;
+            if (frm != null)
+                frm.SuppressKeyPress = false;
+        }
+
+        void pgProperties_Enter(object sender, EventArgs e)
+        {
+            ThemeForm frm = FindForm() as ThemeForm;
+            if (frm != null)
+                frm.SuppressKeyPress = true;
         }
         
         public void ShowPlaylistItem(PlaylistItem plItem, bool callByProperty)
