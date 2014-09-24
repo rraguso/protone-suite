@@ -18,14 +18,14 @@ namespace OPMedia.Runtime.Addons.Configuration
             return _instance.ShowDialog();
         }
 
-        public static DialogResult Show(string titleToOpen)
+        public static DialogResult Show(string titleToOpen, string subTitleToOpen = "")
         {
-            AddonAppSettingsForm _instance = new AddonAppSettingsForm(titleToOpen);
+            AddonAppSettingsForm _instance = new AddonAppSettingsForm(titleToOpen, subTitleToOpen);
             return _instance.ShowDialog();
         }
 
-        protected AddonAppSettingsForm(string titleToOpen) 
-            : base(titleToOpen)
+        protected AddonAppSettingsForm(string titleToOpen, string subTitleToOpen) 
+            : base(titleToOpen, subTitleToOpen)
         {
         }
 
