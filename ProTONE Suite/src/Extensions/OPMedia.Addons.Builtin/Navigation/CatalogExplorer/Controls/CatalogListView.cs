@@ -440,7 +440,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer.Controls
 
                     if (nodeItem.VPath == item.VPath)
                     {
-                        //node.EnsureVisible();
+                        node.EnsureVisible();
                         node.Selected = true;
                         return;
                     }
