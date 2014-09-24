@@ -875,7 +875,7 @@ In order to access these settings, you must launch ProTONE Player under a user a
     <value>Subtitle Settings …</value>
   </data>
   <data name="TXT_MNUCFGTIMER">
-    <value>Scheduler Settings …</value>
+    <value>Timer Settings …</value>
   </data>
   <data name="TXT_MNUCFGVIDEO">
     <value>Video Settings …</value>

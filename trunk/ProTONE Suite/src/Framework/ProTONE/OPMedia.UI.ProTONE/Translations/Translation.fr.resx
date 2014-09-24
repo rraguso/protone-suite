@@ -872,10 +872,10 @@ Pour accéder à ces paramètres, vous devez lancer ProTone Joueur sous un compt
     <value>Paramètres audio ...</value>
   </data>
   <data name="TXT_MNUCFGSUBTITLES">
-    <value>Réglages sous-titres ...</value>
+    <value>Réglages de Sous-titres ...</value>
   </data>
   <data name="TXT_MNUCFGTIMER">
-    <value>Réglages Scheduler ...</value>
+    <value>Réglages de Timer ...</value>
   </data>
   <data name="TXT_MNUCFGVIDEO">
     <value>Paramètres vidéo ...</value>

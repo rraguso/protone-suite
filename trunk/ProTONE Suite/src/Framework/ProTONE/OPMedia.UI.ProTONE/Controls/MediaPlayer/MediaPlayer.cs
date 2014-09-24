@@ -795,17 +795,17 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
 
                 case OPMShortcut.CmdCfgSubtitles:
-                    ProTONESettingsForm.Show("TXT_S_SUBTITLESETTINGS");
+                    ProTONESettingsForm.Show("TXT_S_SUBTITLESETTINGS", "TXT_S_SUBTITLESETTINGS");
                     args.Handled = true;
                     break;
 
                 case OPMShortcut.CmdCfgTimer:
-                    ProTONESettingsForm.Show("TXT_S_SCHEDULERSETTINGS");
+                    ProTONESettingsForm.Show("TXT_S_MISC_SETTINGS", "TXT_S_SCHEDULERSETTINGS");
                     args.Handled = true;
                     break;
 
                 case OPMShortcut.CmdCfgRemote:
-                    ProTONESettingsForm.Show("TXT_REMOTECONTROLCFG");
+                    ProTONESettingsForm.Show("TXT_S_CONTROL", "TXT_REMOTECONTROLCFG");
                     args.Handled = true;
                     break;
 
@@ -815,7 +815,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
 
                 case OPMShortcut.CmdCfgKeyboard:
-                    ProTONESettingsForm.Show("TXT_S_KEYMAP");
+                    ProTONESettingsForm.Show("TXT_S_CONTROL", "TXT_S_KEYMAP");
                     args.Handled = true;
                     break;
 

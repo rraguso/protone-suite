@@ -498,8 +498,8 @@ namespace OPMedia.Runtime.Shortcuts
         // Player configuration
         CmdCfgVideo,
         CmdCfgAudio,
-        CmdCfgSubtitles,
         CmdCfgTimer,
+        CmdCfgSubtitles,
         CmdCfgRemote,
 
         // Subtitles

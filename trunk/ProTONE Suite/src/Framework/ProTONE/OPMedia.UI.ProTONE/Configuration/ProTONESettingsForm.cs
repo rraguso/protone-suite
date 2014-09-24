@@ -23,13 +23,14 @@ namespace OPMedia.UI.ProTONE.Configuration
             return _instance.ShowDialog();
         }
 
-        public static DialogResult Show(string titleToOpen)
+        public static DialogResult Show(string titleToOpen, string subTitleToOpen = "")
         {
-            ProTONESettingsForm _instance = new ProTONESettingsForm(titleToOpen);
+            ProTONESettingsForm _instance = new ProTONESettingsForm(titleToOpen, subTitleToOpen);
             return _instance.ShowDialog();
         }
 
-        protected ProTONESettingsForm(string titleToOpen) : base(titleToOpen)
+        protected ProTONESettingsForm(string titleToOpen, string subTitleToOpen) 
+            : base(titleToOpen, subTitleToOpen)
         {
         }
 

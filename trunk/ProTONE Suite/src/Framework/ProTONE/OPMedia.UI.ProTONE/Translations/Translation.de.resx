@@ -875,7 +875,7 @@ Um diese Einstellungen zuzugreifen, müssen Sie starten ProTONE Spieler unter ei
     <value>Untertitel-Einstellungen ...</value>
   </data>
   <data name="TXT_MNUCFGTIMER">
-    <value>Scheduler-Einstellungen ...</value>
+    <value>Timer-Einstellungen ...</value>
   </data>
   <data name="TXT_MNUCFGVIDEO">
     <value>Video-Einstellungen ...</value>

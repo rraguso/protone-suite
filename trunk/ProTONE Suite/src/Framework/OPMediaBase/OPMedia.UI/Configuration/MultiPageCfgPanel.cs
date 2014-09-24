@@ -15,7 +15,7 @@ using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.UI.Configuration
 {
-    public partial class MultiPageCfgPanel : BaseCfgPanel
+    public partial class MultiPageCfgPanel : BaseCfgPanel, IMultiPageCfgPanel
     {
         public MultiPageCfgPanel()
             : base()
@@ -73,5 +73,23 @@ namespace OPMedia.UI.Configuration
 
             Modified = false;
         }
+
+
+        void IMultiPageCfgPanel.SelectSubPage(string itemName)
+        {
+            foreach (OPMTabPage tp in tabSubPages.TabPages)
+            {
+                if (tp.Text == itemName)
+                {
+                    tabSubPages.SelectedTab = tp;
+                    break;
+                }
+            }
+        }
+    }
+
+    public interface IMultiPageCfgPanel
+    {
+        void SelectSubPage(string itemName);
     }
 }

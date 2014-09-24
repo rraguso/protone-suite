@@ -238,8 +238,7 @@ namespace OPMedia.Runtime.Addons
             // First chance ...
             if (!GetNavigationAddons())
             {
-                
-                if (AddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS") == DialogResult.Cancel)
+                if (AddonAppSettingsForm.Show("TXT_S_ADDONSETTINGS", string.Empty) == DialogResult.Cancel)
                 {
                     EventDispatch.DispatchEvent(EventNames.ShowMessageBox, 
                         Translator.Translate("TXT_NO_NAV_ADDONS"),
@@ -283,7 +282,7 @@ namespace OPMedia.Runtime.Addons
                     break;
 
                 case OPMShortcut.CmdCfgKeyboard:
-                    AddonAppSettingsForm.Show("TXT_S_KEYMAP");
+                    AddonAppSettingsForm.Show("TXT_S_CONTROL", "TXT_S_KEYMAP");
                     args.Handled = true;
                     break;
 

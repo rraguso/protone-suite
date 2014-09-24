@@ -17,7 +17,7 @@ using OPMedia.UI.Themes;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
-    public partial class MiscellaneousSettingsPanel : BaseCfgPanel
+    public partial class MiscellaneousSettingsPanel : BaseCfgPanel, IMultiPageCfgPanel
     {
         public override Image Image
         {
@@ -97,6 +97,18 @@ namespace OPMedia.UI.ProTONE.Configuration
             pageScheduler.Save();
             pageFavoriteFolders.Save();
             Modified = false;
+        }
+
+        void IMultiPageCfgPanel.SelectSubPage(string itemName)
+        {
+            foreach (OPMTabPage tp in tabMisc.TabPages)
+            {
+                if (tp.Text == itemName)
+                {
+                    tabMisc.SelectedTab = tp;
+                    break;
+                }
+            }
         }
     }
 }

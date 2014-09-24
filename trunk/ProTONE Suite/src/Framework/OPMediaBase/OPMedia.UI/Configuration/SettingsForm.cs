@@ -27,6 +27,7 @@ namespace OPMedia.UI
         protected BaseCfgPanel selectedPanel = null;
 
         private string _titleToOpen = "";
+        private string _subTitleToOpen = "";
 
         public new static DialogResult Show()
         {
@@ -39,10 +40,11 @@ namespace OPMedia.UI
             _restart = true;
         }
 
-        protected SettingsForm(string titleToOpen)
+        protected SettingsForm(string titleToOpen, string subtitleToOpen)
             : this()
         {
             _titleToOpen = Translator.Translate(titleToOpen);
+            _subTitleToOpen = Translator.Translate(subtitleToOpen);
         }
 
         public SettingsForm() : base("TXT_CONFIGUREAPP")
@@ -62,6 +64,8 @@ namespace OPMedia.UI
             this.Load += new EventHandler(SettingsForm_Load);
         }
 
+        Timer _delayedPanelSelector;
+
         void SettingsForm_Load(object sender, EventArgs e)
         {
             tabOptions.TabPages.Clear();
@@ -72,7 +76,11 @@ namespace OPMedia.UI
             AddPanel(typeof(TroubleshootingPanel));
             
             RemoveUnneededPanels();
-            SelectTitleToOpen();
+
+            _delayedPanelSelector = new Timer();
+            _delayedPanelSelector.Interval = 300;
+            _delayedPanelSelector.Tick += (ss, ee) => SelectTitleToOpen();
+            _delayedPanelSelector.Start();
         }
 
         private void SelectTitleToOpen()
@@ -81,7 +89,7 @@ namespace OPMedia.UI
             {
                 if (tp.Text == _titleToOpen)
                 {
-                    ShowPanel(tp.Controls[0] as BaseCfgPanel);
+                    ShowPanel(tp.Controls[0] as BaseCfgPanel, _subTitleToOpen);
                     break;
                 }
             }
@@ -272,7 +280,7 @@ namespace OPMedia.UI
             return false;
         }
 
-        private void ShowPanel(BaseCfgPanel panel)
+        private void ShowPanel(BaseCfgPanel panel, string subTitleToOpen = "")
         {
             if (selectedPanel != panel)
             {
@@ -282,6 +290,11 @@ namespace OPMedia.UI
                     if (panel == crtPanel)
                     {
                         tabOptions.SelectedTab = tp;
+
+                        IMultiPageCfgPanel multiPagePanel = panel as IMultiPageCfgPanel;
+                        if (multiPagePanel != null && string.IsNullOrEmpty(subTitleToOpen) == false)
+                            multiPagePanel.SelectSubPage(subTitleToOpen);
+
                         break;
                     }
                 }

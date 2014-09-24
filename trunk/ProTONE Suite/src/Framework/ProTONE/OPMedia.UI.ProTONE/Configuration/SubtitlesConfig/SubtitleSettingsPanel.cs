@@ -19,7 +19,7 @@ using OPMedia.UI.Themes;
 
 namespace OPMedia.UI.ProTONE.Configuration
 {
-    public partial class SubtitleSettingsPanel : BaseCfgPanel
+    public partial class SubtitleSettingsPanel : BaseCfgPanel, IMultiPageCfgPanel
     {
         public override Image Image
         {
@@ -66,6 +66,18 @@ namespace OPMedia.UI.ProTONE.Configuration
             AppConfig.Save();
 
             Modified = false;
+        }
+
+        void IMultiPageCfgPanel.SelectSubPage(string itemName)
+        {
+            foreach (OPMTabPage tp in tabSubtitlesOsd.TabPages)
+            {
+                if (tp.Text == itemName)
+                {
+                    tabSubtitlesOsd.SelectedTab = tp;
+                    break;
+                }
+            }
         }
     }
 }

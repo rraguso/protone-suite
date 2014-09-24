@@ -1356,7 +1356,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scheduler Settings ….
+        ///   Looks up a localized string similar to Timer Settings ….
         /// </summary>
         internal static string TXT_MNUCFGTIMER {
             get {
@@ -1952,7 +1952,6 @@ namespace OPMedia.UI.ProTONE.Translations {
         
         /// <summary>
         ///   Looks up a localized string similar to The selected movie clip already has a subtitle. 
-        ///
         ///If another subtitle is found on Internet, it will overwrite the existing one.
         ///
         ///Are you sure you want to search another subtitle ?.
