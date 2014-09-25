@@ -247,12 +247,12 @@ namespace OPMedia.UI.Generic
 
             for (int i = 0; i < sizeX; i++)
             {
-                Debug.Write("[");
+                //Debug.Write("[");
 
                 for (int j = 0; j < sizeY; j++)
                 {
                     Color c = bmp.GetPixel(i, j);
-                    Debug.Write(c.ToString() + ",");
+                    //Debug.Write(c.ToString() + ",");
 
                     if (c.ToArgb() == oldColor.ToArgb())
                     {
@@ -260,7 +260,7 @@ namespace OPMedia.UI.Generic
                     }
                 }
 
-                Debug.WriteLine("]");
+                //Debug.WriteLine("]");
             }
         }
 

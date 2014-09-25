@@ -16,6 +16,7 @@ using OPMedia.Core;
 using OPMedia.UI.Properties;
 using OPMedia.UI.HelpSupport;
 using System.Diagnostics;
+using OPMedia.UI.Generic;
 
 
 #endregion
@@ -220,12 +221,12 @@ namespace OPMedia.UI.Wizards
         {
             get
             {
-                return pbWizImage.Visible;
+                return pnlWizImage.Visible;
             }
 
             set
             {
-                pbWizImage.Visible = value;
+                pnlWizImage.Visible = value;
                 lblSeparator2.Visible = value;
             }
         }
@@ -705,6 +706,15 @@ namespace OPMedia.UI.Wizards
             }
 
             return base.ProcessDialogKey(keyData);
+        }
+
+        private void WizardHostForm_Load(object sender, EventArgs e)
+        {
+            Bitmap bmp = new Bitmap(Resources.wizard);
+            Color c = ColorHelper.GetContrastingColor(ThemeManager.ForeColor);
+            ImageProcessing.ReplaceColor(bmp, Color.FromArgb(083, 100, 127), ThemeManager.ForeColor);
+            ImageProcessing.ReplaceColor(bmp, Color.FromArgb(240, 240, 240), c);
+            pbWizImage.Image = bmp;
         }
     }
 }
