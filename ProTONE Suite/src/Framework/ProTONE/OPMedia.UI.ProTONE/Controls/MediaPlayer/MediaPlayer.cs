@@ -1042,7 +1042,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                             }
                             else
                             {
-                                JumpToPlaylistSubItem(senderMenu.Tag as PlaylistSubItem);
+                                PlaylistSubItem psi = senderMenu.Tag as PlaylistSubItem;
+                                if (psi != null && psi.StartHint != null)
+                                {
+                                    JumpToPlaylistSubItem(senderMenu.Tag as PlaylistSubItem);
+                                }
                             }
                         }
                         else if (senderMenu.Tag is PlaylistItem)
