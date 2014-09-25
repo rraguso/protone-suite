@@ -135,14 +135,28 @@ namespace OPMedia.Utility
             try
             {
                 string userAppDataTemplate = @"{0}\AppData\Local";
-                SelectQuery query = new SelectQuery("Select LocalPath from Win32_UserProfile");
+                SelectQuery query = new SelectQuery("Select Special, SID, LocalPath from Win32_UserProfile");
                 ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
 
                 foreach (ManagementObject mo in searcher.Get())
                 {
                     try
                     {
+                        string special = mo["Special"] as string;
+                        if (special != null && special.ToLowerInvariant() == "true")
+                            // special account, skip
+                            continue;
+
+                        string sid = mo["SID"] as string;
+                        if (sid == null || sid.ToLowerInvariant().StartsWith("s-1-5-21") == false)
+                            // not an user account, skip
+                            continue;
+
                         string path = mo["LocalPath"] as string;
+                        if (path == null)
+                            // path to local profile missing, skip
+                            continue;
+
                         string userAppDatapath = string.Format(userAppDataTemplate, path);
                         if (Directory.Exists(userAppDatapath))
                         {
