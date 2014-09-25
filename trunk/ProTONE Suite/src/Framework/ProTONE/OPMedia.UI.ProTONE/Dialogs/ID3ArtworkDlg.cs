@@ -172,7 +172,11 @@ namespace OPMedia.UI.ProTONE.Dialogs
 
                         if (img != null)
                         {
-                            pi.Picture = new Bitmap(ImageProvider.ScaleImage(img, new Size(200, 150), false));
+                            Bitmap bmp = new Bitmap(ImageProvider.ScaleImage(img, 
+                                new Size(200, 200 * img.Size.Height / img.Size.Width), 
+                                false));
+                            pi.Picture = bmp;
+
                             pi.MimeType = "image/" + PathUtils.GetExtension(dlg.FileName);
 
                             pbPicture.Image = pi.Picture;

@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using OPMedia.Core.Logging;
 using System.Runtime.Serialization.Formatters.Binary;
 using OPMedia.Runtime.FileInformation;
+using OPMedia.Core;
 
 namespace OPMedia.Runtime.ProTONE.ExtendedInfo
 {
@@ -53,10 +54,22 @@ namespace OPMedia.Runtime.ProTONE.ExtendedInfo
             foreach (PictureInfo pi in ArtworkImages)
             {
                 MemoryStream ms = new MemoryStream();
+                
                 Bitmap bmp = pi.Picture;
 
+                const int MaxAPICFrameSize = 64 * 1024; // 64 kB
+                
                 bmp.Save(ms, ImageFormat.Png);
+                while (ms.Length >= MaxAPICFrameSize)
+                {
+                    Size sz = bmp.Size;
+                    sz.Width = (int)(sz.Width * 0.9);
+                    sz.Height = (int)(sz.Height * 0.9);
 
+                    bmp = new Bitmap(ImageProvider.ScaleImage(bmp, sz, false));
+                    bmp.Save(ms, ImageFormat.Png);
+                }
+                
                 Picture pic = new Picture();
                 pic.Data = new ByteVector(ms.GetBuffer());
                 pic.Description = pi.Description;
