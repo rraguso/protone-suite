@@ -79,7 +79,11 @@ namespace OPMedia.UI
 
             _delayedPanelSelector = new Timer();
             _delayedPanelSelector.Interval = 300;
-            _delayedPanelSelector.Tick += (ss, ee) => SelectTitleToOpen();
+            _delayedPanelSelector.Tick += (ss, ee) =>
+            {
+                _delayedPanelSelector.Stop();
+                SelectTitleToOpen();
+            };
             _delayedPanelSelector.Start();
         }
 
