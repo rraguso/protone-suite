@@ -744,9 +744,6 @@
     <None Include="Resources\RestoreButton.ico" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="Resources\main.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Keyboard.png" />
   </ItemGroup>
   <ItemGroup>
@@ -800,6 +797,7 @@
   <ItemGroup>
     <Content Include="Resources\Assistance.png" />
     <Content Include="Resources\ControlPanel.png" />
+    <Content Include="Resources\wizard.png" />
     <None Include="Resources\waiting.gif" />
     <None Include="Resources\waitframe.bmp" />
     <EmbeddedResource Include="Resources\SizeDown.cur" />

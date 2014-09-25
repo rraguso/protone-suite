@@ -263,16 +263,6 @@ namespace OPMedia.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap main {
-            get {
-                object obj = ResourceManager.GetObject("main", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap menuChildren {
             get {
                 object obj = ResourceManager.GetObject("menuChildren", resourceCulture);
@@ -486,6 +476,16 @@ namespace OPMedia.UI.Properties {
         public static System.Drawing.Bitmap waiting {
             get {
                 object obj = ResourceManager.GetObject("waiting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap wizard {
+            get {
+                object obj = ResourceManager.GetObject("wizard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
