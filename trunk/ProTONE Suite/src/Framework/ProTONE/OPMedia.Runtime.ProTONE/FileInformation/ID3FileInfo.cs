@@ -155,22 +155,6 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             }
         }
 
-        [TranslatableDisplayName("TXT_DURATION")]
-        [TranslatableCategory("TXT_MEDIAINFO")]
-        [SingleSelectionBrowsable]
-        public override TimeSpan? Duration
-        {
-            get
-            {
-                if (AudioHeader != null)
-                    return TimeSpan.FromSeconds((int)AudioHeader.Value.Duration.TotalSeconds);
-                else if (_prop != null)
-                    return TimeSpan.FromSeconds((int)_prop.Duration.TotalSeconds);
-                else
-                    return null;
-            }
-        }
-
         [TranslatableDisplayName("TXT_GENRE")]
         [TranslatableCategory("TXT_TAGINFO")]
         [Browsable(true)]
@@ -360,6 +344,22 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     return AudioHeader.Value.ChannelMode;
                 else if (_prop != null)
                     return (_prop.AudioChannels == 1) ? ChannelMode.SingleChannel : ChannelMode.JointStereo;
+                else
+                    return null;
+            }
+        }
+
+        [TranslatableDisplayName("TXT_DURATION")]
+        [TranslatableCategory("TXT_MEDIAINFO")]
+        [Browsable(true)]
+        public override TimeSpan? Duration
+        {
+            get
+            {
+                if (AudioHeader != null)
+                    return TimeSpan.FromSeconds((int)AudioHeader.Value.Duration.TotalSeconds);
+                else if (_prop != null)
+                    return TimeSpan.FromSeconds((int)_prop.Duration.TotalSeconds);
                 else
                     return null;
             }
