@@ -38,7 +38,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
 
             ApplyColors();
 
-            this.HandleCreated += new EventHandler(SchedulerSettingsPanel_Load);
+            this.Load += new EventHandler(SchedulerSettingsPanel_Load);
             opmLayoutPanel1.Resize += new EventHandler(OnResize);
         }
 
@@ -90,10 +90,13 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             psiScheduledEvtData.ProgramStartupInfo =
                 ProgramStartupInfo.FromString(ProTONEConfig.ScheduledEventData);
             wsScheduledEvtDays.Weekdays = (Weekday)ProTONEConfig.ScheduledEventDays;
-            
-            dtpScheduledEvtTime.Value = new DateTime(1900, 1, 1,
-                ProTONEConfig.ScheduledEventTime.Hours, ProTONEConfig.ScheduledEventTime.Minutes,
-                ProTONEConfig.ScheduledEventTime.Seconds);
+
+            DateTime dtDisplay = DateTime.Today;
+            TimeSpan tsTimeOfDay = 
+                new TimeSpan(ProTONEConfig.ScheduledEventTime.Hours, ProTONEConfig.ScheduledEventTime.Minutes, ProTONEConfig.ScheduledEventTime.Seconds);
+            dtDisplay = dtDisplay.Add(tsTimeOfDay);
+
+            dtpScheduledEvtTime.Value = dtDisplay;
 
             nudSchedulerWaitTimerProceed.Value = ProTONEConfig.SchedulerWaitTimerProceed;
 

@@ -37,6 +37,7 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.label1 = new OPMedia.UI.Controls.OPMLabel();
             this.cmbPlaylistEvtHandler = new OPMedia.UI.Controls.OPMComboBox();
             this.psiPlaylistEvtData = new OPMedia.UI.Controls.ProgramStartupInfoCtl();
+            this.lblCaution = new OPMedia.UI.Controls.OPMLabel();
             this.chkEnablePlaylistEvt = new OPMedia.UI.Controls.OPMCheckBox();
             this.grpScheduledEvt = new OPMedia.UI.Controls.OPMCustomPanel();
             this.opmLayoutPanel4 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
@@ -56,7 +57,6 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.lblSep2 = new OPMedia.UI.Controls.OPMLabel();
             this.lblSep3 = new OPMedia.UI.Controls.OPMLabel();
             this.pnlProceedTimerOptions = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.lblCaution = new OPMedia.UI.Controls.OPMLabel();
             this.layoutPanel = new OPMedia.UI.Controls.OPMPanel();
             this.grpPlaylistEvt.SuspendLayout();
             this.opmLayoutPanel3.SuspendLayout();
@@ -172,6 +172,23 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.psiPlaylistEvtData.OverrideBackColor = System.Drawing.Color.Empty;
             this.psiPlaylistEvtData.Size = new System.Drawing.Size(519, 26);
             this.psiPlaylistEvtData.TabIndex = 2;
+            // 
+            // lblCaution
+            // 
+            this.lblCaution.AutoSize = true;
+            this.opmLayoutPanel3.SetColumnSpan(this.lblCaution, 2);
+            this.lblCaution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCaution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblCaution.FontSize = OPMedia.UI.Themes.FontSizes.Small;
+            this.lblCaution.Location = new System.Drawing.Point(8, 34);
+            this.lblCaution.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.lblCaution.Name = "lblCaution";
+            this.lblCaution.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblCaution.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblCaution.Size = new System.Drawing.Size(519, 12);
+            this.lblCaution.TabIndex = 3;
+            this.lblCaution.Text = "TXT_PLAYLISTEVT_CAUTION";
+            this.lblCaution.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // chkEnablePlaylistEvt
             // 
@@ -296,7 +313,6 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             // 
             // dtpScheduledEvtTime
             // 
-            this.dtpScheduledEvtTime.CustomFormat = "HH:mm:ss";
             this.dtpScheduledEvtTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpScheduledEvtTime.Location = new System.Drawing.Point(263, 8);
             this.dtpScheduledEvtTime.Name = "dtpScheduledEvtTime";
@@ -488,23 +504,6 @@ namespace OPMedia.UI.ProTONE.Configuration.MiscConfig
             this.pnlProceedTimerOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnlProceedTimerOptions.Size = new System.Drawing.Size(535, 32);
             this.pnlProceedTimerOptions.TabIndex = 5;
-            // 
-            // lblCaution
-            // 
-            this.lblCaution.AutoSize = true;
-            this.opmLayoutPanel3.SetColumnSpan(this.lblCaution, 2);
-            this.lblCaution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCaution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCaution.FontSize = OPMedia.UI.Themes.FontSizes.Small;
-            this.lblCaution.Location = new System.Drawing.Point(8, 34);
-            this.lblCaution.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.lblCaution.Name = "lblCaution";
-            this.lblCaution.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lblCaution.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblCaution.Size = new System.Drawing.Size(519, 12);
-            this.lblCaution.TabIndex = 3;
-            this.lblCaution.Text = "TXT_PLAYLISTEVT_CAUTION";
-            this.lblCaution.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // layoutPanel
             // 
