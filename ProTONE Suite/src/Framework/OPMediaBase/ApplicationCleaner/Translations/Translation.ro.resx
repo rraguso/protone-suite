@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,100 +59,103 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="TXT_CLEAR_USER_DATA">
-    <value>Specificaţi daca doriţi stergerea fişierelor jurnal şi a setărilor aplicaţiei.</value>
-  </data>
-  <data name="TXT_CLEAR_USER_DATA_DESC">
-    <value>Doriţi ştergerea acestor date ?</value>
-  </data>
-  <data name="TXT_CLEAR_LOG_FILES">
-    <value>Şterge fişierele jurnal</value>
-  </data>
-  <data name="TXT_CLEAR_USER_SETTINGS">
-    <value>Şterge setările aplicaţiei salvate în profilul utilizatorului</value>
-  </data>
-  <data name="TXT_APP_NAME">
-    <value>Dezinstalare ProTONE Suite</value>
-  </data>
-  <data name="TXT_APP_NAME2">
-    <value>Curăţare ProTONE Suite</value>
-  </data>
-  <data name="TXT_CANCELPROMPT">
-    <value>Procesul de dezinstalare nu s-a încheiat. Dacã părăsiţi programul acum, aplicaţia nu se va dezinstala. Puteţi rula ulterior programul de dezinstalare pentru a finaliza dezinstalarea.
-Doriţi să părăsiţi programul de dezinstalare ?</value>
-  </data>
-  <data name="TXT_CANCELPROMPT2">
-    <value>Procesul de curăţare nu s-a încheiat. 
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_CLEAR_USER_DATA">
+  <value>Ștergeți fișierele jurnal și setările aplicației?</value>
+</data>
+<data name="TXT_CLEAR_USER_DATA_DESC">
+  <value>Doriți să ștergeți aceste date?</value>
+</data>
+<data name="TXT_CLEAR_LOG_FILES">
+  <value>Şterge fişierele jurnal</value>
+</data>
+<data name="TXT_CLEAR_USER_SETTINGS">
+  <value>Şterge setările aplicaţiei din profilul utilizatorului</value>
+</data>
+<data name="TXT_APP_NAME">
+  <value>Dezinstalare ProTONE Suite</value>
+</data>
+<data name="TXT_APP_NAME2">
+  <value>Curăţare ProTONE Suite</value>
+</data>
+<data name="TXT_CANCELPROMPT">
+  <value>Procesul de dezinstalare nu s-a încheiat. Dacã părăsiţi programul acum, aplicaţia nu se va dezinstala. &#xD;
+Puteţi rula ulterior programul de dezinstalare pentru a finaliza dezinstalarea.&#xD;
+Doriţi să părăsiţi programul de dezinstalare acum ?</value>
+</data>
+<data name="TXT_CANCELPROMPT2">
+  <value>Procesul de curăţare nu s-a încheiat. &#xD;
 Doriţi să parasiţi programul de curăţare ?</value>
-  </data>
-  <data name="TXT_PREPARING_CLEANUP">
-    <value>Se pregăteşte procesul de curăţare ...</value>
-  </data>
-  <data name="TXT_CLEARING_LOG_FILES">
-    <value>Se şterg fişierele jurnal ...</value>
-  </data>
-  <data name="TXT_CLEARING_USER_SETTINGS">
-    <value>Se şterg setările de utilizator ...</value>
-  </data>
-  <data name="TXT_COMPLETE">
-    <value>Procesul de curăţare este complet.</value>
-  </data>
+</data>
+<data name="TXT_PREPARING_CLEANUP">
+  <value>Se pregăteşte procesul de curăţare ...</value>
+</data>
+<data name="TXT_CLEARING_LOG_FILES">
+  <value>Se şterg fişierele jurnal ...</value>
+</data>
+<data name="TXT_CLEARING_USER_SETTINGS">
+  <value>Se şterg setările de utilizator ...</value>
+</data>
+<data name="TXT_COMPLETE">
+  <value>Procesul de curăţare este complet.</value>
+</data>
+    
 </root>
