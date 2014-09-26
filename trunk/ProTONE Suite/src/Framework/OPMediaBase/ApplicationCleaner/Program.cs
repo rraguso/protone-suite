@@ -33,7 +33,6 @@ namespace OPMedia.Utility
             {
                 Translator.RegisterTranslationAssembly(typeof(MainForm).Assembly);
                 Translator.RegisterTranslationAssembly(typeof(ThemeForm).Assembly);
-                Translator.SetInterfaceLanguage(AppConfig.InstallLanguageID);
 
                 MainForm frm = new MainForm(_launchFromUninstaller);
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -54,10 +53,12 @@ namespace OPMedia.Utility
             if (cmdLine.Contains("9566b126-2205-4e61-8c1c-e6d4d0fc34f0"))
             {
                 _launchFromUninstaller = true;
+                Translator.SetInterfaceLanguage(AppConfig.InstallLanguageID);
             }
             else if (cmdLine.Contains("cleanup"))
             {
                 _launchFromUninstaller = false;
+                Translator.SetInterfaceLanguage(AppConfig.LanguageID);
             }
             else
             {

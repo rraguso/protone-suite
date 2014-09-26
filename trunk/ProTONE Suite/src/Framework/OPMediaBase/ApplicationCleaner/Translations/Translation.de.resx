@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,100 +59,103 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="TXT_CLEAR_USER_DATA">
-    <value>Geben Sie, wenn Sie die Log-Dateien und die Einstellungen der Anwendung löschen möchten.</value>
-  </data>
-  <data name="TXT_CLEAR_USER_DATA_DESC">
-    <value>Wollen Sie diese Daten löschen?</value>
-  </data>
-  <data name="TXT_CLEAR_LOG_FILES">
-    <value>Log-Dateien löschen</value>
-  </data>
-  <data name="TXT_CLEAR_USER_SETTINGS">
-    <value>Löschen Sie die Anwendungseinstellungen in Benutzerprofilen gespeichert</value>
-  </data>
-  <data name="TXT_APP_NAME">
-    <value>ProTONE Suite Deinstallieren</value>
-  </data>
-  <data name="TXT_APP_NAME2">
-    <value>ProTONE Suite Cleaner</value>
-  </data>
-  <data name="TXT_CANCELPROMPT">
-    <value>Die Deinstallation ist nicht vollständig. Wenn Sie jetzt beenden, wird das Programm nicht deinstalliert werden.  Deinstallieren Sie sind berechtigt, wieder zu einem anderen Zeitpunkt, um die Deinstallation abzuschließen.
-Sie auf Deinstallieren verlassen wollen?</value>
-  </data>
-  <data name="TXT_CANCELPROMPT2">
-    <value>Der Cleanup-Prozess ist nicht abgeschlossen.
-Möchten Sie Bereinigung Programm beenden wollen?</value>
-  </data>
-  <data name="TXT_PREPARING_CLEANUP">
-    <value>Vorbereiten Cleanup-Prozess ...</value>
-  </data>
-  <data name="TXT_CLEARING_LOG_FILES">
-    <value>Löschen von Log-Dateien ...</value>
-  </data>
-  <data name="TXT_CLEARING_USER_SETTINGS">
-    <value>Löschen von Benutzer-Einstellungen ...</value>
-  </data>
-  <data name="TXT_COMPLETE">
-    <value>Cleanup Prozess abzuschließen.</value>
-  </data>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="TXT_CLEAR_USER_DATA">
+  <value>Löschen Sie die Journal-Dateien und die Anwendungseinstellungen?</value>
+</data>
+<data name="TXT_CLEAR_USER_DATA_DESC">
+  <value>Wollen Sie diese Daten löschen?</value>
+</data>
+<data name="TXT_CLEAR_LOG_FILES">
+  <value>Journal-Dateien löschen</value>
+</data>
+<data name="TXT_CLEAR_USER_SETTINGS">
+  <value>Löschen Sie die Anwendungseinstellungen von Benutzerprofilen</value>
+</data>
+<data name="TXT_APP_NAME">
+  <value>ProTONE Suite Deinstallieren</value>
+</data>
+<data name="TXT_APP_NAME2">
+  <value>ProTONE Suite Reiniger</value>
+</data>
+<data name="TXT_CANCELPROMPT">
+  <value>Deinstallation ist nicht vollständig. Wenn Sie jetzt beenden, wird das Programm nicht deinstalliert werden. &#xD;
+Sie können Uninstall wieder zu einem anderen Zeitpunkt durchgeführt, um die Deinstallation. &#xD;
+Möchten Sie Deinstallieren jetzt beenden?</value>
+</data>
+<data name="TXT_CANCELPROMPT2">
+  <value>Der Bereinigungsprozess ist nicht abgeschlossen.&#xD;
+Möchten Sie Aufräumprogramm jetzt beenden?</value>
+</data>
+<data name="TXT_PREPARING_CLEANUP">
+  <value>Vorbereitung Cleanup-Prozess ...</value>
+</data>
+<data name="TXT_CLEARING_LOG_FILES">
+  <value>Löschen von Journal-Dateien ...</value>
+</data>
+<data name="TXT_CLEARING_USER_SETTINGS">
+  <value>Löschen von Benutzereinstellungen ...</value>
+</data>
+<data name="TXT_COMPLETE">
+  <value>Bereinigungsprozess abgeschlossen.</value>
+</data>
+    
 </root>
