@@ -12,6 +12,8 @@ using OPMedia.Core;
 using System.Collections;
 using System.Management;
 using OPMedia.UI;
+using Microsoft.Win32;
+using OPMedia.Core.Configuration;
 
 namespace OPMedia.Utility
 {
@@ -134,38 +136,34 @@ namespace OPMedia.Utility
         {
             try
             {
-                string userAppDataTemplate = @"{0}\AppData\Local";
-                SelectQuery query = new SelectQuery("Select Special, SID, LocalPath from Win32_UserProfile");
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
+                const string RegProfilesPath = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList";
+                const string UserProfileKeyPrefix = "s-1-5-21-";
+                const string ProfilePathValueName = "ProfileImagePath";
 
-                foreach (ManagementObject mo in searcher.Get())
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(RegProfilesPath, false))
                 {
-                    try
+                    string[] subKeyNames = key.GetSubKeyNames();
+                    if (subKeyNames != null)
                     {
-                        string special = mo["Special"] as string;
-                        if (special != null && special.ToLowerInvariant() == "true")
-                            // special account, skip
-                            continue;
-
-                        string sid = mo["SID"] as string;
-                        if (sid == null || sid.ToLowerInvariant().StartsWith("s-1-5-21") == false)
-                            // not an user account, skip
-                            continue;
-
-                        string path = mo["LocalPath"] as string;
-                        if (path == null)
-                            // path to local profile missing, skip
-                            continue;
-
-                        string userAppDatapath = string.Format(userAppDataTemplate, path);
-                        if (Directory.Exists(userAppDatapath))
+                        foreach (string subKeyName in subKeyNames)
                         {
-                            ProcessUserAppDataPath(userAppDatapath);
+                            if (subKeyName.ToLowerInvariant().StartsWith(UserProfileKeyPrefix) == false)
+                                continue; // Not a user's profile key
+
+                            using (RegistryKey subKey = key.OpenSubKey(subKeyName))
+                            {
+                                string profilePath = subKey.GetValue(ProfilePathValueName, string.Empty) as string;
+                                string userAppDataTemplate = AppConfig.OSVersion >= AppConfig.VerWinVista ?
+                                    @"{0}\AppData\Local" :
+                                    @"{0}\Local Settings\Application Data";
+
+                                string userAppDatapath = string.Format(userAppDataTemplate, profilePath);
+                                if (Directory.Exists(userAppDatapath))
+                                {
+                                    ProcessUserAppDataPath(userAppDatapath);
+                                }
+                            }
                         }
-                    }
-                    catch
-                    {
-                        continue;
                     }
                 }
             }
