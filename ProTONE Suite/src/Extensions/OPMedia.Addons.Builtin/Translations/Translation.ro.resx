@@ -234,11 +234,11 @@
   <data name="TXT_MEDIAPATH">
     <value>Cale originală în cadrul mediului - '$' semnifică 'rădăcina discului portabil'</value>
   </data>
-  <data name="TXT_MEDIA_WITHOUT_BOOKMARKS">
-    <value>Fişiere media fără Bookmark-uri</value>
+  <data name="TXT_MEDIA_WITHOUT_reperS">
+    <value>Fişiere media fără repere</value>
   </data>
-  <data name="TXT_MEDIA_WITH_BOOKMARKS">
-    <value>Fişiere media cu Bookmark-uri</value>
+  <data name="TXT_MEDIA_WITH_reperS">
+    <value>Fişiere media cu repere</value>
   </data>
   <data name="TXT_MERGECATALOG">
     <value>Selectaţi un catalog pentru alipire:</value>
@@ -249,8 +249,8 @@
   <data name="TXT_MULTIRENAME">
     <value>Redenumire fişiere</value>
   </data>
-  <data name="TXT_NON_ORPHAN_BOOKMARKS">
-    <value>Fişiere bookmark non-orfane</value>
+  <data name="TXT_NON_ORPHAN_reperS">
+    <value>Fişiere reper non-orfane</value>
   </data>
   <data name="TXT_NO_CATALOG">
     <value>Catalogul nu este incă ales, apasaţi Răsfoire pentru a alege unul.</value>
@@ -267,8 +267,8 @@
   <data name="TXT_OPENRECENTFILEDROPDOWN">
     <value>Apăsaţi butonul cu săgeata in jos pentru a afişa lista fişierelor recent deschise.</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINBOOKMARKSADDONPANEL">
-    <value>Arată proprietăţile fişierelor Bookmark (.BMK) în Explorator Fişiere</value>
+  <data name="TXT_OPMEDIAADDONSBUILTINreperSADDONPANEL">
+    <value>Arată proprietăţile fişierelor reper (.BMK) în Explorator Fişiere</value>
   </data>
   <data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL">
     <value>Explorator Fişiere</value>
@@ -300,8 +300,8 @@
   <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL">
     <value>Arată proprietăţile legate de sistemul de fişiere</value>
   </data>
-  <data name="TXT_ORPHAN_BOOKMARKS">
-    <value>Fişiere bookmark orfane</value>
+  <data name="TXT_ORPHAN_reperS">
+    <value>Fişiere reper orfane</value>
   </data>
   <data name="TXT_PREVIEW">
     <value>Vizualizare rezultate ...</value>
@@ -376,8 +376,8 @@ Doriţi continuarea scanării ?</value>
   <data name="TXT_SEARCHWIZARD_MC">
     <value>Caută obiecte în catalog</value>
   </data>
-  <data name="TXT_SEARCH_BOOKMARKS">
-    <value>Caută fişiere Bookmark (*.BMK)</value>
+  <data name="TXT_SEARCH_reperS">
+    <value>Caută fişiere reper (*.BMK)</value>
   </data>
   <data name="TXT_SEARCH_MEDIAFILES">
     <value>Caută fişiere media</value>

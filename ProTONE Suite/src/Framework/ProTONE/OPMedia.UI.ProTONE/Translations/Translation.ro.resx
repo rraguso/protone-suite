@@ -133,19 +133,16 @@
     <value>Intră în stand-by</value>
   </data>
   <data name="TXT_NEWNOW">
-    <value>Nou acum</value>
+    <value>Reper nou acum</value>
   </data>
   <data name="TXT_NEWNOW_BMDESC">
-    <value>Adaugă bookmark nou la momentul curent</value>
+    <value>Adaugă reper nou la momentul curent</value>
   </data>
   <data name="TXT_NEW_BMDESC">
-    <value>Adaugă bookmark nou</value>
+    <value>Adaugă reper nou</value>
   </data>
   <data name="TXT_DELETE_BMDESC">
-    <value>Şterge bookmark</value>
-  </data>
-  <data name="TXT_ADD_BOOKMARK">
-    <value>Adaugă Bookmark</value>
+    <value>Şterge reper</value>
   </data>
   <data name="TXT_AUDIOSETTINGS">
     <value>Setări audio</value>
@@ -158,18 +155,6 @@
   </data>
   <data name="TXT_AVAILABLE_DVD_MEDIA">
     <value>sau, incărcaţi unul din mediile DVD prezente în sistem:</value>
-  </data>
-  <data name="TXT_BOOKMARK_DEFAULT_TEXT">
-    <value>Descriere implicită Bookmark (folosiţi Bookmark Manager pentru modificări)</value>
-  </data>
-  <data name="TXT_BOOKMARK_DESC">
-    <value>Descriere Bookmark:</value>
-  </data>
-  <data name="TXT_BOOKMARK_MANAGER">
-    <value>Gestionare Bookmark-uri</value>
-  </data>
-  <data name="TXT_BOOKMARK_TIME">
-    <value>Timp Bookmark:</value>
   </data>
   <data name="TXT_BTNCLEAR">
     <value>Goleşte lista de redare.
@@ -262,12 +247,6 @@ Scurtătură: {0}</value>
   <data name="TXT_BTNVOLUP">
     <value>Creştere volum cu 5%.
 Scurtătură: {0}</value>
-  </data>
-  <data name="TXT_CMDADDBOOKMARK">
-    <value>Adaugă un Bookmark</value>
-  </data>
-  <data name="TXT_CMDBOOKMARKMANAGER">
-    <value>Deschide Bookmark manager</value>
   </data>
   <data name="TXT_CMDCFGAUDIO">
     <value>Afişează Setările Audio</value>
@@ -437,7 +416,7 @@ Dublu click pentru a comuta pe timp rămas.</value>
 (Fie un director VIDEO_TS, fie părintele acestuia):</value>
   </data>
   <data name="TXT_MATCHING_ITEMS">
-    <value>Fişiere găsite (dublu click sau Enter pentru a reda fişierul selectat):</value>
+    <value>Obiecte găsite (dublu click sau Enter pentru a reda fişierul selectat):</value>
   </data>
   <data name="TXT_MEDIA_NAME">
     <value>Nume: </value>
@@ -487,12 +466,6 @@ Dublu click pentru a comuta pe timp rămas.</value>
   </data>
   <data name="TXT_MOVEUP">
     <value>Mută mai sus</value>
-  </data>
-  <data name="TXT_NEW_BOOKMARK">
-    <value>Bookmark Nou</value>
-  </data>
-  <data name="TXT_NEW_BOOKMARK_ADDED">
-    <value>Un nou Bookmark a fost adăugat: {0}</value>
   </data>
   <data name="TXT_NOT_CONFIGURABLE">
     <value>Această opţiune nu este accesibilă în acest moment.</value>
@@ -708,11 +681,6 @@ ordinea definirii serverelor în pagina de setări pentru Subtitrare (prio). Da�
     <value>Axa timpului.
 Click pentru redare de la momentul: {0}</value>
   </data>
-  <data name="TXT_TIMESCALE_BOOKMARK">
-    <value>Axa timpului.
-Click pentru redare de la Bookmark: "{1}"
-Timpul Bookmarkului: {0}</value>
-  </data>
   <data name="TXT_TOTAL_TIME">
     <value>Timp total.</value>
   </data>
@@ -886,9 +854,6 @@ Pentru a accesa aceste setări, trebuie să lansaţi ProTONE Player sub un cont 
   <data name="TXT_MNUSHOWLOGCONSOLE">
     <value>Afişează Fişierul Jurnal ...</value>
   </data>
-  <data name="TXT_CMDHIDEBOOKMARKMANAGER">
-    <value>Ascunde Bookmark Manager</value>
-  </data>
   <data name="TXT_SUBFONTS">
     <value>Fonturi şi culori</value>
   </data>
@@ -1049,20 +1014,11 @@ fereastră video</value>
   <data name="TXT_ARTWORK_COUNT">
     <value>{0} imagini (click pentru editare).</value>
   </data>
-  <data name="TXT_BOOKMARK_COUNT">
-    <value>{0} Bookmark-uri (click pentru editare).</value>
-  </data>
   <data name="TXT_EXTRAINFO">
     <value>Informații suplimentare</value>
   </data>
-  <data name="TXT_BOOKMARKLIST">
-    <value>Listă Bookmark-uri</value>
-  </data>
   <data name="TXT_MEDIAINFO">
     <value>Informaţii mediu</value>
-  </data>
-  <data name="TXT_BOOKMARKS">
-    <value>Bookmark-uri</value>
   </data>
   <data name="TXT_TRACKINFO">
     <value>Info Piesă</value>
@@ -1074,31 +1030,28 @@ fereastră video</value>
     <value>ATENȚIE: Programul începe întotdeauna cu evenimentul "lista de redare la sfârşit" dezactivat!</value>
   </data>
   <data name="TXT_SHOW_PLAYLIST">
-    <value>Arata tab-ul "Playlist"</value>
+    <value>Arata fila "Listă de redare"</value>
   </data>
   <data name="TXT_SHOW_TRACKINFO">
-    <value>Arata tab-ul "Urmărire informații"</value>
+    <value>Arata fila "Info media"</value>
   </data>
   <data name="TXT_SHOW_SIGNALANALISYS">
-    <value>Arata fila "Signal Analiză"</value>
-  </data>
-  <data name="TXT_SHOW_BOOKMARKINFO">
-    <value>Arata fila "Bookmark Informații"</value>
+    <value>Arata fila "Analiză Semnal"</value>
   </data>
   <data name="TXT_HINT_PLAYLISTTAB">
-    <value></value>
+    <value>Această pagină permite interacțiunea cu lista de redare.</value>
   </data>
   <data name="TXT_HINT_TRACKINFOTAB">
-    <value></value>
+    <value>Această pagină afișează informații despre media și permite editarea unor părți ale acestor informații, dacă este cazul (de exemplu, câmpurile ID3 pentru MP3). Această pagină este dezactivată pentru media on-line (Shoutcast URL).</value>
   </data>
   <data name="TXT_HINT_SIGNALANALISYSTAB">
-    <value></value>
+    <value>Această pagină afișează diagrame de semnal, cum ar fi VU-Metrul, forma de undă și spectrograms. Analiza de semnal consumă o parte din timpul CPU, deci puteţi dezactiva această funcţionalitate (sau părți ale acesteia), în cazul în care aveți un calculator cu o viteză mai scăzută a procesorului.</value>
   </data>
-  <data name="TXT_HINT_BOOKMARKINFOTAB">
+  <data name="TXT_HINT_reperINFOTAB">
     <value></value>
   </data>
   <data name="TXT_SHOW_VUMETER">
-    <value>Arată VU-Meter</value>
+    <value>Arată VU-Metrul</value>
   </data>
   <data name="TXT_SHOW_WAVEFORM">
     <value>Arată forma de undă</value>
@@ -1107,7 +1060,7 @@ fereastră video</value>
     <value>Arată spectograma</value>
   </data>
   <data name="TXT_MEDIA_SCREENS">
-    <value></value>
+    <value>File principale</value>
   </data>
   <data name="TXT_CHOOSE_COLOR_FOR_OSD">
     <value>Alege o culoare pentru OSD:</value>
@@ -1129,5 +1082,55 @@ fereastră video</value>
   </data>
   <data name="TXT_CHOOSE_FONT_FOR_SUBTITLE">
     <value>Alege un font pt. subtitrare:</value>
+  </data>
+  <data name="TXT_BOOKMARKS">
+    <value>Repere</value>
+  </data>
+  <data name="TXT_ADD_BOOKMARK">
+    <value>Adaugă reper</value>
+  </data>
+  <data name="TXT_BOOKMARK_COUNT">
+    <value>{0} repere (click pentru editare).</value>
+  </data>
+  <data name="TXT_BOOKMARK_DEFAULT_TEXT">
+    <value>Descriere implicită reper</value>
+  </data>
+  <data name="TXT_BOOKMARK_DESC">
+    <value>Descriere reper:</value>
+  </data>
+  <data name="TXT_BOOKMARK_MANAGER">
+    <value>Manager Repere</value>
+  </data>
+  <data name="TXT_BOOKMARK_TIME">
+    <value>Timp reper:</value>
+  </data>
+  <data name="TXT_BOOKMARKLIST">
+    <value>Listă Repere</value>
+  </data>
+  <data name="TXT_CMDADDBOOKMARK">
+    <value>Adaugă un reper</value>
+  </data>
+  <data name="TXT_CMDBOOKMARKMANAGER">
+    <value>Deschide Managerul de Repere</value>
+  </data>
+  <data name="TXT_CMDHIDEBOOKMARKMANAGER">
+    <value>Ascunde Managerul de Repere</value>
+  </data>
+  <data name="TXT_NEW_BOOKMARK">
+    <value>Reper nou</value>
+  </data>
+  <data name="TXT_NEW_BOOKMARK_ADDED">
+    <value>Un nou reper a fost adăugat: {0}</value>
+  </data>
+  <data name="TXT_SHOW_BOOKMARKINFO">
+    <value>Arata fila "Repere"</value>
+  </data>
+  <data name="TXT_TIMESCALE_BOOKMARK">
+    <value>Axa timpului.
+Click pentru redare de la reper: "{1}"
+Timpul reperului: {0}</value>
+  </data>
+  <data name="TXT_HINT_BOOKMARKINFOTAB">
+    <value>Această pagină afișează informații despre repere și permite editarea lor. Acestă pagină este dezactivată pentru media care nu acceptă editarea de repere (CD-uri, DVD-uri, media on-line).</value>
   </data>
 </root>

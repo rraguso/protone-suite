@@ -133,7 +133,7 @@
     <value>Entrez en mode de veille</value>
   </data>
   <data name="TXT_NEWNOW">
-    <value>Nouveau aujourd'hui</value>
+    <value>Nouveau signet aujourd'hui</value>
   </data>
   <data name="TXT_NEWNOW_BMDESC">
     <value>Ajouter un nouveau signet au moment de la lecture en cours</value>
@@ -160,7 +160,7 @@
     <value>ou, ouvrez l'un des médias de DVD disponibles dans le système:</value>
   </data>
   <data name="TXT_BOOKMARK_DEFAULT_TEXT">
-    <value>Par défaut signet texte (utiliser le Gestionnaire des signets pour changer)</value>
+    <value>Défaut signet texte</value>
   </data>
   <data name="TXT_BOOKMARK_DESC">
     <value>Bookmark description:</value>
@@ -188,7 +188,7 @@ Raccourci: {0}</value>
 Raccourci: {0}</value>
   </data>
   <data name="TXT_BTNJUMPTOITEM">
-    <value>Ouvrez le 'Saut au playlist article' dialogue
+    <value>Ouvrez le 'Saut au liste de lecture article' dialogue
 Raccourci: {0}</value>
   </data>
   <data name="TXT_BTNLOAD">
@@ -196,7 +196,7 @@ Raccourci: {0}</value>
 Raccourci:. {0}</value>
   </data>
   <data name="TXT_BTNLOADPLAYLIST">
-    <value>Chargez une nouvelle playlist
+    <value>Chargez une nouvelle liste de lecture
 Raccourci:. {0}</value>
   </data>
   <data name="TXT_BTNLOOPPLAY">
@@ -204,15 +204,15 @@ Raccourci:. {0}</value>
 Raccourci: {0}</value>
   </data>
   <data name="TXT_BTNMOVEDOWN">
-    <value>Déplacez les éléments sélectionnés avec une position basse dans la playlist
+    <value>Déplacez les éléments sélectionnés avec une position basse dans la liste de lecture
 Raccourci: {0}</value>
   </data>
   <data name="TXT_BTNMOVEUP">
-    <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la playlist
+    <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la liste de lecture
 Raccourci: {0}</value>
   </data>
   <data name="TXT_BTNNEXT">
-    <value>Aller à l'image suivante dans la playlist
+    <value>Aller à l'image suivante dans la liste de lecture
 Raccourci: {0}</value>
   </data>
   <data name="TXT_BTNOPENDISK">
@@ -232,11 +232,11 @@ Raccourci: {0}</value>
 Raccourci:.{0}</value>
   </data>
   <data name="TXT_BTNPLAYLISTEND">
-    <value>Active l'action playlist fin'
+    <value>Active l'action liste de lecture fin'
 Raccourci: {0}</value>
   </data>
   <data name="TXT_BTNPREV">
-    <value>Aller à l'image précédente dans la playlist
+    <value>Aller à l'image précédente dans la liste de lecture
 Raccourci:. {0}</value>
   </data>
   <data name="TXT_BTNREW">
@@ -252,7 +252,7 @@ Raccourci:. {0}</value>
 Raccourci:. {0}</value>
   </data>
   <data name="TXT_BTNTOGGLESHUFFLE">
-    <value>Active le mode aléatoire playlist
+    <value>Active le mode aléatoire liste de lecture
 Raccourci: {0}</value>
   </data>
   <data name="TXT_BTNVOLDN">
@@ -267,7 +267,7 @@ Raccourci: {0}</value>
     <value>Ajouter un signet</value>
   </data>
   <data name="TXT_CMDBOOKMARKMANAGER">
-    <value>Ouvrir le gestionnaire de marque-</value>
+    <value>Ouvrir le gestionnaire de signets</value>
   </data>
   <data name="TXT_CMDCFGAUDIO">
     <value>Affiche de configuration Audio</value>
@@ -297,7 +297,7 @@ Raccourci: {0}</value>
     <value>Avance rapide de 5 secondes.</value>
   </data>
   <data name="TXT_CMDJUMPTOITEM">
-    <value>Ouvrez le 'Saut au playlist article «dialogue</value>
+    <value>Ouvrez le 'Saut au liste de lecture article «dialogue</value>
   </data>
   <data name="TXT_CMDLOAD">
     <value>Chargez nouveau fichier (s).</value>
@@ -309,13 +309,13 @@ Raccourci: {0}</value>
     <value>Active ou désactive la lecture en boucle.</value>
   </data>
   <data name="TXT_CMDMOVEDOWN">
-    <value>Déplacez les éléments sélectionnés avec une position basse dans la playlist.</value>
+    <value>Déplacez les éléments sélectionnés avec une position basse dans la liste de lecture.</value>
   </data>
   <data name="TXT_CMDMOVEUP">
-    <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la playlist.</value>
+    <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la liste de lecture.</value>
   </data>
   <data name="TXT_CMDNEXT">
-    <value>Aller à l'image suivante dans la playlist.</value>
+    <value>Aller à l'image suivante dans la liste de lecture.</value>
   </data>
   <data name="TXT_CMDOPENDISK">
     <value>Ouvre la boîte de dialogue Charger un support DVD</value>
@@ -330,10 +330,10 @@ Raccourci: {0}</value>
     <value>Lire le fichier.</value>
   </data>
   <data name="TXT_CMDPLAYLISTEND">
-    <value>Active l''action sur la fin playlist'</value>
+    <value>Active l''action sur la fin liste de lecture'</value>
   </data>
   <data name="TXT_CMDPREV">
-    <value>Aller à l'image précédente dans la playlist.</value>
+    <value>Aller à l'image précédente dans la liste de lecture.</value>
   </data>
   <data name="TXT_CMDREW">
     <value>Rembobinez avec 5 secondes.</value>
@@ -360,7 +360,7 @@ Raccourci: {0}</value>
     <value>Paramètres audio</value>
   </data>
   <data name="TXT_CONFIGUREPLAYLIST">
-    <value>Playlist</value>
+    <value>Liste de lecture</value>
   </data>
   <data name="TXT_CONFIGURESUBTITLES">
     <value>Réglages sous-titres</value>
@@ -382,7 +382,7 @@ Double click to toggle temps restant</value>
     <value>Laissez Lecteur ProTone être contrôlé à distance.</value>
   </data>
   <data name="TXT_ENABLE_PLAYLISTEVT">
-    <value>D'action «playlist terminée 'événement</value>
+    <value>D'action «liste de lecture terminée 'événement</value>
   </data>
   <data name="TXT_ENABLE_SCHEDULEDEVT">
     <value>D'action sur le moment prévu</value>
@@ -415,7 +415,7 @@ Double click to toggle temps restant</value>
     <value>Ignorer les mouvements de la souris en mode plein écran</value>
   </data>
   <data name="TXT_JUMP_TO_ITEM">
-    <value>Aller à la rubrique playlist</value>
+    <value>Aller à la rubrique liste de lecture</value>
   </data>
   <data name="TXT_LAUNCH_PROGRAM">
     <value>lancer un programme personnalisé</value>
@@ -437,13 +437,13 @@ Double click to toggle temps restant</value>
 (Soit un dossier VIDEO_TS, ou son parent):</value>
   </data>
   <data name="TXT_MATCHING_ITEMS">
-    <value>Articles assortis (double-clic ou appuyez sur Entrée pour lire un élément):</value>
+    <value>Objets trouvés (double-clic ou appuyez sur Entrée pour lire un élément):</value>
   </data>
   <data name="TXT_MEDIA_NAME">
     <value>Nom du média:</value>
   </data>
   <data name="TXT_MEDIA_STATE">
-    <value>Media est aujourd'hui {0}</value>
+    <value>Media est maintenant {0}</value>
   </data>
   <data name="TXT_MEDIA_TIME">
     <value>Heure:</value>
@@ -459,7 +459,7 @@ Double click to toggle temps restant</value>
     <value>Paramètres audio ...</value>
   </data>
   <data name="TXT_MNULOADPLAYLIST">
-    <value>Chargez Playlist ...</value>
+    <value>Chargez Liste de lecture ...</value>
   </data>
   <data name="TXT_MNULOOPPLAY">
     <value>Lecture en boucle</value>
@@ -562,13 +562,13 @@ Etes-vous sûr que vous voulez rechercher une autre sous-titre?</value>
     <value>Jouer</value>
   </data>
   <data name="TXT_PLAYLIST">
-    <value>Playlist</value>
+    <value>Liste de lecture</value>
   </data>
   <data name="TXT_PLAYLISTEVT_DESC">
     <value>Quand la liste de lecture se termine:</value>
   </data>
   <data name="TXT_PLAYLISTS">
-    <value>Playlists</value>
+    <value>Lists de lecture</value>
   </data>
   <data name="TXT_PLAYLIST_END_MSG">
     <value>la liste de lecture est terminée</value>
@@ -632,7 +632,7 @@ Cliquez sur le bouton ci-dessous pour lancer ProTone RCC Manager ...</value>
     <value>Tous les fichiers audio</value>
   </data>
   <data name="TXT_SELECT_ALLPLAYLISTS">
-    <value>Toutes les playlists</value>
+    <value>Toutes les lists de lecture</value>
   </data>
   <data name="TXT_SELECT_ALLVIDEO">
     <value>Tous les fichiers vidéo</value>
@@ -711,7 +711,7 @@ Cliquez pour jouer à partir de la position: {0}</value>
   <data name="TXT_TIMESCALE_BOOKMARK">
     <value>Échelle de temps
 Cliquez pour jouer à partir de signet: "{1}"
-temps Marque page: {0}</value>
+Temps de signet: {0}</value>
   </data>
   <data name="TXT_TOTAL_TIME">
     <value>Temps total.</value>
@@ -754,7 +754,7 @@ Cliquez pour régler le volume d': {0}%</value>
     <value>Divers</value>
   </data>
   <data name="TXT_METADATAPATTERNS">
-    <value>Les modèles disponibles pour le formatage élément de la playlist sont basées sur des combinaisons de ces mots-clés:
+    <value>Les modèles disponibles pour le formatage élément de la liste de lecture sont basées sur des combinaisons de ces mots-clés:
 
 &lt;A&gt; = nom de l'artiste (de tag);
 &lt;B&gt; = nom de l'album (de tag);
@@ -766,7 +766,7 @@ Cliquez pour régler le volume d': {0}%</value>
   </data>
   <data name="TXT_DISPLAY_FILENAME">
     <value>Pas options de formatage sont spécifiées.
-Le programme affiche le nom du fichier en entrée playlist.</value>
+Le programme affiche le nom du fichier en entrée liste de lecture.</value>
   </data>
   <data name="TXT_FILENAME_FORMAT">
     <value>Si les métadonnées sont manquantes, utilisez le nom du fichier analysé comme:</value>
@@ -793,13 +793,13 @@ Le programme affiche le nom du fichier en entrée playlist.</value>
     <value>Utilisation de 'Restore Defaults' sera mis à la fois le moniteur préféré et de repli vers le moniteur principal attaché au système.</value>
   </data>
   <data name="TXT_PLAYLISTOPTIONS">
-    <value>Playlist</value>
+    <value>Liste de lecture</value>
   </data>
   <data name="TXT_PREFERREDMONITORDETACHED">
     <value>Le moniteur préférée n'est plus connecté au système. Pour choisir un autre moniteur preffered, utilisez «Paramètres par défaut», puis sélectionnez de nouveau le moniteur préféré.</value>
   </data>
   <data name="TXT_PLAYLIST_FORMAT">
-    <value>Format playlist entrées comme suit:</value>
+    <value>Format liste de lecture entrées comme suit:</value>
   </data>
   <data name="TXT_INVALIDDVDVOLUME">
     <value>Vous avez spécifié un volume DVD invalide. S'il vous plaît sélectionnez de nouveau.</value>
@@ -809,13 +809,13 @@ Le programme affiche le nom du fichier en entrée playlist.</value>
 Pour accéder à ces paramètres, vous devez lancer ProTone Joueur sous un compte d'utilisateur qui a des privilèges d'administrateur</value>
   </data>
   <data name="TXT_MNUCLEAR">
-    <value>Effacer playlist</value>
+    <value>Effacer liste de lecture</value>
   </data>
   <data name="TXT_MNUDELETE">
-    <value>Supprimer l'élément playlist</value>
+    <value>Supprimer l'élément liste de lecture</value>
   </data>
   <data name="TXT_MNUJUMPTOITEM">
-    <value>Aller à la rubrique playlist ...</value>
+    <value>Aller à la rubrique liste de lecture ...</value>
   </data>
   <data name="TXT_MNUMOVEDOWN">
     <value>Descendre</value>
@@ -824,7 +824,7 @@ Pour accéder à ces paramètres, vous devez lancer ProTone Joueur sous un compt
     <value>Déplacer vers le haut</value>
   </data>
   <data name="TXT_MNUPLAYLISTEND">
-    <value>Événement de fin playlist</value>
+    <value>Événement de fin liste de lecture</value>
   </data>
   <data name="TXT_MNUTOGGLESHUFFLE">
     <value>Lecture aléatoire</value>
@@ -1074,28 +1074,28 @@ de la fenêtre vidéo</value>
     <value>ATTENTION: L'eveniment "termination de list de lecture" état marche / arrêt n'est pas mémorisée entre les sessions du programme!</value>
   </data>
   <data name="TXT_SHOW_PLAYLIST">
-    <value>Afficher l'onglet "Playlist"</value>
+    <value>Afficher le page "Liste de lecture"</value>
   </data>
   <data name="TXT_SHOW_TRACKINFO">
-    <value>Afficher l'onglet "Informations sur la piste"</value>
+    <value>Afficher le page "Info Media"</value>
   </data>
   <data name="TXT_SHOW_SIGNALANALISYS">
-    <value>Afficher l'onglet "Signal Analisys"</value>
+    <value>Afficher le page "Analyse du signal"</value>
   </data>
   <data name="TXT_SHOW_BOOKMARKINFO">
-    <value>Afficher l'onglet "Informations Bookmark"</value>
+    <value>Afficher le page "Signets"</value>
   </data>
   <data name="TXT_HINT_PLAYLISTTAB">
-    <value></value>
+    <value>Cette page permet l'interaction avec la liste de lecture.</value>
   </data>
   <data name="TXT_HINT_TRACKINFOTAB">
-    <value></value>
+    <value>Cette page affiche les informations de la piste et permet d'éditer certaines parties de ces informations, le cas échéant (par exemple, les champs ID3 pour MP3). Elle est désactivée pour les médias en streaming (Shoutcast URL).</value>
   </data>
   <data name="TXT_HINT_SIGNALANALISYSTAB">
-    <value></value>
+    <value>Cette page affiche signalent diagrammes tels que les VU-mètre, de forme d'onde et spectrogramme. Le analisys signal consomme une partie de UC de sorte que vous pouvez désactiver cette fonction (ou certaines parties de celui-ci), si vous avez un ordinateur de l'UC inférieure.</value>
   </data>
   <data name="TXT_HINT_BOOKMARKINFOTAB">
-    <value></value>
+    <value>Cette page affiche les informations du signet et permet de le modifier. Elle est désactivée pour les médias qui ne prennent pas en charge l'édition des signets (CD, DVD, médias écoutés).</value>
   </data>
   <data name="TXT_SHOW_VUMETER">
     <value>Afficher VU-mètre</value>
@@ -1107,7 +1107,7 @@ de la fenêtre vidéo</value>
     <value>Afficher spectrogramme</value>
   </data>
   <data name="TXT_MEDIA_SCREENS">
-    <value></value>
+    <value>Pages Principaux</value>
   </data>
   <data name="TXT_CHOOSE_COLOR_FOR_OSD">
     <value>Choisissez une couleur de l'OSD:</value>

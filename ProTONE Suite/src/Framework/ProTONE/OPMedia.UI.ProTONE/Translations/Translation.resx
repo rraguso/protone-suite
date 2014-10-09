@@ -133,7 +133,7 @@
     <value>Enter in Standby</value>
   </data>
   <data name="TXT_NEWNOW">
-    <value>New now</value>
+    <value>New boormark now</value>
   </data>
   <data name="TXT_NEWNOW_BMDESC">
     <value>Add a new bookmark at current playback time</value>
@@ -160,7 +160,7 @@
     <value>or, open one of the available DVD media in system:</value>
   </data>
   <data name="TXT_BOOKMARK_DEFAULT_TEXT">
-    <value>Default bookmark text (use Bookmark Manager to change)</value>
+    <value>Default bookmark text</value>
   </data>
   <data name="TXT_BOOKMARK_DESC">
     <value>Bookmark description:</value>
@@ -437,7 +437,7 @@ Double click to toggle remaining time</value>
 (Either a VIDEO_TS folder, or its parent):</value>
   </data>
   <data name="TXT_MATCHING_ITEMS">
-    <value>Matching items (double click or press enter to play an item):</value>
+    <value>Found objects (double click or press enter to play an item):</value>
   </data>
   <data name="TXT_MEDIA_NAME">
     <value>Media name: </value>
@@ -1074,28 +1074,28 @@ window position</value>
     <value>CAUTION: The program always starts with the "playlist ended" event deactivated!</value>
   </data>
   <data name="TXT_SHOW_PLAYLIST">
-    <value>Show the "Playlist " tab</value>
+    <value>Show the "Playlist " page</value>
   </data>
   <data name="TXT_SHOW_TRACKINFO">
-    <value>Show the "Track information" tab</value>
+    <value>Show the "Media Info" page</value>
   </data>
   <data name="TXT_SHOW_SIGNALANALISYS">
-    <value>Show the "Signal Analisys" tab</value>
+    <value>Show the "Signal Analisys" page</value>
   </data>
   <data name="TXT_SHOW_BOOKMARKINFO">
-    <value>Show the "Bookmark Information" tab</value>
+    <value>Show the "Bookmarks" page</value>
   </data>
   <data name="TXT_HINT_PLAYLISTTAB">
-    <value>This tab allows interaction with the playlist.</value>
+    <value>This page allows interaction with the playlist.</value>
   </data>
   <data name="TXT_HINT_TRACKINFOTAB">
-    <value>This tab displays the track information and allows editing some parts of this information, where applicable (e.g. the ID3 fields for MP3). It is disabled for streamed media (Shoutcast URL's).</value>
+    <value>This page displays the track information and allows editing some parts of this information, where applicable (e.g. the ID3 fields for MP3). It is disabled for streamed media (Shoutcast URL's).</value>
   </data>
   <data name="TXT_HINT_SIGNALANALISYSTAB">
-    <value>This tab displays signal diagrams such as VU-Meter, Waveform and Spectrogram. The signal analisys consumes some CPU so you may want to disable this feature (or some parts of it), if you have a slower CPU computer.</value>
+    <value>This page displays signal diagrams such as VU-Meter, Waveform and Spectrogram. The signal analisys consumes some CPU so you may want to disable this feature (or some parts of it), if you have a slower CPU computer.</value>
   </data>
   <data name="TXT_HINT_BOOKMARKINFOTAB">
-    <value>This tab displays the bookmark information and allows editing it. It is disabled for media that does not support editing bookmarks (CD, DVD, streamed media).</value>
+    <value>This page displays the bookmark information and allows editing it. It is disabled for media that does not support editing bookmarks (CD, DVD, streamed media).</value>
   </data>
   <data name="TXT_SHOW_VUMETER">
     <value>Show VU-Meter</value>
@@ -1107,7 +1107,7 @@ window position</value>
     <value>Show spectrogram</value>
   </data>
   <data name="TXT_MEDIA_SCREENS">
-    <value>Media Screens</value>
+    <value>Main Pages</value>
   </data>
   <data name="TXT_CHOOSE_COLOR_FOR_OSD">
     <value>Choose a color for OSD:</value>
