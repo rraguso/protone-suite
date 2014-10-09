@@ -800,16 +800,6 @@
     <Content Include="Resources\wizard.png" />
     <None Include="Resources\waiting.gif" />
     <None Include="Resources\waitframe.bmp" />
-    <EmbeddedResource Include="Resources\SizeDown.cur" />
-    <EmbeddedResource Include="Resources\SizeUp.cur" />
-    <EmbeddedResource Include="Resources\SizeLeft.cur" />
-    <EmbeddedResource Include="Resources\SizeRight.cur" />
-    <EmbeddedResource Include="Resources\SizeLT.cur" />
-    <EmbeddedResource Include="Resources\SizeRB.cur" />
-    <EmbeddedResource Include="Resources\SizeRT.cur" />
-    <EmbeddedResource Include="Resources\SizeLB.cur" />
-    <EmbeddedResource Include="Resources\SplitH.cur" />
-    <EmbeddedResource Include="Resources\SplitV.cur" />
     <Content Include="Resources\hourglass.png" />
     <Content Include="Resources\Troubleshooting.png" />
     <Content Include="Resources\TVState0.bmp" />
