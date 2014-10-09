@@ -136,16 +136,16 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     spSpectrogram.MinVal = maxFftLevel / 2; // Min level = -6 dBM
                     spSpectrogram.MaxVal = maxFftLevel; // Max level = -6 dBM
 
-                    lblFqMin.Text = "??";
-                    lblFqMax.Text = "??";
-
                     double[] spectrogramData = MediaRenderer.DefaultInstance.SpectrogramData;
                     if (spectrogramData != null && spectrogramData.Length > 0)
                     {
                         try
                         {
-                            lblFqMin.Text = string.Format("1 Hz");
-                            lblFqMax.Text = string.Format("{0} Hz", (MediaRenderer.DefaultInstance.ActualAudioFormat.nSamplesPerSec / 2));
+                            lblFqMin.Text = "1 Hz";
+                            string s = string.Format("{0} Hz", (MediaRenderer.DefaultInstance.ActualAudioFormat.nSamplesPerSec / 2));
+
+                            if (lblFqMax.Text != s)
+                                lblFqMax.Text = s;
                         }
                         catch
                         {
@@ -193,6 +193,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                     {
                         spSpectrogram.Reset(true);
                         Array.Clear(_bands, 0, _bands.Length);
+
+                        lblFqMin.Text = "??";
+                        lblFqMax.Text = "??";
                     }
                 }
             }

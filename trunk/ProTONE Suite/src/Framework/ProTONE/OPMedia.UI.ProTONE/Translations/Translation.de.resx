@@ -133,7 +133,7 @@
     <value>Geben im Standby</value>
   </data>
   <data name="TXT_NEWNOW">
-    <value>New nun</value>
+    <value>Neue Lesezeiche nun</value>
   </data>
   <data name="TXT_NEWNOW_BMDESC">
     <value>Fügen Sie ein neues Lesezeichen im aktuellen Wiedergabezeit</value>
@@ -160,16 +160,16 @@
     <value>oder öffnen Sie eine der verfügbaren DVD-Medien im System:</value>
   </data>
   <data name="TXT_BOOKMARK_DEFAULT_TEXT">
-    <value>Standard-Text Bookmark (Lesezeichen-Manager verwenden zu ändern)</value>
+    <value>Standard-Lesezeiche Text</value>
   </data>
   <data name="TXT_BOOKMARK_DESC">
-    <value>Bookmark Beschreibung:</value>
+    <value>Lesezeichen Beschreibung:</value>
   </data>
   <data name="TXT_BOOKMARK_MANAGER">
-    <value>Bookmark-Manager</value>
+    <value>Lesezeichen-Manager</value>
   </data>
   <data name="TXT_BOOKMARK_TIME">
-    <value>Bookmark Zeit:</value>
+    <value>Lesezeiche Zeit:</value>
   </data>
   <data name="TXT_BTNCLEAR">
     <value>Löschen gesamte Playliste
@@ -188,7 +188,7 @@ Tastenkürzel: {0}</value>
 Tastenkürzel: {0}</value>
   </data>
   <data name="TXT_BTNJUMPTOITEM">
-    <value>Öffnen Sie das 'Jump to playlist item' Dialog
+    <value>Öffnen Sie das 'Jump to wiedergabelist item' Dialog
 Tastenkürzel: {0}</value>
   </data>
   <data name="TXT_BTNLOAD">
@@ -232,7 +232,7 @@ Tastenkürzel: {0}</value>
 Tastenkürzel: {0}</value>
   </data>
   <data name="TXT_BTNPLAYLISTEND">
-    <value>Aktiviert die 'Aktion am Ende Playlist'
+    <value>Aktiviert die 'Aktion am Ende Wiedergabelist'
 Tastenkürzel: {0}</value>
   </data>
   <data name="TXT_BTNPREV">
@@ -244,7 +244,7 @@ Tastenkürzel: {0}</value>
 Tastenkürzel: {0}</value>
   </data>
   <data name="TXT_BTNSAVEPLAYLIST">
-    <value>Speichern Sie die aktuelle Playlist
+    <value>Speichern Sie die aktuelle Wiedergabelist
 Tastenkürzel: {0}</value>
   </data>
   <data name="TXT_BTNSTOP">
@@ -252,7 +252,7 @@ Tastenkürzel: {0}</value>
 Tastenkürzel: {0}</value>
   </data>
   <data name="TXT_BTNTOGGLESHUFFLE">
-    <value>Aktiviert Playlist Mischen-Modus
+    <value>Aktiviert Wiedergabelist Mischen-Modus
 Tastenkürzel: {0}</value>
   </data>
   <data name="TXT_BTNVOLDN">
@@ -297,7 +297,7 @@ Tastenkürzel: {0}</value>
     <value>Schneller Vorlauf mit 5 Sekunden.</value>
   </data>
   <data name="TXT_CMDJUMPTOITEM">
-    <value>Öffnen Sie das 'Jump to playlist item' Dialog</value>
+    <value>Öffnen Sie das 'Jump to wiedergabelist item' Dialog</value>
   </data>
   <data name="TXT_CMDLOAD">
     <value>Legen Sie neue Datei (en).</value>
@@ -312,7 +312,7 @@ Tastenkürzel: {0}</value>
     <value>Bewegen Sie mit ausgewählten Elemente eine Position nach unten in der Wiedergabeliste.</value>
   </data>
   <data name="TXT_CMDMOVEUP">
-    <value>Bewegen Sie mit ausgewählten Elemente eine Position nach oben in der Playlist.</value>
+    <value>Bewegen Sie mit ausgewählten Elemente eine Position nach oben in der Wiedergabelist.</value>
   </data>
   <data name="TXT_CMDNEXT">
     <value>Zum nächsten Datei in der Wiedergabeliste.</value>
@@ -330,7 +330,7 @@ Tastenkürzel: {0}</value>
     <value>Datei wiedergeben.</value>
   </data>
   <data name="TXT_CMDPLAYLISTEND">
-    <value>Aktiviert die 'Aktion am Ende Playlist'</value>
+    <value>Aktiviert die 'Aktion am Ende Wiedergabelist'</value>
   </data>
   <data name="TXT_CMDPREV">
     <value>Zum vorherigen Datei in der Wiedergabeliste.</value>
@@ -339,7 +339,7 @@ Tastenkürzel: {0}</value>
     <value>Spulen Sie mit 5 Sekunden.</value>
   </data>
   <data name="TXT_CMDSAVEPLAYLIST">
-    <value>Speichern der aktuellen Playlist.</value>
+    <value>Speichern der aktuellen Wiedergabelist.</value>
   </data>
   <data name="TXT_CMDSEARCHSUBTITLES">
     <value>Suchen Untertitel für Videoclips</value>
@@ -348,7 +348,7 @@ Tastenkürzel: {0}</value>
     <value>Stoppen Sie die Wiedergabe.</value>
   </data>
   <data name="TXT_CMDTOGGLESHUFFLE">
-    <value>Aktiviert Playlist Mischen-Modus.</value>
+    <value>Aktiviert Wiedergabelist Mischen-Modus.</value>
   </data>
   <data name="TXT_CMDVOLDN">
     <value>Leiser um 5%.</value>
@@ -360,7 +360,7 @@ Tastenkürzel: {0}</value>
     <value>Audio-Einstellungen</value>
   </data>
   <data name="TXT_CONFIGUREPLAYLIST">
-    <value>Playlist</value>
+    <value>Wiedergabelist</value>
   </data>
   <data name="TXT_CONFIGURESUBTITLES">
     <value>Untertitel-Einstellungen</value>
@@ -437,7 +437,7 @@ Doppelklick verbleibende Zeit zu wechseln</value>
 (Entweder ein VIDEO_TS-Ordner, oder deren Eltern):</value>
   </data>
   <data name="TXT_MATCHING_ITEMS">
-    <value>Passende Produkte (Doppelklick oder drücken Sie die Eingabetaste, um ein Element zu spielen):</value>
+    <value>Gefundene Artikelen (Doppelklick oder drücken Sie die Eingabetaste, um ein Element zu spielen):</value>
   </data>
   <data name="TXT_MEDIA_NAME">
     <value>Medien-Name:</value>
@@ -459,7 +459,7 @@ Doppelklick verbleibende Zeit zu wechseln</value>
     <value>Audio-Einstellungen ...</value>
   </data>
   <data name="TXT_MNULOADPLAYLIST">
-    <value>Legen Playlist ...</value>
+    <value>Legen Wiedergabelist ...</value>
   </data>
   <data name="TXT_MNULOOPPLAY">
     <value>Loop Play</value>
@@ -562,16 +562,16 @@ Sind Sie sicher, dass Sie eine andere Untertitel suchen?</value>
     <value>Playing</value>
   </data>
   <data name="TXT_PLAYLIST">
-    <value>Playlist</value>
+    <value>Wiedergabeliste</value>
   </data>
   <data name="TXT_PLAYLISTEVT_DESC">
-    <value>Wenn die Playlist endet:</value>
+    <value>Wenn die Wiedergabelist endet:</value>
   </data>
   <data name="TXT_PLAYLISTS">
     <value>Wiedergabelisten</value>
   </data>
   <data name="TXT_PLAYLIST_END_MSG">
-    <value>Die Playlist ist beendet</value>
+    <value>Die Wiedergabelist ist beendet</value>
   </data>
   <data name="TXT_PLAY_FROM">
     <value> aus: {0}</value>
@@ -793,13 +793,13 @@ Das Programm wird den Namen der Datei in der Wiedergabeliste Eintrag anzuzeigen.
     <value>Die Verwendung von 'Standardeinstellungen' werden sowohl die Bevorzugte und Fallback Monitoren auf dem primären Monitor an das System eingestellt.</value>
   </data>
   <data name="TXT_PLAYLISTOPTIONS">
-    <value>Playlist</value>
+    <value>Wiedergabelist</value>
   </data>
   <data name="TXT_PREFERREDMONITORDETACHED">
     <value>Die bevorzugte Monitor ist nicht mehr an das System angeschlossen. Um ein weiteres bevorzugte Monitor wählen, verwenden 'Standardeinstellungen' wählen Sie dann erneut den bevorzugte Monitor.</value>
   </data>
   <data name="TXT_PLAYLIST_FORMAT">
-    <value>Format Playlist Einträge wie:</value>
+    <value>Format Wiedergabelist Einträge wie:</value>
   </data>
   <data name="TXT_INVALIDDVDVOLUME">
     <value>Sie haben eine ungültige DVD Volumen angegeben. Bitte wählen Sie erneut.</value>
@@ -824,7 +824,7 @@ Um diese Einstellungen zuzugreifen, müssen Sie starten ProTONE Spieler unter ei
     <value>Nach oben</value>
   </data>
   <data name="TXT_MNUPLAYLISTEND">
-    <value>Playlist Ende Veranstaltung</value>
+    <value>Wiedergabelist Ende Veranstaltung</value>
   </data>
   <data name="TXT_MNUTOGGLESHUFFLE">
     <value>Mischen-Spielen</value>
@@ -1056,13 +1056,13 @@ Videofenster Position</value>
     <value>Zusätzliche Informationen</value>
   </data>
   <data name="TXT_BOOKMARKLIST">
-    <value>Bookmark-Liste</value>
+    <value>Lesezeichen-Liste</value>
   </data>
   <data name="TXT_MEDIAINFO">
     <value>Medieninformation</value>
   </data>
   <data name="TXT_BOOKMARKS">
-    <value>Bookmarks</value>
+    <value>Lesezeichen</value>
   </data>
   <data name="TXT_TRACKINFO">
     <value>Titel-Info</value>
@@ -1071,43 +1071,43 @@ Videofenster Position</value>
     <value>Signalanalyse</value>
   </data>
   <data name="TXT_PLAYLISTEVT_CAUTION">
-    <value>ACHTUNG: Das Programm startet immer mit der "Playlist beendet" Ereignis deaktiviert!</value>
+    <value>ACHTUNG: Das Programm startet immer mit der "Wiedergabelist beendet" Ereignis deaktiviert!</value>
   </data>
   <data name="TXT_SHOW_PLAYLIST">
-    <value>Zeigen Sie die Registerkarte "Playlist"</value>
+    <value>Zeigen Sie die Seite "Wiedergabeliste"</value>
   </data>
   <data name="TXT_SHOW_TRACKINFO">
-    <value>Zeigen Sie die Registerkarte "Titelinformationen"</value>
+    <value>Zeigen Sie die Seite "Mediainfo"</value>
   </data>
   <data name="TXT_SHOW_SIGNALANALISYS">
-    <value>Zeigen Sie die Registerkarte "Signal analisys"</value>
+    <value>Zeigen Sie die Seite "Signalanalyse"</value>
   </data>
   <data name="TXT_SHOW_BOOKMARKINFO">
-    <value>Zeigen Sie die Registerkarte "Bookmark Information"</value>
+    <value>Zeigen Sie die Seite "Lesezeichen"</value>
   </data>
   <data name="TXT_HINT_PLAYLISTTAB">
-    <value></value>
+    <value>Diese Seite ermöglicht die Interaktion mit der Wiedergabeliste.</value>
   </data>
   <data name="TXT_HINT_TRACKINFOTAB">
-    <value></value>
+    <value>Diese Seite zeigt die Titelinformationen und ermöglicht die Bearbeitung einige Teile dieser Informationen gegebenenfalls (zB die ID3-Felder für MP3). Es ist für die Streaming-Medien (Shoutcast-URL) deaktiviert.</value>
   </data>
   <data name="TXT_HINT_SIGNALANALISYSTAB">
-    <value></value>
+    <value>Diese Seite zeigt Signaldiagramme wie VU-Meter, Wellenform und Spektrogramm. Die Signalanalyse etwas CPU so können Sie dieses Feature (oder einige Teile davon) zu deaktivieren, wenn Sie eine langsamere CPU Computer haben.</value>
   </data>
   <data name="TXT_HINT_BOOKMARKINFOTAB">
-    <value></value>
+    <value>Diese Seite zeigt die Lesezeichen-Informationen und erlaubt bearbeiten. Es ist für die Medien, die nicht unterstützt Lesezeichen bearbeiten (CD, DVD, Streaming-Medien) deaktiviert.</value>
   </data>
   <data name="TXT_SHOW_VUMETER">
-    <value>Show VU-Meter</value>
+    <value>Zeigen Sie die VU-Meter</value>
   </data>
   <data name="TXT_SHOW_WAVEFORM">
-    <value>Wellenform anzeigen</value>
+    <value>Zeigen Sie die Wellenform</value>
   </data>
   <data name="TXT_SHOW_SPECTROGRAM">
-    <value>Spektrogramm anzeigen</value>
+    <value>Zeigen Sie die Spektrogramm</value>
   </data>
   <data name="TXT_MEDIA_SCREENS">
-    <value></value>
+    <value>Haupt-Seiten</value>
   </data>
   <data name="TXT_CHOOSE_COLOR_FOR_OSD">
     <value>Wählen Sie eine Farbe für OSD:</value>
