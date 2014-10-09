@@ -86,6 +86,9 @@ namespace OPMedia.UI.Controls
         }
         #endregion
 
+        [DefaultValue(false)]
+        public bool VerticalText { get; set; }
+
         #endregion
 
         public OPMLabel()
@@ -102,6 +105,8 @@ namespace OPMedia.UI.Controls
             this.DoubleBuffered = true;
 
             this.FontSize = FontSizes.Normal;
+
+            this.VerticalText = false;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -138,6 +143,19 @@ namespace OPMedia.UI.Controls
                 //sf.FormatFlags = StringFormatFlags.NoClip;
                 
                 sf.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.Show;
+
+                if (this.VerticalText)
+                {
+                    sf.FormatFlags |= StringFormatFlags.DirectionVertical;
+                    try
+                    {
+                        e.Graphics.RotateTransform(180);
+                        e.Graphics.TranslateTransform(-Width, -Height);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
 
                 e.Graphics.DrawString(this.Text, this.Font, b, rc, sf);
             }

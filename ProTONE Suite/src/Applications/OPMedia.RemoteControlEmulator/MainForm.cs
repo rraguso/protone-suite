@@ -14,6 +14,9 @@ using OPMedia.Runtime.ProTONE;
 using OPMedia.Core.Logging;
 using OPMedia.UI.Controls;
 using OPMedia.Runtime.InterProcessCommunication;
+using OPMedia.Core;
+using OPMedia.UI.Generic;
+using OPMedia.RemoteControlEmulator.Properties;
 
 namespace OPMedia.RemoteControlEmulator
 {
@@ -22,6 +25,26 @@ namespace OPMedia.RemoteControlEmulator
         public MainForm() : base("RCC Emulator")
         {
             InitializeComponent();
+
+            ImageList il = new ImageList();
+            il.ImageSize = new System.Drawing.Size(64, 64);
+            il.ColorDepth = ColorDepth.Depth32Bit;
+            il.TransparentColor = ThemeManager.TransparentColor;
+
+            il.Images.Add(Resources.player);
+            il.Images.Add(Resources.catalog);
+            il.Images.Add(Resources.ir_remote);
+
+            btnPlayer.ImageList = btnMediaLib.ImageList = btnRemote.ImageList = il;
+
+            btnPlayer.ImageIndex = 0;
+            btnMediaLib.ImageIndex = 1;
+            btnRemote.ImageIndex = 2;
+
+            Version v = new Version(SuiteVersion.Version);
+
+            lblDesc.Text = string.Format("{0} {1}.{2}",
+                Constants.SuiteName, v.Major, v.Minor);
 
             this.ShowInTaskbar = true;
 

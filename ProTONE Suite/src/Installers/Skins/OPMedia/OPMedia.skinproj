@@ -756,7 +756,7 @@
 			<Class Name="SysMetrics">
 				<Property Name="Menu" Value="250 250 250"/>
 				<Property Name="InactiveCaption" Value="150 150 150"/>
-				<Property Name="BtnFace" Value="113 113 113"/>
+				<Property Name="BtnFace" Value="110 110 110"/>
 				<Property Name="Highlight" Value="255 224 142"/>
 				<Property Name="Scrollbar" Value="180 183 191"/>
 				<Property Name="Appworkspace" Value="70 70 70"/>
@@ -766,8 +766,8 @@
 				<Property Name="InactiveCaptionText" Value="225 225 225"/>
 				<Property Name="MenuHilight" Value="180 201 233"/>
 				<Property Name="BtnShadow" Value="178 183 194"/>
-				<Property Name="WindowFrame" Value="0 0 0"/>
-				<Property Name="ButtonAlternateFace" Value="113 113 113"/>
+				<Property Name="WindowFrame" Value="25 25 25"/>
+				<Property Name="ButtonAlternateFace" Value="110 110 110"/>
 			</Class>
 			<Class Name="Window">
 				<Property Part="CaptionSizingTemplate" Name="ImageFile" Value="%ImageFolder%\\FrameCaptionSizing.png"/>

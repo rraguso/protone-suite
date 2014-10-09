@@ -38,6 +38,7 @@ namespace OPMedia.UI.Themes
         NormalBold,
         Large,
         VeryLarge,
+        ExtremeLarge,
     }
 
     public static class ResourceManagerExtension
@@ -76,6 +77,8 @@ namespace OPMedia.UI.Themes
         private static Font _normalBoldFont = null;
         private static Font _largeFont = null;
         private static Font _veryLargeFont = null;
+
+        private static Font _extremeLargeFont = null;
 
         private static ColorConverter cc = new ColorConverter();
 
@@ -252,6 +255,9 @@ namespace OPMedia.UI.Themes
         public static Font VeryLargeFont
         { get { return _veryLargeFont; } }
 
+        public static Font ExtremeLargeFont
+        { get { return _extremeLargeFont; } }
+
         #endregion
 
         #region Methods
@@ -270,6 +276,8 @@ namespace OPMedia.UI.Themes
                     return ThemeManager.VeryLargeFont;
                 case FontSizes.NormalBold:
                     return ThemeManager.NormalBoldFont;
+                case FontSizes.ExtremeLarge:
+                    return ThemeManager.ExtremeLargeFont;
             }
 
             return ThemeManager.NormalFont;
@@ -346,6 +354,9 @@ namespace OPMedia.UI.Themes
                         new Font(ThemeFontFamily, 12 * step, FontStyle.Bold, GraphicsUnit.Point);
                     _veryLargeFont =
                         new Font(ThemeFontFamily, 15 * step, FontStyle.Bold, GraphicsUnit.Point);
+
+                    _extremeLargeFont =
+                        new Font(ThemeFontFamily, 35 * step, FontStyle.Bold, GraphicsUnit.Point);
                 }
             }
         }
