@@ -239,31 +239,15 @@ namespace OPMedia.UI.Themes
 
             InitializeComponent();
 
-            using (MemoryStream ms = new MemoryStream(Resources.SizeDown))
-                _rmBottom.Cursor = new Cursor(ms);
+            _rmBottom.Cursor = Cursors.SizeNS;
+            _rmLeft.Cursor = Cursors.SizeWE;
+            _rmRight.Cursor = Cursors.SizeWE;
+            _rmTop.Cursor = Cursors.SizeNS;
 
-            using (MemoryStream ms = new MemoryStream(Resources.SizeLeft))
-                _rmLeft.Cursor = new Cursor(ms);
-
-            using (MemoryStream ms = new MemoryStream(Resources.SizeRight))
-                _rmRight.Cursor = new Cursor(ms);
-
-            using (MemoryStream ms = new MemoryStream(Resources.SizeUp))
-                _rmTop.Cursor = new Cursor(ms);
-
-            using (MemoryStream ms = new MemoryStream(Resources.SizeLT))
-                _rmLT.Cursor = new Cursor(ms);
-
-            using (MemoryStream ms = new MemoryStream(Resources.SizeLB))
-                _rmLB.Cursor = new Cursor(ms);
-
-            using (MemoryStream ms = new MemoryStream(Resources.SizeRT))
-                _rmRT.Cursor = new Cursor(ms);
-
-            using (MemoryStream ms = new MemoryStream(Resources.SizeRB))
-                _rmRB.Cursor = new Cursor(ms);
-
-
+            _rmLT.Cursor = Cursors.SizeNWSE;
+            _rmLB.Cursor = Cursors.SizeNESW;
+            _rmRT.Cursor = Cursors.SizeNESW;
+            _rmRB.Cursor = Cursors.SizeNWSE;
 
             _ttm = new OPMToolTipManager(this);
 
