@@ -117,854 +117,940 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_ACT_HIBERNATE">
+  <data name="TXT_ACT_HIBERNATE" xml:space="preserve">
     <value>Enter in Hibernation</value>
   </data>
-  <data name="TXT_ACT_LAUNCHPROGRAM">
+  <data name="TXT_ACT_LAUNCHPROGRAM" xml:space="preserve">
     <value>Launch a program</value>
   </data>
-  <data name="TXT_ACT_NONE">
+  <data name="TXT_ACT_NONE" xml:space="preserve">
     <value>Ignore the event</value>
   </data>
-  <data name="TXT_ACT_SHUTDOWN">
+  <data name="TXT_ACT_SHUTDOWN" xml:space="preserve">
     <value>Turn off the PC</value>
   </data>
-  <data name="TXT_ACT_STANDBY">
+  <data name="TXT_ACT_STANDBY" xml:space="preserve">
     <value>Enter in Standby</value>
   </data>
-  <data name="TXT_NEWNOW">
-    <value>New boormark now</value>
-  </data>
-  <data name="TXT_NEWNOW_BMDESC">
-    <value>Add a new bookmark at current playback time</value>
-  </data>
-  <data name="TXT_NEW_BMDESC">
-    <value>Add a new bookmark</value>
-  </data>
-  <data name="TXT_DELETE_BMDESC">
-    <value>Delete bookmark</value>
-  </data>
-  <data name="TXT_ADD_BOOKMARK">
+  <data name="TXT_ADD_BOOKMARK" xml:space="preserve">
     <value>Add Bookmark</value>
   </data>
-  <data name="TXT_AUDIOSETTINGS">
-    <value>Audio Settings</value>
+  <data name="TXT_ALBUM" xml:space="preserve">
+    <value>Album name</value>
   </data>
-  <data name="TXT_AUDIO_AVAILABLE">
+  <data name="TXT_ARTIST" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="TXT_ARTWORK" xml:space="preserve">
+    <value>Embedded images</value>
+  </data>
+  <data name="TXT_ARTWORK_COUNT" xml:space="preserve">
+    <value>{0} artwork image(s) (click to edit).</value>
+  </data>
+  <data name="TXT_AUDIO_AVAILABLE" xml:space="preserve">
     <value>Audio stream available.</value>
   </data>
-  <data name="TXT_AUDIO_FILES">
+  <data name="TXT_AUDIO_FILES" xml:space="preserve">
     <value>Audio files</value>
   </data>
-  <data name="TXT_AVAILABLE_DVD_MEDIA">
+  <data name="TXT_AUDIOCDINFO_SOURCE" xml:space="preserve">
+    <value>Read Audio CD info from:</value>
+  </data>
+  <data name="TXT_AUDIOSETTINGS" xml:space="preserve">
+    <value>Audio Settings</value>
+  </data>
+  <data name="TXT_AVAILABLE_DVD_MEDIA" xml:space="preserve">
     <value>or, open one of the available DVD media in system:</value>
   </data>
-  <data name="TXT_BOOKMARK_DEFAULT_TEXT">
+  <data name="TXT_BITRATE" xml:space="preserve">
+    <value>Binary rate</value>
+  </data>
+  <data name="TXT_BOOKMARK_COUNT" xml:space="preserve">
+    <value>{0} bookmark(s) (click to edit).</value>
+  </data>
+  <data name="TXT_BOOKMARK_DEFAULT_TEXT" xml:space="preserve">
     <value>Default bookmark text</value>
   </data>
-  <data name="TXT_BOOKMARK_DESC">
+  <data name="TXT_BOOKMARK_DESC" xml:space="preserve">
     <value>Bookmark description:</value>
   </data>
-  <data name="TXT_BOOKMARK_MANAGER">
+  <data name="TXT_BOOKMARK_MANAGER" xml:space="preserve">
     <value>Bookmark Manager</value>
   </data>
-  <data name="TXT_BOOKMARK_TIME">
+  <data name="TXT_BOOKMARK_TIME" xml:space="preserve">
     <value>Bookmark time:</value>
   </data>
-  <data name="TXT_BTNCLEAR">
+  <data name="TXT_BOOKMARKLIST" xml:space="preserve">
+    <value>Bookmark List</value>
+  </data>
+  <data name="TXT_BOOKMARKS" xml:space="preserve">
+    <value>Bookmarks</value>
+  </data>
+  <data name="TXT_BTNCLEAR" xml:space="preserve">
     <value>Delete entire playlist.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNDELETE">
+  <data name="TXT_BTNDELETE" xml:space="preserve">
     <value>Delete selected items.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNFULLSCREEN">
+  <data name="TXT_BTNFULLSCREEN" xml:space="preserve">
     <value>Toggle Full Screen
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNFWD">
+  <data name="TXT_BTNFWD" xml:space="preserve">
     <value>Fast forward with 5 seconds.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNJUMPTOITEM">
+  <data name="TXT_BTNJUMPTOITEM" xml:space="preserve">
     <value>Open the 'Jump to playlist item' dialog.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNLOAD">
+  <data name="TXT_BTNLOAD" xml:space="preserve">
     <value>Load new file(s).
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNLOADPLAYLIST">
+  <data name="TXT_BTNLOADPLAYLIST" xml:space="preserve">
     <value>Load a new playlist.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNLOOPPLAY">
+  <data name="TXT_BTNLOOPPLAY" xml:space="preserve">
     <value>Toggles on/off playing in loop.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNMOVEDOWN">
+  <data name="TXT_BTNMOVEDOWN" xml:space="preserve">
     <value>Move selected items with one position down in playlist.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNMOVEUP">
+  <data name="TXT_BTNMOVEUP" xml:space="preserve">
     <value>Move selected items with one position up in playlist.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNNEXT">
+  <data name="TXT_BTNNEXT" xml:space="preserve">
     <value>Move to next file in playlist.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNOPENDISK">
+  <data name="TXT_BTNOPENDISK" xml:space="preserve">
     <value>Opens the Load DVD media dialog.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNOPENSETTINGS">
+  <data name="TXT_BTNOPENSETTINGS" xml:space="preserve">
     <value>Displays the Settings dialog.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNPAUSE">
+  <data name="TXT_BTNPAUSE" xml:space="preserve">
     <value>Pause playback.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNPLAY">
+  <data name="TXT_BTNPLAY" xml:space="preserve">
     <value>Play file.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNPLAYLISTEND">
+  <data name="TXT_BTNPLAYLISTEND" xml:space="preserve">
     <value>Activates the 'action on playlist end'
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNPREV">
+  <data name="TXT_BTNPREV" xml:space="preserve">
     <value>Move to previous file in playlist.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNREW">
+  <data name="TXT_BTNREW" xml:space="preserve">
     <value>Rewind  with 5 seconds.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNSAVEPLAYLIST">
+  <data name="TXT_BTNSAVEPLAYLIST" xml:space="preserve">
     <value>Save the current playlist.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNSTOP">
+  <data name="TXT_BTNSTOP" xml:space="preserve">
     <value>Stop playback.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNTOGGLESHUFFLE">
+  <data name="TXT_BTNTOGGLESHUFFLE" xml:space="preserve">
     <value>Activates playlist shuffle mode.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNVOLDN">
+  <data name="TXT_BTNVOLDN" xml:space="preserve">
     <value>Volume down by 5%.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_BTNVOLUP">
+  <data name="TXT_BTNVOLUP" xml:space="preserve">
     <value>Volume up by 5%.
 Shortcut: {0}</value>
   </data>
-  <data name="TXT_CMDADDBOOKMARK">
-    <value>Add a bookmark</value>
+  <data name="TXT_CAUTION_REALTIME" xml:space="preserve">
+    <value>CAUTION: These settings are applied in real time. You do not need to press OK to apply these settings</value>
   </data>
-  <data name="TXT_CMDBOOKMARKMANAGER">
-    <value>Open bookmark manager</value>
+  <data name="TXT_CDDB_SERVERNAME" xml:space="preserve">
+    <value>CDDB Server Address:</value>
   </data>
-  <data name="TXT_CMDCFGAUDIO">
+  <data name="TXT_CDDB_SERVERPORT" xml:space="preserve">
+    <value>CDDB Server Port:</value>
+  </data>
+  <data name="TXT_CDTRACKINFO" xml:space="preserve">
+    <value>CD Track Info:</value>
+  </data>
+  <data name="TXT_CHANNELS" xml:space="preserve">
+    <value>Audio mode</value>
+  </data>
+  <data name="TXT_CHOOSE_COLOR_FOR_OSD" xml:space="preserve">
+    <value>Choose a color for OSD:</value>
+  </data>
+  <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE" xml:space="preserve">
+    <value>Choose a color for subtitle:</value>
+  </data>
+  <data name="TXT_CHOOSE_FONT_FOR_OSD" xml:space="preserve">
+    <value>Choose a font for OSD:</value>
+  </data>
+  <data name="TXT_CHOOSE_FONT_FOR_SUBTITLE" xml:space="preserve">
+    <value>Choose a font for subtitle:</value>
+  </data>
+  <data name="TXT_CMDCFGAUDIO" xml:space="preserve">
     <value>Displays Audio Configuration</value>
   </data>
-  <data name="TXT_CMDCFGREMOTE">
+  <data name="TXT_CMDCFGREMOTE" xml:space="preserve">
     <value>Displays Remote Control Configuration</value>
   </data>
-  <data name="TXT_CMDCFGSUBTITLES">
+  <data name="TXT_CMDCFGSUBTITLES" xml:space="preserve">
     <value>Displays Subtitles and OSD Configuration</value>
   </data>
-  <data name="TXT_CMDCFGTIMER">
+  <data name="TXT_CMDCFGTIMER" xml:space="preserve">
     <value>Displays Timer Options</value>
   </data>
-  <data name="TXT_CMDCFGVIDEO">
+  <data name="TXT_CMDCFGVIDEO" xml:space="preserve">
     <value>Displays Video Configuration</value>
   </data>
-  <data name="TXT_CMDCLEAR">
+  <data name="TXT_CMDCLEAR" xml:space="preserve">
     <value>Delete entire playlist.</value>
   </data>
-  <data name="TXT_CMDDELETE">
+  <data name="TXT_CMDDELETE" xml:space="preserve">
     <value>Delete selected items.</value>
   </data>
-  <data name="TXT_CMDFULLSCREEN">
+  <data name="TXT_CMDFULLSCREEN" xml:space="preserve">
     <value>Toggle Full Screen</value>
   </data>
-  <data name="TXT_CMDFWD">
+  <data name="TXT_CMDFWD" xml:space="preserve">
     <value>Fast forward with 5 seconds.</value>
   </data>
-  <data name="TXT_CMDJUMPTOITEM">
+  <data name="TXT_CMDHIDEBOOKMARKMANAGER" xml:space="preserve">
+    <value>Hide Bookmark Manager</value>
+  </data>
+  <data name="TXT_CMDJUMPTOITEM" xml:space="preserve">
     <value>Open the 'Jump to playlist item' dialog</value>
   </data>
-  <data name="TXT_CMDLOAD">
+  <data name="TXT_CMDLOAD" xml:space="preserve">
     <value>Load new file(s).</value>
   </data>
-  <data name="TXT_CMDLOADPLAYLIST">
+  <data name="TXT_CMDLOADPLAYLIST" xml:space="preserve">
     <value>Load a new playlist.</value>
   </data>
-  <data name="TXT_CMDLOOPPLAY">
+  <data name="TXT_CMDLOOPPLAY" xml:space="preserve">
     <value>Toggles playing in loop.</value>
   </data>
-  <data name="TXT_CMDMOVEDOWN">
+  <data name="TXT_CMDMOVEDOWN" xml:space="preserve">
     <value>Move selected items with one position down in playlist.</value>
   </data>
-  <data name="TXT_CMDMOVEUP">
+  <data name="TXT_CMDMOVEUP" xml:space="preserve">
     <value>Move selected items with one position up in playlist.</value>
   </data>
-  <data name="TXT_CMDNEXT">
+  <data name="TXT_CMDNEXT" xml:space="preserve">
     <value>Move to next file in playlist.</value>
   </data>
-  <data name="TXT_CMDOPENDISK">
+  <data name="TXT_CMDOPENDISK" xml:space="preserve">
     <value>Opens the Load DVD media dialog</value>
   </data>
-  <data name="TXT_CMDOPENURL">
+  <data name="TXT_CMDOPENURL" xml:space="preserve">
     <value>Open a URL</value>
   </data>
-  <data name="TXT_CMDPAUSE">
+  <data name="TXT_CMDPAUSE" xml:space="preserve">
     <value>Pause playback.</value>
   </data>
-  <data name="TXT_CMDPLAY">
+  <data name="TXT_CMDPLAY" xml:space="preserve">
     <value>Play file.</value>
   </data>
-  <data name="TXT_CMDPLAYLISTEND">
+  <data name="TXT_CMDPLAYLISTEND" xml:space="preserve">
     <value>Activates the 'action on playlist end'</value>
   </data>
-  <data name="TXT_CMDPREV">
+  <data name="TXT_CMDPREV" xml:space="preserve">
     <value>Move to previous file in playlist.</value>
   </data>
-  <data name="TXT_CMDREW">
+  <data name="TXT_CMDREW" xml:space="preserve">
     <value>Rewind with 5 seconds.</value>
   </data>
-  <data name="TXT_CMDSAVEPLAYLIST">
+  <data name="TXT_CMDSAVEPLAYLIST" xml:space="preserve">
     <value>Save the current playlist.</value>
   </data>
-  <data name="TXT_CMDSEARCHSUBTITLES">
+  <data name="TXT_CMDSEARCHSUBTITLES" xml:space="preserve">
     <value>Searches subtitles for movie clips</value>
   </data>
-  <data name="TXT_CMDSTOP">
+  <data name="TXT_CMDSTOP" xml:space="preserve">
     <value>Stop playback.</value>
   </data>
-  <data name="TXT_CMDTOGGLESHUFFLE">
+  <data name="TXT_CMDTOGGLESHUFFLE" xml:space="preserve">
     <value>Activates playlist shuffle mode.</value>
   </data>
-  <data name="TXT_CMDVOLDN">
+  <data name="TXT_CMDVOLDN" xml:space="preserve">
     <value>Volume down by 5%.</value>
   </data>
-  <data name="TXT_CMDVOLUP">
+  <data name="TXT_CMDVOLUP" xml:space="preserve">
     <value>Volume up by 5%.</value>
   </data>
-  <data name="TXT_CONFIGUREAUDIO">
+  <data name="TXT_COMMENTS" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="TXT_CONFIGUREAUDIO" xml:space="preserve">
     <value>Audio Settings</value>
   </data>
-  <data name="TXT_CONFIGUREPLAYLIST">
+  <data name="TXT_CONFIGUREPLAYLIST" xml:space="preserve">
     <value>Playlist</value>
   </data>
-  <data name="TXT_CONFIGURESUBTITLES">
+  <data name="TXT_CONFIGURESUBTITLES" xml:space="preserve">
     <value>Subtitle Settings</value>
   </data>
-  <data name="TXT_CONFIGUREVIDEO">
+  <data name="TXT_CONFIGUREVIDEO" xml:space="preserve">
     <value>Video Settings</value>
   </data>
-  <data name="TXT_CONFIRM_OVERWRITE_SUBTITLE">
+  <data name="TXT_CONFIRM_OVERWRITE_SUBTITLE" xml:space="preserve">
     <value>Confirm subtitle overwrite</value>
   </data>
-  <data name="TXT_EDITID3ARTWORK">
-    <value>ID3 Artwork Editor</value>
+  <data name="TXT_DELETE_BMDESC" xml:space="preserve">
+    <value>Delete bookmark</value>
   </data>
-  <data name="TXT_ELAPSED_TIME">
+  <data name="TXT_DISKS_OPTIONS" xml:space="preserve">
+    <value>CD/DVD</value>
+  </data>
+  <data name="TXT_DISPLAY_FILENAME" xml:space="preserve">
+    <value>No formatting options are specified.
+The program will display the file name in playlist entry.</value>
+  </data>
+  <data name="TXT_DURATION" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="TXT_EDITID3ARTWORK" xml:space="preserve">
+    <value>ID3 Image Editor</value>
+  </data>
+  <data name="TXT_ELAPSED_TIME" xml:space="preserve">
     <value>Elapsed time.
 Double click to toggle remaining time</value>
   </data>
-  <data name="TXT_ENABLEREMOTECONTROL">
-    <value>Allow ProTONE Player to be controlled remotely.</value>
-  </data>
-  <data name="TXT_ENABLE_PLAYLISTEVT">
+  <data name="TXT_ENABLE_PLAYLISTEVT" xml:space="preserve">
     <value>Action on 'playlist ended' event</value>
   </data>
-  <data name="TXT_ENABLE_SCHEDULEDEVT">
+  <data name="TXT_ENABLE_SCHEDULEDEVT" xml:space="preserve">
     <value>Action on scheduled moment</value>
   </data>
-  <data name="TXT_NOTOPENED">
-    <value>Ended</value>
+  <data name="TXT_ENABLEREMOTECONTROL" xml:space="preserve">
+    <value>Allow ProTONE Player to be controlled remotely.</value>
   </data>
-  <data name="TXT_ENQUEUEFILES">
+  <data name="TXT_ENQUEUEFILES" xml:space="preserve">
     <value>Enqueue files at the end of current playlist</value>
   </data>
-  <data name="TXT_ENTER_KEYWORD">
+  <data name="TXT_ENTER_KEYWORD" xml:space="preserve">
     <value>Enter search keyword(s), separated by spaces:</value>
   </data>
-  <data name="TXT_FFDSHOW_SUBTITLES">
+  <data name="TXT_EXTRAINFO" xml:space="preserve">
+    <value>Extra Information</value>
+  </data>
+  <data name="TXT_FALLBACKMONITOR" xml:space="preserve">
+    <value>Fallback Monitor:</value>
+  </data>
+  <data name="TXT_FALLBACKMONITORDESC" xml:space="preserve">
+    <value>The fallback monitor will be used to display video contents whenever the preffered monitor is not connected to the system.</value>
+  </data>
+  <data name="TXT_FFDSHOW_SUBTITLES" xml:space="preserve">
     <value>Open FFDShow Subtitle Settings ...</value>
   </data>
-  <data name="TXT_S_FILETYPES">
-    <value>Files</value>
+  <data name="TXT_FILENAME_FORMAT" xml:space="preserve">
+    <value>If metadata is missing, use file name parsed as:</value>
   </data>
-  <data name="TXT_S_FILETYPES_ASSOCIATIONS">
-    <value>Associate ProTONE Player with these file types:</value>
+  <data name="TXT_FRAME_RATE" xml:space="preserve">
+    <value>Frames per second</value>
   </data>
-  <data name="TXT_HANDLEEXPLORERLAUNCH">
+  <data name="TXT_FREQUENCY" xml:space="preserve">
+    <value>Sampling frequency</value>
+  </data>
+  <data name="TXT_GENRE" xml:space="preserve">
+    <value>Musical Genre</value>
+  </data>
+  <data name="TXT_HANDLEEXPLORERLAUNCH" xml:space="preserve">
     <value>When files are launched from Windows Explorer:</value>
   </data>
-  <data name="TXT_HIBERNATE_PC">
+  <data name="TXT_HIBERNATE_PC" xml:space="preserve">
     <value>put the PC into Hibernation mode</value>
   </data>
-  <data name="TXT_IGNOREMOUSEMOVE">
+  <data name="TXT_HINT_BOOKMARKINFOTAB" xml:space="preserve">
+    <value>This page displays the bookmark information and allows editing it. It is disabled for media that does not support editing bookmarks (CD, DVD, streamed media - Shoutcast).</value>
+  </data>
+  <data name="TXT_HINT_PLAYLISTTAB" xml:space="preserve">
+    <value>This page allows interaction with the playlist.</value>
+  </data>
+  <data name="TXT_HINT_SIGNALANALISYSTAB" xml:space="preserve">
+    <value>This page displays signal graphics such as VU-Meter, Waveform and Spectrogram. The signal analisys requires significant processing power. You can disable this feature (or some parts of it), if you have a slower processor on your computer.</value>
+  </data>
+  <data name="TXT_HINT_TRACKINFOTAB" xml:space="preserve">
+    <value>This page displays the track information and allows editing some parts of this information, where applicable (e.g. the ID3 fields for MP3). It is disabled for streamed media (Shoutcast).</value>
+  </data>
+  <data name="TXT_IGNOREMOUSEMOVE" xml:space="preserve">
     <value>Ignore mouse movement in full screen mode</value>
   </data>
-  <data name="TXT_JUMP_TO_ITEM">
+  <data name="TXT_INSTALLCOMPONENT" xml:space="preserve">
+    <value>Install component...</value>
+  </data>
+  <data name="TXT_INVALIDDVDVOLUME" xml:space="preserve">
+    <value>You have specified an invalid DVD volume. Please reselect.</value>
+  </data>
+  <data name="TXT_JUMP_TO_ITEM" xml:space="preserve">
     <value>Jump to playlist item</value>
   </data>
-  <data name="TXT_LAUNCH_PROGRAM">
+  <data name="TXT_LAUNCH_PROGRAM" xml:space="preserve">
     <value>launch a custom program</value>
   </data>
-  <data name="TXT_LAUNCH_RCCMANAGER">
-    <value>Launch ProTONE RCC Manager ...</value>
+  <data name="TXT_LAUNCH_RCCMANAGER" xml:space="preserve">
+    <value>Launch ProTONE Remote Control Manager ...</value>
   </data>
-  <data name="TXT_LEFTVOL">
+  <data name="TXT_LEFTVOL" xml:space="preserve">
     <value>LVOL</value>
   </data>
-  <data name="TXT_LOADMEDIAFILES">
-    <value>Load media files ...</value>
-  </data>
-  <data name="TXT_LOADPLAYLIST">
-    <value>Load a playlist ...</value>
-  </data>
-  <data name="TXT_LOAD_DVD_FOLDER">
+  <data name="TXT_LOAD_DVD_FOLDER" xml:space="preserve">
     <value>Please select a video DVD content folder
 (Either a VIDEO_TS folder, or its parent):</value>
   </data>
-  <data name="TXT_MATCHING_ITEMS">
+  <data name="TXT_LOADMEDIAFILES" xml:space="preserve">
+    <value>Load media files ...</value>
+  </data>
+  <data name="TXT_LOADPLAYLIST" xml:space="preserve">
+    <value>Load a playlist ...</value>
+  </data>
+  <data name="TXT_MATCHING_ITEMS" xml:space="preserve">
     <value>Found objects (double click or press enter to play an item):</value>
   </data>
-  <data name="TXT_MEDIA_NAME">
-    <value>Media name: </value>
+  <data name="TXT_MEDIA_NAME" xml:space="preserve">
+    <value>Media name:</value>
   </data>
-  <data name="TXT_MEDIA_STATE">
+  <data name="TXT_MEDIA_SCREENS" xml:space="preserve">
+    <value>Main Pages</value>
+  </data>
+  <data name="TXT_MEDIA_STATE" xml:space="preserve">
     <value>Media is now {0}</value>
   </data>
-  <data name="TXT_MEDIA_TIME">
-    <value>Time: </value>
+  <data name="TXT_MEDIA_TIME" xml:space="preserve">
+    <value>Time:</value>
   </data>
-  <data name="TXT_NOTIFICATIONSENABLED">
-    <value>Display notification tooltips near system tray when media state changes</value>
+  <data name="TXT_MEDIAINFO" xml:space="preserve">
+    <value>Media Information</value>
   </data>
-  <data name="TXT_MINMOVIEDURATION">
+  <data name="TXT_METADATAPATTERNS" xml:space="preserve">
+    <value>The patterns available for playlist item names formatting are based on combinations of these keywords:
+
+&lt;A&gt; = artist name (from media tag);
+&lt;B&gt; = album name (from media tag);
+&lt;T&gt; = title (from media  tag);
+&lt;C&gt; = comments (from media tag);
+&lt;G&gt; = genre (from media tag);
+&lt;#&gt; = track # (from media tag);
+&lt;Y&gt; = year (from media tag).</value>
+  </data>
+  <data name="TXT_MINMOVIEDURATION" xml:space="preserve">
     <value>Do not download a subtitle if the clip is shorter than:
 (0 = always download)</value>
   </data>
-  <data name="TXT_MNUAUDIO">
+  <data name="TXT_MINUTES" xml:space="preserve">
+    <value>minute(s).</value>
+  </data>
+  <data name="TXT_MNUAUDIO" xml:space="preserve">
     <value>Audio Settings ...</value>
   </data>
-  <data name="TXT_MNULOADPLAYLIST">
+  <data name="TXT_MNUCFGAUDIO" xml:space="preserve">
+    <value>Audio Settings …</value>
+  </data>
+  <data name="TXT_MNUCFGSUBTITLES" xml:space="preserve">
+    <value>Subtitle Settings …</value>
+  </data>
+  <data name="TXT_MNUCFGTIMER" xml:space="preserve">
+    <value>Timer Settings …</value>
+  </data>
+  <data name="TXT_MNUCFGVIDEO" xml:space="preserve">
+    <value>Video Settings …</value>
+  </data>
+  <data name="TXT_MNUCLEAR" xml:space="preserve">
+    <value>Clear playlist</value>
+  </data>
+  <data name="TXT_MNUDELETE" xml:space="preserve">
+    <value>Delete playlist item</value>
+  </data>
+  <data name="TXT_MNUFULLSCREEN" xml:space="preserve">
+    <value>Toggle Full Screen</value>
+  </data>
+  <data name="TXT_MNUFWD" xml:space="preserve">
+    <value>Forward 5 seconds</value>
+  </data>
+  <data name="TXT_MNUJUMPTOITEM" xml:space="preserve">
+    <value>Jump to playlist item ...</value>
+  </data>
+  <data name="TXT_MNULOAD" xml:space="preserve">
+    <value>Load files …</value>
+  </data>
+  <data name="TXT_MNULOADPLAYLIST" xml:space="preserve">
     <value>Load Playlist ...</value>
   </data>
-  <data name="TXT_MNULOOPPLAY">
+  <data name="TXT_MNULOOPPLAY" xml:space="preserve">
     <value>Loop Play</value>
   </data>
-  <data name="TXT_MNUSAVEPLAYLIST">
-    <value>Save Playlist ...</value>
-  </data>
-  <data name="TXT_MNUSCHEDULER">
-    <value>Timer Options ...</value>
-  </data>
-  <data name="TXT_MNUSETTINGS">
-    <value>Settings ...</value>
-  </data>
-  <data name="TXT_MNUSUBTITLE">
-    <value>Subtitles and OSD ...</value>
-  </data>
-  <data name="TXT_MNUTOOLS">
-    <value>Settings and Options</value>
-  </data>
-  <data name="TXT_MNUVIDEO">
-    <value>Video Settings ...</value>
-  </data>
-  <data name="TXT_MOVEDOWN">
+  <data name="TXT_MNUMOVEDOWN" xml:space="preserve">
     <value>Move Down</value>
   </data>
-  <data name="TXT_MOVEUP">
+  <data name="TXT_MNUMOVEUP" xml:space="preserve">
     <value>Move Up</value>
   </data>
-  <data name="TXT_NEW_BOOKMARK">
+  <data name="TXT_MNUNEXT" xml:space="preserve">
+    <value>Play next</value>
+  </data>
+  <data name="TXT_MNUOPENDISK" xml:space="preserve">
+    <value>Load DVD …</value>
+  </data>
+  <data name="TXT_MNUOPENSETTINGS" xml:space="preserve">
+    <value>Settings …</value>
+  </data>
+  <data name="TXT_MNUOPENURL" xml:space="preserve">
+    <value>Open URL …</value>
+  </data>
+  <data name="TXT_MNUPAUSE" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="TXT_MNUPLAY" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="TXT_MNUPLAYLISTEND" xml:space="preserve">
+    <value>Playlist end event</value>
+  </data>
+  <data name="TXT_MNUPREV" xml:space="preserve">
+    <value>Play previous</value>
+  </data>
+  <data name="TXT_MNUREW" xml:space="preserve">
+    <value>Rewind 5 seconds</value>
+  </data>
+  <data name="TXT_MNUSAVEPLAYLIST" xml:space="preserve">
+    <value>Save Playlist ...</value>
+  </data>
+  <data name="TXT_MNUSCHEDULER" xml:space="preserve">
+    <value>Timer Options ...</value>
+  </data>
+  <data name="TXT_MNUSETTINGS" xml:space="preserve">
+    <value>Settings ...</value>
+  </data>
+  <data name="TXT_MNUSHOWLOGCONSOLE" xml:space="preserve">
+    <value>Show log file …</value>
+  </data>
+  <data name="TXT_MNUSTOP" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="TXT_MNUSUBTITLE" xml:space="preserve">
+    <value>Subtitles and OSD ...</value>
+  </data>
+  <data name="TXT_MNUTOGGLESHUFFLE" xml:space="preserve">
+    <value>Shuffle Play</value>
+  </data>
+  <data name="TXT_MNUTOOLS" xml:space="preserve">
+    <value>Settings and Options</value>
+  </data>
+  <data name="TXT_MNUVIDEO" xml:space="preserve">
+    <value>Video Settings ...</value>
+  </data>
+  <data name="TXT_MNUVOLDN" xml:space="preserve">
+    <value>Volume down by 5%</value>
+  </data>
+  <data name="TXT_MNUVOLUP" xml:space="preserve">
+    <value>Volume up by 5%</value>
+  </data>
+  <data name="TXT_MONITORAFFINITY" xml:space="preserve">
+    <value>Monitors</value>
+  </data>
+  <data name="TXT_MOVEDOWN" xml:space="preserve">
+    <value>Move Down</value>
+  </data>
+  <data name="TXT_MOVEUP" xml:space="preserve">
+    <value>Move Up</value>
+  </data>
+  <data name="TXT_NEW_BMDESC" xml:space="preserve">
+    <value>Add a new bookmark</value>
+  </data>
+  <data name="TXT_NEW_BOOKMARK" xml:space="preserve">
     <value>New Bookmark</value>
   </data>
-  <data name="TXT_NEW_BOOKMARK_ADDED">
+  <data name="TXT_NEW_BOOKMARK_ADDED" xml:space="preserve">
     <value>A new bookmark was added: {0}</value>
   </data>
-  <data name="TXT_NOT_CONFIGURABLE">
+  <data name="TXT_NEWNOW" xml:space="preserve">
+    <value>New boormark now</value>
+  </data>
+  <data name="TXT_NEWNOW_BMDESC" xml:space="preserve">
+    <value>Add a new bookmark at current playback time</value>
+  </data>
+  <data name="TXT_NO_LANG" xml:space="preserve">
+    <value>No language</value>
+  </data>
+  <data name="TXT_NO_SUBS_FOUND" xml:space="preserve">
+    <value>Unfortunately, no subtitles found for this movie clip.</value>
+  </data>
+  <data name="TXT_NOT_CONFIGURABLE" xml:space="preserve">
     <value>This option is not available at this moment.</value>
   </data>
-  <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
+  <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW" xml:space="preserve">
     <value>This option is not available at this moment.
 You must install the FFDShow codec suite in order to have actions to this option.</value>
   </data>
-  <data name="TXT_NO_LANG">
-    <value>No language</value>
+  <data name="TXT_NOTIFICATIONSENABLED" xml:space="preserve">
+    <value>Display notification messages when media state changes</value>
   </data>
-  <data name="TXT_NO_SUBS_FOUND">
-    <value>Sorry, no subtitles were found for this movie clip.</value>
+  <data name="TXT_NOTIFYSUBDOWNLOADED" xml:space="preserve">
+    <value>Display notification tooltips near system tray when subtitle download is completed</value>
   </data>
-  <data name="TXT_ONDAYS">
+  <data name="TXT_NOTOPENED" xml:space="preserve">
+    <value>Ended</value>
+  </data>
+  <data name="TXT_ONDAYS" xml:space="preserve">
     <value>in weekdays:</value>
   </data>
-  <data name="TXT_OSD">
+  <data name="TXT_OPT_CDDB" xml:space="preserve">
+    <value>CDDB server only</value>
+  </data>
+  <data name="TXT_OPT_CDDB_CDTEXT" xml:space="preserve">
+    <value>CDDB server first, then from CD-Text</value>
+  </data>
+  <data name="TXT_OPT_CDTEXT" xml:space="preserve">
+    <value>CD-Text only</value>
+  </data>
+  <data name="TXT_OPT_CDTEXT_CDDB" xml:space="preserve">
+    <value>CD-Text first, then from CDDB server</value>
+  </data>
+  <data name="TXT_OPT_NONE" xml:space="preserve">
+    <value>Don't read Audio CD info</value>
+  </data>
+  <data name="TXT_OPT_RELOAD_CDINFO" xml:space="preserve">
+    <value>Reload CD Information</value>
+  </data>
+  <data name="TXT_OSD" xml:space="preserve">
     <value>On-Screen Display (OSD)</value>
   </data>
-  <data name="TXT_OSDCFG">
-    <value>OSD Settings</value>
-  </data>
-  <data name="TXT_OSDCOLOR">
-    <value>OSD Text Color</value>
-  </data>
-  <data name="TXT_OSDENABLED">
-    <value>Enable On-Screen Display (OSD)</value>
-  </data>
-  <data name="TXT_OSDFONT">
-    <value>OSD Text Font</value>
-  </data>
-  <data name="TXT_OSDSAMPLETEXT">
-    <value>OSD Text Sample</value>
-  </data>
-  <data name="TXT_OSDTIMER">
-    <value>OSD Visibility Timer (seconds):</value>
-  </data>
-  <data name="TXT_OSD_FULLSCREEN">
+  <data name="TXT_OSD_FULLSCREEN" xml:space="preserve">
     <value>Full screen mode is {0}</value>
   </data>
-  <data name="TXT_OSD_PAUSED">
+  <data name="TXT_OSD_PAUSED" xml:space="preserve">
     <value>Paused</value>
   </data>
-  <data name="TXT_OSD_PLAY">
+  <data name="TXT_OSD_PLAY" xml:space="preserve">
     <value>Playing: {0}</value>
   </data>
-  <data name="TXT_OSD_SEEKTO">
+  <data name="TXT_OSD_SEEKTO" xml:space="preserve">
     <value>Playback resumed from: {0}</value>
   </data>
-  <data name="TXT_OSD_VOL">
+  <data name="TXT_OSD_VOL" xml:space="preserve">
     <value>Volume: {0}%</value>
   </data>
-  <data name="TXT_OVERWRITE_SUBTITLE">
+  <data name="TXT_OSDCFG" xml:space="preserve">
+    <value>OSD Settings</value>
+  </data>
+  <data name="TXT_OSDCOLOR" xml:space="preserve">
+    <value>OSD Text Color</value>
+  </data>
+  <data name="TXT_OSDENABLED" xml:space="preserve">
+    <value>Enable On-Screen Display (OSD)</value>
+  </data>
+  <data name="TXT_OSDFONT" xml:space="preserve">
+    <value>OSD Text Font</value>
+  </data>
+  <data name="TXT_OSDSAMPLETEXT" xml:space="preserve">
+    <value>OSD Text Sample</value>
+  </data>
+  <data name="TXT_OSDTIMER" xml:space="preserve">
+    <value>OSD Visibility Timer (seconds):</value>
+  </data>
+  <data name="TXT_OVERWRITE_SUBTITLE" xml:space="preserve">
     <value>The selected movie clip already has a subtitle. 
 If another subtitle is found on Internet, it will overwrite the existing one.
 
 Are you sure you want to search another subtitle ?</value>
   </data>
-  <data name="TXT_PAUSED">
+  <data name="TXT_PANELSHIDDEN_NOADMIN" xml:space="preserve">
+    <value>Your user account does not have administrator rights. 
+You won't be able to view the Supported Files and the Remote Control settings.
+In order to access these settings, you must launch ProTONE Player under a user account that has administrator rights.</value>
+  </data>
+  <data name="TXT_PAUSED" xml:space="preserve">
     <value>Paused</value>
   </data>
-  <data name="TXT_PLAYFILES">
+  <data name="TXT_PICTURE" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="TXT_PICTURE_TEXT" xml:space="preserve">
+    <value>Image Description</value>
+  </data>
+  <data name="TXT_PICTURE_TYPE" xml:space="preserve">
+    <value>ID3 Image Type</value>
+  </data>
+  <data name="TXT_PLAY_FROM" xml:space="preserve">
+    <value>from: {0}</value>
+  </data>
+  <data name="TXT_PLAYFILES" xml:space="preserve">
     <value>Play files (replacing current playlist)</value>
   </data>
-  <data name="TXT_RUNNING">
-    <value>Playing</value>
-  </data>
-  <data name="TXT_PLAYLIST">
+  <data name="TXT_PLAYLIST" xml:space="preserve">
     <value>Playlist</value>
   </data>
-  <data name="TXT_PLAYLISTEVT_DESC">
-    <value>When the playlist ends:</value>
-  </data>
-  <data name="TXT_PLAYLISTS">
-    <value>Playlists</value>
-  </data>
-  <data name="TXT_PLAYLIST_END_MSG">
+  <data name="TXT_PLAYLIST_END_MSG" xml:space="preserve">
     <value>the playlist has ended</value>
   </data>
-  <data name="TXT_PLAY_FROM">
-    <value>  from: {0}</value>
+  <data name="TXT_PLAYLIST_FORMAT" xml:space="preserve">
+    <value>Format playlist entries as:</value>
   </data>
-  <data name="TXT_PREFFEREDSUBTITLELANG">
+  <data name="TXT_PLAYLISTEVT_CAUTION" xml:space="preserve">
+    <value>CAUTION: The program always starts with the "playlist ended" event deactivated!</value>
+  </data>
+  <data name="TXT_PLAYLISTEVT_DESC" xml:space="preserve">
+    <value>When the playlist ends:</value>
+  </data>
+  <data name="TXT_PLAYLISTOPTIONS" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="TXT_PLAYLISTS" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="TXT_PREFERREDMONITOR" xml:space="preserve">
+    <value>Preffered Monitor:</value>
+  </data>
+  <data name="TXT_PREFERREDMONITORDESC" xml:space="preserve">
+    <value>The preffered monitor will be used to display video contents whenever it is connected to the system.</value>
+  </data>
+  <data name="TXT_PREFERREDMONITORDETACHED" xml:space="preserve">
+    <value>The preferred monitor is no longer connected to the system. To choose another preffered monitor, use 'Restore defaults' then re-select the preferred monitor.</value>
+  </data>
+  <data name="TXT_PREFFEREDSUBTITLELANG" xml:space="preserve">
     <value>Preffered subtitle language:</value>
   </data>
-  <data name="TXT_PROCEED_SCHEDULED_ACTION">
+  <data name="TXT_PRIO" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="TXT_PROCEED_SCHEDULED_ACTION" xml:space="preserve">
     <value>ProTONE Player is attempting to {0}. This is happening because you have configured the player to do so when {1}. Do you want to proceed ?
 You can abort this operation if you click Abort within the remaining time frame (see counter below). If this time elapses and you have not chosen any action, it will be assumed you have chosen to proceed.</value>
   </data>
-  <data name="TXT_PROTONE_ENQUEUE">
+  <data name="TXT_PROTONE_ENQUEUE" xml:space="preserve">
     <value>Enqueue in ProTONE Player</value>
   </data>
-  <data name="TXT_PROTONE_PLAY">
+  <data name="TXT_PROTONE_PLAY" xml:space="preserve">
     <value>Play in ProTONE Player</value>
   </data>
-  <data name="TXT_REMAINING_TIME">
+  <data name="TXT_REMAINING_TIME" xml:space="preserve">
     <value>Remaining time. 
 Double click to toggle elapsed time</value>
   </data>
-  <data name="TXT_REMOTECONTROLCFG">
+  <data name="TXT_REMOTECONTROLCFG" xml:space="preserve">
     <value>Remote Control</value>
   </data>
-  <data name="TXT_REMOTECONTROLDEFINITION">
-    <value>To define the programs and devices that are allowed to control ProTONE Player, you must use the ProTONE RCC Manager program.
-Click on the button below to launch ProTONE RCC Manager ...</value>
+  <data name="TXT_REMOTECONTROLDEFINITION" xml:space="preserve">
+    <value>To define the programs and devices that are allowed to control ProTONE Player remotely, you must use the Remote Control Manager.
+
+Click on the button below to launch the Remote Control Manager ...</value>
   </data>
-  <data name="TXT_RIGHTVOL">
+  <data name="TXT_RESETVIDEOPOSITION" xml:space="preserve">
+    <value>Reset video 
+window position</value>
+  </data>
+  <data name="TXT_RESETVIDEOPOSITION_HINT" xml:space="preserve">
+    <value>Use this command to bring the video rendering window into the current active screen.</value>
+  </data>
+  <data name="TXT_RESTORE_DEFAULTSERVERS" xml:space="preserve">
+    <value>Load default servers</value>
+  </data>
+  <data name="TXT_RESTOREDEFAULTSDESC" xml:space="preserve">
+    <value>Using 'Restore Defaults' will set both the preferred and fallback monitor to the primary monitor attached to the system.</value>
+  </data>
+  <data name="TXT_RIGHTVOL" xml:space="preserve">
     <value>RVOL</value>
   </data>
-  <data name="TXT_SAVEPLAYLIST">
-    <value>Save playlist as ...</value>
+  <data name="TXT_RUNNING" xml:space="preserve">
+    <value>Playing</value>
   </data>
-  <data name="TXT_SCHEDULEDEVT_DESC">
-    <value>When the scheduled moment occurs:</value>
+  <data name="TXT_S_AUDIOSETTINGS" xml:space="preserve">
+    <value>Audio</value>
   </data>
-  <data name="TXT_SCHEDULEDEVT_TIME">
-    <value>Schedule timer event at: </value>
+  <data name="TXT_S_FILETYPES" xml:space="preserve">
+    <value>Files</value>
   </data>
-  <data name="TXT_SCHEDULED_ACTION_PROCEED">
-    <value>Proceed with action execution ?</value>
+  <data name="TXT_S_FILETYPES_ASSOCIATIONS" xml:space="preserve">
+    <value>Associate ProTONE Player with these file types:</value>
   </data>
-  <data name="TXT_SCHEDULED_EVENT_MSG">
-    <value>the scheduled moment has occured</value>
+  <data name="TXT_S_MISC_SETTINGS" xml:space="preserve">
+    <value>Misc</value>
   </data>
-  <data name="TXT_S_SCHEDULERSETTINGS">
+  <data name="TXT_S_SCHEDULERSETTINGS" xml:space="preserve">
     <value>Timer</value>
   </data>
-  <data name="TXT_SCHEDULERWAITTIMERPROCEED">
+  <data name="TXT_S_SUBTITLESETTINGS" xml:space="preserve">
+    <value>Subtitles</value>
+  </data>
+  <data name="TXT_S_VIDEOSETTINGS" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="TXT_SAVEPLAYLIST" xml:space="preserve">
+    <value>Save playlist as ...</value>
+  </data>
+  <data name="TXT_SCHEDULED_ACTION_PROCEED" xml:space="preserve">
+    <value>Proceed with action execution ?</value>
+  </data>
+  <data name="TXT_SCHEDULED_EVENT_MSG" xml:space="preserve">
+    <value>the scheduled moment has occured</value>
+  </data>
+  <data name="TXT_SCHEDULEDEVT_DESC" xml:space="preserve">
+    <value>When the scheduled moment occurs:</value>
+  </data>
+  <data name="TXT_SCHEDULEDEVT_TIME" xml:space="preserve">
+    <value>Schedule timer event at:</value>
+  </data>
+  <data name="TXT_SCHEDULERWAITTIMERPROCEED" xml:space="preserve">
     <value>How many minutes to wait confirmation before proceeding 
 (0 = do not ask for confirmation, proceed directly):</value>
   </data>
-  <data name="TXT_SEARCH_SUBTITLES">
+  <data name="TXT_SEARCH_BY" xml:space="preserve">
+    <value>Search by:</value>
+  </data>
+  <data name="TXT_SEARCH_SUBTITLES" xml:space="preserve">
     <value>Search subtitles...</value>
   </data>
-  <data name="TXT_SELECT_ALLAUDIO">
+  <data name="TXT_SELECT_ALLAUDIO" xml:space="preserve">
     <value>All audio files</value>
   </data>
-  <data name="TXT_SELECT_ALLPLAYLISTS">
+  <data name="TXT_SELECT_ALLPLAYLISTS" xml:space="preserve">
     <value>All playlists</value>
   </data>
-  <data name="TXT_SELECT_ALLVIDEO">
+  <data name="TXT_SELECT_ALLVIDEO" xml:space="preserve">
     <value>All video files</value>
   </data>
-  <data name="TXT_SELECT_DVD">
+  <data name="TXT_SELECT_DVD" xml:space="preserve">
     <value>Load DVD Media</value>
   </data>
-  <data name="TXT_SERIALDEVICE">
-    <value>Remote Control Device</value>
+  <data name="TXT_SELECT_RADIO_STATION" xml:space="preserve">
+    <value>Select a radio station:</value>
   </data>
-  <data name="TXT_SERVERTYPE">
+  <data name="TXT_SERIALDEVICE" xml:space="preserve">
+    <value>Remote Control</value>
+  </data>
+  <data name="TXT_SERVERTITLE" xml:space="preserve">
+    <value>Server Name (partial match):</value>
+  </data>
+  <data name="TXT_SERVERTYPE" xml:space="preserve">
     <value>Server Type</value>
   </data>
-  <data name="TXT_SERVERURL">
+  <data name="TXT_SERVERURL" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="TXT_SHELL_INTEGRATION">
+  <data name="TXT_SHELL_INTEGRATION" xml:space="preserve">
     <value>Integrate with Windows Explorer</value>
   </data>
-  <data name="TXT_SHUFFLE">
+  <data name="TXT_SHOW_BOOKMARKINFO" xml:space="preserve">
+    <value>Show the "Bookmarks" page</value>
+  </data>
+  <data name="TXT_SHOW_PLAYLIST" xml:space="preserve">
+    <value>Show the "Playlist " page</value>
+  </data>
+  <data name="TXT_SHOW_SIGNALANALISYS" xml:space="preserve">
+    <value>Show the "Signal Analisys" page</value>
+  </data>
+  <data name="TXT_SHOW_SPECTROGRAM" xml:space="preserve">
+    <value>Show spectrogram</value>
+  </data>
+  <data name="TXT_SHOW_TRACKINFO" xml:space="preserve">
+    <value>Show the "Media Info" page</value>
+  </data>
+  <data name="TXT_SHOW_VUMETER" xml:space="preserve">
+    <value>Show VU-Meter</value>
+  </data>
+  <data name="TXT_SHOW_WAVEFORM" xml:space="preserve">
+    <value>Show waveform</value>
+  </data>
+  <data name="TXT_SHUFFLE" xml:space="preserve">
     <value>Shuffle</value>
   </data>
-  <data name="TXT_SHUTDOWN_PC">
+  <data name="TXT_SHUTDOWN_PC" xml:space="preserve">
     <value>shut down the PC</value>
   </data>
-  <data name="TXT_SKIP_DVD_MENU">
+  <data name="TXT_SIGNALANALYSIS" xml:space="preserve">
+    <value>Signal Analysis</value>
+  </data>
+  <data name="TXT_SIGNALLEVEL" xml:space="preserve">
+    <value>Signal Level:</value>
+  </data>
+  <data name="TXT_SIGNALSPECTRUM" xml:space="preserve">
+    <value>Signal Spectrogram:</value>
+  </data>
+  <data name="TXT_SIGNALWAVEFORM" xml:space="preserve">
+    <value>Signal Waveform:</value>
+  </data>
+  <data name="TXT_SKIP_DVD_MENU" xml:space="preserve">
     <value>Ignore the DVD menu (play directly first title)</value>
   </data>
-  <data name="TXT_STANDBY_PC">
+  <data name="TXT_STANDBY_PC" xml:space="preserve">
     <value>put the PC into standby mode</value>
   </data>
-  <data name="TXT_STOPPED">
+  <data name="TXT_STOPPED" xml:space="preserve">
     <value>Stopped</value>
   </data>
-  <data name="TXT_SUBTITLEDOWNLOADNOTIFY">
-    <value>{0} subtitles were found for {1}:</value>
-  </data>
-  <data name="TXT_SUBTITLES">
-    <value>Subtitles</value>
-  </data>
-  <data name="TXT_SUBTITLESCFG">
-    <value>Subtitle Settings</value>
-  </data>
-  <data name="TXT_S_SUBTITLESETTINGS">
-    <value>Subtitles</value>
-  </data>
-  <data name="TXT_SUBTITLE_DOWNLOAD">
-    <value>Allow downloading subtitles from Internet</value>
-  </data>
-  <data name="TXT_SUB_DOWNLOAD_ERROR">
+  <data name="TXT_SUB_DOWNLOAD_ERROR" xml:space="preserve">
     <value>Subtitle search has been aborted because an error has occured.</value>
   </data>
-  <data name="TXT_SUB_HINTS">
+  <data name="TXT_SUB_HINTS" xml:space="preserve">
     <value>Hint: The results are sorted using these criteria (in this order): selected column, language (Preferred language on top), 
 prio (server order = order of subtitle servers in Subtitles/OSD Settings page). Click on a column header to select another sort citeria.</value>
   </data>
-  <data name="TXT_SUB_LOAD">
+  <data name="TXT_SUB_LOAD" xml:space="preserve">
     <value>Load the selected subtitle</value>
   </data>
-  <data name="TXT_SUB_LOADED">
+  <data name="TXT_SUB_LOADED" xml:space="preserve">
     <value>The selected subtitle was successfully loaded! Enjoy!</value>
   </data>
-  <data name="TXT_SYSTEMDIAGNOSTICS">
-    <value>Diagnostics</value>
-  </data>
-  <data name="TXT_SYSTEM_NOT_OK">
-    <value>Multimedia codecs are not installed and configured OK.</value>
-  </data>
-  <data name="TXT_SYSTEM_OK">
-    <value>Multimedia codecs are installed and configured OK.</value>
-  </data>
-  <data name="TXT_TIMESCALE">
-    <value>Time scale.
-Click to play from position: {0}</value>
-  </data>
-  <data name="TXT_TIMESCALE_BOOKMARK">
-    <value>Time scale.
-Click to play from bookmark: "{1}"
-Bookmark time: {0}</value>
-  </data>
-  <data name="TXT_TOTAL_TIME">
-    <value>Total time.</value>
-  </data>
-  <data name="TXT_UNSELECT_ALLAUDIO">
-    <value>No audio files</value>
-  </data>
-  <data name="TXT_UNSELECT_ALLPLAYLISTS">
-    <value>No playlists</value>
-  </data>
-  <data name="TXT_UNSELECT_ALLVIDEO">
-    <value>No video files</value>
-  </data>
-  <data name="TXT_VIDEOSETTINGS">
-    <value>Video Settings</value>
-  </data>
-  <data name="TXT_VIDEO_AVAILABLE">
-    <value>Video stream available.</value>
-  </data>
-  <data name="TXT_VIDEO_FILES">
-    <value>Video files</value>
-  </data>
-  <data name="TXT_VIDEO_HD_FILES">
-    <value>High Definition video files</value>
-  </data>
-  <data name="TXT_VOLSCALE">
-    <value>Volume scale.
-Click to set volume to: {0} %</value>
-  </data>
-  <data name="TXT_INSTALLCOMPONENT">
-    <value>Install component...</value>
-  </data>
-  <data name="TXT_PRIO">
-    <value>Priority</value>
-  </data>
-  <data name="TXT_MINUTES">
-    <value>minute(s).</value>
-  </data>
-  <data name="TXT_S_MISC_SETTINGS">
-    <value>Misc</value>
-  </data>
-  <data name="TXT_METADATAPATTERNS">
-    <value>The patterns available for playlist item formatting are based on combinations of these keywords:
-
-&lt;A&gt; = artist name (from tag);
-&lt;B&gt; = album name (from tag);
-&lt;T&gt; = title (from tag);
-&lt;C&gt; = comments (from tag);
-&lt;G&gt; = genre (from tag);
-&lt;#&gt; = track # (from tag);
-&lt;Y&gt; = year (from tag). </value>
-  </data>
-  <data name="TXT_DISPLAY_FILENAME">
-    <value>No formatting options are specified.
-The program will display the file name in playlist entry.</value>
-  </data>
-  <data name="TXT_FILENAME_FORMAT">
-    <value>If metadata is missing, use file name parsed as:</value>
-  </data>
-  <data name="TXT_USE_METADATA">
-    <value>Use file metadata (e.g. ID3 fields)</value>
-  </data>
-  <data name="TXT_FALLBACKMONITOR">
-    <value>Fallback Monitor:</value>
-  </data>
-  <data name="TXT_FALLBACKMONITORDESC">
-    <value>The fallback monitor will be used to display video contents whenever the preffered monitor is not connected to the system.</value>
-  </data>
-  <data name="TXT_MONITORAFFINITY">
-    <value>Monitors</value>
-  </data>
-  <data name="TXT_PREFERREDMONITOR">
-    <value>Preffered Monitor:</value>
-  </data>
-  <data name="TXT_PREFERREDMONITORDESC">
-    <value>The preffered monitor will be used to display video contents whenever it is connected to the system.</value>
-  </data>
-  <data name="TXT_RESTOREDEFAULTSDESC">
-    <value>Using 'Restore Defaults' will set both the preferred and fallback monitor to the primary monitor attached to the system.</value>
-  </data>
-  <data name="TXT_PLAYLISTOPTIONS">
-    <value>Playlist</value>
-  </data>
-  <data name="TXT_PREFERREDMONITORDETACHED">
-    <value>The preferred monitor is no longer connected to the system. To choose another preffered monitor, use 'Restore defaults' then re-select the preferred monitor.</value>
-  </data>
-  <data name="TXT_PLAYLIST_FORMAT">
-    <value>Format playlist entries as:</value>
-  </data>
-  <data name="TXT_INVALIDDVDVOLUME">
-    <value>You have specified an invalid DVD volume. Please reselect.</value>
-  </data>
-  <data name="TXT_PANELSHIDDEN_NOADMIN">
-    <value>Because your user account does not have administrator rights, you won't be able to view the Supported Files and the Remote Control settings.
-In order to access these settings, you must launch ProTONE Player under a user account that has admin priviledges</value>
-  </data>
-  <data name="TXT_MNUCLEAR">
-    <value>Clear playlist</value>
-  </data>
-  <data name="TXT_MNUDELETE">
-    <value>Delete playlist item</value>
-  </data>
-  <data name="TXT_MNUJUMPTOITEM">
-    <value>Jump to playlist item ...</value>
-  </data>
-  <data name="TXT_MNUMOVEDOWN">
-    <value>Move Down</value>
-  </data>
-  <data name="TXT_MNUMOVEUP">
-    <value>Move Up</value>
-  </data>
-  <data name="TXT_MNUPLAYLISTEND">
-    <value>Playlist end event</value>
-  </data>
-  <data name="TXT_MNUTOGGLESHUFFLE">
-    <value>Shuffle Play</value>
-  </data>
-  <data name="TXT_MNUFULLSCREEN">
-    <value>Toggle Full Screen</value>
-  </data>
-  <data name="TXT_MNUFWD">
-    <value>Forward 5 seconds</value>
-  </data>
-  <data name="TXT_MNULOAD">
-    <value>Load files …</value>
-  </data>
-  <data name="TXT_MNUNEXT">
-    <value>Play next</value>
-  </data>
-  <data name="TXT_MNUOPENDISK">
-    <value>Load DVD …</value>
-  </data>
-  <data name="TXT_MNUOPENURL">
-    <value>Open URL …</value>
-  </data>
-  <data name="TXT_MNUPAUSE">
-    <value>Pause</value>
-  </data>
-  <data name="TXT_MNUPLAY">
-    <value>Play</value>
-  </data>
-  <data name="TXT_MNUPREV">
-    <value>Play previous</value>
-  </data>
-  <data name="TXT_MNUREW">
-    <value>Rewind 5 seconds</value>
-  </data>
-  <data name="TXT_MNUSTOP">
-    <value>Stop</value>
-  </data>
-  <data name="TXT_MNUVOLDN">
-    <value>Volume down by 5%</value>
-  </data>
-  <data name="TXT_MNUVOLUP">
-    <value>Volume up by 5%</value>
-  </data>
-  <data name="TXT_MNUCFGAUDIO">
-    <value>Audio Settings …</value>
-  </data>
-  <data name="TXT_MNUCFGSUBTITLES">
-    <value>Subtitle Settings …</value>
-  </data>
-  <data name="TXT_MNUCFGTIMER">
-    <value>Timer Settings …</value>
-  </data>
-  <data name="TXT_MNUCFGVIDEO">
-    <value>Video Settings …</value>
-  </data>
-  <data name="TXT_MNUOPENSETTINGS">
-    <value>Settings …</value>
-  </data>
-  <data name="TXT_MNUSHOWLOGCONSOLE">
-    <value>Show log file …</value>
-  </data>
-  <data name="TXT_CMDHIDEBOOKMARKMANAGER">
-    <value>Hide Bookmark Manager</value>
-  </data>
-  <data name="TXT_SUBFONTS">
-    <value>Fonts and Colors</value>
-  </data>
-  <data name="TXT_SUBSAMPLETEXT">
-    <value>Subtitle Text Sample</value>
-  </data>
-  <data name="TXT_SUBFONT">
-    <value>Subtitle Text Font</value>
-  </data>
-  <data name="TXT_SUBCOLOR">
+  <data name="TXT_SUBCOLOR" xml:space="preserve">
     <value>Subtitle Text Color</value>
   </data>
-  <data name="TXT_SUBENABLED">
+  <data name="TXT_SUBENABLED" xml:space="preserve">
     <value>Enable Subtitle</value>
   </data>
-  <data name="TXT_NOTIFYSUBDOWNLOADED">
-    <value>Display notification tooltips near system tray when subtitle download is completed</value>
+  <data name="TXT_SUBFONT" xml:space="preserve">
+    <value>Subtitle Text Font</value>
   </data>
-  <data name="TXT_RESTORE_DEFAULTSERVERS">
-    <value>Load default servers</value>
+  <data name="TXT_SUBFONTS" xml:space="preserve">
+    <value>Fonts and Colors</value>
   </data>
-  <data name="TXT_ALBUM">
-    <value>Album name</value>
+  <data name="TXT_SUBSAMPLETEXT" xml:space="preserve">
+    <value>Subtitle Text Sample</value>
   </data>
-  <data name="TXT_ARTIST">
-    <value>Artist</value>
+  <data name="TXT_SUBTITLE_AVAILABLE" xml:space="preserve">
+    <value>Subtitle available</value>
   </data>
-  <data name="TXT_ARTWORK">
-    <value> Embedded images</value>
+  <data name="TXT_SUBTITLE_DOWNLOAD" xml:space="preserve">
+    <value>Allow downloading subtitles from Internet</value>
   </data>
-  <data name="TXT_BITRATE">
-    <value>Binary rate</value>
+  <data name="TXT_SUBTITLE_DOWNLOADING" xml:space="preserve">
+    <value>Downloading subtitles, please wait ...</value>
   </data>
-  <data name="TXT_CHANNELS">
-    <value>Audio mode</value>
+  <data name="TXT_SUBTITLEDOWNLOADNOTIFY" xml:space="preserve">
+    <value>{0} subtitles found for {1}:</value>
   </data>
-  <data name="TXT_COMMENTS">
-    <value>Comments</value>
+  <data name="TXT_SUBTITLES" xml:space="preserve">
+    <value>Subtitles</value>
   </data>
-  <data name="TXT_DURATION">
-    <value>Duration</value>
+  <data name="TXT_SUBTITLESCFG" xml:space="preserve">
+    <value>Subtitle Settings</value>
   </data>
-  <data name="TXT_FRAME_RATE">
-    <value>Frame rate</value>
+  <data name="TXT_SYSTEM_NOT_OK" xml:space="preserve">
+    <value>Multimedia codecs are not installed and configured OK.</value>
   </data>
-  <data name="TXT_FREQUENCY">
-    <value>Sampling frequency</value>
+  <data name="TXT_SYSTEM_OK" xml:space="preserve">
+    <value>Multimedia codecs are installed and configured OK.</value>
   </data>
-  <data name="TXT_GENRE">
-    <value>Musical Genre</value>
+  <data name="TXT_SYSTEMDIAGNOSTICS" xml:space="preserve">
+    <value>Diagnostics</value>
   </data>
-  <data name="TXT_TAGINFO">
-    <value>Media Tag</value>
-  </data>
-  <data name="TXT_TITLE">
-    <value>Title</value>
-  </data>
-  <data name="TXT_TRACK">
-    <value>Track Index</value>
-  </data>
-  <data name="TXT_VIDEO_SIZE">
-    <value>Video size</value>
-  </data>
-  <data name="TXT_YEAR">
-    <value>Year</value>
-  </data>
-  <data name="TXT_PICTURE">
-    <value>Image</value>
-  </data>
-  <data name="TXT_PICTURE_TEXT">
-    <value>Image Description</value>
-  </data>
-  <data name="TXT_PICTURE_TYPE">
-    <value>ID3 Image Type</value>
-  </data>
-  <data name="TXT_TAGGINGPATTERNS">
+  <data name="TXT_TAGGINGPATTERNS" xml:space="preserve">
     <value>The tagging patterns are based on combinations of these keywords:
 
 &lt;N&gt; = file name;
@@ -979,155 +1065,65 @@ In order to access these settings, you must launch ProTONE Player under a user a
 
 Character ranges such as &lt;N2-12,14-20&gt; are also allowed.</value>
   </data>
-  <data name="TXT_RESETVIDEOPOSITION">
-    <value>Reset video 
-window position</value>
+  <data name="TXT_TAGINFO" xml:space="preserve">
+    <value>Media Tag</value>
   </data>
-  <data name="TXT_RESETVIDEOPOSITION_HINT">
-    <value>Use this command to bring the video rendering window into the current active screen.</value>
+  <data name="TXT_TIMESCALE" xml:space="preserve">
+    <value>Time scale.
+Click to play from position: {0}</value>
   </data>
-  <data name="TXT_SUBTITLE_AVAILABLE">
-    <value>Subtitle available</value>
+  <data name="TXT_TIMESCALE_BOOKMARK" xml:space="preserve">
+    <value>Time scale.
+Click to play from bookmark: "{1}"
+Bookmark time: {0}</value>
   </data>
-  <data name="TXT_SUBTITLE_DOWNLOADING">
-    <value>Downloading subtitles, please wait ...</value>
+  <data name="TXT_TITLE" xml:space="preserve">
+    <value>Title</value>
   </data>
-  <data name="TXT_DISKS_OPTIONS">
-    <value>CD/DVD</value>
+  <data name="TXT_TOTAL_TIME" xml:space="preserve">
+    <value>Total time.</value>
   </data>
-  <data name="TXT_OPT_NONE">
-    <value>Don't read Audio CD info</value>
+  <data name="TXT_TRACK" xml:space="preserve">
+    <value>Track Index</value>
   </data>
-  <data name="TXT_OPT_CDTEXT">
-    <value>CD-Text only</value>
-  </data>
-  <data name="TXT_OPT_CDDB">
-    <value>CDDB server only</value>
-  </data>
-  <data name="TXT_OPT_CDTEXT_CDDB">
-    <value>CD-Text first, then from CDDB server</value>
-  </data>
-  <data name="TXT_OPT_CDDB_CDTEXT">
-    <value>CDDB server first, then from CD-Text</value>
-  </data>
-  <data name="TXT_AUDIOCDINFO_SOURCE">
-    <value>Read Audio CD info from:</value>
-  </data>
-  <data name="TXT_CDDB_SERVERNAME">
-    <value>CDDB Server Address:</value>
-  </data>
-  <data name="TXT_CDDB_SERVERPORT">
-    <value>CDDB Server Port:</value>
-  </data>
-  <data name="TXT_OPT_RELOAD_CDINFO">
-    <value>Reload CD Information</value>
-  </data>
-  <data name="TXT_CDTRACKINFO">
-    <value>CD Track Info:</value>
-  </data>
-  <data name="TXT_S_AUDIOSETTINGS">
-    <value>Audio</value>
-  </data>
-  <data name="TXT_S_VIDEOSETTINGS">
-    <value>Video</value>
-  </data>
-  <data name="TXT_CAUTION_REALTIME">
-    <value>CAUTION: These settings are applied in real time. You do not need to press OK to apply these settings</value>
-  </data>
-  <data name="TXT_SELECT_RADIO_STATION">
-    <value>Select a radio station:</value>
-  </data>
-  <data name="TXT_URLPART">
-    <value>Server URL (partial match):</value>
-  </data>
-  <data name="TXT_SERVERTITLE">
-    <value>Server Name (partial match):</value>
-  </data>
-  <data name="TXT_SEARCH_BY">
-    <value>Search by:</value>
-  </data>
-  <data name="TXT_ARTWORK_COUNT">
-    <value>{0} artwork image(s) (click to edit).</value>
-  </data>
-  <data name="TXT_BOOKMARK_COUNT">
-    <value>{0} bookmark(s) (click to edit).</value>
-  </data>
-  <data name="TXT_EXTRAINFO">
-    <value>Extra Information</value>
-  </data>
-  <data name="TXT_BOOKMARKLIST">
-    <value>Bookmark List</value>
-  </data>
-  <data name="TXT_MEDIAINFO">
-    <value>Media Information</value>
-  </data>
-  <data name="TXT_BOOKMARKS">
-    <value>Bookmarks</value>
-  </data>
-  <data name="TXT_TRACKINFO">
+  <data name="TXT_TRACKINFO" xml:space="preserve">
     <value>Track Info</value>
   </data>
-  <data name="TXT_SIGNALANALYSIS">
-    <value>Signal Analysis</value>
+  <data name="TXT_UNSELECT_ALLAUDIO" xml:space="preserve">
+    <value>No audio files</value>
   </data>
-  <data name="TXT_PLAYLISTEVT_CAUTION">
-    <value>CAUTION: The program always starts with the "playlist ended" event deactivated!</value>
+  <data name="TXT_UNSELECT_ALLPLAYLISTS" xml:space="preserve">
+    <value>No playlists</value>
   </data>
-  <data name="TXT_SHOW_PLAYLIST">
-    <value>Show the "Playlist " page</value>
+  <data name="TXT_UNSELECT_ALLVIDEO" xml:space="preserve">
+    <value>No video files</value>
   </data>
-  <data name="TXT_SHOW_TRACKINFO">
-    <value>Show the "Media Info" page</value>
+  <data name="TXT_URLPART" xml:space="preserve">
+    <value>Server URL (partial match):</value>
   </data>
-  <data name="TXT_SHOW_SIGNALANALISYS">
-    <value>Show the "Signal Analisys" page</value>
+  <data name="TXT_USE_METADATA" xml:space="preserve">
+    <value>Use file metadata (e.g. ID3 tags)</value>
   </data>
-  <data name="TXT_SHOW_BOOKMARKINFO">
-    <value>Show the "Bookmarks" page</value>
+  <data name="TXT_VIDEO_AVAILABLE" xml:space="preserve">
+    <value>Video stream available.</value>
   </data>
-  <data name="TXT_HINT_PLAYLISTTAB">
-    <value>This page allows interaction with the playlist.</value>
+  <data name="TXT_VIDEO_FILES" xml:space="preserve">
+    <value>Video files</value>
   </data>
-  <data name="TXT_HINT_TRACKINFOTAB">
-    <value>This page displays the track information and allows editing some parts of this information, where applicable (e.g. the ID3 fields for MP3). It is disabled for streamed media (Shoutcast URL's).</value>
+  <data name="TXT_VIDEO_HD_FILES" xml:space="preserve">
+    <value>High Definition video files</value>
   </data>
-  <data name="TXT_HINT_SIGNALANALISYSTAB">
-    <value>This page displays signal diagrams such as VU-Meter, Waveform and Spectrogram. The signal analisys consumes some CPU so you may want to disable this feature (or some parts of it), if you have a slower CPU computer.</value>
+  <data name="TXT_VIDEO_SIZE" xml:space="preserve">
+    <value>Video size</value>
   </data>
-  <data name="TXT_HINT_BOOKMARKINFOTAB">
-    <value>This page displays the bookmark information and allows editing it. It is disabled for media that does not support editing bookmarks (CD, DVD, streamed media).</value>
+  <data name="TXT_VIDEOSETTINGS" xml:space="preserve">
+    <value>Video Settings</value>
   </data>
-  <data name="TXT_SHOW_VUMETER">
-    <value>Show VU-Meter</value>
+  <data name="TXT_VOLSCALE" xml:space="preserve">
+    <value>Volume scale.
+Click to set volume to: {0} %</value>
   </data>
-  <data name="TXT_SHOW_WAVEFORM">
-    <value>Show waveform</value>
-  </data>
-  <data name="TXT_SHOW_SPECTROGRAM">
-    <value>Show spectrogram</value>
-  </data>
-  <data name="TXT_MEDIA_SCREENS">
-    <value>Main Pages</value>
-  </data>
-  <data name="TXT_CHOOSE_COLOR_FOR_OSD">
-    <value>Choose a color for OSD:</value>
-  </data>
-  <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
-    <value>Choose a color for subtitle:</value>
-  </data>
-  <data name="TXT_SIGNALLEVEL">
-    <value>Signal Level:</value>
-  </data>
-  <data name="TXT_SIGNALWAVEFORM">
-    <value>Signal Waveform:</value>
-  </data>
-  <data name="TXT_SIGNALSPECTRUM">
-    <value>Signal Spectrogram:</value>
-  </data>
-  <data name="TXT_CHOOSE_FONT_FOR_OSD">
-    <value>Choose a font for OSD:</value>
-  </data>
-  <data name="TXT_CHOOSE_FONT_FOR_SUBTITLE">
-    <value>Choose a font for subtitle:</value>
+  <data name="TXT_YEAR" xml:space="preserve">
+    <value>Year</value>
   </data>
 </root>

@@ -117,971 +117,971 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_ABORT">
+  <data name="TXT_ABORT" xml:space="preserve">
     <value>Abort</value>
   </data>
-  <data name="TXT_ABOUT">
+  <data name="TXT_ABOUT" xml:space="preserve">
     <value>About {0}</value>
   </data>
-  <data name="TXT_ADD">
+  <data name="TXT_ADD" xml:space="preserve">
     <value>Add...</value>
   </data>
-  <data name="TXT_ADD_FILES">
+  <data name="TXT_ADD_FILES" xml:space="preserve">
     <value>Add Files ...</value>
   </data>
-  <data name="TXT_ADD_FOLDER">
+  <data name="TXT_ADD_FOLDER" xml:space="preserve">
     <value>Add Folder ...</value>
   </data>
-  <data name="TXT_ALL_FILES_FILTER">
+  <data name="TXT_ALL_FILES_FILTER" xml:space="preserve">
     <value>All files (*.*)|*.*||</value>
   </data>
-  <data name="TXT_ALTKEY">
+  <data name="TXT_ALTKEY" xml:space="preserve">
     <value>Alternate</value>
   </data>
-  <data name="TXT_APPHELP">
+  <data name="TXT_APPHELP" xml:space="preserve">
     <value>Contents ...</value>
   </data>
-  <data name="TXT_APPLY">
+  <data name="TXT_APPLY" xml:space="preserve">
     <value>Apply</value>
   </data>
-  <data name="TXT_APP_RESTART">
+  <data name="TXT_APP_RESTART" xml:space="preserve">
     <value>Program restart required</value>
   </data>
-  <data name="TXT_ARGUMENTS">
+  <data name="TXT_ARGUMENTS" xml:space="preserve">
     <value>Specify the program's command line arguments:</value>
   </data>
-  <data name="TXT_BACK">
+  <data name="TXT_BACK" xml:space="preserve">
     <value>Back</value>
   </data>
-  <data name="TXT_BROWSE">
+  <data name="TXT_BROWSE" xml:space="preserve">
     <value>Browse ...</value>
   </data>
-  <data name="TXT_BTNCLOSE">
+  <data name="TXT_BTNCLOSE" xml:space="preserve">
     <value>Close.</value>
   </data>
-  <data name="TXT_BTNMAXIMIZE">
+  <data name="TXT_BTNMAXIMIZE" xml:space="preserve">
     <value>Maximize.</value>
   </data>
-  <data name="TXT_BTNMINIMIZE">
+  <data name="TXT_BTNMINIMIZE" xml:space="preserve">
     <value>Minimize.</value>
   </data>
-  <data name="TXT_BTNRESTOREDOWN">
+  <data name="TXT_BTNRESTOREDOWN" xml:space="preserve">
     <value>Restore down.</value>
   </data>
-  <data name="TXT_BUILDING_OBJECT_LIST">
+  <data name="TXT_BUILDING_OBJECT_LIST" xml:space="preserve">
     <value>Creating object list ...</value>
   </data>
-  <data name="TXT_CANCEL">
+  <data name="TXT_CANCEL" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="TXT_CAUTION">
+  <data name="TXT_CAUTION" xml:space="preserve">
     <value>Caution</value>
   </data>
-  <data name="TXT_CHANGE">
+  <data name="TXT_CHANGE" xml:space="preserve">
     <value>Change...</value>
   </data>
-  <data name="TXT_CHOOSELOGPATH">
+  <data name="TXT_CHOOSELOGPATH" xml:space="preserve">
     <value>Choose the folder to store the log files:</value>
   </data>
-  <data name="TXT_CHOOSEPROGRAM">
+  <data name="TXT_CHOOSEPROGRAM" xml:space="preserve">
     <value>Choose the program to be executed:</value>
   </data>
-  <data name="TXT_CHOOSEWORKDIR">
+  <data name="TXT_CHOOSEWORKDIR" xml:space="preserve">
     <value>Choose the program working folder:</value>
   </data>
-  <data name="TXT_CLEARLOG">
+  <data name="TXT_CLEARLOG" xml:space="preserve">
     <value>Clear Log File</value>
   </data>
-  <data name="TXT_CLEARWINDOW">
-    <value>Clear Window</value>
+  <data name="TXT_CLEARWINDOW" xml:space="preserve">
+    <value>Clear Window Contents</value>
   </data>
-  <data name="TXT_CLICK_LIST_TO_EDIT">
+  <data name="TXT_CLICK_LIST_TO_EDIT" xml:space="preserve">
     <value>Click on list cells to edit them.</value>
   </data>
-  <data name="TXT_CMDCFGKEYBOARD">
+  <data name="TXT_CMDCFGKEYBOARD" xml:space="preserve">
     <value>Displays the Keyboard Shortcuts.</value>
   </data>
-  <data name="TXT_CMDGENERICAPPLY">
+  <data name="TXT_CMDGENERICAPPLY" xml:space="preserve">
     <value>Apply Changes.</value>
   </data>
-  <data name="TXT_CMDGENERICCOPY">
+  <data name="TXT_CMDGENERICCOPY" xml:space="preserve">
     <value>Copy data (or files)</value>
   </data>
-  <data name="TXT_CMDGENERICCUT">
+  <data name="TXT_CMDGENERICCUT" xml:space="preserve">
     <value>Cut data (or files)</value>
   </data>
-  <data name="TXT_CMDGENERICDELETE">
+  <data name="TXT_CMDGENERICDELETE" xml:space="preserve">
     <value>Delete data (or files)</value>
   </data>
-  <data name="TXT_CMDGENERICNEW">
+  <data name="TXT_CMDGENERICNEW" xml:space="preserve">
     <value>New Document.</value>
   </data>
-  <data name="TXT_CMDGENERICOPEN">
+  <data name="TXT_CMDGENERICOPEN" xml:space="preserve">
     <value>Open Document.</value>
   </data>
-  <data name="TXT_CMDGENERICPASTE">
+  <data name="TXT_CMDGENERICPASTE" xml:space="preserve">
     <value>Paste data (or files)</value>
   </data>
-  <data name="TXT_CMDGENERICREFRESH">
+  <data name="TXT_CMDGENERICREFRESH" xml:space="preserve">
     <value>Refresh data</value>
   </data>
-  <data name="TXT_CMDGENERICRENAME">
+  <data name="TXT_CMDGENERICRENAME" xml:space="preserve">
     <value>Rename files</value>
   </data>
-  <data name="TXT_CMDGENERICSAVE">
+  <data name="TXT_CMDGENERICSAVE" xml:space="preserve">
     <value>Save Document.</value>
   </data>
-  <data name="TXT_CMDGENERICSEARCH">
+  <data name="TXT_CMDGENERICSEARCH" xml:space="preserve">
     <value>Search data (or files)</value>
   </data>
-  <data name="TXT_CMDGENERICUNDO">
+  <data name="TXT_CMDGENERICUNDO" xml:space="preserve">
     <value>Undo changes.</value>
   </data>
-  <data name="TXT_CMDOPENHELP">
+  <data name="TXT_CMDOPENHELP" xml:space="preserve">
     <value>Open help file</value>
   </data>
-  <data name="TXT_CMDOPENSETTINGS">
+  <data name="TXT_CMDOPENSETTINGS" xml:space="preserve">
     <value>Displays the Settings dialog.</value>
   </data>
-  <data name="TXT_CMDSHOWLOGCONSOLE">
+  <data name="TXT_CMDSHOWLOGCONSOLE" xml:space="preserve">
     <value>Displays the log file console</value>
   </data>
-  <data name="TXT_CMDSWITCHWINDOWS">
+  <data name="TXT_CMDSWITCHWINDOWS" xml:space="preserve">
     <value>Switch between addon windows.</value>
   </data>
-  <data name="TXT_COMMAND">
+  <data name="TXT_COMMAND" xml:space="preserve">
     <value>Command name</value>
   </data>
-  <data name="TXT_CONFIRM">
+  <data name="TXT_CONFIRM" xml:space="preserve">
     <value>Confirm</value>
   </data>
-  <data name="TXT_CONFIRM_ABORT">
-    <value>Are you sure you want to cancel the operation ?</value>
+  <data name="TXT_CONFIRM_ABORT" xml:space="preserve">
+    <value>Are you sure you want to abort the operation ?</value>
   </data>
-  <data name="TXT_CONFIRM_DELETE">
+  <data name="TXT_CONFIRM_DELETE" xml:space="preserve">
     <value>Are you sure you want to delete the file:
 {0} ?</value>
   </data>
-  <data name="TXT_CONFIRM_DELETE_DIR">
+  <data name="TXT_CONFIRM_DELETE_DIR" xml:space="preserve">
     <value>The folder: {0} is not empty. 
 Do you want to delete it (including its contents) ?</value>
   </data>
-  <data name="TXT_CONFIRM_DELETE_EMPTYDIR">
+  <data name="TXT_CONFIRM_DELETE_EMPTYDIR" xml:space="preserve">
     <value>Are you sure you want to delete the folder:
 {0} ?</value>
   </data>
-  <data name="TXT_CONFIRM_DELETE_ROHS">
-    <value>The file {0} is has one or more of these attributes: Read-Only/Hidden/System.
+  <data name="TXT_CONFIRM_DELETE_ROHS" xml:space="preserve">
+    <value>The file {0} has one (or more) of these attributes: Read-Only, Hidden or System.
 Do you still want to delete it ?</value>
   </data>
-  <data name="TXT_CONFIRM_OVERWRITE">
+  <data name="TXT_CONFIRM_OVERWRITE" xml:space="preserve">
     <value>The destination file {0} already exists. 
 Do you want to overwrite it ?</value>
   </data>
-  <data name="TXT_CONFIRM_OVERWRITE_RO">
+  <data name="TXT_CONFIRM_OVERWRITE_RO" xml:space="preserve">
     <value>The destination file {0} already exists and it is a Read-Only file. 
 Do you want to overwrite it ?</value>
   </data>
-  <data name="TXT_COPY">
+  <data name="TXT_COPY" xml:space="preserve">
     <value>Copy</value>
   </data>
-  <data name="TXT_CUR_PROGRESS">
+  <data name="TXT_CUR_PROGRESS" xml:space="preserve">
     <value>{0}: {1} items out of {2} ({3}% done)</value>
   </data>
-  <data name="TXT_CUT">
+  <data name="TXT_CUT" xml:space="preserve">
     <value>Cut</value>
   </data>
-  <data name="TXT_DEFINE_PROGRAM">
+  <data name="TXT_DEFINE_PROGRAM" xml:space="preserve">
     <value>[ Please define the program to be executed ]</value>
   </data>
-  <data name="TXT_DELETE">
+  <data name="TXT_DELETE" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="TXT_DESCRIPTION">
+  <data name="TXT_DESCRIPTION" xml:space="preserve">
     <value>Command description</value>
   </data>
-  <data name="TXT_DESC_COPY_TASK">
+  <data name="TXT_DESC_COPY_TASK" xml:space="preserve">
     <value>Copying</value>
   </data>
-  <data name="TXT_DESC_DELETE_TASK">
+  <data name="TXT_DESC_DELETE_TASK" xml:space="preserve">
     <value>Deleting</value>
   </data>
-  <data name="TXT_DESC_MOVE_TASK">
+  <data name="TXT_DESC_MOVE_TASK" xml:space="preserve">
     <value>Moving</value>
   </data>
-  <data name="TXT_DOUBLE_CLICK_TO_EDIT">
+  <data name="TXT_DOUBLE_CLICK_TO_EDIT" xml:space="preserve">
     <value>double click to edit</value>
   </data>
-  <data name="TXT_DOWNLOAD">
+  <data name="TXT_DOWNLOAD" xml:space="preserve">
     <value>Download</value>
   </data>
-  <data name="TXT_DRAWBORDERS">
+  <data name="TXT_DRAWBORDERS" xml:space="preserve">
     <value>Draw skinned borders and title bar (recommended)</value>
   </data>
-  <data name="TXT_EDITKEYDESC">
+  <data name="TXT_EDITKEYDESC" xml:space="preserve">
     <value>Press the new key combination for: {0}.
 Current shortcut is: {1}.</value>
   </data>
-  <data name="TXT_ENABLESKINNEDBORDERS">
+  <data name="TXT_ENABLESKINNEDBORDERS" xml:space="preserve">
     <value>Enable skinned borders</value>
   </data>
-  <data name="TXT_ENABLE_LOG">
+  <data name="TXT_ENABLE_LOG" xml:space="preserve">
     <value>Enable program logging</value>
   </data>
-  <data name="TXT_ERROR">
+  <data name="TXT_ERROR" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="TXT_ERRORS">
-    <value>Log error messages</value>
+  <data name="TXT_ERRORS" xml:space="preserve">
+    <value>Register error messages in the log file</value>
   </data>
-  <data name="TXT_ERRORS_COPY_TASK">
+  <data name="TXT_ERRORS_COPY_TASK" xml:space="preserve">
     <value>Some errors appeared while copying the specified files.
 More details in the list below.</value>
   </data>
-  <data name="TXT_ERRORS_DELETE_TASK">
+  <data name="TXT_ERRORS_DELETE_TASK" xml:space="preserve">
     <value>Some errors appeared while deleting the specified files.
 More details in the list below.</value>
   </data>
-  <data name="TXT_ERRORS_ENCOUNTERED">
+  <data name="TXT_ERRORS_ENCOUNTERED" xml:space="preserve">
     <value>Some errors appeared during the operation.</value>
   </data>
-  <data name="TXT_ERRORS_MOVE_TASK">
+  <data name="TXT_ERRORS_MOVE_TASK" xml:space="preserve">
     <value>Some errors appeared while moving the specified files.
 More details in the list below.</value>
   </data>
-  <data name="TXT_EVERYDAY">
+  <data name="TXT_EVERYDAY" xml:space="preserve">
     <value>Every Day</value>
   </data>
-  <data name="TXT_EXIT">
+  <data name="TXT_EXIT" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="TXT_FILE">
+  <data name="TXT_FILE" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="TXT_FILENAME">
+  <data name="TXT_FILENAME" xml:space="preserve">
     <value>File Name</value>
   </data>
-  <data name="TXT_FOLDERNOTACCESSIBLE">
-    <value>This folder is no longer accessible. It may have been moved, removed, or its disk could have been removed from the computer.</value>
+  <data name="TXT_FOLDERNOTACCESSIBLE" xml:space="preserve">
+    <value>This folder is no longer accessible. It may have been moved, removed, or the disk could have been removed from the computer.</value>
   </data>
-  <data name="TXT_FORWARD">
+  <data name="TXT_FORWARD" xml:space="preserve">
     <value>Forward</value>
   </data>
-  <data name="TXT_FREEZEWINDOW">
+  <data name="TXT_FREEZEWINDOW" xml:space="preserve">
     <value>Lock Window</value>
   </data>
-  <data name="TXT_FRIDAY">
+  <data name="TXT_FRIDAY" xml:space="preserve">
     <value>Friday</value>
   </data>
-  <data name="TXT_S_GENERALSETTINGS">
+  <data name="TXT_S_GENERALSETTINGS" xml:space="preserve">
     <value>General</value>
   </data>
-  <data name="TXT_HEAVY_TRACE">
+  <data name="TXT_HEAVY_TRACE" xml:space="preserve">
     <value>Enable detailed debug logging</value>
   </data>
-  <data name="TXT_HELP">
+  <data name="TXT_HELP" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="TXT_INFO">
-    <value>Log info messages</value>
+  <data name="TXT_INFO" xml:space="preserve">
+    <value>Register info messages in the log file</value>
   </data>
-  <data name="TXT_INSERT_DISK">
+  <data name="TXT_INSERT_DISK" xml:space="preserve">
     <value>Insert disk</value>
   </data>
-  <data name="TXT_INSERT_MEDIA">
+  <data name="TXT_INSERT_MEDIA" xml:space="preserve">
     <value>Please insert the disk labeled {0} (desc: {1}) into the {2} drive.</value>
   </data>
-  <data name="TXT_KEY">
+  <data name="TXT_KEY" xml:space="preserve">
     <value>Shortcut</value>
   </data>
-  <data name="TXT_KEYCOMMANDEDITOR">
+  <data name="TXT_KEYCOMMANDEDITOR" xml:space="preserve">
     <value>Define keys for {0}</value>
   </data>
-  <data name="TXT_S_KEYMAP">
+  <data name="TXT_S_KEYMAP" xml:space="preserve">
     <value>Keyboard</value>
   </data>
-  <data name="TXT_S_KEYMAP_DESC">
+  <data name="TXT_S_KEYMAP_DESC" xml:space="preserve">
     <value>To edit a shortcut, click on its associated links in the table below. The shortcuts with disabled links cannot be changed by the user (e.g: OpenHelp = F1, etc).</value>
   </data>
-  <data name="TXT_LANGUAGE">
+  <data name="TXT_LANGUAGE" xml:space="preserve">
     <value>Language</value>
   </data>
-  <data name="TXT_LOGFILENAME">
+  <data name="TXT_LOGFILENAME" xml:space="preserve">
     <value>Log file name:</value>
   </data>
-  <data name="TXT_S_LOGGINGSETTINGS">
+  <data name="TXT_S_LOGGINGSETTINGS" xml:space="preserve">
     <value>Logging</value>
   </data>
-  <data name="TXT_LOGLINECONSOLE">
+  <data name="TXT_LOGLINECONSOLE" xml:space="preserve">
     <value>Log file console</value>
   </data>
-  <data name="TXT_LOGLINECOUNT">
+  <data name="TXT_LOGLINECOUNT" xml:space="preserve">
     <value>Log entries count:</value>
   </data>
-  <data name="TXT_LOG_DESC">
+  <data name="TXT_LOG_DESC" xml:space="preserve">
     <value>This program version is built with enforced logging.
 All log level are enabled by default.</value>
   </data>
-  <data name="TXT_LOG_KEEPDAYS">
+  <data name="TXT_LOG_KEEPDAYS" xml:space="preserve">
     <value>How many days to keep the old log files 
 (min=2, max=10):</value>
   </data>
-  <data name="TXT_LOG_PATH">
+  <data name="TXT_LOG_PATH" xml:space="preserve">
     <value>Log files path:</value>
   </data>
-  <data name="TXT_MODIFY">
+  <data name="TXT_MODIFY" xml:space="preserve">
     <value>Modify</value>
   </data>
-  <data name="TXT_MONDAY">
+  <data name="TXT_MONDAY" xml:space="preserve">
     <value>Monday</value>
   </data>
-  <data name="TXT_MULTIRENAME">
+  <data name="TXT_MULTIRENAME" xml:space="preserve">
     <value>Rename Multiple Files</value>
   </data>
-  <data name="TXT_NA">
+  <data name="TXT_NA" xml:space="preserve">
     <value>N/A</value>
   </data>
-  <data name="TXT_S_NETWORK_SETTINGS">
+  <data name="TXT_S_NETWORK_SETTINGS" xml:space="preserve">
     <value>Network</value>
   </data>
-  <data name="TXT_NEW">
+  <data name="TXT_NEW" xml:space="preserve">
     <value>New</value>
   </data>
-  <data name="TXT_NO">
+  <data name="TXT_NO" xml:space="preserve">
     <value>No</value>
   </data>
-  <data name="TXT_NO_NETWORK">
+  <data name="TXT_NO_NETWORK" xml:space="preserve">
     <value>Warning: There is no operational network connection.</value>
   </data>
-  <data name="TXT_OFF">
+  <data name="TXT_OFF" xml:space="preserve">
     <value>OFF</value>
   </data>
-  <data name="TXT_OK">
+  <data name="TXT_OK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="TXT_ON">
+  <data name="TXT_ON" xml:space="preserve">
     <value>ON</value>
   </data>
-  <data name="TXT_OPEN">
+  <data name="TXT_OPEN" xml:space="preserve">
     <value>Open</value>
   </data>
-  <data name="TXT_OR">
+  <data name="TXT_OR" xml:space="preserve">
     <value>or</value>
   </data>
-  <data name="TXT_PASSWORD">
+  <data name="TXT_PASSWORD" xml:space="preserve">
     <value>Password</value>
   </data>
-  <data name="TXT_PASTE">
+  <data name="TXT_PASTE" xml:space="preserve">
     <value>Paste</value>
   </data>
-  <data name="TXT_PORT_NAME">
+  <data name="TXT_PORT_NAME" xml:space="preserve">
     <value>Serial Port Name:</value>
   </data>
-  <data name="TXT_PORT_SETTINGS">
+  <data name="TXT_PORT_SETTINGS" xml:space="preserve">
     <value>Serial Port Settings:</value>
   </data>
-  <data name="TXT_PROCEED">
+  <data name="TXT_PROCEED" xml:space="preserve">
     <value>Proceed</value>
   </data>
-  <data name="TXT_PROGRAMSTARTUPINFO">
+  <data name="TXT_PROGRAMSTARTUPINFO" xml:space="preserve">
     <value>Program startup information</value>
   </data>
-  <data name="TXT_PROGRAMS_FILTER">
+  <data name="TXT_PROGRAMS_FILTER" xml:space="preserve">
     <value>Executable files (*.exe)|*.exe|All files (*.*)|*.*||</value>
   </data>
-  <data name="TXT_PROGRAM_DEF">
+  <data name="TXT_PROGRAM_DEF" xml:space="preserve">
     <value>Program to be executed (click on the link below to change):</value>
   </data>
-  <data name="TXT_READONLY">
+  <data name="TXT_READONLY" xml:space="preserve">
     <value>Read Only</value>
   </data>
-  <data name="TXT_ARCHIVE">
+  <data name="TXT_ARCHIVE" xml:space="preserve">
     <value>Archive</value>
   </data>
-  <data name="TXT_HIDDEN">
+  <data name="TXT_HIDDEN" xml:space="preserve">
     <value>Hidden</value>
   </data>
-  <data name="TXT_SYSTEM">
+  <data name="TXT_SYSTEM" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="TXT_REFRESH">
+  <data name="TXT_REFRESH" xml:space="preserve">
     <value>Refresh</value>
   </data>
-  <data name="TXT_SATURDAY">
+  <data name="TXT_SATURDAY" xml:space="preserve">
     <value>Saturday</value>
   </data>
-  <data name="TXT_SAVE">
+  <data name="TXT_SAVE" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="TXT_SAVE_AS">
+  <data name="TXT_SAVE_AS" xml:space="preserve">
     <value>Save as...</value>
   </data>
-  <data name="TXT_SEARCH">
+  <data name="TXT_SEARCH" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="TXT_SERIALPORTLCFG">
+  <data name="TXT_SERIALPORTLCFG" xml:space="preserve">
     <value>Configure Serial Port</value>
   </data>
-  <data name="TXT_SERIAL_PORT_NAME">
-    <value>Settings for Serial Port: </value>
+  <data name="TXT_SERIAL_PORT_NAME" xml:space="preserve">
+    <value>Settings for Serial Port:</value>
   </data>
-  <data name="TXT_SERVER">
+  <data name="TXT_SERVER" xml:space="preserve">
     <value>Server</value>
   </data>
-  <data name="TXT_SETSKIN">
+  <data name="TXT_SETSKIN" xml:space="preserve">
     <value>Set the User Interface Theme (per entire ProTONE Suite):</value>
   </data>
-  <data name="TXT_SETTINGS">
+  <data name="TXT_SETTINGS" xml:space="preserve">
     <value>Program Settings</value>
   </data>
-  <data name="TXT_SETUILANGUAGE">
+  <data name="TXT_SETUILANGUAGE" xml:space="preserve">
     <value>Set the User Interface Language (per entire ProTONE Suite):</value>
   </data>
-  <data name="TXT_SHOWLOG">
+  <data name="TXT_SHOWLOG" xml:space="preserve">
     <value>Show log file ...</value>
   </data>
-  <data name="TXT_SHOWSPLITTERS">
+  <data name="TXT_SHOWSPLITTERS" xml:space="preserve">
     <value>Show panel splitters in main window</value>
   </data>
-  <data name="TXT_SIZE">
+  <data name="TXT_SIZE" xml:space="preserve">
     <value>Size</value>
   </data>
-  <data name="TXT_SUCCESS">
+  <data name="TXT_SUCCESS" xml:space="preserve">
     <value>Task succesfull.</value>
   </data>
-  <data name="TXT_SUCCESS_COPY_TASK">
+  <data name="TXT_SUCCESS_COPY_TASK" xml:space="preserve">
     <value>Copy files has completed succesfully.</value>
   </data>
-  <data name="TXT_SUCCESS_DELETE_TASK">
+  <data name="TXT_SUCCESS_DELETE_TASK" xml:space="preserve">
     <value>Delete files has completed succesfully.</value>
   </data>
-  <data name="TXT_SUCCESS_MOVE_TASK">
+  <data name="TXT_SUCCESS_MOVE_TASK" xml:space="preserve">
     <value>Move files has completed succesfully.</value>
   </data>
-  <data name="TXT_SUNDAY">
+  <data name="TXT_SUNDAY" xml:space="preserve">
     <value>Sunday</value>
   </data>
-  <data name="TXT_TASK_CANCEL">
-    <value>Abort Tasks ?</value>
+  <data name="TXT_TASK_CANCEL" xml:space="preserve">
+    <value>Abort Executing Tasks ?</value>
   </data>
-  <data name="TXT_TASK_CANCEL_MSG">
+  <data name="TXT_TASK_CANCEL_MSG" xml:space="preserve">
     <value>Are you sure you want to abort the executing tasks ?</value>
   </data>
-  <data name="TXT_SPECIFYURL">
-    <value>Specify URL:</value>
+  <data name="TXT_SPECIFYURL" xml:space="preserve">
+    <value>Specify a URL:</value>
   </data>
-  <data name="TXT_TCPIPINVALIDFORMAT">
+  <data name="TXT_TCPIPINVALIDFORMAT" xml:space="preserve">
     <value>The entered string does not represent a valid URL.</value>
   </data>
-  <data name="TXT_TCPIPURI">
+  <data name="TXT_TCPIPURI" xml:space="preserve">
     <value>Enter the URL:</value>
   </data>
-  <data name="TXT_THEREARENOITEMS">
+  <data name="TXT_THEREARENOITEMS" xml:space="preserve">
     <value>There are no items to show in this panel.</value>
   </data>
-  <data name="TXT_THURSDAY">
+  <data name="TXT_THURSDAY" xml:space="preserve">
     <value>Thursday</value>
   </data>
-  <data name="TXT_TRACE">
+  <data name="TXT_TRACE" xml:space="preserve">
     <value>Show debug traces</value>
   </data>
-  <data name="TXT_TUESDAY">
+  <data name="TXT_TUESDAY" xml:space="preserve">
     <value>Tuesday</value>
   </data>
-  <data name="TXT_UNDO">
+  <data name="TXT_UNDO" xml:space="preserve">
     <value>Undo</value>
   </data>
-  <data name="TXT_UP">
+  <data name="TXT_UP" xml:space="preserve">
     <value>Up</value>
   </data>
-  <data name="TXT_USERNAME">
+  <data name="TXT_USERNAME" xml:space="preserve">
     <value>User</value>
   </data>
-  <data name="TXT_VERSION">
+  <data name="TXT_VERSION" xml:space="preserve">
     <value>Version: {0}</value>
   </data>
-  <data name="TXT_WAIT_COPY">
+  <data name="TXT_WAIT_COPY" xml:space="preserve">
     <value>Please wait while copying files ...</value>
   </data>
-  <data name="TXT_WAIT_DELETE">
+  <data name="TXT_WAIT_DELETE" xml:space="preserve">
     <value>Please wait while deleting files ...</value>
   </data>
-  <data name="TXT_WAIT_MOVE">
+  <data name="TXT_WAIT_MOVE" xml:space="preserve">
     <value>Please wait while moving files ...</value>
   </data>
-  <data name="TXT_WARNING">
-    <value>Log warning messages</value>
+  <data name="TXT_WARNING" xml:space="preserve">
+    <value>Register warning messages in the log file</value>
   </data>
-  <data name="TXT_WEDNESDAY">
+  <data name="TXT_WEDNESDAY" xml:space="preserve">
     <value>Wednesday</value>
   </data>
-  <data name="TXT_WIZARDBACK">
+  <data name="TXT_WIZARDBACK" xml:space="preserve">
     <value>&lt; Back</value>
   </data>
-  <data name="TXT_WIZARDCANCEL">
+  <data name="TXT_WIZARDCANCEL" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="TXT_WIZARDFINISH">
+  <data name="TXT_WIZARDFINISH" xml:space="preserve">
     <value>Finish</value>
   </data>
-  <data name="TXT_WIZARDNEXT">
+  <data name="TXT_WIZARDNEXT" xml:space="preserve">
     <value>Next &gt;</value>
   </data>
-  <data name="TXT_WIZARDOK">
+  <data name="TXT_WIZARDOK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="TXT_WIZARDREPEAT">
+  <data name="TXT_WIZARDREPEAT" xml:space="preserve">
     <value>Repeat wizard</value>
   </data>
-  <data name="TXT_WIZARDSTEPDELIMITER">
+  <data name="TXT_WIZARDSTEPDELIMITER" xml:space="preserve">
     <value>of</value>
   </data>
-  <data name="TXT_WIZARDSTEPTEXT">
+  <data name="TXT_WIZARDSTEPTEXT" xml:space="preserve">
     <value>Step</value>
   </data>
-  <data name="TXT_WIZFINISHED">
+  <data name="TXT_WIZFINISHED" xml:space="preserve">
     <value>has finished task execution.</value>
   </data>
-  <data name="TXT_WIZFINISHING">
+  <data name="TXT_WIZFINISHING" xml:space="preserve">
     <value>is running, please wait ...</value>
   </data>
-  <data name="TXT_WIZSTEPRESULTS">
+  <data name="TXT_WIZSTEPRESULTS" xml:space="preserve">
     <value>Results</value>
   </data>
-  <data name="TXT_WIZTASKSFINISHED">
+  <data name="TXT_WIZTASKSFINISHED" xml:space="preserve">
     <value>All wizard tasks have finished succesfully !</value>
   </data>
-  <data name="TXT_WIZTASKSFINISHED_ERRORS">
+  <data name="TXT_WIZTASKSFINISHED_ERRORS" xml:space="preserve">
     <value>All wizard tasks have finished, but some errors were encountered. Details in the list below.</value>
   </data>
-  <data name="TXT_WIZTASKSRUNNING">
+  <data name="TXT_WIZTASKSRUNNING" xml:space="preserve">
     <value>Please wait while wizard tasks are running ...</value>
   </data>
-  <data name="TXT_WORKDIR">
+  <data name="TXT_WORKDIR" xml:space="preserve">
     <value>Program working folder:</value>
   </data>
-  <data name="TXT_YES">
+  <data name="TXT_YES" xml:space="preserve">
     <value>Yes</value>
   </data>
-  <data name="TXT_YESALL">
+  <data name="TXT_YESALL" xml:space="preserve">
     <value>Yes for all</value>
   </data>
-  <data name="TXT_DEFINE_PROXYSERVERADDRESS">
+  <data name="TXT_DEFINE_PROXYSERVERADDRESS" xml:space="preserve">
     <value>[ Define the proxy server address ]</value>
   </data>
-  <data name="TXT_DEFINE_PROXYSERVERUSERNAME">
+  <data name="TXT_DEFINE_PROXYSERVERUSERNAME" xml:space="preserve">
     <value>[ Define the proxy server username ]</value>
   </data>
-  <data name="TXT_PROXYTYPE">
+  <data name="TXT_PROXYTYPE" xml:space="preserve">
     <value>Proxy server type:</value>
   </data>
-  <data name="TXT_PROXYADDRESS">
+  <data name="TXT_PROXYADDRESS" xml:space="preserve">
     <value>Proxy server address:</value>
   </data>
-  <data name="TXT_PROXYPORT">
+  <data name="TXT_PROXYPORT" xml:space="preserve">
     <value>Proxy server port:</value>
   </data>
-  <data name="TXT_PROXYUSERNAME">
+  <data name="TXT_PROXYUSERNAME" xml:space="preserve">
     <value>User name:</value>
   </data>
-  <data name="TXT_PROXYPASSWORD">
+  <data name="TXT_PROXYPASSWORD" xml:space="preserve">
     <value>Password:</value>
   </data>
-  <data name="TXT_LEVEL_AUTOMATIC">
+  <data name="TXT_LEVEL_AUTOMATIC" xml:space="preserve">
     <value>Automatic</value>
   </data>
-  <data name="TXT_LEVEL_ERROR">
+  <data name="TXT_LEVEL_ERROR" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="TXT_LEVEL_EXCEPTION">
+  <data name="TXT_LEVEL_EXCEPTION" xml:space="preserve">
     <value>Exception</value>
   </data>
-  <data name="TXT_LEVEL_HEAVYTRACE">
+  <data name="TXT_LEVEL_HEAVYTRACE" xml:space="preserve">
     <value>Detailed debug trace</value>
   </data>
-  <data name="TXT_LEVEL_INFO">
+  <data name="TXT_LEVEL_INFO" xml:space="preserve">
     <value>Information</value>
   </data>
-  <data name="TXT_LEVEL_TRACE">
+  <data name="TXT_LEVEL_TRACE" xml:space="preserve">
     <value>Trace</value>
   </data>
-  <data name="TXT_LEVEL_WARNING">
+  <data name="TXT_LEVEL_WARNING" xml:space="preserve">
     <value>Warning</value>
   </data>
-  <data name="TXT_RESULTS">
+  <data name="TXT_RESULTS" xml:space="preserve">
     <value>Results:</value>
   </data>
-  <data name="TXT_PRIMARY_MONITOR">
-    <value> [PRIMARY MONITOR]</value>
+  <data name="TXT_PRIMARY_MONITOR" xml:space="preserve">
+    <value>[PRIMARY MONITOR]</value>
   </data>
-  <data name="TXT_CONFIRM_PROPERTYSAVE">
+  <data name="TXT_CONFIRM_PROPERTYSAVE" xml:space="preserve">
     <value>The item properties were changed. Do you want to save changes ?</value>
   </data>
-  <data name="TXT_CONFIRMSAVECHANGES">
+  <data name="TXT_CONFIRMSAVECHANGES" xml:space="preserve">
     <value>Save changes ?</value>
   </data>
-  <data name="TXT_DUPPLICATE_SHORTCUT">
+  <data name="TXT_DUPPLICATE_SHORTCUT" xml:space="preserve">
     <value>Shortcut is already in use</value>
   </data>
-  <data name="TXT_DUP_SHORTCUT_FIXED">
+  <data name="TXT_DUP_SHORTCUT_FIXED" xml:space="preserve">
     <value>The key combination '{0}' is already assigned to '{1}' and cannot be modified.
 Please enter a different combination.</value>
   </data>
-  <data name="TXT_DUP_SHORTCUT_CONFIRM">
+  <data name="TXT_DUP_SHORTCUT_CONFIRM" xml:space="preserve">
     <value>The key combination '{0}' is already assigned to '{1}'.
 Do you want to re-assign it to '{2}'?</value>
   </data>
-  <data name="TXT_CONFIRM_RESTORE">
+  <data name="TXT_CONFIRM_RESTORE" xml:space="preserve">
     <value>Are you sure you want to load the default settings?</value>
   </data>
-  <data name="TXT_RESTORESHORTCUTSDESC">
+  <data name="TXT_RESTORESHORTCUTSDESC" xml:space="preserve">
     <value>Use 'Restore Defaults' to load the default keyboard shortcut configuration.</value>
   </data>
-  <data name="TXT_RESTOREDEFAULTS">
+  <data name="TXT_RESTOREDEFAULTS" xml:space="preserve">
     <value>Restore defaults</value>
   </data>
-  <data name="TXT_PID">
+  <data name="TXT_PID" xml:space="preserve">
     <value>Process ID</value>
   </data>
-  <data name="TXT_TID">
+  <data name="TXT_TID" xml:space="preserve">
     <value>Thread ID</value>
   </data>
-  <data name="TXT_KEEPONTOP">
+  <data name="TXT_KEEPONTOP" xml:space="preserve">
     <value>Keep window on top of others</value>
   </data>
-  <data name="TXT_SAVEWINDOW">
+  <data name="TXT_SAVEWINDOW" xml:space="preserve">
     <value>Save log window as ...</value>
   </data>
-  <data name="TXT_SAVELOGFILE">
+  <data name="TXT_SAVELOGFILE" xml:space="preserve">
     <value>Save log file as ...</value>
   </data>
-  <data name="TXT_SHOWTRACE">
+  <data name="TXT_SHOWTRACE" xml:space="preserve">
     <value>Show traces</value>
   </data>
-  <data name="TXT_SHOWINFO">
+  <data name="TXT_SHOWINFO" xml:space="preserve">
     <value>Show infos</value>
   </data>
-  <data name="TXT_SHOWWARNING">
+  <data name="TXT_SHOWWARNING" xml:space="preserve">
     <value>Show warnings</value>
   </data>
-  <data name="TXT_SHOWERROR">
+  <data name="TXT_SHOWERROR" xml:space="preserve">
     <value>Show errors</value>
   </data>
-  <data name="TXT_SAVELOGORWINDOW">
+  <data name="TXT_SAVELOGORWINDOW" xml:space="preserve">
     <value>Save log file or window</value>
   </data>
-  <data name="TXT_NOTIFYUPDATE">
+  <data name="TXT_NOTIFYUPDATE" xml:space="preserve">
     <value>A new program version is available: {0}.
 Do you want to update to this version?</value>
   </data>
-  <data name="TXT_CONFIRMUPDATE">
+  <data name="TXT_CONFIRMUPDATE" xml:space="preserve">
     <value>Confirm program update</value>
   </data>
-  <data name="TXT_WAITDOWNLOADUPDATE">
+  <data name="TXT_WAITDOWNLOADUPDATE" xml:space="preserve">
     <value>Please wait while downloading application update files. You can press ESC to abort the download and keep the existing application version.</value>
   </data>
-  <data name="TXT_ALLOWAUTOUPDATES">
+  <data name="TXT_ALLOWAUTOUPDATES" xml:space="preserve">
     <value>Allow automatic program updates</value>
   </data>
-  <data name="TXT_CHECKUPDATE">
+  <data name="TXT_CHECKUPDATE" xml:space="preserve">
     <value>Check program updates</value>
   </data>
-  <data name="TXT_DISABLEAUTODOWNLOADS">
+  <data name="TXT_DISABLEAUTODOWNLOADS" xml:space="preserve">
     <value>Disable automatic updates</value>
   </data>
-  <data name="TXT_NOUPDATEREQUIRED">
+  <data name="TXT_NOUPDATEREQUIRED" xml:space="preserve">
     <value>This program has the latest available version.
 For the moment, you do not need to update the program.</value>
   </data>
-  <data name="TXT_CONFIRM_MOVE">
+  <data name="TXT_CONFIRM_MOVE" xml:space="preserve">
     <value>Are you sure you want to move the file:
 {0} ?</value>
   </data>
-  <data name="TXT_CONFIRM_MOVE_DIR">
+  <data name="TXT_CONFIRM_MOVE_DIR" xml:space="preserve">
     <value>The folder: {0} is not empty. 
 Do you want to move it and all its contents ?</value>
   </data>
-  <data name="TXT_CONFIRM_MOVE_EMPTYDIR">
+  <data name="TXT_CONFIRM_MOVE_EMPTYDIR" xml:space="preserve">
     <value>Are you sure you want to move the folder:
 {0} ?</value>
   </data>
-  <data name="TXT_CONFIRM_MOVE_ROHS">
+  <data name="TXT_CONFIRM_MOVE_ROHS" xml:space="preserve">
     <value>The file {0} is has one or more of these attributes: Read-Only/Hidden/System.
 Do you still want to move it ?</value>
   </data>
-  <data name="TXT_NOPROXY">
+  <data name="TXT_NOPROXY" xml:space="preserve">
     <value>No proxy</value>
   </data>
-  <data name="TXT_HTTPPROXY">
+  <data name="TXT_HTTPPROXY" xml:space="preserve">
     <value>HTTP Proxy</value>
   </data>
-  <data name="TXT_SOCKS4PROXY">
-    <value>SOCKS4 Proxy</value>
+  <data name="TXT_SOCKS4PROXY" xml:space="preserve">
+    <value>SOCKS 4 Proxy</value>
   </data>
-  <data name="TXT_SOCKS5PROXY">
-    <value>SOCKS5 Proxy</value>
+  <data name="TXT_SOCKS5PROXY" xml:space="preserve">
+    <value>SOCKS 5 Proxy</value>
   </data>
-  <data name="TXT_IEPROXY">
+  <data name="TXT_IEPROXY" xml:space="preserve">
     <value>Use Internet Explorer proxy settings</value>
   </data>
-  <data name="TXT_FILE_TYPE">
+  <data name="TXT_FILE_TYPE" xml:space="preserve">
     <value>File Type</value>
   </data>
-  <data name="TXT_LOOK_IN">
+  <data name="TXT_LOOK_IN" xml:space="preserve">
     <value>Look in</value>
   </data>
-  <data name="TXT_SAMPLE">
+  <data name="TXT_SAMPLE" xml:space="preserve">
     <value>Example:</value>
   </data>
-  <data name="TXT_FONT">
+  <data name="TXT_FONT" xml:space="preserve">
     <value>Font:</value>
   </data>
-  <data name="TXT_FONT_STYLE">
+  <data name="TXT_FONT_STYLE" xml:space="preserve">
     <value>Font style:</value>
   </data>
-  <data name="TXT_SCRIPT">
+  <data name="TXT_SCRIPT" xml:space="preserve">
     <value>Character set:</value>
   </data>
-  <data name="TXT_CHOOSE_COLOR">
+  <data name="TXT_CHOOSE_COLOR" xml:space="preserve">
     <value>Choose a color:</value>
   </data>
-  <data name="TXT_ACTIVE">
+  <data name="TXT_ACTIVE" xml:space="preserve">
     <value>Active</value>
   </data>
-  <data name="TXT_FLAG_ERRORS">
+  <data name="TXT_FLAG_ERRORS" xml:space="preserve">
     <value>Show
 Errors</value>
   </data>
-  <data name="TXT_FLAG_WARNINGS">
+  <data name="TXT_FLAG_WARNINGS" xml:space="preserve">
     <value>Show
 Warnings</value>
   </data>
-  <data name="TXT_FLAG_INFOS">
+  <data name="TXT_FLAG_INFOS" xml:space="preserve">
     <value>Show
 Information</value>
   </data>
-  <data name="TXT_FLAG_TRACES">
+  <data name="TXT_FLAG_TRACES" xml:space="preserve">
     <value>Show
 Debug Traces</value>
   </data>
-  <data name="TXT_LOGFILE_FILTER">
+  <data name="TXT_LOGFILE_FILTER" xml:space="preserve">
     <value>Log files (*.log)|*.log||</value>
   </data>
-  <data name="TXT_SAVELOGFILE_PART">
+  <data name="TXT_SAVELOGFILE_PART" xml:space="preserve">
     <value>Save partial log file as:</value>
   </data>
-  <data name="TXT_DRIVE_DESC_FORMAT">
+  <data name="TXT_DRIVE_DESC_FORMAT" xml:space="preserve">
     <value>{0}  [{1}]  [{2}]  [{3} MB free]  [{4}]</value>
   </data>
-  <data name="TXT_SELECT_FOLDER">
+  <data name="TXT_SELECT_FOLDER" xml:space="preserve">
     <value>Select a folder:</value>
   </data>
-  <data name="TXT_NEW_FOLDER">
+  <data name="TXT_NEW_FOLDER" xml:space="preserve">
     <value>Create new folder</value>
   </data>
-  <data name="TXT_FORMAT_UNKNOWN">
+  <data name="TXT_FORMAT_UNKNOWN" xml:space="preserve">
     <value>Unknown format</value>
   </data>
-  <data name="TXT_NOT_READY">
+  <data name="TXT_NOT_READY" xml:space="preserve">
     <value>Not Ready</value>
   </data>
-  <data name="TXT_NO_LABEL">
+  <data name="TXT_NO_LABEL" xml:space="preserve">
     <value>No label</value>
   </data>
-  <data name="TXT_NO_NAME">
+  <data name="TXT_NO_NAME" xml:space="preserve">
     <value>No name</value>
   </data>
-  <data name="TXT_READY">
+  <data name="TXT_READY" xml:space="preserve">
     <value>Ready</value>
   </data>
-  <data name="TXT_CURRENT_PATH">
+  <data name="TXT_CURRENT_PATH" xml:space="preserve">
     <value>Current path: {0}</value>
   </data>
-  <data name="TXT_DISABLE">
+  <data name="TXT_DISABLE" xml:space="preserve">
     <value>Disable</value>
   </data>
-  <data name="TXT_EDIT">
+  <data name="TXT_EDIT" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="TXT_ENABLE">
+  <data name="TXT_ENABLE" xml:space="preserve">
     <value>Enable</value>
   </data>
-  <data name="TXT_ENABLED">
+  <data name="TXT_ENABLED" xml:space="preserve">
     <value>Enabled</value>
   </data>
-  <data name="TXT_EXPORT">
+  <data name="TXT_EXPORT" xml:space="preserve">
     <value>Export</value>
   </data>
-  <data name="TXT_EXPORT_FULL">
+  <data name="TXT_EXPORT_FULL" xml:space="preserve">
     <value>Full export ...</value>
   </data>
-  <data name="TXT_EXPORT_PARTIAL">
+  <data name="TXT_EXPORT_PARTIAL" xml:space="preserve">
     <value>Partial export ...</value>
   </data>
-  <data name="TXT_IMPORT">
+  <data name="TXT_IMPORT" xml:space="preserve">
     <value>Import</value>
   </data>
-  <data name="TXT_IMPORT_FULL">
+  <data name="TXT_IMPORT_FULL" xml:space="preserve">
     <value>Full import ...</value>
   </data>
-  <data name="TXT_IMPORT_PARTIAL">
+  <data name="TXT_IMPORT_PARTIAL" xml:space="preserve">
     <value>Partial import (with merge)...</value>
   </data>
-  <data name="TXT_INPUT_DATA">
+  <data name="TXT_INPUT_DATA" xml:space="preserve">
     <value>Input data</value>
   </data>
-  <data name="TXT_OUTPUT_DATA">
+  <data name="TXT_OUTPUT_DATA" xml:space="preserve">
     <value>Output data</value>
   </data>
-  <data name="TXT_DISK_CDR">
+  <data name="TXT_DISK_CDR" xml:space="preserve">
     <value>Optical disc (CD, DVD or BlueRay)</value>
   </data>
-  <data name="TXT_DISK_FIL">
+  <data name="TXT_DISK_FIL" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="TXT_DISK_FLD">
+  <data name="TXT_DISK_FLD" xml:space="preserve">
     <value>Folder</value>
   </data>
-  <data name="TXT_DISK_HDD">
+  <data name="TXT_DISK_HDD" xml:space="preserve">
     <value>Fixed disk (hard disk)</value>
   </data>
-  <data name="TXT_DISK_NET">
+  <data name="TXT_DISK_NET" xml:space="preserve">
     <value>Network drive</value>
   </data>
-  <data name="TXT_DISK_NRT">
+  <data name="TXT_DISK_NRT" xml:space="preserve">
     <value>Disk without root folder</value>
   </data>
-  <data name="TXT_DISK_RAM">
+  <data name="TXT_DISK_RAM" xml:space="preserve">
     <value>Virtual RAM disk</value>
   </data>
-  <data name="TXT_DISK_REM">
+  <data name="TXT_DISK_REM" xml:space="preserve">
     <value>Removable disk (Floppy disk or USB flash).</value>
   </data>
-  <data name="TXT_DISK_UNK">
+  <data name="TXT_DISK_UNK" xml:space="preserve">
     <value>Unknown disk type</value>
   </data>
-  <data name="TXT_NEW_FILENAME">
+  <data name="TXT_NEW_FILENAME" xml:space="preserve">
     <value>New file name</value>
   </data>
-  <data name="TXT_OLD_FILENAME">
+  <data name="TXT_OLD_FILENAME" xml:space="preserve">
     <value>Old file name</value>
   </data>
-  <data name="TXT_ATTRIBUTES">
+  <data name="TXT_ATTRIBUTES" xml:space="preserve">
     <value>Attributes</value>
   </data>
-  <data name="TXT_CREATIONDATE">
+  <data name="TXT_CREATIONDATE" xml:space="preserve">
     <value>Creation date</value>
   </data>
-  <data name="TXT_EXTENSION">
+  <data name="TXT_EXTENSION" xml:space="preserve">
     <value>Extension</value>
   </data>
-  <data name="TXT_FILESIZE">
+  <data name="TXT_FILESIZE" xml:space="preserve">
     <value>File size</value>
   </data>
-  <data name="TXT_FILESYSTEMINFO">
+  <data name="TXT_FILESYSTEMINFO" xml:space="preserve">
     <value>File Information</value>
   </data>
-  <data name="TXT_LASTACCESSDATE">
+  <data name="TXT_LASTACCESSDATE" xml:space="preserve">
     <value>Latest access</value>
   </data>
-  <data name="TXT_LASTCHANGEDATE">
+  <data name="TXT_LASTCHANGEDATE" xml:space="preserve">
     <value>Latest change</value>
   </data>
-  <data name="TXT_NAME">
+  <data name="TXT_NAME" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="TXT_PARENT">
+  <data name="TXT_PARENT" xml:space="preserve">
     <value>Parent folder</value>
   </data>
-  <data name="TXT_PATH">
+  <data name="TXT_PATH" xml:space="preserve">
     <value>Path</value>
   </data>
-  <data name="TXT_DESC">
+  <data name="TXT_DESC" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="TXT_LOGMESSAGE">
+  <data name="TXT_LOGMESSAGE" xml:space="preserve">
     <value>Log Message</value>
   </data>
-  <data name="TXT_MODULENAME">
+  <data name="TXT_MODULENAME" xml:space="preserve">
     <value>Module Name</value>
   </data>
-  <data name="TXT_TIMESTAMP">
-    <value>Timestamp</value>
+  <data name="TXT_TIMESTAMP" xml:space="preserve">
+    <value>Date / Time</value>
   </data>
-  <data name="TXT_CONFIRM_CREATE">
+  <data name="TXT_CONFIRM_CREATE" xml:space="preserve">
     <value>The file {0} does not exist yet.
 Do you want to create it ?</value>
   </data>
-  <data name="TXT_ASSISTANCE">
+  <data name="TXT_ASSISTANCE" xml:space="preserve">
     <value>Assistance</value>
   </data>
-  <data name="TXT_CHOOSE_FAVORITE">
+  <data name="TXT_CHOOSE_FAVORITE" xml:space="preserve">
     <value>Please select a folder to be added as favorite:</value>
   </data>
-  <data name="TXT_CMDFAVMANAGER">
+  <data name="TXT_CMDFAVMANAGER" xml:space="preserve">
     <value>Open favorite folder manager</value>
   </data>
-  <data name="TXT_FAVORITES">
+  <data name="TXT_FAVORITES" xml:space="preserve">
     <value>Favorites</value>
   </data>
-  <data name="TXT_FAVORITES_ADD">
+  <data name="TXT_FAVORITES_ADD" xml:space="preserve">
     <value>Add to Favorite Folders</value>
   </data>
-  <data name="TXT_FAVORITES_MANAGE">
+  <data name="TXT_FAVORITES_MANAGE" xml:space="preserve">
     <value>Manage Favorite Folders ...</value>
   </data>
-  <data name="TXT_MANAGE_FAVORITES">
+  <data name="TXT_MANAGE_FAVORITES" xml:space="preserve">
     <value>Define your Favorite Folders:</value>
   </data>
-  <data name="TXT_PROCESSING_FILE">
+  <data name="TXT_PROCESSING_FILE" xml:space="preserve">
     <value>Processing file</value>
   </data>
-  <data name="TXT_SCANNING">
+  <data name="TXT_SCANNING" xml:space="preserve">
     <value>Scanning</value>
   </data>
-  <data name="TXT_NEWFOLDER">
+  <data name="TXT_NEWFOLDER" xml:space="preserve">
     <value>Create New Folder</value>
   </data>
-  <data name="TXT_PARENTFILETYPES">
+  <data name="TXT_PARENTFILETYPES" xml:space="preserve">
     <value>'Parent' file types:</value>
   </data>
-  <data name="TXT_CHILDFILETYPES">
+  <data name="TXT_CHILDFILETYPES" xml:space="preserve">
     <value>'Child' file types:</value>
   </data>
-  <data name="TXT_USE_LINKEDFILES">
+  <data name="TXT_USE_LINKEDFILES" xml:space="preserve">
     <value>Manipulate linked files as a single item</value>
   </data>
-  <data name="TXT_FILE_NOT_FOUND">
+  <data name="TXT_FILE_NOT_FOUND" xml:space="preserve">
     <value>File not found: {0}</value>
   </data>
-  <data name="TXT_RECENT_FILE_REMOVED">
+  <data name="TXT_RECENT_FILE_REMOVED" xml:space="preserve">
     <value>The file will be removed from recent opened files list.</value>
   </data>
-  <data name="TXT_S_CONTROL">
+  <data name="TXT_S_CONTROL" xml:space="preserve">
     <value>Control</value>
   </data>
-  <data name="TXT_S_TROUBLESHOOTING">
+  <data name="TXT_S_TROUBLESHOOTING" xml:space="preserve">
     <value>Support</value>
   </data>
-  <data name="TXT_EDIT_KEY">
+  <data name="TXT_EDIT_KEY" xml:space="preserve">
     <value>Configure shortcut</value>
   </data>
-  <data name="TXT_RESULTING_COLOR">
+  <data name="TXT_RESULTING_COLOR" xml:space="preserve">
     <value>Resulting color:</value>
   </data>
-  <data name="TXT_SAMPLE_TEXT">
+  <data name="TXT_SAMPLE_TEXT" xml:space="preserve">
     <value>Sample Text</value>
   </data>
-  <data name="TXT_FONTFAMILY">
+  <data name="TXT_FONTFAMILY" xml:space="preserve">
     <value>Font Family:</value>
   </data>
-  <data name="TXT_FONTSIZE">
+  <data name="TXT_FONTSIZE" xml:space="preserve">
     <value>Font Size:</value>
   </data>
-  <data name="TXT_FONTCHARSET">
+  <data name="TXT_FONTCHARSET" xml:space="preserve">
     <value>Character Set:</value>
   </data>
-  <data name="TXT_CHOOSE_FONT">
+  <data name="TXT_CHOOSE_FONT" xml:space="preserve">
     <value>Choose a font:</value>
   </data>
 </root>

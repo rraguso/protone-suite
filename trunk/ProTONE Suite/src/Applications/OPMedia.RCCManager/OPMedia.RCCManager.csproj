@@ -110,7 +110,9 @@
     <EmbeddedResource Include="Translations\Translation.de.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Translations\Translation.fr.resx" />
+    <EmbeddedResource Include="Translations\Translation.fr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Translations\Translation.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
