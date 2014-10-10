@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,101 +59,99 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    
-    <data name="TXT_SERIAL_DEVICE_CFG">
-  <value>Configurare Dispozitiv Serial de Telecomandă</value>
-</data>
-<data name="TXT_REMOTE_DEVICE_SETTINGS">
-  <value>Parametri detecţie cuvinte de cod</value>
-</data>
-<data name="TXT_FINETUNEDESC">
-  <value>Apăsați orice buton de pe telecomandă si menţineți-l apăsat.&#xD;
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_SERIAL_DEVICE_CFG" xml:space="preserve">
+    <value>Configurare Dispozitiv Serial de Telecomandă</value>
+  </data>
+  <data name="TXT_REMOTE_DEVICE_SETTINGS" xml:space="preserve">
+    <value>Parametri detecţie cuvinte de cod</value>
+  </data>
+  <data name="TXT_FINETUNEDESC" xml:space="preserve">
+    <value>Apăsați orice buton de pe telecomandă si menţineți-l apăsat.
 Apoi ajustați parametrii de detecție până când factorul de zgomot scade sub -6 dbM.</value>
-</data>
-<data name="TXT_DETECTEDCODEWORD">
-  <value>Cuvânt de cod detectat: {0: x}</value>
-</data>
-<data name="TXT_ERRORFACTOR">
-  <value>Factor de zgomot: {0:0.##} dBM</value>
-</data>
-<data name="TXT_DEFINE_LIRC_SERVER">
-  <value>Definire server LIRC</value>
-</data>
-<data name="TXT_LIRC_SERVER_ADDRESS">
-  <value>Server LIRC (Nume sau Adresa IP : Port)</value>
-</data>
-<data name="TXT_INTERCODEWORDSGAP">
-  <value>Distanța între cuvintele de cod</value>
-</data>
-<data name="TXT_MAXCODEWORDLENGTH">
-  <value>Lungime maximă cuvânt de cod</value>
-</data>
-<data name="TXT_MINCODEWORDLENGTH">
-  <value>Lungime minimă cuvânt de cod</value>
-</data>
-<data name="TXT_MINCODEWORDOCCURENCES">
-  <value>Numărul minim de apariții a cuvântului de cod</value>
-</data>
-<data name="TXT_EDIT_KEY">
-  <value>Alocați combinație de taste</value>
-</data>
-    
+  </data>
+  <data name="TXT_DETECTEDCODEWORD" xml:space="preserve">
+    <value>Cuvânt de cod detectat: {0: x}</value>
+  </data>
+  <data name="TXT_ERRORFACTOR" xml:space="preserve">
+    <value>Factor de zgomot: {0:0.##} dBM</value>
+  </data>
+  <data name="TXT_DEFINE_LIRC_SERVER" xml:space="preserve">
+    <value>Definire server LIRC</value>
+  </data>
+  <data name="TXT_LIRC_SERVER_ADDRESS" xml:space="preserve">
+    <value>Server LIRC (Nume sau Adresa IP : Port)</value>
+  </data>
+  <data name="TXT_INTERCODEWORDSGAP" xml:space="preserve">
+    <value>Distanța între cuvintele de cod</value>
+  </data>
+  <data name="TXT_MAXCODEWORDLENGTH" xml:space="preserve">
+    <value>Lungime maximă cuvânt de cod</value>
+  </data>
+  <data name="TXT_MINCODEWORDLENGTH" xml:space="preserve">
+    <value>Lungime minimă cuvânt de cod</value>
+  </data>
+  <data name="TXT_MINCODEWORDOCCURENCES" xml:space="preserve">
+    <value>Numărul minim de apariții a cuvântului de cod</value>
+  </data>
+  <data name="TXT_EDIT_KEY" xml:space="preserve">
+    <value>Alocați combinație de taste</value>
+  </data>
 </root>

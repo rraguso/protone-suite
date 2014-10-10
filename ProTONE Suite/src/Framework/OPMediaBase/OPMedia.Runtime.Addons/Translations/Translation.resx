@@ -117,94 +117,95 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_INSTALL_ADDONLIB">
+  <data name="TXT_INSTALL_ADDONLIB" xml:space="preserve">
     <value>Install addon library...</value>
   </data>
-  <data name="TXT_INSTALLADDONFILTER">
+  <data name="TXT_INSTALLADDONFILTER" xml:space="preserve">
     <value>OPMedia Addon Libraries (*.dll)|*.dll||</value>
   </data>
-  <data name="TXT_INSTALLADDONS">
+  <data name="TXT_INSTALLADDONS" xml:space="preserve">
     <value>Select an OPMedia addon library to install:</value>
   </data>
-  <data name="TXT_INVALID_ADDON">
+  <data name="TXT_INVALID_ADDON" xml:space="preserve">
     <value>The DLL file you have selected is not a valid OPMedia extension library.
-Note: If you believe, however, that the respective file should have been a valid extension, you are advised to contact the producer or the supplier of this DLL.</value>
+Note: If you believe, however, that the respective file should have been a valid extension, 
+you are advised to contact the producer or the supplier of this DLL.</value>
   </data>
-  <data name="TXT_ADDON_NAME">
+  <data name="TXT_ADDON_NAME" xml:space="preserve">
     <value>Addon Name</value>
   </data>
-  <data name="TXT_S_ADDON_SETTINGS">
+  <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
     <value>Configuration</value>
   </data>
-  <data name="TXT_ADDONS_CHANGED_RESTART">
+  <data name="TXT_ADDONS_CHANGED_RESTART" xml:space="preserve">
     <value>In order to modify the new addons configuration, the program needs to be restarted.
 Is it OK to restart now ?</value>
   </data>
-  <data name="TXT_ADDONS_NOT_CHANGED">
+  <data name="TXT_ADDONS_NOT_CHANGED" xml:space="preserve">
     <value>Since you have canceled the restart,  your add-on configuration will not be changed.</value>
   </data>
-  <data name="TXT_S_ADDONSETTINGS">
+  <data name="TXT_S_ADDONSETTINGS" xml:space="preserve">
     <value>Addons</value>
   </data>
-  <data name="TXT_ADDONSLIST">
+  <data name="TXT_ADDONSLIST" xml:space="preserve">
     <value>Checked addons are currently enabled. Use the checkboxes to enable/disable addons. Addons marked with * are required and cannot be disabled. A program restart will be needed to apply the new addons configuration.</value>
   </data>
-  <data name="TXT_ADDONSLIST_NORESTART">
+  <data name="TXT_ADDONSLIST_NORESTART" xml:space="preserve">
     <value>Checked addons are currently enabled. Use the checkboxes to enable/disable addons. Addons marked with * are required and cannot be disabled.</value>
   </data>
-  <data name="TXT_CANT_INSTALL_BUILTIN">
+  <data name="TXT_CANT_INSTALL_BUILTIN" xml:space="preserve">
     <value>The library you have selected cannot be installed, because it is a native library. 
 A native library encaspulates the core functionality of an extensible application, and it cannot be installed or uninstalled.</value>
   </data>
-  <data name="TXT_CANT_UNINSTALL_BUILTIN">
+  <data name="TXT_CANT_UNINSTALL_BUILTIN" xml:space="preserve">
     <value>The library you have selected cannot be uninstalled, because it is a native library. 
 A native library encaspulates the core functionality of an extensible application, and it cannot be installed or uninstalled.
 Instead of uninstalling, consider using the addons checkboxes to enable or disable various application functionalities. 
-Pay attention that some functionalities are required and cannot be disabled.</value>
+Caution: some functionalities are required and cannot be disabled.</value>
   </data>
-  <data name="TXT_INVALID_NAME">
+  <data name="TXT_INVALID_NAME" xml:space="preserve">
     <value>The DLL file you have selected is not a valid OPMedia extension library.
-A valid OPMedia extension library file name should follow the convention: &lt;Library-Name&gt;Extension.dll.</value>
+A valid OPMedia extension library should follow the naming convention: &lt;Library-Name&gt;Extension.dll.</value>
   </data>
-  <data name="TXT_NAV_ADDONS">
+  <data name="TXT_NAV_ADDONS" xml:space="preserve">
     <value>Navigation</value>
   </data>
-  <data name="TXT_PREVIEW_ADDONS">
+  <data name="TXT_PREVIEW_ADDONS" xml:space="preserve">
     <value>Preview / Visualization</value>
   </data>
-  <data name="TXT_PROP_ADDONS">
+  <data name="TXT_PROP_ADDONS" xml:space="preserve">
     <value>File Property Interaction</value>
   </data>
-  <data name="TXT_SHAREDADDONS">
+  <data name="TXT_SHAREDADDONS" xml:space="preserve">
     <value>The addon library you are trying to uninstall provides multiple features:
 
 {0}
 
 If you continue, all these features will no longer be available. Is it OK to proceed ?</value>
   </data>
-  <data name="TXT_NO_NAV_ADDONS">
+  <data name="TXT_NO_NAV_ADDONS" xml:space="preserve">
     <value>No navigation addons are currently configured. The application cannot run without them.
 You must to select and enable at least one navigation addon in order to continue.</value>
   </data>
-  <data name="TXT_NOTIFY_NON_PREVIEW">
+  <data name="TXT_NOTIFY_NON_PREVIEW" xml:space="preserve">
     <value>The selected item cannot be previewed. 
 You must use an external program to view it.</value>
   </data>
-  <data name="TXT_NOTIFY_PREVIEW">
+  <data name="TXT_NOTIFY_PREVIEW" xml:space="preserve">
     <value>To preview the selected item, double click it or press Enter.</value>
   </data>
-  <data name="TXT_PREPARE_PREVIEW">
+  <data name="TXT_PREPARE_PREVIEW" xml:space="preserve">
     <value>Automatic preview of selected item is starting in a couple of seconds. 
 Press Escape to cancel ...</value>
   </data>
-  <data name="TXT_PREVIEW_CANCELED">
+  <data name="TXT_PREVIEW_CANCELED" xml:space="preserve">
     <value>Automatic preview of selected item has been canceled. 
 Select another item or press Enter to preview the current item.</value>
   </data>
-  <data name="TXT_SELECTALLADDONS">
+  <data name="TXT_SELECTALLADDONS" xml:space="preserve">
     <value>Select all addons</value>
   </data>
-  <data name="TXT_UNINSTALL_ADDONLIB">
+  <data name="TXT_UNINSTALL_ADDONLIB" xml:space="preserve">
     <value>Uninstall addon library...</value>
   </data>
 </root>

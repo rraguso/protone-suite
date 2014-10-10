@@ -117,1020 +117,1019 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_ACT_HIBERNATE">
+  <data name="TXT_ACT_HIBERNATE" xml:space="preserve">
     <value>Intră în hibernare</value>
   </data>
-  <data name="TXT_ACT_LAUNCHPROGRAM">
+  <data name="TXT_ACT_LAUNCHPROGRAM" xml:space="preserve">
     <value>Lansează un program</value>
   </data>
-  <data name="TXT_ACT_NONE">
+  <data name="TXT_ACT_NONE" xml:space="preserve">
     <value>Ignoră evenimentul</value>
   </data>
-  <data name="TXT_ACT_SHUTDOWN">
+  <data name="TXT_ACT_SHUTDOWN" xml:space="preserve">
     <value>Opreşte calculatorul</value>
   </data>
-  <data name="TXT_ACT_STANDBY">
+  <data name="TXT_ACT_STANDBY" xml:space="preserve">
     <value>Intră în stand-by</value>
   </data>
-  <data name="TXT_NEWNOW">
-    <value>Reper nou acum</value>
+  <data name="TXT_ADD_BOOKMARK" xml:space="preserve">
+    <value>Adaugă reper</value>
   </data>
-  <data name="TXT_NEWNOW_BMDESC">
-    <value>Adaugă reper nou la momentul curent</value>
+  <data name="TXT_ALBUM" xml:space="preserve">
+    <value>Album</value>
   </data>
-  <data name="TXT_NEW_BMDESC">
-    <value>Adaugă reper nou</value>
+  <data name="TXT_ARTIST" xml:space="preserve">
+    <value>Artist</value>
   </data>
-  <data name="TXT_DELETE_BMDESC">
-    <value>Şterge reper</value>
+  <data name="TXT_ARTWORK" xml:space="preserve">
+    <value>Imagini înglobate</value>
   </data>
-  <data name="TXT_AUDIOSETTINGS">
-    <value>Setări audio</value>
+  <data name="TXT_ARTWORK_COUNT" xml:space="preserve">
+    <value>{0} imagini (click pentru editare).</value>
   </data>
-  <data name="TXT_AUDIO_AVAILABLE">
+  <data name="TXT_AUDIO_AVAILABLE" xml:space="preserve">
     <value>Flux audio prezent.</value>
   </data>
-  <data name="TXT_AUDIO_FILES">
+  <data name="TXT_AUDIO_FILES" xml:space="preserve">
     <value>Fişiere Audio</value>
   </data>
-  <data name="TXT_AVAILABLE_DVD_MEDIA">
+  <data name="TXT_AUDIOCDINFO_SOURCE" xml:space="preserve">
+    <value>Citeşte info CD audio:</value>
+  </data>
+  <data name="TXT_AUDIOSETTINGS" xml:space="preserve">
+    <value>Setări audio</value>
+  </data>
+  <data name="TXT_AVAILABLE_DVD_MEDIA" xml:space="preserve">
     <value>sau, incărcaţi unul din mediile DVD prezente în sistem:</value>
   </data>
-  <data name="TXT_BTNCLEAR">
+  <data name="TXT_BITRATE" xml:space="preserve">
+    <value>Rată binară</value>
+  </data>
+  <data name="TXT_BOOKMARK_COUNT" xml:space="preserve">
+    <value>{0} repere (click pentru editare).</value>
+  </data>
+  <data name="TXT_BOOKMARK_DEFAULT_TEXT" xml:space="preserve">
+    <value>Descriere implicită reper</value>
+  </data>
+  <data name="TXT_BOOKMARK_DESC" xml:space="preserve">
+    <value>Descriere reper:</value>
+  </data>
+  <data name="TXT_BOOKMARK_MANAGER" xml:space="preserve">
+    <value>Manager Repere</value>
+  </data>
+  <data name="TXT_BOOKMARK_TIME" xml:space="preserve">
+    <value>Timp reper:</value>
+  </data>
+  <data name="TXT_BOOKMARKLIST" xml:space="preserve">
+    <value>Listă Repere</value>
+  </data>
+  <data name="TXT_BOOKMARKS" xml:space="preserve">
+    <value>Repere</value>
+  </data>
+  <data name="TXT_BTNCLEAR" xml:space="preserve">
     <value>Goleşte lista de redare.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNDELETE">
+  <data name="TXT_BTNDELETE" xml:space="preserve">
     <value>Şterge obiectele selectate.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNFULLSCREEN">
+  <data name="TXT_BTNFULLSCREEN" xml:space="preserve">
     <value>Comută modul Ecran Panoramic
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNFWD">
+  <data name="TXT_BTNFWD" xml:space="preserve">
     <value>Derulare înainte cu 5 secunde.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNJUMPTOITEM">
+  <data name="TXT_BTNJUMPTOITEM" xml:space="preserve">
     <value>Deschide dialogul 'Salt în lista de redare'.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNLOAD">
+  <data name="TXT_BTNLOAD" xml:space="preserve">
     <value>Încarcă fişier(e).
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNLOADPLAYLIST">
+  <data name="TXT_BTNLOADPLAYLIST" xml:space="preserve">
     <value>Încarcă lista de redare.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNLOOPPLAY">
+  <data name="TXT_BTNLOOPPLAY" xml:space="preserve">
     <value>Comută redarea în bucla.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNMOVEDOWN">
+  <data name="TXT_BTNMOVEDOWN" xml:space="preserve">
     <value>Mută obiectele selectate cu o poziţie mai jos în lista de redare.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNMOVEUP">
+  <data name="TXT_BTNMOVEUP" xml:space="preserve">
     <value>Mută obiectele selectate cu o poziţie mai sus în lista de redare.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNNEXT">
+  <data name="TXT_BTNNEXT" xml:space="preserve">
     <value>Redă următorul fişier din lista de redare.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNOPENDISK">
+  <data name="TXT_BTNOPENDISK" xml:space="preserve">
     <value>Deschide dialogul de încărcare mediu DVD.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNOPENSETTINGS">
+  <data name="TXT_BTNOPENSETTINGS" xml:space="preserve">
     <value>Afişează dialogul de Setări.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNPAUSE">
+  <data name="TXT_BTNPAUSE" xml:space="preserve">
     <value>Pune redarea în pauză.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNPLAY">
+  <data name="TXT_BTNPLAY" xml:space="preserve">
     <value>Redare fişier.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNPLAYLISTEND">
+  <data name="TXT_BTNPLAYLISTEND" xml:space="preserve">
     <value>Activează 'acțiunea la sfârşitul listei de redare'.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNPREV">
+  <data name="TXT_BTNPREV" xml:space="preserve">
     <value>Redă fişierul precedent din lista de redare.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNREW">
+  <data name="TXT_BTNREW" xml:space="preserve">
     <value>Derulare înapoi cu 5 secunde.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNSAVEPLAYLIST">
+  <data name="TXT_BTNSAVEPLAYLIST" xml:space="preserve">
     <value>Salvează lista de redare.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNSTOP">
+  <data name="TXT_BTNSTOP" xml:space="preserve">
     <value>Oprire redare.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNTOGGLESHUFFLE">
+  <data name="TXT_BTNTOGGLESHUFFLE" xml:space="preserve">
     <value>Activează redarea în mod aleator.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNVOLDN">
+  <data name="TXT_BTNVOLDN" xml:space="preserve">
     <value>Scădere volum cu 5%.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNVOLUP">
+  <data name="TXT_BTNVOLUP" xml:space="preserve">
     <value>Creştere volum cu 5%.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_CMDCFGAUDIO">
+  <data name="TXT_CAUTION_REALTIME" xml:space="preserve">
+    <value>ATENȚIE: Aceste setări sunt aplicate în timp real. Nu trebuie să apăsați OK pentru a aplica aceste setări.</value>
+  </data>
+  <data name="TXT_CDDB_SERVERNAME" xml:space="preserve">
+    <value>Adresă server CDDB:</value>
+  </data>
+  <data name="TXT_CDDB_SERVERPORT" xml:space="preserve">
+    <value>Port server CDDB:</value>
+  </data>
+  <data name="TXT_CDTRACKINFO" xml:space="preserve">
+    <value>Info pistă CD:</value>
+  </data>
+  <data name="TXT_CHANNELS" xml:space="preserve">
+    <value>Mod audio</value>
+  </data>
+  <data name="TXT_CHOOSE_COLOR_FOR_OSD" xml:space="preserve">
+    <value>Alege o culoare pentru OSD:</value>
+  </data>
+  <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE" xml:space="preserve">
+    <value>Alege o culoare pentru subtitrare:</value>
+  </data>
+  <data name="TXT_CHOOSE_FONT_FOR_OSD" xml:space="preserve">
+    <value>Alege un font pt. OSD:</value>
+  </data>
+  <data name="TXT_CHOOSE_FONT_FOR_SUBTITLE" xml:space="preserve">
+    <value>Alege un font pt. subtitrare:</value>
+  </data>
+  <data name="TXT_CMDADDBOOKMARK" xml:space="preserve">
+    <value>Adaugă un reper</value>
+  </data>
+  <data name="TXT_CMDBOOKMARKMANAGER" xml:space="preserve">
+    <value>Deschide Managerul de Repere</value>
+  </data>
+  <data name="TXT_CMDCFGAUDIO" xml:space="preserve">
     <value>Afişează Setările Audio</value>
   </data>
-  <data name="TXT_CMDCFGREMOTE">
+  <data name="TXT_CMDCFGREMOTE" xml:space="preserve">
     <value>Afişează Setările Telecomenzii</value>
   </data>
-  <data name="TXT_CMDCFGSUBTITLES">
+  <data name="TXT_CMDCFGSUBTITLES" xml:space="preserve">
     <value>Afişează Setările pentru Subtitrare şi Afişaj Digital (OSD)</value>
   </data>
-  <data name="TXT_CMDCFGTIMER">
+  <data name="TXT_CMDCFGTIMER" xml:space="preserve">
     <value>Afişează Setările Temporizatorului</value>
   </data>
-  <data name="TXT_CMDCFGVIDEO">
+  <data name="TXT_CMDCFGVIDEO" xml:space="preserve">
     <value>Afişează Setările Video</value>
   </data>
-  <data name="TXT_CMDCLEAR">
+  <data name="TXT_CMDCLEAR" xml:space="preserve">
     <value>Goleşte lista de redare.</value>
   </data>
-  <data name="TXT_CMDDELETE">
+  <data name="TXT_CMDDELETE" xml:space="preserve">
     <value>Şterge obiectele selectate.</value>
   </data>
-  <data name="TXT_CMDFULLSCREEN">
+  <data name="TXT_CMDFULLSCREEN" xml:space="preserve">
     <value>Comută ecranul panoramic</value>
   </data>
-  <data name="TXT_CMDFWD">
+  <data name="TXT_CMDFWD" xml:space="preserve">
     <value>Derulare înainte cu 5 secunde.</value>
   </data>
-  <data name="TXT_CMDJUMPTOITEM">
+  <data name="TXT_CMDHIDEBOOKMARKMANAGER" xml:space="preserve">
+    <value>Ascunde Managerul de Repere</value>
+  </data>
+  <data name="TXT_CMDJUMPTOITEM" xml:space="preserve">
     <value>Deschide dialogul 'Salt în lista de redare'</value>
   </data>
-  <data name="TXT_CMDLOAD">
+  <data name="TXT_CMDLOAD" xml:space="preserve">
     <value>Încarcă fişier(e).</value>
   </data>
-  <data name="TXT_CMDLOADPLAYLIST">
+  <data name="TXT_CMDLOADPLAYLIST" xml:space="preserve">
     <value>Încarcă listă de redare.</value>
   </data>
-  <data name="TXT_CMDLOOPPLAY">
+  <data name="TXT_CMDLOOPPLAY" xml:space="preserve">
     <value>Comută redarea în buclă.</value>
   </data>
-  <data name="TXT_CMDMOVEDOWN">
+  <data name="TXT_CMDMOVEDOWN" xml:space="preserve">
     <value>Mută obiectele selectate cu o poziţie mai jos în lista de redare.</value>
   </data>
-  <data name="TXT_CMDMOVEUP">
+  <data name="TXT_CMDMOVEUP" xml:space="preserve">
     <value>Mută obiectele selectate cu o poziţie mai sus în lista de redare.</value>
   </data>
-  <data name="TXT_CMDNEXT">
+  <data name="TXT_CMDNEXT" xml:space="preserve">
     <value>Redă fişierul următor din lista de redare.</value>
   </data>
-  <data name="TXT_CMDOPENDISK">
+  <data name="TXT_CMDOPENDISK" xml:space="preserve">
     <value>Deschide dialogul de incarcăre mediu DVD</value>
   </data>
-  <data name="TXT_CMDOPENURL">
+  <data name="TXT_CMDOPENURL" xml:space="preserve">
     <value>Deschide URL</value>
   </data>
-  <data name="TXT_CMDPAUSE">
+  <data name="TXT_CMDPAUSE" xml:space="preserve">
     <value>Pune redarea în pauză.</value>
   </data>
-  <data name="TXT_CMDPLAY">
+  <data name="TXT_CMDPLAY" xml:space="preserve">
     <value>Redare fişier.</value>
   </data>
-  <data name="TXT_CMDPLAYLISTEND">
+  <data name="TXT_CMDPLAYLISTEND" xml:space="preserve">
     <value>Activează 'acțiunea la sfârşitul listei de redare'</value>
   </data>
-  <data name="TXT_CMDPREV">
+  <data name="TXT_CMDPREV" xml:space="preserve">
     <value>Redă fişierul precedent din lista de redare</value>
   </data>
-  <data name="TXT_CMDREW">
+  <data name="TXT_CMDREW" xml:space="preserve">
     <value>Derulare înapoi cu 5 secunde.</value>
   </data>
-  <data name="TXT_CMDSAVEPLAYLIST">
+  <data name="TXT_CMDSAVEPLAYLIST" xml:space="preserve">
     <value>Salvează lista de redare.</value>
   </data>
-  <data name="TXT_CMDSEARCHSUBTITLES">
+  <data name="TXT_CMDSEARCHSUBTITLES" xml:space="preserve">
     <value>Caută subtitrări pentru filme şi clipuri</value>
   </data>
-  <data name="TXT_CMDSTOP">
+  <data name="TXT_CMDSTOP" xml:space="preserve">
     <value>Oprire redare.</value>
   </data>
-  <data name="TXT_CMDTOGGLESHUFFLE">
+  <data name="TXT_CMDTOGGLESHUFFLE" xml:space="preserve">
     <value>Activează redarea în mod aleator.</value>
   </data>
-  <data name="TXT_CMDVOLDN">
+  <data name="TXT_CMDVOLDN" xml:space="preserve">
     <value>Scădere volum cu 5%.</value>
   </data>
-  <data name="TXT_CMDVOLUP">
+  <data name="TXT_CMDVOLUP" xml:space="preserve">
     <value>Creştere volum cu 5%.</value>
   </data>
-  <data name="TXT_CONFIGUREAUDIO">
+  <data name="TXT_COMMENTS" xml:space="preserve">
+    <value>Comentarii</value>
+  </data>
+  <data name="TXT_CONFIGUREAUDIO" xml:space="preserve">
     <value>Setări audio</value>
   </data>
-  <data name="TXT_CONFIGUREPLAYLIST">
+  <data name="TXT_CONFIGUREPLAYLIST" xml:space="preserve">
     <value>Listă de redare</value>
   </data>
-  <data name="TXT_CONFIGURESUBTITLES">
+  <data name="TXT_CONFIGURESUBTITLES" xml:space="preserve">
     <value>Setări Subtitrare</value>
   </data>
-  <data name="TXT_CONFIGUREVIDEO">
+  <data name="TXT_CONFIGUREVIDEO" xml:space="preserve">
     <value>Setări Video</value>
   </data>
-  <data name="TXT_CONFIRM_OVERWRITE_SUBTITLE">
+  <data name="TXT_CONFIRM_OVERWRITE_SUBTITLE" xml:space="preserve">
     <value>Confirmă suprascrierea subtitrării</value>
   </data>
-  <data name="TXT_EDITID3ARTWORK">
+  <data name="TXT_DELETE_BMDESC" xml:space="preserve">
+    <value>Şterge reper</value>
+  </data>
+  <data name="TXT_DISKS_OPTIONS" xml:space="preserve">
+    <value>CD/DVD</value>
+  </data>
+  <data name="TXT_DISPLAY_FILENAME" xml:space="preserve">
+    <value>Nici o opţiune de formatare nu a fost specificată.
+Programul va afişa numele de fişier în lista de redare.</value>
+  </data>
+  <data name="TXT_DURATION" xml:space="preserve">
+    <value>Durată</value>
+  </data>
+  <data name="TXT_EDITID3ARTWORK" xml:space="preserve">
     <value>Editor imagini ID3</value>
   </data>
-  <data name="TXT_ELAPSED_TIME">
+  <data name="TXT_ELAPSED_TIME" xml:space="preserve">
     <value>Timp scurs.
 Dublu click pentru a comuta pe timp rămas.</value>
   </data>
-  <data name="TXT_ENABLEREMOTECONTROL">
-    <value>Permite ca ProTONE Player să poată fi controlat de la distanţă.</value>
-  </data>
-  <data name="TXT_ENABLE_PLAYLISTEVT">
+  <data name="TXT_ENABLE_PLAYLISTEVT" xml:space="preserve">
     <value>Acţiune la sfârşitul listei de redare</value>
   </data>
-  <data name="TXT_ENABLE_SCHEDULEDEVT">
+  <data name="TXT_ENABLE_SCHEDULEDEVT" xml:space="preserve">
     <value>Acţiune la un moment de timp programat</value>
   </data>
-  <data name="TXT_NOTOPENED">
-    <value>Finalizat</value>
+  <data name="TXT_ENABLEREMOTECONTROL" xml:space="preserve">
+    <value>Permite ca ProTONE Player să poată fi controlat de la distanţă.</value>
   </data>
-  <data name="TXT_ENQUEUEFILES">
+  <data name="TXT_ENQUEUEFILES" xml:space="preserve">
     <value>Înlănţuie fişierele la sfârşitul listei de redare</value>
   </data>
-  <data name="TXT_ENTER_KEYWORD">
+  <data name="TXT_ENTER_KEYWORD" xml:space="preserve">
     <value>Introduceţi cuvintele cheie, separate de spaţii:</value>
   </data>
-  <data name="TXT_FFDSHOW_SUBTITLES">
+  <data name="TXT_EXTRAINFO" xml:space="preserve">
+    <value>Informații suplimentare</value>
+  </data>
+  <data name="TXT_FALLBACKMONITOR" xml:space="preserve">
+    <value>Monitor de rezervă:</value>
+  </data>
+  <data name="TXT_FALLBACKMONITORDESC" xml:space="preserve">
+    <value>Monitorul de rezervă va fi folosit pentru a afisa clipuri video, atunci când monitorul preferat nu este ataşat fizic la sistem.</value>
+  </data>
+  <data name="TXT_FFDSHOW_SUBTITLES" xml:space="preserve">
     <value>Setări Subtitrare FFDShow ...</value>
   </data>
-  <data name="TXT_S_FILETYPES">
-    <value>Fişiere</value>
+  <data name="TXT_FILENAME_FORMAT" xml:space="preserve">
+    <value>Când câmpurile metadata lipsesc, interpretează numele fişierului ca:</value>
   </data>
-  <data name="TXT_S_FILETYPES_ASSOCIATIONS">
-    <value>Asociază ProTONE Player cu aceste tipuri de fişiere:</value>
+  <data name="TXT_FRAME_RATE" xml:space="preserve">
+    <value>Număr cadre pe secundă</value>
   </data>
-  <data name="TXT_HANDLEEXPLORERLAUNCH">
+  <data name="TXT_FREQUENCY" xml:space="preserve">
+    <value>Frecvenţa eşantionare</value>
+  </data>
+  <data name="TXT_GENRE" xml:space="preserve">
+    <value>Gen muzical</value>
+  </data>
+  <data name="TXT_HANDLEEXPLORERLAUNCH" xml:space="preserve">
     <value>Când fişierele sunt lansate din Windows Explorer:</value>
   </data>
-  <data name="TXT_HIBERNATE_PC">
+  <data name="TXT_HIBERNATE_PC" xml:space="preserve">
     <value>pună calculatorul în Hibernare</value>
   </data>
-  <data name="TXT_IGNOREMOUSEMOVE">
+  <data name="TXT_HINT_BOOKMARKINFOTAB" xml:space="preserve">
+    <value>Această pagină afișează informații despre repere și permite editarea lor. Acestă pagină este dezactivată pentru media care nu acceptă editarea de repere (CD-uri, DVD-uri, media on-line - Shoutcast).</value>
+  </data>
+  <data name="TXT_HINT_PLAYLISTTAB" xml:space="preserve">
+    <value>Această pagină permite interacțiunea cu lista de redare.</value>
+  </data>
+  <data name="TXT_HINT_SIGNALANALISYSTAB" xml:space="preserve">
+    <value>Această pagină afișează grafice ca VU-Metrul, forma de undă și spectrograma. Analiza de semnal necesită o putere de calcul semnificativă. Puteţi dezactiva această funcţionalitate (sau părți ale acesteia), dacă aveți un calculator cu un procesor mai lent.</value>
+  </data>
+  <data name="TXT_HINT_TRACKINFOTAB" xml:space="preserve">
+    <value>Această pagină afișează informații despre media și permite editarea parțială a acestor informații, dacă este posibil (ex. câmpurile ID3 pentru MP3). Această pagină este dezactivată pentru media on-line (Shoutcast).</value>
+  </data>
+  <data name="TXT_IGNOREMOUSEMOVE" xml:space="preserve">
     <value>Ignoră miscarea mouse-ului în mod Ecran Panoramic</value>
   </data>
-  <data name="TXT_JUMP_TO_ITEM">
+  <data name="TXT_INSTALLCOMPONENT" xml:space="preserve">
+    <value>Instalează componenta...</value>
+  </data>
+  <data name="TXT_INVALIDDVDVOLUME" xml:space="preserve">
+    <value>Aţi specificat un mediu DVD invalid. Vă rugam reselectaţi.</value>
+  </data>
+  <data name="TXT_JUMP_TO_ITEM" xml:space="preserve">
     <value>Salt în lista de redare</value>
   </data>
-  <data name="TXT_LAUNCH_PROGRAM">
+  <data name="TXT_LAUNCH_PROGRAM" xml:space="preserve">
     <value>lanseze un program</value>
   </data>
-  <data name="TXT_LAUNCH_RCCMANAGER">
-    <value>Lansează ProTONE RCC Manager ...</value>
+  <data name="TXT_LAUNCH_RCCMANAGER" xml:space="preserve">
+    <value>Lansează Managerul de Telecomenzi ...</value>
   </data>
-  <data name="TXT_LEFTVOL">
+  <data name="TXT_LEFTVOL" xml:space="preserve">
     <value>VOLS</value>
   </data>
-  <data name="TXT_LOADMEDIAFILES">
-    <value>Încarcă fişiere media ...</value>
-  </data>
-  <data name="TXT_LOADPLAYLIST">
-    <value>Încarcă listă de redare ...</value>
-  </data>
-  <data name="TXT_LOAD_DVD_FOLDER">
+  <data name="TXT_LOAD_DVD_FOLDER" xml:space="preserve">
     <value>Selectaţi un director cu conţinut DVD video
 (Fie un director VIDEO_TS, fie părintele acestuia):</value>
   </data>
-  <data name="TXT_MATCHING_ITEMS">
+  <data name="TXT_LOADMEDIAFILES" xml:space="preserve">
+    <value>Încarcă fişiere media ...</value>
+  </data>
+  <data name="TXT_LOADPLAYLIST" xml:space="preserve">
+    <value>Încarcă listă de redare ...</value>
+  </data>
+  <data name="TXT_MATCHING_ITEMS" xml:space="preserve">
     <value>Obiecte găsite (dublu click sau Enter pentru a reda fişierul selectat):</value>
   </data>
-  <data name="TXT_MEDIA_NAME">
-    <value>Nume: </value>
+  <data name="TXT_MEDIA_NAME" xml:space="preserve">
+    <value>Nume:</value>
   </data>
-  <data name="TXT_MEDIA_STATE">
+  <data name="TXT_MEDIA_SCREENS" xml:space="preserve">
+    <value>File principale</value>
+  </data>
+  <data name="TXT_MEDIA_STATE" xml:space="preserve">
     <value>Fişierul este acum {0}</value>
   </data>
-  <data name="TXT_MEDIA_TIME">
-    <value>Poziţie redare: </value>
+  <data name="TXT_MEDIA_TIME" xml:space="preserve">
+    <value>Poziţie redare:</value>
   </data>
-  <data name="TXT_NOTIFICATIONSENABLED">
-    <value>Afişează mesaje de notifcare atunci când se schimbă starea mediului redat</value>
+  <data name="TXT_MEDIAINFO" xml:space="preserve">
+    <value>Informaţii mediu</value>
   </data>
-  <data name="TXT_MINMOVIEDURATION">
+  <data name="TXT_METADATAPATTERNS" xml:space="preserve">
+    <value>Sabloanele pentru formatarea elementelor listei de redare se bazeaza pe combinatia acestor cuvinte cheie:
+
+&lt;A&gt; = nume artist (din eticheta);
+&lt;B&gt; = nume album (din eticheta);
+&lt;T&gt; = titlu piesa (din eticheta);
+&lt;C&gt; = comentarii (din eticheta);
+&lt;G&gt; = gen muzical (din eticheta);
+&lt;#&gt; = index piesa (din eticheta);
+&lt;Y&gt; = an (din eticheta).</value>
+  </data>
+  <data name="TXT_MINMOVIEDURATION" xml:space="preserve">
     <value>Nu descărca subtitrarea când clipul este mai scurt de
 (0 = descarcă mereu)</value>
   </data>
-  <data name="TXT_MNUAUDIO">
+  <data name="TXT_MINUTES" xml:space="preserve">
+    <value>minut(e).</value>
+  </data>
+  <data name="TXT_MNUAUDIO" xml:space="preserve">
     <value>Setări Audio ...</value>
   </data>
-  <data name="TXT_MNULOADPLAYLIST">
-    <value>Încarcă Listă de redare ...</value>
+  <data name="TXT_MNUCFGAUDIO" xml:space="preserve">
+    <value>Setări Audio …</value>
   </data>
-  <data name="TXT_MNULOOPPLAY">
-    <value>Redare în buclă</value>
+  <data name="TXT_MNUCFGSUBTITLES" xml:space="preserve">
+    <value>Setări Subtitrare …</value>
   </data>
-  <data name="TXT_MNUSAVEPLAYLIST">
-    <value>Salvează lista de redare ...</value>
-  </data>
-  <data name="TXT_MNUSCHEDULER">
+  <data name="TXT_MNUCFGTIMER" xml:space="preserve">
     <value>Setări Temporizator ...</value>
   </data>
-  <data name="TXT_MNUSETTINGS">
-    <value>Setări ...</value>
+  <data name="TXT_MNUCFGVIDEO" xml:space="preserve">
+    <value>Setări Video …</value>
   </data>
-  <data name="TXT_MNUSUBTITLE">
-    <value>Subtitrare şi Afişaj Digital (OSD) ...</value>
+  <data name="TXT_MNUCLEAR" xml:space="preserve">
+    <value>Goleşte lista de redare</value>
   </data>
-  <data name="TXT_MNUTOOLS">
-    <value>Setări şi Opţiuni</value>
+  <data name="TXT_MNUDELETE" xml:space="preserve">
+    <value>Şterge element</value>
   </data>
-  <data name="TXT_MNUVIDEO">
-    <value>Setări Video ...</value>
+  <data name="TXT_MNUFULLSCREEN" xml:space="preserve">
+    <value>Comută Ecran Panoramic</value>
   </data>
-  <data name="TXT_MOVEDOWN">
+  <data name="TXT_MNUFWD" xml:space="preserve">
+    <value>Înainte 5 secunde</value>
+  </data>
+  <data name="TXT_MNUJUMPTOITEM" xml:space="preserve">
+    <value>Salt în lista de redare ...</value>
+  </data>
+  <data name="TXT_MNULOAD" xml:space="preserve">
+    <value>Încarcă fişiere ...</value>
+  </data>
+  <data name="TXT_MNULOADPLAYLIST" xml:space="preserve">
+    <value>Încarcă Listă de redare ...</value>
+  </data>
+  <data name="TXT_MNULOOPPLAY" xml:space="preserve">
+    <value>Redare în buclă</value>
+  </data>
+  <data name="TXT_MNUMOVEDOWN" xml:space="preserve">
     <value>Mută mai jos</value>
   </data>
-  <data name="TXT_MOVEUP">
+  <data name="TXT_MNUMOVEUP" xml:space="preserve">
     <value>Mută mai sus</value>
   </data>
-  <data name="TXT_NOT_CONFIGURABLE">
+  <data name="TXT_MNUNEXT" xml:space="preserve">
+    <value>Redă următor</value>
+  </data>
+  <data name="TXT_MNUOPENDISK" xml:space="preserve">
+    <value>Încarcă DVD ...</value>
+  </data>
+  <data name="TXT_MNUOPENSETTINGS" xml:space="preserve">
+    <value>Setări ...</value>
+  </data>
+  <data name="TXT_MNUOPENURL" xml:space="preserve">
+    <value>Deschide URL ...</value>
+  </data>
+  <data name="TXT_MNUPAUSE" xml:space="preserve">
+    <value>Pauză</value>
+  </data>
+  <data name="TXT_MNUPLAY" xml:space="preserve">
+    <value>Redare</value>
+  </data>
+  <data name="TXT_MNUPLAYLISTEND" xml:space="preserve">
+    <value>Acțiune la sfârşitul listei de redare</value>
+  </data>
+  <data name="TXT_MNUPREV" xml:space="preserve">
+    <value>Redă anterior</value>
+  </data>
+  <data name="TXT_MNUREW" xml:space="preserve">
+    <value>Înapoi 5 secunde</value>
+  </data>
+  <data name="TXT_MNUSAVEPLAYLIST" xml:space="preserve">
+    <value>Salvează lista de redare ...</value>
+  </data>
+  <data name="TXT_MNUSCHEDULER" xml:space="preserve">
+    <value>Setări Temporizator ...</value>
+  </data>
+  <data name="TXT_MNUSETTINGS" xml:space="preserve">
+    <value>Setări ...</value>
+  </data>
+  <data name="TXT_MNUSHOWLOGCONSOLE" xml:space="preserve">
+    <value>Afişează Fişierul Jurnal ...</value>
+  </data>
+  <data name="TXT_MNUSTOP" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="TXT_MNUSUBTITLE" xml:space="preserve">
+    <value>Subtitrare şi Afişaj Digital (OSD) ...</value>
+  </data>
+  <data name="TXT_MNUTOGGLESHUFFLE" xml:space="preserve">
+    <value>Redare în mod aleator.</value>
+  </data>
+  <data name="TXT_MNUTOOLS" xml:space="preserve">
+    <value>Setări şi Opţiuni</value>
+  </data>
+  <data name="TXT_MNUVIDEO" xml:space="preserve">
+    <value>Setări Video ...</value>
+  </data>
+  <data name="TXT_MNUVOLDN" xml:space="preserve">
+    <value>Scade volumul cu 5%</value>
+  </data>
+  <data name="TXT_MNUVOLUP" xml:space="preserve">
+    <value>Creşte volumul cu 5%</value>
+  </data>
+  <data name="TXT_MONITORAFFINITY" xml:space="preserve">
+    <value>Monitoare</value>
+  </data>
+  <data name="TXT_MOVEDOWN" xml:space="preserve">
+    <value>Mută mai jos</value>
+  </data>
+  <data name="TXT_MOVEUP" xml:space="preserve">
+    <value>Mută mai sus</value>
+  </data>
+  <data name="TXT_NEW_BMDESC" xml:space="preserve">
+    <value>Adaugă reper nou</value>
+  </data>
+  <data name="TXT_NEW_BOOKMARK" xml:space="preserve">
+    <value>Reper nou</value>
+  </data>
+  <data name="TXT_NEW_BOOKMARK_ADDED" xml:space="preserve">
+    <value>Un nou reper a fost adăugat: {0}</value>
+  </data>
+  <data name="TXT_NEWNOW" xml:space="preserve">
+    <value>Reper nou acum</value>
+  </data>
+  <data name="TXT_NEWNOW_BMDESC" xml:space="preserve">
+    <value>Adaugă reper nou la momentul curent</value>
+  </data>
+  <data name="TXT_NO_LANG" xml:space="preserve">
+    <value>Nici o limbă</value>
+  </data>
+  <data name="TXT_NO_SUBS_FOUND" xml:space="preserve">
+    <value>Din păcate, nici o subtitrare nu a fost gasită pentru acest clip.</value>
+  </data>
+  <data name="TXT_NOT_CONFIGURABLE" xml:space="preserve">
     <value>Această opţiune nu este accesibilă în acest moment.</value>
   </data>
-  <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
+  <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW" xml:space="preserve">
     <value>Această opţiune nu este accesibilă în acest moment.
 Trebuie să instalaţi suita de codecuri FFDShow pentru a avea acces la această opțiune.</value>
   </data>
-  <data name="TXT_NO_LANG">
-    <value>Nici o limbă</value>
+  <data name="TXT_NOTIFICATIONSENABLED" xml:space="preserve">
+    <value>Afişează mesaje de notifcare atunci când se schimbă starea mediului redat</value>
   </data>
-  <data name="TXT_NO_SUBS_FOUND">
-    <value>Ne pare rău, nici o subtitrare nu a fost gasită pentru acest clip.</value>
+  <data name="TXT_NOTIFYSUBDOWNLOADED" xml:space="preserve">
+    <value>Afişează mesaje de notifcare atunci când descărcarea subtitrării s-a încheiat</value>
   </data>
-  <data name="TXT_ONDAYS">
+  <data name="TXT_NOTOPENED" xml:space="preserve">
+    <value>Finalizat</value>
+  </data>
+  <data name="TXT_ONDAYS" xml:space="preserve">
     <value>în zile din săptămâna:</value>
   </data>
-  <data name="TXT_OSD">
+  <data name="TXT_OPT_CDDB" xml:space="preserve">
+    <value>Numai de la Serverul CDDB</value>
+  </data>
+  <data name="TXT_OPT_CDDB_CDTEXT" xml:space="preserve">
+    <value>Intâi de la serverul CDDB, apoi din CD-Text</value>
+  </data>
+  <data name="TXT_OPT_CDTEXT" xml:space="preserve">
+    <value>Numai din CD-Text</value>
+  </data>
+  <data name="TXT_OPT_CDTEXT_CDDB" xml:space="preserve">
+    <value>Intâi din CD-Text, apoi de la serverul CDDB</value>
+  </data>
+  <data name="TXT_OPT_NONE" xml:space="preserve">
+    <value>Nu citi info CD Audio</value>
+  </data>
+  <data name="TXT_OPT_RELOAD_CDINFO" xml:space="preserve">
+    <value>Reîncarcă informațiile despre CD</value>
+  </data>
+  <data name="TXT_OSD" xml:space="preserve">
     <value>Afişaj Digital (OSD)</value>
   </data>
-  <data name="TXT_OSDCFG">
-    <value>Setări Afişaj Digital (OSD)</value>
-  </data>
-  <data name="TXT_OSDCOLOR">
-    <value>Culoare Text Afişaj Digital</value>
-  </data>
-  <data name="TXT_OSDENABLED">
-    <value>Activează Afişajul Digital</value>
-  </data>
-  <data name="TXT_OSDFONT">
-    <value>Set Caractere Afişaj Digital</value>
-  </data>
-  <data name="TXT_OSDSAMPLETEXT">
-    <value>Mostră Text Afişaj Digital.</value>
-  </data>
-  <data name="TXT_OSDTIMER">
-    <value>Vizibilitate afişaj digital (secunde):</value>
-  </data>
-  <data name="TXT_OSD_FULLSCREEN">
+  <data name="TXT_OSD_FULLSCREEN" xml:space="preserve">
     <value>Modul Ecran panoramic este {0}</value>
   </data>
-  <data name="TXT_OSD_PAUSED">
+  <data name="TXT_OSD_PAUSED" xml:space="preserve">
     <value>În pauză</value>
   </data>
-  <data name="TXT_OSD_PLAY">
+  <data name="TXT_OSD_PLAY" xml:space="preserve">
     <value>Redare: {0}</value>
   </data>
-  <data name="TXT_OSD_SEEKTO">
+  <data name="TXT_OSD_SEEKTO" xml:space="preserve">
     <value>Redarea reluată de la poziţia: {0}</value>
   </data>
-  <data name="TXT_OSD_VOL">
+  <data name="TXT_OSD_VOL" xml:space="preserve">
     <value>Volum: {0}%</value>
   </data>
-  <data name="TXT_OVERWRITE_SUBTITLE">
+  <data name="TXT_OSDCFG" xml:space="preserve">
+    <value>Setări Afişaj Digital (OSD)</value>
+  </data>
+  <data name="TXT_OSDCOLOR" xml:space="preserve">
+    <value>Culoare Text Afişaj Digital (OSD)</value>
+  </data>
+  <data name="TXT_OSDENABLED" xml:space="preserve">
+    <value>Activează Afişajul Digital  (OSD)</value>
+  </data>
+  <data name="TXT_OSDFONT" xml:space="preserve">
+    <value>Set Caractere Afişaj Digital  (OSD)</value>
+  </data>
+  <data name="TXT_OSDSAMPLETEXT" xml:space="preserve">
+    <value>Mostră Text Afişaj Digital  (OSD)</value>
+  </data>
+  <data name="TXT_OSDTIMER" xml:space="preserve">
+    <value>Vizibilitate afişaj digital (secunde):</value>
+  </data>
+  <data name="TXT_OVERWRITE_SUBTITLE" xml:space="preserve">
     <value>Clipul selectat are deja o subtitrare.
 Daca o altă subtitrare va fi gasită pe Internet, aceasta o va suprascrie pe cea existentă.
 
 Sunteţi sigur că vreti să cautati o altă subtitrare ?</value>
   </data>
-  <data name="TXT_PAUSED">
+  <data name="TXT_PANELSHIDDEN_NOADMIN" xml:space="preserve">
+    <value>Contul dvs. de utilizator nu are drepturi de administrator. 
+Nu veţi putea vizualiza setările pt. Fişiere suportate şi pentru Telecomandă.
+Pentru a accesa aceste setări, trebuie să lansaţi ProTONE Player sub un cont de utilizator care are drepturi de administrator.</value>
+  </data>
+  <data name="TXT_PAUSED" xml:space="preserve">
     <value>În Pauză</value>
   </data>
-  <data name="TXT_PLAYFILES">
+  <data name="TXT_PICTURE" xml:space="preserve">
+    <value>Imagine</value>
+  </data>
+  <data name="TXT_PICTURE_TEXT" xml:space="preserve">
+    <value>Descriere imagine</value>
+  </data>
+  <data name="TXT_PICTURE_TYPE" xml:space="preserve">
+    <value>Tip imagine ID3</value>
+  </data>
+  <data name="TXT_PLAY_FROM" xml:space="preserve">
+    <value>de la: {0}</value>
+  </data>
+  <data name="TXT_PLAYFILES" xml:space="preserve">
     <value>Redă fişierele (înlocuind lista curentă de redare)</value>
   </data>
-  <data name="TXT_RUNNING">
-    <value>În Redare</value>
-  </data>
-  <data name="TXT_PLAYLIST">
+  <data name="TXT_PLAYLIST" xml:space="preserve">
     <value>Listă de redare</value>
   </data>
-  <data name="TXT_PLAYLISTEVT_DESC">
-    <value>Când lista de redare se încheie:</value>
-  </data>
-  <data name="TXT_PLAYLISTS">
-    <value>Liste de redare</value>
-  </data>
-  <data name="TXT_PLAYLIST_END_MSG">
+  <data name="TXT_PLAYLIST_END_MSG" xml:space="preserve">
     <value>lista de redare a ajuns la sfârşit</value>
   </data>
-  <data name="TXT_PLAY_FROM">
-    <value>  de la: {0}</value>
+  <data name="TXT_PLAYLIST_FORMAT" xml:space="preserve">
+    <value>Formatează elementele listei de redare ca:</value>
   </data>
-  <data name="TXT_PREFFEREDSUBTITLELANG">
+  <data name="TXT_PLAYLISTEVT_CAUTION" xml:space="preserve">
+    <value>ATENȚIE: Programul începe întotdeauna cu evenimentul "lista de redare la sfârşit" dezactivat!</value>
+  </data>
+  <data name="TXT_PLAYLISTEVT_DESC" xml:space="preserve">
+    <value>Când lista de redare se încheie:</value>
+  </data>
+  <data name="TXT_PLAYLISTOPTIONS" xml:space="preserve">
+    <value>Listă de redare</value>
+  </data>
+  <data name="TXT_PLAYLISTS" xml:space="preserve">
+    <value>Liste de redare</value>
+  </data>
+  <data name="TXT_PREFERREDMONITOR" xml:space="preserve">
+    <value>Monitor preferat:</value>
+  </data>
+  <data name="TXT_PREFERREDMONITORDESC" xml:space="preserve">
+    <value>Monitorul preferat va fi folosit pentru a afisa clipuri video, oricând este ataşat fizic la sistem.</value>
+  </data>
+  <data name="TXT_PREFERREDMONITORDETACHED" xml:space="preserve">
+    <value>Monitorul preferat nu mai este conectat la sistem. Pentru a selecta alt monitor preferat, folosiţi 'Restaurează setări implicite' şi apoi re-selectaţi monitorul preferat.</value>
+  </data>
+  <data name="TXT_PREFFEREDSUBTITLELANG" xml:space="preserve">
     <value>Limba preferată pt. subtitrare:</value>
   </data>
-  <data name="TXT_PROCEED_SCHEDULED_ACTION">
+  <data name="TXT_PRIO" xml:space="preserve">
+    <value>Prioritate</value>
+  </data>
+  <data name="TXT_PROCEED_SCHEDULED_ACTION" xml:space="preserve">
     <value>ProTONE Player incearcă să {0}. Acest lucru are loc intrucât aţi configurat programul să procedeze astfel când {1}. Doriţi să continuaţi ?
 Puteţi întrerupe această operaţiune daca daţi click pe Întrerupere înainte de a se scurge timpul alocat. În momentul în care acest timp s-a scurs, se va presupune implicit că doriţi să continuaţi.</value>
   </data>
-  <data name="TXT_PROTONE_ENQUEUE">
+  <data name="TXT_PROTONE_ENQUEUE" xml:space="preserve">
     <value>Înlănţuire în ProTONE Player</value>
   </data>
-  <data name="TXT_PROTONE_PLAY">
+  <data name="TXT_PROTONE_PLAY" xml:space="preserve">
     <value>Redare în ProTONE Player</value>
   </data>
-  <data name="TXT_REMAINING_TIME">
+  <data name="TXT_REMAINING_TIME" xml:space="preserve">
     <value>Timp rămas. 
 Dublu click pentru a comuta pe timp scurs</value>
   </data>
-  <data name="TXT_REMOTECONTROLCFG">
+  <data name="TXT_REMOTECONTROLCFG" xml:space="preserve">
     <value>Telecomandă</value>
   </data>
-  <data name="TXT_REMOTECONTROLDEFINITION">
-    <value>Pentru a defini programele şi dispozitivele ce pot controla ProTONE Player, trebuie să folosiţi ProTONE RCC Manager.
-Daţi click pe butonul de mai jos pentru a lansa ProTONE RCC Manager ...</value>
+  <data name="TXT_REMOTECONTROLDEFINITION" xml:space="preserve">
+    <value>Pentru a defini programele şi dispozitivele ce pot controla ProTONE Player de la distanţă, trebuie să folosiţi Managerul de Telecomenzi.
+
+Daţi click pe butonul de mai jos pentru a lansa Managerul de Telecomenzi ...</value>
   </data>
-  <data name="TXT_RIGHTVOL">
+  <data name="TXT_RESETVIDEOPOSITION" xml:space="preserve">
+    <value>Reiniţializare pozitie 
+fereastră video</value>
+  </data>
+  <data name="TXT_RESETVIDEOPOSITION_HINT" xml:space="preserve">
+    <value>Utilizați această comandă pentru a aduce fereastra de redare video în ecranul activ curent.</value>
+  </data>
+  <data name="TXT_RESTORE_DEFAULTSERVERS" xml:space="preserve">
+    <value>Încarcă serverele implicite</value>
+  </data>
+  <data name="TXT_RESTOREDEFAULTSDESC" xml:space="preserve">
+    <value>Funcţia 'Restaurează setări implicite' va rezulta în alegerea monitorului principal al sistemului, atât ca monitor preferat cât şi ca monitor de rezervă.</value>
+  </data>
+  <data name="TXT_RIGHTVOL" xml:space="preserve">
     <value>VOLD</value>
   </data>
-  <data name="TXT_SAVEPLAYLIST">
+  <data name="TXT_RUNNING" xml:space="preserve">
+    <value>În Redare</value>
+  </data>
+  <data name="TXT_S_AUDIOSETTINGS" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="TXT_S_FILETYPES" xml:space="preserve">
+    <value>Fişiere</value>
+  </data>
+  <data name="TXT_S_FILETYPES_ASSOCIATIONS" xml:space="preserve">
+    <value>Asociază ProTONE Player cu aceste tipuri de fişiere:</value>
+  </data>
+  <data name="TXT_S_MISC_SETTINGS" xml:space="preserve">
+    <value>Diverse</value>
+  </data>
+  <data name="TXT_S_SCHEDULERSETTINGS" xml:space="preserve">
+    <value>Temporizator</value>
+  </data>
+  <data name="TXT_S_SUBTITLESETTINGS" xml:space="preserve">
+    <value>Subtitrări</value>
+  </data>
+  <data name="TXT_S_VIDEOSETTINGS" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="TXT_SAVEPLAYLIST" xml:space="preserve">
     <value>Salvează lista de redare ca ...</value>
   </data>
-  <data name="TXT_SCHEDULEDEVT_DESC">
-    <value>Când momentul programat s-a produs:</value>
-  </data>
-  <data name="TXT_SCHEDULEDEVT_TIME">
-    <value>Programare la: </value>
-  </data>
-  <data name="TXT_SCHEDULED_ACTION_PROCEED">
+  <data name="TXT_SCHEDULED_ACTION_PROCEED" xml:space="preserve">
     <value>Continuaţi cu acţiunea programată ?</value>
   </data>
-  <data name="TXT_SCHEDULED_EVENT_MSG">
+  <data name="TXT_SCHEDULED_EVENT_MSG" xml:space="preserve">
     <value>momentul programat s-a produs</value>
   </data>
-  <data name="TXT_S_SCHEDULERSETTINGS">
-    <value>Timer</value>
+  <data name="TXT_SCHEDULEDEVT_DESC" xml:space="preserve">
+    <value>Când momentul programat s-a produs:</value>
   </data>
-  <data name="TXT_SCHEDULERWAITTIMERPROCEED">
+  <data name="TXT_SCHEDULEDEVT_TIME" xml:space="preserve">
+    <value>Programare la:</value>
+  </data>
+  <data name="TXT_SCHEDULERWAITTIMERPROCEED" xml:space="preserve">
     <value>Numărul de minute de aşteptare a confirmării
 (0 = nu cere confirmarea, continuă implicit):</value>
   </data>
-  <data name="TXT_SEARCH_SUBTITLES">
+  <data name="TXT_SEARCH_BY" xml:space="preserve">
+    <value>Căutare după:</value>
+  </data>
+  <data name="TXT_SEARCH_SUBTITLES" xml:space="preserve">
     <value>Caută subtitrare...</value>
   </data>
-  <data name="TXT_SELECT_ALLAUDIO">
+  <data name="TXT_SELECT_ALLAUDIO" xml:space="preserve">
     <value>Toate fişierele audio</value>
   </data>
-  <data name="TXT_SELECT_ALLPLAYLISTS">
+  <data name="TXT_SELECT_ALLPLAYLISTS" xml:space="preserve">
     <value>Toate listele de redare</value>
   </data>
-  <data name="TXT_SELECT_ALLVIDEO">
+  <data name="TXT_SELECT_ALLVIDEO" xml:space="preserve">
     <value>Toate fişierele video</value>
   </data>
-  <data name="TXT_SELECT_DVD">
+  <data name="TXT_SELECT_DVD" xml:space="preserve">
     <value>Încărcare mediu DVD</value>
   </data>
-  <data name="TXT_SERIALDEVICE">
-    <value>Dispozitiv Telecomandă</value>
+  <data name="TXT_SELECT_RADIO_STATION" xml:space="preserve">
+    <value>Selectați un post de radio:</value>
   </data>
-  <data name="TXT_SERVERTYPE">
+  <data name="TXT_SERIALDEVICE" xml:space="preserve">
+    <value>Telecomandă</value>
+  </data>
+  <data name="TXT_SERVERTITLE" xml:space="preserve">
+    <value>Nume Server (corespondenţă parţială):</value>
+  </data>
+  <data name="TXT_SERVERTYPE" xml:space="preserve">
     <value>Tip server</value>
   </data>
-  <data name="TXT_SERVERURL">
+  <data name="TXT_SERVERURL" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="TXT_SHELL_INTEGRATION">
+  <data name="TXT_SHELL_INTEGRATION" xml:space="preserve">
     <value>Integrare cu Windows Explorer</value>
   </data>
-  <data name="TXT_SHUFFLE">
+  <data name="TXT_SHOW_BOOKMARKINFO" xml:space="preserve">
+    <value>Arata fila "Repere"</value>
+  </data>
+  <data name="TXT_SHOW_PLAYLIST" xml:space="preserve">
+    <value>Arata fila "Listă de redare"</value>
+  </data>
+  <data name="TXT_SHOW_SIGNALANALISYS" xml:space="preserve">
+    <value>Arata fila "Analiză Semnal"</value>
+  </data>
+  <data name="TXT_SHOW_SPECTROGRAM" xml:space="preserve">
+    <value>Arată spectograma</value>
+  </data>
+  <data name="TXT_SHOW_TRACKINFO" xml:space="preserve">
+    <value>Arata fila "Info media"</value>
+  </data>
+  <data name="TXT_SHOW_VUMETER" xml:space="preserve">
+    <value>Arată VU-Metrul</value>
+  </data>
+  <data name="TXT_SHOW_WAVEFORM" xml:space="preserve">
+    <value>Arată forma de undă</value>
+  </data>
+  <data name="TXT_SHUFFLE" xml:space="preserve">
     <value>Aleator</value>
   </data>
-  <data name="TXT_SHUTDOWN_PC">
+  <data name="TXT_SHUTDOWN_PC" xml:space="preserve">
     <value>oprească calculatorul</value>
   </data>
-  <data name="TXT_SKIP_DVD_MENU">
+  <data name="TXT_SIGNALANALYSIS" xml:space="preserve">
+    <value>Analiză Semnal</value>
+  </data>
+  <data name="TXT_SIGNALLEVEL" xml:space="preserve">
+    <value>Nivel semnal:</value>
+  </data>
+  <data name="TXT_SIGNALSPECTRUM" xml:space="preserve">
+    <value>Spectrograma semnalului:</value>
+  </data>
+  <data name="TXT_SIGNALWAVEFORM" xml:space="preserve">
+    <value>Forma de undă a semnalului:</value>
+  </data>
+  <data name="TXT_SKIP_DVD_MENU" xml:space="preserve">
     <value>Ignoră meniul DVD-ului (redă direct primul titlu)</value>
   </data>
-  <data name="TXT_STANDBY_PC">
+  <data name="TXT_STANDBY_PC" xml:space="preserve">
     <value>pună calculatorul în stand-by</value>
   </data>
-  <data name="TXT_STOPPED">
+  <data name="TXT_STOPPED" xml:space="preserve">
     <value>Oprit</value>
   </data>
-  <data name="TXT_SUBTITLEDOWNLOADNOTIFY">
-    <value>{0} subtitrări au fost găsite pentru {1}:</value>
+  <data name="TXT_SUB_DOWNLOAD_ERROR" xml:space="preserve">
+    <value>Căutarea subtitrărilor a fost abandonată ca urmare a unei erori.</value>
   </data>
-  <data name="TXT_SUBTITLES">
-    <value>Subtitrări</value>
-  </data>
-  <data name="TXT_SUBTITLESCFG">
-    <value>Setări Subtitrare</value>
-  </data>
-  <data name="TXT_S_SUBTITLESETTINGS">
-    <value>Subtitrări</value>
-  </data>
-  <data name="TXT_SUBTITLE_DOWNLOAD">
-    <value>Descarcă subtitrările de pe Internet</value>
-  </data>
-  <data name="TXT_SUB_DOWNLOAD_ERROR">
-    <value>Căutarea subtitrărilor a fost intreruptă ca urmare a unei erori.</value>
-  </data>
-  <data name="TXT_SUB_HINTS">
+  <data name="TXT_SUB_HINTS" xml:space="preserve">
     <value>Indicație: Rezultatele sunt ordonate după aceste criterii (în aceasta ordine): coloana selectată, limbă (Limba preferată la început), 
 ordinea definirii serverelor în pagina de setări pentru Subtitrare (prio). Daţi click pe un cap de coloană pentru a selecta un alt criteriu de sortare.</value>
   </data>
-  <data name="TXT_SUB_LOAD">
+  <data name="TXT_SUB_LOAD" xml:space="preserve">
     <value>Încarcă subtitrarea selectată</value>
   </data>
-  <data name="TXT_SUB_LOADED">
+  <data name="TXT_SUB_LOADED" xml:space="preserve">
     <value>Subtitrarea selectată a fost încarcată cu succes! Vizionare plăcută!</value>
   </data>
-  <data name="TXT_SYSTEMDIAGNOSTICS">
-    <value>Diagnostic</value>
-  </data>
-  <data name="TXT_SYSTEM_NOT_OK">
-    <value>Codecurile multimedia nu sunt instalate şi configurate corect.</value>
-  </data>
-  <data name="TXT_SYSTEM_OK">
-    <value>Codecurile multimedia sunt instalate şi configurate corect.</value>
-  </data>
-  <data name="TXT_TIMESCALE">
-    <value>Axa timpului.
-Click pentru redare de la momentul: {0}</value>
-  </data>
-  <data name="TXT_TOTAL_TIME">
-    <value>Timp total.</value>
-  </data>
-  <data name="TXT_UNSELECT_ALLAUDIO">
-    <value>Fără fişiere audio</value>
-  </data>
-  <data name="TXT_UNSELECT_ALLPLAYLISTS">
-    <value>Fără liste de redare</value>
-  </data>
-  <data name="TXT_UNSELECT_ALLVIDEO">
-    <value>Fără fişiere video</value>
-  </data>
-  <data name="TXT_VIDEOSETTINGS">
-    <value>Setări Video</value>
-  </data>
-  <data name="TXT_VIDEO_AVAILABLE">
-    <value>Flux video prezent.</value>
-  </data>
-  <data name="TXT_VIDEO_FILES">
-    <value>Fişiere video</value>
-  </data>
-  <data name="TXT_VIDEO_HD_FILES">
-    <value>Fişiere video - înaltă definiţie</value>
-  </data>
-  <data name="TXT_VOLSCALE">
-    <value>Axa volumului.
-Daţi click pentru a seta volumul la {0} %</value>
-  </data>
-  <data name="TXT_INSTALLCOMPONENT">
-    <value>Instalează componenta...</value>
-  </data>
-  <data name="TXT_PRIO">
-    <value>Prioritate</value>
-  </data>
-  <data name="TXT_MINUTES">
-    <value>minut(e).</value>
-  </data>
-  <data name="TXT_S_MISC_SETTINGS">
-    <value>Diverse</value>
-  </data>
-  <data name="TXT_METADATAPATTERNS">
-    <value>Şabloanele pentru formatarea elementelor listei de redare se bazeaza pe combinatia acestor cuvinte cheie:
-
-&lt;A&gt; = nume artist(din tag);
-&lt;B&gt; = nume album(din tag);
-&lt;T&gt; = titlu piesă(din tag);
-&lt;C&gt; = comentarii(din tag);
-&lt;G&gt; = gen muzical(din tag);
-&lt;#&gt; = index piesă(din tag);
-&lt;Y&gt; = an(din tag).</value>
-  </data>
-  <data name="TXT_DISPLAY_FILENAME">
-    <value>Nici o opţiune de formatare nu a fost specificată.
-Programul va afişa numele de fişier în lista de redare.</value>
-  </data>
-  <data name="TXT_FILENAME_FORMAT">
-    <value>Când câmpurile metadata lipsesc, foloseşte numele fişierului interpretat ca:</value>
-  </data>
-  <data name="TXT_USE_METADATA">
-    <value>Foloseşte câmpurile metadata din fişier (ex. tagurile ID3)</value>
-  </data>
-  <data name="TXT_FALLBACKMONITOR">
-    <value>Monitor de rezervă:</value>
-  </data>
-  <data name="TXT_FALLBACKMONITORDESC">
-    <value>Monitorul de rezervă va fi folosit pentru a afisa clipuri video, atunci când monitorul preferat nu este ataşat fizic la sistem.</value>
-  </data>
-  <data name="TXT_MONITORAFFINITY">
-    <value>Monitoare</value>
-  </data>
-  <data name="TXT_PREFERREDMONITOR">
-    <value>Monitor preferat:</value>
-  </data>
-  <data name="TXT_PREFERREDMONITORDESC">
-    <value>Monitorul preferat va fi folosit pentru a afisa clipuri video, oricând este ataşat fizic la sistem.</value>
-  </data>
-  <data name="TXT_RESTOREDEFAULTSDESC">
-    <value>Funcţia 'Restaurează setări implicite' va rezulta în alegerea monitorului principal al sistemului, atât ca monitor preferat cât şi ca monitor de rezervă.</value>
-  </data>
-  <data name="TXT_PLAYLISTOPTIONS">
-    <value>Listă de redare</value>
-  </data>
-  <data name="TXT_PREFERREDMONITORDETACHED">
-    <value>Monitorul preferat nu mai este conectat la sistem. Pentru a selecta alt monitor preferat, folosiţi 'Restaurează setări implicite' şi apoi re-selectaţi monitorul preferat.</value>
-  </data>
-  <data name="TXT_PLAYLIST_FORMAT">
-    <value>Formatează elementele listei de redare ca:</value>
-  </data>
-  <data name="TXT_INVALIDDVDVOLUME">
-    <value>Aţi specificat un mediu DVD invalid. Vă rugam reselectaţi.</value>
-  </data>
-  <data name="TXT_PANELSHIDDEN_NOADMIN">
-    <value>Întrucât contul dvs. de utilizator nu are drepturi de administrator, nu veţi putea vizualiza setările pt. Fişiere suportate şi pentru Telecomandă.
-Pentru a accesa aceste setări, trebuie să lansaţi ProTONE Player sub un cont de utilizator care are drepturi de administrator.</value>
-  </data>
-  <data name="TXT_MNUCLEAR">
-    <value>Goleşte lista de redare</value>
-  </data>
-  <data name="TXT_MNUDELETE">
-    <value>Şterge element</value>
-  </data>
-  <data name="TXT_MNUJUMPTOITEM">
-    <value>Salt în lista de redare ...</value>
-  </data>
-  <data name="TXT_MNUMOVEDOWN">
-    <value>Mută mai jos</value>
-  </data>
-  <data name="TXT_MNUMOVEUP">
-    <value>Mută mai sus</value>
-  </data>
-  <data name="TXT_MNUPLAYLISTEND">
-    <value>Acțiune la sfârşitul listei de redare</value>
-  </data>
-  <data name="TXT_MNUTOGGLESHUFFLE">
-    <value>Redare în mod aleator.</value>
-  </data>
-  <data name="TXT_MNUFULLSCREEN">
-    <value>Comută Ecran Panoramic</value>
-  </data>
-  <data name="TXT_MNUFWD">
-    <value>Înainte 5 secunde</value>
-  </data>
-  <data name="TXT_MNULOAD">
-    <value>Încarcă fişiere ...</value>
-  </data>
-  <data name="TXT_MNUNEXT">
-    <value>Redă următor</value>
-  </data>
-  <data name="TXT_MNUOPENDISK">
-    <value>Încarcă DVD ...</value>
-  </data>
-  <data name="TXT_MNUOPENURL">
-    <value>Deschide URL ...</value>
-  </data>
-  <data name="TXT_MNUPAUSE">
-    <value>Pauză</value>
-  </data>
-  <data name="TXT_MNUPLAY">
-    <value>Redare</value>
-  </data>
-  <data name="TXT_MNUPREV">
-    <value>Redă anterior</value>
-  </data>
-  <data name="TXT_MNUREW">
-    <value>Înapoi 5 secunde</value>
-  </data>
-  <data name="TXT_MNUSTOP">
-    <value>Stop</value>
-  </data>
-  <data name="TXT_MNUVOLDN">
-    <value>Scade volumul cu 5%</value>
-  </data>
-  <data name="TXT_MNUVOLUP">
-    <value>Creşte volumul cu 5%</value>
-  </data>
-  <data name="TXT_MNUCFGAUDIO">
-    <value>Setări Audio …</value>
-  </data>
-  <data name="TXT_MNUCFGSUBTITLES">
-    <value>Setări Subtitrare …</value>
-  </data>
-  <data name="TXT_MNUCFGTIMER">
-    <value>Setări Temporizator ...</value>
-  </data>
-  <data name="TXT_MNUCFGVIDEO">
-    <value>Setări Video …</value>
-  </data>
-  <data name="TXT_MNUOPENSETTINGS">
-    <value>Setări ...</value>
-  </data>
-  <data name="TXT_MNUSHOWLOGCONSOLE">
-    <value>Afişează Fişierul Jurnal ...</value>
-  </data>
-  <data name="TXT_SUBFONTS">
-    <value>Fonturi şi culori</value>
-  </data>
-  <data name="TXT_SUBSAMPLETEXT">
-    <value>Mostră Text Subtitrare</value>
-  </data>
-  <data name="TXT_SUBFONT">
-    <value>Set Caractere Subtitrare</value>
-  </data>
-  <data name="TXT_SUBCOLOR">
+  <data name="TXT_SUBCOLOR" xml:space="preserve">
     <value>Culoare Text Subtitrare</value>
   </data>
-  <data name="TXT_SUBENABLED">
+  <data name="TXT_SUBENABLED" xml:space="preserve">
     <value>Activează Subtitrarea</value>
   </data>
-  <data name="TXT_NOTIFYSUBDOWNLOADED">
-    <value>Afişează mesaje de notifcare atunci când descărcarea subtitrării s-a încheiat</value>
+  <data name="TXT_SUBFONT" xml:space="preserve">
+    <value>Set Caractere Subtitrare</value>
   </data>
-  <data name="TXT_RESTORE_DEFAULTSERVERS">
-    <value>Încarcă serverele implicite</value>
+  <data name="TXT_SUBFONTS" xml:space="preserve">
+    <value>Fonturi şi culori</value>
   </data>
-  <data name="TXT_ALBUM">
-    <value>Album</value>
+  <data name="TXT_SUBSAMPLETEXT" xml:space="preserve">
+    <value>Mostră Text Subtitrare</value>
   </data>
-  <data name="TXT_ARTIST">
-    <value>Artist</value>
+  <data name="TXT_SUBTITLE_AVAILABLE" xml:space="preserve">
+    <value>Subtitrare disponibilă</value>
   </data>
-  <data name="TXT_ARTWORK">
-    <value> Imagini înglobate</value>
+  <data name="TXT_SUBTITLE_DOWNLOAD" xml:space="preserve">
+    <value>Descarcă subtitrările de pe Internet</value>
   </data>
-  <data name="TXT_BITRATE">
-    <value>Rată binară</value>
+  <data name="TXT_SUBTITLE_DOWNLOADING" xml:space="preserve">
+    <value>Subtitrarea se descarcă, vă rugam aşteptaţi ...</value>
   </data>
-  <data name="TXT_CHANNELS">
-    <value>Mod audio</value>
+  <data name="TXT_SUBTITLEDOWNLOADNOTIFY" xml:space="preserve">
+    <value>{0} subtitrări au fost găsite pentru {1}:</value>
   </data>
-  <data name="TXT_COMMENTS">
-    <value>Comentarii</value>
+  <data name="TXT_SUBTITLES" xml:space="preserve">
+    <value>Subtitrări</value>
   </data>
-  <data name="TXT_DURATION">
-    <value>Durată</value>
+  <data name="TXT_SUBTITLESCFG" xml:space="preserve">
+    <value>Setări Subtitrare</value>
   </data>
-  <data name="TXT_FRAME_RATE">
-    <value>Număr cadre pe secundă</value>
+  <data name="TXT_SYSTEM_NOT_OK" xml:space="preserve">
+    <value>Codecurile multimedia nu sunt instalate şi configurate corect.</value>
   </data>
-  <data name="TXT_FREQUENCY">
-    <value>Frecvenţa eşantionare</value>
+  <data name="TXT_SYSTEM_OK" xml:space="preserve">
+    <value>Codecurile multimedia sunt instalate şi configurate corect.</value>
   </data>
-  <data name="TXT_GENRE">
-    <value>Gen muzical</value>
+  <data name="TXT_SYSTEMDIAGNOSTICS" xml:space="preserve">
+    <value>Diagnostic</value>
   </data>
-  <data name="TXT_TAGINFO">
-    <value>Etichete Media</value>
-  </data>
-  <data name="TXT_TITLE">
-    <value>Titlu</value>
-  </data>
-  <data name="TXT_TRACK">
-    <value>Index piesă</value>
-  </data>
-  <data name="TXT_VIDEO_SIZE">
-    <value>Dimensiune video</value>
-  </data>
-  <data name="TXT_YEAR">
-    <value>An</value>
-  </data>
-  <data name="TXT_PICTURE">
-    <value>Imagine</value>
-  </data>
-  <data name="TXT_PICTURE_TEXT">
-    <value>Descriere imagine</value>
-  </data>
-  <data name="TXT_PICTURE_TYPE">
-    <value>Tip imagine ID3</value>
-  </data>
-  <data name="TXT_TAGGINGPATTERNS">
+  <data name="TXT_TAGGINGPATTERNS" xml:space="preserve">
     <value>Şabloanele pentru etichetare se bazeaza pe combinatia acestor cuvinte cheie:
 
 &lt;N&gt; = nume fişier; 
 &lt;F&gt; = nume director;
-&lt;A&gt; = nume artist (din tag)
-&lt;B&gt; = nume album (din tag)
-&lt;T&gt; = titlu piesă (din tag)
-&lt;C&gt; = comentarii (din tag)
-&lt;G&gt; = gen muzical (din tag)
-&lt;#&gt; = index piesă (din tag)
-&lt;Y&gt; = an (din tag)
+&lt;A&gt; = nume artist (din eticheta);
+&lt;B&gt; = nume album (din eticheta);
+&lt;T&gt; = titlu piesa (din eticheta);
+&lt;C&gt; = comentarii (din eticheta);
+&lt;G&gt; = gen muzical (din eticheta);
+&lt;#&gt; = index piesa (din eticheta);
+&lt;Y&gt; = an (din eticheta).
 
 Se admit şi domenii de caractere precum: &lt;N2-12,14-20&gt;.</value>
   </data>
-  <data name="TXT_RESETVIDEOPOSITION">
-    <value>Reiniţializare pozitie 
-fereastră video</value>
+  <data name="TXT_TAGINFO" xml:space="preserve">
+    <value>Etichete Media</value>
   </data>
-  <data name="TXT_RESETVIDEOPOSITION_HINT">
-    <value>Utilizați această comandă pentru a aduce fereastra de redare video în ecranul activ curent.</value>
+  <data name="TXT_TIMESCALE" xml:space="preserve">
+    <value>Axa timpului.
+Click pentru redare de la momentul: {0}</value>
   </data>
-  <data name="TXT_SUBTITLE_AVAILABLE">
-    <value>Subtitrare disponibilă</value>
-  </data>
-  <data name="TXT_SUBTITLE_DOWNLOADING">
-    <value>Subtitrarea se descarcă, vă rugam aşteptaţi ...</value>
-  </data>
-  <data name="TXT_DISKS_OPTIONS">
-    <value>CD/DVD</value>
-  </data>
-  <data name="TXT_OPT_NONE">
-    <value>Nu citi info CD Audio</value>
-  </data>
-  <data name="TXT_OPT_CDTEXT">
-    <value>Numai din CD-Text</value>
-  </data>
-  <data name="TXT_OPT_CDDB">
-    <value>Numai de la Serverul CDDB</value>
-  </data>
-  <data name="TXT_OPT_CDTEXT_CDDB">
-    <value>Intâi din CD-Text, apoi de la serverul CDDB</value>
-  </data>
-  <data name="TXT_OPT_CDDB_CDTEXT">
-    <value>Intâi de la serverul CDDB, apoi din CD-Text</value>
-  </data>
-  <data name="TXT_AUDIOCDINFO_SOURCE">
-    <value>Citeşte info CD audio:</value>
-  </data>
-  <data name="TXT_CDDB_SERVERNAME">
-    <value>Adresă server CDDB:</value>
-  </data>
-  <data name="TXT_CDDB_SERVERPORT">
-    <value>Port server CDDB:</value>
-  </data>
-  <data name="TXT_OPT_RELOAD_CDINFO">
-    <value>Reîncarcă informațiile despre CD</value>
-  </data>
-  <data name="TXT_CDTRACKINFO">
-    <value>Info piesă de pe CD:</value>
-  </data>
-  <data name="TXT_S_AUDIOSETTINGS">
-    <value>Audio</value>
-  </data>
-  <data name="TXT_S_VIDEOSETTINGS">
-    <value>Video</value>
-  </data>
-  <data name="TXT_CAUTION_REALTIME">
-    <value>ATENȚIE: Aceste setări sunt aplicate în timp real. Nu trebuie să apăsați OK pentru a aplica aceste setări.</value>
-  </data>
-  <data name="TXT_SELECT_RADIO_STATION">
-    <value>Selectați un post de radio:</value>
-  </data>
-  <data name="TXT_URLPART">
-    <value>URL-ul serverului (corespondenţă parţială):</value>
-  </data>
-  <data name="TXT_SERVERTITLE">
-    <value>Nume Server (corespondenţă parţială):</value>
-  </data>
-  <data name="TXT_SEARCH_BY">
-    <value>Căutare după:</value>
-  </data>
-  <data name="TXT_ARTWORK_COUNT">
-    <value>{0} imagini (click pentru editare).</value>
-  </data>
-  <data name="TXT_EXTRAINFO">
-    <value>Informații suplimentare</value>
-  </data>
-  <data name="TXT_MEDIAINFO">
-    <value>Informaţii mediu</value>
-  </data>
-  <data name="TXT_TRACKINFO">
-    <value>Info Piesă</value>
-  </data>
-  <data name="TXT_SIGNALANALYSIS">
-    <value>Analiză Semnal</value>
-  </data>
-  <data name="TXT_PLAYLISTEVT_CAUTION">
-    <value>ATENȚIE: Programul începe întotdeauna cu evenimentul "lista de redare la sfârşit" dezactivat!</value>
-  </data>
-  <data name="TXT_SHOW_PLAYLIST">
-    <value>Arata fila "Listă de redare"</value>
-  </data>
-  <data name="TXT_SHOW_TRACKINFO">
-    <value>Arata fila "Info media"</value>
-  </data>
-  <data name="TXT_SHOW_SIGNALANALISYS">
-    <value>Arata fila "Analiză Semnal"</value>
-  </data>
-  <data name="TXT_HINT_PLAYLISTTAB">
-    <value>Această pagină permite interacțiunea cu lista de redare.</value>
-  </data>
-  <data name="TXT_HINT_TRACKINFOTAB">
-    <value>Această pagină afișează informații despre media și permite editarea unor părți ale acestor informații, dacă este cazul (de exemplu, câmpurile ID3 pentru MP3). Această pagină este dezactivată pentru media on-line (Shoutcast URL).</value>
-  </data>
-  <data name="TXT_HINT_SIGNALANALISYSTAB">
-    <value>Această pagină afișează diagrame de semnal, cum ar fi VU-Metrul, forma de undă și spectrograms. Analiza de semnal consumă o parte din timpul CPU, deci puteţi dezactiva această funcţionalitate (sau părți ale acesteia), în cazul în care aveți un calculator cu o viteză mai scăzută a procesorului.</value>
-  </data>
-  <data name="TXT_HINT_reperINFOTAB">
-    <value></value>
-  </data>
-  <data name="TXT_SHOW_VUMETER">
-    <value>Arată VU-Metrul</value>
-  </data>
-  <data name="TXT_SHOW_WAVEFORM">
-    <value>Arată forma de undă</value>
-  </data>
-  <data name="TXT_SHOW_SPECTROGRAM">
-    <value>Arată spectograma</value>
-  </data>
-  <data name="TXT_MEDIA_SCREENS">
-    <value>File principale</value>
-  </data>
-  <data name="TXT_CHOOSE_COLOR_FOR_OSD">
-    <value>Alege o culoare pentru OSD:</value>
-  </data>
-  <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
-    <value>Alege o culoare pentru subtitrare:</value>
-  </data>
-  <data name="TXT_SIGNALLEVEL">
-    <value>Nivel semnal:</value>
-  </data>
-  <data name="TXT_SIGNALWAVEFORM">
-    <value>Forma de undă a semnalului:</value>
-  </data>
-  <data name="TXT_SIGNALSPECTRUM">
-    <value>Spectrograma semnalului:</value>
-  </data>
-  <data name="TXT_CHOOSE_FONT_FOR_OSD">
-    <value>Alege un font pt. OSD:</value>
-  </data>
-  <data name="TXT_CHOOSE_FONT_FOR_SUBTITLE">
-    <value>Alege un font pt. subtitrare:</value>
-  </data>
-  <data name="TXT_BOOKMARKS">
-    <value>Repere</value>
-  </data>
-  <data name="TXT_ADD_BOOKMARK">
-    <value>Adaugă reper</value>
-  </data>
-  <data name="TXT_BOOKMARK_COUNT">
-    <value>{0} repere (click pentru editare).</value>
-  </data>
-  <data name="TXT_BOOKMARK_DEFAULT_TEXT">
-    <value>Descriere implicită reper</value>
-  </data>
-  <data name="TXT_BOOKMARK_DESC">
-    <value>Descriere reper:</value>
-  </data>
-  <data name="TXT_BOOKMARK_MANAGER">
-    <value>Manager Repere</value>
-  </data>
-  <data name="TXT_BOOKMARK_TIME">
-    <value>Timp reper:</value>
-  </data>
-  <data name="TXT_BOOKMARKLIST">
-    <value>Listă Repere</value>
-  </data>
-  <data name="TXT_CMDADDBOOKMARK">
-    <value>Adaugă un reper</value>
-  </data>
-  <data name="TXT_CMDBOOKMARKMANAGER">
-    <value>Deschide Managerul de Repere</value>
-  </data>
-  <data name="TXT_CMDHIDEBOOKMARKMANAGER">
-    <value>Ascunde Managerul de Repere</value>
-  </data>
-  <data name="TXT_NEW_BOOKMARK">
-    <value>Reper nou</value>
-  </data>
-  <data name="TXT_NEW_BOOKMARK_ADDED">
-    <value>Un nou reper a fost adăugat: {0}</value>
-  </data>
-  <data name="TXT_SHOW_BOOKMARKINFO">
-    <value>Arata fila "Repere"</value>
-  </data>
-  <data name="TXT_TIMESCALE_BOOKMARK">
+  <data name="TXT_TIMESCALE_BOOKMARK" xml:space="preserve">
     <value>Axa timpului.
 Click pentru redare de la reper: "{1}"
 Timpul reperului: {0}</value>
   </data>
-  <data name="TXT_HINT_BOOKMARKINFOTAB">
-    <value>Această pagină afișează informații despre repere și permite editarea lor. Acestă pagină este dezactivată pentru media care nu acceptă editarea de repere (CD-uri, DVD-uri, media on-line).</value>
+  <data name="TXT_TITLE" xml:space="preserve">
+    <value>Titlu</value>
+  </data>
+  <data name="TXT_TOTAL_TIME" xml:space="preserve">
+    <value>Timp total.</value>
+  </data>
+  <data name="TXT_TRACK" xml:space="preserve">
+    <value>Index piesă</value>
+  </data>
+  <data name="TXT_TRACKINFO" xml:space="preserve">
+    <value>Info Piesă</value>
+  </data>
+  <data name="TXT_UNSELECT_ALLAUDIO" xml:space="preserve">
+    <value>Fără fişiere audio</value>
+  </data>
+  <data name="TXT_UNSELECT_ALLPLAYLISTS" xml:space="preserve">
+    <value>Fără liste de redare</value>
+  </data>
+  <data name="TXT_UNSELECT_ALLVIDEO" xml:space="preserve">
+    <value>Fără fişiere video</value>
+  </data>
+  <data name="TXT_URLPART" xml:space="preserve">
+    <value>URL-ul serverului (corespondenţă parţială):</value>
+  </data>
+  <data name="TXT_USE_METADATA" xml:space="preserve">
+    <value>Foloseşte câmpurile metadata din fişier (ex. etichetele ID3)</value>
+  </data>
+  <data name="TXT_VIDEO_AVAILABLE" xml:space="preserve">
+    <value>Flux video prezent.</value>
+  </data>
+  <data name="TXT_VIDEO_FILES" xml:space="preserve">
+    <value>Fişiere video</value>
+  </data>
+  <data name="TXT_VIDEO_HD_FILES" xml:space="preserve">
+    <value>Fişiere video - înaltă definiţie</value>
+  </data>
+  <data name="TXT_VIDEO_SIZE" xml:space="preserve">
+    <value>Dimensiune video</value>
+  </data>
+  <data name="TXT_VIDEOSETTINGS" xml:space="preserve">
+    <value>Setări Video</value>
+  </data>
+  <data name="TXT_VOLSCALE" xml:space="preserve">
+    <value>Axa volumului.
+Daţi click pentru a seta volumul la {0} %</value>
+  </data>
+  <data name="TXT_YEAR" xml:space="preserve">
+    <value>An</value>
   </data>
 </root>

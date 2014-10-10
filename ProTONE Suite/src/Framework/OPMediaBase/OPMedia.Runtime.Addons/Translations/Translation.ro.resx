@@ -117,92 +117,95 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_INSTALL_ADDONLIB">
+  <data name="TXT_INSTALL_ADDONLIB" xml:space="preserve">
     <value>Instalare bibliotecă de extensii ...</value>
   </data>
-  <data name="TXT_INSTALLADDONFILTER">
+  <data name="TXT_INSTALLADDONFILTER" xml:space="preserve">
     <value>Extensii OPMedia (*.dll)|*.dll||</value>
   </data>
-  <data name="TXT_INSTALLADDONS">
+  <data name="TXT_INSTALLADDONS" xml:space="preserve">
     <value>Selectaţi o extensie OPMedia pentru instalare:</value>
   </data>
-  <data name="TXT_INVALID_ADDON">
-    <value>Fişierul DLL selectat nu reprezintă o bibliotecă de extensii OPMedia validă.
-Notă: Dacă dvs. credeti că ar fi trebuit sa fie o bibliotecă validă, sunteţi sfătuit să contactaţi producătorul sau distribuitorul acelui DLL.</value>
+  <data name="TXT_INVALID_ADDON" xml:space="preserve">
+    <value>Fişierul DLL selectat de dvs. nu reprezintă o bibliotecă de extensii OPMedia validă.
+Notă: Dacă dvs. credeti că ar fi trebuit sa fie o bibliotecă validă, 
+sunteţi sfătuit să contactaţi producătorul sau distribuitorul acelui DLL.</value>
   </data>
-  <data name="TXT_ADDON_NAME">
+  <data name="TXT_ADDON_NAME" xml:space="preserve">
     <value>Nume extensie</value>
   </data>
-  <data name="TXT_S_ADDON_SETTINGS">
+  <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
     <value>Configurare</value>
   </data>
-  <data name="TXT_ADDONS_CHANGED_RESTART">
+  <data name="TXT_ADDONS_CHANGED_RESTART" xml:space="preserve">
     <value>Pentru a modifica configuraţia extensiilor, programul trebuie să fie repornit.
 Este OK să fie repornit acum?</value>
   </data>
-  <data name="TXT_ADDONS_NOT_CHANGED">
+  <data name="TXT_ADDONS_NOT_CHANGED" xml:space="preserve">
     <value>Intrucat aţi anulat repornirea programului, configuraţia extensiilor dvs. nu va fi schimbată.</value>
   </data>
-  <data name="TXT_S_ADDONSETTINGS">
+  <data name="TXT_S_ADDONSETTINGS" xml:space="preserve">
     <value>Extensii</value>
   </data>
-  <data name="TXT_ADDONSLIST">
+  <data name="TXT_ADDONSLIST" xml:space="preserve">
     <value>Extensiile bifate sunt active. Folositi casetele pentru a activa/dezactiva extensiile. Extensiile marcate cu * sunt necesare si nu pot fi dezactivate. Programul va trebui repornit pentru a aplica noua configuraţie a extensiilor.</value>
   </data>
-  <data name="TXT_ADDONSLIST_NORESTART">
+  <data name="TXT_ADDONSLIST_NORESTART" xml:space="preserve">
     <value>Extensiile bifate sunt active. Folositi casetele pentru a activa/dezactiva extensiile. Extensiile marcate cu * sunt necesare si nu pot fi dezactivate.</value>
   </data>
-  <data name="TXT_CANT_INSTALL_BUILTIN">
+  <data name="TXT_CANT_INSTALL_BUILTIN" xml:space="preserve">
     <value>Biblioteca selectată nu poate fi instalată, intrucât este o bibliotecă nativă.
 O bibliotecă nativă încapsulează funcţionalitatea de bază a unei aplicaţii extensibile, şi nu poate fi instalată sau dezinstalată.</value>
   </data>
-  <data name="TXT_CANT_UNINSTALL_BUILTIN">
+  <data name="TXT_CANT_UNINSTALL_BUILTIN" xml:space="preserve">
     <value>Biblioteca selectată nu poate fi dezinstalată, intrucât este o bibliotecă nativă.
-Pentru a activa/dezactiva extensiile acestei biblioteci, folosiţi casetele asociate acestora.</value>
+O bibliotecă nativă încapsulează funcţionalitatea de bază a unei aplicaţii extensibile, şi nu poate fi instalată sau dezinstalată.
+În loc de dezinstalare, luaţi in considerare activarea/dezactivarea diferitelor functionalităţi, folosind casetele asociate acestora.
+Atenţie: unele functionalităţi sunt mereu necesare si nu pot fi dezactivate.</value>
   </data>
-  <data name="TXT_INVALID_NAME">
+  <data name="TXT_INVALID_NAME" xml:space="preserve">
     <value>Fişierul DLL selectat nu reprezintă o bibliotecă de extensii OPMedia validă.
-Numele unei biblioteci de extensii OPMedia valide trebuie să respecte convenţia: &lt;Nume_Bibliotecă&gt;Extension.dll.</value>
+O bibliotecă de extensii OPMedia validă trebuie să respecte convenţia de nume: &lt;Nume_Bibliotecă&gt;Extension.dll.</value>
   </data>
-  <data name="TXT_NAV_ADDONS">
+  <data name="TXT_NAV_ADDONS" xml:space="preserve">
     <value>Navigaţie</value>
   </data>
-  <data name="TXT_PREVIEW_ADDONS">
+  <data name="TXT_PREVIEW_ADDONS" xml:space="preserve">
     <value>Redare / Vizualizare</value>
   </data>
-  <data name="TXT_PROP_ADDONS">
+  <data name="TXT_PROP_ADDONS" xml:space="preserve">
     <value>Interacţiune cu proprietăţile fişierelor</value>
   </data>
-  <data name="TXT_SHAREDADDONS">
+  <data name="TXT_SHAREDADDONS" xml:space="preserve">
     <value>Biblioteca de extensii pe care doriţi să o dezinstalaţi ofera mai multe functionalităţi: 
 
 {0}
 
 Daca veţi continua, aceste funcţionalităţi nu vor mai fi disponibile. Doriţi să continuaţi ?</value>
   </data>
-  <data name="TXT_NO_NAV_ADDONS">
+  <data name="TXT_NO_NAV_ADDONS" xml:space="preserve">
     <value>Nici o extensie de navigaţie nu este activă. Aplicaţia nu poate funcţiona fără acestea.
 Trebuie să activaţi cel puţin o extensie de navigaţie pentru a putea continua.</value>
   </data>
-  <data name="TXT_NOTIFY_NON_PREVIEW">
+  <data name="TXT_NOTIFY_NON_PREVIEW" xml:space="preserve">
     <value>Obiectul selectat nu poate fi vizualizat. 
 Trebuie să folosiţi un alt program pentru a-l vizualiza.</value>
   </data>
-  <data name="TXT_NOTIFY_PREVIEW">
+  <data name="TXT_NOTIFY_PREVIEW" xml:space="preserve">
     <value>Pentru a vizualiza obiectul selectat, daţi dublu click pe acesta sau apăsați Enter.</value>
   </data>
-  <data name="TXT_PREPARE_PREVIEW">
+  <data name="TXT_PREPARE_PREVIEW" xml:space="preserve">
     <value>Vizualizarea automată a obiectului selectat va porni în cateva secunde. 
 Apăsați Escape pentru a opri vizualizarea ...</value>
   </data>
-  <data name="TXT_PREVIEW_CANCELED">
+  <data name="TXT_PREVIEW_CANCELED" xml:space="preserve">
     <value>Vizualizarea automată a obiectului selectat a fost oprită.
 Selectaţi alt obiect sau apăsați Enter pentru a vizualiza obiectul curent.</value>
   </data>
-  <data name="TXT_SELECTALLADDONS">
+  <data name="TXT_SELECTALLADDONS" xml:space="preserve">
     <value>Selectează toate extensiile</value>
   </data>
-  <data name="TXT_UNINSTALL_ADDONLIB">
+  <data name="TXT_UNINSTALL_ADDONLIB" xml:space="preserve">
     <value>Dezinstalare bibliotecă de extensii ...</value>
   </data>
 </root>

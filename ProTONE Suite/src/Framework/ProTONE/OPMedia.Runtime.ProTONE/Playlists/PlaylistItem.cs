@@ -316,7 +316,8 @@ namespace OPMedia.Runtime.ProTONE.Playlists
             Dictionary<PlaylistSubItem, List<PlaylistSubItem>> submenu =
                             new Dictionary<PlaylistSubItem, List<PlaylistSubItem>>();
 
-            PlaylistSubItem title = new BookmarkSubItem(this, "Bookmarks");
+            PlaylistSubItem title = new BookmarkSubItem(this, 
+                Translator.Translate("TXT_BOOKMARKS"));
 
             List<PlaylistSubItem> bookmarks = new List<PlaylistSubItem>();
 

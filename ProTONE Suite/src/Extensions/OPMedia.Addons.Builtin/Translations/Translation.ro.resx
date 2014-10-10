@@ -117,448 +117,444 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_ABORTED">
+  <data name="TXT_ABORTED" xml:space="preserve">
     <value>Scanare abandonată.</value>
   </data>
-  <data name="TXT_ADDON_FE_SETTINGS">
+  <data name="TXT_ADDON_FE_SETTINGS" xml:space="preserve">
     <value>Explorator Fişiere</value>
   </data>
-  <data name="TXT_ADDON_MC_SETTINGS">
+  <data name="TXT_ADDON_MC_SETTINGS" xml:space="preserve">
     <value>Explorator Cataloage</value>
   </data>
-  <data name="TXT_ATTRIBUTESEARCH">
+  <data name="TXT_ATTRIBUTESEARCH" xml:space="preserve">
     <value>Filtrează rezultatele după atributele fişierelor</value>
   </data>
-  <data name="TXT_CAPITALIZEWORDS">
+  <data name="TXT_CAPITALIZEWORDS" xml:space="preserve">
     <value>Toate Cuvintele Cu Majuscule</value>
   </data>
-  <data name="TXT_CASEINSENSITIVESEARCH">
+  <data name="TXT_CASEINSENSITIVESEARCH" xml:space="preserve">
     <value>Ignoră majuscule/minuscule</value>
   </data>
-  <data name="TXT_CATALOG">
+  <data name="TXT_CATALOG" xml:space="preserve">
     <value>Importă Catalog</value>
   </data>
-  <data name="TXT_CATALOGPATH">
+  <data name="TXT_CATALOGPATH" xml:space="preserve">
     <value>Obiectele importate vor fi adăugate la catalog sub calea: {0}</value>
   </data>
-  <data name="TXT_CATALOGSCHEMAVERSION">
+  <data name="TXT_CATALOGSCHEMAVERSION" xml:space="preserve">
     <value>Versiune schemă catalog</value>
   </data>
-  <data name="TXT_CATALOG_FILTER">
+  <data name="TXT_CATALOG_FILTER" xml:space="preserve">
     <value>Fişiere catalog (*.ctx)|*.ctx||</value>
   </data>
-  <data name="TXT_CMDCATALOGMERGE">
+  <data name="TXT_CMDCATALOGMERGE" xml:space="preserve">
     <value>Alipire cataloage</value>
   </data>
-  <data name="TXT_CMDCATALOGWIZARD">
+  <data name="TXT_CMDCATALOGWIZARD" xml:space="preserve">
     <value>Lansează utilitarul de importare catalog</value>
   </data>
-  <data name="TXT_CMDCHANGEDISK">
+  <data name="TXT_CMDCHANGEDISK" xml:space="preserve">
     <value>Schimbă discul logic</value>
   </data>
-  <data name="TXT_CMDTAGGINGWIZARD">
+  <data name="TXT_CMDTAGGINGWIZARD" xml:space="preserve">
     <value>Lansează utilitarul de etichetare</value>
   </data>
-  <data name="TXT_CMDNAVIGATEBACK">
+  <data name="TXT_CMDNAVIGATEBACK" xml:space="preserve">
     <value>Navigare înapoi</value>
   </data>
-  <data name="TXT_CMDNAVIGATEFORWARD">
+  <data name="TXT_CMDNAVIGATEFORWARD" xml:space="preserve">
     <value>Navigare înainte</value>
   </data>
-  <data name="TXT_CMDNAVIGATEUP">
+  <data name="TXT_CMDNAVIGATEUP" xml:space="preserve">
     <value>Mergi la directorul părinte</value>
   </data>
-  <data name="TXT_DRIVES">
+  <data name="TXT_DRIVES" xml:space="preserve">
     <value>Schimbă discul logic</value>
   </data>
-  <data name="TXT_ENTRY_DESC">
+  <data name="TXT_ENTRY_DESC" xml:space="preserve">
     <value>Daţi o descriere pentru elementul ce va fi adaugat:</value>
   </data>
-  <data name="TXT_ERROR_INVALID_CATALOG">
+  <data name="TXT_ERROR_INVALID_CATALOG" xml:space="preserve">
     <value>Acest fişier nu reprezintă un catalog media valid:
-
-{0}</value>
+'{0}'</value>
   </data>
-  <data name="TXT_ERROR_MERGE_SAME_CATALOG">
+  <data name="TXT_ERROR_MERGE_SAME_CATALOG" xml:space="preserve">
     <value>Nu se poate alipi un catalog cu el insusi:
-
-{0}</value>
+'{0}'</value>
   </data>
-  <data name="TXT_ERR_MERGE_FAILED">
+  <data name="TXT_ERR_MERGE_FAILED" xml:space="preserve">
     <value>Alipirea cataloagelor a eşuat. Detalii:
-
-{0}</value>
+'{0}'</value>
   </data>
-  <data name="TXT_FILENAMEPATTERN">
+  <data name="TXT_FILENAMEPATTERN" xml:space="preserve">
     <value>Şablon nume fişier:</value>
   </data>
-  <data name="TXT_FOLDERNAMEPATTERN">
+  <data name="TXT_FOLDERNAMEPATTERN" xml:space="preserve">
     <value>Şablon nume director:</value>
   </data>
-  <data name="TXT_FSTAGEDITOR">
+  <data name="TXT_FSTAGEDITOR" xml:space="preserve">
     <value>Generează etichete folosind numele fișierului / directorului</value>
   </data>
-  <data name="TXT_TAGGEDFILESFILTER">
+  <data name="TXT_TAGGEDFILESFILTER" xml:space="preserve">
     <value>Fişiere audio etichetate (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
   </data>
-  <data name="TXT_TAGGINGWIZARD">
+  <data name="TXT_TAGGINGWIZARD" xml:space="preserve">
     <value>Utilitar de etichetare</value>
   </data>
-  <data name="TXT_IMPORTWIZARD">
+  <data name="TXT_IMPORTWIZARD" xml:space="preserve">
     <value>Utilitar import catalog</value>
   </data>
-  <data name="TXT_INIT_SEARCH">
+  <data name="TXT_INIT_SEARCH" xml:space="preserve">
     <value>Iniţializare căutare - vă rugăm aşteptaţi ...</value>
   </data>
-  <data name="TXT_ITEMNAME">
+  <data name="TXT_ITEMNAME" xml:space="preserve">
     <value>Nume obiect</value>
   </data>
-  <data name="TXT_JUMPTOITEM">
+  <data name="TXT_JUMPTOITEM" xml:space="preserve">
     <value>Salt la obiect</value>
   </data>
-  <data name="TXT_KEEPCASE">
+  <data name="TXT_KEEPCASE" xml:space="preserve">
     <value>Pastrează majusculele/minusculele existente</value>
   </data>
-  <data name="TXT_LAUNCH_WIZARD">
-    <value>Lanseaza utilitarul de etichetare ...</value>
+  <data name="TXT_LAUNCH_WIZARD" xml:space="preserve">
+    <value>Utilitar etichetare ...</value>
   </data>
-  <data name="TXT_MAINTAIN_CATALOG_HISTORY">
+  <data name="TXT_MAINTAIN_CATALOG_HISTORY" xml:space="preserve">
     <value>Reţine istoricul cataloagelor deschise</value>
   </data>
-  <data name="TXT_MAXPROCESSEDFILES">
+  <data name="TXT_MAXPROCESSEDFILES" xml:space="preserve">
     <value>Nr. max. de fişiere ale căror proprietăţi pot fi afişate:</value>
   </data>
-  <data name="TXT_MEDIALABEL">
+  <data name="TXT_MEDIALABEL" xml:space="preserve">
     <value>Etichetă originală mediu</value>
   </data>
-  <data name="TXT_MEDIAPATH">
+  <data name="TXT_MEDIAPATH" xml:space="preserve">
     <value>Cale originală în cadrul mediului - '$' semnifică 'rădăcina discului portabil'</value>
   </data>
-  <data name="TXT_MEDIA_WITHOUT_reperS">
+  <data name="TXT_MEDIA_WITHOUT_BOOKMARKS" xml:space="preserve">
     <value>Fişiere media fără repere</value>
   </data>
-  <data name="TXT_MEDIA_WITH_reperS">
+  <data name="TXT_MEDIA_WITH_BOOKMARKS" xml:space="preserve">
     <value>Fişiere media cu repere</value>
   </data>
-  <data name="TXT_MERGECATALOG">
+  <data name="TXT_MERGECATALOG" xml:space="preserve">
     <value>Selectaţi un catalog pentru alipire:</value>
   </data>
-  <data name="TXT_MERGECATALOGS">
+  <data name="TXT_MERGECATALOGS" xml:space="preserve">
     <value>Alipire Cataloage</value>
   </data>
-  <data name="TXT_MULTIRENAME">
+  <data name="TXT_MULTIRENAME" xml:space="preserve">
     <value>Redenumire fişiere</value>
   </data>
-  <data name="TXT_NON_ORPHAN_reperS">
+  <data name="TXT_NON_ORPHAN_BOOKMARKS" xml:space="preserve">
     <value>Fişiere reper non-orfane</value>
   </data>
-  <data name="TXT_NO_CATALOG">
+  <data name="TXT_NO_CATALOG" xml:space="preserve">
     <value>Catalogul nu este incă ales, apasaţi Răsfoire pentru a alege unul.</value>
   </data>
-  <data name="TXT_NO_ITEMS_FOUND">
+  <data name="TXT_NO_ITEMS_FOUND" xml:space="preserve">
     <value>Nici un element găsit. Schimbaţi parametrii de căutare şi incercaţi iarăşi.</value>
   </data>
-  <data name="TXT_OPENCATALOG">
+  <data name="TXT_OPENCATALOG" xml:space="preserve">
     <value>Deschide catalog ...</value>
   </data>
-  <data name="TXT_OPENCATALOGS">
+  <data name="TXT_OPENCATALOGS" xml:space="preserve">
     <value>cataloage deschise.</value>
   </data>
-  <data name="TXT_OPENRECENTFILEDROPDOWN">
+  <data name="TXT_OPENRECENTFILEDROPDOWN" xml:space="preserve">
     <value>Apăsaţi butonul cu săgeata in jos pentru a afişa lista fişierelor recent deschise.</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINreperSADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTINreperSADDONPANEL" xml:space="preserve">
     <value>Arată proprietăţile fişierelor reper (.BMK) în Explorator Fişiere</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL" xml:space="preserve">
     <value>Explorator Fişiere</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINTAGGEDFILEPROPADDONPANEL">
-    <value>Editarea etichetelor fişiere audio în Explorator Fişiere</value>
+  <data name="TXT_OPMEDIAADDONSBUILTINTAGGEDFILEPROPADDONPANEL" xml:space="preserve">
+    <value>Editează etichetele fişierelor audio în Explorator Fişiere</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL">
-    <value>Vizualizare fişiere imagine (JPG, GIF, BMP, PNG, etc.)</value>
+  <data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL" xml:space="preserve">
+    <value>Vitualizează fişierele imagine (JPG, GIF, BMP, PNG, etc.)</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERADDONPANEL" xml:space="preserve">
     <value>Explorator Cataloage</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL" xml:space="preserve">
     <value>Arată proprietăţile obiectelor catalog în Explorator Cataloage</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL" xml:space="preserve">
     <value>Arată proprietăţile fişierelor catalog (.CTX) în Explorator Fişiere</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL" xml:space="preserve">
     <value>Redă fişierele media cu extensia ProTONE Player integrată</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINVIDEOPROPADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTINVIDEOPROPADDONPANEL" xml:space="preserve">
     <value>Arată proprietăţile fişierelor video în Explorator Fişiere</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPREVIEWADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPREVIEWADDONPANEL" xml:space="preserve">
     <value>Deschide fişierele cu programul Windows asociat</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL" xml:space="preserve">
     <value>Arată proprietăţile legate de sistemul de fişiere</value>
   </data>
-  <data name="TXT_ORPHAN_reperS">
+  <data name="TXT_ORPHAN_BOOKMARKS" xml:space="preserve">
     <value>Fişiere reper orfane</value>
   </data>
-  <data name="TXT_PREVIEW">
+  <data name="TXT_PREVIEW" xml:space="preserve">
     <value>Vizualizare rezultate ...</value>
   </data>
-  <data name="TXT_PREVIEW_DESC_EDITTAG">
+  <data name="TXT_PREVIEW_DESC_EDITTAG" xml:space="preserve">
     <value>Vizualizare rezultate acţiune 'Editare etichete':</value>
   </data>
-  <data name="TXT_PREVIEW_DESC_FILLTAGBYFS">
+  <data name="TXT_PREVIEW_DESC_FILLTAGBYFS" xml:space="preserve">
     <value>Vizualizare rezultate acţiune 'Generează etichete folosind numele fișierului / directorului':</value>
   </data>
-  <data name="TXT_PREVIEW_DESC_MULTIRENAME">
+  <data name="TXT_PREVIEW_DESC_MULTIRENAME" xml:space="preserve">
     <value>Vizualizare rezultate acţiune 'Redenumire fişiere':</value>
   </data>
-  <data name="TXT_PREVIEW_FORM">
+  <data name="TXT_PREVIEW_FORM" xml:space="preserve">
     <value>Vizualizare rezultate</value>
   </data>
-  <data name="TXT_PREVIEW_TIMER">
+  <data name="TXT_PREVIEW_TIMER" xml:space="preserve">
     <value>Temporizare vizualizare automată (secunde)
 (0 = Dezactivează vizualizarea automată):</value>
   </data>
-  <data name="TXT_PROPERTYSEARCH">
+  <data name="TXT_PROPERTYSEARCH" xml:space="preserve">
     <value>Cauta în Metadata (ex. etichete)</value>
   </data>
-  <data name="TXT_RECURSIVESEARCH">
+  <data name="TXT_RECURSIVESEARCH" xml:space="preserve">
     <value>Caută în subdirectoare</value>
   </data>
-  <data name="TXT_REMOVE_FILES">
+  <data name="TXT_REMOVE_FILES" xml:space="preserve">
     <value>Şterge fişiere</value>
   </data>
-  <data name="TXT_RENAME">
+  <data name="TXT_RENAME" xml:space="preserve">
     <value>Redenumire</value>
   </data>
-  <data name="TXT_RENAMEPATTERN">
+  <data name="TXT_RENAMEPATTERN" xml:space="preserve">
     <value>Şablon redenumire:</value>
   </data>
-  <data name="TXT_REOPEN_LAST_CATALOG">
+  <data name="TXT_REOPEN_LAST_CATALOG" xml:space="preserve">
     <value>La pornirea programului, deschide ultimul catalog încărcat</value>
   </data>
-  <data name="TXT_RETAIN_LAST">
+  <data name="TXT_RETAIN_LAST" xml:space="preserve">
     <value>Reţine ultimele</value>
   </data>
-  <data name="TXT_ROOT">
+  <data name="TXT_ROOT" xml:space="preserve">
     <value>Director radacină al catalogului</value>
   </data>
-  <data name="TXT_SAVECATALOG">
+  <data name="TXT_SAVECATALOG" xml:space="preserve">
     <value>Salvează catalogul ca ...</value>
   </data>
-  <data name="TXT_SCAN_ERROR">
+  <data name="TXT_SCAN_ERROR" xml:space="preserve">
     <value>Eroare la scanare</value>
   </data>
-  <data name="TXT_SCAN_ERROR_MSG">
+  <data name="TXT_SCAN_ERROR_MSG" xml:space="preserve">
     <value>O eroare non-fatală s-a produs la scanarea obiectului: {0}.
 Mesajul de eroare este: {1}. 
 
 Doriţi continuarea scanării ?</value>
   </data>
-  <data name="TXT_SEARCHFOLDER">
+  <data name="TXT_SEARCHFOLDER" xml:space="preserve">
     <value>Caută în director:</value>
   </data>
-  <data name="TXT_SEARCHPATTERN_FE">
+  <data name="TXT_SEARCHPATTERN_FE" xml:space="preserve">
     <value>Specificaţi numele căutat (metacaractere permise: *, ?) sau alegeţi unul dintre şabloanele predefinite:</value>
   </data>
-  <data name="TXT_SEARCHPATTERN_MC">
+  <data name="TXT_SEARCHPATTERN_MC" xml:space="preserve">
     <value>Specificaţi numele căutat fără metacaractere:</value>
   </data>
-  <data name="TXT_SEARCHVALUE">
+  <data name="TXT_SEARCHVALUE" xml:space="preserve">
     <value>Textul căutat:</value>
   </data>
-  <data name="TXT_SEARCHWIZARD_FE">
+  <data name="TXT_SEARCHWIZARD_FE" xml:space="preserve">
     <value>Caută fişiere şi directoare</value>
   </data>
-  <data name="TXT_SEARCHWIZARD_MC">
+  <data name="TXT_SEARCHWIZARD_MC" xml:space="preserve">
     <value>Caută obiecte în catalog</value>
   </data>
-  <data name="TXT_SEARCH_reperS">
+  <data name="TXT_SEARCH_BOOKMARKS" xml:space="preserve">
     <value>Caută fişiere reper (*.BMK)</value>
   </data>
-  <data name="TXT_SEARCH_MEDIAFILES">
+  <data name="TXT_SEARCH_MEDIAFILES" xml:space="preserve">
     <value>Caută fişiere media</value>
   </data>
-  <data name="TXT_SELECTCATALOG">
+  <data name="TXT_SELECTCATALOG" xml:space="preserve">
     <value>Specificaţi catalogul unde se vor adăuga elementele importate:</value>
   </data>
-  <data name="TXT_SELECTTAGGEDFILES">
+  <data name="TXT_SELECTTAGGEDFILES" xml:space="preserve">
     <value>Selectaţi fişierele audio pentru editare ...</value>
   </data>
-  <data name="TXT_SELECTTAGGEDFILESFOLDER">
+  <data name="TXT_SELECTTAGGEDFILESFOLDER" xml:space="preserve">
     <value>Selectaţi un director ce contine fişiere audio pentru editare ...</value>
   </data>
-  <data name="TXT_SELECTINSERTPOINT">
+  <data name="TXT_SELECTINSERTPOINT" xml:space="preserve">
     <value>Selectaţi punctul de insertie în cadrul catalogului selectat
 (apasaţi F5 pentru reîncărcarea listei):</value>
   </data>
-  <data name="TXT_SENTENCECASE">
+  <data name="TXT_SENTENCECASE" xml:space="preserve">
     <value>Primul cuvânt cu majusculă</value>
   </data>
-  <data name="TXT_SHORTCUT">
+  <data name="TXT_SHORTCUT" xml:space="preserve">
     <value>Scurtătură: {0}</value>
   </data>
-  <data name="TXT_SUPPLY_CATALOG_DESC">
+  <data name="TXT_SUPPLY_CATALOG_DESC" xml:space="preserve">
     <value>Specificaţi o descriere pentru catalog...</value>
   </data>
-  <data name="TXT_TAGEDITOR">
+  <data name="TXT_TAGEDITOR" xml:space="preserve">
     <value>Editare etichete</value>
   </data>
-  <data name="TXT_TOTAL_ITEMS_FOUND">
+  <data name="TXT_TOTAL_ITEMS_FOUND" xml:space="preserve">
     <value>Total: {0} obiect(e) găsite. Folosiţi meniul contextual pentru a procesa aceste elemente.</value>
   </data>
-  <data name="TXT_UNHANDLED">
+  <data name="TXT_UNHANDLED" xml:space="preserve">
     <value>Acest tip de sarcină nu poate fi indeplinit.</value>
   </data>
-  <data name="TXT_VER_NA">
+  <data name="TXT_VER_NA" xml:space="preserve">
     <value>Informaţia de versiune lipseşte (Catalog vechi)</value>
   </data>
-  <data name="TXT_WAIT_LOADING_CATALOG">
+  <data name="TXT_WAIT_LOADING_CATALOG" xml:space="preserve">
     <value>Va rugăm aşteptaţi incărcarea catalogului ...</value>
   </data>
-  <data name="TXT_WAIT_MERGING_CATALOG">
+  <data name="TXT_WAIT_MERGING_CATALOG" xml:space="preserve">
     <value>Va rugăm aşteptaţi alipirea cataloagelor ...</value>
   </data>
-  <data name="TXT_WIZCATSTEP1_DESC">
+  <data name="TXT_WIZCATSTEP1_DESC" xml:space="preserve">
     <value>Specificaţi catalogul unde se vor adăuga elementele importate:</value>
   </data>
-  <data name="TXT_WIZCATSTEP2_DESC">
+  <data name="TXT_WIZCATSTEP2_DESC" xml:space="preserve">
     <value>Selectaţi directorul sau discul conţinând fişierele ce trebuiesc importate: 
 (apasaţi F5 pentru a reîncărca lista):</value>
   </data>
-  <data name="TXT_WIZTAGGINGSTEP1_DESC">
+  <data name="TXT_WIZTAGGINGSTEP1_DESC" xml:space="preserve">
     <value>Specificaţi fişierele ce trebuiesc editate. Folosiţi butoanele 'Adaugă Fişier', 
 'Adaugă Director', 'Şterge fişiere' pentru a configura lista de fişiere.</value>
   </data>
-  <data name="TXT_WIZTAGGINGSTEP2_DESC">
+  <data name="TXT_WIZTAGGINGSTEP2_DESC" xml:space="preserve">
     <value>Specificaţi cum trebuie procesate aceste fişiere:</value>
   </data>
-  <data name="TXT_WORDHANDLING">
+  <data name="TXT_WORDHANDLING" xml:space="preserve">
     <value>Schimbare majuscule/minuscule:</value>
   </data>
-  <data name="TXT_CATALOG_DESC">
+  <data name="TXT_CATALOG_DESC" xml:space="preserve">
     <value>Descriere catalog</value>
   </data>
-  <data name="TXT_CATALOGINFO">
+  <data name="TXT_CATALOGINFO" xml:space="preserve">
     <value>Informaţii fişier catalog</value>
   </data>
-  <data name="TXT_TAGINFO_PATTERNS">
+  <data name="TXT_TAGINFO_PATTERNS" xml:space="preserve">
     <value>Şabloane de etichetare</value>
   </data>
-  <data name="TXT_INTERNALLABEL">
+  <data name="TXT_INTERNALLABEL" xml:space="preserve">
     <value>Etichetă internă mediu</value>
   </data>
-  <data name="TXT_ISORPHAN">
+  <data name="TXT_ISORPHAN" xml:space="preserve">
     <value>Fişier orfan</value>
   </data>
-  <data name="TXT_ITEMDATA">
+  <data name="TXT_ITEMDATA" xml:space="preserve">
     <value>Date adiţionale</value>
   </data>
-  <data name="TXT_ITEMTYPE_DESC">
-    <value> Tipul obiectului</value>
+  <data name="TXT_ITEMTYPE_DESC" xml:space="preserve">
+    <value>Tipul obiectului</value>
   </data>
-  <data name="TXT_MEDIAPATH_SHORT">
+  <data name="TXT_MEDIAPATH_SHORT" xml:space="preserve">
     <value>Cale originală în cadrul mediului</value>
   </data>
-  <data name="TXT_PARENTMEDIAFILE">
+  <data name="TXT_PARENTMEDIAFILE" xml:space="preserve">
     <value>Fişier media părinte</value>
   </data>
-  <data name="TXT_ROOTSERIALNUMBER">
+  <data name="TXT_ROOTSERIALNUMBER" xml:space="preserve">
     <value>Număr serial al mediului</value>
   </data>
-  <data name="TXT_TOTALCHILDRENCOUNT">
+  <data name="TXT_TOTALCHILDRENCOUNT" xml:space="preserve">
     <value>Total elemente</value>
   </data>
-  <data name="TXT_TOTALFILECOUNT">
-    <value> Total fişiere</value>
+  <data name="TXT_TOTALFILECOUNT" xml:space="preserve">
+    <value>Total fişiere</value>
   </data>
-  <data name="TXT_TOTALSUBFOLDERCOUNT">
-    <value> Total subdirectoare</value>
+  <data name="TXT_TOTALSUBFOLDERCOUNT" xml:space="preserve">
+    <value>Total subdirectoare</value>
   </data>
-  <data name="TXT_CATALOGITEMINFO">
+  <data name="TXT_CATALOGITEMINFO" xml:space="preserve">
     <value>Informaţii editabile</value>
   </data>
-  <data name="TXT_CATALOGITEMINFO_RO">
+  <data name="TXT_CATALOGITEMINFO_RO" xml:space="preserve">
     <value>Informaţii needitabile</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL" xml:space="preserve">
     <value>Arată proprietățile fișierelor CD Audio (CDA) în Explorator Fișiere</value>
   </data>
-  <data name="TXT_CDRIPPERWIZARD">
+  <data name="TXT_CDRIPPERWIZARD" xml:space="preserve">
     <value>CD Ripper</value>
   </data>
-  <data name="TXT_GRABBERHINT_STEP1">
+  <data name="TXT_GRABBERHINT_STEP1" xml:space="preserve">
     <value>Daţi clic pe celulele listei pentru a le edita.
-
 Daţi dublu-clic pe imagini pentru a alege dacă importaţi o pistă sau nu.</value>
   </data>
-  <data name="TXT_OPTIONS_VBR">
+  <data name="TXT_OPTIONS_VBR" xml:space="preserve">
     <value>Opțiuni VBR</value>
   </data>
-  <data name="TXT_SELECTDRIVE">
+  <data name="TXT_SELECTDRIVE" xml:space="preserve">
     <value>Selectați o unitate CD audio:</value>
   </data>
-  <data name="TXT_SELECTTRACKS">
+  <data name="TXT_SELECTTRACKS" xml:space="preserve">
     <value>Selectați pistele ce doriţi să le capturaţi de pe CD:</value>
   </data>
-  <data name="TXT_SAVETOFOLDER">
+  <data name="TXT_SAVETOFOLDER" xml:space="preserve">
     <value>Salvează fișierele de ieșire în:</value>
   </data>
-  <data name="TXT_OUTPUT_FORMAT">
+  <data name="TXT_OUTPUT_FORMAT" xml:space="preserve">
     <value>Format de ieșire:</value>
   </data>
-  <data name="TXT_ENCODEROPTIONS">
-    <value>Opțiuni Encoder: </value>
+  <data name="TXT_ENCODEROPTIONS" xml:space="preserve">
+    <value>Opțiuni Encoder:</value>
   </data>
-  <data name="TXT_BITRATE_MODE">
+  <data name="TXT_BITRATE_MODE" xml:space="preserve">
     <value>Mod rată binară:</value>
   </data>
-  <data name="TXT_CHANNEL_MODE">
+  <data name="TXT_CHANNEL_MODE" xml:space="preserve">
     <value>Mod audio:</value>
   </data>
-  <data name="TXT_VBRQUALITY">
+  <data name="TXT_VBRQUALITY" xml:space="preserve">
     <value>Calitate VBR:</value>
   </data>
-  <data name="TXT_VBRMAX">
+  <data name="TXT_VBRMAX" xml:space="preserve">
     <value>Max. VBR (kbps):</value>
   </data>
-  <data name="TXT_VBRMIN:">
+  <data name="TXT_VBRMIN:" xml:space="preserve">
     <value>Min. VBR (kbps):</value>
   </data>
-  <data name="TXT_VBRMODE">
+  <data name="TXT_VBRMODE" xml:space="preserve">
     <value>Mod VBR:</value>
   </data>
-  <data name="TXT_BITCOPYRIGHT">
+  <data name="TXT_BITCOPYRIGHT" xml:space="preserve">
     <value>Bit Copyright</value>
   </data>
-  <data name="TXT_MP3FLAGS">
-    <value>Fanioane MP3: </value>
+  <data name="TXT_MP3FLAGS" xml:space="preserve">
+    <value>Fanioane MP3:</value>
   </data>
-  <data name="TXT_BITORIGINAL">
+  <data name="TXT_BITORIGINAL" xml:space="preserve">
     <value>Bit original</value>
   </data>
-  <data name="TXT_BITPRIVATE">
+  <data name="TXT_BITPRIVATE" xml:space="preserve">
     <value>Bit privat</value>
   </data>
-  <data name="TXT_BITCRC">
+  <data name="TXT_BITCRC" xml:space="preserve">
     <value>Bit CRC</value>
   </data>
-  <data name="TXT_OPTIONS_ADDITIONAL">
+  <data name="TXT_OPTIONS_ADDITIONAL" xml:space="preserve">
     <value>Opțiuni suplimentare</value>
   </data>
-  <data name="TXT_LAME_DISCLAIMER">
+  <data name="TXT_LAME_DISCLAIMER" xml:space="preserve">
     <value>ProTONE Suite foloseşte L.A.M.E. pentru codarea MP3.</value>
   </data>
-  <data name="TXT_CONFIG_NOT_REQUIRED">
+  <data name="TXT_CONFIG_NOT_REQUIRED" xml:space="preserve">
     <value>Acest format nu are nevoie de nici o opțiune de configurare.</value>
   </data>
-  <data name="TXT_GENERATE_TAG">
-    <value>Generează taguri folosind proprietăţile pistelor de pe CD</value>
+  <data name="TXT_GENERATE_TAG" xml:space="preserve">
+    <value>Generează etichete folosind proprietăţile pistelor de pe CD</value>
   </data>
-  <data name="TXT_PROCESSING_TRACK">
-    <value>Se importă pista nr. {0} de pe CD în fişierul: {1}</value>
+  <data name="TXT_PROCESSING_TRACK" xml:space="preserve">
+    <value>Se importă pista nr. {0} de pe CD în fişierul: '{1}'</value>
   </data>
 </root>

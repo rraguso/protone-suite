@@ -133,7 +133,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Embedded images.
+        ///   Looks up a localized string similar to Embedded images.
         /// </summary>
         internal static string TXT_ARTWORK {
             get {
@@ -214,7 +214,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Default bookmark text (use Bookmark Manager to change).
+        ///   Looks up a localized string similar to Default bookmark text.
         /// </summary>
         internal static string TXT_BOOKMARK_DEFAULT_TEXT {
             get {
@@ -575,24 +575,6 @@ namespace OPMedia.UI.ProTONE.Translations {
         internal static string TXT_CHOOSE_FONT_FOR_SUBTITLE {
             get {
                 return ResourceManager.GetString("TXT_CHOOSE_FONT_FOR_SUBTITLE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add a bookmark.
-        /// </summary>
-        internal static string TXT_CMDADDBOOKMARK {
-            get {
-                return ResourceManager.GetString("TXT_CMDADDBOOKMARK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Open bookmark manager.
-        /// </summary>
-        internal static string TXT_CMDBOOKMARKMANAGER {
-            get {
-                return ResourceManager.GetString("TXT_CMDBOOKMARKMANAGER", resourceCulture);
             }
         }
         
@@ -958,7 +940,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ID3 Artwork Editor.
+        ///   Looks up a localized string similar to ID3 Image Editor.
         /// </summary>
         internal static string TXT_EDITID3ARTWORK {
             get {
@@ -1067,7 +1049,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Frame rate.
+        ///   Looks up a localized string similar to Frames per second.
         /// </summary>
         internal static string TXT_FRAME_RATE {
             get {
@@ -1112,7 +1094,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This tab displays the bookmark information and allows editing it. It is disabled for media that does not support editing bookmarks (CD, DVD, streamed media)..
+        ///   Looks up a localized string similar to This page displays the bookmark information and allows editing it. It is disabled for media that does not support editing bookmarks (CD, DVD, streamed media - Shoutcast)..
         /// </summary>
         internal static string TXT_HINT_BOOKMARKINFOTAB {
             get {
@@ -1121,7 +1103,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This tab allows interaction with the playlist..
+        ///   Looks up a localized string similar to This page allows interaction with the playlist..
         /// </summary>
         internal static string TXT_HINT_PLAYLISTTAB {
             get {
@@ -1130,7 +1112,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This tab displays signal diagrams such as VU-Meter, Waveform and Spectrogram. The signal analisys consumes some CPU so you may want to disable this feature (or some parts of it), if you have a slower CPU computer..
+        ///   Looks up a localized string similar to This page displays signal graphics such as VU-Meter, Waveform and Spectrogram. The signal analisys requires significant processing power. You can disable this feature (or some parts of it), if you have a slower processor on your computer..
         /// </summary>
         internal static string TXT_HINT_SIGNALANALISYSTAB {
             get {
@@ -1139,7 +1121,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This tab displays the track information and allows editing some parts of this information, where applicable (e.g. the ID3 fields for MP3). It is disabled for streamed media (Shoutcast URL&apos;s)..
+        ///   Looks up a localized string similar to This page displays the track information and allows editing some parts of this information, where applicable (e.g. the ID3 fields for MP3). It is disabled for streamed media (Shoutcast)..
         /// </summary>
         internal static string TXT_HINT_TRACKINFOTAB {
             get {
@@ -1193,7 +1175,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Launch ProTONE RCC Manager ....
+        ///   Looks up a localized string similar to Launch ProTONE Remote Control Manager ....
         /// </summary>
         internal static string TXT_LAUNCH_RCCMANAGER {
             get {
@@ -1239,7 +1221,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Matching items (double click or press enter to play an item):.
+        ///   Looks up a localized string similar to Found objects (double click or press enter to play an item):.
         /// </summary>
         internal static string TXT_MATCHING_ITEMS {
             get {
@@ -1248,7 +1230,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Media name: .
+        ///   Looks up a localized string similar to Media name:.
         /// </summary>
         internal static string TXT_MEDIA_NAME {
             get {
@@ -1257,7 +1239,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Media Screens.
+        ///   Looks up a localized string similar to Main Pages.
         /// </summary>
         internal static string TXT_MEDIA_SCREENS {
             get {
@@ -1275,7 +1257,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time: .
+        ///   Looks up a localized string similar to Time:.
         /// </summary>
         internal static string TXT_MEDIA_TIME {
             get {
@@ -1293,15 +1275,15 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The patterns available for playlist item formatting are based on combinations of these keywords:
+        ///   Looks up a localized string similar to The patterns available for playlist item names formatting are based on combinations of these keywords:
         ///
-        ///&lt;A&gt; = artist name (from tag);
-        ///&lt;B&gt; = album name (from tag);
-        ///&lt;T&gt; = title (from tag);
-        ///&lt;C&gt; = comments (from tag);
-        ///&lt;G&gt; = genre (from tag);
-        ///&lt;#&gt; = track # (from tag);
-        ///&lt;Y&gt; = year (from tag). .
+        ///&lt;A&gt; = artist name (from media tag);
+        ///&lt;B&gt; = album name (from media tag);
+        ///&lt;T&gt; = title (from media  tag);
+        ///&lt;C&gt; = comments (from media tag);
+        ///&lt;G&gt; = genre (from media tag);
+        ///&lt;#&gt; = track # (from media tag);
+        ///&lt;Y&gt; = year (from media tag)..
         /// </summary>
         internal static string TXT_METADATAPATTERNS {
             get {
@@ -1698,7 +1680,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New now.
+        ///   Looks up a localized string similar to New boormark now.
         /// </summary>
         internal static string TXT_NEWNOW {
             get {
@@ -1725,7 +1707,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sorry, no subtitles were found for this movie clip..
+        ///   Looks up a localized string similar to Unfortunately, no subtitles found for this movie clip..
         /// </summary>
         internal static string TXT_NO_SUBS_FOUND {
             get {
@@ -1753,7 +1735,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display notification tooltips near system tray when media state changes.
+        ///   Looks up a localized string similar to Display notification messages when media state changes.
         /// </summary>
         internal static string TXT_NOTIFICATIONSENABLED {
             get {
@@ -1963,8 +1945,9 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Because your user account does not have administrator rights, you won&apos;t be able to view the Supported Files and the Remote Control settings.
-        ///In order to access these settings, you must launch ProTONE Player under a user account that has admin priviledges.
+        ///   Looks up a localized string similar to Your user account does not have administrator rights. 
+        ///You won&apos;t be able to view the Supported Files and the Remote Control settings.
+        ///In order to access these settings, you must launch ProTONE Player under a user account that has administrator rights..
         /// </summary>
         internal static string TXT_PANELSHIDDEN_NOADMIN {
             get {
@@ -2009,7 +1992,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to   from: {0}.
+        ///   Looks up a localized string similar to from: {0}.
         /// </summary>
         internal static string TXT_PLAY_FROM {
             get {
@@ -2182,8 +2165,9 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To define the programs and devices that are allowed to control ProTONE Player, you must use the ProTONE RCC Manager program.
-        ///Click on the button below to launch ProTONE RCC Manager ....
+        ///   Looks up a localized string similar to To define the programs and devices that are allowed to control ProTONE Player remotely, you must use the Remote Control Manager.
+        ///
+        ///Click on the button below to launch the Remote Control Manager ....
         /// </summary>
         internal static string TXT_REMOTECONTROLDEFINITION {
             get {
@@ -2346,7 +2330,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Schedule timer event at: .
+        ///   Looks up a localized string similar to Schedule timer event at:.
         /// </summary>
         internal static string TXT_SCHEDULEDEVT_TIME {
             get {
@@ -2428,7 +2412,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remote Control Device.
+        ///   Looks up a localized string similar to Remote Control.
         /// </summary>
         internal static string TXT_SERIALDEVICE {
             get {
@@ -2473,7 +2457,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the &quot;Bookmark Information&quot; tab.
+        ///   Looks up a localized string similar to Show the &quot;Bookmarks&quot; page.
         /// </summary>
         internal static string TXT_SHOW_BOOKMARKINFO {
             get {
@@ -2482,7 +2466,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the &quot;Playlist &quot; tab.
+        ///   Looks up a localized string similar to Show the &quot;Playlist &quot; page.
         /// </summary>
         internal static string TXT_SHOW_PLAYLIST {
             get {
@@ -2491,7 +2475,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the &quot;Signal Analisys&quot; tab.
+        ///   Looks up a localized string similar to Show the &quot;Signal Analisys&quot; page.
         /// </summary>
         internal static string TXT_SHOW_SIGNALANALISYS {
             get {
@@ -2509,7 +2493,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the &quot;Track information&quot; tab.
+        ///   Looks up a localized string similar to Show the &quot;Media Info&quot; page.
         /// </summary>
         internal static string TXT_SHOW_TRACKINFO {
             get {
@@ -2726,7 +2710,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} subtitles were found for {1}:.
+        ///   Looks up a localized string similar to {0} subtitles found for {1}:.
         /// </summary>
         internal static string TXT_SUBTITLEDOWNLOADNOTIFY {
             get {
@@ -2903,7 +2887,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use file metadata (e.g. ID3 fields).
+        ///   Looks up a localized string similar to Use file metadata (e.g. ID3 tags).
         /// </summary>
         internal static string TXT_USE_METADATA {
             get {
