@@ -135,7 +135,7 @@ sunteţi sfătuit să contactaţi producătorul sau distribuitorul acelui DLL.</
     <value>Nume extensie</value>
   </data>
   <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
-    <value>Configurare</value>
+    <value>Config</value>
   </data>
   <data name="TXT_ADDONS_CHANGED_RESTART" xml:space="preserve">
     <value>Pentru a modifica configuraţia extensiilor, programul trebuie să fie repornit.

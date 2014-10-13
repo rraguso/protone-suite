@@ -189,7 +189,7 @@ Sélectionnez un autre élément ou appuyez sur Entrée pour prévisualiser l'é
     <value>Interaction de la propriété du fichier</value>
   </data>
   <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
-    <value>Configuration</value>
+    <value>Config</value>
   </data>
   <data name="TXT_S_ADDONSETTINGS" xml:space="preserve">
     <value>Extensions</value>

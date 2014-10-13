@@ -135,7 +135,7 @@ Ihnen wird geraten, den Hersteller oder den Lieferanten von dieser DLL zu kontak
     <value>Addon-Name</value>
   </data>
   <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
-    <value>Konfiguration</value>
+    <value>Konfig</value>
   </data>
   <data name="TXT_ADDONS_CHANGED_RESTART" xml:space="preserve">
     <value>Um die neuen Addons Konfiguration zu ändern, muss das Programm neu gestartet werden.

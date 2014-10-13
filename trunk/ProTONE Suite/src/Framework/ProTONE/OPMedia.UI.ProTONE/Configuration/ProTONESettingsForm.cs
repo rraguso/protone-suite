@@ -77,7 +77,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
         public override List<BaseCfgPanel> GetControlSubPages()
         {
-            if (!AppConfig.CurrentUserIsAdministrator || !ProTONEConfig.IsRCCServiceInstalled)
+            if (!AppConfig.CurrentUserIsAdministrator || !ProTONEConfig.IsRCCServiceInstalled || !ProTONEConfig.IsPlayer)
                 return null;
 
             return new List<BaseCfgPanel> 
