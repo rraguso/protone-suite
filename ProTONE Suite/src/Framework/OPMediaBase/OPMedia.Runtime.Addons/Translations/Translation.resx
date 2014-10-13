@@ -135,7 +135,7 @@ you are advised to contact the producer or the supplier of this DLL.</value>
     <value>Addon Name</value>
   </data>
   <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
-    <value>Configuration</value>
+    <value>Config</value>
   </data>
   <data name="TXT_ADDONS_CHANGED_RESTART" xml:space="preserve">
     <value>In order to modify the new addons configuration, the program needs to be restarted.
