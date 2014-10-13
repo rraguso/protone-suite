@@ -31,9 +31,9 @@ namespace OPMedia.RemoteControlEmulator
             il.ColorDepth = ColorDepth.Depth32Bit;
             il.TransparentColor = ThemeManager.TransparentColor;
 
-            il.Images.Add(Resources.player);
-            il.Images.Add(Resources.catalog);
-            il.Images.Add(Resources.ir_remote);
+            //il.Images.Add(Resources.player);
+            //il.Images.Add(Resources.catalog);
+            //il.Images.Add(Resources.ir_remote);
 
             btnPlayer.ImageList = btnMediaLib.ImageList = btnRemote.ImageList = il;
 
