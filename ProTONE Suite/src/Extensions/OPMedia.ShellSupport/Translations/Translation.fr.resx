@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TXT_PLAYMENU" xml:space="preserve">
-    <value>Jouer dans ProTone joueur</value>
+    <value>Jouer dans ProTONE Lecteur</value>
   </data>
   <data name="TXT_ENQUEUEMENU" xml:space="preserve">
-    <value>Enqueue dans ProTone joueur</value>
+    <value>Enqueue dans ProTONE Lecteur</value>
   </data>
 </root>
