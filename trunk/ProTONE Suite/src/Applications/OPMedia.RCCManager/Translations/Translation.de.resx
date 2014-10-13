@@ -117,162 +117,163 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_APP_NAME">
-    <value>Fernsteuerungsgerät Manager</value>
+  <data name="TXT_APP_NAME" xml:space="preserve">
+    <value>Fernsteuerung-Manager</value>
   </data>
-  <data name="TXT_REMOTELIST">
-    <value>Fernsteuerungsgerät Liste:</value>
+  <data name="TXT_REMOTELIST" xml:space="preserve">
+    <value>Fernsteuerung-Liste:</value>
   </data>
-  <data name="TXT_REMOTENAME">
-    <value>Fernsteuerungsgerät Namen:</value>
+  <data name="TXT_REMOTENAME" xml:space="preserve">
+    <value>Fernsteuerung-Name:</value>
   </data>
-  <data name="TXT_BUTTONS">
-    <value>Tasten der Fernbedienung</value>
+  <data name="TXT_BUTTONS" xml:space="preserve">
+    <value>Tasten der Fernsteuerung</value>
   </data>
-  <data name="TXT_INPUTPINDATA">
-    <value>Eingangs-Stift-Konfiguration</value>
+  <data name="TXT_INPUTPINDATA" xml:space="preserve">
+    <value>Eingangs-Stift-Einstellungen</value>
   </data>
-  <data name="TXT_CFGDATA">
-    <value>Pinbelegung Daten:</value>
+  <data name="TXT_CFGDATA" xml:space="preserve">
+    <value>Stift-Einstellungen</value>
   </data>
-  <data name="TXT_PINTYPE">
-    <value>Stift Typus:</value>
+  <data name="TXT_PINTYPE" xml:space="preserve">
+    <value>Stift-Typ:</value>
   </data>
-  <data name="TXT_OUTPUTPINDATA">
-    <value>Ausgangs-Stift-Konfiguration</value>
+  <data name="TXT_OUTPUTPINDATA" xml:space="preserve">
+    <value>Ausgangs-Stift-Einstellungen</value>
   </data>
-  <data name="TXT_ADDREMOTECONFIG">
-    <value>Add Fernsteuerungsgerät</value>
+  <data name="TXT_ADDREMOTECONFIG" xml:space="preserve">
+    <value>Anfügen Fernsteuerung</value>
   </data>
-  <data name="TXT_CHANGEEMOTECONFIG">
-    <value>Konfigurieren von Fernsteuerungsgerät</value>
+  <data name="TXT_CHANGEEMOTECONFIG" xml:space="preserve">
+    <value>Konfigurieren Fernsteuerung</value>
   </data>
-  <data name="TXT_CONFIRMDELETEREMOTE">
-    <value>Sind Sie sicher, dass die gewählten Fernbedienung Gerät zu entfernen?
+  <data name="TXT_CONFIRMDELETEREMOTE" xml:space="preserve">
+    <value>Sind Sie sicher, dass die gewählten Fernsteuerung zu entfernen?
 Sie werden nicht in der Lage, diese Entfernung rückgängig gemacht werden!</value>
   </data>
-  <data name="TXT_ENTERDATA">
-    <value>Keine Konfigurationsdaten definiert.</value>
+  <data name="TXT_ENTERDATA" xml:space="preserve">
+    <value>Stift-Einstellungen noch nicht definiert.</value>
   </data>
-  <data name="TXT_CFG">
-    <value>Dieser Stift Typ muss konfiguriert aus ProTONE Spieler.</value>
+  <data name="TXT_CFG" xml:space="preserve">
+    <value>Dieser Stift kann nur von ProTONE Spieler konfiguriert werden.</value>
   </data>
-  <data name="TXT_NOTCFG">
-    <value>Dieser Stift Typ erfordert keine Konfiguration.</value>
+  <data name="TXT_NOTCFG" xml:space="preserve">
+    <value>Dieser Stift benötigt keine Einstellungen.</value>
   </data>
-  <data name="TXT_BUTTON_NAME">
+  <data name="TXT_BUTTON_NAME" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="TXT_TARGET_WNDNAME">
+  <data name="TXT_TARGET_WNDNAME" xml:space="preserve">
     <value>Zielfenster</value>
   </data>
-  <data name="TXT_NODATA">
-    <value>Keine Konfigurationsdaten wird noch festgelegt.</value>
+  <data name="TXT_NODATA" xml:space="preserve">
+    <value>Stift-Einstellungen noch nicht definiert.</value>
   </data>
-  <data name="TXT_BUTTONNAME">
+  <data name="TXT_BUTTONNAME" xml:space="preserve">
     <value>Taste-Name:</value>
   </data>
-  <data name="TXT_INPUTDATA">
-    <value>Input-Daten (Presse Detect, Daten zu empfangen):</value>
+  <data name="TXT_INPUTDATA" xml:space="preserve">
+    <value>Eingangsdaten (Presse Entdecken, Daten zu empfangen):</value>
   </data>
-  <data name="TXT_OUTPUTDATA">
-    <value>Daten zu Output-Stift:</value>
+  <data name="TXT_OUTPUTDATA" xml:space="preserve">
+    <value>Daten zu Ausdangs-Stift:</value>
   </data>
-  <data name="TXT_DETECT">
+  <data name="TXT_DETECT" xml:space="preserve">
     <value>Entdecken</value>
   </data>
-  <data name="TXT_ADDBUTTON">
-    <value>Hinzufügen von Taste auf '{0}'</value>
+  <data name="TXT_ADDBUTTON" xml:space="preserve">
+    <value>Anfügen von Taste auf '{0}'</value>
   </data>
-  <data name="TXT_CHANGEBUTTON">
+  <data name="TXT_CHANGEBUTTON" xml:space="preserve">
     <value>Konfigurieren Taste auf '{0}'</value>
   </data>
-  <data name="TXT_CONFIRMDELETEBUTTON">
-    <value>Sind Sie sicher, dass Sie die ausgewählte Taste der Fernbedienung zu entfernen?
+  <data name="TXT_CONFIRMDELETEBUTTON" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie die ausgewählte Taste der Fernsteuerung zu entfernen?
 Sie werden nicht in der Lage, diese Entfernung rückgängig gemacht werden!</value>
   </data>
-  <data name="TXT_PRESSBUTTON">
-    <value>Drücken Sie eine Taste auf der Fernbedienung. Um nicht entdeckt zu überspringen, drücken Sie die Eingabetaste oder Esc.</value>
+  <data name="TXT_PRESSBUTTON" xml:space="preserve">
+    <value>Drücken Sie eine Taste auf der Fernsteuerung. 
+Um nicht entdeckt zu überspringen, drücken Sie die Eingabetaste oder Esc.</value>
   </data>
-  <data name="TXT_ADD_REPEAT">
-    <value>Taste Hinzufügen, und wiederholen</value>
+  <data name="TXT_ADD_REPEAT" xml:space="preserve">
+    <value>Anfügen Taste, und wiederholen</value>
   </data>
-  <data name="TXT_ADD_ONCE">
-    <value>Auf die Taste Hinzufügen</value>
+  <data name="TXT_ADD_ONCE" xml:space="preserve">
+    <value>Anfügen Taste</value>
   </data>
-  <data name="TXT_TARGETWNDNAME">
+  <data name="TXT_TARGETWNDNAME" xml:space="preserve">
     <value>Titel der Zielanwendung / Fenster:</value>
   </data>
-  <data name="TXT_WINDOWBASED">
+  <data name="TXT_WINDOWBASED" xml:space="preserve">
     <value>Senden von Befehlen an das aktive Programmfenster</value>
   </data>
-  <data name="TXT_SAVE_BEFORE_EXIT">
-    <value>Sie haben Änderungen an den Fernbedienungen.
-Möchten Sie diese Änderungen nicht zuvor speichern gemacht?</value>
+  <data name="TXT_SAVE_BEFORE_EXIT" xml:space="preserve">
+    <value>Sie haben Änderungen an der Konfiguration vorgenommen.
+Möchten Sie diese Änderungen vor dem Beenden speichern?</value>
   </data>
-  <data name="TXT_APPLY_CFG">
+  <data name="TXT_APPLY_CFG" xml:space="preserve">
     <value>Konfiguration speichern?</value>
   </data>
-  <data name="TXT_SECONDS">
+  <data name="TXT_SECONDS" xml:space="preserve">
     <value>sekunden.</value>
   </data>
-  <data name="TXT_TIMEDREPEATRATE">
+  <data name="TXT_TIMEDREPEATRATE" xml:space="preserve">
     <value>Befehlswiederholung Intervall: 
 (0 = keine Wiederholung)</value>
   </data>
-  <data name="TXT_PROTONE_REMOTE_COMMAND">
+  <data name="TXT_PROTONE_REMOTE_COMMAND" xml:space="preserve">
     <value>ProTONE Fernsteuerung Command:</value>
   </data>
-  <data name="TXT_PRESS_KEY">
+  <data name="TXT_PRESS_KEY" xml:space="preserve">
     <value>Drücken Sie die Tastenkombination Sie zuordnen möchten.</value>
   </data>
-  <data name="TXT_DEFAULTWINDOWNAME">
-    <value>Default_window_name</value>
+  <data name="TXT_DEFAULTWINDOWNAME" xml:space="preserve">
+    <value>Standard_fenster_name</value>
   </data>
-  <data name="TXT_NOBUTTONSREQUIRED">
-    <value>Dieses Gerät benötigt keine Taste Konfiguration.</value>
+  <data name="TXT_NOBUTTONSREQUIRED" xml:space="preserve">
+    <value>Dieses Fernsteuerung benötigt keine Taste Konfiguration.</value>
   </data>
-  <data name="TXT_APPLYTIP">
+  <data name="TXT_APPLYTIP" xml:space="preserve">
     <value>Speichern Fernbedienung Konfiguration</value>
   </data>
-  <data name="TXT_DEVICENAME">
-    <value>Gerätename: {0}</value>
+  <data name="TXT_DEVICENAME" xml:space="preserve">
+    <value>Fernsteuerungname: {0}</value>
   </data>
-  <data name="TXT_INPUTPIN">
+  <data name="TXT_INPUTPIN" xml:space="preserve">
     <value>Eingangs-Stift: {0} {1}</value>
   </data>
-  <data name="TXT_OUTPUTPIN">
+  <data name="TXT_OUTPUTPIN" xml:space="preserve">
     <value>Ausgangs-Stift: {0} {1}</value>
   </data>
-  <data name="TXT_BUTTONNAME_FULL">
+  <data name="TXT_BUTTONNAME_FULL" xml:space="preserve">
     <value>Taste-Name: {0} ['{1}' -&gt; '{2}']</value>
   </data>
-  <data name="TXT_NO_BUTTONS_YET">
-    <value>Knöpfe sind noch nicht für dieses Gerät definiert.</value>
+  <data name="TXT_NO_BUTTONS_YET" xml:space="preserve">
+    <value>Knöpfe sind noch nicht für diese Fernsteuerung definiert.</value>
   </data>
-  <data name="TXT_ADD_BUTTON">
-    <value>Fügen Sie neue Taste ...</value>
+  <data name="TXT_ADD_BUTTON" xml:space="preserve">
+    <value>Neue Taste Anfügen ...</value>
   </data>
-  <data name="TXT_DEL_BUTTON">
+  <data name="TXT_DEL_BUTTON" xml:space="preserve">
     <value>Löschen Sie vorhandene Taste</value>
   </data>
-  <data name="TXT_MOD_BUTTON">
+  <data name="TXT_MOD_BUTTON" xml:space="preserve">
     <value>Ändern Sie vorhandene Taste ...</value>
   </data>
-  <data name="TXT_ADD_DEVICE">
-    <value>Neues Gerät hinzufügen ...</value>
+  <data name="TXT_ADD_DEVICE" xml:space="preserve">
+    <value>Neues Fernsteuerung Anfügen ...</value>
   </data>
-  <data name="TXT_DEL_DEVICE">
-    <value>Löschen Sie vorhandene Gerät</value>
+  <data name="TXT_DEL_DEVICE" xml:space="preserve">
+    <value>Löschen Sie vorhandene Fernsteuerung</value>
   </data>
-  <data name="TXT_MOD_DEVICE">
-    <value>Ändern Sie vorhandene Gerät ...</value>
+  <data name="TXT_MOD_DEVICE" xml:space="preserve">
+    <value>Ändern Sie vorhandene Fernsteuerung ...</value>
   </data>
-  <data name="TXT_CONFIG_FILES_FILTER">
+  <data name="TXT_CONFIG_FILES_FILTER" xml:space="preserve">
     <value>Fernsteuerung Konfigurationsdateien (* config)|*.config||</value>
   </data>
-  <data name="TXT_ADMIN_RIGHTS_REQUIRED">
-    <value>Die Fernsteuerungsgerät Manager erfordert Administrator-Rechte zu laufen.
+  <data name="TXT_ADMIN_RIGHTS_REQUIRED" xml:space="preserve">
+    <value>Die Fernsteuerung-Manager erfordert Administrator-Rechte zu laufen.
 Sie müssen diese Anwendung unter einem Benutzerkonto mit Administratorrechten zu starten.</value>
   </data>
 </root>
