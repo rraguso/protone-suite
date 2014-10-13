@@ -117,94 +117,95 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_INSTALL_ADDONLIB">
+  <data name="TXT_INSTALL_ADDONLIB" xml:space="preserve">
     <value>Installieren Addon Bibliothek...</value>
   </data>
-  <data name="TXT_INSTALLADDONFILTER">
+  <data name="TXT_INSTALLADDONFILTER" xml:space="preserve">
     <value>OPMedia Addon Bibliotheken (*.dll)|*.dll||</value>
   </data>
-  <data name="TXT_INSTALLADDONS">
+  <data name="TXT_INSTALLADDONS" xml:space="preserve">
     <value>Wählen Sie eine OPMedia Addon Bibliothek zu installieren:</value>
   </data>
-  <data name="TXT_INVALID_ADDON">
+  <data name="TXT_INVALID_ADDON" xml:space="preserve">
     <value>Die DLL-Datei, die Sie ausgewählt haben, ist keine gültige OPMedia Erweiterungsbibliothek.
-Hinweis: Wenn Sie glauben jedoch, dass die jeweilige Datei sollte eine gültige Erweiterung haben, Ihnen wird geraten, den Hersteller oder den Lieferanten von dieser DLL zu kontaktieren.</value>
+Hinweis: Wenn Sie glauben jedoch, dass die jeweilige Datei sollte eine gültige Erweiterung haben, 
+Ihnen wird geraten, den Hersteller oder den Lieferanten von dieser DLL zu kontaktieren.</value>
   </data>
-  <data name="TXT_ADDON_NAME">
-    <value>Addon Namen</value>
+  <data name="TXT_ADDON_NAME" xml:space="preserve">
+    <value>Addon-Name</value>
   </data>
-  <data name="TXT_S_ADDON_SETTINGS">
+  <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
     <value>Konfiguration</value>
   </data>
-  <data name="TXT_ADDONS_CHANGED_RESTART">
+  <data name="TXT_ADDONS_CHANGED_RESTART" xml:space="preserve">
     <value>Um die neuen Addons Konfiguration zu ändern, muss das Programm neu gestartet werden.
 Ist es OK, um jetzt neu starten?</value>
   </data>
-  <data name="TXT_ADDONS_NOT_CHANGED">
-    <value>Da Sie den Neustart abgebrochen haben, wird Ihr Add-on-Konfiguration nicht geändert werden.</value>
+  <data name="TXT_ADDONS_NOT_CHANGED" xml:space="preserve">
+    <value>Da Sie den Neustart abgebrochen haben, wird Ihr Addon-Konfiguration nicht geändert werden.</value>
   </data>
-  <data name="TXT_S_ADDONSETTINGS">
+  <data name="TXT_S_ADDONSETTINGS" xml:space="preserve">
     <value>Addons</value>
   </data>
-  <data name="TXT_ADDONSLIST">
+  <data name="TXT_ADDONSLIST" xml:space="preserve">
     <value>Geprüft werden derzeit Addons aktiviert. Verwenden Sie die Kontrollkästchen zum Aktivieren / Deaktivieren Addons. Addons mit * müssen ausgefüllt werden und kann nicht deaktiviert werden. Ein Neustart des Programms erforderlich sein, um den neuen Addons Konfiguration anzuwenden.</value>
   </data>
-  <data name="TXT_ADDONSLIST_NORESTART">
+  <data name="TXT_ADDONSLIST_NORESTART" xml:space="preserve">
     <value>Geprüft werden derzeit Addons aktiviert. Verwenden Sie die Kontrollkästchen zum Aktivieren / Deaktivieren Addons. Addons mit * müssen ausgefüllt werden und kann nicht deaktiviert werden.</value>
   </data>
-  <data name="TXT_CANT_INSTALL_BUILTIN">
+  <data name="TXT_CANT_INSTALL_BUILTIN" xml:space="preserve">
     <value>Der von Ihnen gewählte Bibliothek kann nicht installiert werden, weil es eine native Bibliothek. 
 Eine native Bibliothek encaspulates die Kernfunktionen einer erweiterbaren Anwendung, und es kann nicht installiert oder deinstalliert werden.</value>
   </data>
-  <data name="TXT_CANT_UNINSTALL_BUILTIN">
-    <value>Der von Ihnen gewählte Bibliothek kann nicht deinstalliert werden, weil es eine native Bibliothek. 
-Eine native Bibliothek encaspulates die Kernfunktionen einer erweiterbaren Anwendung, und es kann nicht installiert oder deinstalliert werden.
-Statt deinstallieren, sollten Sie die passende Kontrollkästchen, um verschiedene Anwendungsfunktionen aktivieren oder deaktivieren. 
-Achten, dass einige Funktionalitäten sind erforderlich und können nicht deaktiviert werden.</value>
+  <data name="TXT_CANT_UNINSTALL_BUILTIN" xml:space="preserve">
+    <value>Das ausgewählte Bibliothek kann nicht deinstalliert werden, da es sich um eine native Bibliothek.
+Eine native Bibliothek kapselt die Kernfunktionalität von einer erweiterbaren Anwendung, und es kann nicht installiert oder deinstalliert werden.
+Anstatt zu deinstallieren, sollten Sie die Addons Kontrollkästchen, um verschiedene Anwendungsfunktionalitäten aktivieren oder deaktivieren.
+Achtung: Einige Funktionen sind erforderlich und können nicht deaktiviert werden.</value>
   </data>
-  <data name="TXT_INVALID_NAME">
+  <data name="TXT_INVALID_NAME" xml:space="preserve">
     <value>Die DLL-Datei, die Sie ausgewählt haben, ist keine gültige OPMedia Addon Bibliothek.
-Eine gültige OPMedia Addon-Bibliothek Dateiname sollte die Konvention folgen: &lt;Bibliothek-Name&gt; Extension.dll.</value>
+Eine gültige OPMedia Addon-Bibliothek Dateiname sollte die Namenskonvention folgen: &lt;Bibliothek-Name&gt; Extension.dll.</value>
   </data>
-  <data name="TXT_NAV_ADDONS">
+  <data name="TXT_NAV_ADDONS" xml:space="preserve">
     <value>Navigation</value>
   </data>
-  <data name="TXT_PREVIEW_ADDONS">
+  <data name="TXT_PREVIEW_ADDONS" xml:space="preserve">
     <value>Vorschau / Visualisierung</value>
   </data>
-  <data name="TXT_PROP_ADDONS">
+  <data name="TXT_PROP_ADDONS" xml:space="preserve">
     <value>Datei-Property-Interaktion</value>
   </data>
-  <data name="TXT_SHAREDADDONS">
+  <data name="TXT_SHAREDADDONS" xml:space="preserve">
     <value>All diese Addons sind in der Addon-Bibliothek Sie versuchen, zu deinstallieren sind integriert:
 
 {0}
 
 Wenn Sie fortfahren, werden alle diese Addons nicht mehr verfügbar sein. Ist es OK, um fortzufahren?</value>
   </data>
-  <data name="TXT_NO_NAV_ADDONS">
+  <data name="TXT_NO_NAV_ADDONS" xml:space="preserve">
     <value>Keine Navigation Addons sind derzeit konfiguriert. Die Anwendung kann ohne sie nicht laufen.
 Sie müssen zu wählen und damit mindestens ein Navigations-Addon, um fortzufahren.</value>
   </data>
-  <data name="TXT_NOTIFY_NON_PREVIEW">
+  <data name="TXT_NOTIFY_NON_PREVIEW" xml:space="preserve">
     <value>Das ausgewählte Produkt kann keine Vorschau angezeigt werden.
 Sie müssen ein externes Programm, um es anzuzeigen.</value>
   </data>
-  <data name="TXT_NOTIFY_PREVIEW">
+  <data name="TXT_NOTIFY_PREVIEW" xml:space="preserve">
     <value>Um das ausgewählte Element anzuzeigen, doppelklicken Sie darauf oder drücken Sie die Eingabetaste.</value>
   </data>
-  <data name="TXT_PREPARE_PREVIEW">
+  <data name="TXT_PREPARE_PREVIEW" xml:space="preserve">
     <value>Automatische Vorschau des ausgewählten Elements wird in ein paar Sekunden ab.
 Drücken Sie Escape, um abzubrechen ...</value>
   </data>
-  <data name="TXT_PREVIEW_CANCELED">
+  <data name="TXT_PREVIEW_CANCELED" xml:space="preserve">
     <value>Automatische Vorschau des ausgewählten Elements wurde abgebrochen. 
 Wählen Sie ein anderes Element, oder drücken Sie die Eingabetaste, um den aktuellen Titel Vorschau.</value>
   </data>
-  <data name="TXT_SELECTALLADDONS">
+  <data name="TXT_SELECTALLADDONS" xml:space="preserve">
     <value>Wählen Sie alle Addons</value>
   </data>
-  <data name="TXT_UNINSTALL_ADDONLIB">
+  <data name="TXT_UNINSTALL_ADDONLIB" xml:space="preserve">
     <value>Deinstallieren Addon Bibliothek ...</value>
   </data>
 </root>

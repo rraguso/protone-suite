@@ -117,971 +117,971 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_ABORT">
+  <data name="TXT_ABORT" xml:space="preserve">
     <value>Abbruch</value>
   </data>
-  <data name="TXT_ABOUT">
+  <data name="TXT_ABOUT" xml:space="preserve">
     <value>Über {0}</value>
   </data>
-  <data name="TXT_ADD">
-    <value>Hinzufügen ...</value>
+  <data name="TXT_ADD" xml:space="preserve">
+    <value>Anfügen ...</value>
   </data>
-  <data name="TXT_ADD_FILES">
-    <value>Dateien hinzufügen ...</value>
+  <data name="TXT_ADD_FILES" xml:space="preserve">
+    <value>Dateien anfügen ...</value>
   </data>
-  <data name="TXT_ADD_FOLDER">
-    <value>Ordner hinzufügen ...</value>
+  <data name="TXT_ADD_FOLDER" xml:space="preserve">
+    <value>Ordner anfügen ...</value>
   </data>
-  <data name="TXT_ALL_FILES_FILTER">
+  <data name="TXT_ALL_FILES_FILTER" xml:space="preserve">
     <value>Alle Dateien (*.*) |*.*||</value>
   </data>
-  <data name="TXT_ALTKEY">
+  <data name="TXT_ALTKEY" xml:space="preserve">
     <value>Wechseln</value>
   </data>
-  <data name="TXT_APPHELP">
+  <data name="TXT_APPHELP" xml:space="preserve">
     <value>Inhalt ...</value>
   </data>
-  <data name="TXT_APPLY">
+  <data name="TXT_APPLY" xml:space="preserve">
     <value>Anwenden</value>
   </data>
-  <data name="TXT_APP_RESTART">
+  <data name="TXT_APP_RESTART" xml:space="preserve">
     <value>Neustart des Programms erforderlich</value>
   </data>
-  <data name="TXT_ARGUMENTS">
+  <data name="TXT_ARGUMENTS" xml:space="preserve">
     <value>Geben Sie das Programm der Kommandozeilen-Parameter:</value>
   </data>
-  <data name="TXT_BACK">
+  <data name="TXT_BACK" xml:space="preserve">
     <value>Zurück</value>
   </data>
-  <data name="TXT_BROWSE">
-    <value>Durchsuchen ...</value>
+  <data name="TXT_BROWSE" xml:space="preserve">
+    <value>Blättern ...</value>
   </data>
-  <data name="TXT_BTNCLOSE">
+  <data name="TXT_BTNCLOSE" xml:space="preserve">
     <value>Schließen.</value>
   </data>
-  <data name="TXT_BTNMAXIMIZE">
+  <data name="TXT_BTNMAXIMIZE" xml:space="preserve">
     <value>Maximieren.</value>
   </data>
-  <data name="TXT_BTNMINIMIZE">
+  <data name="TXT_BTNMINIMIZE" xml:space="preserve">
     <value>Minimieren.</value>
   </data>
-  <data name="TXT_BTNRESTOREDOWN">
+  <data name="TXT_BTNRESTOREDOWN" xml:space="preserve">
     <value>Wiederherstellen nach unten.</value>
   </data>
-  <data name="TXT_BUILDING_OBJECT_LIST">
+  <data name="TXT_BUILDING_OBJECT_LIST" xml:space="preserve">
     <value>Erstellen Objektliste ...</value>
   </data>
-  <data name="TXT_CANCEL">
+  <data name="TXT_CANCEL" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <data name="TXT_CAUTION">
+  <data name="TXT_CAUTION" xml:space="preserve">
     <value>Vorsicht</value>
   </data>
-  <data name="TXT_CHANGE">
+  <data name="TXT_CHANGE" xml:space="preserve">
     <value>Ändern ...</value>
   </data>
-  <data name="TXT_CHOOSELOGPATH">
-    <value>Wählen Sie den Ordner, um die Log-Dateien zu speichern:</value>
+  <data name="TXT_CHOOSELOGPATH" xml:space="preserve">
+    <value>Wählen Sie den Ordner, um die Journal-Dateien zu speichern:</value>
   </data>
-  <data name="TXT_CHOOSEPROGRAM">
+  <data name="TXT_CHOOSEPROGRAM" xml:space="preserve">
     <value>Wählen Sie das Programm ausgeführt werden soll:</value>
   </data>
-  <data name="TXT_CHOOSEWORKDIR">
+  <data name="TXT_CHOOSEWORKDIR" xml:space="preserve">
     <value>Wählen Sie das Programm Arbeitsordner:</value>
   </data>
-  <data name="TXT_CLEARLOG">
-    <value>Clear Log Datei</value>
+  <data name="TXT_CLEARLOG" xml:space="preserve">
+    <value>Klar Journal-Datei</value>
   </data>
-  <data name="TXT_CLEARWINDOW">
-    <value>Fenster leeren</value>
+  <data name="TXT_CLEARWINDOW" xml:space="preserve">
+    <value>Klar Fensterinhalt</value>
   </data>
-  <data name="TXT_CLICK_LIST_TO_EDIT">
+  <data name="TXT_CLICK_LIST_TO_EDIT" xml:space="preserve">
     <value>Klicken Sie auf Liste Zellen, um sie zu bearbeiten.</value>
   </data>
-  <data name="TXT_CMDCFGKEYBOARD">
+  <data name="TXT_CMDCFGKEYBOARD" xml:space="preserve">
     <value>Zeigt die Tastenkombinationen.</value>
   </data>
-  <data name="TXT_CMDGENERICAPPLY">
+  <data name="TXT_CMDGENERICAPPLY" xml:space="preserve">
     <value>Änderungen übernehmen.</value>
   </data>
-  <data name="TXT_CMDGENERICCOPY">
+  <data name="TXT_CMDGENERICCOPY" xml:space="preserve">
     <value>Daten kopieren (oder Dateien)</value>
   </data>
-  <data name="TXT_CMDGENERICCUT">
+  <data name="TXT_CMDGENERICCUT" xml:space="preserve">
     <value>Schneiden Sie Daten (oder Dateien)</value>
   </data>
-  <data name="TXT_CMDGENERICDELETE">
+  <data name="TXT_CMDGENERICDELETE" xml:space="preserve">
     <value>Löschen von Daten (oder Dateien)</value>
   </data>
-  <data name="TXT_CMDGENERICNEW">
+  <data name="TXT_CMDGENERICNEW" xml:space="preserve">
     <value>Neues Dokument.</value>
   </data>
-  <data name="TXT_CMDGENERICOPEN">
+  <data name="TXT_CMDGENERICOPEN" xml:space="preserve">
     <value>Geöffnete Dokument.</value>
   </data>
-  <data name="TXT_CMDGENERICPASTE">
+  <data name="TXT_CMDGENERICPASTE" xml:space="preserve">
     <value>Einfügen von Daten (oder Dateien)</value>
   </data>
-  <data name="TXT_CMDGENERICREFRESH">
+  <data name="TXT_CMDGENERICREFRESH" xml:space="preserve">
     <value>Daten aktualisieren</value>
   </data>
-  <data name="TXT_CMDGENERICRENAME">
+  <data name="TXT_CMDGENERICRENAME" xml:space="preserve">
     <value>Umbenennen von Dateien</value>
   </data>
-  <data name="TXT_CMDGENERICSAVE">
+  <data name="TXT_CMDGENERICSAVE" xml:space="preserve">
     <value>Dokument speichern.</value>
   </data>
-  <data name="TXT_CMDGENERICSEARCH">
+  <data name="TXT_CMDGENERICSEARCH" xml:space="preserve">
     <value>Suche Daten (oder Dateien)</value>
   </data>
-  <data name="TXT_CMDGENERICUNDO">
+  <data name="TXT_CMDGENERICUNDO" xml:space="preserve">
     <value>Änderungen rückgängig machen.</value>
   </data>
-  <data name="TXT_CMDOPENHELP">
+  <data name="TXT_CMDOPENHELP" xml:space="preserve">
     <value>Öffnen Sie Hilfe-Datei</value>
   </data>
-  <data name="TXT_CMDOPENSETTINGS">
+  <data name="TXT_CMDOPENSETTINGS" xml:space="preserve">
     <value>Zeigt den Dialog Einstellungen.</value>
   </data>
-  <data name="TXT_CMDSHOWLOGCONSOLE">
-    <value>Zeigt die Log-Datei-Konsole</value>
+  <data name="TXT_CMDSHOWLOGCONSOLE" xml:space="preserve">
+    <value>Zeigt die Journal-Datei-Konsole</value>
   </data>
-  <data name="TXT_CMDSWITCHWINDOWS">
+  <data name="TXT_CMDSWITCHWINDOWS" xml:space="preserve">
     <value>Wechseln Sie zwischen Addon Fenster.</value>
   </data>
-  <data name="TXT_COMMAND">
+  <data name="TXT_COMMAND" xml:space="preserve">
     <value>Befehlsname</value>
   </data>
-  <data name="TXT_CONFIRM">
+  <data name="TXT_CONFIRM" xml:space="preserve">
     <value>Bestätigen</value>
   </data>
-  <data name="TXT_CONFIRM_ABORT">
+  <data name="TXT_CONFIRM_ABORT" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie den Vorgang abbrechen?</value>
   </data>
-  <data name="TXT_CONFIRM_DELETE">
+  <data name="TXT_CONFIRM_DELETE" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie die Datei zu löschen:
 {0}?</value>
   </data>
-  <data name="TXT_CONFIRM_DELETE_DIR">
+  <data name="TXT_CONFIRM_DELETE_DIR" xml:space="preserve">
     <value>Der Ordner: {0} ist nicht leer.
 Wollen Sie es (samt Inhalt) löschen?</value>
   </data>
-  <data name="TXT_CONFIRM_DELETE_EMPTYDIR">
+  <data name="TXT_CONFIRM_DELETE_EMPTYDIR" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie den Ordner zu löschen:
 {0}?</value>
   </data>
-  <data name="TXT_CONFIRM_DELETE_ROHS">
+  <data name="TXT_CONFIRM_DELETE_ROHS" xml:space="preserve">
     <value>Die Datei {0} ist eine oder mehrere dieser Attribute: Read-Only/Hidden/System.
 Glauben Sie immer noch wollen, um es zu löschen?</value>
   </data>
-  <data name="TXT_CONFIRM_OVERWRITE">
+  <data name="TXT_CONFIRM_OVERWRITE" xml:space="preserve">
     <value>Die Zieldatei {0} existiert bereits.
 Wollen Sie es überschreiben?</value>
   </data>
-  <data name="TXT_CONFIRM_OVERWRITE_RO">
+  <data name="TXT_CONFIRM_OVERWRITE_RO" xml:space="preserve">
     <value>Die Zieldatei {0} existiert bereits und es ist eine Nur-Lese-Datei.
 Wollen Sie es überschreiben?</value>
   </data>
-  <data name="TXT_COPY">
-    <value>Kopieren Sie</value>
-  </data>
-  <data name="TXT_CUR_PROGRESS">
-    <value>{0}: {1} Elemente aus {2} ({3}% fertig)</value>
-  </data>
-  <data name="TXT_CUT">
-    <value>Ausschneiden</value>
-  </data>
-  <data name="TXT_DEFINE_PROGRAM">
-    <value>[Bitte definieren Sie das Programm ausgeführt werden soll]</value>
-  </data>
-  <data name="TXT_DELETE">
-    <value>Löschen</value>
-  </data>
-  <data name="TXT_DESCRIPTION">
-    <value>Befehl Beschreibung</value>
-  </data>
-  <data name="TXT_DESC_COPY_TASK">
+  <data name="TXT_COPY" xml:space="preserve">
     <value>Kopieren</value>
   </data>
-  <data name="TXT_DESC_DELETE_TASK">
+  <data name="TXT_CUR_PROGRESS" xml:space="preserve">
+    <value>{0}: {1} Elemente aus {2} ({3}% fertig)</value>
+  </data>
+  <data name="TXT_CUT" xml:space="preserve">
+    <value>Ausschneiden</value>
+  </data>
+  <data name="TXT_DEFINE_PROGRAM" xml:space="preserve">
+    <value>[Bitte definieren Sie das Programm ausgeführt werden soll]</value>
+  </data>
+  <data name="TXT_DELETE" xml:space="preserve">
     <value>Löschen</value>
   </data>
-  <data name="TXT_DESC_MOVE_TASK">
+  <data name="TXT_DESCRIPTION" xml:space="preserve">
+    <value>Befehl Beschreibung</value>
+  </data>
+  <data name="TXT_DESC_COPY_TASK" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="TXT_DESC_DELETE_TASK" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="TXT_DESC_MOVE_TASK" xml:space="preserve">
     <value>Verschieben</value>
   </data>
-  <data name="TXT_DOUBLE_CLICK_TO_EDIT">
+  <data name="TXT_DOUBLE_CLICK_TO_EDIT" xml:space="preserve">
     <value>Doppelklick bearbeiten</value>
   </data>
-  <data name="TXT_DOWNLOAD">
+  <data name="TXT_DOWNLOAD" xml:space="preserve">
     <value>Laden Sie</value>
   </data>
-  <data name="TXT_DRAWBORDERS">
+  <data name="TXT_DRAWBORDERS" xml:space="preserve">
     <value>Zeichnen Sie skinned Grenzen und Titelleiste (empfohlen)</value>
   </data>
-  <data name="TXT_EDITKEYDESC">
+  <data name="TXT_EDITKEYDESC" xml:space="preserve">
     <value>Drücken Sie die neue Tastenkombination für: {0}.
 Aktuelle Verknüpfung ist: {1}.</value>
   </data>
-  <data name="TXT_ENABLESKINNEDBORDERS">
+  <data name="TXT_ENABLESKINNEDBORDERS" xml:space="preserve">
     <value>Aktivieren Hautfarbe Grenzen</value>
   </data>
-  <data name="TXT_ENABLE_LOG">
-    <value>Aktivieren Sie die Protokollierung Programm</value>
+  <data name="TXT_ENABLE_LOG" xml:space="preserve">
+    <value>Aktivieren Sie die Journal</value>
   </data>
-  <data name="TXT_ERROR">
+  <data name="TXT_ERROR" xml:space="preserve">
     <value>Fehler</value>
   </data>
-  <data name="TXT_ERRORS">
-    <value>Melden Sie sich Fehlermeldungen</value>
+  <data name="TXT_ERRORS" xml:space="preserve">
+    <value>Registrieren Sie Fehler-Meldungen in der Journal-Datei</value>
   </data>
-  <data name="TXT_ERRORS_COPY_TASK">
+  <data name="TXT_ERRORS_COPY_TASK" xml:space="preserve">
     <value>Einige Fehler trat beim Kopieren der entsprechenden Dateien auf.
 Weitere Details in der Liste unten.</value>
   </data>
-  <data name="TXT_ERRORS_DELETE_TASK">
+  <data name="TXT_ERRORS_DELETE_TASK" xml:space="preserve">
     <value>Einige Fehler trat beim Löschen der angegebenen Dateien.
 Weitere Details in der Liste unten.</value>
   </data>
-  <data name="TXT_ERRORS_ENCOUNTERED">
+  <data name="TXT_ERRORS_ENCOUNTERED" xml:space="preserve">
     <value>Einige Fehler trat während der Operation.</value>
   </data>
-  <data name="TXT_ERRORS_MOVE_TASK">
+  <data name="TXT_ERRORS_MOVE_TASK" xml:space="preserve">
     <value>Einige Fehler trat während der Bewegung die angegebenen Dateien.
 Weitere Details in der Liste unten.</value>
   </data>
-  <data name="TXT_EVERYDAY">
+  <data name="TXT_EVERYDAY" xml:space="preserve">
     <value>Täglich</value>
   </data>
-  <data name="TXT_EXIT">
+  <data name="TXT_EXIT" xml:space="preserve">
     <value>Beenden</value>
   </data>
-  <data name="TXT_FILE">
+  <data name="TXT_FILE" xml:space="preserve">
     <value>Datei</value>
   </data>
-  <data name="TXT_FILENAME">
+  <data name="TXT_FILENAME" xml:space="preserve">
     <value>Dateiname</value>
   </data>
-  <data name="TXT_FOLDERNOTACCESSIBLE">
+  <data name="TXT_FOLDERNOTACCESSIBLE" xml:space="preserve">
     <value>Dieser Ordner ist nicht mehr zugänglich. Es wurde möglicherweise verschoben, entfernt oder seine Festplatte konnte aus dem Computer entfernt wurden.</value>
   </data>
-  <data name="TXT_FORWARD">
+  <data name="TXT_FORWARD" xml:space="preserve">
     <value>Nach vorn</value>
   </data>
-  <data name="TXT_FREEZEWINDOW">
+  <data name="TXT_FREEZEWINDOW" xml:space="preserve">
     <value>Schleusenfenster</value>
   </data>
-  <data name="TXT_FRIDAY">
+  <data name="TXT_FRIDAY" xml:space="preserve">
     <value>Freitag</value>
   </data>
-  <data name="TXT_S_GENERALSETTINGS">
+  <data name="TXT_S_GENERALSETTINGS" xml:space="preserve">
     <value>Allgemein</value>
   </data>
-  <data name="TXT_HEAVY_TRACE">
-    <value>Aktivieren Sie ausführliche Debugprotokollierung</value>
+  <data name="TXT_HEAVY_TRACE" xml:space="preserve">
+    <value>Ermöglichen eine detaillierte Debug-Journal</value>
   </data>
-  <data name="TXT_HELP">
+  <data name="TXT_HELP" xml:space="preserve">
     <value>Hilfe</value>
   </data>
-  <data name="TXT_INFO">
-    <value>Melden Sie sich Info-Nachrichten</value>
+  <data name="TXT_INFO" xml:space="preserve">
+    <value>Registrieren Info-Meldungen in der Journal-Datei</value>
   </data>
-  <data name="TXT_INSERT_DISK">
+  <data name="TXT_INSERT_DISK" xml:space="preserve">
     <value>Legen Sie Diskette</value>
   </data>
-  <data name="TXT_INSERT_MEDIA">
+  <data name="TXT_INSERT_MEDIA" xml:space="preserve">
     <value>Bitte legen Sie die Diskette mit der Aufschrift {0} (desc: {1}) in die {2}-Laufwerk.</value>
   </data>
-  <data name="TXT_KEY">
+  <data name="TXT_KEY" xml:space="preserve">
     <value>Tastenkürzel</value>
   </data>
-  <data name="TXT_KEYCOMMANDEDITOR">
+  <data name="TXT_KEYCOMMANDEDITOR" xml:space="preserve">
     <value>Definieren Sie Schlüssel für {0}</value>
   </data>
-  <data name="TXT_S_KEYMAP">
+  <data name="TXT_S_KEYMAP" xml:space="preserve">
     <value>Klaviatur</value>
   </data>
-  <data name="TXT_S_KEYMAP_DESC">
+  <data name="TXT_S_KEYMAP_DESC" xml:space="preserve">
     <value>Um einen Schnellzugriff zu bearbeiten, auf die damit verbundenen Links in der Tabelle unten klicken. Die Verknüpfungen mit behinderten Links nicht ändern können vom Anwender sein (z.B.: OpenHelp = F1, etc).</value>
   </data>
-  <data name="TXT_LANGUAGE">
+  <data name="TXT_LANGUAGE" xml:space="preserve">
     <value>Sprache</value>
   </data>
-  <data name="TXT_LOGFILENAME">
-    <value>Log-Datei-Name:</value>
+  <data name="TXT_LOGFILENAME" xml:space="preserve">
+    <value>Journal-Datei-Name:</value>
   </data>
-  <data name="TXT_S_LOGGINGSETTINGS">
+  <data name="TXT_S_LOGGINGSETTINGS" xml:space="preserve">
     <value>Zeitschrift</value>
   </data>
-  <data name="TXT_LOGLINECONSOLE">
-    <value>Log-Datei-Konsole</value>
+  <data name="TXT_LOGLINECONSOLE" xml:space="preserve">
+    <value>Journal-Datei-Konsole</value>
   </data>
-  <data name="TXT_LOGLINECOUNT">
-    <value>Log-Einträge insgesamt:</value>
+  <data name="TXT_LOGLINECOUNT" xml:space="preserve">
+    <value>Journal-Einträge insgesamt:</value>
   </data>
-  <data name="TXT_LOG_DESC">
-    <value>Dieses Programm wird mit Version durchgesetzt Protokollierung gebaut.
-Alle Log-Level sind standardmäßig aktiviert.</value>
+  <data name="TXT_LOG_DESC" xml:space="preserve">
+    <value>Dieses Programm wird mit Version durchgesetzt Journal gebaut.
+Alle Journal-Level sind standardmäßig aktiviert.</value>
   </data>
-  <data name="TXT_LOG_KEEPDAYS">
-    <value>Wie viele Tage zu halten, die alten Log-Dateien 
+  <data name="TXT_LOG_KEEPDAYS" xml:space="preserve">
+    <value>Wie viele Tage zu halten, die alten Journal-Dateien 
 (min = 2, max = 10):</value>
   </data>
-  <data name="TXT_LOG_PATH">
-    <value>Log-Dateien Pfad:</value>
+  <data name="TXT_LOG_PATH" xml:space="preserve">
+    <value>Journal-Dateien Pfad:</value>
   </data>
-  <data name="TXT_MODIFY">
+  <data name="TXT_MODIFY" xml:space="preserve">
     <value>Ändern</value>
   </data>
-  <data name="TXT_MONDAY">
+  <data name="TXT_MONDAY" xml:space="preserve">
     <value>Montag</value>
   </data>
-  <data name="TXT_MULTIRENAME">
+  <data name="TXT_MULTIRENAME" xml:space="preserve">
     <value>Umbenennen mehrerer Dateien</value>
   </data>
-  <data name="TXT_NA">
+  <data name="TXT_NA" xml:space="preserve">
     <value>N/A</value>
   </data>
-  <data name="TXT_S_NETWORK_SETTINGS">
+  <data name="TXT_S_NETWORK_SETTINGS" xml:space="preserve">
     <value>Netzwerk</value>
   </data>
-  <data name="TXT_NEW">
+  <data name="TXT_NEW" xml:space="preserve">
     <value>Neu</value>
   </data>
-  <data name="TXT_NO">
+  <data name="TXT_NO" xml:space="preserve">
     <value>Nein</value>
   </data>
-  <data name="TXT_NO_NETWORK">
+  <data name="TXT_NO_NETWORK" xml:space="preserve">
     <value>Warnung: Es gibt keine operativen Netzwerkverbindung.</value>
   </data>
-  <data name="TXT_OFF">
+  <data name="TXT_OFF" xml:space="preserve">
     <value>AUS</value>
   </data>
-  <data name="TXT_OK">
+  <data name="TXT_OK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="TXT_ON">
+  <data name="TXT_ON" xml:space="preserve">
     <value>EIN</value>
   </data>
-  <data name="TXT_OPEN">
+  <data name="TXT_OPEN" xml:space="preserve">
     <value>Geöffnet</value>
   </data>
-  <data name="TXT_OR">
+  <data name="TXT_OR" xml:space="preserve">
     <value>oder</value>
   </data>
-  <data name="TXT_PASSWORD">
+  <data name="TXT_PASSWORD" xml:space="preserve">
     <value>Passwort</value>
   </data>
-  <data name="TXT_PASTE">
+  <data name="TXT_PASTE" xml:space="preserve">
     <value>Einfügen</value>
   </data>
-  <data name="TXT_PORT_NAME">
+  <data name="TXT_PORT_NAME" xml:space="preserve">
     <value>Seriellen Port Name</value>
   </data>
-  <data name="TXT_PORT_SETTINGS">
+  <data name="TXT_PORT_SETTINGS" xml:space="preserve">
     <value>Seriellen Port Einstellungen:</value>
   </data>
-  <data name="TXT_PROCEED">
+  <data name="TXT_PROCEED" xml:space="preserve">
     <value>Vorgehen</value>
   </data>
-  <data name="TXT_PROGRAMSTARTUPINFO">
+  <data name="TXT_PROGRAMSTARTUPINFO" xml:space="preserve">
     <value>Programmstart Informationen</value>
   </data>
-  <data name="TXT_PROGRAMS_FILTER">
+  <data name="TXT_PROGRAMS_FILTER" xml:space="preserve">
     <value>Ausführbare Dateien (* exe) |*.exe|Alle Dateien (*.*)|*.*||</value>
   </data>
-  <data name="TXT_PROGRAM_DEF">
+  <data name="TXT_PROGRAM_DEF" xml:space="preserve">
     <value>Auszuführenden Programms (klicken Sie auf den Link unten, um zu ändern) werden:</value>
   </data>
-  <data name="TXT_READONLY">
+  <data name="TXT_READONLY" xml:space="preserve">
     <value>Nur Lesen (Read-Only)</value>
   </data>
-  <data name="TXT_ARCHIVE">
+  <data name="TXT_ARCHIVE" xml:space="preserve">
     <value>Archivieren</value>
   </data>
-  <data name="TXT_HIDDEN">
+  <data name="TXT_HIDDEN" xml:space="preserve">
     <value>Versteckt</value>
   </data>
-  <data name="TXT_SYSTEM">
+  <data name="TXT_SYSTEM" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="TXT_REFRESH">
+  <data name="TXT_REFRESH" xml:space="preserve">
     <value>Erfrischen</value>
   </data>
-  <data name="TXT_SATURDAY">
+  <data name="TXT_SATURDAY" xml:space="preserve">
     <value>Samstag</value>
   </data>
-  <data name="TXT_SAVE">
-    <value>Sparen</value>
+  <data name="TXT_SAVE" xml:space="preserve">
+    <value>Speichern</value>
   </data>
-  <data name="TXT_SAVE_AS">
+  <data name="TXT_SAVE_AS" xml:space="preserve">
     <value>Speichern unter ...</value>
   </data>
-  <data name="TXT_SEARCH">
+  <data name="TXT_SEARCH" xml:space="preserve">
     <value>Suche</value>
   </data>
-  <data name="TXT_SERIALPORTLCFG">
+  <data name="TXT_SERIALPORTLCFG" xml:space="preserve">
     <value>Konfigurieren Sie Serielle Schnittstelle</value>
   </data>
-  <data name="TXT_SERIAL_PORT_NAME">
+  <data name="TXT_SERIAL_PORT_NAME" xml:space="preserve">
     <value>Einstellungen für den seriellen Port:</value>
   </data>
-  <data name="TXT_SERVER">
+  <data name="TXT_SERVER" xml:space="preserve">
     <value>Server</value>
   </data>
-  <data name="TXT_SETSKIN">
+  <data name="TXT_SETSKIN" xml:space="preserve">
     <value>Legen Sie die User Interface Design (pro gesamte ProTONE Suite):</value>
   </data>
-  <data name="TXT_SETTINGS">
+  <data name="TXT_SETTINGS" xml:space="preserve">
     <value>Programm-Einstellungen</value>
   </data>
-  <data name="TXT_SETUILANGUAGE">
+  <data name="TXT_SETUILANGUAGE" xml:space="preserve">
     <value>Stellen Sie die Sprache der Benutzeroberfläche (pro gesamte ProTONE Suite):</value>
   </data>
-  <data name="TXT_SHOWLOG">
-    <value>Log-Datei anzeigen ...</value>
+  <data name="TXT_SHOWLOG" xml:space="preserve">
+    <value>Journal-Datei anzeigen ...</value>
   </data>
-  <data name="TXT_SHOWSPLITTERS">
+  <data name="TXT_SHOWSPLITTERS" xml:space="preserve">
     <value>Zeige Panel Splitter im Hauptfenster</value>
   </data>
-  <data name="TXT_SIZE">
+  <data name="TXT_SIZE" xml:space="preserve">
     <value>Größe</value>
   </data>
-  <data name="TXT_SUCCESS">
+  <data name="TXT_SUCCESS" xml:space="preserve">
     <value>Aufgabe erfolgreich.</value>
   </data>
-  <data name="TXT_SUCCESS_COPY_TASK">
+  <data name="TXT_SUCCESS_COPY_TASK" xml:space="preserve">
     <value>Kopieren von Dateien wurde erfolgreich abgeschlossen.</value>
   </data>
-  <data name="TXT_SUCCESS_DELETE_TASK">
+  <data name="TXT_SUCCESS_DELETE_TASK" xml:space="preserve">
     <value>Löschen von Dateien erfolgreich abgeschlossen hat.</value>
   </data>
-  <data name="TXT_SUCCESS_MOVE_TASK">
+  <data name="TXT_SUCCESS_MOVE_TASK" xml:space="preserve">
     <value>Verschieben von Dateien wurde erfolgreich abgeschlossen.</value>
   </data>
-  <data name="TXT_SUNDAY">
+  <data name="TXT_SUNDAY" xml:space="preserve">
     <value>Sonntag</value>
   </data>
-  <data name="TXT_TASK_CANCEL">
+  <data name="TXT_TASK_CANCEL" xml:space="preserve">
     <value>Abbruch Aufgaben?</value>
   </data>
-  <data name="TXT_TASK_CANCEL_MSG">
+  <data name="TXT_TASK_CANCEL_MSG" xml:space="preserve">
     <value>Sind Sie sicher, abbrechen wollen die Ausführung von Aufgaben?</value>
   </data>
-  <data name="TXT_SPECIFYURL">
+  <data name="TXT_SPECIFYURL" xml:space="preserve">
     <value>URL angeben:</value>
   </data>
-  <data name="TXT_TCPIPINVALIDFORMAT">
+  <data name="TXT_TCPIPINVALIDFORMAT" xml:space="preserve">
     <value>Der eingegebene Zeichenfolge stellt keine gültige URL.</value>
   </data>
-  <data name="TXT_TCPIPURI">
+  <data name="TXT_TCPIPURI" xml:space="preserve">
     <value>Geben Sie die URL:</value>
   </data>
-  <data name="TXT_THEREARENOITEMS">
+  <data name="TXT_THEREARENOITEMS" xml:space="preserve">
     <value>Es sind keine Objekte in diesem Panel zeigen.</value>
   </data>
-  <data name="TXT_THURSDAY">
+  <data name="TXT_THURSDAY" xml:space="preserve">
     <value>Donnerstag</value>
   </data>
-  <data name="TXT_TRACE">
-    <value>Debug-Spuren anzeigen</value>
+  <data name="TXT_TRACE" xml:space="preserve">
+    <value>Registrieren Debug-Meldungen in der Journal-datei</value>
   </data>
-  <data name="TXT_TUESDAY">
+  <data name="TXT_TUESDAY" xml:space="preserve">
     <value>Dienstag</value>
   </data>
-  <data name="TXT_UNDO">
+  <data name="TXT_UNDO" xml:space="preserve">
     <value>Rückgängig</value>
   </data>
-  <data name="TXT_UP">
+  <data name="TXT_UP" xml:space="preserve">
     <value>Oben</value>
   </data>
-  <data name="TXT_USERNAME">
+  <data name="TXT_USERNAME" xml:space="preserve">
     <value>Benutzer</value>
   </data>
-  <data name="TXT_VERSION">
+  <data name="TXT_VERSION" xml:space="preserve">
     <value>Version: {0}</value>
   </data>
-  <data name="TXT_WAIT_COPY">
+  <data name="TXT_WAIT_COPY" xml:space="preserve">
     <value>Bitte warten Sie, während das Kopieren von Dateien ...</value>
   </data>
-  <data name="TXT_WAIT_DELETE">
+  <data name="TXT_WAIT_DELETE" xml:space="preserve">
     <value>Bitte warten Sie, während das Löschen von Dateien ...</value>
   </data>
-  <data name="TXT_WAIT_MOVE">
+  <data name="TXT_WAIT_MOVE" xml:space="preserve">
     <value>Bitte warten Sie, während das Verschieben von Dateien ...</value>
   </data>
-  <data name="TXT_WARNING">
-    <value>Melden Sie Warnmeldungen</value>
+  <data name="TXT_WARNING" xml:space="preserve">
+    <value>Registrieren Warn-Meldungen in der Journal-Datei</value>
   </data>
-  <data name="TXT_WEDNESDAY">
+  <data name="TXT_WEDNESDAY" xml:space="preserve">
     <value>Mittwoch</value>
   </data>
-  <data name="TXT_WIZARDBACK">
+  <data name="TXT_WIZARDBACK" xml:space="preserve">
     <value>&lt; Zurück</value>
   </data>
-  <data name="TXT_WIZARDCANCEL">
+  <data name="TXT_WIZARDCANCEL" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <data name="TXT_WIZARDFINISH">
+  <data name="TXT_WIZARDFINISH" xml:space="preserve">
     <value>Abschließen</value>
   </data>
-  <data name="TXT_WIZARDNEXT">
+  <data name="TXT_WIZARDNEXT" xml:space="preserve">
     <value>Weiter &gt;</value>
   </data>
-  <data name="TXT_WIZARDOK">
+  <data name="TXT_WIZARDOK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="TXT_WIZARDREPEAT">
+  <data name="TXT_WIZARDREPEAT" xml:space="preserve">
     <value>Wiederholen Sie die Assistenten</value>
   </data>
-  <data name="TXT_WIZARDSTEPDELIMITER">
+  <data name="TXT_WIZARDSTEPDELIMITER" xml:space="preserve">
     <value>von</value>
   </data>
-  <data name="TXT_WIZARDSTEPTEXT">
+  <data name="TXT_WIZARDSTEPTEXT" xml:space="preserve">
     <value>Schritt</value>
   </data>
-  <data name="TXT_WIZFINISHED">
+  <data name="TXT_WIZFINISHED" xml:space="preserve">
     <value>beendet die Task-Ausführung.</value>
   </data>
-  <data name="TXT_WIZFINISHING">
+  <data name="TXT_WIZFINISHING" xml:space="preserve">
     <value>läuft, bitte warten ...</value>
   </data>
-  <data name="TXT_WIZSTEPRESULTS">
+  <data name="TXT_WIZSTEPRESULTS" xml:space="preserve">
     <value>Resultat</value>
   </data>
-  <data name="TXT_WIZTASKSFINISHED">
+  <data name="TXT_WIZTASKSFINISHED" xml:space="preserve">
     <value>Alle Aufgaben-Assistenten haben erfolgreich beendet!</value>
   </data>
-  <data name="TXT_WIZTASKSFINISHED_ERRORS">
+  <data name="TXT_WIZTASKSFINISHED_ERRORS" xml:space="preserve">
     <value>Alle Aufgaben-Assistenten abgeschlossen haben, aber einige Fehler aufgetreten sind. Details in der Liste unten.</value>
   </data>
-  <data name="TXT_WIZTASKSRUNNING">
+  <data name="TXT_WIZTASKSRUNNING" xml:space="preserve">
     <value>Bitte warten Sie, während Assistent Tasks ausgeführt werden ...</value>
   </data>
-  <data name="TXT_WORKDIR">
+  <data name="TXT_WORKDIR" xml:space="preserve">
     <value>Programm Arbeitsordner:</value>
   </data>
-  <data name="TXT_YES">
+  <data name="TXT_YES" xml:space="preserve">
     <value>Ja</value>
   </data>
-  <data name="TXT_YESALL">
+  <data name="TXT_YESALL" xml:space="preserve">
     <value>Ja für alle</value>
   </data>
-  <data name="TXT_DEFINE_PROXYSERVERADDRESS">
+  <data name="TXT_DEFINE_PROXYSERVERADDRESS" xml:space="preserve">
     <value>[Definieren Sie den Proxy-Server-Adresse]</value>
   </data>
-  <data name="TXT_DEFINE_PROXYSERVERUSERNAME">
+  <data name="TXT_DEFINE_PROXYSERVERUSERNAME" xml:space="preserve">
     <value>[Definieren Sie den Proxy-Server-Benutzername]</value>
   </data>
-  <data name="TXT_PROXYTYPE">
+  <data name="TXT_PROXYTYPE" xml:space="preserve">
     <value>Proxy-Server-Typus:</value>
   </data>
-  <data name="TXT_PROXYADDRESS">
+  <data name="TXT_PROXYADDRESS" xml:space="preserve">
     <value>Proxyserver-Adresse:</value>
   </data>
-  <data name="TXT_PROXYPORT">
+  <data name="TXT_PROXYPORT" xml:space="preserve">
     <value>Proxy-Server-Port:</value>
   </data>
-  <data name="TXT_PROXYUSERNAME">
+  <data name="TXT_PROXYUSERNAME" xml:space="preserve">
     <value>Benutzername:</value>
   </data>
-  <data name="TXT_PROXYPASSWORD">
+  <data name="TXT_PROXYPASSWORD" xml:space="preserve">
     <value>Passwort:</value>
   </data>
-  <data name="TXT_LEVEL_AUTOMATIC">
+  <data name="TXT_LEVEL_AUTOMATIC" xml:space="preserve">
     <value>Automatisch</value>
   </data>
-  <data name="TXT_LEVEL_ERROR">
+  <data name="TXT_LEVEL_ERROR" xml:space="preserve">
     <value>Fehler</value>
   </data>
-  <data name="TXT_LEVEL_EXCEPTION">
+  <data name="TXT_LEVEL_EXCEPTION" xml:space="preserve">
     <value>Ausnahme</value>
   </data>
-  <data name="TXT_LEVEL_HEAVYTRACE">
+  <data name="TXT_LEVEL_HEAVYTRACE" xml:space="preserve">
     <value>Detaillierte Debug-Trace</value>
   </data>
-  <data name="TXT_LEVEL_INFO">
+  <data name="TXT_LEVEL_INFO" xml:space="preserve">
     <value>Information</value>
   </data>
-  <data name="TXT_LEVEL_TRACE">
+  <data name="TXT_LEVEL_TRACE" xml:space="preserve">
     <value>Spur</value>
   </data>
-  <data name="TXT_LEVEL_WARNING">
+  <data name="TXT_LEVEL_WARNING" xml:space="preserve">
     <value>Warnung</value>
   </data>
-  <data name="TXT_RESULTS">
+  <data name="TXT_RESULTS" xml:space="preserve">
     <value>Ergebnisse:</value>
   </data>
-  <data name="TXT_PRIMARY_MONITOR">
+  <data name="TXT_PRIMARY_MONITOR" xml:space="preserve">
     <value>[PRIMÄREN MONITOR]</value>
   </data>
-  <data name="TXT_CONFIRM_PROPERTYSAVE">
+  <data name="TXT_CONFIRM_PROPERTYSAVE" xml:space="preserve">
     <value>Die Item-Eigenschaften geändert wurden. Wollen Sie die Änderungen speichern?</value>
   </data>
-  <data name="TXT_CONFIRMSAVECHANGES">
+  <data name="TXT_CONFIRMSAVECHANGES" xml:space="preserve">
     <value>Änderungen speichern?</value>
   </data>
-  <data name="TXT_DUPPLICATE_SHORTCUT">
+  <data name="TXT_DUPPLICATE_SHORTCUT" xml:space="preserve">
     <value>Abkürzung ist bereits im Einsatz</value>
   </data>
-  <data name="TXT_DUP_SHORTCUT_FIXED">
+  <data name="TXT_DUP_SHORTCUT_FIXED" xml:space="preserve">
     <value>Die Tastenkombination '{0}' ist bereits zu "{1} 'zugewiesen und kann nicht geändert werden.
 Bitte geben Sie eine andere Kombination.</value>
   </data>
-  <data name="TXT_DUP_SHORTCUT_CONFIRM">
+  <data name="TXT_DUP_SHORTCUT_CONFIRM" xml:space="preserve">
     <value>Die Tastenkombination '{0}' ist bereits zu "{1} 'zugewiesen.
 Wollen Sie neu zuweisen es auf '{2}'?</value>
   </data>
-  <data name="TXT_CONFIRM_RESTORE">
+  <data name="TXT_CONFIRM_RESTORE" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie die Standardeinstellungen zu laden?</value>
   </data>
-  <data name="TXT_RESTORESHORTCUTSDESC">
+  <data name="TXT_RESTORESHORTCUTSDESC" xml:space="preserve">
     <value>Verwenden Sie "Standardeinstellungen", um das Standard-Tastatur laden Abkürzung-Konfiguration.</value>
   </data>
-  <data name="TXT_RESTOREDEFAULTS">
+  <data name="TXT_RESTOREDEFAULTS" xml:space="preserve">
     <value>Standardeinstellungen</value>
   </data>
-  <data name="TXT_PID">
+  <data name="TXT_PID" xml:space="preserve">
     <value>Prozess-ID</value>
   </data>
-  <data name="TXT_TID">
+  <data name="TXT_TID" xml:space="preserve">
     <value>Thread-ID</value>
   </data>
-  <data name="TXT_KEEPONTOP">
+  <data name="TXT_KEEPONTOP" xml:space="preserve">
     <value>Halten Sie Fenster über andere</value>
   </data>
-  <data name="TXT_SAVEWINDOW">
-    <value>Speichern unter ...-Fenster anmelden</value>
+  <data name="TXT_SAVEWINDOW" xml:space="preserve">
+    <value>Speichern Fenster anmelden unter ...</value>
   </data>
-  <data name="TXT_SAVELOGFILE">
-    <value>Log-datei speichern unter ...</value>
+  <data name="TXT_SAVELOGFILE" xml:space="preserve">
+    <value>Journal-Datei speichern unter ...</value>
   </data>
-  <data name="TXT_SHOWTRACE">
+  <data name="TXT_SHOWTRACE" xml:space="preserve">
     <value>Spuren anzeigen</value>
   </data>
-  <data name="TXT_SHOWINFO">
+  <data name="TXT_SHOWINFO" xml:space="preserve">
     <value>Infos anzeigen</value>
   </data>
-  <data name="TXT_SHOWWARNING">
+  <data name="TXT_SHOWWARNING" xml:space="preserve">
     <value>Warnungen anzeigen</value>
   </data>
-  <data name="TXT_SHOWERROR">
+  <data name="TXT_SHOWERROR" xml:space="preserve">
     <value>Fehler anzeigen</value>
   </data>
-  <data name="TXT_SAVELOGORWINDOW">
-    <value>Save Log-Datei oder Fenster</value>
+  <data name="TXT_SAVELOGORWINDOW" xml:space="preserve">
+    <value>Save Journal-Datei oder Fenster</value>
   </data>
-  <data name="TXT_NOTIFYUPDATE">
+  <data name="TXT_NOTIFYUPDATE" xml:space="preserve">
     <value>Eine neue Programm-Version steht zur Verfügung: {0}.
 Wollen Sie auf diese Version aktualisieren?</value>
   </data>
-  <data name="TXT_CONFIRMUPDATE">
+  <data name="TXT_CONFIRMUPDATE" xml:space="preserve">
     <value>Bestätigen Sie Programm-Update</value>
   </data>
-  <data name="TXT_WAITDOWNLOADUPDATE">
+  <data name="TXT_WAITDOWNLOADUPDATE" xml:space="preserve">
     <value>Bitte warten Sie, während des Herunterladens Anwendung Update-Dateien. Können Sie ESC, um den Download abbrechen drücken und halten Sie die bestehende Version der Anwendung.</value>
   </data>
-  <data name="TXT_ALLOWAUTOUPDATES">
+  <data name="TXT_ALLOWAUTOUPDATES" xml:space="preserve">
     <value>Lassen Sie die automatische Programm-Updates</value>
   </data>
-  <data name="TXT_CHECKUPDATE">
+  <data name="TXT_CHECKUPDATE" xml:space="preserve">
     <value>Überprüfen Sie Programm-Updates</value>
   </data>
-  <data name="TXT_DISABLEAUTODOWNLOADS">
+  <data name="TXT_DISABLEAUTODOWNLOADS" xml:space="preserve">
     <value>Deaktivieren Sie die automatische Updates</value>
   </data>
-  <data name="TXT_NOUPDATEREQUIRED">
+  <data name="TXT_NOUPDATEREQUIRED" xml:space="preserve">
     <value>Dieses Programm verfügt über die neueste verfügbare Version.
 Für den Moment ist es nicht erforderlich, um das Programm zu aktualisieren.</value>
   </data>
-  <data name="TXT_CONFIRM_MOVE">
+  <data name="TXT_CONFIRM_MOVE" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie die Datei verschieben:
 {0}?</value>
   </data>
-  <data name="TXT_CONFIRM_MOVE_DIR">
+  <data name="TXT_CONFIRM_MOVE_DIR" xml:space="preserve">
     <value>Der Ordner: {0} ist nicht leer.
 Sie wollen es und alle Inhalte zu bewegen?</value>
   </data>
-  <data name="TXT_CONFIRM_MOVE_EMPTYDIR">
+  <data name="TXT_CONFIRM_MOVE_EMPTYDIR" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie den Ordner zu verschieben:
 {0}?</value>
   </data>
-  <data name="TXT_CONFIRM_MOVE_ROHS">
+  <data name="TXT_CONFIRM_MOVE_ROHS" xml:space="preserve">
     <value>Die Datei {0} ist eine oder mehrere dieser Attribute: Read-Only/Hidden/System.
 Wollen Sie immer noch, ihn zu bewegen?</value>
   </data>
-  <data name="TXT_NOPROXY">
+  <data name="TXT_NOPROXY" xml:space="preserve">
     <value>Kein Proxy</value>
   </data>
-  <data name="TXT_HTTPPROXY">
+  <data name="TXT_HTTPPROXY" xml:space="preserve">
     <value>HTTP-Proxy</value>
   </data>
-  <data name="TXT_SOCKS4PROXY">
+  <data name="TXT_SOCKS4PROXY" xml:space="preserve">
     <value>SOCKS4-Proxy</value>
   </data>
-  <data name="TXT_SOCKS5PROXY">
+  <data name="TXT_SOCKS5PROXY" xml:space="preserve">
     <value>SOCKS5-Proxy</value>
   </data>
-  <data name="TXT_IEPROXY">
+  <data name="TXT_IEPROXY" xml:space="preserve">
     <value>Verwenden die Internet Explorer Proxy Einstellungen</value>
   </data>
-  <data name="TXT_FILE_TYPE">
+  <data name="TXT_FILE_TYPE" xml:space="preserve">
     <value>Dateityp</value>
   </data>
-  <data name="TXT_LOOK_IN">
+  <data name="TXT_LOOK_IN" xml:space="preserve">
     <value>Suche in:</value>
   </data>
-  <data name="TXT_SAMPLE">
+  <data name="TXT_SAMPLE" xml:space="preserve">
     <value>Exempel:</value>
   </data>
-  <data name="TXT_FONT">
+  <data name="TXT_FONT" xml:space="preserve">
     <value>Schrift:</value>
   </data>
-  <data name="TXT_FONT_STYLE">
+  <data name="TXT_FONT_STYLE" xml:space="preserve">
     <value>Schriftstil:</value>
   </data>
-  <data name="TXT_SCRIPT">
+  <data name="TXT_SCRIPT" xml:space="preserve">
     <value>Charakter set:</value>
   </data>
-  <data name="TXT_CHOOSE_COLOR">
+  <data name="TXT_CHOOSE_COLOR" xml:space="preserve">
     <value>Wählen Sie eine Farbe:</value>
   </data>
-  <data name="TXT_ACTIVE">
+  <data name="TXT_ACTIVE" xml:space="preserve">
     <value>Aktiv</value>
   </data>
-  <data name="TXT_FLAG_ERRORS">
-    <value>Fehler
+  <data name="TXT_FLAG_ERRORS" xml:space="preserve">
+    <value>Fehler-Meldungen
 Anzeigen</value>
   </data>
-  <data name="TXT_FLAG_WARNINGS">
-    <value>Warnungen
+  <data name="TXT_FLAG_WARNINGS" xml:space="preserve">
+    <value>Warn-Meldungen
 Anzeigen</value>
   </data>
-  <data name="TXT_FLAG_INFOS">
-    <value>Informationen
+  <data name="TXT_FLAG_INFOS" xml:space="preserve">
+    <value>Info-Meldungen
 Anzeigen</value>
   </data>
-  <data name="TXT_FLAG_TRACES">
-    <value>Debug Traces
+  <data name="TXT_FLAG_TRACES" xml:space="preserve">
+    <value>Debug-Meldungen 
 Anzeigen</value>
   </data>
-  <data name="TXT_LOGFILE_FILTER">
-    <value>Log-Dateien (*.log)|*.log||</value>
+  <data name="TXT_LOGFILE_FILTER" xml:space="preserve">
+    <value>Journal-Dateien (*.log)|*.log||</value>
   </data>
-  <data name="TXT_SAVELOGFILE_PART">
-    <value>Teilweisen Log-datei speichern unter:</value>
+  <data name="TXT_SAVELOGFILE_PART" xml:space="preserve">
+    <value>Teilweisen Journal-Datei speichern unter:</value>
   </data>
-  <data name="TXT_DRIVE_DESC_FORMAT">
+  <data name="TXT_DRIVE_DESC_FORMAT" xml:space="preserve">
     <value>{0}  [{1}]  [{2}]  [{3} MB frei]  [{4}]</value>
   </data>
-  <data name="TXT_SELECT_FOLDER">
+  <data name="TXT_SELECT_FOLDER" xml:space="preserve">
     <value>Wählen Sie einen Ordner:</value>
   </data>
-  <data name="TXT_NEW_FOLDER">
+  <data name="TXT_NEW_FOLDER" xml:space="preserve">
     <value>Neuen Ordner erstellen</value>
   </data>
-  <data name="TXT_FORMAT_UNKNOWN">
+  <data name="TXT_FORMAT_UNKNOWN" xml:space="preserve">
     <value>Unbekanntes Format</value>
   </data>
-  <data name="TXT_NOT_READY">
+  <data name="TXT_NOT_READY" xml:space="preserve">
     <value>Nicht bereit</value>
   </data>
-  <data name="TXT_NO_LABEL">
+  <data name="TXT_NO_LABEL" xml:space="preserve">
     <value>Kein Etikett</value>
   </data>
-  <data name="TXT_NO_NAME">
+  <data name="TXT_NO_NAME" xml:space="preserve">
     <value>Kein Name</value>
   </data>
-  <data name="TXT_READY">
+  <data name="TXT_READY" xml:space="preserve">
     <value>Bereit</value>
   </data>
-  <data name="TXT_CURRENT_PATH">
+  <data name="TXT_CURRENT_PATH" xml:space="preserve">
     <value>Aktueller Pfad: {0}</value>
   </data>
-  <data name="TXT_DISABLE">
+  <data name="TXT_DISABLE" xml:space="preserve">
     <value>Deaktivieren</value>
   </data>
-  <data name="TXT_EDIT">
+  <data name="TXT_EDIT" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
-  <data name="TXT_ENABLE">
+  <data name="TXT_ENABLE" xml:space="preserve">
     <value>Aktivieren</value>
   </data>
-  <data name="TXT_ENABLED">
+  <data name="TXT_ENABLED" xml:space="preserve">
     <value>Aktiviert</value>
   </data>
-  <data name="TXT_EXPORT">
+  <data name="TXT_EXPORT" xml:space="preserve">
     <value>Exportieren</value>
   </data>
-  <data name="TXT_EXPORT_FULL">
+  <data name="TXT_EXPORT_FULL" xml:space="preserve">
     <value>Vollständige Export ...</value>
   </data>
-  <data name="TXT_EXPORT_PARTIAL">
+  <data name="TXT_EXPORT_PARTIAL" xml:space="preserve">
     <value>Teilweisen Export ...</value>
   </data>
-  <data name="TXT_IMPORT">
+  <data name="TXT_IMPORT" xml:space="preserve">
     <value>Importieren</value>
   </data>
-  <data name="TXT_IMPORT_FULL">
+  <data name="TXT_IMPORT_FULL" xml:space="preserve">
     <value>Vollständiger Import ...</value>
   </data>
-  <data name="TXT_IMPORT_PARTIAL">
+  <data name="TXT_IMPORT_PARTIAL" xml:space="preserve">
     <value>Teilweiser Import (mit Merge) ...</value>
   </data>
-  <data name="TXT_INPUT_DATA">
+  <data name="TXT_INPUT_DATA" xml:space="preserve">
     <value>Input-Daten</value>
   </data>
-  <data name="TXT_OUTPUT_DATA">
+  <data name="TXT_OUTPUT_DATA" xml:space="preserve">
     <value>Ausgangsdaten</value>
   </data>
-  <data name="TXT_DISK_CDR">
+  <data name="TXT_DISK_CDR" xml:space="preserve">
     <value>Optischplatte (CD, DVD oder BlueRay)</value>
   </data>
-  <data name="TXT_DISK_FIL">
+  <data name="TXT_DISK_FIL" xml:space="preserve">
     <value>Datei</value>
   </data>
-  <data name="TXT_DISK_FLD">
+  <data name="TXT_DISK_FLD" xml:space="preserve">
     <value>Ordner</value>
   </data>
-  <data name="TXT_DISK_HDD">
+  <data name="TXT_DISK_HDD" xml:space="preserve">
     <value>Festplatte (Harddisk)</value>
   </data>
-  <data name="TXT_DISK_NET">
+  <data name="TXT_DISK_NET" xml:space="preserve">
     <value>Netzwerk-Laufwerk</value>
   </data>
-  <data name="TXT_DISK_NRT">
+  <data name="TXT_DISK_NRT" xml:space="preserve">
     <value>Platte ohne Root-Ordner</value>
   </data>
-  <data name="TXT_DISK_RAM">
+  <data name="TXT_DISK_RAM" xml:space="preserve">
     <value>Virtuelle RAM-Platte</value>
   </data>
-  <data name="TXT_DISK_REM">
+  <data name="TXT_DISK_REM" xml:space="preserve">
     <value>Wechseldatenträger (Diskette oder einem USB-Flash).</value>
   </data>
-  <data name="TXT_DISK_UNK">
+  <data name="TXT_DISK_UNK" xml:space="preserve">
     <value>Unbekannt Plattentypus</value>
   </data>
-  <data name="TXT_NEW_FILENAME">
+  <data name="TXT_NEW_FILENAME" xml:space="preserve">
     <value>Neuer Dateiname</value>
   </data>
-  <data name="TXT_OLD_FILENAME">
+  <data name="TXT_OLD_FILENAME" xml:space="preserve">
     <value>Alte Dateinamen</value>
   </data>
-  <data name="TXT_ATTRIBUTES">
+  <data name="TXT_ATTRIBUTES" xml:space="preserve">
     <value>Attribute</value>
   </data>
-  <data name="TXT_CREATIONDATE">
+  <data name="TXT_CREATIONDATE" xml:space="preserve">
     <value>Erstellungsdatum</value>
   </data>
-  <data name="TXT_EXTENSION">
+  <data name="TXT_EXTENSION" xml:space="preserve">
     <value>Extension</value>
   </data>
-  <data name="TXT_FILESIZE">
+  <data name="TXT_FILESIZE" xml:space="preserve">
     <value>Dateigröße</value>
   </data>
-  <data name="TXT_FILESYSTEMINFO">
+  <data name="TXT_FILESYSTEMINFO" xml:space="preserve">
     <value>Datei-Informationen</value>
   </data>
-  <data name="TXT_LASTACCESSDATE">
+  <data name="TXT_LASTACCESSDATE" xml:space="preserve">
     <value>Neueste Zugang</value>
   </data>
-  <data name="TXT_LASTCHANGEDATE">
+  <data name="TXT_LASTCHANGEDATE" xml:space="preserve">
     <value>Neueste Änderung</value>
   </data>
-  <data name="TXT_NAME">
+  <data name="TXT_NAME" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="TXT_PARENT">
+  <data name="TXT_PARENT" xml:space="preserve">
     <value>Übergeordneten Ordner</value>
   </data>
-  <data name="TXT_PATH">
+  <data name="TXT_PATH" xml:space="preserve">
     <value>Pfad</value>
   </data>
-  <data name="TXT_DESC">
+  <data name="TXT_DESC" xml:space="preserve">
     <value>Beschreibung</value>
   </data>
-  <data name="TXT_LOGMESSAGE">
+  <data name="TXT_LOGMESSAGE" xml:space="preserve">
     <value>Melden Nachricht</value>
   </data>
-  <data name="TXT_MODULENAME">
+  <data name="TXT_MODULENAME" xml:space="preserve">
     <value>Modulname</value>
   </data>
-  <data name="TXT_TIMESTAMP">
+  <data name="TXT_TIMESTAMP" xml:space="preserve">
     <value>Zeitstempel</value>
   </data>
-  <data name="TXT_CONFIRM_CREATE">
+  <data name="TXT_CONFIRM_CREATE" xml:space="preserve">
     <value>Die Datei {0} ist nicht vorhanden.
 Wollen Sie es schaffen?</value>
   </data>
-  <data name="TXT_ASSISTANCE">
+  <data name="TXT_ASSISTANCE" xml:space="preserve">
     <value>Assistenz</value>
   </data>
-  <data name="TXT_CHOOSE_FAVORITE">
-    <value>Bitte wählen Sie einen Ordner zu den Favoriten hinzugefügt werden:</value>
+  <data name="TXT_CHOOSE_FAVORITE" xml:space="preserve">
+    <value>Bitte wählen Sie einen Ordner zu den Favoriten anzugefügt werden:</value>
   </data>
-  <data name="TXT_CMDFAVMANAGER">
+  <data name="TXT_CMDFAVMANAGER" xml:space="preserve">
     <value>Offene Favorit Ordner-Manager</value>
   </data>
-  <data name="TXT_FAVORITES">
+  <data name="TXT_FAVORITES" xml:space="preserve">
     <value>Favoriten</value>
   </data>
-  <data name="TXT_FAVORITES_ADD">
-    <value>Als Favorit hinzufügen Folders</value>
+  <data name="TXT_FAVORITES_ADD" xml:space="preserve">
+    <value>Als Favorit anfügen Folders</value>
   </data>
-  <data name="TXT_FAVORITES_MANAGE">
+  <data name="TXT_FAVORITES_MANAGE" xml:space="preserve">
     <value>Verwalten Favoritenordner ...</value>
   </data>
-  <data name="TXT_MANAGE_FAVORITES">
+  <data name="TXT_MANAGE_FAVORITES" xml:space="preserve">
     <value>Definieren Ihre Favoriten-Ordner:</value>
   </data>
-  <data name="TXT_PROCESSING_FILE">
+  <data name="TXT_PROCESSING_FILE" xml:space="preserve">
     <value>Verarbeiten der Datei</value>
   </data>
-  <data name="TXT_SCANNING">
-    <value>Scannen</value>
+  <data name="TXT_SCANNING" xml:space="preserve">
+    <value>Absuchen</value>
   </data>
-  <data name="TXT_NEWFOLDER">
+  <data name="TXT_NEWFOLDER" xml:space="preserve">
     <value>Neuen Ordner Erstellen</value>
   </data>
-  <data name="TXT_PARENTFILETYPES">
+  <data name="TXT_PARENTFILETYPES" xml:space="preserve">
     <value>'Eltern' Dateitypen:</value>
   </data>
-  <data name="TXT_CHILDFILETYPES">
+  <data name="TXT_CHILDFILETYPES" xml:space="preserve">
     <value>'Kind' Dateitypen:</value>
   </data>
-  <data name="TXT_USE_LINKEDFILES">
+  <data name="TXT_USE_LINKEDFILES" xml:space="preserve">
     <value>Manipulieren verknüpften Dateien als ein einzelnes Element</value>
   </data>
-  <data name="TXT_FILE_NOT_FOUND">
+  <data name="TXT_FILE_NOT_FOUND" xml:space="preserve">
     <value>Datei nicht gefunden: {0}</value>
   </data>
-  <data name="TXT_RECENT_FILE_REMOVED">
+  <data name="TXT_RECENT_FILE_REMOVED" xml:space="preserve">
     <value>Die Datei wird aus den jüngsten Liste geöffneten Dateien entfernt werden.</value>
   </data>
-  <data name="TXT_S_CONTROL">
+  <data name="TXT_S_CONTROL" xml:space="preserve">
     <value>Kontrolle</value>
   </data>
-  <data name="TXT_S_TROUBLESHOOTING">
+  <data name="TXT_S_TROUBLESHOOTING" xml:space="preserve">
     <value>Stützen</value>
   </data>
-  <data name="TXT_EDIT_KEY">
+  <data name="TXT_EDIT_KEY" xml:space="preserve">
     <value>Konfigurieren Verknüpfung</value>
   </data>
-  <data name="TXT_RESULTING_COLOR">
+  <data name="TXT_RESULTING_COLOR" xml:space="preserve">
     <value>Entstandene Farbe:</value>
   </data>
-  <data name="TXT_SAMPLE_TEXT">
+  <data name="TXT_SAMPLE_TEXT" xml:space="preserve">
     <value>Beispieltext</value>
   </data>
-  <data name="TXT_FONTFAMILY">
+  <data name="TXT_FONTFAMILY" xml:space="preserve">
     <value>Schriftfamilie:</value>
   </data>
-  <data name="TXT_FONTSIZE">
+  <data name="TXT_FONTSIZE" xml:space="preserve">
     <value>Schriftgröße:</value>
   </data>
-  <data name="TXT_FONTCHARSET">
+  <data name="TXT_FONTCHARSET" xml:space="preserve">
     <value>Zeichensatz:</value>
   </data>
-  <data name="TXT_CHOOSE_FONT">
+  <data name="TXT_CHOOSE_FONT" xml:space="preserve">
     <value>Wählen Sie eine Schriftart:</value>
   </data>
 </root>
