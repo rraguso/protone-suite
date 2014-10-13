@@ -117,448 +117,444 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_ABORTED">
-    <value>Numérisation annulée.</value>
+  <data name="TXT_ABORTED" xml:space="preserve">
+    <value>Balayage abandonnée.</value>
   </data>
-  <data name="TXT_ADDON_FE_SETTINGS">
+  <data name="TXT_ADDON_FE_SETTINGS" xml:space="preserve">
     <value>Navigateur de fichiers</value>
   </data>
-  <data name="TXT_ADDON_MC_SETTINGS">
-    <value>Parcourir le catalogue</value>
+  <data name="TXT_ADDON_MC_SETTINGS" xml:space="preserve">
+    <value>Navigateur de catalogues</value>
   </data>
-  <data name="TXT_ATTRIBUTESEARCH">
+  <data name="TXT_ATTRIBUTESEARCH" xml:space="preserve">
     <value>Filtrer les résultats par attributs de fichier</value>
   </data>
-  <data name="TXT_CAPITALIZEWORDS">
+  <data name="TXT_BITCOPYRIGHT" xml:space="preserve">
+    <value>Bit Droits d'auteur</value>
+  </data>
+  <data name="TXT_BITCRC" xml:space="preserve">
+    <value>Bit CRC</value>
+  </data>
+  <data name="TXT_BITORIGINAL" xml:space="preserve">
+    <value>Bit original</value>
+  </data>
+  <data name="TXT_BITPRIVATE" xml:space="preserve">
+    <value>Bit privé</value>
+  </data>
+  <data name="TXT_BITRATE_MODE" xml:space="preserve">
+    <value>Mode de débit:</value>
+  </data>
+  <data name="TXT_CAPITALIZEWORDS" xml:space="preserve">
     <value>Tous les mots en majuscule</value>
   </data>
-  <data name="TXT_CASEINSENSITIVESEARCH">
+  <data name="TXT_CASEINSENSITIVESEARCH" xml:space="preserve">
     <value>Ignorer majuscules / minuscules</value>
   </data>
-  <data name="TXT_CATALOG">
-    <value>Assistant catalogue</value>
+  <data name="TXT_CATALOG" xml:space="preserve">
+    <value>Importer catalogue</value>
   </data>
-  <data name="TXT_CATALOGPATH">
+  <data name="TXT_CATALOG_DESC" xml:space="preserve">
+    <value>Le catalogue</value>
+  </data>
+  <data name="TXT_CATALOG_FILTER" xml:space="preserve">
+    <value>Fichiers catalogue (*.ctx)|*.ctx||</value>
+  </data>
+  <data name="TXT_CATALOGINFO" xml:space="preserve">
+    <value>Informations sur le fichier catalogue</value>
+  </data>
+  <data name="TXT_CATALOGITEMINFO" xml:space="preserve">
+    <value>Modifiable informations</value>
+  </data>
+  <data name="TXT_CATALOGITEMINFO_RO" xml:space="preserve">
+    <value>Non modifiable informations</value>
+  </data>
+  <data name="TXT_CATALOGPATH" xml:space="preserve">
     <value>Articles importés seront ajoutés au fichier catalogue sous le chemin: {0}</value>
   </data>
-  <data name="TXT_CATALOGSCHEMAVERSION">
-    <value>Version du schéma catalogue</value>
+  <data name="TXT_CATALOGSCHEMAVERSION" xml:space="preserve">
+    <value>Version du schéma de catalogue</value>
   </data>
-  <data name="TXT_CATALOG_FILTER">
-    <value>Médias fichiers catalogue (*.ctx)|*.ctx||</value>
+  <data name="TXT_CDRIPPERWIZARD" xml:space="preserve">
+    <value>CD Ripper</value>
   </data>
-  <data name="TXT_CMDCATALOGMERGE">
+  <data name="TXT_CHANNEL_MODE" xml:space="preserve">
+    <value>Mode Audio:</value>
+  </data>
+  <data name="TXT_CMDCATALOGMERGE" xml:space="preserve">
     <value>Fusionner des catalogues</value>
   </data>
-  <data name="TXT_CMDCATALOGWIZARD">
+  <data name="TXT_CMDCATALOGWIZARD" xml:space="preserve">
     <value>Lancez l'assistant d'importation de catalogue</value>
   </data>
-  <data name="TXT_CMDCHANGEDISK">
+  <data name="TXT_CMDCHANGEDISK" xml:space="preserve">
     <value>Changer de disque logique</value>
   </data>
-  <data name="TXT_CMDTAGGINGWIZARD">
-    <value>Lancez l'assistant de marquage</value>
+  <data name="TXT_CMDNAVIGATEBACK" xml:space="preserve">
+    <value>Revenir</value>
   </data>
-  <data name="TXT_CMDNAVIGATEBACK">
-    <value>Revenez</value>
+  <data name="TXT_CMDNAVIGATEFORWARD" xml:space="preserve">
+    <value>Avancer</value>
   </data>
-  <data name="TXT_CMDNAVIGATEFORWARD">
-    <value>Naviguer vers l'avant</value>
-  </data>
-  <data name="TXT_CMDNAVIGATEUP">
+  <data name="TXT_CMDNAVIGATEUP" xml:space="preserve">
     <value>Aller au dossier parent</value>
   </data>
-  <data name="TXT_DRIVES">
+  <data name="TXT_CMDTAGGINGWIZARD" xml:space="preserve">
+    <value>Lancez l'assistant de marquage</value>
+  </data>
+  <data name="TXT_CONFIG_NOT_REQUIRED" xml:space="preserve">
+    <value>Ce format ne nécessite pas d'options de configuration.</value>
+  </data>
+  <data name="TXT_DRIVES" xml:space="preserve">
     <value>Changer disque</value>
   </data>
-  <data name="TXT_ENTRY_DESC">
+  <data name="TXT_ENCODEROPTIONS" xml:space="preserve">
+    <value>Options de codeur:</value>
+  </data>
+  <data name="TXT_ENTRY_DESC" xml:space="preserve">
     <value>Spécifiez une description pour l'entrée à ajouter:</value>
   </data>
-  <data name="TXT_ERROR_INVALID_CATALOG">
-    <value>Ce fichier ne représente pas un catalogue valable médias:
-
- {0}</value>
-  </data>
-  <data name="TXT_ERROR_MERGE_SAME_CATALOG">
-    <value>Vous ne pouvez pas fusionner un catalogue en lui-même:
-
- {0}</value>
-  </data>
-  <data name="TXT_ERR_MERGE_FAILED">
+  <data name="TXT_ERR_MERGE_FAILED" xml:space="preserve">
     <value>Catalogues de fusion ont échoué. Détails:
-
- {0}</value>
+' {0}'</value>
   </data>
-  <data name="TXT_FILENAMEPATTERN">
+  <data name="TXT_ERROR_INVALID_CATALOG" xml:space="preserve">
+    <value>Ce fichier ne représente pas un catalogue valable:
+' {0}'</value>
+  </data>
+  <data name="TXT_ERROR_MERGE_SAME_CATALOG" xml:space="preserve">
+    <value>Vous ne pouvez pas fusionner un catalogue en lui-même:
+' {0}'</value>
+  </data>
+  <data name="TXT_FILENAMEPATTERN" xml:space="preserve">
     <value>Modèle de nom de fichier:</value>
   </data>
-  <data name="TXT_FOLDERNAMEPATTERN">
+  <data name="TXT_FOLDERNAMEPATTERN" xml:space="preserve">
     <value>Modèle de nom de dossier:</value>
   </data>
-  <data name="TXT_FSTAGEDITOR">
+  <data name="TXT_FSTAGEDITOR" xml:space="preserve">
     <value>Générer des etiquetes basées sur nom de fichier / dossier</value>
   </data>
-  <data name="TXT_TAGGEDFILESFILTER">
-    <value>Fichiers audio avec etiquettes (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
+  <data name="TXT_GENERATE_TAG" xml:space="preserve">
+    <value>Générer des etiquetes basées sur des propriétés des pistes du CD</value>
   </data>
-  <data name="TXT_TAGGINGWIZARD">
-    <value>Assistant de marquage</value>
+  <data name="TXT_GRABBERHINT_STEP1" xml:space="preserve">
+    <value>Cliquez sur les cellules de la liste à modifier.
+Double-cliquez sur les images de chèques de choisir de saisir une piste ou pas.</value>
   </data>
-  <data name="TXT_IMPORTWIZARD">
+  <data name="TXT_IMPORTWIZARD" xml:space="preserve">
     <value>Assistant d'importation</value>
   </data>
-  <data name="TXT_INIT_SEARCH">
+  <data name="TXT_INIT_SEARCH" xml:space="preserve">
     <value>Le processus de recherche est l'initialisation, s'il vous plaît patienter ...</value>
   </data>
-  <data name="TXT_ITEMNAME">
+  <data name="TXT_INTERNALLABEL" xml:space="preserve">
+    <value>Interne étiquette du média</value>
+  </data>
+  <data name="TXT_ISORPHAN" xml:space="preserve">
+    <value>Est orphelin</value>
+  </data>
+  <data name="TXT_ITEMDATA" xml:space="preserve">
+    <value>Données supplémentaires</value>
+  </data>
+  <data name="TXT_ITEMNAME" xml:space="preserve">
     <value>Nom de l'élément</value>
   </data>
-  <data name="TXT_JUMPTOITEM">
+  <data name="TXT_ITEMTYPE_DESC" xml:space="preserve">
+    <value>Type d'élément d'origine</value>
+  </data>
+  <data name="TXT_JUMPTOITEM" xml:space="preserve">
     <value>Aller à la rubrique</value>
   </data>
-  <data name="TXT_KEEPCASE">
+  <data name="TXT_KEEPCASE" xml:space="preserve">
     <value>Gardez mot d'origine boîtier</value>
   </data>
-  <data name="TXT_LAUNCH_WIZARD">
-    <value>Lancez l'assistant de marquage ...</value>
+  <data name="TXT_LAME_DISCLAIMER" xml:space="preserve">
+    <value>ProTONE Suite utilise L.A.M.E. pour l'encodage MP3.</value>
   </data>
-  <data name="TXT_MAINTAIN_CATALOG_HISTORY">
-    <value>Rappelez-vous l'histoire des catalogues ouverts</value>
+  <data name="TXT_LAUNCH_WIZARD" xml:space="preserve">
+    <value>Assistant de marquage ...</value>
   </data>
-  <data name="TXT_MAXPROCESSEDFILES">
+  <data name="TXT_MAINTAIN_CATALOG_HISTORY" xml:space="preserve">
+    <value>Rappelez l'histoire des catalogues ouverts</value>
+  </data>
+  <data name="TXT_MAXPROCESSEDFILES" xml:space="preserve">
     <value>Max. Réf. des fichiers dont les propriétés peuvent être affichées:</value>
   </data>
-  <data name="TXT_MEDIALABEL">
-    <value>D'origine étiquette du média</value>
-  </data>
-  <data name="TXT_MEDIAPATH">
-    <value>Chemin d'origine dans les médias - '$' correspond à 'racine médias amovibles "</value>
-  </data>
-  <data name="TXT_MEDIA_WITHOUT_BOOKMARKS">
-    <value>Fichiers multimédias sans signets</value>
-  </data>
-  <data name="TXT_MEDIA_WITH_BOOKMARKS">
+  <data name="TXT_MEDIA_WITH_BOOKMARKS" xml:space="preserve">
     <value>Fichiers multimédias avec des signets</value>
   </data>
-  <data name="TXT_MERGECATALOG">
+  <data name="TXT_MEDIA_WITHOUT_BOOKMARKS" xml:space="preserve">
+    <value>Fichiers multimédias sans signets</value>
+  </data>
+  <data name="TXT_MEDIALABEL" xml:space="preserve">
+    <value>Original étiquette du média</value>
+  </data>
+  <data name="TXT_MEDIAPATH" xml:space="preserve">
+    <value>Original chemin dans le média - '$' correspond à 'racine de média amovible "</value>
+  </data>
+  <data name="TXT_MEDIAPATH_SHORT" xml:space="preserve">
+    <value>Original chemin dans le media</value>
+  </data>
+  <data name="TXT_MERGECATALOG" xml:space="preserve">
     <value>S'il vous plaît sélectionner un catalogue à fusionner:</value>
   </data>
-  <data name="TXT_MERGECATALOGS">
+  <data name="TXT_MERGECATALOGS" xml:space="preserve">
     <value>Fusionner Catalogues</value>
   </data>
-  <data name="TXT_MULTIRENAME">
+  <data name="TXT_MP3FLAGS" xml:space="preserve">
+    <value>Fanions MP3:</value>
+  </data>
+  <data name="TXT_MULTIRENAME" xml:space="preserve">
     <value>Renommer des fichiers</value>
   </data>
-  <data name="TXT_NON_ORPHAN_BOOKMARKS">
-    <value>Fichiers de signets non-orphelins</value>
-  </data>
-  <data name="TXT_NO_CATALOG">
+  <data name="TXT_NO_CATALOG" xml:space="preserve">
     <value>Aucun catalogue n'est encore défini, s'il vous plaît cliquer sur Parcourir pour en sélectionner un.</value>
   </data>
-  <data name="TXT_NO_ITEMS_FOUND">
+  <data name="TXT_NO_ITEMS_FOUND" xml:space="preserve">
     <value>Aucun élément n'a été trouvé. S'il vous plaît changer les paramètres de recherche et essayez à nouveau.</value>
   </data>
-  <data name="TXT_OPENCATALOG">
+  <data name="TXT_NON_ORPHAN_BOOKMARKS" xml:space="preserve">
+    <value>Fichiers de signets non-orphelins</value>
+  </data>
+  <data name="TXT_OPENCATALOG" xml:space="preserve">
     <value>Fichier catalogue ouvert ...</value>
   </data>
-  <data name="TXT_OPENCATALOGS">
+  <data name="TXT_OPENCATALOGS" xml:space="preserve">
     <value>catalogues ouverts.</value>
   </data>
-  <data name="TXT_OPENRECENTFILEDROPDOWN">
+  <data name="TXT_OPENRECENTFILEDROPDOWN" xml:space="preserve">
     <value>Appuyez sur la flèche vers le bas pour ouvrir la liste des fichiers récents.</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINBOOKMARKSADDONPANEL">
-    <value>Afficher les propriétés de fichiers signet (.BMK) dans le navigateur de fichiers</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL">
-    <value>Explorateur de fichiers</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINTAGGEDFILEPROPADDONPANEL">
-    <value>Modifier etiquettes sur fichiers audio dans le navigateur de fichiers</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL">
-    <value>Afficher les fichiers images (JPG, GIF, BMP, PNG, etc)</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERADDONPANEL">
-    <value>Parcourir le catalogue</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL">
-    <value>Voir les articles du catalogue Propriétés dans le navigateur de catalogue</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL">
-    <value>Afficher les propriétés de fichiers catalogue dans le Navigateur de fichiers</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL">
-    <value>Lire des fichiers multimédia avec l'extension Lecteur ProTone intégré</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINVIDEOPROPADDONPANEL">
-    <value>Afficher les propriétés de fichiers vidéo dans le navigateur de fichiers</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPREVIEWADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPREVIEWADDONPANEL" xml:space="preserve">
     <value>Ouvrir des fichiers avec Windows associé du programme</value>
   </data>
-  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL">
+  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL" xml:space="preserve">
     <value>Système d'information sur Afficher le fichier dans le navigateur de fichiers</value>
   </data>
-  <data name="TXT_ORPHAN_BOOKMARKS">
+  <data name="TXT_OPMEDIAADDONSBUILTINBOOKMARKSADDONPANEL" xml:space="preserve">
+    <value>Afficher les propriétés de fichiers signet (.BMK) dans le navigateur de fichiers</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERADDONPANEL" xml:space="preserve">
+    <value>Parcourir le catalogue</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL" xml:space="preserve">
+    <value>Voir les articles du catalogue Propriétés dans le navigateur de catalogue</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL" xml:space="preserve">
+    <value>Afficher les propriétés de fichiers catalogue dans le Navigateur de fichiers</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL" xml:space="preserve">
+    <value>Afficher les propriétés des fichiers de CD audio (CDA) dans l'explorateur de fichiers</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL" xml:space="preserve">
+    <value>Explorateur de fichiers</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL" xml:space="preserve">
+    <value>Afficher les fichiers images (JPG, GIF, BMP, PNG, etc)</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL" xml:space="preserve">
+    <value>Lire des fichiers multimédia avec l'extension ProTONE Lecteur intégré</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINTAGGEDFILEPROPADDONPANEL" xml:space="preserve">
+    <value>Modifier etiquettes sur fichiers audio dans le navigateur de fichiers</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINVIDEOPROPADDONPANEL" xml:space="preserve">
+    <value>Afficher les propriétés de fichiers vidéo dans le navigateur de fichiers</value>
+  </data>
+  <data name="TXT_OPTIONS_ADDITIONAL" xml:space="preserve">
+    <value>Options supplémentaires</value>
+  </data>
+  <data name="TXT_OPTIONS_VBR" xml:space="preserve">
+    <value>Options de VBR</value>
+  </data>
+  <data name="TXT_ORPHAN_BOOKMARKS" xml:space="preserve">
     <value>Fichiers de signets orphelins</value>
   </data>
-  <data name="TXT_PREVIEW">
+  <data name="TXT_OUTPUT_FORMAT" xml:space="preserve">
+    <value>Format de sortie:</value>
+  </data>
+  <data name="TXT_PARENTMEDIAFILE" xml:space="preserve">
+    <value>Médias parents fichier</value>
+  </data>
+  <data name="TXT_PREVIEW" xml:space="preserve">
     <value>Aperçu des résultats ...</value>
   </data>
-  <data name="TXT_PREVIEW_DESC_EDITTAG">
+  <data name="TXT_PREVIEW_DESC_EDITTAG" xml:space="preserve">
     <value>Aperçu des résultats de 'Modifier etiquettes' tâche:</value>
   </data>
-  <data name="TXT_PREVIEW_DESC_FILLTAGBYFS">
+  <data name="TXT_PREVIEW_DESC_FILLTAGBYFS" xml:space="preserve">
     <value>Aperçu des résultats de 'Générer des etiquetes basées sur nom de fichier / dossier' tâche:</value>
   </data>
-  <data name="TXT_PREVIEW_DESC_MULTIRENAME">
+  <data name="TXT_PREVIEW_DESC_MULTIRENAME" xml:space="preserve">
     <value>Aperçu des résultats de la tâche de 'Renommer des fichiers':</value>
   </data>
-  <data name="TXT_PREVIEW_FORM">
+  <data name="TXT_PREVIEW_FORM" xml:space="preserve">
     <value>Aperçu des résultats</value>
   </data>
-  <data name="TXT_PREVIEW_TIMER">
+  <data name="TXT_PREVIEW_TIMER" xml:space="preserve">
     <value>Minuterie Prévisualisation automatique (secondes)
 (0 = Désactiver la prévisualisation automatique):</value>
   </data>
-  <data name="TXT_PROPERTYSEARCH">
+  <data name="TXT_PROCESSING_TRACK" xml:space="preserve">
+    <value>Importation de piste de CD nr. {0} dans le fichier: {1}</value>
+  </data>
+  <data name="TXT_PROPERTYSEARCH" xml:space="preserve">
     <value>Recherche Metadata (p.e. etiquettes)</value>
   </data>
-  <data name="TXT_RECURSIVESEARCH">
+  <data name="TXT_RECURSIVESEARCH" xml:space="preserve">
     <value>Rechercher dans les sous-dossiers</value>
   </data>
-  <data name="TXT_REMOVE_FILES">
+  <data name="TXT_REMOVE_FILES" xml:space="preserve">
     <value>Supprimer des fichiers</value>
   </data>
-  <data name="TXT_RENAME">
+  <data name="TXT_RENAME" xml:space="preserve">
     <value>Rebaptiser</value>
   </data>
-  <data name="TXT_RENAMEPATTERN">
+  <data name="TXT_RENAMEPATTERN" xml:space="preserve">
     <value>Renommer modèle:</value>
   </data>
-  <data name="TXT_REOPEN_LAST_CATALOG">
+  <data name="TXT_REOPEN_LAST_CATALOG" xml:space="preserve">
     <value>Au démarrage du programme, ouvrez dernier catalogue en charge</value>
   </data>
-  <data name="TXT_RETAIN_LAST">
+  <data name="TXT_RETAIN_LAST" xml:space="preserve">
     <value>Mémoriser la dernière</value>
   </data>
-  <data name="TXT_ROOT">
+  <data name="TXT_ROOT" xml:space="preserve">
     <value>Dossier racine catalogue</value>
   </data>
-  <data name="TXT_SAVECATALOG">
-    <value>Sauvegarder le catalogue sous ...</value>
+  <data name="TXT_ROOTSERIALNUMBER" xml:space="preserve">
+    <value>Médias numéro de série</value>
   </data>
-  <data name="TXT_SCAN_ERROR">
-    <value>Numérisation d'erreur</value>
+  <data name="TXT_SAVECATALOG" xml:space="preserve">
+    <value>Enregistrer le catalogue sous ...</value>
   </data>
-  <data name="TXT_SCAN_ERROR_MSG">
-    <value>Une erreur non fatale s'est produite lors de la numérisation d'objet:. {0}
+  <data name="TXT_SAVETOFOLDER" xml:space="preserve">
+    <value>Enregistrer les fichiers de sortie sur:</value>
+  </data>
+  <data name="TXT_SCAN_ERROR" xml:space="preserve">
+    <value>Erreur de balayage</value>
+  </data>
+  <data name="TXT_SCAN_ERROR_MSG" xml:space="preserve">
+    <value>Une erreur non fatale s'est produite lors de la balayage d'objet:. {0}
 Le message d'erreur est le suivant:. {1}
 
-Voulez-vous continuer la numérisation?</value>
+Voulez-vous continuer la balayage?</value>
   </data>
-  <data name="TXT_SEARCHFOLDER">
-    <value>Rechercher dans le dossier:</value>
+  <data name="TXT_SEARCH_BOOKMARKS" xml:space="preserve">
+    <value>Recherche des fichiers signets (*. BMK)</value>
   </data>
-  <data name="TXT_SEARCHPATTERN_FE">
-    <value>Spécifiez le nom de la recherche (caractères génériques acceptés:?, *), ou choisissez l'un des modèles prédéfinis:</value>
-  </data>
-  <data name="TXT_SEARCHPATTERN_MC">
-    <value>Spécifiez le nom de la recherche cans caractères génériques:</value>
-  </data>
-  <data name="TXT_SEARCHVALUE">
-    <value>Texte à rechercher:</value>
-  </data>
-  <data name="TXT_SEARCHWIZARD_FE">
-    <value>Recherche de fichiers et de dossiers</value>
-  </data>
-  <data name="TXT_SEARCHWIZARD_MC">
-    <value>Items Rechercher dans le catalogue</value>
-  </data>
-  <data name="TXT_SEARCH_BOOKMARKS">
-    <value>Recherche Bookmark Files (*. BMK)</value>
-  </data>
-  <data name="TXT_SEARCH_MEDIAFILES">
+  <data name="TXT_SEARCH_MEDIAFILES" xml:space="preserve">
     <value>Rechercher des fichiers multimédia</value>
   </data>
-  <data name="TXT_SELECTCATALOG">
+  <data name="TXT_SEARCHFOLDER" xml:space="preserve">
+    <value>Rechercher dans le dossier:</value>
+  </data>
+  <data name="TXT_SEARCHPATTERN_FE" xml:space="preserve">
+    <value>Spécifiez le nom de la recherche (caractères génériques acceptés:?, *), ou choisissez l'un des modèles prédéfinis:</value>
+  </data>
+  <data name="TXT_SEARCHPATTERN_MC" xml:space="preserve">
+    <value>Spécifiez le nom de la recherche cans caractères génériques:</value>
+  </data>
+  <data name="TXT_SEARCHVALUE" xml:space="preserve">
+    <value>Texte à rechercher:</value>
+  </data>
+  <data name="TXT_SEARCHWIZARD_FE" xml:space="preserve">
+    <value>Recherche de fichiers et de dossiers</value>
+  </data>
+  <data name="TXT_SEARCHWIZARD_MC" xml:space="preserve">
+    <value>Rechercher objets dans le catalogue</value>
+  </data>
+  <data name="TXT_SELECTCATALOG" xml:space="preserve">
     <value>Spécifier le fichier pour ajouter les fichiers importés:</value>
   </data>
-  <data name="TXT_SELECTTAGGEDFILES">
-    <value>Sélectionnez les fichiers audio à éditer ...</value>
+  <data name="TXT_SELECTDRIVE" xml:space="preserve">
+    <value>Sélectionnez un lecteur de CD Audio:</value>
   </data>
-  <data name="TXT_SELECTTAGGEDFILESFOLDER">
-    <value>Sélectionnez un dossier contenant des fichiers à éditer ...</value>
-  </data>
-  <data name="TXT_SELECTINSERTPOINT">
+  <data name="TXT_SELECTINSERTPOINT" xml:space="preserve">
     <value>Sélectionnez le point d'insertion dans le catalogue sélectionné
 (appuyez sur F5 pour recharger l'arbre):</value>
   </data>
-  <data name="TXT_SENTENCECASE">
+  <data name="TXT_SELECTTAGGEDFILES" xml:space="preserve">
+    <value>Sélectionnez les fichiers audio à éditer ...</value>
+  </data>
+  <data name="TXT_SELECTTAGGEDFILESFOLDER" xml:space="preserve">
+    <value>Sélectionnez un dossier contenant des fichiers à éditer ...</value>
+  </data>
+  <data name="TXT_SELECTTRACKS" xml:space="preserve">
+    <value>Sélectionnez les pistes à extraire du CD:</value>
+  </data>
+  <data name="TXT_SENTENCECASE" xml:space="preserve">
     <value>Capitaliser premier mot</value>
   </data>
-  <data name="TXT_SHORTCUT">
+  <data name="TXT_SHORTCUT" xml:space="preserve">
     <value>Raccourci: {0}</value>
   </data>
-  <data name="TXT_SUPPLY_CATALOG_DESC">
+  <data name="TXT_SUPPLY_CATALOG_DESC" xml:space="preserve">
     <value>Spécifiez une description pour votre catalogue ...</value>
   </data>
-  <data name="TXT_TAGEDITOR">
+  <data name="TXT_TAGEDITOR" xml:space="preserve">
     <value>Modifier etiquettes</value>
   </data>
-  <data name="TXT_TOTAL_ITEMS_FOUND">
+  <data name="TXT_TAGGEDFILESFILTER" xml:space="preserve">
+    <value>Fichiers audio avec etiquettes (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
+  </data>
+  <data name="TXT_TAGGINGWIZARD" xml:space="preserve">
+    <value>Assistant de marquage</value>
+  </data>
+  <data name="TXT_TAGINFO_PATTERNS" xml:space="preserve">
+    <value>Modèles de marquage</value>
+  </data>
+  <data name="TXT_TOTAL_ITEMS_FOUND" xml:space="preserve">
     <value>Total: {0} article (s) trouvé. Utilisez le menu clic droit de continuer à traiter ces éléments.</value>
   </data>
-  <data name="TXT_UNHANDLED">
+  <data name="TXT_TOTALCHILDRENCOUNT" xml:space="preserve">
+    <value>Total des éléments</value>
+  </data>
+  <data name="TXT_TOTALFILECOUNT" xml:space="preserve">
+    <value>Total de fichiers</value>
+  </data>
+  <data name="TXT_TOTALSUBFOLDERCOUNT" xml:space="preserve">
+    <value>Total de sous-dossiers</value>
+  </data>
+  <data name="TXT_UNHANDLED" xml:space="preserve">
     <value>Ne peut pas gérer le type de tâche spécifiée.</value>
   </data>
-  <data name="TXT_VER_NA">
+  <data name="TXT_VBRMAX" xml:space="preserve">
+    <value>Max. VBR (kbps):</value>
+  </data>
+  <data name="TXT_VBRMIN:" xml:space="preserve">
+    <value>Min. VBR (kbps):</value>
+  </data>
+  <data name="TXT_VBRMODE" xml:space="preserve">
+    <value>VBR Mode:</value>
+  </data>
+  <data name="TXT_VBRQUALITY" xml:space="preserve">
+    <value>VBR Qualité:</value>
+  </data>
+  <data name="TXT_VER_NA" xml:space="preserve">
     <value>Informations de version n'est pas présent (catalogue héritage)</value>
   </data>
-  <data name="TXT_WAIT_LOADING_CATALOG">
+  <data name="TXT_WAIT_LOADING_CATALOG" xml:space="preserve">
     <value>S'il vous plaît patienter pendant le chargement catalogue ...</value>
   </data>
-  <data name="TXT_WAIT_MERGING_CATALOG">
+  <data name="TXT_WAIT_MERGING_CATALOG" xml:space="preserve">
     <value>S'il vous plaît patienter pendant que la fusion des catalogues ...</value>
   </data>
-  <data name="TXT_WIZCATSTEP1_DESC">
+  <data name="TXT_WIZCATSTEP1_DESC" xml:space="preserve">
     <value>Spécifier le fichier pour ajouter les fichiers importés:</value>
   </data>
-  <data name="TXT_WIZCATSTEP2_DESC">
+  <data name="TXT_WIZCATSTEP2_DESC" xml:space="preserve">
     <value>Sélectionnez le dossier ou le disque contenant les éléments à importer
 (appuyez sur F5 pour recharger l'arbre):</value>
   </data>
-  <data name="TXT_WIZTAGGINGSTEP1_DESC">
+  <data name="TXT_WIZTAGGINGSTEP1_DESC" xml:space="preserve">
     <value>S'il vous plaît spécifier les fichiers que vous souhaitez modifier.
-Utilisez les «Ajouter des fichiers», «Ajouter un dossier», les boutons «Supprimer les fichiers» pour configurer la liste des fichiers.</value>
+Utilisez le 'Ajouter des fichiers', 'Ajouter un dossier', et/ou 'Supprimer les fichiers' bouton pour configurer la liste des fichiers.</value>
   </data>
-  <data name="TXT_WIZTAGGINGSTEP2_DESC">
+  <data name="TXT_WIZTAGGINGSTEP2_DESC" xml:space="preserve">
     <value>S'il vous plaît spécifier la manière dont doit être traité ces fichiers:</value>
   </data>
-  <data name="TXT_WORDHANDLING">
+  <data name="TXT_WORDHANDLING" xml:space="preserve">
     <value>Changer la casse des mots:</value>
-  </data>
-  <data name="TXT_CATALOG_DESC">
-    <value>Le catalogue</value>
-  </data>
-  <data name="TXT_CATALOGINFO">
-    <value>Informations sur le fichier catalogue</value>
-  </data>
-  <data name="TXT_TAGINFO_PATTERNS">
-    <value>Modèles de marquage</value>
-  </data>
-  <data name="TXT_INTERNALLABEL">
-    <value>Interne étiquette du média</value>
-  </data>
-  <data name="TXT_ISORPHAN">
-    <value>Est orphelin</value>
-  </data>
-  <data name="TXT_ITEMDATA">
-    <value>Données supplémentaires</value>
-  </data>
-  <data name="TXT_ITEMTYPE_DESC">
-    <value>Type d'élément d'origine</value>
-  </data>
-  <data name="TXT_MEDIAPATH_SHORT">
-    <value>Chemin d'origine dans les médias</value>
-  </data>
-  <data name="TXT_PARENTMEDIAFILE">
-    <value>Médias parents fichier</value>
-  </data>
-  <data name="TXT_ROOTSERIALNUMBER">
-    <value>Médias numéro de série</value>
-  </data>
-  <data name="TXT_TOTALCHILDRENCOUNT">
-    <value> Total des éléments</value>
-  </data>
-  <data name="TXT_TOTALFILECOUNT">
-    <value> Total de fichiers</value>
-  </data>
-  <data name="TXT_TOTALSUBFOLDERCOUNT">
-    <value> Total de sous-dossiers</value>
-  </data>
-  <data name="TXT_CATALOGITEMINFO">
-    <value>Modifiable informations</value>
-  </data>
-  <data name="TXT_CATALOGITEMINFO_RO">
-    <value>Non modifiable informations</value>
-  </data>
-  <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL">
-    <value>Afficher les propriétés des fichiers de CD audio (CDA) dans l'explorateur de fichiers</value>
-  </data>
-  <data name="TXT_CDRIPPERWIZARD">
-    <value>CD Ripper</value>
-  </data>
-  <data name="TXT_GRABBERHINT_STEP1">
-    <value>Cliquez sur les cellules de la liste à modifier.
-
-Double-cliquez sur les images de chèques de choisir de saisir une piste ou pas.</value>
-  </data>
-  <data name="TXT_OPTIONS_VBR">
-    <value>Options de VBR</value>
-  </data>
-  <data name="TXT_SELECTDRIVE">
-    <value>Sélectionnez un lecteur de CD Audio:</value>
-  </data>
-  <data name="TXT_SELECTTRACKS">
-    <value>Sélectionnez les pistes à extraire du CD:</value>
-  </data>
-  <data name="TXT_SAVETOFOLDER">
-    <value>Enregistrer les fichiers de sortie sur:</value>
-  </data>
-  <data name="TXT_OUTPUT_FORMAT">
-    <value>Format de sortie:</value>
-  </data>
-  <data name="TXT_ENCODEROPTIONS">
-    <value>Options de codeur: </value>
-  </data>
-  <data name="TXT_BITRATE_MODE">
-    <value>Mode de débit:</value>
-  </data>
-  <data name="TXT_CHANNEL_MODE">
-    <value>Mode Audio:</value>
-  </data>
-  <data name="TXT_VBRQUALITY">
-    <value>VBR Qualité:</value>
-  </data>
-  <data name="TXT_VBRMAX">
-    <value>Max. VBR (kbps):</value>
-  </data>
-  <data name="TXT_VBRMIN:">
-    <value>Min. VBR (kbps):</value>
-  </data>
-  <data name="TXT_VBRMODE">
-    <value>VBR Mode:</value>
-  </data>
-  <data name="TXT_BITCOPYRIGHT">
-    <value>Bit Droits d'auteur</value>
-  </data>
-  <data name="TXT_MP3FLAGS">
-    <value>Fanions MP3: </value>
-  </data>
-  <data name="TXT_BITORIGINAL">
-    <value>Bit original</value>
-  </data>
-  <data name="TXT_BITPRIVATE">
-    <value>Bit privé</value>
-  </data>
-  <data name="TXT_BITCRC">
-    <value>Bit CRC</value>
-  </data>
-  <data name="TXT_OPTIONS_ADDITIONAL">
-    <value>Options supplémentaires</value>
-  </data>
-  <data name="TXT_LAME_DISCLAIMER">
-    <value>ProTONE Suite utilise L.A.M.E. pour l'encodage MP3.</value>
-  </data>
-  <data name="TXT_CONFIG_NOT_REQUIRED">
-    <value>Ce format ne nécessite pas d'options de configuration.</value>
-  </data>
-  <data name="TXT_GENERATE_TAG">
-    <value>Générer des etiquetes basées sur des propriétés des pistes du CD </value>
-  </data>
-  <data name="TXT_PROCESSING_TRACK">
-    <value>Importation de piste de CD nr. {0} dans le fichier: {1}</value>
   </data>
 </root>

@@ -117,94 +117,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_INSTALL_ADDONLIB">
-    <value>Installer bibliothèque addon ...</value>
+  <data name="TXT_ADDON_NAME" xml:space="preserve">
+    <value>Nom de module complementaire</value>
   </data>
-  <data name="TXT_INSTALLADDONFILTER">
-    <value>Bibliothèques addon OPMedia (*.dll)|*.dll||</value>
-  </data>
-  <data name="TXT_INSTALLADDONS">
-    <value>Sélectionnez une bibliothèque addon OPMedia à installer:</value>
-  </data>
-  <data name="TXT_INVALID_ADDON">
-    <value>Le fichier DLL que vous avez sélectionné n'est pas une extension de la bibliothèque valide OPMedia.
-Remarque: Si vous crois, cependant, que le fichier en question aurait dû être une extension valide, il vous est conseillé de contacter le producteur ou le fournisseur de cette DLL.</value>
-  </data>
-  <data name="TXT_ADDON_NAME">
-    <value>Nom Addon</value>
-  </data>
-  <data name="TXT_S_ADDON_SETTINGS">
-    <value>Configuration</value>
-  </data>
-  <data name="TXT_ADDONS_CHANGED_RESTART">
-    <value>Pour modifier la configuration de nouveaux addons, le programme doit être redémarré.
+  <data name="TXT_ADDONS_CHANGED_RESTART" xml:space="preserve">
+    <value>Pour modifier la configuration de modules complementaires, le programme doit être redémarré.
 Est-il OK pour redémarrer maintenant?</value>
   </data>
-  <data name="TXT_ADDONS_NOT_CHANGED">
-    <value>Puisque vous avez annulé le redémarrage, votre complément de la configuration ne sera pas modifiée.</value>
+  <data name="TXT_ADDONS_NOT_CHANGED" xml:space="preserve">
+    <value>Puisque vous avez annulé le redémarrage, votre configuration de modules complementaires ne sera pas modifiée.</value>
   </data>
-  <data name="TXT_S_ADDONSETTINGS">
-    <value>Extensions</value>
+  <data name="TXT_ADDONSLIST" xml:space="preserve">
+    <value>Modules complementaires cochés sont activés. Utilisez les cases à cocher pour activer / désactiver modules complementaires. Modules complementaires marqués d'une * sont requis et ne peut pas être désactivé. Un redémarrage du programme seront nécessaires pour appliquer la nouvelle configuration modules complementaires.</value>
   </data>
-  <data name="TXT_ADDONSLIST">
-    <value>Addons cochés sont activés. Utilisez les cases à cocher pour activer / désactiver addons. Addons marqués d'une * sont requis et ne peut pas être désactivé. Un redémarrage du programme seront nécessaires pour appliquer la nouvelle configuration addons.</value>
+  <data name="TXT_ADDONSLIST_NORESTART" xml:space="preserve">
+    <value>Modules complementaires cochés sont activés. Utilisez les cases à cocher pour activer / désactiver modules complementaires. Modules complementaires marqués d'une * sont requis et ne peut pas être désactivé.</value>
   </data>
-  <data name="TXT_ADDONSLIST_NORESTART">
-    <value>Addons cochés sont activés. Utilisez les cases à cocher pour activer / désactiver addons. Addons marqués d'une * sont requis et ne peut pas être désactivé.</value>
-  </data>
-  <data name="TXT_CANT_INSTALL_BUILTIN">
+  <data name="TXT_CANT_INSTALL_BUILTIN" xml:space="preserve">
     <value>La bibliothèque que vous avez sélectionné ne peut pas être installé, car il est une bibliothèque native. 
 Une bibliothèque native encaspulates les fonctionnalités de base d'une application extensible, et il ne peut pas être installé ou désinstallé.</value>
   </data>
-  <data name="TXT_CANT_UNINSTALL_BUILTIN">
+  <data name="TXT_CANT_UNINSTALL_BUILTIN" xml:space="preserve">
     <value>La bibliothèque que vous avez sélectionné ne peut pas être désinstallé, parce que c'est une bibliothèque native. 
 Une bibliothèque native encaspulates les fonctionnalités de base d'une application extensible, et il ne peut pas être installé ou désinstallé.
-Lieu de désinstallation, pensez à utiliser les addons cases à cocher pour activer ou désactiver différentes fonctionnalités de l'application. 
+Lieu de désinstallation, pensez à utiliser les modules complementaires cases à cocher pour activer ou désactiver différentes fonctionnalités de l'application. 
 Payez attention à ce que certaines fonctionnalités sont nécessaires et ne peuvent pas être désactivées.</value>
   </data>
-  <data name="TXT_INVALID_NAME">
-    <value>Le fichier DLL que vous avez sélectionné n'est pas une extension de la bibliothèque valide OPMedia.
-Une extension valide OPMedia bibliothèque nom du fichier doit suivre la convention: Extension.dll &lt;Addon-Name&gt;.</value>
+  <data name="TXT_INSTALL_ADDONLIB" xml:space="preserve">
+    <value>Installer modules complementaires ...</value>
   </data>
-  <data name="TXT_NAV_ADDONS">
+  <data name="TXT_INSTALLADDONFILTER" xml:space="preserve">
+    <value>Modules complementaires OPMedia (*.dll)|*.dll||</value>
+  </data>
+  <data name="TXT_INSTALLADDONS" xml:space="preserve">
+    <value>Sélectionnez une modules complementaires OPMedia à installer:</value>
+  </data>
+  <data name="TXT_INVALID_ADDON" xml:space="preserve">
+    <value>Le fichier DLL que vous avez sélectionné n'est pas une modules complementair valide OPMedia.
+Remarque: Si vous crois, cependant, que le fichier en question aurait dû être une module valide, il vous est conseillé de contacter le producteur ou le fournisseur de cette DLL.</value>
+  </data>
+  <data name="TXT_INVALID_NAME" xml:space="preserve">
+    <value>Le fichier DLL que vous avez sélectionné n'est pas une extension de la bibliothèque valide OPMedia.
+Une module complementaire OPMedia valide doit suivre la convention de nom: Extension.dll &lt;Addon-Name&gt;.</value>
+  </data>
+  <data name="TXT_NAV_ADDONS" xml:space="preserve">
     <value>Navigation</value>
   </data>
-  <data name="TXT_PREVIEW_ADDONS">
+  <data name="TXT_NO_NAV_ADDONS" xml:space="preserve">
+    <value>Aucun modules complementaires de navigation sont actuellement configurés. L'application ne peut pas fonctionner sans eux.
+Vous devez sélectionner et activer au moins un module de navigation pour continuer.</value>
+  </data>
+  <data name="TXT_NOTIFY_NON_PREVIEW" xml:space="preserve">
+    <value>L'élément sélectionné ne peut pas être prévisualisé.
+Vous devez utiliser un programme externe pour la voir.</value>
+  </data>
+  <data name="TXT_NOTIFY_PREVIEW" xml:space="preserve">
+    <value>Pour prévisualiser l'élément sélectionné, double-cliquez dessus ou appuyez sur Entrée.</value>
+  </data>
+  <data name="TXT_PREPARE_PREVIEW" xml:space="preserve">
+    <value>Prévisualisation automatique de l'élément sélectionné démarre en quelques secondes.
+Appuyez sur Echap pour annuler ...</value>
+  </data>
+  <data name="TXT_PREVIEW_ADDONS" xml:space="preserve">
     <value>Aperçu / Visualisation</value>
   </data>
-  <data name="TXT_PROP_ADDONS">
+  <data name="TXT_PREVIEW_CANCELED" xml:space="preserve">
+    <value>Prévisualisation automatique de l'élément sélectionné a été annulée.
+Sélectionnez un autre élément ou appuyez sur Entrée pour prévisualiser l'élément actuel.</value>
+  </data>
+  <data name="TXT_PROP_ADDONS" xml:space="preserve">
     <value>Interaction de la propriété du fichier</value>
   </data>
-  <data name="TXT_SHAREDADDONS">
-    <value>La bibliothèque addon vous essayez de désinstaller offre des fonctions multiples:
+  <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="TXT_S_ADDONSETTINGS" xml:space="preserve">
+    <value>Extensions</value>
+  </data>
+  <data name="TXT_SELECTALLADDONS" xml:space="preserve">
+    <value>Sélectionnez tous les modules complementaires</value>
+  </data>
+  <data name="TXT_SHAREDADDONS" xml:space="preserve">
+    <value>La module complementaire vous essayez de désinstaller offre des fonctions multiples:
 
 {0}
 
 Si vous continuez, toutes ces fonctionnalités ne seront plus disponibles. Est-il OK pour continuer?</value>
   </data>
-  <data name="TXT_NO_NAV_ADDONS">
-    <value>Aucun addons de navigation sont actuellement configurés. L'application ne peut pas fonctionner sans eux.
-Vous devez sélectionner et activer au moins un addon de navigation pour continuer.</value>
-  </data>
-  <data name="TXT_NOTIFY_NON_PREVIEW">
-    <value>L'élément sélectionné ne peut pas être prévisualisé.
-Vous devez utiliser un programme externe pour la voir.</value>
-  </data>
-  <data name="TXT_NOTIFY_PREVIEW">
-    <value>Pour prévisualiser l'élément sélectionné, double-cliquez dessus ou appuyez sur Entrée.</value>
-  </data>
-  <data name="TXT_PREPARE_PREVIEW">
-    <value>Prévisualisation automatique de l'élément sélectionné démarre en quelques secondes.
-Appuyez sur Echap pour annuler ...</value>
-  </data>
-  <data name="TXT_PREVIEW_CANCELED">
-    <value>Prévisualisation automatique de l'élément sélectionné a été annulée.
-Sélectionnez un autre élément ou appuyez sur Entrée pour prévisualiser l'élément actuel.</value>
-  </data>
-  <data name="TXT_SELECTALLADDONS">
-    <value>Sélectionnez tous les addons</value>
-  </data>
-  <data name="TXT_UNINSTALL_ADDONLIB">
-    <value>Désinstaller bibliothèque addon ...</value>
+  <data name="TXT_UNINSTALL_ADDONLIB" xml:space="preserve">
+    <value>Désinstaller modules complementaire …</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,1017 +117,1017 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_ACT_HIBERNATE">
+  <data name="TXT_ACT_HIBERNATE" xml:space="preserve">
     <value>Entrez en veille prolongée</value>
   </data>
-  <data name="TXT_ACT_LAUNCHPROGRAM">
+  <data name="TXT_ACT_LAUNCHPROGRAM" xml:space="preserve">
     <value>Lancer un programme</value>
   </data>
-  <data name="TXT_ACT_NONE">
+  <data name="TXT_ACT_NONE" xml:space="preserve">
     <value>Ignorer l'événement</value>
   </data>
-  <data name="TXT_ACT_SHUTDOWN">
+  <data name="TXT_ACT_SHUTDOWN" xml:space="preserve">
     <value>Eteignez le PC</value>
   </data>
-  <data name="TXT_ACT_STANDBY">
+  <data name="TXT_ACT_STANDBY" xml:space="preserve">
     <value>Entrez en mode de veille</value>
   </data>
-  <data name="TXT_NEWNOW">
+  <data name="TXT_NEWNOW" xml:space="preserve">
     <value>Nouveau signet aujourd'hui</value>
   </data>
-  <data name="TXT_NEWNOW_BMDESC">
+  <data name="TXT_NEWNOW_BMDESC" xml:space="preserve">
     <value>Ajouter un nouveau signet au moment de la lecture en cours</value>
   </data>
-  <data name="TXT_NEW_BMDESC">
+  <data name="TXT_NEW_BMDESC" xml:space="preserve">
     <value>Ajouter un nouveau signet</value>
   </data>
-  <data name="TXT_DELETE_BMDESC">
+  <data name="TXT_DELETE_BMDESC" xml:space="preserve">
     <value>Supprimer le favori</value>
   </data>
-  <data name="TXT_ADD_BOOKMARK">
+  <data name="TXT_ADD_BOOKMARK" xml:space="preserve">
     <value>Ajouter un signet</value>
   </data>
-  <data name="TXT_AUDIOSETTINGS">
+  <data name="TXT_AUDIOSETTINGS" xml:space="preserve">
     <value>Paramètres audio</value>
   </data>
-  <data name="TXT_AUDIO_AVAILABLE">
+  <data name="TXT_AUDIO_AVAILABLE" xml:space="preserve">
     <value>Flux audio disponibles.</value>
   </data>
-  <data name="TXT_AUDIO_FILES">
+  <data name="TXT_AUDIO_FILES" xml:space="preserve">
     <value>Les fichiers audio</value>
   </data>
-  <data name="TXT_AVAILABLE_DVD_MEDIA">
+  <data name="TXT_AVAILABLE_DVD_MEDIA" xml:space="preserve">
     <value>ou, ouvrez l'un des médias de DVD disponibles dans le système:</value>
   </data>
-  <data name="TXT_BOOKMARK_DEFAULT_TEXT">
+  <data name="TXT_BOOKMARK_DEFAULT_TEXT" xml:space="preserve">
     <value>Défaut signet texte</value>
   </data>
-  <data name="TXT_BOOKMARK_DESC">
-    <value>Bookmark description:</value>
+  <data name="TXT_BOOKMARK_DESC" xml:space="preserve">
+    <value>Description de signet:</value>
   </data>
-  <data name="TXT_BOOKMARK_MANAGER">
-    <value>Bookmark Manager</value>
+  <data name="TXT_BOOKMARK_MANAGER" xml:space="preserve">
+    <value>Gestionaire de signets</value>
   </data>
-  <data name="TXT_BOOKMARK_TIME">
-    <value>Bookmark temps:</value>
+  <data name="TXT_BOOKMARK_TIME" xml:space="preserve">
+    <value>Temps de signet:</value>
   </data>
-  <data name="TXT_BTNCLEAR">
+  <data name="TXT_BTNCLEAR" xml:space="preserve">
     <value>Effacer toute la liste de lecture
-Raccourci:. {0}</value>
+Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNDELETE">
+  <data name="TXT_BTNDELETE" xml:space="preserve">
     <value>Supprimer les éléments sélectionnés
-Raccourci:. {0}</value>
+Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNFULLSCREEN">
+  <data name="TXT_BTNFULLSCREEN" xml:space="preserve">
     <value>Basculer plein écran
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNFWD">
+  <data name="TXT_BTNFWD" xml:space="preserve">
     <value>Avance rapide. Avec 5 secondes
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNJUMPTOITEM">
+  <data name="TXT_BTNJUMPTOITEM" xml:space="preserve">
     <value>Ouvrez le 'Saut au liste de lecture article' dialogue
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNLOAD">
+  <data name="TXT_BTNLOAD" xml:space="preserve">
     <value>Chargez nouveau fichier (s)
-Raccourci:. {0}</value>
+Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNLOADPLAYLIST">
+  <data name="TXT_BTNLOADPLAYLIST" xml:space="preserve">
     <value>Chargez une nouvelle liste de lecture
-Raccourci:. {0}</value>
+Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNLOOPPLAY">
+  <data name="TXT_BTNLOOPPLAY" xml:space="preserve">
     <value>Active / désactive la lecture en boucle
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNMOVEDOWN">
+  <data name="TXT_BTNMOVEDOWN" xml:space="preserve">
     <value>Déplacez les éléments sélectionnés avec une position basse dans la liste de lecture
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNMOVEUP">
+  <data name="TXT_BTNMOVEUP" xml:space="preserve">
     <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la liste de lecture
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNNEXT">
+  <data name="TXT_BTNNEXT" xml:space="preserve">
     <value>Aller à l'image suivante dans la liste de lecture
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNOPENDISK">
+  <data name="TXT_BTNOPENDISK" xml:space="preserve">
     <value>Ouvre la boîte de dialogue Charger un support DVD
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNOPENSETTINGS">
+  <data name="TXT_BTNOPENSETTINGS" xml:space="preserve">
     <value>Affiche la boîte de dialogue de Paramètres
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNPAUSE">
+  <data name="TXT_BTNPAUSE" xml:space="preserve">
     <value>Pause de la lecture
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNPLAY">
+  <data name="TXT_BTNPLAY" xml:space="preserve">
     <value>Lire le fichier
-Raccourci:.{0}</value>
+Raccourci:{0}</value>
   </data>
-  <data name="TXT_BTNPLAYLISTEND">
+  <data name="TXT_BTNPLAYLISTEND" xml:space="preserve">
     <value>Active l'action liste de lecture fin'
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNPREV">
+  <data name="TXT_BTNPREV" xml:space="preserve">
     <value>Aller à l'image précédente dans la liste de lecture
-Raccourci:. {0}</value>
+Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNREW">
+  <data name="TXT_BTNREW" xml:space="preserve">
     <value>Rembobinez de 5 secondes
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNSAVEPLAYLIST">
+  <data name="TXT_BTNSAVEPLAYLIST" xml:space="preserve">
     <value>Enregistrer la liste de lecture
-Raccourci:. {0}</value>
+Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNSTOP">
+  <data name="TXT_BTNSTOP" xml:space="preserve">
     <value>Arrêt de la lecture
-Raccourci:. {0}</value>
+Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNTOGGLESHUFFLE">
+  <data name="TXT_BTNTOGGLESHUFFLE" xml:space="preserve">
     <value>Active le mode aléatoire liste de lecture
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNVOLDN">
+  <data name="TXT_BTNVOLDN" xml:space="preserve">
     <value>Réduction de volume de 5%
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_BTNVOLUP">
+  <data name="TXT_BTNVOLUP" xml:space="preserve">
     <value>Volume en hausse de 5%
 Raccourci: {0}</value>
   </data>
-  <data name="TXT_CMDADDBOOKMARK">
+  <data name="TXT_CMDADDBOOKMARK" xml:space="preserve">
     <value>Ajouter un signet</value>
   </data>
-  <data name="TXT_CMDBOOKMARKMANAGER">
+  <data name="TXT_CMDBOOKMARKMANAGER" xml:space="preserve">
     <value>Ouvrir le gestionnaire de signets</value>
   </data>
-  <data name="TXT_CMDCFGAUDIO">
+  <data name="TXT_CMDCFGAUDIO" xml:space="preserve">
     <value>Affiche de configuration Audio</value>
   </data>
-  <data name="TXT_CMDCFGREMOTE">
+  <data name="TXT_CMDCFGREMOTE" xml:space="preserve">
     <value>Affiche Configuration de la télécommande</value>
   </data>
-  <data name="TXT_CMDCFGSUBTITLES">
+  <data name="TXT_CMDCFGSUBTITLES" xml:space="preserve">
     <value>Sous-titres affichages et de configuration OSD</value>
   </data>
-  <data name="TXT_CMDCFGTIMER">
+  <data name="TXT_CMDCFGTIMER" xml:space="preserve">
     <value>Affiche les options de temporisation</value>
   </data>
-  <data name="TXT_CMDCFGVIDEO">
+  <data name="TXT_CMDCFGVIDEO" xml:space="preserve">
     <value>Affiche la configuration vidéo</value>
   </data>
-  <data name="TXT_CMDCLEAR">
+  <data name="TXT_CMDCLEAR" xml:space="preserve">
     <value>Effacer toute la liste de lecture.</value>
   </data>
-  <data name="TXT_CMDDELETE">
+  <data name="TXT_CMDDELETE" xml:space="preserve">
     <value>Supprimer les éléments sélectionnés.</value>
   </data>
-  <data name="TXT_CMDFULLSCREEN">
+  <data name="TXT_CMDFULLSCREEN" xml:space="preserve">
     <value>Basculer Plein écran</value>
   </data>
-  <data name="TXT_CMDFWD">
+  <data name="TXT_CMDFWD" xml:space="preserve">
     <value>Avance rapide de 5 secondes.</value>
   </data>
-  <data name="TXT_CMDJUMPTOITEM">
-    <value>Ouvrez le 'Saut au liste de lecture article «dialogue</value>
+  <data name="TXT_CMDJUMPTOITEM" xml:space="preserve">
+    <value>Ouvrez le 'Saut au object de liste de lecture' dialogue</value>
   </data>
-  <data name="TXT_CMDLOAD">
+  <data name="TXT_CMDLOAD" xml:space="preserve">
     <value>Chargez nouveau fichier (s).</value>
   </data>
-  <data name="TXT_CMDLOADPLAYLIST">
+  <data name="TXT_CMDLOADPLAYLIST" xml:space="preserve">
     <value>Chargez une nouvelle liste de lecture.</value>
   </data>
-  <data name="TXT_CMDLOOPPLAY">
+  <data name="TXT_CMDLOOPPLAY" xml:space="preserve">
     <value>Active ou désactive la lecture en boucle.</value>
   </data>
-  <data name="TXT_CMDMOVEDOWN">
+  <data name="TXT_CMDMOVEDOWN" xml:space="preserve">
     <value>Déplacez les éléments sélectionnés avec une position basse dans la liste de lecture.</value>
   </data>
-  <data name="TXT_CMDMOVEUP">
+  <data name="TXT_CMDMOVEUP" xml:space="preserve">
     <value>Déplacez les éléments sélectionnés avec une position vers le haut dans la liste de lecture.</value>
   </data>
-  <data name="TXT_CMDNEXT">
+  <data name="TXT_CMDNEXT" xml:space="preserve">
     <value>Aller à l'image suivante dans la liste de lecture.</value>
   </data>
-  <data name="TXT_CMDOPENDISK">
+  <data name="TXT_CMDOPENDISK" xml:space="preserve">
     <value>Ouvre la boîte de dialogue Charger un support DVD</value>
   </data>
-  <data name="TXT_CMDOPENURL">
+  <data name="TXT_CMDOPENURL" xml:space="preserve">
     <value>Ouvrir une URL</value>
   </data>
-  <data name="TXT_CMDPAUSE">
+  <data name="TXT_CMDPAUSE" xml:space="preserve">
     <value>Pause de la lecture.</value>
   </data>
-  <data name="TXT_CMDPLAY">
+  <data name="TXT_CMDPLAY" xml:space="preserve">
     <value>Lire le fichier.</value>
   </data>
-  <data name="TXT_CMDPLAYLISTEND">
+  <data name="TXT_CMDPLAYLISTEND" xml:space="preserve">
     <value>Active l''action sur la fin liste de lecture'</value>
   </data>
-  <data name="TXT_CMDPREV">
-    <value>Aller à l'image précédente dans la liste de lecture.</value>
+  <data name="TXT_CMDPREV" xml:space="preserve">
+    <value>Aller à l'objet précédente dans la liste de lecture.</value>
   </data>
-  <data name="TXT_CMDREW">
+  <data name="TXT_CMDREW" xml:space="preserve">
     <value>Rembobinez avec 5 secondes.</value>
   </data>
-  <data name="TXT_CMDSAVEPLAYLIST">
+  <data name="TXT_CMDSAVEPLAYLIST" xml:space="preserve">
     <value>Enregistrer la liste de lecture.</value>
   </data>
-  <data name="TXT_CMDSEARCHSUBTITLES">
+  <data name="TXT_CMDSEARCHSUBTITLES" xml:space="preserve">
     <value>Recherches les sous-titres des clips</value>
   </data>
-  <data name="TXT_CMDSTOP">
+  <data name="TXT_CMDSTOP" xml:space="preserve">
     <value>Arrêt de la lecture.</value>
   </data>
-  <data name="TXT_CMDTOGGLESHUFFLE">
+  <data name="TXT_CMDTOGGLESHUFFLE" xml:space="preserve">
     <value>Active le mode Lecture aléatoire.</value>
   </data>
-  <data name="TXT_CMDVOLDN">
+  <data name="TXT_CMDVOLDN" xml:space="preserve">
     <value>Réduction de volume de 5%.</value>
   </data>
-  <data name="TXT_CMDVOLUP">
+  <data name="TXT_CMDVOLUP" xml:space="preserve">
     <value>Volume en hausse de 5%.</value>
   </data>
-  <data name="TXT_CONFIGUREAUDIO">
+  <data name="TXT_CONFIGUREAUDIO" xml:space="preserve">
     <value>Paramètres audio</value>
   </data>
-  <data name="TXT_CONFIGUREPLAYLIST">
+  <data name="TXT_CONFIGUREPLAYLIST" xml:space="preserve">
     <value>Liste de lecture</value>
   </data>
-  <data name="TXT_CONFIGURESUBTITLES">
+  <data name="TXT_CONFIGURESUBTITLES" xml:space="preserve">
     <value>Réglages sous-titres</value>
   </data>
-  <data name="TXT_CONFIGUREVIDEO">
+  <data name="TXT_CONFIGUREVIDEO" xml:space="preserve">
     <value>Paramètres vidéo</value>
   </data>
-  <data name="TXT_CONFIRM_OVERWRITE_SUBTITLE">
+  <data name="TXT_CONFIRM_OVERWRITE_SUBTITLE" xml:space="preserve">
     <value>Confirmer écraser sous-titres</value>
   </data>
-  <data name="TXT_EDITID3ARTWORK">
+  <data name="TXT_EDITID3ARTWORK" xml:space="preserve">
     <value>ID3 Editor Création</value>
   </data>
-  <data name="TXT_ELAPSED_TIME">
+  <data name="TXT_ELAPSED_TIME" xml:space="preserve">
     <value>Temps écoulé.
 Double click to toggle temps restant</value>
   </data>
-  <data name="TXT_ENABLEREMOTECONTROL">
-    <value>Laissez Lecteur ProTone être contrôlé à distance.</value>
+  <data name="TXT_ENABLEREMOTECONTROL" xml:space="preserve">
+    <value>Laissez ProTONE Lecteur être contrôlé à distance.</value>
   </data>
-  <data name="TXT_ENABLE_PLAYLISTEVT">
-    <value>D'action «liste de lecture terminée 'événement</value>
+  <data name="TXT_ENABLE_PLAYLISTEVT" xml:space="preserve">
+    <value>Activez le 'liste de lecture terminée' événement</value>
   </data>
-  <data name="TXT_ENABLE_SCHEDULEDEVT">
-    <value>D'action sur le moment prévu</value>
+  <data name="TXT_ENABLE_SCHEDULEDEVT" xml:space="preserve">
+    <value>Activez le 'action sur le moment prévu' événement</value>
   </data>
-  <data name="TXT_NOTOPENED">
+  <data name="TXT_NOTOPENED" xml:space="preserve">
     <value>Terminé</value>
   </data>
-  <data name="TXT_ENQUEUEFILES">
+  <data name="TXT_ENQUEUEFILES" xml:space="preserve">
     <value>Enqueue fichiers à la fin de la liste de lecture actuelle</value>
   </data>
-  <data name="TXT_ENTER_KEYWORD">
+  <data name="TXT_ENTER_KEYWORD" xml:space="preserve">
     <value>Entrer un mot clé de recherche (s), séparés par des espaces:</value>
   </data>
-  <data name="TXT_FFDSHOW_SUBTITLES">
+  <data name="TXT_FFDSHOW_SUBTITLES" xml:space="preserve">
     <value>Ouvert FFDShow Réglages sous-titres ...</value>
   </data>
-  <data name="TXT_S_FILETYPES">
+  <data name="TXT_S_FILETYPES" xml:space="preserve">
     <value>Fichiers</value>
   </data>
-  <data name="TXT_S_FILETYPES_ASSOCIATIONS">
-    <value>Lecteur ProTone associé à ces types de fichiers:</value>
+  <data name="TXT_S_FILETYPES_ASSOCIATIONS" xml:space="preserve">
+    <value>Associé ProTONE Lecteur avec ces types de fichiers:</value>
   </data>
-  <data name="TXT_HANDLEEXPLORERLAUNCH">
+  <data name="TXT_HANDLEEXPLORERLAUNCH" xml:space="preserve">
     <value>Lorsque des fichiers sont lancées à partir de l'Explorateur Windows:</value>
   </data>
-  <data name="TXT_HIBERNATE_PC">
+  <data name="TXT_HIBERNATE_PC" xml:space="preserve">
     <value>mettre l'ordinateur en mode Veille prolongée</value>
   </data>
-  <data name="TXT_IGNOREMOUSEMOVE">
+  <data name="TXT_IGNOREMOUSEMOVE" xml:space="preserve">
     <value>Ignorer les mouvements de la souris en mode plein écran</value>
   </data>
-  <data name="TXT_JUMP_TO_ITEM">
+  <data name="TXT_JUMP_TO_ITEM" xml:space="preserve">
     <value>Aller à la rubrique liste de lecture</value>
   </data>
-  <data name="TXT_LAUNCH_PROGRAM">
+  <data name="TXT_LAUNCH_PROGRAM" xml:space="preserve">
     <value>lancer un programme personnalisé</value>
   </data>
-  <data name="TXT_LAUNCH_RCCMANAGER">
-    <value>Lancement ProTone RCC Manager ...</value>
+  <data name="TXT_LAUNCH_RCCMANAGER" xml:space="preserve">
+    <value>Lancement de Gestionaire de Telecommandes ...</value>
   </data>
-  <data name="TXT_LEFTVOL">
+  <data name="TXT_LEFTVOL" xml:space="preserve">
     <value>Lvol</value>
   </data>
-  <data name="TXT_LOADMEDIAFILES">
+  <data name="TXT_LOADMEDIAFILES" xml:space="preserve">
     <value>Charger des fichiers multimédia ...</value>
   </data>
-  <data name="TXT_LOADPLAYLIST">
+  <data name="TXT_LOADPLAYLIST" xml:space="preserve">
     <value>Chargez une liste de lecture ...</value>
   </data>
-  <data name="TXT_LOAD_DVD_FOLDER">
+  <data name="TXT_LOAD_DVD_FOLDER" xml:space="preserve">
     <value>S'il vous plaît sélectionner un dossier de contenu DVD vidéo
 (Soit un dossier VIDEO_TS, ou son parent):</value>
   </data>
-  <data name="TXT_MATCHING_ITEMS">
+  <data name="TXT_MATCHING_ITEMS" xml:space="preserve">
     <value>Objets trouvés (double-clic ou appuyez sur Entrée pour lire un élément):</value>
   </data>
-  <data name="TXT_MEDIA_NAME">
+  <data name="TXT_MEDIA_NAME" xml:space="preserve">
     <value>Nom du média:</value>
   </data>
-  <data name="TXT_MEDIA_STATE">
+  <data name="TXT_MEDIA_STATE" xml:space="preserve">
     <value>Media est maintenant {0}</value>
   </data>
-  <data name="TXT_MEDIA_TIME">
+  <data name="TXT_MEDIA_TIME" xml:space="preserve">
     <value>Heure:</value>
   </data>
-  <data name="TXT_NOTIFICATIONSENABLED">
+  <data name="TXT_NOTIFICATIONSENABLED" xml:space="preserve">
     <value>Afficher les info-bulles de notification près de la zone de notification lorsque des médias changements d'état</value>
   </data>
-  <data name="TXT_MINMOVIEDURATION">
+  <data name="TXT_MINMOVIEDURATION" xml:space="preserve">
     <value>Ne pas télécharger les sous-titres si le clip est plus courte que
 (0 = toujours télécharger)</value>
   </data>
-  <data name="TXT_MNUAUDIO">
+  <data name="TXT_MNUAUDIO" xml:space="preserve">
     <value>Paramètres audio ...</value>
   </data>
-  <data name="TXT_MNULOADPLAYLIST">
+  <data name="TXT_MNULOADPLAYLIST" xml:space="preserve">
     <value>Chargez Liste de lecture ...</value>
   </data>
-  <data name="TXT_MNULOOPPLAY">
+  <data name="TXT_MNULOOPPLAY" xml:space="preserve">
     <value>Lecture en boucle</value>
   </data>
-  <data name="TXT_MNUSAVEPLAYLIST">
+  <data name="TXT_MNUSAVEPLAYLIST" xml:space="preserve">
     <value>Enregistrer la liste ...</value>
   </data>
-  <data name="TXT_MNUSCHEDULER">
+  <data name="TXT_MNUSCHEDULER" xml:space="preserve">
     <value>Options de minuterie ...</value>
   </data>
-  <data name="TXT_MNUSETTINGS">
+  <data name="TXT_MNUSETTINGS" xml:space="preserve">
     <value>Paramètres ...</value>
   </data>
-  <data name="TXT_MNUSUBTITLE">
+  <data name="TXT_MNUSUBTITLE" xml:space="preserve">
     <value>Sous-titres et OSD ...</value>
   </data>
-  <data name="TXT_MNUTOOLS">
+  <data name="TXT_MNUTOOLS" xml:space="preserve">
     <value>Paramètres et options</value>
   </data>
-  <data name="TXT_MNUVIDEO">
+  <data name="TXT_MNUVIDEO" xml:space="preserve">
     <value>Paramètres vidéo ...</value>
   </data>
-  <data name="TXT_MOVEDOWN">
+  <data name="TXT_MOVEDOWN" xml:space="preserve">
     <value>Descendre</value>
   </data>
-  <data name="TXT_MOVEUP">
+  <data name="TXT_MOVEUP" xml:space="preserve">
     <value>Déplacer vers le haut</value>
   </data>
-  <data name="TXT_NEW_BOOKMARK">
+  <data name="TXT_NEW_BOOKMARK" xml:space="preserve">
     <value>Nouveau signet</value>
   </data>
-  <data name="TXT_NEW_BOOKMARK_ADDED">
+  <data name="TXT_NEW_BOOKMARK_ADDED" xml:space="preserve">
     <value>Un nouveau signet a été ajouté: {0}</value>
   </data>
-  <data name="TXT_NOT_CONFIGURABLE">
+  <data name="TXT_NOT_CONFIGURABLE" xml:space="preserve">
     <value>Cette option n'est pas disponible en ce moment.</value>
   </data>
-  <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW">
+  <data name="TXT_NOT_CONFIGURABLE_NOFFDSHOW" xml:space="preserve">
     <value>Cette option n'est pas disponible en ce moment.
 Vous devez installer l'ensemble des codecs FFDShow afin d'avoir des actions à cette option.</value>
   </data>
-  <data name="TXT_NO_LANG">
+  <data name="TXT_NO_LANG" xml:space="preserve">
     <value>Aucune langue</value>
   </data>
-  <data name="TXT_NO_SUBS_FOUND">
+  <data name="TXT_NO_SUBS_FOUND" xml:space="preserve">
     <value>Désolé, aucun sous-titre ont été trouvés pour ce clip.</value>
   </data>
-  <data name="TXT_ONDAYS">
+  <data name="TXT_ONDAYS" xml:space="preserve">
     <value>en semaine:</value>
   </data>
-  <data name="TXT_OSD">
+  <data name="TXT_OSD" xml:space="preserve">
     <value>Affichage à l'écran (OSD)</value>
   </data>
-  <data name="TXT_OSDCFG">
+  <data name="TXT_OSDCFG" xml:space="preserve">
     <value>Paramètres OSD</value>
   </data>
-  <data name="TXT_OSDCOLOR">
+  <data name="TXT_OSDCOLOR" xml:space="preserve">
     <value>Couleur du texte OSD</value>
   </data>
-  <data name="TXT_OSDENABLED">
+  <data name="TXT_OSDENABLED" xml:space="preserve">
     <value>Activer l'affichage sur écran (OSD)</value>
   </data>
-  <data name="TXT_OSDFONT">
-    <value>Police de texte OSD</value>
+  <data name="TXT_OSDFONT" xml:space="preserve">
+    <value>Fonte de texte OSD</value>
   </data>
-  <data name="TXT_OSDSAMPLETEXT">
+  <data name="TXT_OSDSAMPLETEXT" xml:space="preserve">
     <value>Exemple de texte OSD</value>
   </data>
-  <data name="TXT_OSDTIMER">
+  <data name="TXT_OSDTIMER" xml:space="preserve">
     <value>Visibilité minuterie OSD (en secondes):</value>
   </data>
-  <data name="TXT_OSD_FULLSCREEN">
+  <data name="TXT_OSD_FULLSCREEN" xml:space="preserve">
     <value>Le mode plein écran est {0}</value>
   </data>
-  <data name="TXT_OSD_PAUSED">
+  <data name="TXT_OSD_PAUSED" xml:space="preserve">
     <value>Pause</value>
   </data>
-  <data name="TXT_OSD_PLAY">
+  <data name="TXT_OSD_PLAY" xml:space="preserve">
     <value>Jeu: {0}</value>
   </data>
-  <data name="TXT_OSD_SEEKTO">
+  <data name="TXT_OSD_SEEKTO" xml:space="preserve">
     <value>La lecture reprend à partir de: {0}</value>
   </data>
-  <data name="TXT_OSD_VOL">
+  <data name="TXT_OSD_VOL" xml:space="preserve">
     <value>Volume: {0}%</value>
   </data>
-  <data name="TXT_OVERWRITE_SUBTITLE">
+  <data name="TXT_OVERWRITE_SUBTITLE" xml:space="preserve">
     <value>Le clip sélectionné possède déjà un sous-titre.
 Si un autre sous-titres est disponible sur Internet, il remplacera celui existant.
 
 Etes-vous sûr que vous voulez rechercher une autre sous-titre?</value>
   </data>
-  <data name="TXT_PAUSED">
+  <data name="TXT_PAUSED" xml:space="preserve">
     <value>Pause</value>
   </data>
-  <data name="TXT_PLAYFILES">
+  <data name="TXT_PLAYFILES" xml:space="preserve">
     <value>Lecture de fichiers (remplacement de liste de lecture)</value>
   </data>
-  <data name="TXT_RUNNING">
+  <data name="TXT_RUNNING" xml:space="preserve">
     <value>Jouer</value>
   </data>
-  <data name="TXT_PLAYLIST">
+  <data name="TXT_PLAYLIST" xml:space="preserve">
     <value>Liste de lecture</value>
   </data>
-  <data name="TXT_PLAYLISTEVT_DESC">
+  <data name="TXT_PLAYLISTEVT_DESC" xml:space="preserve">
     <value>Quand la liste de lecture se termine:</value>
   </data>
-  <data name="TXT_PLAYLISTS">
+  <data name="TXT_PLAYLISTS" xml:space="preserve">
     <value>Lists de lecture</value>
   </data>
-  <data name="TXT_PLAYLIST_END_MSG">
+  <data name="TXT_PLAYLIST_END_MSG" xml:space="preserve">
     <value>la liste de lecture est terminée</value>
   </data>
-  <data name="TXT_PLAY_FROM">
+  <data name="TXT_PLAY_FROM" xml:space="preserve">
     <value>à partir de: {0}</value>
   </data>
-  <data name="TXT_PREFFEREDSUBTITLELANG">
+  <data name="TXT_PREFFEREDSUBTITLELANG" xml:space="preserve">
     <value>Langue de sous-favorite:</value>
   </data>
-  <data name="TXT_PROCEED_SCHEDULED_ACTION">
-    <value>ProTone joueur tente de {0}. Ce qui se passe parce que vous avez configuré le joueur à le faire lorsque {1}. Voulez-vous continuer?
+  <data name="TXT_PROCEED_SCHEDULED_ACTION" xml:space="preserve">
+    <value>ProTONE Lecteur tente de {0}. Ce qui se passe parce que vous avez configuré le joueur à le faire lorsque {1}. Voulez-vous continuer?
 Vous pouvez annuler cette opération si vous cliquez sur Annuler dans le délai restant (voir ci-dessous contre). Si ce temps s'écoule et que vous n'avez pas choisi une action, il sera considéré que vous avez choisi de procéder.</value>
   </data>
-  <data name="TXT_PROTONE_ENQUEUE">
-    <value>Enqueue dans ProTone joueur</value>
+  <data name="TXT_PROTONE_ENQUEUE" xml:space="preserve">
+    <value>Enqueue dans ProTONE Lecteur</value>
   </data>
-  <data name="TXT_PROTONE_PLAY">
-    <value>Jouer dans ProTone joueur</value>
+  <data name="TXT_PROTONE_PLAY" xml:space="preserve">
+    <value>Jouer dans ProTONE Lecteur</value>
   </data>
-  <data name="TXT_REMAINING_TIME">
+  <data name="TXT_REMAINING_TIME" xml:space="preserve">
     <value>Le temps restant.
 Double click to toggle temps écoulé</value>
   </data>
-  <data name="TXT_REMOTECONTROLCFG">
+  <data name="TXT_REMOTECONTROLCFG" xml:space="preserve">
     <value>Télécommande</value>
   </data>
-  <data name="TXT_REMOTECONTROLDEFINITION">
-    <value>Pour définir les programmes et les dispositifs qui sont autorisés à contrôler Lecteur ProTone, vous devez utiliser le programme Gestionnaire ProTone RCC.
-Cliquez sur le bouton ci-dessous pour lancer ProTone RCC Manager ...</value>
+  <data name="TXT_REMOTECONTROLDEFINITION" xml:space="preserve">
+    <value>Pour définir les programmes et les dispositifs qui sont autorisés à contrôler ProTONE Lecteur, vous devez utiliser le programme Gestionaire de Telecommandes.
+Cliquez sur le bouton ci-dessous pour lancer le Gestionaire de Telecommandes ...</value>
   </data>
-  <data name="TXT_RIGHTVOL">
+  <data name="TXT_RIGHTVOL" xml:space="preserve">
     <value>RVOL</value>
   </data>
-  <data name="TXT_SAVEPLAYLIST">
+  <data name="TXT_SAVEPLAYLIST" xml:space="preserve">
     <value>Enregistrer la sélection sous ...</value>
   </data>
-  <data name="TXT_SCHEDULEDEVT_DESC">
+  <data name="TXT_SCHEDULEDEVT_DESC" xml:space="preserve">
     <value>Quand le moment prévu se produit:</value>
   </data>
-  <data name="TXT_SCHEDULEDEVT_TIME">
+  <data name="TXT_SCHEDULEDEVT_TIME" xml:space="preserve">
     <value>Programmer événement de minuterie à:</value>
   </data>
-  <data name="TXT_SCHEDULED_ACTION_PROCEED">
+  <data name="TXT_SCHEDULED_ACTION_PROCEED" xml:space="preserve">
     <value>Procéder à exécution de l'action?</value>
   </data>
-  <data name="TXT_SCHEDULED_EVENT_MSG">
+  <data name="TXT_SCHEDULED_EVENT_MSG" xml:space="preserve">
     <value>le moment prévu s'est produite</value>
   </data>
-  <data name="TXT_S_SCHEDULERSETTINGS">
+  <data name="TXT_S_SCHEDULERSETTINGS" xml:space="preserve">
     <value>Minuteur</value>
   </data>
-  <data name="TXT_SCHEDULERWAITTIMERPROCEED">
+  <data name="TXT_SCHEDULERWAITTIMERPROCEED" xml:space="preserve">
     <value>Combien de minutes à attendre confirmation avant de procéder
 (0 = ne demande pas de confirmation, passez directement):</value>
   </data>
-  <data name="TXT_SEARCH_SUBTITLES">
+  <data name="TXT_SEARCH_SUBTITLES" xml:space="preserve">
     <value>Recherche sous-titres ...</value>
   </data>
-  <data name="TXT_SELECT_ALLAUDIO">
+  <data name="TXT_SELECT_ALLAUDIO" xml:space="preserve">
     <value>Tous les fichiers audio</value>
   </data>
-  <data name="TXT_SELECT_ALLPLAYLISTS">
+  <data name="TXT_SELECT_ALLPLAYLISTS" xml:space="preserve">
     <value>Toutes les lists de lecture</value>
   </data>
-  <data name="TXT_SELECT_ALLVIDEO">
+  <data name="TXT_SELECT_ALLVIDEO" xml:space="preserve">
     <value>Tous les fichiers vidéo</value>
   </data>
-  <data name="TXT_SELECT_DVD">
+  <data name="TXT_SELECT_DVD" xml:space="preserve">
     <value>Chargez du DVD</value>
   </data>
-  <data name="TXT_SERIALDEVICE">
+  <data name="TXT_SERIALDEVICE" xml:space="preserve">
     <value>Dispositif de contrôle à distance</value>
   </data>
-  <data name="TXT_SERVERTYPE">
+  <data name="TXT_SERVERTYPE" xml:space="preserve">
     <value>Type de serveur</value>
   </data>
-  <data name="TXT_SERVERURL">
+  <data name="TXT_SERVERURL" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="TXT_SHELL_INTEGRATION">
+  <data name="TXT_SHELL_INTEGRATION" xml:space="preserve">
     <value>Intégration avec l'Explorateur Windows</value>
   </data>
-  <data name="TXT_SHUFFLE">
+  <data name="TXT_SHUFFLE" xml:space="preserve">
     <value>Battage</value>
   </data>
-  <data name="TXT_SHUTDOWN_PC">
+  <data name="TXT_SHUTDOWN_PC" xml:space="preserve">
     <value>l'arrêt du PC</value>
   </data>
-  <data name="TXT_SKIP_DVD_MENU">
+  <data name="TXT_SKIP_DVD_MENU" xml:space="preserve">
     <value>Ignorer le menu du DVD (lire le titre directement en premier)</value>
   </data>
-  <data name="TXT_STANDBY_PC">
+  <data name="TXT_STANDBY_PC" xml:space="preserve">
     <value>mettre l'ordinateur en mode veille</value>
   </data>
-  <data name="TXT_STOPPED">
+  <data name="TXT_STOPPED" xml:space="preserve">
     <value>Arrêté</value>
   </data>
-  <data name="TXT_SUBTITLEDOWNLOADNOTIFY">
+  <data name="TXT_SUBTITLEDOWNLOADNOTIFY" xml:space="preserve">
     <value>{0} sous-titres ont été trouvés pour {1}:</value>
   </data>
-  <data name="TXT_SUBTITLES">
+  <data name="TXT_SUBTITLES" xml:space="preserve">
     <value>Sous-titres</value>
   </data>
-  <data name="TXT_SUBTITLESCFG">
+  <data name="TXT_SUBTITLESCFG" xml:space="preserve">
     <value>Réglages sous-titres</value>
   </data>
-  <data name="TXT_S_SUBTITLESETTINGS">
+  <data name="TXT_S_SUBTITLESETTINGS" xml:space="preserve">
     <value>Sous-titres</value>
   </data>
-  <data name="TXT_SUBTITLE_DOWNLOAD">
+  <data name="TXT_SUBTITLE_DOWNLOAD" xml:space="preserve">
     <value>Autoriser les téléchargements à partir d'Internet sous-titres</value>
   </data>
-  <data name="TXT_SUB_DOWNLOAD_ERROR">
+  <data name="TXT_SUB_DOWNLOAD_ERROR" xml:space="preserve">
     <value>Recherche sous-titre a été abandonnée en raison d'une erreur s'est produite.</value>
   </data>
-  <data name="TXT_SUB_HINTS">
+  <data name="TXT_SUB_HINTS" xml:space="preserve">
     <value>Remarque: Les résultats sont triés en utilisant ces critères (dans cet ordre): la colonne sélectionnée, la langue (langue préférée en haut),
 prio (serveur order = ordre de serveurs de sous-titres Sous-titres en / page Paramètres OSD). Cliquez sur un en-tête de colonne pour sélectionner une autre citeria sorte.</value>
   </data>
-  <data name="TXT_SUB_LOAD">
+  <data name="TXT_SUB_LOAD" xml:space="preserve">
     <value>Chargez le sous-titre sélectionné</value>
   </data>
-  <data name="TXT_SUB_LOADED">
+  <data name="TXT_SUB_LOADED" xml:space="preserve">
     <value>Le sous-titre sélectionné a été chargé avec succès! Amusez-vous!</value>
   </data>
-  <data name="TXT_SYSTEMDIAGNOSTICS">
+  <data name="TXT_SYSTEMDIAGNOSTICS" xml:space="preserve">
     <value>Diagnostics</value>
   </data>
-  <data name="TXT_SYSTEM_NOT_OK">
+  <data name="TXT_SYSTEM_NOT_OK" xml:space="preserve">
     <value>Codecs multimédias ne sont pas installés et configurés sur OK.</value>
   </data>
-  <data name="TXT_SYSTEM_OK">
+  <data name="TXT_SYSTEM_OK" xml:space="preserve">
     <value>Codecs multimédias sont installés et configurés sur OK.</value>
   </data>
-  <data name="TXT_TIMESCALE">
+  <data name="TXT_TIMESCALE" xml:space="preserve">
     <value>Échelle de temps
 Cliquez pour jouer à partir de la position: {0}</value>
   </data>
-  <data name="TXT_TIMESCALE_BOOKMARK">
+  <data name="TXT_TIMESCALE_BOOKMARK" xml:space="preserve">
     <value>Échelle de temps
 Cliquez pour jouer à partir de signet: "{1}"
 Temps de signet: {0}</value>
   </data>
-  <data name="TXT_TOTAL_TIME">
+  <data name="TXT_TOTAL_TIME" xml:space="preserve">
     <value>Temps total.</value>
   </data>
-  <data name="TXT_UNSELECT_ALLAUDIO">
+  <data name="TXT_UNSELECT_ALLAUDIO" xml:space="preserve">
     <value>Pas de fichiers audio</value>
   </data>
-  <data name="TXT_UNSELECT_ALLPLAYLISTS">
+  <data name="TXT_UNSELECT_ALLPLAYLISTS" xml:space="preserve">
     <value>Pas de listes de lecture</value>
   </data>
-  <data name="TXT_UNSELECT_ALLVIDEO">
+  <data name="TXT_UNSELECT_ALLVIDEO" xml:space="preserve">
     <value>Pas de fichiers vidéo</value>
   </data>
-  <data name="TXT_VIDEOSETTINGS">
+  <data name="TXT_VIDEOSETTINGS" xml:space="preserve">
     <value>Paramètres vidéo</value>
   </data>
-  <data name="TXT_VIDEO_AVAILABLE">
+  <data name="TXT_VIDEO_AVAILABLE" xml:space="preserve">
     <value>Flux vidéo disponibles.</value>
   </data>
-  <data name="TXT_VIDEO_FILES">
+  <data name="TXT_VIDEO_FILES" xml:space="preserve">
     <value>Les fichiers vidéo</value>
   </data>
-  <data name="TXT_VIDEO_HD_FILES">
+  <data name="TXT_VIDEO_HD_FILES" xml:space="preserve">
     <value>Des fichiers vidéo haute définition</value>
   </data>
-  <data name="TXT_VOLSCALE">
+  <data name="TXT_VOLSCALE" xml:space="preserve">
     <value>Échelle de volume
 Cliquez pour régler le volume d': {0}%</value>
   </data>
-  <data name="TXT_INSTALLCOMPONENT">
+  <data name="TXT_INSTALLCOMPONENT" xml:space="preserve">
     <value>Installer le composant ...</value>
   </data>
-  <data name="TXT_PRIO">
+  <data name="TXT_PRIO" xml:space="preserve">
     <value>Priorité</value>
   </data>
-  <data name="TXT_MINUTES">
+  <data name="TXT_MINUTES" xml:space="preserve">
     <value>minute (s).</value>
   </data>
-  <data name="TXT_S_MISC_SETTINGS">
+  <data name="TXT_S_MISC_SETTINGS" xml:space="preserve">
     <value>Divers</value>
   </data>
-  <data name="TXT_METADATAPATTERNS">
+  <data name="TXT_METADATAPATTERNS" xml:space="preserve">
     <value>Les modèles disponibles pour le formatage élément de la liste de lecture sont basées sur des combinaisons de ces mots-clés:
 
-&lt;A&gt; = nom de l'artiste (de tag);
-&lt;B&gt; = nom de l'album (de tag);
-&lt;T&gt; = titre (de tag);
-&lt;C&gt; = commentaires (de tag);
-&lt;G&gt; = genre (de tag);
-&lt;#&gt; = numéro de piste (de tag);
-&lt;Y&gt; = année (de tag).</value>
+&lt;A&gt; = nom de l'artiste (de etiquette);
+&lt;B&gt; = nom de l'album (de etiquette);
+&lt;T&gt; = titre (de etiquette);
+&lt;C&gt; = commentaires (de etiquette);
+&lt;G&gt; = genre (de etiquette);
+&lt;#&gt; = numéro de piste (de etiquette);
+&lt;Y&gt; = année (de etiquette).</value>
   </data>
-  <data name="TXT_DISPLAY_FILENAME">
+  <data name="TXT_DISPLAY_FILENAME" xml:space="preserve">
     <value>Pas options de formatage sont spécifiées.
 Le programme affiche le nom du fichier en entrée liste de lecture.</value>
   </data>
-  <data name="TXT_FILENAME_FORMAT">
+  <data name="TXT_FILENAME_FORMAT" xml:space="preserve">
     <value>Si les métadonnées sont manquantes, utilisez le nom du fichier analysé comme:</value>
   </data>
-  <data name="TXT_USE_METADATA">
+  <data name="TXT_USE_METADATA" xml:space="preserve">
     <value>Utiliser fichier de métadonnées (par exemple champs ID3)</value>
   </data>
-  <data name="TXT_FALLBACKMONITOR">
+  <data name="TXT_FALLBACKMONITOR" xml:space="preserve">
     <value>Moniteur de repli:</value>
   </data>
-  <data name="TXT_FALLBACKMONITORDESC">
+  <data name="TXT_FALLBACKMONITORDESC" xml:space="preserve">
     <value>Le moniteur de repli sera utilisé pour afficher le contenu vidéo lorsque le moniteur est preffered pas connecté au système.</value>
   </data>
-  <data name="TXT_MONITORAFFINITY">
+  <data name="TXT_MONITORAFFINITY" xml:space="preserve">
     <value>Moniteurs</value>
   </data>
-  <data name="TXT_PREFERREDMONITOR">
+  <data name="TXT_PREFERREDMONITOR" xml:space="preserve">
     <value>Moniteur Preffered:</value>
   </data>
-  <data name="TXT_PREFERREDMONITORDESC">
+  <data name="TXT_PREFERREDMONITORDESC" xml:space="preserve">
     <value>Le moniteur preffered sera utilisé pour afficher le contenu vidéo à chaque fois qu'il est connecté au système.</value>
   </data>
-  <data name="TXT_RESTOREDEFAULTSDESC">
+  <data name="TXT_RESTOREDEFAULTSDESC" xml:space="preserve">
     <value>Utilisation de 'Restore Defaults' sera mis à la fois le moniteur préféré et de repli vers le moniteur principal attaché au système.</value>
   </data>
-  <data name="TXT_PLAYLISTOPTIONS">
+  <data name="TXT_PLAYLISTOPTIONS" xml:space="preserve">
     <value>Liste de lecture</value>
   </data>
-  <data name="TXT_PREFERREDMONITORDETACHED">
+  <data name="TXT_PREFERREDMONITORDETACHED" xml:space="preserve">
     <value>Le moniteur préférée n'est plus connecté au système. Pour choisir un autre moniteur preffered, utilisez «Paramètres par défaut», puis sélectionnez de nouveau le moniteur préféré.</value>
   </data>
-  <data name="TXT_PLAYLIST_FORMAT">
+  <data name="TXT_PLAYLIST_FORMAT" xml:space="preserve">
     <value>Format liste de lecture entrées comme suit:</value>
   </data>
-  <data name="TXT_INVALIDDVDVOLUME">
+  <data name="TXT_INVALIDDVDVOLUME" xml:space="preserve">
     <value>Vous avez spécifié un volume DVD invalide. S'il vous plaît sélectionnez de nouveau.</value>
   </data>
-  <data name="TXT_PANELSHIDDEN_NOADMIN">
+  <data name="TXT_PANELSHIDDEN_NOADMIN" xml:space="preserve">
     <value>Parce que votre compte d'utilisateur ne dispose pas des droits d'administrateur, vous ne serez pas en mesure d'afficher les fichiers pris en charge et les paramètres de contrôle à distance.
 Pour accéder à ces paramètres, vous devez lancer ProTone Joueur sous un compte d'utilisateur qui a des privilèges d'administrateur</value>
   </data>
-  <data name="TXT_MNUCLEAR">
+  <data name="TXT_MNUCLEAR" xml:space="preserve">
     <value>Effacer liste de lecture</value>
   </data>
-  <data name="TXT_MNUDELETE">
+  <data name="TXT_MNUDELETE" xml:space="preserve">
     <value>Supprimer l'élément liste de lecture</value>
   </data>
-  <data name="TXT_MNUJUMPTOITEM">
+  <data name="TXT_MNUJUMPTOITEM" xml:space="preserve">
     <value>Aller à la rubrique liste de lecture ...</value>
   </data>
-  <data name="TXT_MNUMOVEDOWN">
+  <data name="TXT_MNUMOVEDOWN" xml:space="preserve">
     <value>Descendre</value>
   </data>
-  <data name="TXT_MNUMOVEUP">
+  <data name="TXT_MNUMOVEUP" xml:space="preserve">
     <value>Déplacer vers le haut</value>
   </data>
-  <data name="TXT_MNUPLAYLISTEND">
+  <data name="TXT_MNUPLAYLISTEND" xml:space="preserve">
     <value>Événement de fin liste de lecture</value>
   </data>
-  <data name="TXT_MNUTOGGLESHUFFLE">
+  <data name="TXT_MNUTOGGLESHUFFLE" xml:space="preserve">
     <value>Lecture aléatoire</value>
   </data>
-  <data name="TXT_MNUFULLSCREEN">
+  <data name="TXT_MNUFULLSCREEN" xml:space="preserve">
     <value>Basculer Plein écran</value>
   </data>
-  <data name="TXT_MNUFWD">
+  <data name="TXT_MNUFWD" xml:space="preserve">
     <value>Avant 5 secondes</value>
   </data>
-  <data name="TXT_MNULOAD">
+  <data name="TXT_MNULOAD" xml:space="preserve">
     <value>Charger les fichiers ...</value>
   </data>
-  <data name="TXT_MNUNEXT">
+  <data name="TXT_MNUNEXT" xml:space="preserve">
     <value>Jouer prochaine</value>
   </data>
-  <data name="TXT_MNUOPENDISK">
+  <data name="TXT_MNUOPENDISK" xml:space="preserve">
     <value>Chargez DVD ...</value>
   </data>
-  <data name="TXT_MNUOPENURL">
+  <data name="TXT_MNUOPENURL" xml:space="preserve">
     <value>Ouvrir une URL ...</value>
   </data>
-  <data name="TXT_MNUPAUSE">
+  <data name="TXT_MNUPAUSE" xml:space="preserve">
     <value>Pause</value>
   </data>
-  <data name="TXT_MNUPLAY">
+  <data name="TXT_MNUPLAY" xml:space="preserve">
     <value>Jouer</value>
   </data>
-  <data name="TXT_MNUPREV">
+  <data name="TXT_MNUPREV" xml:space="preserve">
     <value>Jouer précédente</value>
   </data>
-  <data name="TXT_MNUREW">
+  <data name="TXT_MNUREW" xml:space="preserve">
     <value>Rembobinez 5 secondes</value>
   </data>
-  <data name="TXT_MNUSTOP">
+  <data name="TXT_MNUSTOP" xml:space="preserve">
     <value>Stop</value>
   </data>
-  <data name="TXT_MNUVOLDN">
+  <data name="TXT_MNUVOLDN" xml:space="preserve">
     <value>Réduction de volume de 5%</value>
   </data>
-  <data name="TXT_MNUVOLUP">
+  <data name="TXT_MNUVOLUP" xml:space="preserve">
     <value>Volume en hausse de 5%</value>
   </data>
-  <data name="TXT_MNUCFGAUDIO">
+  <data name="TXT_MNUCFGAUDIO" xml:space="preserve">
     <value>Paramètres audio ...</value>
   </data>
-  <data name="TXT_MNUCFGSUBTITLES">
+  <data name="TXT_MNUCFGSUBTITLES" xml:space="preserve">
     <value>Réglages de Sous-titres ...</value>
   </data>
-  <data name="TXT_MNUCFGTIMER">
+  <data name="TXT_MNUCFGTIMER" xml:space="preserve">
     <value>Réglages de Timer ...</value>
   </data>
-  <data name="TXT_MNUCFGVIDEO">
+  <data name="TXT_MNUCFGVIDEO" xml:space="preserve">
     <value>Paramètres vidéo ...</value>
   </data>
-  <data name="TXT_MNUOPENSETTINGS">
+  <data name="TXT_MNUOPENSETTINGS" xml:space="preserve">
     <value>Paramètres ...</value>
   </data>
-  <data name="TXT_MNUSHOWLOGCONSOLE">
+  <data name="TXT_MNUSHOWLOGCONSOLE" xml:space="preserve">
     <value>Afficher le fichier journal ...</value>
   </data>
-  <data name="TXT_CMDHIDEBOOKMARKMANAGER">
+  <data name="TXT_CMDHIDEBOOKMARKMANAGER" xml:space="preserve">
     <value>Masquer Bookmark Manager</value>
   </data>
-  <data name="TXT_SUBFONTS">
-    <value>Polices et couleurs</value>
+  <data name="TXT_SUBFONTS" xml:space="preserve">
+    <value>Fontes et couleurs</value>
   </data>
-  <data name="TXT_SUBSAMPLETEXT">
+  <data name="TXT_SUBSAMPLETEXT" xml:space="preserve">
     <value>Exemple de texte des sous-titres</value>
   </data>
-  <data name="TXT_SUBFONT">
-    <value>Police du texte des sous-titres</value>
+  <data name="TXT_SUBFONT" xml:space="preserve">
+    <value>Fonte du texte des sous-titres</value>
   </data>
-  <data name="TXT_SUBCOLOR">
+  <data name="TXT_SUBCOLOR" xml:space="preserve">
     <value>Couleur du texte des sous-titres</value>
   </data>
-  <data name="TXT_SUBENABLED">
+  <data name="TXT_SUBENABLED" xml:space="preserve">
     <value>Activer sous-titres</value>
   </data>
-  <data name="TXT_NOTIFYSUBDOWNLOADED">
+  <data name="TXT_NOTIFYSUBDOWNLOADED" xml:space="preserve">
     <value>Afficher les info-bulles de notification près de la zone de notification lorsque des sous-titres téléchargement terminé</value>
   </data>
-  <data name="TXT_RESTORE_DEFAULTSERVERS">
+  <data name="TXT_RESTORE_DEFAULTSERVERS" xml:space="preserve">
     <value>Charge des serveurs par défaut</value>
   </data>
-  <data name="TXT_ALBUM">
+  <data name="TXT_ALBUM" xml:space="preserve">
     <value>Nom de l'album</value>
   </data>
-  <data name="TXT_ARTIST">
+  <data name="TXT_ARTIST" xml:space="preserve">
     <value>Artiste</value>
   </data>
-  <data name="TXT_ARTWORK">
+  <data name="TXT_ARTWORK" xml:space="preserve">
     <value>Les images incorporées</value>
   </data>
-  <data name="TXT_BITRATE">
+  <data name="TXT_BITRATE" xml:space="preserve">
     <value>Débit binaire</value>
   </data>
-  <data name="TXT_CHANNELS">
+  <data name="TXT_CHANNELS" xml:space="preserve">
     <value>Mode audio</value>
   </data>
-  <data name="TXT_COMMENTS">
+  <data name="TXT_COMMENTS" xml:space="preserve">
     <value>Commentaires</value>
   </data>
-  <data name="TXT_DURATION">
+  <data name="TXT_DURATION" xml:space="preserve">
     <value>Durée</value>
   </data>
-  <data name="TXT_FRAME_RATE">
+  <data name="TXT_FRAME_RATE" xml:space="preserve">
     <value>Frame rate</value>
   </data>
-  <data name="TXT_FREQUENCY">
+  <data name="TXT_FREQUENCY" xml:space="preserve">
     <value>Fréquence d'échantillonnage</value>
   </data>
-  <data name="TXT_GENRE">
+  <data name="TXT_GENRE" xml:space="preserve">
     <value>Genre musical</value>
   </data>
-  <data name="TXT_TAGINFO">
+  <data name="TXT_TAGINFO" xml:space="preserve">
     <value>Etiquette de media</value>
   </data>
-  <data name="TXT_TITLE">
+  <data name="TXT_TITLE" xml:space="preserve">
     <value>Titre</value>
   </data>
-  <data name="TXT_TRACK">
+  <data name="TXT_TRACK" xml:space="preserve">
     <value>Index de piste</value>
   </data>
-  <data name="TXT_VIDEO_SIZE">
+  <data name="TXT_VIDEO_SIZE" xml:space="preserve">
     <value>Taille de la vidéo</value>
   </data>
-  <data name="TXT_YEAR">
+  <data name="TXT_YEAR" xml:space="preserve">
     <value>Année</value>
   </data>
-  <data name="TXT_PICTURE">
+  <data name="TXT_PICTURE" xml:space="preserve">
     <value>Image</value>
   </data>
-  <data name="TXT_PICTURE_TEXT">
+  <data name="TXT_PICTURE_TEXT" xml:space="preserve">
     <value>Description de l'image</value>
   </data>
-  <data name="TXT_PICTURE_TYPE">
+  <data name="TXT_PICTURE_TYPE" xml:space="preserve">
     <value>ID3 type d'image</value>
   </data>
-  <data name="TXT_TAGGINGPATTERNS">
+  <data name="TXT_TAGGINGPATTERNS" xml:space="preserve">
     <value>Les motifs de marquage sont basés sur des combinaisons de ces mots-clés:
 
 &lt;N&gt; = nom de fichier;
 &lt;F&gt; = nom du dossier;
-&lt;A&gt; = nom de l'artiste (de tag)
-&lt;B&gt; = nom de l'album (de tag)
-&lt;T&gt; = titre (de tag)
-&lt;C&gt; = commentaires (de tag)
-&lt;G&gt; = genre (de tag)
-&lt;#&gt; = numéro de piste (de tag)
-&lt;Y&gt; = année (de tag)
+&lt;A&gt; = nom de l'artiste (de etiquette)
+&lt;B&gt; = nom de l'album (de etiquette)
+&lt;T&gt; = titre (de etiquette)
+&lt;C&gt; = commentaires (de etiquette)
+&lt;G&gt; = genre (de etiquette)
+&lt;#&gt; = numéro de piste (de etiquette)
+&lt;Y&gt; = année (de etiquette)
 
 Gammes de caractères comme &lt;N2-12,14-20&gt; sont également autorisées.</value>
   </data>
-  <data name="TXT_RESETVIDEOPOSITION">
+  <data name="TXT_RESETVIDEOPOSITION" xml:space="preserve">
     <value>Réinitialiser position 
 de la fenêtre vidéo</value>
   </data>
-  <data name="TXT_RESETVIDEOPOSITION_HINT">
+  <data name="TXT_RESETVIDEOPOSITION_HINT" xml:space="preserve">
     <value>Utilisez cette commande pour afficher la fenêtre de rendu vidéo dans l'écran actif.</value>
   </data>
-  <data name="TXT_SUBTITLE_AVAILABLE">
+  <data name="TXT_SUBTITLE_AVAILABLE" xml:space="preserve">
     <value>Sous-titres disponibile</value>
   </data>
-  <data name="TXT_SUBTITLE_DOWNLOADING">
+  <data name="TXT_SUBTITLE_DOWNLOADING" xml:space="preserve">
     <value>Téléchargement sous-titres, s'il vous plaît patienter ...</value>
   </data>
-  <data name="TXT_DISKS_OPTIONS">
+  <data name="TXT_DISKS_OPTIONS" xml:space="preserve">
     <value>CD/DVD</value>
   </data>
-  <data name="TXT_OPT_NONE">
+  <data name="TXT_OPT_NONE" xml:space="preserve">
     <value>Ne pas lire Audio CD info</value>
   </data>
-  <data name="TXT_OPT_CDTEXT">
+  <data name="TXT_OPT_CDTEXT" xml:space="preserve">
     <value>CD-Text seulement</value>
   </data>
-  <data name="TXT_OPT_CDDB">
+  <data name="TXT_OPT_CDDB" xml:space="preserve">
     <value>Serveur CDDB seulement</value>
   </data>
-  <data name="TXT_OPT_CDTEXT_CDDB">
+  <data name="TXT_OPT_CDTEXT_CDDB" xml:space="preserve">
     <value>Premier sur CD-Text, puis sur serveur CDDB</value>
   </data>
-  <data name="TXT_OPT_CDDB_CDTEXT">
+  <data name="TXT_OPT_CDDB_CDTEXT" xml:space="preserve">
     <value>Premier sur CDDB serveur, puis sur CD-Text</value>
   </data>
-  <data name="TXT_AUDIOCDINFO_SOURCE">
+  <data name="TXT_AUDIOCDINFO_SOURCE" xml:space="preserve">
     <value>Lire Audio CD info sur:</value>
   </data>
-  <data name="TXT_CDDB_SERVERNAME">
+  <data name="TXT_CDDB_SERVERNAME" xml:space="preserve">
     <value>Adresse du serveur CDDB:</value>
   </data>
-  <data name="TXT_CDDB_SERVERPORT">
+  <data name="TXT_CDDB_SERVERPORT" xml:space="preserve">
     <value>Port du serveur CDDB:</value>
   </data>
-  <data name="TXT_OPT_RELOAD_CDINFO">
+  <data name="TXT_OPT_RELOAD_CDINFO" xml:space="preserve">
     <value>Recharger informations sur le CD</value>
   </data>
-  <data name="TXT_CDTRACKINFO">
+  <data name="TXT_CDTRACKINFO" xml:space="preserve">
     <value>CD Piste Info:</value>
   </data>
-  <data name="TXT_S_AUDIOSETTINGS">
+  <data name="TXT_S_AUDIOSETTINGS" xml:space="preserve">
     <value>Audio</value>
   </data>
-  <data name="TXT_S_VIDEOSETTINGS">
+  <data name="TXT_S_VIDEOSETTINGS" xml:space="preserve">
     <value>Vidéo</value>
   </data>
-  <data name="TXT_CAUTION_REALTIME">
+  <data name="TXT_CAUTION_REALTIME" xml:space="preserve">
     <value>ATTENTION: Ces paramètres sont appliqués en temps réel. Vous n'avez pas besoin d'appuyer sur OK pour appliquer ces paramètres</value>
   </data>
-  <data name="TXT_SELECT_RADIO_STATION">
+  <data name="TXT_SELECT_RADIO_STATION" xml:space="preserve">
     <value>Sélectionnez une station de radio:</value>
   </data>
-  <data name="TXT_URLPART">
+  <data name="TXT_URLPART" xml:space="preserve">
     <value>URL du serveur (correspondance partielle):</value>
   </data>
-  <data name="TXT_SERVERTITLE">
+  <data name="TXT_SERVERTITLE" xml:space="preserve">
     <value>Nom du serveur (correspondance partielle):</value>
   </data>
-  <data name="TXT_SEARCH_BY">
+  <data name="TXT_SEARCH_BY" xml:space="preserve">
     <value>Recherche par:</value>
   </data>
-  <data name="TXT_ARTWORK_COUNT">
+  <data name="TXT_ARTWORK_COUNT" xml:space="preserve">
     <value>{0} image de la pochette (s) (cliquer pour modifier).</value>
   </data>
-  <data name="TXT_BOOKMARK_COUNT">
+  <data name="TXT_BOOKMARK_COUNT" xml:space="preserve">
     <value>{0} signet (s) (cliquer pour modifier).</value>
   </data>
-  <data name="TXT_EXTRAINFO">
+  <data name="TXT_EXTRAINFO" xml:space="preserve">
     <value>Informations supplémentaires</value>
   </data>
-  <data name="TXT_BOOKMARKLIST">
+  <data name="TXT_BOOKMARKLIST" xml:space="preserve">
     <value>Liste de signets</value>
   </data>
-  <data name="TXT_MEDIAINFO">
+  <data name="TXT_MEDIAINFO" xml:space="preserve">
     <value>Renseignements pour les médias</value>
   </data>
-  <data name="TXT_BOOKMARKS">
+  <data name="TXT_BOOKMARKS" xml:space="preserve">
     <value>Signets</value>
   </data>
-  <data name="TXT_TRACKINFO">
+  <data name="TXT_TRACKINFO" xml:space="preserve">
     <value>Info de Piste</value>
   </data>
-  <data name="TXT_SIGNALANALYSIS">
+  <data name="TXT_SIGNALANALYSIS" xml:space="preserve">
     <value>Signal Analyse</value>
   </data>
-  <data name="TXT_PLAYLISTEVT_CAUTION">
+  <data name="TXT_PLAYLISTEVT_CAUTION" xml:space="preserve">
     <value>ATTENTION: L'eveniment "termination de list de lecture" état marche / arrêt n'est pas mémorisée entre les sessions du programme!</value>
   </data>
-  <data name="TXT_SHOW_PLAYLIST">
+  <data name="TXT_SHOW_PLAYLIST" xml:space="preserve">
     <value>Afficher le page "Liste de lecture"</value>
   </data>
-  <data name="TXT_SHOW_TRACKINFO">
+  <data name="TXT_SHOW_TRACKINFO" xml:space="preserve">
     <value>Afficher le page "Info Media"</value>
   </data>
-  <data name="TXT_SHOW_SIGNALANALISYS">
+  <data name="TXT_SHOW_SIGNALANALISYS" xml:space="preserve">
     <value>Afficher le page "Analyse du signal"</value>
   </data>
-  <data name="TXT_SHOW_BOOKMARKINFO">
+  <data name="TXT_SHOW_BOOKMARKINFO" xml:space="preserve">
     <value>Afficher le page "Signets"</value>
   </data>
-  <data name="TXT_HINT_PLAYLISTTAB">
+  <data name="TXT_HINT_PLAYLISTTAB" xml:space="preserve">
     <value>Cette page permet l'interaction avec la liste de lecture.</value>
   </data>
-  <data name="TXT_HINT_TRACKINFOTAB">
-    <value>Cette page affiche les informations de la piste et permet d'éditer certaines parties de ces informations, le cas échéant (par exemple, les champs ID3 pour MP3). Elle est désactivée pour les médias en streaming (Shoutcast URL).</value>
+  <data name="TXT_HINT_TRACKINFOTAB" xml:space="preserve">
+    <value>Cette page affiche les informations de la piste et permet d'éditer certaines parties de ces informations, le cas échéant (par exemple, les champs ID3 pour MP3). Elle est désactivée pour online médias (Shoutcast).</value>
   </data>
-  <data name="TXT_HINT_SIGNALANALISYSTAB">
+  <data name="TXT_HINT_SIGNALANALISYSTAB" xml:space="preserve">
     <value>Cette page affiche signalent diagrammes tels que les VU-mètre, de forme d'onde et spectrogramme. Le analisys signal consomme une partie de UC de sorte que vous pouvez désactiver cette fonction (ou certaines parties de celui-ci), si vous avez un ordinateur de l'UC inférieure.</value>
   </data>
-  <data name="TXT_HINT_BOOKMARKINFOTAB">
-    <value>Cette page affiche les informations du signet et permet de le modifier. Elle est désactivée pour les médias qui ne prennent pas en charge l'édition des signets (CD, DVD, médias écoutés).</value>
+  <data name="TXT_HINT_BOOKMARKINFOTAB" xml:space="preserve">
+    <value>Cette page affiche les informations du signet et permet de le modifier. Elle est désactivée pour les médias qui ne prennent pas en charge l'édition des signets (CD, DVD, online médias - Shoutcast).</value>
   </data>
-  <data name="TXT_SHOW_VUMETER">
+  <data name="TXT_SHOW_VUMETER" xml:space="preserve">
     <value>Afficher VU-mètre</value>
   </data>
-  <data name="TXT_SHOW_WAVEFORM">
+  <data name="TXT_SHOW_WAVEFORM" xml:space="preserve">
     <value>Afficher la forme d'onde</value>
   </data>
-  <data name="TXT_SHOW_SPECTROGRAM">
+  <data name="TXT_SHOW_SPECTROGRAM" xml:space="preserve">
     <value>Afficher spectrogramme</value>
   </data>
-  <data name="TXT_MEDIA_SCREENS">
+  <data name="TXT_MEDIA_SCREENS" xml:space="preserve">
     <value>Pages Principaux</value>
   </data>
-  <data name="TXT_CHOOSE_COLOR_FOR_OSD">
+  <data name="TXT_CHOOSE_COLOR_FOR_OSD" xml:space="preserve">
     <value>Choisissez une couleur de l'OSD:</value>
   </data>
-  <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE">
+  <data name="TXT_CHOOSE_COLOR_FOR_SUBTITLE" xml:space="preserve">
     <value>Choisissez une couleur de sous-titres:</value>
   </data>
-  <data name="TXT_SIGNALLEVEL">
+  <data name="TXT_SIGNALLEVEL" xml:space="preserve">
     <value>Niveau du signal:</value>
   </data>
-  <data name="TXT_SIGNALWAVEFORM">
+  <data name="TXT_SIGNALWAVEFORM" xml:space="preserve">
     <value>Forme d'onde de signal:</value>
   </data>
-  <data name="TXT_SIGNALSPECTRUM">
+  <data name="TXT_SIGNALSPECTRUM" xml:space="preserve">
     <value>Signal spectrogramme:</value>
   </data>
-  <data name="TXT_CHOOSE_FONT_FOR_OSD">
-    <value>Choisissez une police pour l'OSD:</value>
+  <data name="TXT_CHOOSE_FONT_FOR_OSD" xml:space="preserve">
+    <value>Choisissez une fonte pour l'OSD:</value>
   </data>
-  <data name="TXT_CHOOSE_FONT_FOR_SUBTITLE">
-    <value>Choisissez une police des sous-titres:</value>
+  <data name="TXT_CHOOSE_FONT_FOR_SUBTITLE" xml:space="preserve">
+    <value>Choisissez une fonte des sous-titres:</value>
   </data>
 </root>
