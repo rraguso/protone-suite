@@ -134,9 +134,9 @@ namespace OPMedia.UI.HelpSupport
                         string[] docLines = sr.ReadToEnd().Split(Environment.NewLine.ToCharArray());
                         for (int i = 0; i < docLines.Length; i++)
                         {
-                            if (docLines[i].ToLowerInvariant() == "<!-- insert stylesheet here -->")
+                            if (docLines[i].ToLowerInvariant() == "<html>")
                             {
-                                docLines[i] = GenerateStyleSheet();
+                                docLines[i] += GenerateStyleSheet();
                             }
                             else if (docLines[i].ToLowerInvariant().Contains("<img"))
                             {
@@ -157,20 +157,13 @@ namespace OPMedia.UI.HelpSupport
         private string GenerateStyleSheet()
         {
             StringBuilder sb = new StringBuilder();
-
+            sb.AppendLine();
             sb.AppendLine("<style type=\"text/css\">");
-
-            sb.AppendLine(string.Format("h1 {{ color:{0}; background-color:{1}; font-family:Arial; font-size:12px; font-weight:bold; }}",
-                ColorHelper.GetColorCode(ThemeManager.ForeColor), ColorHelper.GetColorCode(ThemeManager.BackColor)));
-            sb.AppendLine(string.Format("body {{ color:{0}; background-color:{1}; font-family:Arial; font-size:11px; }}", 
-                ColorHelper.GetColorCode(ThemeManager.ForeColor), ColorHelper.GetColorCode(ThemeManager.BackColor)));
-            sb.AppendLine(string.Format("td {{ color:{0}; background-color:{1}; font-family:Arial; font-size:10px; }}",
-                ColorHelper.GetColorCode(ThemeManager.ForeColor), ColorHelper.GetColorCode(ThemeManager.BackColor)));
-            sb.AppendLine(string.Format("a {{ color:{0}; background-color:{1}; font-family:Arial; font-size:10px; font-weight:bold; }}",
-                ColorHelper.GetColorCode(ThemeManager.LinkColor), ColorHelper.GetColorCode(ThemeManager.BackColor)));
-            
+            sb.AppendLine("h1 {{ font-family:Arial; font-size:12px; font-weight:bold; }}");
+            sb.AppendLine("body {{ font-family:Arial; font-size:11px; }}");
+            sb.AppendLine("td {{ font-family:Arial; font-size:10px; }}");
+            sb.AppendLine("a {{ font-family:Arial; font-size:10px; font-weight:bold; }}");
             sb.AppendLine("</style>");
-
             return sb.ToString();
         }
 
