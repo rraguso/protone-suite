@@ -8,3 +8,10 @@ C:\Program Files (x86)\OPMedia Research\ProTONE Suite\docs\docs.dll
 C:\Program Files (x86)\OPMedia Research\ProTONE Suite\docs\docs.pdb
 f:\Personal\protone-suite.googlecode.com\tags\ProTONE Suite - 1.10.x\src\bin\docs\docs.dll
 f:\Personal\protone-suite.googlecode.com\tags\ProTONE Suite - 1.10.x\src\bin\docs\docs.pdb
+F:\Personal\protone-suite.googlecode.com\wiki\ProTONE Suite - 2.0\obj\x86\Debug\docs.csprojResolveAssemblyReference.cache
+F:\Personal\protone-suite.googlecode.com\wiki\ProTONE Suite - 2.0\obj\x86\Debug\docs.dll
+F:\Personal\protone-suite.googlecode.com\wiki\ProTONE Suite - 2.0\obj\x86\Debug\docs.pdb
+F:\Personal\protone-suite.googlecode.com\trunk\ProTONE Suite\src\bin\docs.dll
+F:\Personal\protone-suite.googlecode.com\trunk\ProTONE Suite\src\bin\docs.pdb
+F:\Personal\protone-suite.googlecode.com\trunk\ProTONE Suite\src\bin\docs\docs.dll
+F:\Personal\protone-suite.googlecode.com\trunk\ProTONE Suite\src\bin\docs\docs.pdb

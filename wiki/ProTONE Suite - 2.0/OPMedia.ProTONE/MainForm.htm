@@ -1,26 +1,89 @@
 <html>
 <head>
     <title>ProTONE Player Main Window</title>
-    <style type="text/css">
-        .style1
-        {
-            text-decoration: underline;
-        }
-    </style>
 </head>
     <body>
         <h1>From the main window of ProTONE Player, the user is able to:</h1>
-        <div>
-            <bl>
-                <li>Control the <a href="#playback">media playback functionality</a></li>
-                <li>Interact with the <a href="#playlist">playlist</a></li>
-                <li>View and alter the <a href="#media_prop">media properties</a></li>
-                <li>View <a href="#signal_diagrams">signal diagrams</a>like VU-Meter, Waveform and Spectrogram</li>
-                <li>Interact with the <a href="#bookmarks">bookmarks list</a></li>
-            </bl>
+        <bl>
+            <li>Control the <a href="#playback">media playback</a> e.g. play/pause/stop etc.</li>
+            <li>Interact with the <a href="#playlist">playlist</a> e.g. load/save playlist or arrange playlist items etc.</li>
+            <li>View and alter the <a href="#media_prop">media properties</a> e.g. view sample frequency or alter the ID3 tags for MP3 files etc.</li>
+            <li>View <a href="#signal_diagrams">signal diagrams</a> like VU-Meter, Waveform and Spectrogram</li>
+            <li>Interact with the <a href="#bookmarks">bookmarks list</a> e.g. define new bookmarks, adjust bookmark times or delete bookmarks.</li>
+        </bl>
         
+        <!-- --------------------------------------------- -->
+        <h2><a id="playback">Control media playback</a></h2>
+        <div>You can control the media playback using:</div>
+        <p/>
+        <bl>
+            <li><strong>The playback area</strong></li> groups all the interface elements that appear at the bottom of the main application window.
+            <div>These elements appear always, regardless which is the selected page: Playlist / Track Info / Signal Analisys / Bookmarks.</div>
+            <div>The following image depicts which is the area named "playback area":</div>
+            <div><img alt="" src="images/mainform_playback.png" /></div>
+            <p/>
+            <div>1. The first row in the playback area is occupied by the playback buttons. These buttons can be used to control the playback e.g.  play/pause/stop etc. They all have tooltips and suggestive icons so their function is self explanatory.
+            Still on the first row, but far in the right, are the state icons. These icons show the current playback status, the availability of audio/video streams, and the media type icon. Hovering with the mouse over these icons will reveal explanatory tooltips.
+            <p/>
+            <div>2. The second row is occupied by the time scale. Clicking anywhere on the time scale will result in playback jumping immediately to that particular moment (instant rewind/fast forward). Hovering with the mouse over the time scale will reveal a tooltip depicting the corresponding playback time.
+            <table>
+            <tr>
+                <td><img alt="" src="images/tip.png" width="16" height="16" /></td>
+                <td>If the hovered position on the time scale is in a 5-seconds range to a defined bookmark, the tooltip will contain the bookmark description also.</td>
+            </tr>
+            </table>
+            </div>
+            <p/>
+            <div>3. Finally, the third (and last) row in the playback area is occupied by the volume scale. Clicking anywhere on the volume scale will result in volume changing immediately to that particular level. Hovering with the mouse over the volume scale will reveal a tooltip depicting the corresponding volume level.</div>
+            <p/>
 
-        <p>
-            See also: <a href="./AllShortcuts.htm">Shortcut list</a>
-            </body>
+            <li><strong>The playback context menu</strong></li> that is available by right-clicking anywhere in the playback area.
+            <div><img alt="" src="images/mainform_playback_cm.png" /></div>
+            <p/>            
+            <div>From the context menu you can access the same set of functionalities that are available via the <a href="#playback">Playback area.</a></div>
+            <div>Moreover, some functionalities, like 'Open URL', are available ONLY from the context menu.</div>
+            <table>
+            <tr>
+                <td><img alt="" src="images/tip.png" width="16" height="16" /></td>
+                <td>
+                <div>This context menu is also shown when right clicking on the application icon in the system notification area (area that is shown near the clock, usually in the bottom right of the screen, known also as 'system tray').</div>
+                <div><img alt="" src="images/playerTray.png" /></div>
+                </td>
+            </tr>
+            </table>
+            <p/>            
+            <li><strong>The shortcuts:</strong></li>
+            <div>To view the complete shortcuts list, see the <a href="./AllShortcuts.htm">shortcuts list</a></div>
+            <div>The table below shows the relation between the playback buttons, context menu entries and shortcuts.</div>
+        </bl>
+
+        <!-- --------------------------------------------- -->
+        <h2>
+            <a id="playlist">Interact with the playlist</a>
+        </h2>
+
+        <!-- --------------------------------------------- -->
+        <h2>
+            <a id="media_prop">View and alter the media properties</a>
+        </h2>
+
+        <!-- --------------------------------------------- -->
+        <h2>
+            <a id="signal_diagrams">View the signal diagrams</a>
+        </h2>
+
+        <!-- --------------------------------------------- -->
+        <h2>
+            <a id="bookmarks">Interact with the bookmarks list</a>
+        </h2>
+
+        <!-- --------------------------------------------- -->
+        <table>
+        <tr>
+            <td><img alt="" src="images/info.png" /></td>
+            <td>See also: <a href="./AllShortcuts.htm">shortcuts list</a></td>
+        </tr>
+        </table>
+
+    </body>
 </html>
