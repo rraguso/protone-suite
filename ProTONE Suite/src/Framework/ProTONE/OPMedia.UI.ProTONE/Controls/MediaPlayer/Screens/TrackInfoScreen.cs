@@ -53,7 +53,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
             {
                 try
                 {
-                    MediaFileInfo.MediaFileInfoSlim mfis = pgProperties.SelectedObject as MediaFileInfo.MediaFileInfoSlim;
+                    MediaFileInfoSlim mfis = pgProperties.SelectedObject as MediaFileInfoSlim;
                     if (mfis != null)
                     {
                         mfis.Save();
@@ -120,8 +120,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
                 {
                     pgProperties.Tag = plItem;
 
-                    FileAttributesBrowser.ProcessSingleObjectAttributes(plItem.MediaFileInfo.Slim);
-                    pgProperties.SelectedObject = plItem.MediaFileInfo.Slim;
+                    MediaFileInfoSlim slim = plItem.MediaFileInfo.Slim();
+                    FileAttributesBrowser.ProcessSingleObjectAttributes(slim);
+                    pgProperties.SelectedObject = slim;
                     
                     pgProperties.Visible = true;
                     lblNoInfo.Visible = false;

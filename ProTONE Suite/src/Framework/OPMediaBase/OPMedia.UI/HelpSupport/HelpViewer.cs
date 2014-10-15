@@ -91,6 +91,8 @@ namespace OPMedia.UI.HelpSupport
             _uri = helpUri;
             StringBuilder sb = new StringBuilder();
 
+            string docText = string.Empty;
+
             Uri uri = new Uri(helpUri);
             if (uri.Scheme == "file")
             {
@@ -100,9 +102,9 @@ namespace OPMedia.UI.HelpSupport
                     string[] docLines = File.ReadAllLines(uri.LocalPath);
                     for (int i = 0; i < docLines.Length; i++)
                     {
-                        if (docLines[i].ToLowerInvariant() == "<!-- insert stylesheet here -->")
+                        if (docLines[i].ToLowerInvariant() == "<html>")
                         {
-                            docLines[i] = GenerateStyleSheet();
+                            docLines[i] += GenerateStyleSheet();
                         }
                         else if (docLines[i].ToLowerInvariant().Contains("<img"))
                         {
@@ -118,12 +120,10 @@ namespace OPMedia.UI.HelpSupport
 					Logger.LogException(ex);
                 }
 
-                wbHelpDisplay.DocumentText = sb.ToString();
+                docText = sb.ToString();
             }
             else
             {
-                //wbHelpDisplay.Navigate(helpUri);
-
                 HttpWebRequest request = WebRequest.Create(helpUri) as HttpWebRequest;
 
                 // execute the request
@@ -149,9 +149,11 @@ namespace OPMedia.UI.HelpSupport
                     }
                 }
 
-                string docText = sb.ToString();
-                wbHelpDisplay.DocumentText = docText;
+                docText = sb.ToString();
             }
+
+            wbHelpDisplay.DocumentText = docText;
+            BringToFront();
         }
 
         private string GenerateStyleSheet()
@@ -160,9 +162,10 @@ namespace OPMedia.UI.HelpSupport
             sb.AppendLine();
             sb.AppendLine("<style type=\"text/css\">");
             sb.AppendLine("h1 {{ font-family:Arial; font-size:12px; font-weight:bold; }}");
+            sb.AppendLine("h2 {{ font-family:Arial; font-size:11px; font-weight:bold; text-decoration: underline; }}");
+            sb.AppendLine("a {{ font-family:Arial; font-size:11px; font-weight:bold; }}");
             sb.AppendLine("body {{ font-family:Arial; font-size:11px; }}");
             sb.AppendLine("td {{ font-family:Arial; font-size:10px; }}");
-            sb.AppendLine("a {{ font-family:Arial; font-size:10px; font-weight:bold; }}");
             sb.AppendLine("</style>");
             return sb.ToString();
         }
