@@ -319,7 +319,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableDisplayName("TXT_BITRATE")]
         [TranslatableCategory("TXT_MEDIAINFO")]
         [Browsable(true)]
-        public Bitrate? Bitrate
+        public override Bitrate? Bitrate
         {
             get
             {
@@ -336,7 +336,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableDisplayName("TXT_CHANNELS")]
         [TranslatableCategory("TXT_MEDIAINFO")]
         [Browsable(true)]
-        public ChannelMode? Channels
+        public override ChannelMode? Channels
         {
             get
             {
@@ -368,7 +368,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableDisplayName("TXT_FREQUENCY")]
         [TranslatableCategory("TXT_MEDIAINFO")]
         [Browsable(true)]
-        public int? Frequency
+        public override int? Frequency
         {
             get
             {

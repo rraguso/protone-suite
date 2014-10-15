@@ -69,7 +69,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableCategory("TXT_MEDIAINFO")]
         [SingleSelectionBrowsable]
         [ReadOnly(true)]
-        public VSize? VideoSize
+        public override VSize? VideoSize
         {
             get { return videoSize; }
             set { videoSize = value.GetValueOrDefault(); }
@@ -79,7 +79,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableCategory("TXT_MEDIAINFO")]
         [SingleSelectionBrowsable]
         [ReadOnly(true)]
-        public FrameRate? FrameRate
+        public override FrameRate? FrameRate
         {
             get { return frameRate; }
             set { frameRate = value.GetValueOrDefault(); }

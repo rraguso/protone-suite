@@ -17,6 +17,7 @@ using OPMedia.Runtime.ProTONE.ExtendedInfo;
 using OPMedia.Runtime.ProTONE.Playlists;
 using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.Configuration;
+using TagLib.Mpeg;
 
 namespace OPMedia.Runtime.ProTONE.FileInformation
 {
@@ -155,6 +156,9 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 Dictionary<string, string> info = new Dictionary<string, string>();
 
                 info.Add("TXT_DURATION:", Duration.GetValueOrDefault().ToString());
+                info.Add("TXT_BITRATE:", Bitrate.GetValueOrDefault().ToString());
+                info.Add("TXT_CHANNELS:", Channels.GetValueOrDefault().ToString());
+                info.Add("TXT_FREQUENCY:", Frequency.GetValueOrDefault().ToString());
               
                 if (_cdEntry != null)
                 {
@@ -215,8 +219,43 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
             {
                 return TimeSpan.FromSeconds(_duration);
             }
+        }
 
-            
+        [TranslatableDisplayName("TXT_FREQUENCY")]
+        [TranslatableCategory("TXT_MEDIAINFO")]
+        [Browsable(true)]
+        [ReadOnly(true)]
+        public override int? Frequency
+        {
+            get
+            {
+                return 44100; // Default CDDA sample rate
+            }
+        }
+
+        [TranslatableDisplayName("TXT_BITRATE")]
+        [TranslatableCategory("TXT_MEDIAINFO")]
+        [Browsable(true)]
+        [ReadOnly(true)]
+        public override Bitrate? Bitrate
+        {
+            get
+            {
+                int b = 44100 /*samples / sec */ * 16 /* bits / sample */ * 2 /* Channels */;
+                return new Bitrate((short)(b / 1024), false);
+            }
+        }
+
+        [TranslatableDisplayName("TXT_CHANNELS")]
+        [TranslatableCategory("TXT_MEDIAINFO")]
+        [Browsable(true)]
+        [ReadOnly(true)]
+        public override ChannelMode? Channels
+        {
+            get
+            {
+                return ChannelMode.Stereo; // CDDA is always Stereo
+            }
         }
 
         [Browsable(false)]
