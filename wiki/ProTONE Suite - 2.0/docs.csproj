@@ -117,6 +117,7 @@
     <Content Include="images\voldown_cm.png" />
     <Content Include="images\volup_cm.png" />
     <Content Include="OPMedia.ProTONE\AllShortcuts.htm" />
+    <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpMediaScreens.htm" />
     <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpDisksOptions.htm" />
     <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpFavoriteFolders.htm" />
     <Content Include="template.htm" />
@@ -160,12 +161,12 @@
     <Content Include="OPMedia.ProTONE\SelectDvdMediaDlg.htm" />
     <Content Include="OPMedia.ProTONE\SettingsForm\FileTypesPanel.htm" />
     <Content Include="OPMedia.ProTONE\SettingsForm\GeneralSettingsPanel.htm" />
-    <Content Include="OPMedia.ProTONE\SettingsForm\KeyMapCfgPanel.htm" />
-    <Content Include="OPMedia.ProTONE\SettingsForm\LoggingSettingsPanel.htm" />
-    <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpDiagnostics.htm" />
-    <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpMonitors.htm" />
+    <Content Include="OPMedia.ProTONE\SettingsForm\ControlAppPanel\KeyMapCfgPanel.htm" />
+    <Content Include="OPMedia.ProTONE\SettingsForm\TroubleshootingPanel\LoggingSettingsPanel.htm" />
+    <Content Include="OPMedia.ProTONE\SettingsForm\TroubleshootingPanel\DiagnosticsPage.htm" />
+    <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpScheduler.htm" />
     <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpPlaylist.htm" />
-    <Content Include="OPMedia.ProTONE\SettingsForm\MiscellaneousSettingsPanel\tpRemote.htm" />
+    <Content Include="OPMedia.ProTONE\SettingsForm\ControlAppPanel\RemoteControlPage.htm" />
     <Content Include="OPMedia.ProTONE\SettingsForm\NetworkSettingsPanel.htm" />
     <Content Include="OPMedia.ProTONE\SettingsForm\SchedulerSettingsPanel.htm" />
     <Content Include="OPMedia.ProTONE\SettingsForm\SubtitleSettingsPanel\tpOsd.htm" />
@@ -180,6 +181,7 @@
     <Content Include="OPMedia.RCCManager\UrlCfgDlg.htm" />
     <Content Include="OPMedia.Utility\LogFileConsoleDialog.htm" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y /S /E "$(ProjectDir)*" "$(TargetDir)"</PostBuildEvent>

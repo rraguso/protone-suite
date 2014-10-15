@@ -12,33 +12,36 @@
             <li>Interact with the <a href="#bookmarks">bookmarks list</a> e.g. define new bookmarks, adjust bookmark times or delete bookmarks.</li>
         </bl>
         
-        <!-- Control media playback -->
+        <!-- Playback area -->
         <div> 
-        <h2><a id="playback">Control media playback</a></h2>
-        <div>You can control the media playback using:</div>
-        <p/>
-        <bl>
-            <li><strong>The playback area</strong></li> groups all the interface elements that appear at the bottom of the main application window.
-            <div>These elements appear always, regardless which is the selected page: Playlist / Track Info / Signal Analisys / Bookmarks.</div>
-            <div>The following image depicts which is the area named "playback area":</div>
-            <div><img alt="" src="images/mainform_playback.png" /></div>
-            <p/>
-            <div>1. The first row in the playback area is occupied by the playback buttons. These buttons can be used to control the playback e.g.  play/pause/stop etc. They all have tooltips and suggestive icons so their function is self explanatory.
-            Still on the first row, but far in the right, are the state icons. These icons show the current playback status, the availability of audio/video streams, and the media type icon. Hovering with the mouse over these icons will reveal explanatory tooltips.
-            <p/>
-            <div>2. The second row is occupied by the time scale. Clicking anywhere on the time scale will result in playback jumping immediately to that particular moment (instant rewind/fast forward). Hovering with the mouse over the time scale will reveal a tooltip depicting the corresponding playback time.
-            <table>
-            <tr>
-                <td><img alt="" src="images/tip.png" width="16" height="16" /></td>
-                <td>If the hovered position on the time scale is in a 5-seconds range to a defined bookmark, the tooltip will contain the bookmark description also.</td>
-            </tr>
-            </table>
-            </div>
-            <p/>
-            <div>3. Finally, the third (and last) row in the playback area is occupied by the volume scale. Clicking anywhere on the volume scale will result in volume changing immediately to that particular level. Hovering with the mouse over the volume scale will reveal a tooltip depicting the corresponding volume level.</div>
+            <h2><a id="playback">Control media playback</a></h2>
+            <div>You can control the media playback using:</div>
             <p/>
 
-            <li><strong>The playback context menu</strong></li> that is available by right-clicking anywhere in the playback area.
+            <div>
+                <div><strong>A. The playback area</strong> groups all the interface elements that appear at the bottom of the main application window.
+                These elements appear always, regardless which is the selected page (Playlist, Track Info, Signal Analisys or Bookmarks).
+                The following image depicts which is the area named "playback area":</div>
+                <div><img alt="" src="images/mainform_playback.png" /></div>
+                <p/>
+                <div>1. The first row in the playback area is occupied by the playback buttons. These buttons can be used to control the playback e.g.  play/pause/stop etc. They all have tooltips and suggestive icons so their function is self explanatory.
+                Still on the first row, but far in the right, are the state icons. These icons show the current playback status, the availability of audio/video streams, and the media type icon. Hovering with the mouse over these icons will reveal explanatory tooltips.</div>
+                <p/>
+                <div>2. The second row is occupied by the time scale. Clicking anywhere on the time scale will result in playback jumping immediately to that particular moment (instant rewind/fast forward). Hovering with the mouse over the time scale will reveal a tooltip depicting the corresponding playback time.
+                <table>
+                <tr>
+                    <td><img alt="" src="images/tip.png" width="16" height="16" /></td>
+                    <td>If the hovered position on the time scale is in a 5-seconds range to a defined bookmark, the tooltip will contain the bookmark description also.</td>
+                </tr>
+                </table>
+                </div>
+                <p/>
+                <div>3. Finally, the third (and last) row in the playback area is occupied by the volume scale. Clicking anywhere on the volume scale will result in volume changing immediately to that particular level. Hovering with the mouse over the volume scale will reveal a tooltip depicting the corresponding volume level.</div>
+                <p/>
+            </div>
+
+            <div>
+            <strong>B. The playback context menu</strong> that is available by right-clicking anywhere in the playback area.
             <div><img alt="" src="images/mainform_playback_cm.png" /></div>
             <p/>            
             <div>From the context menu you can access the same set of functionalities that are available via the <a href="#playback">Playback area.</a></div>
@@ -47,13 +50,16 @@
             <tr>
                 <td><img alt="" src="images/tip.png" width="16" height="16" /></td>
                 <td>
-                <div>This context menu is also shown when right clicking on the application icon in the system notification area (area that is shown near the clock, usually in the bottom right of the screen, known also as 'system tray').</div>
+                <div>TIP: This context menu is also shown when right clicking on the application icon in the system notification area (area that is shown near the clock, usually in the bottom right of the screen, known also as 'system tray').</div>
                 <div><img alt="" src="images/playerTray.png" /></div>
                 </td>
             </tr>
             </table>
             <p/>            
-            <li><strong>The shortcuts:</strong></li>
+            </div>
+
+            <div>
+            <strong>C. The shortcuts:</strong>
             <div>To view the complete shortcuts list, see the <a href="./AllShortcuts.htm">shortcuts list</a></div>
             <div>The table below shows the relation between the playback buttons, context menu entries and shortcuts.</div>
             <table border="1" cellpadding="0" cellspacing="0" width="auto">
@@ -169,6 +175,20 @@
                 <td align="justify" valign="middle" width="auto">
                     -</td>
             </tr>
+             <tr>
+                <td align="center" valign="middle" width="auto">
+                    Open an Internet Radio Station URL</td>
+                <td align="justify" valign="middle">
+                    Opens a list with pre-defined Internet radio stations, then allows the user to enter his own custom URL.</td>
+                <td align="center" valign="middle" width="auto">
+                    -
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/url_cm.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    Ctrl + U</td>
+                <td align="justify" valign="middle" width="auto">
+                    -</td>
+            </tr>
             <tr>
                 <td align="center" valign="middle" width="auto">
                     Full Screen</td>
@@ -239,33 +259,244 @@
                 <td align="justify" valign="middle" width="auto">
                     -</td>
             </tr>
-        </table>
-        </bl>
+            </table>
+            </div>
+
+        </div>
+
+        <!-- Playlist -->
+        <div>
+        <h2><a id="playlist">Interact with the playlist</a></h2>
+        <div><strong>The playlist area</strong> is displayed on top of the Playlist page, as seen in the following picture:</div>
+        <div><img alt="" src="images/mainform_playlist.png" /></div>
+        <div>When ProTONE Player starts up, it automatically loads the last playlist that the user was listening before he stopped the player.
+        If the playlist is empty, the user can load a playlist (see below), or he can simply add items to the playlist by using the 'Load' button from the <a href="#playback">Playback area</a> - or its related shortcut.</div>
+        <p/>
+        <div>You can interact with the playlist (that is - load/save playlist, or arrange playlist items) using using the 
+            corresponding entries in the context menu, or by using the appropriate command 
+            shortcut, as depicted in the following table. The context menu is available by 
+            right-clicking anywhere in the playlist panel:</div>
+
+        <table border="1" cellpadding="0" cellspacing="0" width="auto">
+            <tr>
+                <td align="center" valign="middle" width="auto" bgcolor="DarkGray">
+                    <b>Command</b></td>
+                <td align="center" valign="middle" bgcolor="DarkGray">
+                    <b>Description</b></td>
+                <td align="center" valign="middle" width="auto" bgcolor="DarkGray">
+                    <b>Button</b></td>
+                <td align="center" valign="middle" width="auto" bgcolor="DarkGray">
+                    <b>Context menu</b></td>
+                <td align="center" valign="middle" width="auto" bgcolor="DarkGray">
+                    <b>Primary shortcut</b></td>
+                <td align="justify" valign="middle" width="auto" bgcolor="DarkGray">
+                    <b>Alternate shortcut</b></td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" width="auto">
+                    Move Up</td>
+                <td align="justify" valign="middle">
+                    Moves selected items one position up in playlist</td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/moveup_b.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/moveup_cm.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    Page Up</td>
+                <td align="justify" valign="middle" width="auto">
+                    &nbsp;Key 9 from numeric pad&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" width="auto">
+                    Move Down</td>
+                <td align="justify" valign="middle">
+                    Moves selected items one position down in playlist</td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/movedown_b.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/movedown_cm.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    Page Down</td>
+                <td align="justify" valign="middle" width="auto">
+                    &nbsp;Key 3 from numeric pad&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" width="auto">
+                    Delete</td>
+                <td align="justify" valign="middle">
+                    Removes the selected items from playlist</td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/pldelete_b.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/pldelete_cm.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    Delete</td>
+                <td align="justify" valign="middle" width="auto">
+                    &nbsp;&nbsp;Decimal (. from numeric pad) </td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" width="auto">
+                    Clear</td>
+                <td align="justify" valign="middle">
+                    Clears the playlist (removes all items)</td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/plclear_b.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/plclear_cm.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    Ctrl + Delete</td>
+                <td align="justify" valign="middle" width="auto">
+                    &nbsp;Ctrl + &nbsp;&nbsp;Decimal (. from numeric pad)
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" width="auto">
+                    Load</td>
+                <td align="justify" valign="middle">
+                    Loads a saved playlist.<br />
+                    Supported formats: PLS, ASX, WPL or M3U.</td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/plload_b.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/plload_cm.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    Ctrl + N</td>
+                <td align="justify" valign="middle" width="auto">
+                    &nbsp;Ctrl + Select Media&nbsp;<em>(for multimedia keyboards)</em></td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" width="auto">
+                    Save</td>
+                <td align="justify" valign="middle">
+                    Saves the current playlist in one of the supported<br />
+                    playlist formats (ASX, PLS, WPL or M3U).</td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/plsave_b.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    <img alt="" src="images/plsave_cm.png" /></td>
+                <td align="center" valign="middle" width="auto">
+                    Ctrl + S</td>
+                <td align="justify" valign="middle" width="auto">
+                    -</td>
+            </tr>
+            </table>
+            <div>To view the complete shortcuts list, see the <a href="./AllShortcuts.htm">shortcuts list</a></div>
+
+        <p/>
         </div>
 
         <!-- --------------------------------------------- -->
         <div>
-        <h2>
-            <a id="playlist">Interact with the playlist</a>
-        </h2>
+        <h2><a id="media_prop">View and alter the media properties</a></h2>
+        <div>Use the Track Info page to view and alter the media properties, such as the Duration, Title or Artist.</div>
+        <p />
+        <img alt="" src="images/track_info.png" />
+        <p />
+        <div>To view and edit media properties for a specific file, select it from the list on the left side. Then edit the properties using the grid on the right side. NOTE: </div>
+        <div>1. This list is a "lightweight" replica of the playlist. Any changes done to the playlist are reflected here too.</div>
+        <div>2. Depending on the selected file, it might not be possible to edit its properties. For example, information for CD tracks or for video files is not editable.
+        Also it is not possbile to view or edit the info for streamed media like Shoutcast radio stations.</div>
+        <table>
+                <tr>
+                    <td><img alt="" src="images/tip.png" width="16" height="16" /></td>
+                    <td>
+                    <div>The editable information is always displayed under the "Media Tag" property group.</div>
+                    <div>Currently only the MP1/MP2/MP3 files have editable properties.</div>
+                    <div>But, even for such a file, the properties within may still not be editable in some cases (see Note #2 above).</div>
+                    </td>
+                </tr>
+                </table>
         </div>
 
         <!-- --------------------------------------------- -->
-        <h2>
-            <a id="media_prop">View and alter the media properties</a>
-        </h2>
+        <div>
+        <h2><a id="signal_diagrams">View the signal diagrams</a></h2>
+        <div>
+        Use the Signal Analisys page to view signal graphics such as VU-Meter, Waveform and Spectrogram.
+        <p />
+        <img alt="" src="images/signal_analisys.png" />
+        <table>
+        <tr>
+            <td><img alt="" src="images/caution.png" width="16" height="16" /></td>
+            <td>
+            <div>Note that signal analisys requires significant processing power (CPU speed), so, if your computer is not very powerful (slow CPU), you can disable this feature or parts of it.</div>
+            <div>This can be done by means of the <a href="SettingsForm/MiscellaneousSettingsPanel/tpMediaScreens.htm">Misc -> Main Pages</a>  tab from  the
+                <a href="SettingsForm/GeneralSettingsPanel.htm">Settings dialog</a></div>
+            </td>
+        </tr>
+        </table>
+
+        </div>
+        <p />
+        </div>
+
+        <!-- Bookmarks -->
+        <div>
+        <h2><a id="bookmarks">Interact with the bookmarks list</a></h2>
+        <div>
+            Use the Bookmarks page to add new bookmarks or to edit the 
+            text or the time for the already defined bookmarks. These bookmarks are saved in 
+            a file having the same location and name as the media file but with the extra 
+            .BMK extension. Basically, bookmarks act like some stamps indicating some 
+            particular spots within the media file. Typically an user will define a bookmark 
+            at the place when the media file contains an important or interesting passage 
+            for him/her.</div>
+            <p />
+            <div>To view and edit bookmarks for a specific file, select it from the list on the left side. NOTE: </div>
+            <div>1. This list is a "lightweight" replica of the playlist. Any changes done to the playlist are reflected here too.</div>
+            <div>2. Depending on the selected file, it might not be possible to edit its bookmarks. For example, if the file is on a Read-Only disk (e.g. a CD-ROM), then the bookmarks are visible but not editable.
+            Also it is not possbile to view or edit bookmarks for streamed media like Shoutcast radio stations.</div>
+            <p />
+        <div>
+            <table border="1" cellpadding="0" cellspacing="0" width="auto">
+                <tr>
+                    <td align="justify" height="auto" valign="middle" width="auto">
+                        <p>
+                            To define a new bookmark, use the &quot;Add&quot; button. </p>
+                    </td>
+                    <td align="center" height="auto" valign="middle" width="auto">
+            <img alt="" src="images/add.png" /></td>
+                    <td align="justify" height="auto" valign="middle" width="auto">
+                        This button is always visible.</td>
+                </tr>
+                <tr>
+                    <td align="justify" height="auto" valign="middle" width="auto">
+                        To define a new bookmark for the current playback time, use the &quot;Add now&quot; 
+                        button.
+                    </td>
+                    <td align="center" height="auto" valign="middle" width="auto">
+            <img alt="" src="images/add2.png" /></td>
+                    <td align="justify" height="auto" valign="middle" width="auto">
+                        This button is visible only when the currently played file is open in Bookmark 
+                        Manager.<br />
+                        After using this button, the playback will be paused, giving the user some time 
+                        to enter the bookmark description.</td>
+                </tr>
+                <tr>
+                    <td align="justify" height="auto" valign="middle" width="auto">
+                        <p>
+                            To delete an existing bookmark, use the &quot;Delete&quot; button. </p>
+                    </td>
+                    <td align="center" height="auto" valign="middle" width="auto">
+            <img alt="" src="images/delete.png" /></td>
+                    <td align="justify" height="auto" valign="middle" width="auto">
+                        This button is visible only when a bookmark is selected.</td>
+                </tr>
+            </table>
+            <table>
+            <tr>
+                <td><img alt="" src="images/tip.png" width="16" height="16" /></td>
+                <td>
+                <div>To edit the time or the description of a bookmark, simply click the corresponding cell in the list.</div>
+                </td>
+            </tr>
+            </table>
+
+        </div>
+        </div>
 
         <!-- --------------------------------------------- -->
-        <h2>
-            <a id="signal_diagrams">View the signal diagrams</a>
-        </h2>
-
-        <!-- --------------------------------------------- -->
-        <h2>
-            <a id="bookmarks">Interact with the bookmarks list</a>
-        </h2>
-
-        <!-- --------------------------------------------- -->
+        <p />
         <table>
         <tr>
             <td><img alt="" src="images/info.png" /></td>
