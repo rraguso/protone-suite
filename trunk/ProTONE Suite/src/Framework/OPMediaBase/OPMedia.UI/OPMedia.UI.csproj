@@ -796,7 +796,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assistance.png" />
+    <None Include="Resources\Back.png" />
     <Content Include="Resources\ControlPanel.png" />
+    <None Include="Resources\Forward.png" />
     <Content Include="Resources\wizard.png" />
     <None Include="Resources\waiting.gif" />
     <None Include="Resources\waitframe.bmp" />
