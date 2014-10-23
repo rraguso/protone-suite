@@ -33,6 +33,7 @@ namespace OPMedia.UI.Configuration
             tp.Dock = DockStyle.Fill;
             tp.ImageIndex = tabSubPages.ImageList.Images.Count;
             tp.Tag = page.Title;
+            tp.Name = page.Name;
 
             tabSubPages.ImageList.Images.Add(page.Image);
             tabSubPages.TabPages.Add(tp);
@@ -85,6 +86,14 @@ namespace OPMedia.UI.Configuration
                     break;
                 }
             }
+        }
+
+        public override string GetHelpTopic()
+        {
+            if (tabSubPages.SelectedTab != null)
+                return string.Format("{0}/{1}", this.Name, tabSubPages.SelectedTab.Name);
+
+            return base.GetHelpTopic();
         }
     }
 

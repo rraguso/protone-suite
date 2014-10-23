@@ -14,6 +14,7 @@ using System.Reflection;
 using System.Diagnostics;
 
 using OPMedia.UI.Generic;
+using OPMedia.Core.Logging;
 
 namespace OPMedia.UI.Controls
 {
@@ -138,7 +139,6 @@ namespace OPMedia.UI.Controls
             base.OwnerDraw = true;
             this.Draw += new DrawToolTipEventHandler(OPMToolTip_Draw);
             this.Popup += new PopupEventHandler(OPMToolTip_Popup);
-            
         }
 
         void OPMToolTip_Popup(object sender, PopupEventArgs e)
@@ -348,16 +348,22 @@ namespace OPMedia.UI.Controls
 
         public void ShowSimpleToolTip(string text, Image img = null)
         {
+            //Logger.LogTrace("ShowSimpleToolTip");
+
             if (ToolTipCreated())
             {
+                //Logger.LogTrace("    > before SetSimpleToolTip");
                 _tip.SetSimpleToolTip(_ctl, text, img);
             }
         }
 
         public void ShowToolTip(string title, Dictionary<string, string> values = null, Image img = null, Image customImage = null)
         {
+            //Logger.LogTrace("ShowToolTip");
+
             if (ToolTipCreated())
             {
+                //Logger.LogTrace("    > before SetToolTip");
                 _tip.SetToolTip(_ctl, title, values, img, customImage);
             }
         }
@@ -370,6 +376,8 @@ namespace OPMedia.UI.Controls
 
         void _ctl_MouseMove(object sender, MouseEventArgs e)
         {
+            //Logger.LogTrace("_ctl_MouseMove");
+
             Point pos = new Point(Cursor.Position.X, Cursor.Position.Y);
             if (_pos != Point.Empty)
             {
@@ -385,17 +393,23 @@ namespace OPMedia.UI.Controls
 
         private bool ToolTipCreated()
         {
+            //Logger.LogTrace("ToolTipCreated");
+
             try
             {
                 RemoveAll();
-
                 _tip = new OPMToolTip();
                 _tip.Disposed += new EventHandler(_tip_Disposed);
                 _tip.Popup += new PopupEventHandler(_tip_Popup);
+
+                //Logger.LogTrace("ToolTipCreated -> return True");
+
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                //Logger.LogTrace("ToolTipCreated esxception: {0}", ex.ToString());
+                //Logger.LogTrace("ToolTipCreated -> return False");
                 return false;
             }
         }
@@ -404,6 +418,7 @@ namespace OPMedia.UI.Controls
 
         void _tip_Popup(object sender, PopupEventArgs e)
         {
+            //Logger.LogTrace("_tip_Popup");
             _pos = new Point(Cursor.Position.X, Cursor.Position.Y);
         }
 
@@ -411,6 +426,8 @@ namespace OPMedia.UI.Controls
         {
             if (sender == _tip)
             {
+                //Logger.LogTrace("_tip_Disposed");
+
                 _tip = null;
                 _pos = Point.Empty;
             }
@@ -418,8 +435,12 @@ namespace OPMedia.UI.Controls
 
         public void RemoveAll()
         {
+            //Logger.LogTrace_WithStackDump("RemoveAll");
+
             if (_tip != null)
             {
+                //Logger.LogTrace("RemoveAll => Hide");
+
                 _tip.Hide(_ctl);
                 _tip.Dispose();
                 _tip = null;

@@ -384,8 +384,10 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         public MediaFileInfoSlim Slim()
         {
-            if (this is ID3FileInfo || this is CDAFileInfo)
-                return new AudioFileInfoSlim(this);
+            if (this is ID3FileInfo)
+                return new ID3FileInfoSlim(this);
+            else if (this is CDAFileInfo)
+                return new CDAFileInfoSlim(this);
             else if (this is VideoFileInfo)
                 return new VideoFileInfoSlim(this);
             else
@@ -454,9 +456,9 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
     }
 
-    public class AudioFileInfoSlim : MediaFileInfoSlim
+    public class ID3FileInfoSlim : MediaFileInfoSlim
     {
-        public AudioFileInfoSlim(MediaFileInfo mfi) 
+        public ID3FileInfoSlim(MediaFileInfo mfi) 
             : base(mfi)
         {
         }
@@ -515,6 +517,96 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         [TranslatableDisplayName("TXT_BITRATE")]
         [TranslatableCategory("TXT_MEDIAINFO")]
+        public Bitrate? Bitrate
+        {
+            get { return (_mfi != null) ? _mfi.Bitrate : null; }
+        }
+
+        [TranslatableDisplayName("TXT_CHANNELS")]
+        [TranslatableCategory("TXT_MEDIAINFO")]
+        public ChannelMode? Channels
+        {
+            get { return (_mfi != null) ? _mfi.Channels : null; }
+        }
+
+        [TranslatableDisplayName("TXT_FREQUENCY")]
+        [TranslatableCategory("TXT_MEDIAINFO")]
+        public int? Frequency
+        {
+            get { return (_mfi != null) ? _mfi.Frequency : null; }
+        }
+
+        [TranslatableDisplayName("TXT_DURATION")]
+        [TranslatableCategory("TXT_MEDIAINFO")]
+        [ReadOnly(true)]
+        public TimeSpan? Duration
+        {
+            get { return (_mfi != null) ? _mfi.Duration : null; }
+        }
+    }
+
+    public class CDAFileInfoSlim : MediaFileInfoSlim
+    {
+        public CDAFileInfoSlim(MediaFileInfo mfi)
+            : base(mfi)
+        {
+        }
+
+        [TranslatableDisplayName("TXT_ARTIST")]
+        [TranslatableCategory("TXT_TAGINFO")]
+        [ReadOnly(true)]
+        public string Artist
+        {
+            get { return (_mfi != null) ? _mfi.Artist : null; }
+        }
+
+        [TranslatableDisplayName("TXT_ALBUM")]
+        [TranslatableCategory("TXT_TAGINFO")]
+        [ReadOnly(true)]
+        public string Album
+        {
+            get { return (_mfi != null) ? _mfi.Album : null; }
+        }
+
+        [TranslatableDisplayName("TXT_GENRE")]
+        [TranslatableCategory("TXT_TAGINFO")]
+        [Editor("OPMedia.Runtime.ProTONE.GenrePropertyBrowser, OPMedia.Runtime.ProTONE", typeof(UITypeEditor))]
+        [ReadOnly(true)]
+        public string Genre
+        {
+            get { return (_mfi != null) ? _mfi.Genre : null; }
+        }
+
+        [TranslatableDisplayName("TXT_COMMENTS")]
+        [TranslatableCategory("TXT_TAGINFO")]
+        [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+            typeof(UITypeEditor)), Localizable(true)]
+        [ReadOnly(true)]
+        public string Comments
+        {
+            get { return (_mfi != null) ? _mfi.Comments : null; }
+        }
+
+        [TranslatableDisplayName("TXT_TRACK")]
+        [TranslatableCategory("TXT_TAGINFO")]
+        [DefaultValue((short)1)]
+        [ReadOnly(true)]
+        public short? Track
+        {
+            get { return (_mfi != null) ? _mfi.Track : null; }
+        }
+
+        [TranslatableDisplayName("TXT_YEAR")]
+        [TranslatableCategory("TXT_TAGINFO")]
+        [ReadOnly(true)]
+        public short? Year
+        {
+            get { return (_mfi != null) ? _mfi.Year : null; }
+        }
+
+        [TranslatableDisplayName("TXT_BITRATE")]
+        [TranslatableCategory("TXT_MEDIAINFO")]
+        [ReadOnly(true)]
         public Bitrate? Bitrate
         {
             get { return (_mfi != null) ? _mfi.Bitrate : null; }

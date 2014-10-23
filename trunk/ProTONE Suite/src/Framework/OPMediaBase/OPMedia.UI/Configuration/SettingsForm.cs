@@ -299,6 +299,8 @@ namespace OPMedia.UI
                         if (multiPagePanel != null && string.IsNullOrEmpty(subTitleToOpen) == false)
                             multiPagePanel.SelectSubPage(subTitleToOpen);
 
+                        selectedPanel = panel;
+
                         break;
                     }
                 }
@@ -307,8 +309,18 @@ namespace OPMedia.UI
 
         public override void FireHelpRequest()
         {
-            if (selectedPanel != null)
-                HelpTarget.HelpRequest(this.Name, selectedPanel.GetHelpTopic());
+            BaseCfgPanel panel = null;
+            try
+            {
+                panel = tabOptions.SelectedTab.Controls[0] as BaseCfgPanel;
+            }
+            catch
+            {
+                panel = null;
+            }
+
+            if (panel != null)
+                HelpTarget.HelpRequest(this.Name, panel.GetHelpTopic());
             else
                 base.FireHelpRequest();
         }
