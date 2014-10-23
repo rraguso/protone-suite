@@ -120,34 +120,22 @@ namespace OPMedia.Core.Logging
             }
         }
 
-        [Conditional("HAVE_TRACE_UNTRANSLATED")]
         public static void LogTranslationTrace(string format, params object[] args)
         {
+#if HAVE_TRACE_UNTRANSLATED
             string message = string.Format(format, args);
             Debug.WriteLine("UNTRANSLATED: " + message);
             Debug.Flush();
-
-            //if (LoggingConfiguration.HeavyTraceLevelEnabled)
-            //{
-            //    LogEntry entry = new LogEntry(SeverityLevels.HeavyTrace, message,
-            //        Assembly.GetCallingAssembly().GetName().Name);
-            //    instance.EnqueueLogEntry(entry);
-            //}
+#endif
         }
 
-        [Conditional("HAVE_TRACE_HELP")]
         public static void LogHelpTrace(string format, params object[] args)
         {
+#if HAVE_TRACE_HELP
             string message = string.Format(format, args);
             Debug.WriteLine("HELP: " + message);
             Debug.Flush();
-
-            //if (LoggingConfiguration.HeavyTraceLevelEnabled)
-            //{
-            //    LogEntry entry = new LogEntry(SeverityLevels.HeavyTrace, message,
-            //        Assembly.GetCallingAssembly().GetName().Name);
-            //    instance.EnqueueLogEntry(entry);
-            //}
+#endif
         }
 
         public static void LogToConsole(string format, params object[] args)
@@ -166,6 +154,26 @@ namespace OPMedia.Core.Logging
             if (LoggingConfiguration.HeavyTraceLevelEnabled)
             {
                 LogEntry entry = new LogEntry(SeverityLevels.HeavyTrace, message,
+                    Assembly.GetCallingAssembly().GetName().Name);
+                instance.EnqueueLogEntry(entry);
+            }
+        }
+
+        public static void LogTrace_WithStackDump(string format, params object[] args)
+        {
+            StackTrace st = new StackTrace();
+            string message = string.Format(format, args);
+            message += st.ToString();
+
+            string[] lines = message.Split('\n');
+            foreach (string line in lines)
+            {
+                Debug.WriteLine("TRC: " + line);
+            }
+            
+            if (LoggingConfiguration.TraceLevelEnabled)
+            {
+                LogEntry entry = new LogEntry(SeverityLevels.Trace, message,
                     Assembly.GetCallingAssembly().GetName().Name);
                 instance.EnqueueLogEntry(entry);
             }

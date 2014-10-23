@@ -32,30 +32,16 @@ namespace OPMedia.UI.Configuration
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tcControlPages = new OPMedia.UI.Controls.OPMTabControl();
             this.SuspendLayout();
             // 
-            // tcTroubleshootingPages
+            // ControlAppPanel
             // 
-            this.tcControlPages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcControlPages.Location = new System.Drawing.Point(0, 0);
-            this.tcControlPages.Name = "tcTroubleshootingPages";
-            this.tcControlPages.SelectedIndex = 0;
-            this.tcControlPages.Size = new System.Drawing.Size(377, 305);
-            this.tcControlPages.TabIndex = 0;
-            // 
-            // NetworkSettingsPanel
-            // 
-            this.Controls.Add(this.tcControlPages);
-            this.Name = "NetworkSettingsPanel";
+            this.Name = "ControlAppPanel";
             this.Size = new System.Drawing.Size(377, 305);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private OPMTabControl tcControlPages;
-
     }
 }

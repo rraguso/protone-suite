@@ -72,7 +72,7 @@ namespace OPMedia.UI.ProTONE.Configuration
             this.tpMediaScreens.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.tpMediaScreens.Controls.Add(this.pageMediaScreens);
             this.tpMediaScreens.Location = new System.Drawing.Point(4, 23);
-            this.tpMediaScreens.Name = "tpDisksOptions";
+            this.tpMediaScreens.Name = "tpMediaScreens";
             this.tpMediaScreens.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.tpMediaScreens.Size = new System.Drawing.Size(647, 366);
             this.tpMediaScreens.TabIndex = 3;

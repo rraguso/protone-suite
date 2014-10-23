@@ -152,11 +152,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void OnMouseLeave(object sender, EventArgs e)
         {
-            if (sender == _hoveredItem)
-            {
-                _hoveredItem = null;
-                _tip.RemoveAll();
-            }
+            //if (sender == _hoveredItem)
+            //{
+            //    _hoveredItem = null;
+            //    _tip.RemoveAll();
+            //}
         }
 
         private void UpdateFileType()
