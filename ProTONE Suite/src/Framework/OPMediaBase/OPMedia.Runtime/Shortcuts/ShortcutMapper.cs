@@ -293,8 +293,8 @@ namespace OPMedia.Runtime.Shortcuts
                     new KeyEventArgs(Keys.Subtract),
                     
                     // Playlist control
-                    new KeyEventArgs(Keys.Control | Keys.PageUp),
-                    new KeyEventArgs(Keys.Control | Keys.PageDown),
+                    new KeyEventArgs(Keys.Alt | Keys.Up),
+                    new KeyEventArgs(Keys.Alt | Keys.Down),
                     new KeyEventArgs(Keys.Delete),
                     new KeyEventArgs(Keys.Control | Keys.Delete),
                     new KeyEventArgs(Keys.Control | Keys.N),
@@ -375,8 +375,8 @@ namespace OPMedia.Runtime.Shortcuts
                 new KeyEventArgs(Keys.VolumeDown),
                 
                 // Playlist control
-                new KeyEventArgs(Keys.Control | Keys.PageUp),
-                new KeyEventArgs(Keys.Control | Keys.PageDown),
+                new KeyEventArgs(Keys.Alt | Keys.Up),
+                new KeyEventArgs(Keys.Alt | Keys.Down),
                 new KeyEventArgs(Keys.Delete),
                 new KeyEventArgs(Keys.Control | Keys.Delete),
                 new KeyEventArgs(Keys.Control | Keys.SelectMedia),
