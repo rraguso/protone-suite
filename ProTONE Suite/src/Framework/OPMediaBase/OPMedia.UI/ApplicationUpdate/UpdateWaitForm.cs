@@ -78,6 +78,9 @@ namespace OPMedia.UI.ApplicationUpdate
             {
                 Logger.LogInfo("Failed to download update file. Details: ", errorDetails);
                 MessageDisplay.Show(errorDetails, "TXT_APP_NAME", MessageBoxIcon.Question);
+
+                AbortDownload();
+                Close();
             }
         }
 

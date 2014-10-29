@@ -26,6 +26,8 @@ namespace OPMedia.UI.Dialogs
         public GenericWaitDialog()
         {
             InitializeComponent();
+
+            this.TitleBarVisible = false;
         }
 
         protected override bool AllowCloseOnKeyDown(Keys key)

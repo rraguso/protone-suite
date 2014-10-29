@@ -6,6 +6,7 @@ using System.Threading;
 using System.IO;
 using System.Net;
 using OPMedia.Core.Logging;
+using System.ComponentModel;
 
 namespace OPMedia.Core.NetworkAccess
 {
@@ -20,6 +21,8 @@ namespace OPMedia.Core.NetworkAccess
 
         public event FileRetrieveCompleteEventHandler FileRetrieveComplete = null;
 
+        BackgroundWorker _bw = null;
+
         public WebFileRetriever(ProxySettings ns, string downloadUrl, string destinationPath, bool runAsBackgroundThread)
         {
             _ns = ns;
@@ -28,7 +31,11 @@ namespace OPMedia.Core.NetworkAccess
 
             if (runAsBackgroundThread)
             {
-                ThreadPool.QueueUserWorkItem(new WaitCallback(PerformDownload));
+                _bw = new BackgroundWorker();
+                _bw.WorkerReportsProgress = _bw.WorkerSupportsCancellation = false;
+                _bw.DoWork += new DoWorkEventHandler(OnBackgroundDownload);
+                _bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(OnBackgroundDownloadCompleted);
+                _bw.RunWorkerAsync();
             }
             else
             {
@@ -37,20 +44,28 @@ namespace OPMedia.Core.NetworkAccess
             }
         }
 
-        private void PerformDownload(object state)
+        void OnBackgroundDownload(object sender, DoWorkEventArgs e)
         {
-            try
+            PerformUnsafeDownload();
+        }
+
+        void OnBackgroundDownloadCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            bool isSuccess = true;
+            string message = string.Empty;
+
+            if (e.Error != null)
             {
-                PerformUnsafeDownload();
+                isSuccess = false;
+                message = e.Error.Message;
+                Logger.LogWarning(message);
             }
-            catch (Exception ex)
+
+            if (FileRetrieveComplete != null)
             {
-                Logger.LogWarning(ex.Message);
-                if (FileRetrieveComplete != null)
-                {
-                    FileRetrieveComplete(_destinationPath, false, ex.Message);
-                }
+                FileRetrieveComplete(_destinationPath, isSuccess, message);
             }
+
         }
 
         private void PerformUnsafeDownload()
@@ -65,13 +80,6 @@ namespace OPMedia.Core.NetworkAccess
             _retriever = new WebClient();
             _retriever.Proxy = AppConfig.GetWebProxy();
             _retriever.DownloadFile(new Uri(_downloadUrl), _destinationPath);
-
-            if (FileRetrieveComplete != null)
-            {
-                FileRetrieveComplete(_destinationPath, true, string.Empty);
-            }
-
-            Dispose();
         }
 
         #region IDisposable Members

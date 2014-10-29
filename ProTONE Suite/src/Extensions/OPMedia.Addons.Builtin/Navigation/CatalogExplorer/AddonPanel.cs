@@ -57,9 +57,13 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
         GenericWaitDialog _waitDialog = null;
 
-        bool _operationInProgress = false;
+        bool _busyWithDisplay = false;
 
         List<string> _recentFiles = new List<string>();
+
+        BackgroundWorker _bwOpen = new BackgroundWorker();
+        BackgroundWorker _bwSave = new BackgroundWorker();
+        BackgroundWorker _bwMerge = new BackgroundWorker();
 
         public override List<string> HandledFileTypes
         {
@@ -109,9 +113,24 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
                     }
                 }
             }
-        }
 
- 
+            _bwOpen.WorkerSupportsCancellation =
+            _bwSave.WorkerSupportsCancellation =
+            _bwMerge.WorkerSupportsCancellation = false;
+
+            _bwOpen.WorkerReportsProgress =
+            _bwSave.WorkerReportsProgress =
+            _bwMerge.WorkerReportsProgress = false;
+
+            _bwOpen.DoWork += new DoWorkEventHandler(BackgroundOpen);
+            _bwSave.DoWork += new DoWorkEventHandler(BackgroundSave);
+            _bwMerge.DoWork += new DoWorkEventHandler(BackgroundMerge);
+
+            _bwOpen.RunWorkerCompleted += new RunWorkerCompletedEventHandler(OnBackgroundWorkCompleted);
+            _bwSave.RunWorkerCompleted += new RunWorkerCompletedEventHandler(OnBackgroundWorkCompleted);
+            _bwMerge.RunWorkerCompleted += new RunWorkerCompletedEventHandler(OnBackgroundWorkCompleted);
+
+        }
 
         [EventSink(EventNames.PerformTranslation)]
         public void OnPerformTranslation()
@@ -522,6 +541,10 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
             switch (action)
             {
+                case ToolAction.ToolActionReload:
+                    GlobalReload();
+                    break;
+
                 case ToolAction.ToolActionNew:
                     CreateNewCatalog();
                     break;
@@ -684,43 +707,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             }
         }
 
-        private void SaveCatalogNoDialog()
-        {
-            ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadedSaveNoDialog));
-        }
-
-        private void ThreadedSaveNoDialog(object state)
-        {
-            _operationInProgress = true;
-            _cat.Save();
-            _operationInProgress = false;
-        }
-
-        private void SaveCatalogWithDialog()
-        {
-            OPMSaveFileDialog dlg = new OPMSaveFileDialog();
-            dlg.Title = Translator.Translate("TXT_SAVECATALOG");
-            dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
-            dlg.DefaultExt = "ctx";
-            dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
-            
-            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
-            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
-            dlg.ShowAddToFavorites = true;
-
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                BuiltinAddonConfig.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
-
-                string ext = PathUtils.GetExtension(dlg.FileName);
-
-                _operationInProgress = true;
-
-                _cat.Save(dlg.FileName);
-
-                DisplayCatalog();
-            }
-        }
+        
 
         private void CreateNewCatalog()
         {
@@ -728,152 +715,43 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             DisplayCatalog();
         }
 
-        private void OpenCatalog()
-        {
-            tsbOpen.HideDropDown();
-
-            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
-            dlg.Title = Translator.Translate("TXT_OPENCATALOG");
-            dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
-            dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
-
-            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
-            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
-            dlg.ShowAddToFavorites = true;
-
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                BuiltinAddonConfig.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
-                OpenFileWithCheck(dlg.FileName, false);
-            }
-        }
-
-        private void ThreadedOpen(object state)
-        {
-            try
-            {
-                ShowWaitDialog("TXT_WAIT_LOADING_CATALOG");
-                _cat = new Catalog(state as string);
-            }
-            catch (CatalogException ex)
-            {
-                string msg = Translator.Translate(ex.Message, ex.Detail);
-                MessageDisplay.Show(msg, Translator.Translate("TXT_APP_NAME"), MessageBoxIcon.Exclamation);
-            }
-            catch (Exception ex)
-            {
-                ErrorDispatcher.DispatchError(ex);
-            }
-            finally
-            {
-                DisplayCatalog();
-                CloseWaitDialog();
-            }
-        }
-
-        private void MergeCatalog()
-        {
-            if (_cat != null && _cat.IsValid)
-            {
-                OPMOpenFileDialog dlg = new OPMOpenFileDialog();
-                dlg.Title = Translator.Translate("TXT_MERGECATALOG");
-                dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
-                dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
-                
-                dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
-                dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
-                dlg.ShowAddToFavorites = true;
-
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    BuiltinAddonConfig.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
-
-                    ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadedMerge), dlg.FileName);
-                }
-            }
-        }
-
-        private void ThreadedMerge(object state)
-        {
-            try
-            {
-                ShowWaitDialog("TXT_WAIT_MERGING_CATALOG");
-                _cat.MergeCatalog(state as string);
-            }
-            catch (CatalogException ex)
-            {
-                string msg = Translator.Translate(ex.Message, ex.Detail);
-                MessageDisplay.Show(msg, Translator.Translate("TXT_APP_NAME"), MessageBoxIcon.Exclamation);
-            }
-            catch (Exception ex)
-            {
-                ErrorDispatcher.DispatchError(ex);
-            }
-            finally
-            {
-                DisplayCatalog();
-                CloseWaitDialog();
-            }
-        }
-
-        private delegate void ShowWaitDialogDG(string message);
         private void ShowWaitDialog(string message)
         {
-            //if (InvokeRequired)
-            //{
-            //    Invoke(new ShowWaitDialogDG(ShowWaitDialog), message);
-            //    return;
-            //}
-
-            MainThread.Post((d) =>
-                {
-                    CloseWaitDialog();
-                    _waitDialog = new GenericWaitDialog();
-                    _waitDialog.ShowDialog(message);
-                });
+            CloseWaitDialog();
+            _waitDialog = new GenericWaitDialog();
+            _waitDialog.ShowDialog(message);
         }
 
         private void CloseWaitDialog()
         {
-            //if (InvokeRequired)
-            //{
-            //    Invoke(new MethodInvoker(CloseWaitDialog));
-            //    return;
-            //}
-
-            MainThread.Post((d) =>
-                {
-                    if (_waitDialog != null)
-                    {
-                        _waitDialog.Close();
-                        _waitDialog = null;
-                    }
-
-                    _operationInProgress = false;
-                });
+            if (_waitDialog != null)
+            {
+                _waitDialog.Close();
+                _waitDialog = null;
+            }
         }
 
         private void DisplayCatalog()
         {
-            if (InvokeRequired)
+            _busyWithDisplay = true;
+            CursorHelper.ShowWaitCursor(this, true);
+
+            try
             {
-                Invoke(new MethodInvoker(DisplayCatalog));
-                return;
+                if (_cat != null && _cat.IsValid)
+                {
+                    tvCatalog.DisplayCatalog(_cat);
+                    AddRecentFile(_cat.Path);
+                }
+
+                ClearHistory();
+                DisplayCurrentPath();
             }
-
-            _operationInProgress = true;
-
-            if (_cat != null && _cat.IsValid)
+            finally
             {
-                tvCatalog.DisplayCatalog(_cat);
-                AddRecentFile(_cat.Path);
+                CursorHelper.ShowWaitCursor(this, false);
+                _busyWithDisplay = false;
             }
-
-            ClearHistory();
-
-            _operationInProgress = false;
-
-            DisplayCurrentPath();
         }
 
         private void OnUpdateUi(ToolStripItemCollection tsic)
@@ -1041,7 +919,7 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
         private bool IsToolActionEnabled(ToolAction action)
         {
-            if (_operationInProgress)
+            if (IsOperationInProgress)
                 return false;
 
             for (int i = 0; i < contextMenuStrip.Items.Count; i++)
@@ -1162,9 +1040,20 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
         public override void Reload(object target)
         {
-            tvCatalog.Reload(target as CatalogItem);
-            lvCatalogFolder.Reload(target as CatalogItem);
-            ReloadProperties();
+            _busyWithDisplay = true;
+            CursorHelper.ShowWaitCursor(this, true);
+
+            try
+            {
+                tvCatalog.Reload(target as CatalogItem);
+                lvCatalogFolder.Reload(target as CatalogItem);
+                ReloadProperties();
+            }
+            finally
+            {
+                _busyWithDisplay = false;
+                CursorHelper.ShowWaitCursor(this, false);
+            }
         }
 
         private void JumpToItem(string vPath)
@@ -1192,6 +1081,28 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
             return new CatalogExplorerCfgPanel();
         }
 
+        #region Open files
+
+        private void OpenCatalog()
+        {
+            tsbOpen.HideDropDown();
+
+            OPMOpenFileDialog dlg = new OPMOpenFileDialog();
+            dlg.Title = Translator.Translate("TXT_OPENCATALOG");
+            dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
+            dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
+
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+            dlg.ShowAddToFavorites = true;
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                BuiltinAddonConfig.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+                OpenFileWithCheck(dlg.FileName, false);
+            }
+        }
+
         private void OpenFileWithCheck(string fileName, bool openRecent)
         {
             if (string.IsNullOrEmpty(fileName))
@@ -1201,7 +1112,8 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
 
             if (File.Exists(fileName))
             {
-                ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadedOpen), fileName);
+                _bwOpen.RunWorkerAsync(fileName);
+                ShowWaitDialog("TXT_WAIT_LOADING_CATALOG");
             }
             else
             {
@@ -1220,11 +1132,119 @@ namespace OPMedia.Addons.Builtin.CatalogExplorer
                 ErrorDispatcher.DispatchError(mainMessage, Translator.Translate("TXT_CAUTION"));
             }
         }
-       
+
         private void OnOpenRecentFile(object sender, ToolStripItemClickedEventArgs e)
         {
             OpenFileWithCheck(e.ClickedItem.Text, true);
         }
+
+        void BackgroundOpen(object sender, DoWorkEventArgs e)
+        {
+            _cat = new Catalog(e.Argument as string);
+        }
+
+        #endregion
+
+        #region Save files
+
+        private void SaveCatalogWithDialog()
+        {
+            OPMSaveFileDialog dlg = new OPMSaveFileDialog();
+            dlg.Title = Translator.Translate("TXT_SAVECATALOG");
+            dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
+            dlg.DefaultExt = "ctx";
+            dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
+
+            dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
+            dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+            dlg.ShowAddToFavorites = true;
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                BuiltinAddonConfig.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+                _bwSave.RunWorkerAsync(dlg.FileName);
+                ShowWaitDialog("TXT_WAIT_SAVING_CATALOG");
+            }
+        }
+
+        private void SaveCatalogNoDialog()
+        {
+            _bwSave.RunWorkerAsync(null);
+        }
+
+
+        void BackgroundSave(object sender, DoWorkEventArgs e)
+        {
+            string path = e.Argument as string;
+            if (path == null)
+                _cat.Save();
+            else
+                _cat.Save(path);
+        }
+
+        #endregion
+
+        #region Merge files
+
+        private void MergeCatalog()
+        {
+            if (_cat != null && _cat.IsValid)
+            {
+                OPMOpenFileDialog dlg = new OPMOpenFileDialog();
+                dlg.Title = Translator.Translate("TXT_MERGECATALOG");
+                dlg.Filter = Translator.Translate("TXT_CATALOG_FILTER");
+                dlg.InitialDirectory = BuiltinAddonConfig.MCLastOpenedFolder;
+
+                dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
+                dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+                dlg.ShowAddToFavorites = true;
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    BuiltinAddonConfig.MCLastOpenedFolder = Path.GetDirectoryName(dlg.FileName);
+                    _bwMerge.RunWorkerAsync(dlg.FileName);
+                    ShowWaitDialog("TXT_WAIT_MERGING_CATALOG");
+                }
+            }
+        }
+
+        void BackgroundMerge(object sender, DoWorkEventArgs e)
+        {
+            _cat.MergeCatalog(e.Argument as string);
+        }
+
+        #endregion
+
+        #region Common open/save/merge
+
+        void OnBackgroundWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                CatalogException cex = e.Error as CatalogException;
+                if (cex != null)
+                {
+                    Logger.LogException(cex);
+                    string msg = Translator.Translate(cex.Message, cex.Detail);
+                    MessageDisplay.Show(msg, Translator.Translate("TXT_APP_NAME"), MessageBoxIcon.Exclamation);
+                }
+                else
+                    ErrorDispatcher.DispatchError(e.Error);
+            }
+
+            DisplayCatalog();
+            CloseWaitDialog();
+        }
+
+        bool IsOperationInProgress
+        {
+            get
+            {
+                return (_bwOpen.IsBusy || _bwSave.IsBusy || _bwMerge.IsBusy || _busyWithDisplay);
+            }
+        }
+
+        #endregion
 
         private void OnPrepareRecentFileList(object sender, EventArgs e)
         {

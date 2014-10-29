@@ -14,32 +14,49 @@ using OPMedia.Core.TranslationSupport;
 using OPMedia.UI.Dialogs;
 using OPMedia.Runtime.AssemblyInfo;
 using System.Reflection;
+using System.ComponentModel;
 
 namespace OPMedia.UI.ApplicationUpdate
 {
     public class ApplicationUpdateHelper
     {
+        BackgroundWorker _bwDetect = null;
+
         [EventSink(EventNames.CheckForUpdates)]
         public void CheckUpdates()
         {
-            ThreadPool.QueueUserWorkItem(new WaitCallback(DetectUpdates), false);
+            _bwDetect.RunWorkerAsync(true);
         }
 
         public ApplicationUpdateHelper()
         {
             EventDispatch.RegisterHandler(this);
 
+            _bwDetect = new BackgroundWorker();
+            _bwDetect.WorkerReportsProgress = _bwDetect.WorkerSupportsCancellation = false;
+            _bwDetect.DoWork += new DoWorkEventHandler(OnBackgroundDetect);
+            _bwDetect.RunWorkerCompleted += new RunWorkerCompletedEventHandler(OnBackgroundDetectComplete);
+
             if (AppConfig.AllowRealtimeGUISetup && AppConfig.AllowAutomaticUpdates)
             {
-                ThreadPool.QueueUserWorkItem(new WaitCallback(DetectUpdates), true);
+                _bwDetect.RunWorkerAsync(false);
             }
         }
-    
-        private void DetectUpdates(object state)
+
+        void OnBackgroundDetectComplete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                Logger.LogException(e.Error);
+            }
+        }
+
+        void OnBackgroundDetect(object sender, DoWorkEventArgs e)
         {
             string versionFile = "/Versions.txt";
             string versionFileUri = AppConfig.DownloadUriBase + versionFile;
             string tempVersionFile = Path.GetTempFileName();
+            bool detectOnDemand = (bool)e.Argument;
 
             WebFileRetriever retriever = null;
 
@@ -65,7 +82,7 @@ namespace OPMedia.UI.ApplicationUpdate
                         Logger.LogInfo("Current version: {0}, available on server: {1}. Update is NOT required.",
                            current, available);
 
-                        if ((bool)state == false)
+                        if (detectOnDemand)
                         {
                             MainThread.Post(delegate(object x)
                             {
@@ -76,16 +93,13 @@ namespace OPMedia.UI.ApplicationUpdate
                 }
 
             }
-            catch (Exception ex)
-            {
-                Logger.LogException(ex);
-            }
             finally
             {
                 if (retriever != null)
                     retriever.Dispose();
             }
         }
+    
 
         [EventSink(EventNames.NewVersionAvailable)]
         public void ProcessNewVersionAvailable(string newVersion)
