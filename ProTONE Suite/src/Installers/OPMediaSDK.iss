@@ -8,7 +8,7 @@
 #define PRODUCT "OPMedia SDK"
 #define REGENTRY "Software" + "\" + COMPANY + "\" + PRODUCT
 
-#expr WriteIni(OUTDIR + "\Versions.txt", PRODUCT, "Version", VERSION)
+#expr WriteIni(OUTDIR + "\Versions_build.txt", PRODUCT, "Version", VERSION)
 
 
 [Setup]
