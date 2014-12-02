@@ -55,7 +55,7 @@
 
         <target name="VersionInfoUpdate">
             <!-- Version info increment -->
-            <iniread property="oldversion" filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" default="2.0.0" />
+            <iniread property="oldversion" filename="${root}\Versions_build.txt" section="ProTONE Suite" key="Version" default="2.0.0" />
             <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
             <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
             <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
@@ -172,7 +172,7 @@
                 
             </svn>
 
-            <iniwrite filename="${root}\Versions.txt" section="ProTONE Suite" key="Version" value="${newversion}" />
+            <iniwrite filename="${root}\Versions_build.txt" section="ProTONE Suite" key="Version" value="${newversion}" />
 
             <svn
                 uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite"
