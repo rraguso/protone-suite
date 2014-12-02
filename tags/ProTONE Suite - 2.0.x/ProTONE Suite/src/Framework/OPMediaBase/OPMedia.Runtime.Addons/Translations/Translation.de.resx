@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_INSTALL_ADDONLIB" xml:space="preserve">
+    <value>Installieren Addon Bibliothek...</value>
+  </data>
+  <data name="TXT_INSTALLADDONFILTER" xml:space="preserve">
+    <value>OPMedia Addon Bibliotheken (*.dll)|*.dll||</value>
+  </data>
+  <data name="TXT_INSTALLADDONS" xml:space="preserve">
+    <value>Wählen Sie eine OPMedia Addon Bibliothek zu installieren:</value>
+  </data>
+  <data name="TXT_INVALID_ADDON" xml:space="preserve">
+    <value>Die DLL-Datei, die Sie ausgewählt haben, ist keine gültige OPMedia Erweiterungsbibliothek.
+Hinweis: Wenn Sie glauben jedoch, dass die jeweilige Datei sollte eine gültige Erweiterung haben, 
+Ihnen wird geraten, den Hersteller oder den Lieferanten von dieser DLL zu kontaktieren.</value>
+  </data>
+  <data name="TXT_ADDON_NAME" xml:space="preserve">
+    <value>Addon-Name</value>
+  </data>
+  <data name="TXT_S_ADDON_SETTINGS" xml:space="preserve">
+    <value>Konfig</value>
+  </data>
+  <data name="TXT_ADDONS_CHANGED_RESTART" xml:space="preserve">
+    <value>Um die neuen Addons Konfiguration zu ändern, muss das Programm neu gestartet werden.
+Ist es OK, um jetzt neu starten?</value>
+  </data>
+  <data name="TXT_ADDONS_NOT_CHANGED" xml:space="preserve">
+    <value>Da Sie den Neustart abgebrochen haben, wird Ihr Addon-Konfiguration nicht geändert werden.</value>
+  </data>
+  <data name="TXT_S_ADDONSETTINGS" xml:space="preserve">
+    <value>Addons</value>
+  </data>
+  <data name="TXT_ADDONSLIST" xml:space="preserve">
+    <value>Geprüft werden derzeit Addons aktiviert. Verwenden Sie die Kontrollkästchen zum Aktivieren / Deaktivieren Addons. Addons mit * müssen ausgefüllt werden und kann nicht deaktiviert werden. Ein Neustart des Programms erforderlich sein, um den neuen Addons Konfiguration anzuwenden.</value>
+  </data>
+  <data name="TXT_ADDONSLIST_NORESTART" xml:space="preserve">
+    <value>Geprüft werden derzeit Addons aktiviert. Verwenden Sie die Kontrollkästchen zum Aktivieren / Deaktivieren Addons. Addons mit * müssen ausgefüllt werden und kann nicht deaktiviert werden.</value>
+  </data>
+  <data name="TXT_CANT_INSTALL_BUILTIN" xml:space="preserve">
+    <value>Der von Ihnen gewählte Bibliothek kann nicht installiert werden, weil es eine native Bibliothek. 
+Eine native Bibliothek encaspulates die Kernfunktionen einer erweiterbaren Anwendung, und es kann nicht installiert oder deinstalliert werden.</value>
+  </data>
+  <data name="TXT_CANT_UNINSTALL_BUILTIN" xml:space="preserve">
+    <value>Das ausgewählte Bibliothek kann nicht deinstalliert werden, da es sich um eine native Bibliothek.
+Eine native Bibliothek kapselt die Kernfunktionalität von einer erweiterbaren Anwendung, und es kann nicht installiert oder deinstalliert werden.
+Anstatt zu deinstallieren, sollten Sie die Addons Kontrollkästchen, um verschiedene Anwendungsfunktionalitäten aktivieren oder deaktivieren.
+Achtung: Einige Funktionen sind erforderlich und können nicht deaktiviert werden.</value>
+  </data>
+  <data name="TXT_INVALID_NAME" xml:space="preserve">
+    <value>Die DLL-Datei, die Sie ausgewählt haben, ist keine gültige OPMedia Addon Bibliothek.
+Eine gültige OPMedia Addon-Bibliothek Dateiname sollte die Namenskonvention folgen: &lt;Bibliothek-Name&gt; Extension.dll.</value>
+  </data>
+  <data name="TXT_NAV_ADDONS" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="TXT_PREVIEW_ADDONS" xml:space="preserve">
+    <value>Vorschau / Visualisierung</value>
+  </data>
+  <data name="TXT_PROP_ADDONS" xml:space="preserve">
+    <value>Datei-Property-Interaktion</value>
+  </data>
+  <data name="TXT_SHAREDADDONS" xml:space="preserve">
+    <value>All diese Addons sind in der Addon-Bibliothek Sie versuchen, zu deinstallieren sind integriert:
+
+{0}
+
+Wenn Sie fortfahren, werden alle diese Addons nicht mehr verfügbar sein. Ist es OK, um fortzufahren?</value>
+  </data>
+  <data name="TXT_NO_NAV_ADDONS" xml:space="preserve">
+    <value>Keine Navigation Addons sind derzeit konfiguriert. Die Anwendung kann ohne sie nicht laufen.
+Sie müssen zu wählen und damit mindestens ein Navigations-Addon, um fortzufahren.</value>
+  </data>
+  <data name="TXT_NOTIFY_NON_PREVIEW" xml:space="preserve">
+    <value>Das ausgewählte Produkt kann keine Vorschau angezeigt werden.
+Sie müssen ein externes Programm, um es anzuzeigen.</value>
+  </data>
+  <data name="TXT_NOTIFY_PREVIEW" xml:space="preserve">
+    <value>Um das ausgewählte Element anzuzeigen, doppelklicken Sie darauf oder drücken Sie die Eingabetaste.</value>
+  </data>
+  <data name="TXT_PREPARE_PREVIEW" xml:space="preserve">
+    <value>Automatische Vorschau des ausgewählten Elements wird in ein paar Sekunden ab.
+Drücken Sie Escape, um abzubrechen ...</value>
+  </data>
+  <data name="TXT_PREVIEW_CANCELED" xml:space="preserve">
+    <value>Automatische Vorschau des ausgewählten Elements wurde abgebrochen. 
+Wählen Sie ein anderes Element, oder drücken Sie die Eingabetaste, um den aktuellen Titel Vorschau.</value>
+  </data>
+  <data name="TXT_SELECTALLADDONS" xml:space="preserve">
+    <value>Wählen Sie alle Addons</value>
+  </data>
+  <data name="TXT_UNINSTALL_ADDONLIB" xml:space="preserve">
+    <value>Deinstallieren Addon Bibliothek ...</value>
+  </data>
+</root>

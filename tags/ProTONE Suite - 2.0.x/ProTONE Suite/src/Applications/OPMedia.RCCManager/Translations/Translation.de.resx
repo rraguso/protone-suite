@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_APP_NAME" xml:space="preserve">
+    <value>Fernsteuerung-Manager</value>
+  </data>
+  <data name="TXT_REMOTELIST" xml:space="preserve">
+    <value>Fernsteuerung-Liste:</value>
+  </data>
+  <data name="TXT_REMOTENAME" xml:space="preserve">
+    <value>Fernsteuerung-Name:</value>
+  </data>
+  <data name="TXT_BUTTONS" xml:space="preserve">
+    <value>Tasten der Fernsteuerung</value>
+  </data>
+  <data name="TXT_INPUTPINDATA" xml:space="preserve">
+    <value>Eingangs-Stift-Einstellungen</value>
+  </data>
+  <data name="TXT_CFGDATA" xml:space="preserve">
+    <value>Stift-Einstellungen</value>
+  </data>
+  <data name="TXT_PINTYPE" xml:space="preserve">
+    <value>Stift-Typ:</value>
+  </data>
+  <data name="TXT_OUTPUTPINDATA" xml:space="preserve">
+    <value>Ausgangs-Stift-Einstellungen</value>
+  </data>
+  <data name="TXT_ADDREMOTECONFIG" xml:space="preserve">
+    <value>Anfügen Fernsteuerung</value>
+  </data>
+  <data name="TXT_CHANGEEMOTECONFIG" xml:space="preserve">
+    <value>Konfigurieren Fernsteuerung</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEREMOTE" xml:space="preserve">
+    <value>Sind Sie sicher, dass die gewählten Fernsteuerung zu entfernen?
+Sie werden nicht in der Lage, diese Entfernung rückgängig gemacht werden!</value>
+  </data>
+  <data name="TXT_ENTERDATA" xml:space="preserve">
+    <value>Stift-Einstellungen noch nicht definiert.</value>
+  </data>
+  <data name="TXT_CFG" xml:space="preserve">
+    <value>Dieser Stift kann nur von ProTONE Spieler konfiguriert werden.</value>
+  </data>
+  <data name="TXT_NOTCFG" xml:space="preserve">
+    <value>Dieser Stift benötigt keine Einstellungen.</value>
+  </data>
+  <data name="TXT_BUTTON_NAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TXT_TARGET_WNDNAME" xml:space="preserve">
+    <value>Zielfenster</value>
+  </data>
+  <data name="TXT_NODATA" xml:space="preserve">
+    <value>Stift-Einstellungen noch nicht definiert.</value>
+  </data>
+  <data name="TXT_BUTTONNAME" xml:space="preserve">
+    <value>Taste-Name:</value>
+  </data>
+  <data name="TXT_INPUTDATA" xml:space="preserve">
+    <value>Eingangsdaten (Presse Entdecken, Daten zu empfangen):</value>
+  </data>
+  <data name="TXT_OUTPUTDATA" xml:space="preserve">
+    <value>Daten zu Ausdangs-Stift:</value>
+  </data>
+  <data name="TXT_DETECT" xml:space="preserve">
+    <value>Entdecken</value>
+  </data>
+  <data name="TXT_ADDBUTTON" xml:space="preserve">
+    <value>Anfügen von Taste auf '{0}'</value>
+  </data>
+  <data name="TXT_CHANGEBUTTON" xml:space="preserve">
+    <value>Konfigurieren Taste auf '{0}'</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEBUTTON" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie die ausgewählte Taste der Fernsteuerung zu entfernen?
+Sie werden nicht in der Lage, diese Entfernung rückgängig gemacht werden!</value>
+  </data>
+  <data name="TXT_PRESSBUTTON" xml:space="preserve">
+    <value>Drücken Sie eine Taste auf der Fernsteuerung. 
+Um nicht entdeckt zu überspringen, drücken Sie die Eingabetaste oder Esc.</value>
+  </data>
+  <data name="TXT_ADD_REPEAT" xml:space="preserve">
+    <value>Anfügen Taste, und wiederholen</value>
+  </data>
+  <data name="TXT_ADD_ONCE" xml:space="preserve">
+    <value>Anfügen Taste</value>
+  </data>
+  <data name="TXT_TARGETWNDNAME" xml:space="preserve">
+    <value>Titel der Zielanwendung / Fenster:</value>
+  </data>
+  <data name="TXT_WINDOWBASED" xml:space="preserve">
+    <value>Senden von Befehlen an das aktive Programmfenster</value>
+  </data>
+  <data name="TXT_SAVE_BEFORE_EXIT" xml:space="preserve">
+    <value>Sie haben Änderungen an der Konfiguration vorgenommen.
+Möchten Sie diese Änderungen vor dem Beenden speichern?</value>
+  </data>
+  <data name="TXT_APPLY_CFG" xml:space="preserve">
+    <value>Konfiguration speichern?</value>
+  </data>
+  <data name="TXT_SECONDS" xml:space="preserve">
+    <value>sekunden.</value>
+  </data>
+  <data name="TXT_TIMEDREPEATRATE" xml:space="preserve">
+    <value>Befehlswiederholung Intervall: 
+(0 = keine Wiederholung)</value>
+  </data>
+  <data name="TXT_PROTONE_REMOTE_COMMAND" xml:space="preserve">
+    <value>ProTONE Fernsteuerung Command:</value>
+  </data>
+  <data name="TXT_PRESS_KEY" xml:space="preserve">
+    <value>Drücken Sie die Tastenkombination Sie zuordnen möchten.</value>
+  </data>
+  <data name="TXT_DEFAULTWINDOWNAME" xml:space="preserve">
+    <value>Standard_fenster_name</value>
+  </data>
+  <data name="TXT_NOBUTTONSREQUIRED" xml:space="preserve">
+    <value>Dieses Fernsteuerung benötigt keine Taste Konfiguration.</value>
+  </data>
+  <data name="TXT_APPLYTIP" xml:space="preserve">
+    <value>Speichern Fernbedienung Konfiguration</value>
+  </data>
+  <data name="TXT_DEVICENAME" xml:space="preserve">
+    <value>Fernsteuerungname: {0}</value>
+  </data>
+  <data name="TXT_INPUTPIN" xml:space="preserve">
+    <value>Eingangs-Stift: {0} {1}</value>
+  </data>
+  <data name="TXT_OUTPUTPIN" xml:space="preserve">
+    <value>Ausgangs-Stift: {0} {1}</value>
+  </data>
+  <data name="TXT_BUTTONNAME_FULL" xml:space="preserve">
+    <value>Taste-Name: {0} ['{1}' -&gt; '{2}']</value>
+  </data>
+  <data name="TXT_NO_BUTTONS_YET" xml:space="preserve">
+    <value>Knöpfe sind noch nicht für diese Fernsteuerung definiert.</value>
+  </data>
+  <data name="TXT_ADD_BUTTON" xml:space="preserve">
+    <value>Neue Taste Anfügen ...</value>
+  </data>
+  <data name="TXT_DEL_BUTTON" xml:space="preserve">
+    <value>Löschen Sie vorhandene Taste</value>
+  </data>
+  <data name="TXT_MOD_BUTTON" xml:space="preserve">
+    <value>Ändern Sie vorhandene Taste ...</value>
+  </data>
+  <data name="TXT_ADD_DEVICE" xml:space="preserve">
+    <value>Neues Fernsteuerung Anfügen ...</value>
+  </data>
+  <data name="TXT_DEL_DEVICE" xml:space="preserve">
+    <value>Löschen Sie vorhandene Fernsteuerung</value>
+  </data>
+  <data name="TXT_MOD_DEVICE" xml:space="preserve">
+    <value>Ändern Sie vorhandene Fernsteuerung ...</value>
+  </data>
+  <data name="TXT_CONFIG_FILES_FILTER" xml:space="preserve">
+    <value>Fernsteuerung Konfigurationsdateien (* config)|*.config||</value>
+  </data>
+  <data name="TXT_ADMIN_RIGHTS_REQUIRED" xml:space="preserve">
+    <value>Die Fernsteuerung-Manager erfordert Administrator-Rechte zu laufen.
+Sie müssen diese Anwendung unter einem Benutzerkonto mit Administratorrechten zu starten.</value>
+  </data>
+</root>

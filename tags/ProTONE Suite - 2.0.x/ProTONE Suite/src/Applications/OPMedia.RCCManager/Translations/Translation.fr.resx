@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_APP_NAME" xml:space="preserve">
+    <value>Gestionnaire de Télécommandes</value>
+  </data>
+  <data name="TXT_REMOTELIST" xml:space="preserve">
+    <value>Liste de télécommandes</value>
+  </data>
+  <data name="TXT_REMOTENAME" xml:space="preserve">
+    <value>Nom de télécommande:</value>
+  </data>
+  <data name="TXT_BUTTONS" xml:space="preserve">
+    <value>Boutons de télécommande</value>
+  </data>
+  <data name="TXT_INPUTPINDATA" xml:space="preserve">
+    <value>Paramètres de fiche d'entrée</value>
+  </data>
+  <data name="TXT_CFGDATA" xml:space="preserve">
+    <value>Paramètres de fiche:</value>
+  </data>
+  <data name="TXT_PINTYPE" xml:space="preserve">
+    <value>Type de fiche:</value>
+  </data>
+  <data name="TXT_OUTPUTPINDATA" xml:space="preserve">
+    <value>Paramètres de fiche de sortie</value>
+  </data>
+  <data name="TXT_ADDREMOTECONFIG" xml:space="preserve">
+    <value>Ajout télécommande</value>
+  </data>
+  <data name="TXT_CHANGEEMOTECONFIG" xml:space="preserve">
+    <value>Configurer le télécommande</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEREMOTE" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer le télécommande sélectionné?
+Vous ne serez pas en mesure d'annuler cette suppression!</value>
+  </data>
+  <data name="TXT_ENTERDATA" xml:space="preserve">
+    <value>Paramètres de fiche pas encore définies.</value>
+  </data>
+  <data name="TXT_CFG" xml:space="preserve">
+    <value>Cette fiche peut être configurée uniquement à partir de ProTONE Lecteur.</value>
+  </data>
+  <data name="TXT_NOTCFG" xml:space="preserve">
+    <value>Cette fiche n'a pas besoin de paramètres.</value>
+  </data>
+  <data name="TXT_BUTTON_NAME" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="TXT_TARGET_WNDNAME" xml:space="preserve">
+    <value>Fenêtre cible</value>
+  </data>
+  <data name="TXT_NODATA" xml:space="preserve">
+    <value>Paramètres de fiche pas encore définies.</value>
+  </data>
+  <data name="TXT_BUTTONNAME" xml:space="preserve">
+    <value>Nom du bouton:</value>
+  </data>
+  <data name="TXT_INPUTDATA" xml:space="preserve">
+    <value>Données d'entrée (presse Détecter pour recevoir des données):</value>
+  </data>
+  <data name="TXT_OUTPUTDATA" xml:space="preserve">
+    <value>Données de sortie:</value>
+  </data>
+  <data name="TXT_DETECT" xml:space="preserve">
+    <value>Détecter</value>
+  </data>
+  <data name="TXT_ADDBUTTON" xml:space="preserve">
+    <value>Ajouter un bouton sur '{0}'</value>
+  </data>
+  <data name="TXT_CHANGEBUTTON" xml:space="preserve">
+    <value>Configurer le bouton de '{0}'</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEBUTTON" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer le bouton de télécommande sélectionné?
+Vous ne serez pas en mesure d'annuler cette suppression!</value>
+  </data>
+  <data name="TXT_PRESSBUTTON" xml:space="preserve">
+    <value>Appuyez sur une bouton de la télécommande. Pour ignorer la détection, appuyez sur Entrée ou Echap.</value>
+  </data>
+  <data name="TXT_ADD_REPEAT" xml:space="preserve">
+    <value>Ajouter le bouton, puis répétez</value>
+  </data>
+  <data name="TXT_ADD_ONCE" xml:space="preserve">
+    <value>Ajouter le bouton</value>
+  </data>
+  <data name="TXT_TARGETWNDNAME" xml:space="preserve">
+    <value>Titre de l'application cible / fenêtre:</value>
+  </data>
+  <data name="TXT_WINDOWBASED" xml:space="preserve">
+    <value>Envoyer des commandes de la fenêtre du programme actif</value>
+  </data>
+  <data name="TXT_SAVE_BEFORE_EXIT" xml:space="preserve">
+    <value>Vous avez apporté des modifications aux dispositifs de télécommande.
+Voulez-vous enregistrer les modifications avant de quitter?</value>
+  </data>
+  <data name="TXT_APPLY_CFG" xml:space="preserve">
+    <value>Enregistrer la configuration?</value>
+  </data>
+  <data name="TXT_SECONDS" xml:space="preserve">
+    <value>secondes.</value>
+  </data>
+  <data name="TXT_TIMEDREPEATRATE" xml:space="preserve">
+    <value>Intervalle de répétition de commande:
+ (0 = pas de répétition)</value>
+  </data>
+  <data name="TXT_PROTONE_REMOTE_COMMAND" xml:space="preserve">
+    <value>Commande:</value>
+  </data>
+  <data name="TXT_PRESS_KEY" xml:space="preserve">
+    <value>Appuyez sur la combinaison de boutons que vous souhaitez attribuer.</value>
+  </data>
+  <data name="TXT_DEFAULTWINDOWNAME" xml:space="preserve">
+    <value>Defaut_nom_de_fenêtre</value>
+  </data>
+  <data name="TXT_NOBUTTONSREQUIRED" xml:space="preserve">
+    <value>Cette télécommande ne nécessite pas de configuration des boutons.</value>
+  </data>
+  <data name="TXT_APPLYTIP" xml:space="preserve">
+    <value>Enregistrement de la configuration de télécommandes</value>
+  </data>
+  <data name="TXT_DEVICENAME" xml:space="preserve">
+    <value>Nom de télécommande: {0}</value>
+  </data>
+  <data name="TXT_INPUTPIN" xml:space="preserve">
+    <value>Fiche d'entrée: {0} {1}</value>
+  </data>
+  <data name="TXT_OUTPUTPIN" xml:space="preserve">
+    <value>Fiche de sortie: {0} {1}</value>
+  </data>
+  <data name="TXT_BUTTONNAME_FULL" xml:space="preserve">
+    <value>Nom du bouton: {0} ['{1}' -&gt; '{2}']</value>
+  </data>
+  <data name="TXT_NO_BUTTONS_YET" xml:space="preserve">
+    <value>Boutons ne sont pas encore définies pour cette télécommande.</value>
+  </data>
+  <data name="TXT_ADD_BUTTON" xml:space="preserve">
+    <value>Ajouter nouveau bouton ...</value>
+  </data>
+  <data name="TXT_DEL_BUTTON" xml:space="preserve">
+    <value>Supprimer bouton existant</value>
+  </data>
+  <data name="TXT_MOD_BUTTON" xml:space="preserve">
+    <value>Modifier bouton existant ...</value>
+  </data>
+  <data name="TXT_ADD_DEVICE" xml:space="preserve">
+    <value>Ajouter nouvel télécommande ...</value>
+  </data>
+  <data name="TXT_DEL_DEVICE" xml:space="preserve">
+    <value>Supprimer télécommande existant</value>
+  </data>
+  <data name="TXT_MOD_DEVICE" xml:space="preserve">
+    <value>Modifiez télécommande existant ...</value>
+  </data>
+  <data name="TXT_CONFIG_FILES_FILTER" xml:space="preserve">
+    <value>Les fichiers de configuration de télécommande (*.config)|*.config||</value>
+  </data>
+  <data name="TXT_ADMIN_RIGHTS_REQUIRED" xml:space="preserve">
+    <value>Le Gestionnaire de Télécommandes à distance nécessite des droits d'administrateur pour exécuter.
+Vous devez lancer cette application sous un compte utilisateur disposant de droits d'administrateur.</value>
+  </data>
+</root>

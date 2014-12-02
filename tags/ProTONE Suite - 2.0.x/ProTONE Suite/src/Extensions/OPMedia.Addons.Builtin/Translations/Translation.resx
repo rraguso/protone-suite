@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_ABORTED" xml:space="preserve">
+    <value>Scan aborted.</value>
+  </data>
+  <data name="TXT_ADDON_FE_SETTINGS" xml:space="preserve">
+    <value>File Browser</value>
+  </data>
+  <data name="TXT_ADDON_MC_SETTINGS" xml:space="preserve">
+    <value>Catalog Browser</value>
+  </data>
+  <data name="TXT_ATTRIBUTESEARCH" xml:space="preserve">
+    <value>Filter results by file attributes</value>
+  </data>
+  <data name="TXT_CAPITALIZEWORDS" xml:space="preserve">
+    <value>Capitalize All Words</value>
+  </data>
+  <data name="TXT_CASEINSENSITIVESEARCH" xml:space="preserve">
+    <value>Ignore Case</value>
+  </data>
+  <data name="TXT_CATALOG" xml:space="preserve">
+    <value>Import Catalog</value>
+  </data>
+  <data name="TXT_CATALOGPATH" xml:space="preserve">
+    <value>Imported items will be added to the catalog file under path: {0}</value>
+  </data>
+  <data name="TXT_CATALOGSCHEMAVERSION" xml:space="preserve">
+    <value>Catalog schema version</value>
+  </data>
+  <data name="TXT_CATALOG_FILTER" xml:space="preserve">
+    <value>Media catalog files (*.ctx)|*.ctx||</value>
+  </data>
+  <data name="TXT_CMDCATALOGMERGE" xml:space="preserve">
+    <value>Merge catalogs</value>
+  </data>
+  <data name="TXT_CMDCATALOGWIZARD" xml:space="preserve">
+    <value>Launch Catalog Import wizard</value>
+  </data>
+  <data name="TXT_CMDCHANGEDISK" xml:space="preserve">
+    <value>Change logical disk</value>
+  </data>
+  <data name="TXT_CMDTAGGINGWIZARD" xml:space="preserve">
+    <value>Launch Tagging Wizard</value>
+  </data>
+  <data name="TXT_CMDNAVIGATEBACK" xml:space="preserve">
+    <value>Navigate back</value>
+  </data>
+  <data name="TXT_CMDNAVIGATEFORWARD" xml:space="preserve">
+    <value>Navigate forward</value>
+  </data>
+  <data name="TXT_CMDNAVIGATEUP" xml:space="preserve">
+    <value>Go to parent folder</value>
+  </data>
+  <data name="TXT_DRIVES" xml:space="preserve">
+    <value>Change disk drive</value>
+  </data>
+  <data name="TXT_ENTRY_DESC" xml:space="preserve">
+    <value>Specify a description for the entry to be added:</value>
+  </data>
+  <data name="TXT_ERROR_INVALID_CATALOG" xml:space="preserve">
+    <value>This file does not represent a valid Media Catalog:
+'{0}'</value>
+  </data>
+  <data name="TXT_ERROR_MERGE_SAME_CATALOG" xml:space="preserve">
+    <value>You cannot merge a catalog into itself: 
+'{0}'</value>
+  </data>
+  <data name="TXT_ERR_MERGE_FAILED" xml:space="preserve">
+    <value>Merge catalogs have failed. Details:
+'{0}'</value>
+  </data>
+  <data name="TXT_FILENAMEPATTERN" xml:space="preserve">
+    <value>File name pattern:</value>
+  </data>
+  <data name="TXT_FOLDERNAMEPATTERN" xml:space="preserve">
+    <value>Folder name pattern:</value>
+  </data>
+  <data name="TXT_FSTAGEDITOR" xml:space="preserve">
+    <value>Generate tags based on file/folder name</value>
+  </data>
+  <data name="TXT_TAGGEDFILESFILTER" xml:space="preserve">
+    <value>Tagged Audio files (*.mp1, *.mp2, *.mp3)|*.mp1;*.mp2;*.mp3||</value>
+  </data>
+  <data name="TXT_TAGGINGWIZARD" xml:space="preserve">
+    <value>Tagging Wizard</value>
+  </data>
+  <data name="TXT_IMPORTWIZARD" xml:space="preserve">
+    <value>Import Catalog Wizard</value>
+  </data>
+  <data name="TXT_INIT_SEARCH" xml:space="preserve">
+    <value>The search process is initializing, please wait ...</value>
+  </data>
+  <data name="TXT_ITEMNAME" xml:space="preserve">
+    <value>Item name</value>
+  </data>
+  <data name="TXT_JUMPTOITEM" xml:space="preserve">
+    <value>Jump to item</value>
+  </data>
+  <data name="TXT_KEEPCASE" xml:space="preserve">
+    <value>Keep original word casing</value>
+  </data>
+  <data name="TXT_LAUNCH_WIZARD" xml:space="preserve">
+    <value>Tagging Wizard ...</value>
+  </data>
+  <data name="TXT_MAINTAIN_CATALOG_HISTORY" xml:space="preserve">
+    <value>Remember open catalogs history</value>
+  </data>
+  <data name="TXT_MAXPROCESSEDFILES" xml:space="preserve">
+    <value>Max. no. of files whose properties can be displayed:</value>
+  </data>
+  <data name="TXT_MEDIALABEL" xml:space="preserve">
+    <value>Original media label</value>
+  </data>
+  <data name="TXT_MEDIAPATH" xml:space="preserve">
+    <value>Original path within media - '$' stands for 'removable media root'</value>
+  </data>
+  <data name="TXT_MEDIA_WITHOUT_BOOKMARKS" xml:space="preserve">
+    <value>Media Files without bookmarks</value>
+  </data>
+  <data name="TXT_MEDIA_WITH_BOOKMARKS" xml:space="preserve">
+    <value>Media Files with bookmarks</value>
+  </data>
+  <data name="TXT_MERGECATALOG" xml:space="preserve">
+    <value>Please select a catalog to be merged:</value>
+  </data>
+  <data name="TXT_MERGECATALOGS" xml:space="preserve">
+    <value>Merge Catalogs</value>
+  </data>
+  <data name="TXT_MULTIRENAME" xml:space="preserve">
+    <value>Rename Files</value>
+  </data>
+  <data name="TXT_NON_ORPHAN_BOOKMARKS" xml:space="preserve">
+    <value>Non-orphan bookmark files</value>
+  </data>
+  <data name="TXT_NO_CATALOG" xml:space="preserve">
+    <value>No catalog is yet defined, please click Browse to select one.</value>
+  </data>
+  <data name="TXT_NO_ITEMS_FOUND" xml:space="preserve">
+    <value>No items found. Change the search parameters and try again.</value>
+  </data>
+  <data name="TXT_OPENCATALOG" xml:space="preserve">
+    <value>Open catalog file ...</value>
+  </data>
+  <data name="TXT_OPENCATALOGS" xml:space="preserve">
+    <value>open catalogs.</value>
+  </data>
+  <data name="TXT_OPENRECENTFILEDROPDOWN" xml:space="preserve">
+    <value>Press the down arrow button to open the recent files list.</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINBOOKMARKSADDONPANEL" xml:space="preserve">
+    <value>Show Properties of Bookmark Files (.BMK) in File Browser</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINFILEEXPLORERADDONPANEL" xml:space="preserve">
+    <value>File Browser</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINTAGGEDFILEPROPADDONPANEL" xml:space="preserve">
+    <value>Edit audio file tags in File Browser</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINIMAGESADDONPANEL" xml:space="preserve">
+    <value>View Image Files (JPG, GIF, BMP, PNG, etc.)</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERADDONPANEL" xml:space="preserve">
+    <value>Catalog Browser</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPFEADDONPANEL" xml:space="preserve">
+    <value>Show Catalog Items Properties in Catalog Browser</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINCATALOGEXPLORERCATALOGITEMPROPMCADDONPANEL" xml:space="preserve">
+    <value>Show Properties of Catalog Files in File Browser</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINPLAYERADDONPANEL" xml:space="preserve">
+    <value>Play media files with the embedded ProTONE Player extension</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINVIDEOPROPADDONPANEL" xml:space="preserve">
+    <value>Show Properties of Video Files in File Browser</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPREVIEWADDONPANEL" xml:space="preserve">
+    <value>Open files with associated Windows program</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTIN__DEFAULTPROPADDONPANEL" xml:space="preserve">
+    <value>Show File System Information in File Browser</value>
+  </data>
+  <data name="TXT_ORPHAN_BOOKMARKS" xml:space="preserve">
+    <value>Orphan bookmark files</value>
+  </data>
+  <data name="TXT_PREVIEW" xml:space="preserve">
+    <value>Preview results ...</value>
+  </data>
+  <data name="TXT_PREVIEW_DESC_EDITTAG" xml:space="preserve">
+    <value>Preview results of 'Edit Tags' task:</value>
+  </data>
+  <data name="TXT_PREVIEW_DESC_FILLTAGBYFS" xml:space="preserve">
+    <value>Preview results of 'Generate tags based on file/folder name' task:</value>
+  </data>
+  <data name="TXT_PREVIEW_DESC_MULTIRENAME" xml:space="preserve">
+    <value>Preview results of 'Rename Files' task:</value>
+  </data>
+  <data name="TXT_PREVIEW_FORM" xml:space="preserve">
+    <value>Preview Results</value>
+  </data>
+  <data name="TXT_PREVIEW_TIMER" xml:space="preserve">
+    <value>Automatic preview timer (seconds)
+(0 = Disable automatic preview):</value>
+  </data>
+  <data name="TXT_PROPERTYSEARCH" xml:space="preserve">
+    <value>Search Metadata (e.g. tags)</value>
+  </data>
+  <data name="TXT_RECURSIVESEARCH" xml:space="preserve">
+    <value>Search in subfolders</value>
+  </data>
+  <data name="TXT_REMOVE_FILES" xml:space="preserve">
+    <value>Remove Files</value>
+  </data>
+  <data name="TXT_RENAME" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="TXT_RENAMEPATTERN" xml:space="preserve">
+    <value>Rename Pattern:</value>
+  </data>
+  <data name="TXT_REOPEN_LAST_CATALOG" xml:space="preserve">
+    <value>At program startup, open last loaded catalog</value>
+  </data>
+  <data name="TXT_RETAIN_LAST" xml:space="preserve">
+    <value>Remember last</value>
+  </data>
+  <data name="TXT_ROOT" xml:space="preserve">
+    <value>Catalog Root Folder</value>
+  </data>
+  <data name="TXT_SAVECATALOG" xml:space="preserve">
+    <value>Save catalog as ...</value>
+  </data>
+  <data name="TXT_SCAN_ERROR" xml:space="preserve">
+    <value>Scan error</value>
+  </data>
+  <data name="TXT_SCAN_ERROR_MSG" xml:space="preserve">
+    <value>A non-fatal error occured while scanning object: '{0}'.
+The error message is: {1}.
+
+Do you want to continue scanning ?</value>
+  </data>
+  <data name="TXT_SEARCHFOLDER" xml:space="preserve">
+    <value>Search in folder:</value>
+  </data>
+  <data name="TXT_SEARCHPATTERN_FE" xml:space="preserve">
+    <value>Specify the search name (allowed wildcards: *, ?)  or choose one of the predefined patterns:</value>
+  </data>
+  <data name="TXT_SEARCHPATTERN_MC" xml:space="preserve">
+    <value>Specify the search name, without wildcards:</value>
+  </data>
+  <data name="TXT_SEARCHVALUE" xml:space="preserve">
+    <value>Text to be searched:</value>
+  </data>
+  <data name="TXT_SEARCHWIZARD_FE" xml:space="preserve">
+    <value>Search Files and Folders</value>
+  </data>
+  <data name="TXT_SEARCHWIZARD_MC" xml:space="preserve">
+    <value>Search items in catalog</value>
+  </data>
+  <data name="TXT_SEARCH_BOOKMARKS" xml:space="preserve">
+    <value>Search Bookmark Files (*.BMK)</value>
+  </data>
+  <data name="TXT_SEARCH_MEDIAFILES" xml:space="preserve">
+    <value>Search Media Files</value>
+  </data>
+  <data name="TXT_SELECTCATALOG" xml:space="preserve">
+    <value>Specify the catalog to add the imported files to:</value>
+  </data>
+  <data name="TXT_SELECTTAGGEDFILES" xml:space="preserve">
+    <value>Select audio files to be edited ...</value>
+  </data>
+  <data name="TXT_SELECTTAGGEDFILESFOLDER" xml:space="preserve">
+    <value>Select a folder containing the audio files to be edited ...</value>
+  </data>
+  <data name="TXT_SELECTINSERTPOINT" xml:space="preserve">
+    <value>Select the insertion point within the selected catalog 
+(press F5 to reload the tree):</value>
+  </data>
+  <data name="TXT_SENTENCECASE" xml:space="preserve">
+    <value>Capitalize first word</value>
+  </data>
+  <data name="TXT_SHORTCUT" xml:space="preserve">
+    <value>Shortcut: {0}</value>
+  </data>
+  <data name="TXT_SUPPLY_CATALOG_DESC" xml:space="preserve">
+    <value>Specify a description for your catalog...</value>
+  </data>
+  <data name="TXT_TAGEDITOR" xml:space="preserve">
+    <value>Edit Tags</value>
+  </data>
+  <data name="TXT_TOTAL_ITEMS_FOUND" xml:space="preserve">
+    <value>Total: {0} item(s) found. Use the right click menu to further process these items.</value>
+  </data>
+  <data name="TXT_UNHANDLED" xml:space="preserve">
+    <value>Cannot handle the specified task type.</value>
+  </data>
+  <data name="TXT_VER_NA" xml:space="preserve">
+    <value>Version info not present (legacy catalog)</value>
+  </data>
+  <data name="TXT_WAIT_LOADING_CATALOG" xml:space="preserve">
+    <value>Please wait while loading catalog ...</value>
+  </data>
+  <data name="TXT_WAIT_MERGING_CATALOG" xml:space="preserve">
+    <value>Please wait while merging catalogs ...</value>
+  </data>
+  <data name="TXT_WIZCATSTEP1_DESC" xml:space="preserve">
+    <value>Specify the catalog to add the imported files to:</value>
+  </data>
+  <data name="TXT_WIZCATSTEP2_DESC" xml:space="preserve">
+    <value>Select the folder or disk containing the items to be imported
+(press F5 to reload the tree):</value>
+  </data>
+  <data name="TXT_WIZTAGGINGSTEP1_DESC" xml:space="preserve">
+    <value>Please specify which files you want to edit. 
+Use the 'Add Files', 'Add Folder',  'Remove Files' buttons to configure the files list.</value>
+  </data>
+  <data name="TXT_WIZTAGGINGSTEP2_DESC" xml:space="preserve">
+    <value>Please specify how should these files be processed:</value>
+  </data>
+  <data name="TXT_WORDHANDLING" xml:space="preserve">
+    <value>Change words case:</value>
+  </data>
+  <data name="TXT_CATALOG_DESC" xml:space="preserve">
+    <value>Catalog description</value>
+  </data>
+  <data name="TXT_CATALOGINFO" xml:space="preserve">
+    <value>Catalog file information</value>
+  </data>
+  <data name="TXT_TAGINFO_PATTERNS" xml:space="preserve">
+    <value>Tagging Patterns</value>
+  </data>
+  <data name="TXT_INTERNALLABEL" xml:space="preserve">
+    <value>Internal media label</value>
+  </data>
+  <data name="TXT_ISORPHAN" xml:space="preserve">
+    <value>Is Orphan</value>
+  </data>
+  <data name="TXT_ITEMDATA" xml:space="preserve">
+    <value>Additional data</value>
+  </data>
+  <data name="TXT_ITEMTYPE_DESC" xml:space="preserve">
+    <value>Original item type</value>
+  </data>
+  <data name="TXT_MEDIAPATH_SHORT" xml:space="preserve">
+    <value>Original path within media</value>
+  </data>
+  <data name="TXT_PARENTMEDIAFILE" xml:space="preserve">
+    <value>Parent Media File</value>
+  </data>
+  <data name="TXT_ROOTSERIALNUMBER" xml:space="preserve">
+    <value>Media serial number</value>
+  </data>
+  <data name="TXT_TOTALCHILDRENCOUNT" xml:space="preserve">
+    <value>Total items</value>
+  </data>
+  <data name="TXT_TOTALFILECOUNT" xml:space="preserve">
+    <value>Total files</value>
+  </data>
+  <data name="TXT_TOTALSUBFOLDERCOUNT" xml:space="preserve">
+    <value>Total subfolders</value>
+  </data>
+  <data name="TXT_CATALOGITEMINFO" xml:space="preserve">
+    <value>Editable information</value>
+  </data>
+  <data name="TXT_CATALOGITEMINFO_RO" xml:space="preserve">
+    <value>Non-editable information</value>
+  </data>
+  <data name="TXT_OPMEDIAADDONSBUILTINCDAPROPADDONPANEL" xml:space="preserve">
+    <value>Show properties of Audio CD Files (CDA) in File Browser</value>
+  </data>
+  <data name="TXT_CDRIPPERWIZARD" xml:space="preserve">
+    <value>CD Ripper</value>
+  </data>
+  <data name="TXT_GRABBERHINT_STEP1" xml:space="preserve">
+    <value>Click on list cells to edit them. 
+Double-click on check images to choose whether to grab a track or not.</value>
+  </data>
+  <data name="TXT_OPTIONS_VBR" xml:space="preserve">
+    <value>VBR Options</value>
+  </data>
+  <data name="TXT_SELECTDRIVE" xml:space="preserve">
+    <value>Select an Audio CD drive:</value>
+  </data>
+  <data name="TXT_SELECTTRACKS" xml:space="preserve">
+    <value>Select the tracks to be ripped from the CD:</value>
+  </data>
+  <data name="TXT_SAVETOFOLDER" xml:space="preserve">
+    <value>Save output files to:</value>
+  </data>
+  <data name="TXT_OUTPUT_FORMAT" xml:space="preserve">
+    <value>Output Format:</value>
+  </data>
+  <data name="TXT_ENCODEROPTIONS" xml:space="preserve">
+    <value>Encoder Options:</value>
+  </data>
+  <data name="TXT_BITRATE_MODE" xml:space="preserve">
+    <value>Bitrate Mode:</value>
+  </data>
+  <data name="TXT_CHANNEL_MODE" xml:space="preserve">
+    <value>Audio Mode:</value>
+  </data>
+  <data name="TXT_VBRQUALITY" xml:space="preserve">
+    <value>VBR Quality:</value>
+  </data>
+  <data name="TXT_VBRMAX" xml:space="preserve">
+    <value>Max. VBR (kbps):</value>
+  </data>
+  <data name="TXT_VBRMIN:" xml:space="preserve">
+    <value>Min. VBR (kbps):</value>
+  </data>
+  <data name="TXT_VBRMODE" xml:space="preserve">
+    <value>VBR Mode:</value>
+  </data>
+  <data name="TXT_BITCOPYRIGHT" xml:space="preserve">
+    <value>Copyright Bit</value>
+  </data>
+  <data name="TXT_MP3FLAGS" xml:space="preserve">
+    <value>MP3 Flags:</value>
+  </data>
+  <data name="TXT_BITORIGINAL" xml:space="preserve">
+    <value>Original Bit</value>
+  </data>
+  <data name="TXT_BITPRIVATE" xml:space="preserve">
+    <value>Private Bit</value>
+  </data>
+  <data name="TXT_BITCRC" xml:space="preserve">
+    <value>CRC Bit</value>
+  </data>
+  <data name="TXT_OPTIONS_ADDITIONAL" xml:space="preserve">
+    <value>Additional Options</value>
+  </data>
+  <data name="TXT_LAME_DISCLAIMER" xml:space="preserve">
+    <value>ProTONE Suite uses L.A.M.E. for MP3 Encoding.</value>
+  </data>
+  <data name="TXT_CONFIG_NOT_REQUIRED" xml:space="preserve">
+    <value>This format does not require any configuration options.</value>
+  </data>
+  <data name="TXT_GENERATE_TAG" xml:space="preserve">
+    <value>Generate tags based on CD Track Properties</value>
+  </data>
+  <data name="TXT_PROCESSING_TRACK" xml:space="preserve">
+    <value>Importing CD Track no. {0} to file: '{1}'</value>
+  </data>
+</root>

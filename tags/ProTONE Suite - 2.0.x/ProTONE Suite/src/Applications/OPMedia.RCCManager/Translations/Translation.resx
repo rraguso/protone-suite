@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_APP_NAME" xml:space="preserve">
+    <value>Remote Control Manager</value>
+  </data>
+  <data name="TXT_REMOTELIST" xml:space="preserve">
+    <value>Remote control list:</value>
+  </data>
+  <data name="TXT_REMOTENAME" xml:space="preserve">
+    <value>Remote control name:</value>
+  </data>
+  <data name="TXT_BUTTONS" xml:space="preserve">
+    <value>Remote control buttons</value>
+  </data>
+  <data name="TXT_INPUTPINDATA" xml:space="preserve">
+    <value>Input pin settings</value>
+  </data>
+  <data name="TXT_CFGDATA" xml:space="preserve">
+    <value>Pin settings:</value>
+  </data>
+  <data name="TXT_PINTYPE" xml:space="preserve">
+    <value>Pin type:</value>
+  </data>
+  <data name="TXT_OUTPUTPINDATA" xml:space="preserve">
+    <value>Output pin settings</value>
+  </data>
+  <data name="TXT_ADDREMOTECONFIG" xml:space="preserve">
+    <value>Add Remote Control</value>
+  </data>
+  <data name="TXT_CHANGEEMOTECONFIG" xml:space="preserve">
+    <value>Configure Remote Control</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEREMOTE" xml:space="preserve">
+    <value>Are you sure you want to remove the selected remote control ?
+You will not be able to undo this removal !</value>
+  </data>
+  <data name="TXT_ENTERDATA" xml:space="preserve">
+    <value>Pin settings not defined yet.</value>
+  </data>
+  <data name="TXT_CFG" xml:space="preserve">
+    <value>This pin can be configured only from ProTONE Player.</value>
+  </data>
+  <data name="TXT_NOTCFG" xml:space="preserve">
+    <value>This pin doesn't need any settings.</value>
+  </data>
+  <data name="TXT_BUTTON_NAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TXT_TARGET_WNDNAME" xml:space="preserve">
+    <value>Target window</value>
+  </data>
+  <data name="TXT_NODATA" xml:space="preserve">
+    <value>Pin settings not defined yet.</value>
+  </data>
+  <data name="TXT_BUTTONNAME" xml:space="preserve">
+    <value>Button name:</value>
+  </data>
+  <data name="TXT_INPUTDATA" xml:space="preserve">
+    <value>Input data (press Detect to receive data):</value>
+  </data>
+  <data name="TXT_OUTPUTDATA" xml:space="preserve">
+    <value>Data to output pin:</value>
+  </data>
+  <data name="TXT_DETECT" xml:space="preserve">
+    <value>Detect</value>
+  </data>
+  <data name="TXT_ADDBUTTON" xml:space="preserve">
+    <value>Add Button on '{0}'</value>
+  </data>
+  <data name="TXT_CHANGEBUTTON" xml:space="preserve">
+    <value>Configure Button on '{0}'</value>
+  </data>
+  <data name="TXT_CONFIRMDELETEBUTTON" xml:space="preserve">
+    <value>Are you sure you want to remove the selected remote control button?
+You will not be able to undo this removal !</value>
+  </data>
+  <data name="TXT_PRESSBUTTON" xml:space="preserve">
+    <value>Press a button on the remote control.
+To skip detection, press Enter or Escape.</value>
+  </data>
+  <data name="TXT_ADD_REPEAT" xml:space="preserve">
+    <value>Add button, and repeat</value>
+  </data>
+  <data name="TXT_ADD_ONCE" xml:space="preserve">
+    <value>Add button</value>
+  </data>
+  <data name="TXT_TARGETWNDNAME" xml:space="preserve">
+    <value>Title of target application/window:</value>
+  </data>
+  <data name="TXT_WINDOWBASED" xml:space="preserve">
+    <value>Send commands to the active program window</value>
+  </data>
+  <data name="TXT_SAVE_BEFORE_EXIT" xml:space="preserve">
+    <value>You have made changes to the configuration.
+Do you want to save these changes before exiting ?</value>
+  </data>
+  <data name="TXT_APPLY_CFG" xml:space="preserve">
+    <value>Save configuration ?</value>
+  </data>
+  <data name="TXT_SECONDS" xml:space="preserve">
+    <value>seconds.</value>
+  </data>
+  <data name="TXT_TIMEDREPEATRATE" xml:space="preserve">
+    <value>Command repetition interval: 
+(0 = no repetition)</value>
+  </data>
+  <data name="TXT_PROTONE_REMOTE_COMMAND" xml:space="preserve">
+    <value>ProTONE Remote Control Command:</value>
+  </data>
+  <data name="TXT_PRESS_KEY" xml:space="preserve">
+    <value>Press the key combination you want to assign.</value>
+  </data>
+  <data name="TXT_DEFAULTWINDOWNAME" xml:space="preserve">
+    <value>Default_window_name</value>
+  </data>
+  <data name="TXT_NOBUTTONSREQUIRED" xml:space="preserve">
+    <value>This remote control doesn't need button configuration.</value>
+  </data>
+  <data name="TXT_APPLYTIP" xml:space="preserve">
+    <value>Save remote control configuration</value>
+  </data>
+  <data name="TXT_DEVICENAME" xml:space="preserve">
+    <value>Remote control name: {0}</value>
+  </data>
+  <data name="TXT_INPUTPIN" xml:space="preserve">
+    <value>Input pin: {0} {1}</value>
+  </data>
+  <data name="TXT_OUTPUTPIN" xml:space="preserve">
+    <value>Output pin: {0} {1}</value>
+  </data>
+  <data name="TXT_BUTTONNAME_FULL" xml:space="preserve">
+    <value>Button name: {0} [ '{1}' --&gt; '{2}' ]</value>
+  </data>
+  <data name="TXT_NO_BUTTONS_YET" xml:space="preserve">
+    <value>Buttons are not yet defined for this remote control.</value>
+  </data>
+  <data name="TXT_ADD_BUTTON" xml:space="preserve">
+    <value>Add new button ...</value>
+  </data>
+  <data name="TXT_DEL_BUTTON" xml:space="preserve">
+    <value>Delete existing button</value>
+  </data>
+  <data name="TXT_MOD_BUTTON" xml:space="preserve">
+    <value>Modify existing button ...</value>
+  </data>
+  <data name="TXT_ADD_DEVICE" xml:space="preserve">
+    <value>Add new remote control ...</value>
+  </data>
+  <data name="TXT_DEL_DEVICE" xml:space="preserve">
+    <value>Delete existing remote control</value>
+  </data>
+  <data name="TXT_MOD_DEVICE" xml:space="preserve">
+    <value>Modify existing remote control ...</value>
+  </data>
+  <data name="TXT_CONFIG_FILES_FILTER" xml:space="preserve">
+    <value>Remote Control Configuration files (*.config)|*.config||</value>
+  </data>
+  <data name="TXT_ADMIN_RIGHTS_REQUIRED" xml:space="preserve">
+    <value>The Remote Control Manager requires administrator rights to run.
+You must launch this application under a user account that has administrator rights.</value>
+  </data>
+</root>
