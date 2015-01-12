@@ -55,7 +55,7 @@
 
         <target name="VersionInfoUpdate">
             <!-- Version info increment -->
-            <iniread property="oldversion" filename="${root}\Versions_build.txt" section="ProTONE Suite" key="Version" default="2.0.0" />
+            <iniread property="oldversion" filename="${root}\Versions_build.txt" section="ProTONE Suite" key="Version" default="2.1.0" />
             <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
             <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
             <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
@@ -72,7 +72,7 @@
 
         <target name="BuildVSSolution">
             <!-- Build solution -->
-            <echo message="Building ProTONE Suite solution in VS2010 ..." /> 
+            <echo message="Building ProTONE Suite solution in VS2013 ..." /> 
             <exec 
                 program="${msbuild40.executable}" 
                 verbose="true" 
@@ -94,15 +94,15 @@
         </target>
         
         <target name="BuildSDKInstaller">
-	            <!-- Build installation -->
-	            <echo message="Building OPMedia SDK installer ..." />
-	            <exec
-	                program="${istool.executable}"
-	                workingdir="${root}\src\Installers"
-	                verbose="true">
-	                <arg value="-compile" />
-	                <arg value=".\OPMediaSDK.iss" />
-	            </exec>
+                    <!-- Build installation -->
+                    <echo message="Building OPMedia SDK installer ..." />
+                    <exec
+                        program="${istool.executable}"
+                        workingdir="${root}\src\Installers"
+                        verbose="true">
+                        <arg value="-compile" />
+                        <arg value=".\OPMediaSDK.iss" />
+                    </exec>
         </target>
 
         <target name="PostBuildResults">
@@ -135,29 +135,29 @@
             </svn>
             
             <svn 
-		    uri="https://protone-suite.googlecode.com/svn/publish/current"
-		    quiet="false"
-		    verbose="true"
-		    username="${svnuser}" 
-		    password="${svnpass}"
-		    failonerror="false">
+                    uri="https://protone-suite.googlecode.com/svn/publish/current"
+                    quiet="false"
+                    verbose="true"
+                    username="${svnuser}" 
+                    password="${svnpass}"
+                    failonerror="false">
 
-		    <arg value="add" />
-		    <arg path="${'${root}\..\..\..\publish\current\OPMedia SDK ' + newversion + '.exe'}" />
+                    <arg value="add" />
+                    <arg path="${'${root}\..\..\..\publish\current\OPMedia SDK ' + newversion + '.exe'}" />
 
-		</svn>
+                </svn>
 
-		<svn 
-		    uri="https://protone-suite.googlecode.com/svn/publish/current"
-		    quiet="false"
-		    verbose="true"
-		    username="${svnuser}"
-		    password="${svnpass}"
-		    failonerror="false">
+                <svn 
+                    uri="https://protone-suite.googlecode.com/svn/publish/current"
+                    quiet="false"
+                    verbose="true"
+                    username="${svnuser}"
+                    password="${svnpass}"
+                    failonerror="false">
 
-		    <arg value="delete" />
-		    <arg path="${'${root}\..\..\..\publish\current\OPMedia SDK ' + oldversion + '.exe'}" />
-	                    
+                    <arg value="delete" />
+                    <arg path="${'${root}\..\..\..\publish\current\OPMedia SDK ' + oldversion + '.exe'}" />
+                            
             </svn>
 
             <svn
