@@ -30,162 +30,162 @@
 
 
     <target name="cleanup">
-            <!-- Delete folders -->
-            <echo message="Source code cleanup ..." /> 
-            <delete dir="${root}\src" failonerror="false" />
-            <echo message="Source code cleanup done" />
-        </target>
+        <!-- Delete folders -->
+        <echo message="Source code cleanup ..." />
+        <delete dir="${root}\src" failonerror="false" />
+        <echo message="Source code cleanup done" />
+    </target>
 
-        <target name="SvnCheckout">
-            <!-- ReGet files from SVN -->
-            <echo message="Source code check out ..." /> 
-            <svn-checkout
-                destination="${root}\src" 
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite/src" 
-                recursive="true"
-                quiet="false"
-                verbose="true"
-                username="${svnuser}"
-                password="${svnpass}" 
-                revision="HEAD"
-                cache-auth="false"
+    <target name="SvnCheckout">
+        <!-- ReGet files from SVN -->
+        <echo message="Source code check out ..." />
+        <svn-checkout
+            destination="${root}\src"
+            uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite/src"
+            recursive="true"
+            quiet="false"
+            verbose="true"
+            username="${svnuser}"
+            password="${svnpass}"
+            revision="HEAD"
+            cache-auth="false"
             />
-            <echo message="Source code check out done" />
-        </target>
+        <echo message="Source code check out done" />
+    </target>
 
-        <target name="VersionInfoUpdate">
-            <!-- Version info increment -->
-            <iniread property="oldversion" filename="${root}\Versions_build.txt" section="ProTONE Suite" key="Version" default="2.1.0" />
-            <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
-            <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
-            <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
+    <target name="VersionInfoUpdate">
+        <!-- Version info increment -->
+        <iniread property="oldversion" filename="${root}\Versions_build.txt" section="ProTONE Suite" key="Version" default="2.1.0" />
+        <property name="oldversion.build" value="${string::substring(oldversion, 4, string::get-length(oldversion) - 4)}" />
+        <property name="newversion.build" value="${int::parse(oldversion.build) + 1}" />
+        <property name="newversion" value="${string::substring(oldversion, 0, 4) + newversion.build}" />
 
-            <echo message="Old version: ${oldversion}" />
-            <echo message="New version: ${newversion}" />
+        <echo message="Old version: ${oldversion}" />
+        <echo message="New version: ${newversion}" />
 
-            <loadfile file="${root}\src\Framework\OPMediaBase\OPMedia.Core\VersionTemplate.cs" property="file.contents" />
-            <property name="file.contents" value="${string::replace(file.contents, 'VERSION', newversion)}" />
+        <loadfile file="${root}\src\Framework\OPMediaBase\OPMedia.Core\VersionTemplate.cs" property="file.contents" />
+        <property name="file.contents" value="${string::replace(file.contents, 'VERSION', newversion)}" />
 
-            <echo message="${file.contents}" file="${root}\src\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
+        <echo message="${file.contents}" file="${root}\src\Framework\OPMediaBase\OPMedia.Core\Version.cs" />
 
-        </target>
+    </target>
 
-        <target name="BuildVSSolution">
-            <!-- Build solution -->
-            <echo message="Building ProTONE Suite solution in VS2013 ..." /> 
-            <exec 
-                program="${msbuild40.executable}" 
-                verbose="true" 
-                workingdir="${root}\src" 
-                commandline="/p:Configuration=Debug /t:Rebuild &quot;ProTONE Suite.sln&quot; /v:normal" 
+    <target name="BuildVSSolution">
+        <!-- Build solution -->
+        <echo message="Building ProTONE Suite solution in VS2013 ..." />
+        <exec
+            program="${msbuild40.executable}"
+            verbose="true"
+            workingdir="${root}\src"
+            commandline="/p:Configuration=Debug /t:Rebuild &quot;ProTONE Suite.sln&quot; /v:normal"
             />
-        </target>
+    </target>
 
-        <target name="BuildInstaller">
-            <!-- Build installation -->
-            <echo message="Building ProTONE Suite installer ..." />
-            <exec
-                program="${istool.executable}"
-                workingdir="${root}\src\Installers"
-                verbose="true">
-                <arg value="-compile" />
-                <arg value=".\ProtoneSuite.iss" />
-            </exec>
-        </target>
-        
-        <target name="BuildSDKInstaller">
-                    <!-- Build installation -->
-                    <echo message="Building OPMedia SDK installer ..." />
-                    <exec
-                        program="${istool.executable}"
-                        workingdir="${root}\src\Installers"
-                        verbose="true">
-                        <arg value="-compile" />
-                        <arg value=".\OPMediaSDK.iss" />
-                    </exec>
-        </target>
+    <target name="BuildInstaller">
+        <!-- Build installation -->
+        <echo message="Building ProTONE Suite installer ..." />
+        <exec
+            program="${istool.executable}"
+            workingdir="${root}\src\Installers"
+            verbose="true">
+            <arg value="-compile" />
+            <arg value=".\ProtoneSuite.iss" />
+        </exec>
+    </target>
 
-        <target name="PostBuildResults">
-            <!-- Post build results -->
-            <echo message="Upload build results to SVN ..." />
-            <svn 
+    <target name="BuildSDKInstaller">
+        <!-- Build installation -->
+        <echo message="Building OPMedia SDK installer ..." />
+        <exec
+            program="${istool.executable}"
+            workingdir="${root}\src\Installers"
+            verbose="true">
+            <arg value="-compile" />
+            <arg value=".\OPMediaSDK.iss" />
+        </exec>
+    </target>
+
+    <target name="PostBuildResults">
+        <!-- Post build results -->
+        <echo message="Upload build results to SVN ..." />
+        <svn
+            uri="https://protone-suite.googlecode.com/svn/publish/current"
+            quiet="false"
+            verbose="true"
+            username="${svnuser}"
+            password="${svnpass}"
+            failonerror="false">
+
+            <arg value="add" />
+            <arg path="${'${root}\..\..\..\publish\current\ProTONE Suite ' + newversion + '.exe'}" />
+
+        </svn>
+
+        <svn
+            uri="https://protone-suite.googlecode.com/svn/publish/current"
+            quiet="false"
+            verbose="true"
+            username="${svnuser}"
+            password="${svnpass}"
+            failonerror="false">
+
+            <arg value="delete" />
+            <arg path="${'${root}\..\..\..\publish\current\ProTONE Suite ' + oldversion + '.exe'}" />
+
+        </svn>
+
+        <svn
                 uri="https://protone-suite.googlecode.com/svn/publish/current"
                 quiet="false"
                 verbose="true"
-                username="${svnuser}" 
+                username="${svnuser}"
                 password="${svnpass}"
                 failonerror="false">
-                
-                <arg value="add" />
-                <arg path="${'${root}\..\..\..\publish\current\ProTONE Suite ' + newversion + '.exe'}" />
-                
-            </svn>
-            
-            <svn 
-                uri="https://protone-suite.googlecode.com/svn/publish/current"
-                quiet="false"
-                verbose="true"
-                username="${svnuser}"
-                password="${svnpass}"
-                failonerror="false">
-                
-                <arg value="delete" />
-                <arg path="${'${root}\..\..\..\publish\current\ProTONE Suite ' + oldversion + '.exe'}" />
-                
-            </svn>
-            
-            <svn 
-                    uri="https://protone-suite.googlecode.com/svn/publish/current"
-                    quiet="false"
-                    verbose="true"
-                    username="${svnuser}" 
-                    password="${svnpass}"
-                    failonerror="false">
 
-                    <arg value="add" />
-                    <arg path="${'${root}\..\..\..\publish\current\OPMedia SDK ' + newversion + '.exe'}" />
+            <arg value="add" />
+            <arg path="${'${root}\..\..\..\publish\current\OPMedia SDK ' + newversion + '.exe'}" />
 
-                </svn>
+        </svn>
 
-                <svn 
-                    uri="https://protone-suite.googlecode.com/svn/publish/current"
-                    quiet="false"
-                    verbose="true"
-                    username="${svnuser}"
-                    password="${svnpass}"
-                    failonerror="false">
+        <svn
+            uri="https://protone-suite.googlecode.com/svn/publish/current"
+            quiet="false"
+            verbose="true"
+            username="${svnuser}"
+            password="${svnpass}"
+            failonerror="false">
 
-                    <arg value="delete" />
-                    <arg path="${'${root}\..\..\..\publish\current\OPMedia SDK ' + oldversion + '.exe'}" />
-                            
-            </svn>
+            <arg value="delete" />
+            <arg path="${'${root}\..\..\..\publish\current\OPMedia SDK ' + oldversion + '.exe'}" />
 
-            <svn
-                uri="https://protone-suite.googlecode.com/svn/publish/current"
-                quiet="false"
-                verbose="true"
-                username="${svnuser}"
-                password="${svnpass}">
-                
-                <arg line="commit -m build_${newversion}" />
-                <arg line="${'${root}\..\..\..\publish\current'}" />
-                
-            </svn>
+        </svn>
 
-            <iniwrite filename="${root}\Versions_build.txt" section="ProTONE Suite" key="Version" value="${newversion}" />
+        <svn
+            uri="https://protone-suite.googlecode.com/svn/publish/current"
+            quiet="false"
+            verbose="true"
+            username="${svnuser}"
+            password="${svnpass}">
 
-            <svn
-                uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite"
-                quiet="false"
-                verbose="true"
-                username="${svnuser}"
-                password="${svnpass}">
-                
-                <arg line="commit -m build_${newversion}" />
-                <arg line="${root}" />
+            <arg line="commit -m build_${newversion}" />
+            <arg line="${'${root}\..\..\..\publish\current'}" />
 
-            </svn>
-            
-        </target>
-       
+        </svn>
+
+        <iniwrite filename="${root}\Versions_build.txt" section="ProTONE Suite" key="Version" value="${newversion}" />
+
+        <svn
+            uri="https://protone-suite.googlecode.com/svn/trunk/ProTONE%20Suite"
+            quiet="false"
+            verbose="true"
+            username="${svnuser}"
+            password="${svnpass}">
+
+            <arg line="commit -m build_${newversion}" />
+            <arg line="${root}" />
+
+        </svn>
+
+    </target>
+
 </project>
