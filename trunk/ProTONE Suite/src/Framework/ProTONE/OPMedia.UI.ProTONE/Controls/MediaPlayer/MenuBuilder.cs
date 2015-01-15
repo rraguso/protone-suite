@@ -37,7 +37,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public int BuildCommandsMenu(int index, MenuWrapper<T> menu, EventHandler clickHandler)
         {
-            for (OPMShortcut cmd = OPMShortcut.CmdPlay; cmd <= OPMShortcut.CmdFullScreen; cmd++)
+            for (OPMShortcut cmd = OPMShortcut.CmdPlayPause; cmd <= OPMShortcut.CmdFullScreen; cmd++)
             {
                 BuildMenuEntry(cmd, menu, clickHandler, index);
                 index++;
@@ -208,7 +208,36 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             tsmi.Click += clickHandler;
             tsmi.Tag = cmd;
             tsmi.ShortcutKeyDisplayString = shortcuts;
-            tsmi.Image = Resources.ResourceManager.GetImage(imageName);
+            
+            
+            if (cmd == OPMShortcut.CmdPlayPause)
+            {
+                Bitmap img = null;
+
+                switch (MediaRenderer.DefaultInstance.FilterState)
+                {
+                    case Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused:
+                        img = Resources.btnPlayAfterPause;
+                        break;
+
+                    case Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running:
+                        img = Resources.btnPause;
+                        break;
+
+                    default:
+                        img = Resources.btnPlay;
+                        break;
+                }
+
+                img.MakeTransparent(ThemeManager.TransparentColor);
+                tsmi.Image = img;
+            }
+            else
+            { 
+                tsmi.Image = Resources.ResourceManager.GetImage(imageName); 
+            }
+            
+
             tsmi.Enabled = enabled;
 
             if (index >= 0)

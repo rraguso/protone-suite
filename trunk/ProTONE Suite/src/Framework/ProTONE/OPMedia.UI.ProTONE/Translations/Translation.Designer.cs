@@ -398,32 +398,22 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pause playback.
-        ///Shortcut: {0}.
-        /// </summary>
-        internal static string TXT_BTNPAUSE {
-            get {
-                return ResourceManager.GetString("TXT_BTNPAUSE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Play file.
-        ///Shortcut: {0}.
-        /// </summary>
-        internal static string TXT_BTNPLAY {
-            get {
-                return ResourceManager.GetString("TXT_BTNPLAY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Activates the &apos;action on playlist end&apos;
         ///Shortcut: {0}.
         /// </summary>
         internal static string TXT_BTNPLAYLISTEND {
             get {
                 return ResourceManager.GetString("TXT_BTNPLAYLISTEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play/Pause
+        ///Shortcut: {0}.
+        /// </summary>
+        internal static string TXT_BTNPLAYPAUSE {
+            get {
+                return ResourceManager.GetString("TXT_BTNPLAYPAUSE", resourceCulture);
             }
         }
         
@@ -750,29 +740,20 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pause playback..
-        /// </summary>
-        internal static string TXT_CMDPAUSE {
-            get {
-                return ResourceManager.GetString("TXT_CMDPAUSE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Play file..
-        /// </summary>
-        internal static string TXT_CMDPLAY {
-            get {
-                return ResourceManager.GetString("TXT_CMDPLAY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Activates the &apos;action on playlist end&apos;.
         /// </summary>
         internal static string TXT_CMDPLAYLISTEND {
             get {
                 return ResourceManager.GetString("TXT_CMDPLAYLISTEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play/Pause.
+        /// </summary>
+        internal static string TXT_CMDPLAYPAUSE {
+            get {
+                return ResourceManager.GetString("TXT_CMDPLAYPAUSE", resourceCulture);
             }
         }
         
@@ -1482,29 +1463,20 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pause.
-        /// </summary>
-        internal static string TXT_MNUPAUSE {
-            get {
-                return ResourceManager.GetString("TXT_MNUPAUSE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Play.
-        /// </summary>
-        internal static string TXT_MNUPLAY {
-            get {
-                return ResourceManager.GetString("TXT_MNUPLAY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Playlist end event.
         /// </summary>
         internal static string TXT_MNUPLAYLISTEND {
             get {
                 return ResourceManager.GetString("TXT_MNUPLAYLISTEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play/Pause.
+        /// </summary>
+        internal static string TXT_MNUPLAYPAUSE {
+            get {
+                return ResourceManager.GetString("TXT_MNUPLAYPAUSE", resourceCulture);
             }
         }
         

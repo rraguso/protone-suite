@@ -109,7 +109,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             tsmPlaylistEnd.Checked = SystemScheduler.PlaylistEventEnabled;
             tsmToggleShuffle.Checked = ProTONEConfig.ShufflePlaylist;
         }
-        
+
         private void OnButtonPressed(object sender, EventArgs e)
         {
             ToolStripButton btn = sender as ToolStripButton;
@@ -201,6 +201,29 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             tslFilterState.Image = img;
             tslFilterState.Tag = Translator.Translate("TXT_MEDIA_STATE", MediaRenderer.DefaultInstance.TranslatedFilterState);
+
+            UpdatePlayPauseButton();
+        }
+
+        private void UpdatePlayPauseButton()
+        {
+            Image img = null;
+            switch(_FilterState)
+            {
+                case Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused:
+                    img = Resources.btnPlayAfterPause;
+                    break;
+
+                case Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running:
+                    img = Resources.btnPause;
+                    break;
+
+                default:
+                    img = Resources.btnPlay;
+                    break;
+            }
+
+            tsmPlayPause.Image = img;
         }
 
         private void UpdateMediaType()
