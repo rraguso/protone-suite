@@ -65,8 +65,7 @@ namespace OPMedia.RemoteControlEmulator
 
             OPMShortcut[] cmds = new OPMShortcut[]
             {
-                OPMShortcut.CmdPlay,
-                OPMShortcut.CmdPause,
+                OPMShortcut.CmdPlayPause,
                 OPMShortcut.CmdStop,
                 OPMShortcut.CmdPrev,
                 OPMShortcut.CmdNext,

@@ -732,14 +732,20 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             switch (args.cmd)
             {
-                case OPMShortcut.CmdPlay:
-                    Play();
-                    args.Handled = true;
+                case OPMShortcut.CmdPlayPause:
+                    if (MediaRenderer.DefaultInstance.FilterState == FilterState.Paused || 
+                        MediaRenderer.DefaultInstance.FilterState == FilterState.Running)
+                    {
+                        Pause();
+                        args.Handled = true;
+                    }
+                    else
+                    {
+                        Play();
+                        args.Handled = true;
+                    }
                     break;
-                case OPMShortcut.CmdPause:
-                    Pause();
-                    args.Handled = true;
-                    break;
+
                 case OPMShortcut.CmdStop:
                     Stop(true);
                     args.Handled = true;

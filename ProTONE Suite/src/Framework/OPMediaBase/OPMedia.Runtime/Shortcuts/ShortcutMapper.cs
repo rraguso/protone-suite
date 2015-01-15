@@ -52,7 +52,7 @@ namespace OPMedia.Runtime.Shortcuts
 
         public static OPMShortcut CmdFirst
         {
-            get { return (IsPlayer) ? OPMShortcut.CmdPlay : OPMShortcut.CmdOpenHelp; }
+            get { return (IsPlayer) ? OPMShortcut.CmdPlayPause : OPMShortcut.CmdOpenHelp; }
         }
 
         public static OPMShortcut CmdLast
@@ -184,7 +184,7 @@ namespace OPMedia.Runtime.Shortcuts
 
         public static string GetShortcutString(OPMShortcut cmd)
         {
-            if (cmd >= OPMShortcut.CmdPlay && cmd < OPMShortcut.CmdOutOfRange)
+            if (cmd >= OPMShortcut.CmdPlayPause && cmd < OPMShortcut.CmdOutOfRange)
             {
                 KeysConverter kc = new KeysConverter();
                 
@@ -277,7 +277,6 @@ namespace OPMedia.Runtime.Shortcuts
                     new KeyEventArgs(Keys.C),
                     new KeyEventArgs(Keys.V),
                     new KeyEventArgs(Keys.B),
-                    new KeyEventArgs(Keys.N),
                     new KeyEventArgs(Keys.Control | Keys.D),
                     new KeyEventArgs(Keys.Control | Keys.U),
                     
@@ -355,7 +354,6 @@ namespace OPMedia.Runtime.Shortcuts
             {
                 // Playback control
                 new KeyEventArgs(Keys.MediaPlayPause),
-                new KeyEventArgs(Keys.Space),
                 new KeyEventArgs(Keys.MediaStop),
                 new KeyEventArgs(Keys.MediaPreviousTrack),
                 new KeyEventArgs(Keys.MediaNextTrack),
@@ -461,8 +459,7 @@ namespace OPMedia.Runtime.Shortcuts
     public enum OPMShortcut
     {
         // Playback control
-        CmdPlay,
-        CmdPause,
+        CmdPlayPause,
         CmdStop,
         CmdPrev,
         CmdNext,

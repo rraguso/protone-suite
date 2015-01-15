@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -238,12 +237,8 @@ Scurtătură: {0}</value>
     <value>Afişează dialogul de Setări.
 Scurtătură: {0}</value>
   </data>
-  <data name="TXT_BTNPAUSE" xml:space="preserve">
-    <value>Pune redarea în pauză.
-Scurtătură: {0}</value>
-  </data>
-  <data name="TXT_BTNPLAY" xml:space="preserve">
-    <value>Redare fişier.
+  <data name="TXT_BTNPLAYPAUSE" xml:space="preserve">
+    <value>Redare/Pauză.
 Scurtătură: {0}</value>
   </data>
   <data name="TXT_BTNPLAYLISTEND" xml:space="preserve">
@@ -368,11 +363,8 @@ Scurtătură: {0}</value>
   <data name="TXT_CMDOPENURL" xml:space="preserve">
     <value>Deschide URL</value>
   </data>
-  <data name="TXT_CMDPAUSE" xml:space="preserve">
-    <value>Pune redarea în pauză.</value>
-  </data>
-  <data name="TXT_CMDPLAY" xml:space="preserve">
-    <value>Redare fişier.</value>
+  <data name="TXT_CMDPLAYPAUSE" xml:space="preserve">
+    <value>Redare/Pauză.</value>
   </data>
   <data name="TXT_CMDPLAYLISTEND" xml:space="preserve">
     <value>Activează 'acțiunea la sfârşitul listei de redare'</value>
@@ -620,11 +612,8 @@ Dublu click pentru a comuta pe timp rămas.</value>
   <data name="TXT_MNUOPENURL" xml:space="preserve">
     <value>Deschide URL ...</value>
   </data>
-  <data name="TXT_MNUPAUSE" xml:space="preserve">
-    <value>Pauză</value>
-  </data>
-  <data name="TXT_MNUPLAY" xml:space="preserve">
-    <value>Redare</value>
+  <data name="TXT_MNUPLAYPAUSE" xml:space="preserve">
+    <value>Redare/Pauză</value>
   </data>
   <data name="TXT_MNUPLAYLISTEND" xml:space="preserve">
     <value>Acțiune la sfârşitul listei de redare</value>

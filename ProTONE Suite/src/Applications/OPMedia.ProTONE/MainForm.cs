@@ -134,7 +134,7 @@ namespace OPMedia.ProTONE
         {
             if (_commandTarget != null)
             {
-                for (OPMShortcut cmd = OPMShortcut.CmdPlay; cmd <= OPMShortcut.CmdLoad; cmd++)
+                for (OPMShortcut cmd = OPMShortcut.CmdPlayPause; cmd <= OPMShortcut.CmdLoad; cmd++)
                 {
                     string name = cmd.ToString().Replace("Cmd", "btn");
 

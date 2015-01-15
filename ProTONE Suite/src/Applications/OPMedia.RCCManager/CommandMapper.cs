@@ -20,7 +20,7 @@ namespace OPMedia.RCCManager
             switch (fields[0].ToLowerInvariant())
             {
                 case "playback":
-                    for (OPMShortcut cmd = OPMShortcut.CmdPlay; cmd < OPMShortcut.CmdGenericOpen; cmd++)
+                    for (OPMShortcut cmd = OPMShortcut.CmdPlayPause; cmd < OPMShortcut.CmdGenericOpen; cmd++)
                             {
                                 if (fields[1].ToLowerInvariant() == cmd.ToString().ToLowerInvariant())
                                 {

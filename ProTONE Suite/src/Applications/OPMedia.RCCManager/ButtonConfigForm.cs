@@ -203,7 +203,7 @@ namespace OPMedia.RCCManager
 
                     case OPMRemoteControl.CommandType.Playback:
                         {
-                            for (OPMShortcut cmd = OPMShortcut.CmdPlay; cmd < OPMShortcut.CmdGenericOpen; cmd++)
+                            for (OPMShortcut cmd = OPMShortcut.CmdPlayPause; cmd < OPMShortcut.CmdGenericOpen; cmd++)
                             {
                                 string cmdString = string.Format("{0}?{1}", type, cmd);
                                 string desc = Translator.Translate("TXT_" + cmd.ToString().ToUpperInvariant());
