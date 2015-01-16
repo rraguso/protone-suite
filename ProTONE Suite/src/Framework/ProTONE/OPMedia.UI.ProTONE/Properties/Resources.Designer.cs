@@ -393,6 +393,26 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap IconAudio {
+            get {
+                object obj = ResourceManager.GetObject("IconAudio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IconTime {
+            get {
+                object obj = ResourceManager.GetObject("IconTime", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Miscellaneous {
             get {
                 object obj = ResourceManager.GetObject("Miscellaneous", resourceCulture);

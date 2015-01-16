@@ -81,19 +81,22 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         void UpdateTime()
         {
-            string sElapsed = "", sTotal = "";
-
-            if (_elapsed >= 0)
+            if (this.IsOnMenuBar)
             {
-                sElapsed = string.Format("{0}", TimeSpan.FromSeconds((int)_elapsed));
-            }
+                string sElapsed = "", sTotal = "";
 
-            if (_total > 0)
-            {
-                sTotal = string.Format(" ({0})", TimeSpan.FromSeconds((int)_total));
-            }
+                if (_elapsed >= 0)
+                {
+                    sElapsed = string.Format("{0}", TimeSpan.FromSeconds((int)_elapsed));
+                }
 
-            lblTime.Text = sElapsed + sTotal;
+                if (_total > 0)
+                {
+                    sTotal = string.Format(" ({0})", TimeSpan.FromSeconds((int)_total));
+                }
+
+                lblTime.Text = sElapsed + sTotal;
+            }
 
             timeProgress.Value = (timeProgress.Maximum * _elapsed) / _total;
         }
@@ -109,6 +112,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 new ValueChangedEventHandler(timeProgress_PositionChanged);
             timeProgress.HoveredPositionChanged += 
                 new ValueChangedEventHandler(timeProgress_HoveredPositionChanged);
+
+            this.HandleCreated += TimeScale_HandleCreated;
+        }
+
+        void TimeScale_HandleCreated(object sender, EventArgs e)
+        {
+            lblTime.Visible = this.IsOnMenuBar;
         }
 
         public void ApplyMenuBarColors()
