@@ -55,20 +55,21 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.layoutPanel.OverrideBackColor = System.Drawing.Color.Empty;
             this.layoutPanel.RowCount = 2;
             this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutPanel.Size = new System.Drawing.Size(587, 395);
+            this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.layoutPanel.Size = new System.Drawing.Size(573, 393);
             this.layoutPanel.TabIndex = 0;
             // 
             // pnlScreens
             // 
             this.pnlScreens.AllowDrop = true;
             this.pnlScreens.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlScreens.InnerPadding = new System.Windows.Forms.Padding(0);
             this.pnlScreens.Location = new System.Drawing.Point(0, 0);
             this.pnlScreens.Margin = new System.Windows.Forms.Padding(0);
             this.pnlScreens.MinimumSize = new System.Drawing.Size(160, 160);
             this.pnlScreens.Name = "pnlScreens";
             this.pnlScreens.SelectedIndex = 0;
-            this.pnlScreens.Size = new System.Drawing.Size(587, 317);
+            this.pnlScreens.Size = new System.Drawing.Size(573, 341);
             this.pnlScreens.TabIndex = 0;
             this.pnlScreens.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragDrop);
             this.pnlScreens.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragEnter);
@@ -88,12 +89,12 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlRendering.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
             this.pnlRendering.HasBorder = false;
             this.pnlRendering.Highlight = false;
-            this.pnlRendering.Location = new System.Drawing.Point(0, 317);
+            this.pnlRendering.Location = new System.Drawing.Point(0, 341);
             this.pnlRendering.Margin = new System.Windows.Forms.Padding(0);
             this.pnlRendering.Name = "pnlRendering";
             this.pnlRendering.OverrideBackColor = System.Drawing.Color.Empty;
             this.pnlRendering.ProjectedVolume = 5000;
-            this.pnlRendering.Size = new System.Drawing.Size(587, 78);
+            this.pnlRendering.Size = new System.Drawing.Size(573, 52);
             this.pnlRendering.TabIndex = 1;
             this.pnlRendering.TimeScaleEnabled = true;
             this.pnlRendering.TotalSeconds = 0D;
@@ -114,7 +115,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(365, 255);
             this.Name = "MediaPlayer";
-            this.Size = new System.Drawing.Size(587, 395);
+            this.Size = new System.Drawing.Size(573, 393);
             this.layoutPanel.ResumeLayout(false);
             this.layoutPanel.PerformLayout();
             this.ResumeLayout(false);

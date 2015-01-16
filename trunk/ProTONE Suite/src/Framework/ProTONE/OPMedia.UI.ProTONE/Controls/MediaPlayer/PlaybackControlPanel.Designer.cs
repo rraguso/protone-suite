@@ -50,6 +50,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tsmToggleShuffle = new OPMedia.UI.Controls.OPMToolStripButton();
             this.opmToolStripSeparator4 = new OPMedia.UI.Controls.OPMToolStripSeparator();
             this.tsmOpenSettings = new OPMedia.UI.Controls.OPMToolStripButton();
+            this.tslTime = new System.Windows.Forms.ToolStripLabel();
             this.tslFileType = new System.Windows.Forms.ToolStripLabel();
             this.tslFilterState = new System.Windows.Forms.ToolStripLabel();
             this.tslAudioOn = new System.Windows.Forms.ToolStripLabel();
@@ -92,6 +93,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tsmToggleShuffle,
             this.opmToolStripSeparator4,
             this.tsmOpenSettings,
+            this.tslTime,
             this.tslFileType,
             this.tslFilterState,
             this.tslAudioOn,
@@ -100,7 +102,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.opmToolStrip1.Name = "opmToolStrip1";
             this.opmToolStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.opmToolStrip1.ShowBorder = false;
-            this.opmToolStrip1.Size = new System.Drawing.Size(338, 25);
+            this.opmToolStrip1.Size = new System.Drawing.Size(343, 25);
             this.opmToolStrip1.TabIndex = 11;
             this.opmToolStrip1.Text = "opmToolStrip1";
             this.opmToolStrip1.VerticalGradient = true;
@@ -269,6 +271,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tsmOpenSettings.MouseHover += new System.EventHandler(this.OnMouseHover);
             this.tsmOpenSettings.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
             // 
+            // tslTime
+            // 
+            this.tslTime.Margin = new System.Windows.Forms.Padding(5, 1, 0, 2);
+            this.tslTime.Name = "tslTime";
+            this.tslTime.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.tslTime.Size = new System.Drawing.Size(0, 22);
+            // 
             // tslFileType
             // 
             this.tslFileType.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -323,7 +332,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(170, 25);
             this.Name = "PlaybackControlPanel";
-            this.Size = new System.Drawing.Size(338, 25);
+            this.Size = new System.Drawing.Size(343, 25);
             this.opmToolStrip1.ResumeLayout(false);
             this.opmToolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -354,5 +363,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         private ToolStripLabel tslAudioOn;
         private ToolStripLabel tslVideoOn;
         private OPMToolStripButton tsmOpenDisk;
+        private ToolStripLabel tslTime;
     }
 }

@@ -44,6 +44,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         #endregion
 
         #region Properties
+
+        public bool IsOnMenuBar { get; set; }
+
         public Control ControlArea
         {
             get
@@ -93,6 +96,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             volumeProgress.HoveredPositionChanged += 
                 new ValueChangedEventHandler(volumeProgress_HoveredPositionChanged);
+
+            this.HandleCreated += VolumeScale_HandleCreated;
+        }
+
+        void VolumeScale_HandleCreated(object sender, EventArgs e)
+        {
+            lblMin.Visible = lblMax.Visible = lblCurrent.Visible = this.IsOnMenuBar;
         }
 
         void volumeProgress_HoveredPositionChanged(double val)
@@ -158,6 +168,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             VolumeScale.PositionChanged += new ValueChangedEventHandler(VolumeScale_PositionChanged);
             VolumeScale.Visible = true;
+            VolumeScale.IsOnMenuBar = true;
 
             //this.BackColor = Color.FromKnownColor(KnownColor.Window);
             //VolumeScale.OverrideBackColor = Color.FromKnownColor(KnownColor.Window);

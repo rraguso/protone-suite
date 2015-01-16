@@ -82,6 +82,54 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         public MediaTypes MediaType
         { get { return _mediaType; } set { _mediaType = value; UpdateMediaType(); } }
 
+        double _elapsedSeconds = 0, _totalSeconds = 0;
+
+        public double ElapsedSeconds
+        {
+            get
+            {
+                return _elapsedSeconds;
+            }
+
+            set
+            {
+                _elapsedSeconds = value;
+                UpdateDisplayedTime();
+            }
+        }
+
+        private void UpdateDisplayedTime()
+        {
+            string sElapsed = "", sTotal = "";
+
+            if (_elapsedSeconds > 0)
+            {
+                sElapsed = string.Format("{0}", TimeSpan.FromSeconds((int)_elapsedSeconds));
+            
+                if (_totalSeconds > 0)
+                    sTotal = string.Format(" ({0})", TimeSpan.FromSeconds((int)_totalSeconds));
+
+                tslTime.Text = sElapsed + sTotal;
+            }
+            else
+            {
+                tslTime.Text = string.Empty;
+            }
+        }
+
+        public double TotalSeconds
+        {
+            get
+            {
+                return _totalSeconds;
+            }
+
+            set
+            {
+                _totalSeconds = value;
+                UpdateDisplayedTime();
+            }
+        }
         #endregion
 
         public PlaybackControlPanel()
@@ -182,10 +230,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 catch
                 {
                 }
-            }
 
-            if (img == null)
-                img = ImageProvider.GetIcon(_mediaName, false);
+                if (img == null)
+                    img = ImageProvider.GetIcon(_mediaName, false);
+            }
 
             tslFileType.Image = img;
             tslFileType.Tag = pli;

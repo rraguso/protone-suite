@@ -18,6 +18,7 @@ using OPMedia.Core.GlobalEvents;
 using OPMedia.UI.ProTONE.GlobalEvents;
 using OPMedia.UI.Controls;
 using OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses;
+using OPMedia.UI.ProTONE.Properties;
 
 namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 {
@@ -38,6 +39,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             set
             {
                 timeScale.ElapsedSeconds = value;
+                playbackPanel.ElapsedSeconds = value;
             }
         }
 
@@ -51,6 +53,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             set
             {
                 timeScale.TotalSeconds = value;
+                playbackPanel.TotalSeconds = value;
             }
         }
 
@@ -150,6 +153,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             this.FontSize = FontSizes.Large;
 
+            pbVolIcon.Image = Resources.IconAudio;
+            pbTimeIcon.Image = Resources.IconTime;
         }
 
         //[EventSink(EventNames.KeymapChanged, EventNames.PerformTranslation)]

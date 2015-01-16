@@ -30,28 +30,27 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         /// </summary>
         private void InitializeComponent()
         {
-            this.layoutPanel = new OPMTableLayoutPanel();
-            this.timeProgress = new ControlGauge();
-            this.lblTime = new OPMLabel();
+            this.layoutPanel = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.timeProgress = new OPMedia.UI.Controls.ControlGauge();
+            this.lblTime = new OPMedia.UI.Controls.OPMLabel();
             this.layoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutPanel
             // 
-            this.layoutPanel.AutoSize = true;
             this.layoutPanel.ColumnCount = 1;
             this.layoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.layoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.layoutPanel.Controls.Add(this.timeProgress, 0, 0);
             this.layoutPanel.Controls.Add(this.lblTime, 0, 1);
             this.layoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutPanel.Location = new System.Drawing.Point(0, 0);
             this.layoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.layoutPanel.Name = "layoutPanel";
+            this.layoutPanel.OverrideBackColor = System.Drawing.Color.Empty;
             this.layoutPanel.RowCount = 2;
             this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutPanel.Size = new System.Drawing.Size(270, 24);
+            this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.layoutPanel.Size = new System.Drawing.Size(270, 21);
             this.layoutPanel.TabIndex = 3;
             // 
             // timeProgress
@@ -65,6 +64,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.timeProgress.Maximum = 10000D;
             this.timeProgress.Name = "timeProgress";
             this.timeProgress.NrTicks = 20;
+            this.timeProgress.OverrideBackColor = System.Drawing.Color.Empty;
+            this.timeProgress.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.timeProgress.ShowTicks = true;
             this.timeProgress.Size = new System.Drawing.Size(270, 8);
             this.timeProgress.TabIndex = 0;
@@ -82,23 +83,20 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.lblTime.Name = "lblTime";
             this.lblTime.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblTime.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblTime.Size = new System.Drawing.Size(270, 16);
+            this.lblTime.Size = new System.Drawing.Size(270, 13);
             this.lblTime.TabIndex = 1;
             this.lblTime.Text = "00:00:00";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TimeScale
             // 
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.layoutPanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "TimeScale";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(270, 24);
+            this.Size = new System.Drawing.Size(270, 21);
             this.layoutPanel.ResumeLayout(false);
             this.layoutPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
