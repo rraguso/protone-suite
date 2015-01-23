@@ -736,10 +736,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 Array.Clear(channels, 0, totalChannelsInArray);
 
                 int j = 0;
-                while (j < totalChannels)
+                while (j < totalChannels && i < smp.RawSamples.Length)
                 {
                     int k = 0;
-                    while (k < bytesPerChannel)
+                    while (k < bytesPerChannel && i < smp.RawSamples.Length)
                     {
                         if (bytesPerChannel <= 2)
                             channels[j] += (short)(smp.RawSamples[i] << (8 * k));
