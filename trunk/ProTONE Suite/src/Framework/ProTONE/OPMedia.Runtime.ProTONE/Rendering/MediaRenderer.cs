@@ -101,7 +101,59 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         public const int VolumeFull = 0;
         public const int VolumeSilence = -10000;
 
-        static string[] _playlists = new string[] { "m3u", "pls", "asx", "wpl" };
+        #region Supported file types
+        static List<string> __supportedAudioMediaTypes = new List<string>(new string[] 
+            { 
+                // 15 supported audio file types
+                "au",   "aif", "aiff", 
+                
+                "cda", // Audio CD track
+
+                "flac", "mid", 
+                "midi", "mp1", "mp2",  "mp3", "mpa",  
+                "raw", "rmi",  "snd",  "wav",  "wma",
+                
+            });
+
+        static List<string> __supportedVideoMediaTypes = new List<string>(new string[] 
+            {
+                // 14 supported video file types
+
+                "avi", "divx", "qt",  "m1v", "m2v", 
+                "mod", "mov",  "mpg", "mpeg", "vob", 
+                "wm", "wmv", 
+                
+                "mkv", "mp4", 
+            });
+
+        static List<string> __supportedHDVideoMediaTypes = new List<string>(new string[] 
+            {
+                "mkv", "mp4", 
+            });
+
+        static List<string> __supportedPlaylists = new List<string>(new string[] 
+            {
+                "m3u", "pls", "asx", "wpl"
+            });
+
+        static List<string> __supportedSubtitles = new List<string>(new string[] 
+            {
+                // MicroDVD
+                "sub", 
+                
+                // SubRip
+                "srt", 
+                
+                // Universal Subtitle Format
+                "usf", 
+                
+                // SubStation Alpha
+                "ass", "ssa", 
+
+                //"utf", "idx", "smi", "rt", "aqt", "mpl", 
+            });
+
+        #endregion
 
         private int _hash = DateTime.Now.GetHashCode();
         private double _position = 0;
@@ -121,7 +173,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         #region Members
         private static MediaRenderer __defaultInstance = new MediaRenderer();
 
-        private Technology renderingTechnology = null;
+        private StreamRenderer streamRenderer = null;
         private Timer timerCheckState = null;
 
         private OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState oldState = 
@@ -152,15 +204,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             return new MediaRenderer();
         }
 
-        internal object GraphFilter { get { return renderingTechnology.GraphFilter; } }
+        
+
+        internal object GraphFilter 
+        { get { return (streamRenderer != null) ? streamRenderer.GraphFilter : null; } }
 
         public WaveFormatEx ActualAudioFormat
-        {
-            get
-            {
-                return renderingTechnology.ActualAudioFormat;
-            }
-        }
+        { get { return (streamRenderer != null) ? streamRenderer.ActualAudioFormat : null; } }
 
 
         public double[] EqFrequencies
@@ -233,90 +283,143 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             }
         }
 
-        public double MediaPosition
+        protected bool IsEndOfMedia
         {
             get
             {
-                return (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped) ?
-                    0 : renderingTechnology.MediaPosition;
+                if (streamRenderer == null)
+                    return false;
+
+                return streamRenderer.EndOfMedia;
             }
-            
+        }
+
+        public double MediaPosition
+        {
+            get { return (streamRenderer == null) ? 0 : streamRenderer.MediaPosition; }
+            set { if (streamRenderer != null) { streamRenderer.MediaPosition = value; } }
         }
 
         public int AudioVolume
         {
-            get { return renderingTechnology.AudioVolume; }
-            set 
-            {
-                renderingTechnology.AudioVolume = GetScaledVolume(value);
-            } 
+            get { return (streamRenderer == null) ? (int)VolumeRange.Minimum : streamRenderer.AudioVolume; }
+            set { if (streamRenderer != null) { streamRenderer.AudioVolume = GetScaledVolume(value); } }
         }
 
         public int AudioBalance
         {
-            get { return renderingTechnology.AudioBalance; }
-            set
-            {
-                renderingTechnology.AudioBalance = value;
-            }
+            get { return (streamRenderer == null) ? 0 : streamRenderer.AudioBalance; }
+            set { if (streamRenderer != null) { streamRenderer.AudioBalance = value; } }
         }
 
         public int SubtitleStream
         {
-            get 
-            { 
-                return renderingTechnology.SubtitleStream; 
+            get
+            {
+                return (streamRenderer == null &&
+                    FilterState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped) ?
+                    -1 : streamRenderer.GetSubtitleStream();
             }
-            
+
             set
             {
-                renderingTechnology.SubtitleStream = value;
+                if (streamRenderer != null &&
+                    FilterState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
+                {
+                    streamRenderer.SetSubtitleStream(value);
+                }
             }
         }
 
         public bool CanSeekMedia
-        { get { return (renderingTechnology.MediaSeekable && renderingTechnology.MediaLength > 0); } }
+        { get { return (streamRenderer.MediaSeekable && streamRenderer.MediaLength > 0); } }
 
         public static List<string> SupportedAudioTypes
-        { get { return Technology.SupportedAudioMediaTypes; } }
+        { get { return __supportedAudioMediaTypes; } }
 
         public static List<string> SupportedHDVideoTypes
-        { get { return Technology.SupportedHDVideoMediaTypes; } }
+        { get { return __supportedHDVideoMediaTypes; } }
 
         public static List<string> SupportedVideoTypes
-        { get { return Technology.SupportedVideoMediaTypes; } }
+        { get { return __supportedVideoMediaTypes; } }
 
         public static List<string> SupportedPlaylists
-        { get { return new List<string>(_playlists); } }
+        { get { return __supportedPlaylists; } }
 
         public double DurationScaleFactor
-        { get { return renderingTechnology.DurationScaleFactor; } }
+        { get { return (streamRenderer == null) ? 0 : streamRenderer.DurationScaleFactor; } }
 
         public double MediaLength
-        { get { return renderingTechnology.MediaLength; } }
+        { get { return (streamRenderer == null) ? 0 : streamRenderer.MediaLength; } }
+
+        public string RenderMediaName
+        {
+            get
+            {
+                if (streamRenderer == null)
+                    return string.Empty;
+
+                return streamRenderer.RenderMediaName;
+            }
+        }
 
         public MediaFileInfo RenderedMediaInfo
-        { get { return renderingTechnology.GetRenderMediaInfo(); } }
+        {
+            get
+            {
+                if (streamRenderer == null)
+                    return null;
+
+                return streamRenderer.RenderMediaInfo;
+            }
+        }
 
         public MediaTypes RenderedMediaType
-        { get { return renderingTechnology.RenderedMediaType; } }
+        { 
+            get 
+            {
+                MediaTypes mediaType = MediaTypes.None;
+
+                if (streamRenderer != null)
+                {
+                    if (streamRenderer.AudioMediaAvailable)
+                    {
+                        mediaType = (streamRenderer.VideoMediaAvailable) ?
+                            MediaTypes.Both : MediaTypes.Audio;
+                    }
+                    else if (streamRenderer.VideoMediaAvailable)
+                    {
+                        mediaType = MediaTypes.Video;
+                    }
+                }
+
+                return mediaType;
+            } 
+        }
 
         public OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState FilterState
-        { get { return renderingTechnology.FilterState; } }
+         { 
+            get 
+            { 
+                return (streamRenderer == null) ?
+                    OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped : 
+                    streamRenderer.FilterState; 
+            } 
+        }
 
         public string TranslatedFilterState
         { get { return Translator.Translate("TXT_" + FilterState.ToString().ToUpperInvariant()); } }
 
-        public bool ShowCursor
-        {
-            get { return renderingTechnology.ShowCursor; }
-            set { renderingTechnology.ShowCursor = value; }
-        }
+        //public bool ShowCursor
+        //{
+        //    get { return streamRenderer.ShowCursor; }
+        //    set { streamRenderer.ShowCursor = value; }
+        //}
 
         //public bool FullScreen
         //{
-        //    get { return renderingTechnology.FullScreen; }
-        //    set { renderingTechnology.FullScreen = value; }
+        //    get { return streamRenderer.FullScreen; }
+        //    set { streamRenderer.FullScreen = value; }
         //}
 
         public static List<string> AllMediaTypes
@@ -324,18 +427,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             get
             {
                 List<string> allTypes = new List<string>();
-                allTypes.AddRange(Technology.SupportedAudioMediaTypes);
-                allTypes.AddRange(Technology.SupportedVideoMediaTypes);
-                allTypes.AddRange(_playlists); // supported playlists
+                allTypes.AddRange(__supportedAudioMediaTypes);
+                allTypes.AddRange(__supportedVideoMediaTypes);
+                allTypes.AddRange(__supportedPlaylists); // supported playlists
                 return allTypes;
             }
         }
 
-        public AudioSampleData VuMeterData
+       public AudioSampleData VuMeterData
         {
             get
             {
-                return renderingTechnology.VuMeterData;
+                return (streamRenderer != null) ?
+                    streamRenderer.VuMeterData : null;
             }
         }
 
@@ -343,7 +447,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             get
             {
-                return renderingTechnology.WaveformData;
+                return (streamRenderer != null) ?
+                    streamRenderer.WaveformData : null;
             }
         }
 
@@ -351,15 +456,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             get
             {
-                return renderingTechnology.SpectrogramData;
+                return (streamRenderer != null) ?
+                    streamRenderer.SpectrogramData : null;
             }
         }
 
-        public double MaxLevel
+         public double MaxLevel
         {
             get
             {
-                return renderingTechnology.MaxLevel;
+                return (streamRenderer != null) ?
+                    streamRenderer.MaxLevel : 0;
             }
         }
 
@@ -367,14 +474,15 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             get
             {
-                return renderingTechnology.FFTWindowSize;
+                return (streamRenderer != null) ?
+                    streamRenderer.FFTWindowSize : 0;
             }
         }
         public double MaxFFTLevel
         {
             get
             {
-                return renderingTechnology.MaxLevel * renderingTechnology.FFTWindowSize;
+                return MaxLevel * FFTWindowSize;
             }
         }
 
@@ -382,13 +490,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         #region Methods
 
-        public bool IsStreamedMedia { get { return renderingTechnology.IsStreamedMedia; } } 
+        public bool IsStreamedMedia { get { return (streamRenderer is DSShoutcastRenderer); } } 
 
         public string StreamTitle { get; private set; }
 
         internal void FireStreamTitleChanged(string newTitle)
         {
-            if (renderingTechnology.IsStreamedMedia && RenderedStreamTitleChanged != null)
+            if (IsStreamedMedia && RenderedStreamTitleChanged != null)
             {
                 this.StreamTitle = newTitle;
                 RenderedStreamTitleChanged(newTitle);
@@ -398,27 +506,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         public static SupportedFileProvider GetSupportedFileProvider()
         {
             SupportedFileProvider retVal = new SupportedFileProvider();
-            retVal.SupportedAudioTypes = MediaRenderer.SupportedAudioTypes;
-            retVal.SupportedVideoTypes = MediaRenderer.SupportedVideoTypes;
-            retVal.SupportedHDVideoTypes = MediaRenderer.SupportedHDVideoTypes;
-            retVal.SupportedPlaylists = MediaRenderer.SupportedPlaylists;
-
-            retVal.SupportedSubtitles = new List<string>(new string[] 
-            {
-                // MicroDVD
-                "sub", 
-                
-                // SubRip
-                "srt", 
-                
-                // Universal Subtitle Format
-                "usf", 
-                
-                // SubStation Alpha
-                "ass", "ssa", 
-
-                //"utf", "idx", "smi", "rt", "aqt", "mpl", 
-            });
+            retVal.SupportedAudioTypes = __supportedAudioMediaTypes;
+            retVal.SupportedVideoTypes = __supportedVideoMediaTypes;
+            retVal.SupportedHDVideoTypes = __supportedHDVideoMediaTypes;
+            retVal.SupportedPlaylists = __supportedPlaylists;
+            retVal.SupportedSubtitles = __supportedSubtitles;
 
             retVal.AllMediaTypes = MediaRenderer.AllMediaTypes;
 
@@ -450,7 +542,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             string retVal = string.Empty;
             try
             {
-                retVal= renderingTechnology.GetRenderMedia();
+                if (streamRenderer == null)
+                    return string.Empty;
+
+                return streamRenderer.RenderMediaName;
             }
             catch (Exception ex)
             {
@@ -463,10 +558,71 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
-                renderingTechnology.RenderRegion = renderPanel;
+                if (streamRenderer != null)
+                {
+                    streamRenderer.Dispose();
+                    streamRenderer = null;
+                }
 
-                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
-                    renderingTechnology.SetRenderMedia(file);
+                // Select the proper renderer for the specified media
+                Uri uri = null;
+                try
+                {
+                    uri = new Uri(file, UriKind.Absolute);
+                }
+                catch
+                {
+                    uri = null;
+                }
+
+                if (uri != null && !uri.IsFile)
+                {
+                    //this.streamType = "URL";
+
+                    if (streamRenderer as DSShoutcastRenderer == null)
+                    {
+                        streamRenderer = new DSShoutcastRenderer();
+                    }
+                }
+                else
+                {
+                    if (DvdMedia.FromPath(file) != null)
+                    {
+                        //this.streamType = "DVD";
+
+                        if (streamRenderer as DSDvdRenderer == null)
+                        {
+                            streamRenderer = new DSDvdRenderer();
+                        }
+                    }
+                    else
+                    {
+                        string streamType = PathUtils.GetExtension(file).ToLowerInvariant();
+                        if (streamType == "cda")
+                        {
+                            if (streamRenderer as DSAudioCDRenderer == null)
+                            {
+                                streamRenderer = new DSAudioCDRenderer();
+                            }
+                        }
+                        else if (streamRenderer as DSFileRenderer == null)
+                        {
+                            streamRenderer = new DSFileRenderer();
+                        }
+                    }
+                }
+
+                Logger.LogTrace("Now playing media: {0}", file);
+
+                if (streamRenderer != null)
+                { 
+                    streamRenderer.RenderRegion = renderPanel;
+
+                    if (this.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
+                    {
+                        streamRenderer.RenderMediaName = file;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -480,14 +636,14 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             {
                 _position = 0;
 
-                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
+                if (this.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
                 {
-                    double position = renderingTechnology.MediaPosition;
-                    renderingTechnology.ResumeRenderer(position);
+                    double position = this.MediaPosition;
+                    this.ResumeRenderer(position);
                 }
-                else
+                else if (streamRenderer != null)
                 {
-                    renderingTechnology.StartRendererWithHint(startHint);
+                    streamRenderer.StartRendererWithHint(startHint);
                 }
             }
             catch (Exception ex)
@@ -502,16 +658,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             {
                 _position = 0;
 
-                Logger.LogTrace("Media will be rendered using {0}", renderingTechnology.GetType().Name);
+                Logger.LogTrace("Media will be rendered using {0}", streamRenderer.GetType().Name);
 
-                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
-                {
-                    renderingTechnology.StartRenderer();
-                }
-                else if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
-                {
-                    double position = renderingTechnology.MediaPosition;
-                    renderingTechnology.ResumeRenderer(position);
+                if (streamRenderer != null)
+                { 
+                    if (this.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
+                    {
+                        streamRenderer.StartRenderer();
+                    }
+                    else if (streamRenderer.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
+                    {
+                        double position = streamRenderer.MediaPosition;
+                        streamRenderer.ResumeRenderer(position);
+                    }
                 }
             }
             catch (Exception ex)
@@ -524,9 +683,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
-                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
+                if (streamRenderer != null &&
+                    streamRenderer.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
                 {
-                    renderingTechnology.PauseRenderer();
+                    streamRenderer.PauseRenderer();
                 }
             }
             catch (Exception ex)
@@ -539,10 +699,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
-                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
+                if (streamRenderer != null &&
+                    streamRenderer.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
                 {
                     _position = fromPosition;
-                    renderingTechnology.ResumeRenderer(fromPosition);
+                    streamRenderer.ResumeRenderer(fromPosition);
                 }
             }
             catch (Exception ex)
@@ -558,10 +719,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             {
                 _position = 0;
 
-                if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running ||
-                    renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
+                if (streamRenderer != null &&
+                    (streamRenderer.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running ||
+                    streamRenderer.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused))
                 {
-                    renderingTechnology.StopRenderer();
+                    streamRenderer.StopRenderer();
                 }
             }
             catch (Exception ex)
@@ -614,7 +776,57 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         public VideoFileInfo QueryVideoMediaInfo(string path)
         {
-            return renderingTechnology.QueryVideoMediaInfo(path);
+            VideoFileInfo vfi = null;
+
+            DvdMedia dvdDrive = DvdMedia.FromPath(path);
+            if (dvdDrive != null)
+            {
+                vfi = dvdDrive.VideoDvdInformation;
+            }
+            else
+            {
+                vfi = new VideoFileInfo(path, false);
+
+                try
+                {
+                    if (vfi != null && vfi.IsValid)
+                    {
+                        IMediaControl mediaControl =
+                            Activator.CreateInstance(Type.GetTypeFromCLSID(Filters.FilterGraph, true))
+                            as IMediaControl;
+                        IBasicAudio basicAudio = mediaControl as IBasicAudio;
+                        IBasicVideo basicVideo = mediaControl as IBasicVideo;
+                        IMediaPosition mediaPosition = mediaControl as IMediaPosition;
+
+                        mediaControl.RenderFile(path);
+
+                        double val = 0;
+                        DsError.ThrowExceptionForHR(mediaPosition.get_Duration(out val));
+                        vfi.Duration = TimeSpan.FromSeconds(val);
+
+                        DsError.ThrowExceptionForHR(basicVideo.get_AvgTimePerFrame(out val));
+                        vfi.FrameRate = new FrameRate(1f / val);
+
+                        int h = 0, w = 0;
+                        DsError.ThrowExceptionForHR(basicVideo.get_VideoHeight(out h));
+                        DsError.ThrowExceptionForHR(basicVideo.get_VideoWidth(out w));
+                        vfi.VideoSize = new VSize(w, h);
+
+                        mediaControl.Stop();
+                        mediaControl = null;
+                        mediaPosition = null;
+                        basicVideo = null;
+                        basicAudio = null;
+
+                        GC.Collect();
+                    }
+                }
+                catch
+                {
+                }
+            }
+
+            return vfi;
         }
 
         public string GetStateDescription()
@@ -631,11 +843,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         public void AdjustVideoSize(VideoSizeAdjustmentDirection direction, VideoSizeAdjustmentAction action)
         {
-            if ((renderingTechnology.RenderedMediaType == MediaTypes.Video ||
-                renderingTechnology.RenderedMediaType == MediaTypes.Both) &&
-                renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
+
+            if (streamRenderer != null &&
+                (this.RenderedMediaType == MediaTypes.Video ||
+                this.RenderedMediaType == MediaTypes.Both) &&
+                this.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
             {
-                renderingTechnology.AdjustVideoSize(direction, action);
+                streamRenderer.AdjustVideoSize(direction, action);
             }
         }
         #endregion
@@ -643,11 +857,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         #region Construction
         private MediaRenderer()
         {
-#if HAVE_DSHOW
-            renderingTechnology = new DSTechnology();
-#else
-            renderingTechnology = new MonoTechnology();
-#endif
+            streamRenderer = null;
 
             SuiteRegistrationSupport.Init(GetSupportedFileProvider());
 
@@ -675,6 +885,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
                 __defaultInstance = null;
             }
+
+            streamRenderer = null;
         }
 
         double oldMediaPosition = 0;
@@ -693,10 +905,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
             try
             {
-                newState = renderingTechnology.FilterState;
-                string newMedia = renderingTechnology.GetRenderMedia();
+                newState = this.FilterState;
+                string newMedia = this.RenderMediaName;
 
-                if (newState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running && oldMediaPosition == renderingTechnology.MediaPosition)
+                if (newState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running && oldMediaPosition == this.MediaPosition)
                 {
                     nofPasses++;
                     Logger.LogHeavyTrace("Media position did not change in the last {0} iterations", nofPasses);
@@ -706,11 +918,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering
                     nofPasses = 0;
                 }
 
-                if (renderingTechnology.EndOfMedia || (!renderingTechnology.IsStreamedMedia && nofPasses > 10))
+                if (this.IsEndOfMedia || (!IsStreamedMedia && nofPasses > 10))
                 {
                     if (newState != OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
                     {
-                        renderingTechnology.StopRenderer();
+                        this.StopRenderer();
                     }
 
                     newState = OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.NotOpened;
@@ -739,7 +951,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
                                 //break;
 
                             case OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused:
-                                _position = renderingTechnology.MediaPosition;
+                                _position = streamRenderer.MediaPosition;
                                 break;
                         }
                         break;
@@ -766,8 +978,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             finally
             {
                 oldState = newState;
-                oldMedia = renderingTechnology.GetRenderMedia();
-                oldMediaPosition = renderingTechnology.MediaPosition;
+                oldMedia = this.RenderMediaName;
+                oldMediaPosition = this.MediaPosition;
             }
         }
 
@@ -882,10 +1094,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         public void Dispose()
         {
-            if (renderingTechnology != null)
+            if (streamRenderer != null)
             {
-                renderingTechnology.Dispose();
-                renderingTechnology = null;
+                streamRenderer.Dispose();
+                streamRenderer = null;
             }
         }
 
