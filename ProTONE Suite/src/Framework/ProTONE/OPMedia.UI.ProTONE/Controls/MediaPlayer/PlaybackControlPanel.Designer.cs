@@ -76,6 +76,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.opmToolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmToolStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.opmToolStrip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.opmToolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.opmToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.opmToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmPlayPause,
@@ -102,7 +103,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.opmToolStrip1.Name = "opmToolStrip1";
             this.opmToolStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.opmToolStrip1.ShowBorder = false;
-            this.opmToolStrip1.Size = new System.Drawing.Size(343, 25);
+            this.opmToolStrip1.Size = new System.Drawing.Size(326, 25);
             this.opmToolStrip1.TabIndex = 11;
             this.opmToolStrip1.Text = "opmToolStrip1";
             this.opmToolStrip1.VerticalGradient = true;
@@ -282,7 +283,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             this.tslFileType.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tslFileType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tslFileType.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
+            this.tslFileType.Margin = new System.Windows.Forms.Padding(0, 1, 2, 2);
             this.tslFileType.Name = "tslFileType";
             this.tslFileType.Size = new System.Drawing.Size(0, 22);
             this.tslFileType.Text = "tslFileType";
@@ -293,7 +294,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             this.tslFilterState.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tslFilterState.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tslFilterState.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
+            this.tslFilterState.Margin = new System.Windows.Forms.Padding(0, 1, 2, 2);
             this.tslFilterState.Name = "tslFilterState";
             this.tslFilterState.Size = new System.Drawing.Size(0, 22);
             this.tslFilterState.Text = "tslFilterState";
@@ -304,7 +305,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             this.tslAudioOn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tslAudioOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tslAudioOn.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
+            this.tslAudioOn.Margin = new System.Windows.Forms.Padding(0, 1, 2, 2);
             this.tslAudioOn.Name = "tslAudioOn";
             this.tslAudioOn.Size = new System.Drawing.Size(0, 22);
             this.tslAudioOn.Text = "tslAudioOn";
@@ -315,7 +316,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             this.tslVideoOn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tslVideoOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tslVideoOn.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
+            this.tslVideoOn.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.tslVideoOn.Name = "tslVideoOn";
             this.tslVideoOn.Size = new System.Drawing.Size(0, 22);
             this.tslVideoOn.Text = "tslVideoOn";
@@ -332,7 +333,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(170, 25);
             this.Name = "PlaybackControlPanel";
-            this.Size = new System.Drawing.Size(343, 25);
+            this.Size = new System.Drawing.Size(326, 25);
             this.opmToolStrip1.ResumeLayout(false);
             this.opmToolStrip1.PerformLayout();
             this.ResumeLayout(false);
