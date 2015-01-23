@@ -727,7 +727,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             int bytesPerChannel = _actualAudioFormat.wBitsPerSample / 8;
             int totalChannels = _actualAudioFormat.nChannels;
-            int totalChannelsInArray = Math.Max(2, totalChannels);
+            int totalChannelsInArray = Math.Min(2, totalChannels);
 
             int i = 0;
             while (i < smp.RawSamples.Length)
@@ -736,7 +736,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 Array.Clear(channels, 0, totalChannelsInArray);
 
                 int j = 0;
-                while (j < totalChannels)
+                while (j < totalChannelsInArray)
                 {
                     int k = 0;
                     while (k < bytesPerChannel)
@@ -753,7 +753,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     j++;
                 }
 
+                if (channels.Length >= 2)
                 _sampleData.Enqueue(new AudioSampleData((double)channels[0], (double)channels[1]));
+                else
+                    _sampleData.Enqueue(new AudioSampleData((double)channels[0], 0));
+                
                 _gatheredSamples++;
                 if (_gatheredSamples % _waveformWindowSize == 0)
                 {
