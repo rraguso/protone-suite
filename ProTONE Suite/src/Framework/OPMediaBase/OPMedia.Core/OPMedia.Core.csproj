@@ -71,6 +71,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ThreadHelper.cs" />
     <Compile Include="Utilities\HelperClasses.cs" />
     <Compile Include="Utilities\SerialPortAPI.cs" />
     <Compile Include="Version.cs" />

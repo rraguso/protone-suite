@@ -1094,7 +1094,7 @@ Timpul reperului: {0}</value>
     <value>Fără fişiere video</value>
   </data>
   <data name="TXT_URLPART" xml:space="preserve">
-    <value>URL-ul serverului (corespondenţă parţială):</value>
+    <value>URL-ul serverului:</value>
   </data>
   <data name="TXT_USE_METADATA" xml:space="preserve">
     <value>Foloseşte câmpurile metadata din fişier (ex. etichetele ID3)</value>

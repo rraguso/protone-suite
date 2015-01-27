@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading;
 using System.Diagnostics;
 
-namespace OPMedia.Runtime.ProTONE.Rendering
+namespace OPMedia.Core
 {
-    public static class ThreadScheduler
+    public static class ThreadHelper
     {
         public static void RunAsThread(WaitCallback c, object state = null)
         {

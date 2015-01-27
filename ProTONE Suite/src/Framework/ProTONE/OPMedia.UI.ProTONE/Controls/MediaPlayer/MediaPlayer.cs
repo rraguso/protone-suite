@@ -829,6 +829,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     {
                         args.Handled = true;
 
+                        StreamingServerChooserDlg dlg2 = new StreamingServerChooserDlg();
+                        if (dlg2.ShowDialog() == DialogResult.OK)
+                        {
+                            string[] urls = new string[] { dlg2.Uri };
+                            LoadFiles(urls);
+                        }
+
+                        /*
                         UrlCfgDlg dlg = new UrlCfgDlg(true);
                         dlg.ShowChooserButton = true;
                         dlg.RequiredUriParts = UriComponents.SchemeAndServer;
@@ -847,7 +855,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                         {
                             string[] urls = new string[] { dlg.Uri };
                             LoadFiles(urls);
-                        }
+                        }*/
                     }
                     break;
 
