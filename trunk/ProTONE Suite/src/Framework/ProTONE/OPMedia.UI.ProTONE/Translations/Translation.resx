@@ -1088,7 +1088,7 @@ Bookmark time: {0}</value>
     <value>No video files</value>
   </data>
   <data name="TXT_URLPART" xml:space="preserve">
-    <value>Server URL (partial match):</value>
+    <value>Server URL:</value>
   </data>
   <data name="TXT_USE_METADATA" xml:space="preserve">
     <value>Use file metadata (e.g. ID3 tags)</value>

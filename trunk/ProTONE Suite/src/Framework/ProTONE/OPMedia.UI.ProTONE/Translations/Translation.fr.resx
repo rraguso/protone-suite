@@ -1027,7 +1027,7 @@ de la fenêtre vidéo</value>
     <value>Sélectionnez une station de radio:</value>
   </data>
   <data name="TXT_URLPART" xml:space="preserve">
-    <value>URL du serveur (correspondance partielle):</value>
+    <value>URL du serveur:</value>
   </data>
   <data name="TXT_SERVERTITLE" xml:space="preserve">
     <value>Nom du serveur (correspondance partielle):</value>
