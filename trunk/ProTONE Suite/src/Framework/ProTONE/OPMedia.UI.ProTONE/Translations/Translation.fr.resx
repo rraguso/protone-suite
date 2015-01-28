@@ -638,9 +638,6 @@ Cliquez sur le bouton ci-dessous pour lancer le Gestionaire de Telecommandes ...
   <data name="TXT_SERVERTYPE" xml:space="preserve">
     <value>Type de serveur</value>
   </data>
-  <data name="TXT_SERVERURL" xml:space="preserve">
-    <value>URL</value>
-  </data>
   <data name="TXT_SHELL_INTEGRATION" xml:space="preserve">
     <value>Intégration avec l'Explorateur Windows</value>
   </data>
@@ -1026,7 +1023,7 @@ de la fenêtre vidéo</value>
   <data name="TXT_SELECT_RADIO_STATION" xml:space="preserve">
     <value>Sélectionnez une station de radio:</value>
   </data>
-  <data name="TXT_URLPART" xml:space="preserve">
+  <data name="TXT_SERVERURL" xml:space="preserve">
     <value>URL du serveur:</value>
   </data>
   <data name="TXT_SERVERTITLE" xml:space="preserve">

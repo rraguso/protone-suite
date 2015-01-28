@@ -936,9 +936,6 @@ fereastră video</value>
   <data name="TXT_SERVERTYPE" xml:space="preserve">
     <value>Tip server</value>
   </data>
-  <data name="TXT_SERVERURL" xml:space="preserve">
-    <value>URL</value>
-  </data>
   <data name="TXT_SHELL_INTEGRATION" xml:space="preserve">
     <value>Integrare cu Windows Explorer</value>
   </data>
@@ -1093,7 +1090,7 @@ Timpul reperului: {0}</value>
   <data name="TXT_UNSELECT_ALLVIDEO" xml:space="preserve">
     <value>Fără fişiere video</value>
   </data>
-  <data name="TXT_URLPART" xml:space="preserve">
+  <data name="TXT_SERVERURL" xml:space="preserve">
     <value>URL-ul serverului:</value>
   </data>
   <data name="TXT_USE_METADATA" xml:space="preserve">

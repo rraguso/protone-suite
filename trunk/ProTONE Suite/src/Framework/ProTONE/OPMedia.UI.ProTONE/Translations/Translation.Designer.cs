@@ -2411,7 +2411,7 @@ namespace OPMedia.UI.ProTONE.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL.
+        ///   Looks up a localized string similar to Server URL:.
         /// </summary>
         internal static string TXT_SERVERURL {
             get {
@@ -2846,15 +2846,6 @@ namespace OPMedia.UI.ProTONE.Translations {
         internal static string TXT_UNSELECT_ALLVIDEO {
             get {
                 return ResourceManager.GetString("TXT_UNSELECT_ALLVIDEO", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Server URL:.
-        /// </summary>
-        internal static string TXT_URLPART {
-            get {
-                return ResourceManager.GetString("TXT_URLPART", resourceCulture);
             }
         }
         

@@ -638,9 +638,6 @@ Klicken Sie auf die Taste unten, um Fernsteuerung-Manager zu starten ...</value>
   <data name="TXT_SERVERTYPE" xml:space="preserve">
     <value>Server-Typus</value>
   </data>
-  <data name="TXT_SERVERURL" xml:space="preserve">
-    <value>URL</value>
-  </data>
   <data name="TXT_SHELL_INTEGRATION" xml:space="preserve">
     <value>Integration mit Windows Explorer</value>
   </data>
@@ -1026,7 +1023,7 @@ Videofenster Position</value>
   <data name="TXT_SELECT_RADIO_STATION" xml:space="preserve">
     <value>Wählen Sie einen Radiosender:</value>
   </data>
-  <data name="TXT_URLPART" xml:space="preserve">
+  <data name="TXT_SERVERURL" xml:space="preserve">
     <value>Server URL:</value>
   </data>
   <data name="TXT_SERVERTITLE" xml:space="preserve">
