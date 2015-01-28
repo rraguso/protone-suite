@@ -172,5 +172,21 @@ namespace OPMedia.UI.ProTONE.Dialogs
 
             txtSelectedURL.Text = url;
         }
+
+        void lvServers_DoubleClick(object sender, System.EventArgs e)
+        {
+            string url = string.Empty;
+            try
+            {
+                url = lvServers.SelectedItems[0].SubItems[colURL.Index].Text;
+            }
+            catch { }
+
+            txtSelectedURL.Text = url;
+
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            Close();
+        }
+
     }
 }
