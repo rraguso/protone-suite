@@ -123,12 +123,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 throw new RenderingException("Unable to render the file: " + renderMediaName);
 
 #if HAVE_SAMPLES
-            InitAudioSampleGrabber();
+            //InitAudioSampleGrabber();
 #endif
             
             (mediaControl as IGraphBuilder).RenderFile(renderMediaName, null);
 
 #if HAVE_SAMPLES
+            InitAudioSampleGrabber_v2();
             CompleteAudioSampleGrabberIntialization();
 #endif
 
