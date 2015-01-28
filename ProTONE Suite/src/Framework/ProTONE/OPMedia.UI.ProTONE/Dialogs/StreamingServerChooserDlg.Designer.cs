@@ -68,6 +68,7 @@
             this.lvServers.UseCompatibleStateImageBehavior = false;
             this.lvServers.View = System.Windows.Forms.View.Details;
             this.lvServers.SelectedIndexChanged += new System.EventHandler(this.lvServers_SelectedIndexChanged);
+            this.lvServers.DoubleClick += lvServers_DoubleClick;
             // 
             // colEmpty
             // 
