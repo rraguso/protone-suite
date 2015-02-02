@@ -156,6 +156,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             tsmLoopPlay.Checked = ProTONEConfig.LoopPlay;
             tsmPlaylistEnd.Checked = SystemScheduler.PlaylistEventEnabled;
             tsmToggleShuffle.Checked = ProTONEConfig.ShufflePlaylist;
+
+            foreach (var x in opmToolStrip1.Items)
+            {
+                if (x is OPMToolStripSeparator)
+                    continue;
+
+                Padding origM = (x as ToolStripItem).Margin;
+                origM.Top = 2 + ThemeManager.FormBorderWidth;
+                origM.Bottom = 0;
+
+                (x as ToolStripItem).Margin = origM;
+            }
         }
 
         private void OnButtonPressed(object sender, EventArgs e)

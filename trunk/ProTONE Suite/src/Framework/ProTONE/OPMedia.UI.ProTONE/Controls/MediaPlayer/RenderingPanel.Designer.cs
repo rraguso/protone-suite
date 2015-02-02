@@ -53,11 +53,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.Controls.Add(this.pbTimeIcon, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.volumeScale, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.timeScale, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.playbackPanel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pbVolIcon, 3, 2);
+
+
+            this.tableLayoutPanel1.Controls.Add(this.pbTimeIcon, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.volumeScale, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.timeScale, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pbVolIcon, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.playbackPanel, 0, 2);
+
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -84,6 +87,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             // volumeScale
             // 
+            this.volumeScale.AutoSize = true;
             this.volumeScale.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.volumeScale.Dock = System.Windows.Forms.DockStyle.Fill;
             this.volumeScale.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
@@ -98,6 +102,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // 
             // timeScale
             // 
+            this.timeScale.AutoSize = true;
             this.timeScale.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.timeScale.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timeScale.ElapsedSeconds = 0D;

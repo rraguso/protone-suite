@@ -153,6 +153,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             InitializeComponent();
 
+            pnlRendering.OverrideBackColor = ThemeManager.GradientNormalColor2;
             pnlRendering.TimeScaleEnabled = false;
 
             pnlRendering.PositionChanged += 
@@ -172,6 +173,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 MediaRenderer.DefaultInstance.FilterStateChanged += new FilterStateChangedHandler(OnMediaStateChanged);
                 MediaRenderer.DefaultInstance.MediaRendererHeartbeat += new MediaRendererEventHandler(OnMediaRendererHeartbeat);
             }
+        }
+
+        protected override void OnThemeUpdatedInternal()
+        {
+            pnlRendering.OverrideBackColor = ThemeManager.GradientNormalColor2;
         }
 
         [EventSink(LocalEventNames.JumpToBookmark)]

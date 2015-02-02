@@ -73,6 +73,21 @@ namespace OPMedia.UI.Themes
 
         private GraphicsPath _borderPath = null;
 
+        Color _overrideBackColor = Color.Empty;
+        public Color OverrideBackColor
+        {
+            get { return _overrideBackColor; }
+            set { _overrideBackColor = value; Invalidate(true); }
+        }
+
+        private Color GetBackColor()
+        {
+            if (_overrideBackColor != Color.Empty)
+                return _overrideBackColor;
+
+            return base.BackColor;
+        }
+
         string _text = "ABCDE";
         public new string Text
         { 
@@ -958,7 +973,7 @@ namespace OPMedia.UI.Themes
             if (_brBackground != null)
                 _brBackground.Dispose();
 
-                _brBackground = new SolidBrush(ThemeManager.BackColor);
+                _brBackground = new SolidBrush(GetBackColor());
 
             if (_brTitlebar != null)
                 _brTitlebar.Dispose();
