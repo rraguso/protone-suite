@@ -9,7 +9,7 @@ typedef void (__stdcall *CallbackProc)(__int64);
 int __stdcall PortInit(LPCTSTR lpszPortName);
 // DLL Import for .NET C# apps:
 // [DllImport("IRSerDev.dll", CallingConvention = CallingConvention.StdCall)]
-// public static extern int PortInit(string lpszPortName, DCB initDcb);
+// public static extern int PortInit(string lpszPortName);
 
 // Close/cleanup the serial port for the remote control serial device
 int __stdcall PortClose();
