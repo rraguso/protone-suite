@@ -70,7 +70,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 3F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(481, 50);
             this.tableLayoutPanel1.TabIndex = 6;
@@ -78,7 +78,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // pbTimeIcon
             // 
             this.pbTimeIcon.Location = new System.Drawing.Point(0, 30);
-            this.pbTimeIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.pbTimeIcon.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.pbTimeIcon.Name = "pbTimeIcon";
             this.pbTimeIcon.Size = new System.Drawing.Size(20, 20);
             this.pbTimeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -93,7 +93,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.volumeScale.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
             this.volumeScale.IsOnMenuBar = false;
             this.volumeScale.Location = new System.Drawing.Point(331, 36);
-            this.volumeScale.Margin = new System.Windows.Forms.Padding(0, 6, 3, 0);
+            this.volumeScale.Margin = new System.Windows.Forms.Padding(0, 7, 3, 0);
             this.volumeScale.Name = "volumeScale";
             this.volumeScale.OverrideBackColor = System.Drawing.Color.Empty;
             this.volumeScale.Position = 5000;
@@ -109,7 +109,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.timeScale.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
             this.timeScale.IsOnMenuBar = false;
             this.timeScale.Location = new System.Drawing.Point(20, 36);
-            this.timeScale.Margin = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.timeScale.Margin = new System.Windows.Forms.Padding(0, 7, 0, 0);
             this.timeScale.Name = "timeScale";
             this.timeScale.OverrideBackColor = System.Drawing.Color.Empty;
             this.timeScale.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -139,7 +139,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             // pbVolIcon
             // 
             this.pbVolIcon.Location = new System.Drawing.Point(311, 30);
-            this.pbVolIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.pbVolIcon.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.pbVolIcon.Name = "pbVolIcon";
             this.pbVolIcon.Size = new System.Drawing.Size(20, 20);
             this.pbVolIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
