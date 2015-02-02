@@ -29,9 +29,6 @@ namespace OPMedia.UI.Themes
 
     public partial class ThemeForm : ThemeFormBase
     {
-
-        private Color _bkColor = ThemeManager.BackColor;
-        private Color _borderColor = ThemeManager.BorderColor;
         private FontSizes _fontSize = FontSizes.Normal;
 
         public FontSizes FontSize
