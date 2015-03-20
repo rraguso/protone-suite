@@ -84,6 +84,7 @@
     <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\ChangeEncodingPanel.Designer.cs">
       <DependentUpon>ChangeEncodingPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Helpers\Transcoder.cs" />
     <Compile Include="Shared\EncoderOptions\EncoderConfiguratorCtl.cs">
       <SubType>UserControl</SubType>
     </Compile>
