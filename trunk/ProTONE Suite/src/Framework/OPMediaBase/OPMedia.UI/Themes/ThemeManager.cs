@@ -211,6 +211,8 @@ namespace OPMedia.UI.Themes
         public static Color GradientGaugeColor2
         { get { return ThemeElement("GradientGaugeColor2", SafeColorFromString("255, 000, 000")); } }
 
+        public static Color GradientGaugeColor1a
+        { get { return ThemeElement("GradientGaugeColor1a", SafeColorFromString("255, 242, 000")); } }
 
         public static int CornerSize
         { get { return ThemeElement("CornerSize", 0); } }
@@ -229,6 +231,14 @@ namespace OPMedia.UI.Themes
         public static int FormBorderWidth
         { get { return ThemeElement("FormBorderWidth", 1); } }
 
+        public static string SkinResourcesFolder
+        { 
+            get 
+            {
+                string currentTheme = AppConfig.AllowRealtimeGUISetup ? AppConfig.SkinType : "Black";
+                return ThemeElement("SkinResourcesFolder", currentTheme); 
+            } 
+        }
 
         public static Color ColorValidationFailed
         { get { return Color.MistyRose; } }

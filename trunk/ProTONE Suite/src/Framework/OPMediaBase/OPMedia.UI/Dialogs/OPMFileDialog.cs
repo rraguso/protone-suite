@@ -472,7 +472,15 @@ namespace OPMedia.UI.Controls.Dialogs
                     {
                         try
                         {
-                            string title = Path.GetFileName(fav);
+                            string title = "";
+                            if (PathUtils.IsRootPath(fav))
+                            {
+                                DriveInfo di = new DriveInfo(fav);
+                                title = string.Format("{0} [{1}]", di.VolumeLabel, di.DriveType);
+                            }
+                            else
+                                title = Path.GetFileName(fav);
+
                             OPMToolStripButton btn = new OPMToolStripButton(title);
                             btn.Name = title;
                             btn.Image = ImageProvider.GetIcon(fav, true);

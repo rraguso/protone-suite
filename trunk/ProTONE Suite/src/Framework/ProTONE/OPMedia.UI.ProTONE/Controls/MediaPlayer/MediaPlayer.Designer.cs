@@ -36,9 +36,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             this.components = new System.ComponentModel.Container();
             this.layoutPanel = new OPMedia.UI.Controls.OPMTableLayoutPanel();
+            this.cmsOpenFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pnlScreens = new OPMedia.UI.ProTONE.Controls.MediaPlayer.MediaScreens();
             this.pnlRendering = new OPMedia.UI.ProTONE.Controls.MediaPlayer.RenderingPanel();
-            this.cmsOpenFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.layoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,9 +55,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.layoutPanel.OverrideBackColor = System.Drawing.Color.Empty;
             this.layoutPanel.RowCount = 2;
             this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.layoutPanel.Size = new System.Drawing.Size(573, 393);
+            this.layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.layoutPanel.Size = new System.Drawing.Size(573, 385);
             this.layoutPanel.TabIndex = 0;
+            // 
+            // cmsOpenFiles
+            // 
+            this.cmsOpenFiles.Name = "cmsOpenFiles";
+            this.cmsOpenFiles.Size = new System.Drawing.Size(61, 4);
             // 
             // pnlScreens
             // 
@@ -69,7 +74,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlScreens.MinimumSize = new System.Drawing.Size(160, 160);
             this.pnlScreens.Name = "pnlScreens";
             this.pnlScreens.SelectedIndex = 0;
-            this.pnlScreens.Size = new System.Drawing.Size(573, 341);
+            this.pnlScreens.Size = new System.Drawing.Size(573, 317);
             this.pnlScreens.TabIndex = 0;
             this.pnlScreens.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragDrop);
             this.pnlScreens.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragEnter);
@@ -89,12 +94,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlRendering.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
             this.pnlRendering.HasBorder = false;
             this.pnlRendering.Highlight = false;
-            this.pnlRendering.Location = new System.Drawing.Point(0, 341);
+            this.pnlRendering.Location = new System.Drawing.Point(0, 317);
             this.pnlRendering.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlRendering.MinimumSize = new System.Drawing.Size(481, 68);
             this.pnlRendering.Name = "pnlRendering";
             this.pnlRendering.OverrideBackColor = System.Drawing.Color.Empty;
             this.pnlRendering.ProjectedVolume = 5000;
-            this.pnlRendering.Size = new System.Drawing.Size(573, 52);
+            this.pnlRendering.Size = new System.Drawing.Size(573, 68);
             this.pnlRendering.TabIndex = 1;
             this.pnlRendering.TimeScaleEnabled = true;
             this.pnlRendering.TotalSeconds = 0D;
@@ -104,18 +110,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlRendering.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlRendering_DragOver);
             this.pnlRendering.DragLeave += new System.EventHandler(this.pnlRendering_DragLeave);
             // 
-            // cmsOpenFiles
-            // 
-            this.cmsOpenFiles.Name = "cmsOpenFiles";
-            this.cmsOpenFiles.Size = new System.Drawing.Size(61, 4);
-            // 
             // MediaPlayer
             // 
             this.Controls.Add(this.layoutPanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(365, 255);
             this.Name = "MediaPlayer";
-            this.Size = new System.Drawing.Size(573, 393);
+            this.Size = new System.Drawing.Size(573, 385);
             this.layoutPanel.ResumeLayout(false);
             this.layoutPanel.PerformLayout();
             this.ResumeLayout(false);
