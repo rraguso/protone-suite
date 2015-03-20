@@ -1,4 +1,4 @@
-﻿namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
+﻿namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
 {
     partial class EncoderConfiguratorCtl
     {

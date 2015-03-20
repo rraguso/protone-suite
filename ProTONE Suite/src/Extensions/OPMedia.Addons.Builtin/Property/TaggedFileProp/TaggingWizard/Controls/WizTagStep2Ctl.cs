@@ -21,6 +21,13 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
         private List<EditPanelBase> panels =
             new List<EditPanelBase>();
 
+        public override Size DesiredSize
+        {
+            get
+            {
+                return new Size(640, 455);
+            }
+        }
 
         public WizTagStep2Ctl()
         {
@@ -29,6 +36,7 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
             AddPanel(new MultiRenamePanel());
             AddPanel(new TagEditorPanel());
             AddPanel(new FSTagEditorPanel());
+            AddPanel(new ChangeEncodingPanel());
 
             cmbEditType.SelectedIndex = 0;
 
@@ -56,8 +64,6 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
         {
             cmbWordCasing.SelectedIndex = (int)(BkgTask as Task).WordCasing;
             ShowPanel(selectedPanel);
-
-
         }
 
         private void AddPanel(EditPanelBase panel)
@@ -82,6 +88,10 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
                 Translator.TranslateControl(panel, false);
                 panel.Visible = true;
                 panel.SetTask(BkgTask as Task);
+
+                lblPreview.Visible = panel.ShowPreview;
+                cmbWordCasing.Visible = panel.ShowWordCasing;
+                lblWordHandling.Visible = panel.ShowWordCasing;
             }
 
             selectedPanel = index;

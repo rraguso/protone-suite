@@ -14,6 +14,21 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
         protected Task _task = new Task();
         protected string title = "EditPanelBase";
 
+        public virtual bool ShowWordCasing
+        {
+            get
+            {
+                return true;
+            }
+        }
+        public virtual bool ShowPreview
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         public string Title
         {
             get

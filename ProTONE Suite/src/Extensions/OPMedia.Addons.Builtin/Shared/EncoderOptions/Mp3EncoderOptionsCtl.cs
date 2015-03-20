@@ -6,33 +6,43 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks;
 using OPMedia.Runtime.ProTONE.Compression.Lame;
 using OPMedia.UI.Dialogs;
 
-namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
+namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
 {
     public partial class Mp3EncoderOptionsCtl : EncoderConfiguratorCtl
     {
-        internal Task Task { get; set; }
-
-        public BE_CONFIG Mp3ConversionOptions
+        public override AudioMediaFormatType OutputFormat
         {
             get
             {
-                return this.Task.Mp3ConversionOptions;
+                return AudioMediaFormatType.MP3;
             }
         }
 
-        public override CdRipperOutputFormatType OutputFormat
+        public Mp3EncoderSettings Mp3EncoderSettings { get; set; }
+
+        private BE_CONFIG Mp3ConversionOptions
         {
             get
             {
-                return CdRipperOutputFormatType.MP3;
+                return Mp3EncoderSettings.Mp3ConversionOptions;
+            }
+
+            set
+            {
+                Mp3EncoderSettings.Mp3ConversionOptions = value;
             }
         }
 
-        public Mp3EncoderOptionsCtl()
+        private bool GenerateTagsFromTrackMetadata
+        {
+            get { return Mp3EncoderSettings.GenerateTagsFromTrackMetadata; }
+            set { Mp3EncoderSettings.GenerateTagsFromTrackMetadata = value; }
+        }
+
+        public Mp3EncoderOptionsCtl() 
         {
             InitializeComponent();
 
@@ -114,9 +124,9 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             // ---- 7 ----
             chkCopyright.Checked = (Mp3ConversionOptions.format.bCopyright != 0);
             chkCopyright.CheckedChanged += (s, a) =>
-                {
-                    Mp3ConversionOptions.format.bCopyright = chkCopyright.Checked ? 1 : 0;
-                };
+            {
+                Mp3ConversionOptions.format.bCopyright = chkCopyright.Checked ? 1 : 0;
+            };
 
             // ---- 8 ----
             chkPrivate.Checked = (Mp3ConversionOptions.format.bPrivate != 0);
@@ -140,10 +150,10 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             };
 
             // --- 11 ----
-            chkGenerateTag.Checked = this.Task.GenerateTagsFromTrackMetadata;
+            chkGenerateTag.Checked = GenerateTagsFromTrackMetadata;
             chkGenerateTag.CheckedChanged += (s, a) =>
             {
-                this.Task.GenerateTagsFromTrackMetadata = chkGenerateTag.Checked;
+                GenerateTagsFromTrackMetadata = chkGenerateTag.Checked;
             };
         }
 

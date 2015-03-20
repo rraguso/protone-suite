@@ -11,6 +11,7 @@ using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard;
 using OPMedia.Core.Utilities;
 using System.Threading;
+using OPMedia.Addons.Builtin.Shared.EncoderOptions;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Helpers
 {
@@ -45,20 +46,20 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Helpers
             }
         }
 
-        public static CdRipper CreateGrabber(CdRipperOutputFormatType outputType)
+        public static CdRipper CreateGrabber(AudioMediaFormatType outputType)
         {
             switch (outputType)
             {
-                case CdRipperOutputFormatType.WAV:
+                case AudioMediaFormatType.WAV:
                     return new GrabberToWave();
                 
-                case CdRipperOutputFormatType.MP3:
+                case AudioMediaFormatType.MP3:
                     return new GrabberToMP3();
                 
-                //case CdRipperOutputFormatType.WMA:
+                //case AudioMediaFormatType.WMA:
                 //    return new GrabberToWMA();
                 
-                //case CdRipperOutputFormatType.OGG:
+                //case AudioMediaFormatType.OGG:
                 //    return new GrabberToOGG();
             }
 

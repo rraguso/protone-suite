@@ -31,13 +31,13 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new OPMLabel();
-            this.cmbEditType = new OPMComboBox();
+            this.label1 = new OPMedia.UI.Controls.OPMLabel();
+            this.cmbEditType = new OPMedia.UI.Controls.OPMComboBox();
             this.pnlEdit = new System.Windows.Forms.Panel();
-            this.cmbWordCasing = new OPMComboBox();
-            this.label2 = new OPMLabel();
-            this.lblPreview = new OPMLinkLabel();
-            this.opmLayoutPanel1 = new OPMTableLayoutPanel();
+            this.cmbWordCasing = new OPMedia.UI.Controls.OPMComboBox();
+            this.lblWordHandling = new OPMedia.UI.Controls.OPMLabel();
+            this.lblPreview = new OPMedia.UI.Controls.OPMLinkLabel();
+            this.opmLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
             this.opmLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,19 +92,19 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
             this.cmbWordCasing.TabIndex = 4;
             this.cmbWordCasing.SelectedIndexChanged += new System.EventHandler(this.cmbWordCasing_SelectedIndexChanged);
             // 
-            // label2
+            // lblWordHandling
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Location = new System.Drawing.Point(0, 229);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.OverrideBackColor = System.Drawing.Color.Empty;
-            this.label2.OverrideForeColor = System.Drawing.Color.Empty;
-            this.label2.Size = new System.Drawing.Size(417, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "TXT_WORDHANDLING";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblWordHandling.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblWordHandling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblWordHandling.Location = new System.Drawing.Point(0, 229);
+            this.lblWordHandling.Margin = new System.Windows.Forms.Padding(0);
+            this.lblWordHandling.Name = "lblWordHandling";
+            this.lblWordHandling.OverrideBackColor = System.Drawing.Color.Empty;
+            this.lblWordHandling.OverrideForeColor = System.Drawing.Color.Empty;
+            this.lblWordHandling.Size = new System.Drawing.Size(417, 17);
+            this.lblWordHandling.TabIndex = 3;
+            this.lblWordHandling.Text = "TXT_WORDHANDLING";
+            this.lblWordHandling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPreview
             // 
@@ -126,11 +126,12 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
             this.opmLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.opmLayoutPanel1.Controls.Add(this.cmbEditType, 0, 1);
             this.opmLayoutPanel1.Controls.Add(this.cmbWordCasing, 0, 4);
-            this.opmLayoutPanel1.Controls.Add(this.label2, 0, 3);
+            this.opmLayoutPanel1.Controls.Add(this.lblWordHandling, 0, 3);
             this.opmLayoutPanel1.Controls.Add(this.pnlEdit, 0, 2);
             this.opmLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.opmLayoutPanel1.Name = "opmLayoutPanel1";
+            this.opmLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLayoutPanel1.RowCount = 6;
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -141,10 +142,10 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
             this.opmLayoutPanel1.Size = new System.Drawing.Size(417, 292);
             this.opmLayoutPanel1.TabIndex = 6;
             // 
-            // WizId3Step2Ctl
+            // WizTagStep2Ctl
             // 
             this.Controls.Add(this.opmLayoutPanel1);
-            this.Name = "WizId3Step2Ctl";
+            this.Name = "WizTagStep2Ctl";
             this.Size = new System.Drawing.Size(417, 292);
             this.opmLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -157,7 +158,7 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
         private OPMComboBox cmbEditType;
         private System.Windows.Forms.Panel pnlEdit;
         private OPMComboBox cmbWordCasing;
-        private OPMLabel label2;
+        private OPMLabel lblWordHandling;
         private OPMLinkLabel lblPreview;
         private OPMTableLayoutPanel opmLayoutPanel1;
     }

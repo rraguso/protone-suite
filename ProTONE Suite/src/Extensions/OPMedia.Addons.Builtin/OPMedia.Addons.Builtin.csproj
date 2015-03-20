@@ -78,28 +78,41 @@
     <Compile Include="Navigation\CatalogExplorer\Dialogs\CatalogFolderBrowserDialog.Designer.cs">
       <DependentUpon>CatalogFolderBrowserDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\EncoderConfiguratorCtl.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\ChangeEncodingPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\EncoderConfiguratorCtl.Designer.cs">
+    <Compile Include="Property\TaggedFileProp\TaggingWizard\Controls\ChangeEncodingPanel.Designer.cs">
+      <DependentUpon>ChangeEncodingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\EncoderOptions\EncoderConfiguratorCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\EncoderOptions\EncoderConfiguratorCtl.Designer.cs">
       <DependentUpon>EncoderConfiguratorCtl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.cs">
+    <Compile Include="Shared\EncoderOptions\EncoderOptionsCtl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.Designer.cs">
+    <Compile Include="Shared\EncoderOptions\EncoderOptionsCtl.Designer.cs">
+      <DependentUpon>EncoderOptionsCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\EncoderOptions\Generic.cs" />
+    <Compile Include="Shared\EncoderOptions\Mp3EncoderOptionsCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\EncoderOptions\Mp3EncoderOptionsCtl.Designer.cs">
       <DependentUpon>Mp3EncoderOptionsCtl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.cs">
+    <Compile Include="Shared\EncoderOptions\OggEncoderOptionsCtl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.Designer.cs">
+    <Compile Include="Shared\EncoderOptions\OggEncoderOptionsCtl.Designer.cs">
       <DependentUpon>OggEncoderOptionsCtl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.cs">
+    <Compile Include="Shared\EncoderOptions\WavEncoderOptionsCtl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.Designer.cs">
+    <Compile Include="Shared\EncoderOptions\WavEncoderOptionsCtl.Designer.cs">
       <DependentUpon>WavEncoderOptionsCtl.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep2.cs">
@@ -114,10 +127,10 @@
     <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep1.Designer.cs">
       <DependentUpon>WizCdRipperStep1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.cs">
+    <Compile Include="Shared\EncoderOptions\WmaEncoderOptionsCtl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.Designer.cs">
+    <Compile Include="Shared\EncoderOptions\WmaEncoderOptionsCtl.Designer.cs">
       <DependentUpon>WmaEncoderOptionsCtl.cs</DependentUpon>
     </Compile>
     <Compile Include="Navigation\FileExplorer\CdRipperWizard\Helpers\AudioGrabber.cs" />
@@ -312,13 +325,19 @@
     <EmbeddedResource Include="Navigation\FileExplorer\AddonPanel.resx">
       <DependentUpon>AddonPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\Mp3EncoderOptionsCtl.resx">
+    <EmbeddedResource Include="Property\TaggedFileProp\TaggingWizard\Controls\ChangeEncodingPanel.resx">
+      <DependentUpon>ChangeEncodingPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\EncoderOptions\EncoderOptionsCtl.resx">
+      <DependentUpon>EncoderOptionsCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\EncoderOptions\Mp3EncoderOptionsCtl.resx">
       <DependentUpon>Mp3EncoderOptionsCtl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\OggEncoderOptionsCtl.resx">
+    <EmbeddedResource Include="Shared\EncoderOptions\OggEncoderOptionsCtl.resx">
       <DependentUpon>OggEncoderOptionsCtl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WavEncoderOptionsCtl.resx">
+    <EmbeddedResource Include="Shared\EncoderOptions\WavEncoderOptionsCtl.resx">
       <DependentUpon>WavEncoderOptionsCtl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep1.resx">
@@ -327,7 +346,7 @@
     <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WizCdRipperStep2.resx">
       <DependentUpon>WizCdRipperStep2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navigation\FileExplorer\CdRipperWizard\Forms\WmaEncoderOptionsCtl.resx">
+    <EmbeddedResource Include="Shared\EncoderOptions\WmaEncoderOptionsCtl.resx">
       <DependentUpon>WmaEncoderOptionsCtl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navigation\FileExplorer\FileExplorerCfgPanel.resx">

@@ -23,7 +23,7 @@ namespace OPMedia.Addons.Builtin.Player
         {
             InitializeComponent();
 
-            mediaPlayer.CompactView = true;
+            //mediaPlayer.CompactView = true;
         }
 
         public override List<string> HandledFileTypes

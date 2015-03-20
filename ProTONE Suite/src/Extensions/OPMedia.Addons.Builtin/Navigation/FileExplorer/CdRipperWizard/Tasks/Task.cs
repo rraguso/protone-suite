@@ -13,6 +13,7 @@ using OPMedia.Runtime.ProTONE.Compression.Lame;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.Core.TranslationSupport;
 using System.Threading;
+using OPMedia.Addons.Builtin.Shared.EncoderOptions;
 
 namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks
 {
@@ -71,24 +72,18 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks
         public string OutputFilePattern { get; set; }
 
         [Browsable(false)]
-        public BE_CONFIG Mp3ConversionOptions { get; set; }
-
-        [Browsable(false)]
-        public CdRipperOutputFormatType OutputFormatType { get; set; }
-
-        public bool GenerateTagsFromTrackMetadata { get; set; }
+        public EncoderSettingsContainer EncoderSettings { get; set; }
 
         public Task()
         {
-            this.Mp3ConversionOptions = new BE_CONFIG();
-            this.GenerateTagsFromTrackMetadata = true;
+            this.EncoderSettings = new EncoderSettingsContainer();
         }
 
         private StepDetail ProcessTrack(Track track)
         {
             string newFileName = string.Format("{0}.{1}",
                 CdRipper.GetFileName(WordCasing.KeepCase, track, OutputFilePattern),
-                this.OutputFormatType.ToString().ToLowerInvariant());
+                this.EncoderSettings.AudioMediaFormatType.ToString().ToLowerInvariant());
 
             StepDetail detail = new StepDetail();
             detail.Description = Translator.Translate("TXT_PROCESSING_TRACK", track, newFileName);
@@ -99,7 +94,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks
 
             try
             {
-                _grabber = CdRipper.CreateGrabber(this.OutputFormatType);
+                _grabber = CdRipper.CreateGrabber(this.EncoderSettings.AudioMediaFormatType);
                 char letter = Drive.RootDirectory.FullName.ToUpperInvariant()[0];
                 using (CDDrive cd = new CDDrive())
                 {
@@ -107,17 +102,20 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks
                     {
                         string destFile = Path.Combine(OutputFolder, newFileName);
 
-                        switch (this.OutputFormatType)
+                        bool generateTagsFromMetadata = false;
+
+                        switch (this.EncoderSettings.AudioMediaFormatType)
                         {
-                            case CdRipperOutputFormatType.WAV:
+                            case AudioMediaFormatType.WAV:
                                 break;
 
-                            case CdRipperOutputFormatType.MP3:
-                                (_grabber as GrabberToMP3).Mp3ConversionOptions = this.Mp3ConversionOptions;
+                            case AudioMediaFormatType.MP3:
+                                (_grabber as GrabberToMP3).Mp3ConversionOptions = this.EncoderSettings.Mp3EncoderSettings.Mp3ConversionOptions;
+                                generateTagsFromMetadata = this.EncoderSettings.Mp3EncoderSettings.GenerateTagsFromTrackMetadata;
                                 break;
                         }
 
-                        _grabber.Grab(cd, track, destFile, this.GenerateTagsFromTrackMetadata);
+                        _grabber.Grab(cd, track, destFile, generateTagsFromMetadata);
                     }
                 }
 
@@ -135,13 +133,5 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks
         {
             _grabber.RequestCancel();
         }
-    }
-
-    public enum CdRipperOutputFormatType
-    {
-        WAV = 0,
-        MP3,
-        WMA,
-        OGG
     }
 }
