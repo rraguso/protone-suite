@@ -1,6 +1,6 @@
-﻿namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
+﻿namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
 {
-    partial class OggEncoderOptionsCtl
+    partial class WmaEncoderOptionsCtl
     {
         /// <summary> 
         /// Required designer variable.
@@ -39,18 +39,18 @@
             this.opmLabel1.Name = "opmLabel1";
             this.opmLabel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel1.Size = new System.Drawing.Size(170, 13);
+            this.opmLabel1.Size = new System.Drawing.Size(173, 13);
             this.opmLabel1.TabIndex = 1;
-            this.opmLabel1.Text = "OGG Format not yet supported.";
+            this.opmLabel1.Text = "WMA Format not yet supported.";
             this.opmLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // OggEncoderOptionsCtl
+            // WmaEncoderOptionsCtl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.opmLabel1);
-            this.Name = "OggEncoderOptionsCtl";
-            this.Size = new System.Drawing.Size(283, 150);
+            this.Name = "WmaEncoderOptionsCtl";
+            this.Size = new System.Drawing.Size(232, 150);
             this.ResumeLayout(false);
             this.PerformLayout();
 

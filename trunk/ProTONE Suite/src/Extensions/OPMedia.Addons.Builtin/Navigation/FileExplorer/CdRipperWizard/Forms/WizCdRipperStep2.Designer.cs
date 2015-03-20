@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            OPMedia.Addons.Builtin.Shared.EncoderOptions.EncoderSettingsContainer encoderSettingsContainer1 = new OPMedia.Addons.Builtin.Shared.EncoderOptions.EncoderSettingsContainer();
+            OPMedia.Addons.Builtin.Shared.EncoderOptions.Mp3EncoderSettings mp3EncoderSettings1 = new OPMedia.Addons.Builtin.Shared.EncoderOptions.Mp3EncoderSettings();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WizCdRipperStep2));
+            OPMedia.Addons.Builtin.Shared.EncoderOptions.OggEncoderSettings oggEncoderSettings1 = new OPMedia.Addons.Builtin.Shared.EncoderOptions.OggEncoderSettings();
+            OPMedia.Addons.Builtin.Shared.EncoderOptions.WavEncoderSettings wavEncoderSettings1 = new OPMedia.Addons.Builtin.Shared.EncoderOptions.WavEncoderSettings();
+            OPMedia.Addons.Builtin.Shared.EncoderOptions.WmaEncoderSettings wmaEncoderSettings1 = new OPMedia.Addons.Builtin.Shared.EncoderOptions.WmaEncoderSettings();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.opmLabel1 = new OPMedia.UI.Controls.OPMLabel();
             this.opmLabel2 = new OPMedia.UI.Controls.OPMLabel();
             this.txtDestFolder = new OPMedia.UI.Controls.OPMTextBox();
             this.opmButton1 = new OPMedia.UI.Controls.OPMButton();
             this.cmbFilePattern = new OPMedia.UI.Controls.OPMEditableComboBox();
-            this.opmGroupBox1 = new OPMedia.UI.Controls.OPMGroupBox();
-            this.opmTableLayoutPanel1 = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.opmLabel3 = new OPMedia.UI.Controls.OPMLabel();
-            this.cmbOutputFormat = new OPMedia.UI.Controls.OPMComboBox();
-            this.pnlEncoderOptions = new OPMedia.UI.Controls.OPMPanel();
+            this.encoderOptionsCtl = new OPMedia.Addons.Builtin.Shared.EncoderOptions.EncoderOptionsCtl();
             this.tableLayoutPanel1.SuspendLayout();
-            this.opmGroupBox1.SuspendLayout();
-            this.opmTableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -54,7 +54,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtDestFolder, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.opmButton1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmbFilePattern, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.opmGroupBox1, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.encoderOptionsCtl, 0, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -101,15 +101,29 @@
             // 
             // txtDestFolder
             // 
-            this.txtDestFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.txtDestFolder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.txtDestFolder.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDestFolder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDestFolder.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.txtDestFolder.Location = new System.Drawing.Point(3, 16);
             this.txtDestFolder.Margin = new System.Windows.Forms.Padding(3, 3, 1, 3);
+            this.txtDestFolder.MaximumSize = new System.Drawing.Size(2000, 20);
+            this.txtDestFolder.MaxLength = 32767;
+            this.txtDestFolder.MinimumSize = new System.Drawing.Size(20, 20);
+            this.txtDestFolder.Multiline = false;
             this.txtDestFolder.Name = "txtDestFolder";
+            this.txtDestFolder.OverrideBackColor = System.Drawing.Color.Empty;
             this.txtDestFolder.OverrideForeColor = System.Drawing.Color.Empty;
+            this.txtDestFolder.Padding = new System.Windows.Forms.Padding(3);
+            this.txtDestFolder.PasswordChar = '\0';
             this.txtDestFolder.ReadOnly = true;
-            this.txtDestFolder.Size = new System.Drawing.Size(402, 22);
+            this.txtDestFolder.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDestFolder.ShortcutsEnabled = true;
+            this.txtDestFolder.Size = new System.Drawing.Size(402, 20);
             this.txtDestFolder.TabIndex = 2;
+            this.txtDestFolder.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtDestFolder.UseSystemPasswordChar = false;
+            this.txtDestFolder.WordWrap = true;
             this.txtDestFolder.TextChanged += new System.EventHandler(this.OnOutputFolderChanged);
             // 
             // opmButton1
@@ -122,6 +136,7 @@
             this.opmButton1.Name = "opmButton1";
             this.opmButton1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmButton1.OverrideForeColor = System.Drawing.Color.Empty;
+            this.opmButton1.ShowDropDown = false;
             this.opmButton1.Size = new System.Drawing.Size(19, 25);
             this.opmButton1.TabIndex = 3;
             this.opmButton1.Text = "...";
@@ -144,73 +159,22 @@
             this.cmbFilePattern.SelectedIndexChanged += new System.EventHandler(this.OnFilePatternChanged);
             this.cmbFilePattern.TextChanged += new System.EventHandler(this.OnFilePatternChanged);
             // 
-            // opmGroupBox1
+            // encoderOptionsCtl
             // 
-            this.opmGroupBox1.AutoSize = true;
-            this.opmGroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.SetColumnSpan(this.opmGroupBox1, 2);
-            this.opmGroupBox1.Controls.Add(this.opmTableLayoutPanel1);
-            this.opmGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmGroupBox1.Location = new System.Drawing.Point(3, 90);
-            this.opmGroupBox1.Name = "opmGroupBox1";
-            this.opmGroupBox1.Size = new System.Drawing.Size(425, 307);
-            this.opmGroupBox1.TabIndex = 5;
-            this.opmGroupBox1.TabStop = false;
-            this.opmGroupBox1.Text = "TXT_ENCODEROPTIONS";
-            // 
-            // opmTableLayoutPanel1
-            // 
-            this.opmTableLayoutPanel1.ColumnCount = 3;
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.opmTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.opmTableLayoutPanel1.Controls.Add(this.opmLabel3, 0, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.cmbOutputFormat, 1, 0);
-            this.opmTableLayoutPanel1.Controls.Add(this.pnlEncoderOptions, 0, 1);
-            this.opmTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmTableLayoutPanel1.Location = new System.Drawing.Point(3, 18);
-            this.opmTableLayoutPanel1.Name = "opmTableLayoutPanel1";
-            this.opmTableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmTableLayoutPanel1.RowCount = 2;
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(419, 286);
-            this.opmTableLayoutPanel1.TabIndex = 0;
-            // 
-            // opmLabel3
-            // 
-            this.opmLabel3.AutoSize = true;
-            this.opmLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel3.Location = new System.Drawing.Point(3, 0);
-            this.opmLabel3.Name = "opmLabel3";
-            this.opmLabel3.OverrideBackColor = System.Drawing.Color.Empty;
-            this.opmLabel3.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel3.Size = new System.Drawing.Size(118, 29);
-            this.opmLabel3.TabIndex = 1;
-            this.opmLabel3.Text = "TXT_OUTPUT_FORMAT";
-            this.opmLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbOutputFormat
-            // 
-            this.cmbOutputFormat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbOutputFormat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbOutputFormat.FormattingEnabled = true;
-            this.cmbOutputFormat.Location = new System.Drawing.Point(127, 3);
-            this.cmbOutputFormat.Name = "cmbOutputFormat";
-            this.cmbOutputFormat.OverrideForeColor = System.Drawing.Color.Empty;
-            this.cmbOutputFormat.Size = new System.Drawing.Size(114, 23);
-            this.cmbOutputFormat.TabIndex = 0;
-            this.cmbOutputFormat.SelectedIndexChanged += new System.EventHandler(this.OnSelectOutputFormat);
-            // 
-            // pnlEncoderOptions
-            // 
-            this.opmTableLayoutPanel1.SetColumnSpan(this.pnlEncoderOptions, 3);
-            this.pnlEncoderOptions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEncoderOptions.Location = new System.Drawing.Point(3, 32);
-            this.pnlEncoderOptions.Name = "pnlEncoderOptions";
-            this.pnlEncoderOptions.Size = new System.Drawing.Size(413, 251);
-            this.pnlEncoderOptions.TabIndex = 2;
+            this.tableLayoutPanel1.SetColumnSpan(this.encoderOptionsCtl, 2);
+            this.encoderOptionsCtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            encoderSettingsContainer1.AudioMediaFormatType = OPMedia.Addons.Builtin.Shared.EncoderOptions.AudioMediaFormatType.WAV;
+            mp3EncoderSettings1.GenerateTagsFromTrackMetadata = false;
+            mp3EncoderSettings1.Mp3ConversionOptions = ((OPMedia.Runtime.ProTONE.Compression.Lame.BE_CONFIG)(resources.GetObject("mp3EncoderSettings1.Mp3ConversionOptions")));
+            encoderSettingsContainer1.Mp3EncoderSettings = mp3EncoderSettings1;
+            encoderSettingsContainer1.OggEncoderSettings = oggEncoderSettings1;
+            encoderSettingsContainer1.WavEncoderSettings = wavEncoderSettings1;
+            encoderSettingsContainer1.WmaEncoderSettings = wmaEncoderSettings1;
+            this.encoderOptionsCtl.EncoderSettings = encoderSettingsContainer1;
+            this.encoderOptionsCtl.Location = new System.Drawing.Point(3, 90);
+            this.encoderOptionsCtl.Name = "encoderOptionsCtl";
+            this.encoderOptionsCtl.Size = new System.Drawing.Size(425, 307);
+            this.encoderOptionsCtl.TabIndex = 5;
             // 
             // WizCdRipperStep2
             // 
@@ -221,9 +185,6 @@
             this.Size = new System.Drawing.Size(431, 400);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.opmGroupBox1.ResumeLayout(false);
-            this.opmTableLayoutPanel1.ResumeLayout(false);
-            this.opmTableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -236,10 +197,6 @@
         private UI.Controls.OPMTextBox txtDestFolder;
         private UI.Controls.OPMButton opmButton1;
         private UI.Controls.OPMEditableComboBox cmbFilePattern;
-        private UI.Controls.OPMGroupBox opmGroupBox1;
-        private UI.Controls.OPMTableLayoutPanel opmTableLayoutPanel1;
-        private UI.Controls.OPMComboBox cmbOutputFormat;
-        private UI.Controls.OPMLabel opmLabel3;
-        private UI.Controls.OPMPanel pnlEncoderOptions;
+        private Shared.EncoderOptions.EncoderOptionsCtl encoderOptionsCtl;
     }
 }

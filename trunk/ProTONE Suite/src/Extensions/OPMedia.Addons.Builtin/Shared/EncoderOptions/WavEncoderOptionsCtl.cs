@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
+namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
 {
     public partial class WavEncoderOptionsCtl : EncoderConfiguratorCtl
     {

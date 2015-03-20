@@ -13,6 +13,7 @@ using OPMedia.Core.Utilities;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
 using OPMedia.UI.FileTasks;
 using System.Drawing.Design;
+using OPMedia.Addons.Builtin.Shared.EncoderOptions;
 
 namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
 {
@@ -109,6 +110,11 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
         [Browsable(false)]
         public WordCasing WordCasing
         { get { return _wordCasing; } set { _wordCasing = value; } }
+
+        EncoderSettingsContainer _encoderSettings = new EncoderSettingsContainer();
+        [Browsable(false)]
+        public EncoderSettingsContainer EncoderSettings
+        { get { return _encoderSettings; } set { _encoderSettings = value; } }
 
         #endregion
 

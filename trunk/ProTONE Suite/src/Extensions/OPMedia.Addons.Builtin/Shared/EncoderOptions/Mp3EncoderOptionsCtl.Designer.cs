@@ -1,4 +1,4 @@
-﻿namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
+﻿namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
 {
     partial class Mp3EncoderOptionsCtl
     {
@@ -95,7 +95,7 @@
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.opmTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(665, 249);
+            this.opmTableLayoutPanel1.Size = new System.Drawing.Size(661, 246);
             this.opmTableLayoutPanel1.TabIndex = 0;
             // 
             // lblBitrate
@@ -464,7 +464,7 @@
             this.opmTableLayoutPanel4.Controls.Add(this.opmLabel8, 1, 0);
             this.opmTableLayoutPanel4.Controls.Add(this.opmLinkLabel1, 1, 1);
             this.opmTableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opmTableLayoutPanel4.Location = new System.Drawing.Point(0, 187);
+            this.opmTableLayoutPanel4.Location = new System.Drawing.Point(0, 184);
             this.opmTableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.opmTableLayoutPanel4.Name = "opmTableLayoutPanel4";
             this.opmTableLayoutPanel4.OverrideBackColor = System.Drawing.Color.Empty;
@@ -519,7 +519,7 @@
             this.Controls.Add(this.opmTableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Mp3EncoderOptionsCtl";
-            this.Size = new System.Drawing.Size(665, 249);
+            this.Size = new System.Drawing.Size(661, 246);
             this.opmTableLayoutPanel1.ResumeLayout(false);
             this.opmTableLayoutPanel1.PerformLayout();
             this.grpOptionsVBR.ResumeLayout(false);
