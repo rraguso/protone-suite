@@ -35,6 +35,8 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
 
         protected override void DisplayTask()
         {
+            _task.TaskType = TaskType.ChangeEncoding;
+
             encoderOptionsCtl.EncoderSettings = (_task as Task).EncoderSettings;
             encoderOptionsCtl.DisplaySettings();
         }

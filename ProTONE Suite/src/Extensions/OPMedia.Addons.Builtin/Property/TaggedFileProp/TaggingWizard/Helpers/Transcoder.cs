@@ -5,21 +5,19 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Tasks;
+using OPMedia.Addons.Builtin.Shared.EncoderOptions;
 using OPMedia.Core;
 using OPMedia.Runtime.ProTONE.Compression.Lame;
+using OPMedia.UI;
 
 namespace OPMedia.Addons.Builtin.Property.TaggedFileProp.TaggingWizard.Helpers
 {
     public class Transcoder
     {
-        static private List<CdRipperOutputFormatType[]> _supportedTranscodings =
-            new List<CdRipperOutputFormatType[]>();
+        static List<Transcoding> _supportedTranscodings = new List<Transcoding>();
 
         [Browsable(false)]
-        public BE_CONFIG Mp3ConversionOptions { get; set; }
-
-        [Browsable(false)]
-        public CdRipperOutputFormatType OutputFormatType { get; set; }
+        public EncoderSettingsContainer EncoderSettings { get; set; }
 
         private bool _cancel = false;
         private object _cancelLock = new object();
@@ -41,23 +39,25 @@ namespace OPMedia.Addons.Builtin.Property.TaggedFileProp.TaggingWizard.Helpers
 
         static Transcoder()
         {
-            _supportedTranscodings.Add(new CdRipperOutputFormatType[] 
+            _supportedTranscodings.Add(new Transcoding 
                 {
                     // MP3 to MP3 is supported
-                    CdRipperOutputFormatType.MP3,
-                    CdRipperOutputFormatType.MP3
+                    InputFormat = AudioMediaFormatType.MP3,
+                    OutputFormat = AudioMediaFormatType.MP3
                 });
-            _supportedTranscodings.Add(new CdRipperOutputFormatType[] 
+
+            _supportedTranscodings.Add(new Transcoding
                 {
                     // MP3 to WAV is supported
-                    CdRipperOutputFormatType.MP3,
-                    CdRipperOutputFormatType.WAV
+                    InputFormat = AudioMediaFormatType.MP3,
+                    OutputFormat = AudioMediaFormatType.WAV
                 });
-            _supportedTranscodings.Add(new CdRipperOutputFormatType[] 
+
+            _supportedTranscodings.Add(new Transcoding
                 {
                     // WAV to MP3 is supported
-                    CdRipperOutputFormatType.WAV,
-                    CdRipperOutputFormatType.MP3
+                    InputFormat = AudioMediaFormatType.WAV,
+                    OutputFormat = AudioMediaFormatType.MP3
                 });
         }
 
@@ -69,27 +69,62 @@ namespace OPMedia.Addons.Builtin.Property.TaggedFileProp.TaggingWizard.Helpers
         {
             string inputFileType = PathUtils.GetExtension(file).ToUpperInvariant();
 
-            CdRipperOutputFormatType inputFormat = CdRipperOutputFormatType.WAV;
-            CdRipperOutputFormatType outputFormat = this.OutputFormatType;
+            AudioMediaFormatType inputFormat = AudioMediaFormatType.WAV;
+            AudioMediaFormatType outputFormat = EncoderSettings.AudioMediaFormatType;
 
-            if (Enum.TryParse<CdRipperOutputFormatType>(inputFileType, out inputFormat))
-            {
-                InternalChangeEncoding(inputFormat, outputFormat, file);
-            }
+            if (Enum.TryParse<AudioMediaFormatType>(inputFileType, out inputFormat) == false)
+                throw new NotSupportedException(string.Format("TXT_UNSUPPORTED_FORMAT: {0}", inputFileType));
 
-            throw new NotSupportedException("Unsupported input file format: " + inputFileType);
+            InternalChangeEncoding(inputFormat, outputFormat, file);
         }
 
-        private void InternalChangeEncoding(CdRipperOutputFormatType inputFormat, CdRipperOutputFormatType outputFormat, string file)
+        private void InternalChangeEncoding(AudioMediaFormatType inputFormat, AudioMediaFormatType outputFormat, string file)
         {
-            CdRipperOutputFormatType[] requestedTranscoding = new CdRipperOutputFormatType[]
+            Transcoding requestedTranscoding = new Transcoding
             {
-                inputFormat, outputFormat
+                InputFormat = inputFormat,
+                OutputFormat = outputFormat
             };
 
             if (_supportedTranscodings.Contains(requestedTranscoding) == false)
-                throw new NotSupportedException(string.Format("Transcoding from {0} to {1} is not supported", inputFormat, outputFormat));
+                throw new NotSupportedException(string.Format("TXT_UNSUPPORTED_TRANSCODING: {0}", requestedTranscoding));
+
+            requestedTranscoding.DoTranscoding(EncoderSettings, file);
+        }
+    }
+
+    public class Transcoding
+    {
+        public AudioMediaFormatType InputFormat { get; set; }
+        public AudioMediaFormatType OutputFormat { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            Transcoding t = obj as Transcoding;
+            if (t != null)
+            {
+                return (t.InputFormat == this.InputFormat) &&
+                    (t.OutputFormat == this.OutputFormat);
+            }
+
+            return false;
         }
 
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} => {1}", InputFormat, OutputFormat);
+        }
+
+        public void DoTranscoding(EncoderSettingsContainer encoderSettings, string inputFile)
+        {
+            MainThread.Post((c) => 
+                MessageDisplay.Show(string.Format("Transcoding {0}: not yet implemented. Sorry !", this), "oops", 
+                System.Windows.Forms.MessageBoxIcon.Exclamation));
+        }
     }
 }

@@ -14,6 +14,7 @@ using OPMedia.Addons.Builtin.Navigation.FileExplorer.FileOperations.Tasks;
 using OPMedia.UI.FileTasks;
 using System.Drawing.Design;
 using OPMedia.Addons.Builtin.Shared.EncoderOptions;
+using OPMedia.Addons.Builtin.Property.TaggedFileProp.TaggingWizard.Helpers;
 
 namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
 {
@@ -22,6 +23,7 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
         MultiRename,
         EditTag,
         FillTagByFS,
+        ChangeEncoding,
     }
 
     public class Task : BackgroundTask
@@ -175,6 +177,10 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
                     case TaskType.FillTagByFS:
                         detail.Results = GenerateTag(file);
                         break;
+
+                    case TaskType.ChangeEncoding:
+                        detail.Results = ChangeEncoding(file);
+                        break;
                 }
 
                 detail.IsSuccess = true;
@@ -186,6 +192,16 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
             }
 
             return detail;
+        }
+
+        Transcoder _t = new Transcoder();
+
+        private string ChangeEncoding(string file)
+        {
+            _t.EncoderSettings = this.EncoderSettings;
+            _t.ChangeEncoding(file);
+
+            return Translator.Translate("TXT_SUCCESS");
         }
 
         private string RenameFile(string oldPath)
@@ -225,6 +241,14 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
         {
             new MediaFileTagger(path, this).FillTagFromFileFolderName(_wordCasing);
             return Translator.Translate("TXT_SUCCESS");
+        }
+
+        protected override void OnTaskCancelled()
+        {
+            if (taskType == TaggingWizard.TaskType.ChangeEncoding && _t != null)
+            {
+                _t.RequestCancel();
+            }
         }
         #endregion
     }
