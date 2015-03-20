@@ -137,10 +137,17 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             InitializeComponent();
 
+            //List<OPMTriStateToolStripButton> toggleButtons = new List<OPMTriStateToolStripButton>
+            //{
+            //    tsmLoopPlay,
+            //    tsmPlaylistEnd,
+            //    tsmToggleShuffle
+            //};
+
             this.DoubleBuffered = true;
             
             _tip = new OPMToolTipManager(opmToolStrip1);
-
+            
             this.HandleCreated += new EventHandler(PlaybackControlPanel_HandleCreated);
         }
 
@@ -168,6 +175,24 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
                 (x as ToolStripItem).Margin = origM;
             }
+
+            tsmPlayPause.InactiveImage = SkinResources.btnPlay;
+            tsmPlayPause.ActiveImage = SkinResources.btnPlay2;
+            tsmStop.InactiveImage = SkinResources.btnStop;
+            tsmStop.ActiveImage = SkinResources.btnStop2;
+            tsmNext.InactiveImage = SkinResources.btnNext;
+            tsmNext.ActiveImage = SkinResources.btnNext2;
+            tsmPrev.InactiveImage = SkinResources.btnPrev;
+            tsmPrev.ActiveImage = SkinResources.btnPrev2;
+            tsmOpenDisk.InactiveImage = SkinResources.btnOpenDisk;
+            tsmOpenDisk.ActiveImage = SkinResources.btnOpenDisk2;
+            tsmOpenURL.InactiveImage = SkinResources.btnOpenURL;
+            tsmOpenURL.ActiveImage = SkinResources.btnOpenURL2;
+            tsmLoad.InactiveImage = SkinResources.btnLoad;
+            tsmLoad.ActiveImage = SkinResources.btnLoad2;
+            tsmOpenSettings.InactiveImage = SkinResources.btnOpenSettings;
+            tsmOpenSettings.ActiveImage = SkinResources.btnOpenSettings2;
+
         }
 
         private void OnButtonPressed(object sender, EventArgs e)
@@ -267,23 +292,29 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         private void UpdatePlayPauseButton()
         {
-            Image img = null;
+            Image img = null, img2 = null;
+
             switch(_FilterState)
             {
                 case Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused:
-                    img = Resources.btnPlayAfterPause;
+                    img = SkinResources.btnPlay;
+                    img2 = SkinResources.btnPlay2;
                     break;
 
                 case Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running:
-                    img = Resources.btnPause;
+                    img = SkinResources.btnPause;
+                    img2 = SkinResources.btnPause2;
                     break;
 
                 default:
-                    img = Resources.btnPlay;
+                    img = SkinResources.btnPlay;
+                    img2 = SkinResources.btnPlay2;
                     break;
             }
 
-            tsmPlayPause.Image = img;
+
+            tsmPlayPause.InactiveImage = img;
+            tsmPlayPause.ActiveImage = img2;
         }
 
         private void UpdateMediaType()

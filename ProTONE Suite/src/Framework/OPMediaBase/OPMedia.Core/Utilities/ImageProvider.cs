@@ -244,7 +244,7 @@ namespace OPMedia.Core
             return ScaleImage(img, iconSize, true);
         }
 
-        public static Image ScaleImage(Image img, Size newScale, bool forced)
+        public static Image ScaleImage(Image img, Size newScale, bool forced = false)
         {
             if (img != null)
             {

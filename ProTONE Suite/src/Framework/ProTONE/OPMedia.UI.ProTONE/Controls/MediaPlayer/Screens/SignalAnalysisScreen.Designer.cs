@@ -91,8 +91,8 @@
             this.pnlSpectrogram.Controls.Add(this.opmLabel5, 0, 2);
             this.pnlSpectrogram.Controls.Add(this.lblSignalSpectrum, 1, 0);
             this.pnlSpectrogram.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSpectrogram.Location = new System.Drawing.Point(0, 214);
-            this.pnlSpectrogram.Margin = new System.Windows.Forms.Padding(0, 5, 3, 3);
+            this.pnlSpectrogram.Location = new System.Drawing.Point(0, 213);
+            this.pnlSpectrogram.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.pnlSpectrogram.Name = "pnlSpectrogram";
             this.pnlSpectrogram.OverrideBackColor = System.Drawing.Color.Empty;
             this.pnlSpectrogram.RowCount = 5;
@@ -101,7 +101,7 @@
             this.pnlSpectrogram.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnlSpectrogram.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlSpectrogram.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlSpectrogram.Size = new System.Drawing.Size(270, 136);
+            this.pnlSpectrogram.Size = new System.Drawing.Size(270, 137);
             this.pnlSpectrogram.TabIndex = 6;
             // 
             // opmLabel10
@@ -109,12 +109,13 @@
             this.opmLabel10.AutoSize = true;
             this.opmLabel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel10.Location = new System.Drawing.Point(0, 13);
+            this.opmLabel10.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel10.Location = new System.Drawing.Point(0, 12);
             this.opmLabel10.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.opmLabel10.Name = "opmLabel10";
             this.opmLabel10.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel10.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel10.Size = new System.Drawing.Size(44, 13);
+            this.opmLabel10.Size = new System.Drawing.Size(34, 12);
             this.opmLabel10.TabIndex = 6;
             this.opmLabel10.Text = "0 dBM";
             this.opmLabel10.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -125,7 +126,7 @@
             this.spSpectrogram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spSpectrogram.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.spSpectrogram.IsHistogram = true;
-            this.spSpectrogram.Location = new System.Drawing.Point(46, 13);
+            this.spSpectrogram.Location = new System.Drawing.Point(36, 12);
             this.spSpectrogram.LogarithmicXAxis = false;
             this.spSpectrogram.LogarithmicYAxis = false;
             this.spSpectrogram.Margin = new System.Windows.Forms.Padding(0);
@@ -136,7 +137,7 @@
             this.pnlSpectrogram.SetRowSpan(this.spSpectrogram, 3);
             this.spSpectrogram.ShowXAxis = true;
             this.spSpectrogram.ShowYAxis = false;
-            this.spSpectrogram.Size = new System.Drawing.Size(224, 108);
+            this.spSpectrogram.Size = new System.Drawing.Size(234, 111);
             this.spSpectrogram.TabIndex = 3;
             // 
             // opmLabel11
@@ -144,12 +145,13 @@
             this.opmLabel11.AutoSize = true;
             this.opmLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel11.Location = new System.Drawing.Point(0, 108);
+            this.opmLabel11.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel11.Location = new System.Drawing.Point(0, 111);
             this.opmLabel11.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.opmLabel11.Name = "opmLabel11";
             this.opmLabel11.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel11.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel11.Size = new System.Drawing.Size(44, 13);
+            this.opmLabel11.Size = new System.Drawing.Size(34, 12);
             this.opmLabel11.TabIndex = 7;
             this.opmLabel11.Text = "-6 dBM";
             this.opmLabel11.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -159,12 +161,13 @@
             this.lblFqMin.AutoSize = true;
             this.lblFqMin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFqMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblFqMin.Location = new System.Drawing.Point(46, 123);
+            this.lblFqMin.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.lblFqMin.Location = new System.Drawing.Point(36, 125);
             this.lblFqMin.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.lblFqMin.Name = "lblFqMin";
             this.lblFqMin.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblFqMin.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblFqMin.Size = new System.Drawing.Size(192, 13);
+            this.lblFqMin.Size = new System.Drawing.Size(209, 12);
             this.lblFqMin.TabIndex = 8;
             this.lblFqMin.Text = "fMin";
             // 
@@ -173,12 +176,13 @@
             this.lblFqMax.AutoSize = true;
             this.lblFqMax.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFqMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblFqMax.Location = new System.Drawing.Point(238, 123);
+            this.lblFqMax.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.lblFqMax.Location = new System.Drawing.Point(245, 125);
             this.lblFqMax.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.lblFqMax.Name = "lblFqMax";
             this.lblFqMax.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblFqMax.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblFqMax.Size = new System.Drawing.Size(32, 13);
+            this.lblFqMax.Size = new System.Drawing.Size(25, 12);
             this.lblFqMax.TabIndex = 9;
             this.lblFqMax.Text = "fMax";
             this.lblFqMax.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -188,12 +192,13 @@
             this.opmLabel5.AutoSize = true;
             this.opmLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel5.Location = new System.Drawing.Point(0, 26);
+            this.opmLabel5.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel5.Location = new System.Drawing.Point(0, 24);
             this.opmLabel5.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.opmLabel5.Name = "opmLabel5";
             this.opmLabel5.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel5.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel5.Size = new System.Drawing.Size(44, 82);
+            this.opmLabel5.Size = new System.Drawing.Size(34, 87);
             this.opmLabel5.TabIndex = 10;
             this.opmLabel5.Text = "-3 dBM";
             this.opmLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -204,11 +209,12 @@
             this.pnlSpectrogram.SetColumnSpan(this.lblSignalSpectrum, 2);
             this.lblSignalSpectrum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSignalSpectrum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblSignalSpectrum.Location = new System.Drawing.Point(49, 0);
+            this.lblSignalSpectrum.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.lblSignalSpectrum.Location = new System.Drawing.Point(39, 0);
             this.lblSignalSpectrum.Name = "lblSignalSpectrum";
             this.lblSignalSpectrum.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblSignalSpectrum.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblSignalSpectrum.Size = new System.Drawing.Size(218, 13);
+            this.lblSignalSpectrum.Size = new System.Drawing.Size(228, 12);
             this.lblSignalSpectrum.TabIndex = 11;
             this.lblSignalSpectrum.Text = "TXT_SIGNALSPECTRUM";
             // 
@@ -235,7 +241,7 @@
             this.pnlVuMeter.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlVuMeter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pnlVuMeter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pnlVuMeter.Size = new System.Drawing.Size(255, 57);
+            this.pnlVuMeter.Size = new System.Drawing.Size(255, 56);
             this.pnlVuMeter.TabIndex = 3;
             // 
             // opmLabel4
@@ -243,12 +249,13 @@
             this.opmLabel4.AutoSize = true;
             this.opmLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel4.Location = new System.Drawing.Point(221, 35);
+            this.opmLabel4.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel4.Location = new System.Drawing.Point(228, 34);
             this.opmLabel4.Margin = new System.Windows.Forms.Padding(0);
             this.opmLabel4.Name = "opmLabel4";
             this.opmLabel4.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel4.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel4.Size = new System.Drawing.Size(34, 22);
+            this.opmLabel4.Size = new System.Drawing.Size(27, 22);
             this.opmLabel4.TabIndex = 5;
             this.opmLabel4.Text = "100%";
             this.opmLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -258,12 +265,13 @@
             this.opmLabel3.AutoSize = true;
             this.opmLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel3.Location = new System.Drawing.Point(221, 13);
+            this.opmLabel3.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel3.Location = new System.Drawing.Point(228, 12);
             this.opmLabel3.Margin = new System.Windows.Forms.Padding(0);
             this.opmLabel3.Name = "opmLabel3";
             this.opmLabel3.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel3.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel3.Size = new System.Drawing.Size(34, 22);
+            this.opmLabel3.Size = new System.Drawing.Size(27, 22);
             this.opmLabel3.TabIndex = 4;
             this.opmLabel3.Text = "100%";
             this.opmLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -275,7 +283,7 @@
             this.vuRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vuRight.Enabled = false;
             this.vuRight.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.vuRight.Location = new System.Drawing.Point(29, 38);
+            this.vuRight.Location = new System.Drawing.Point(22, 37);
             this.vuRight.Margin = new System.Windows.Forms.Padding(3, 3, 3, 4);
             this.vuRight.Maximum = 10000D;
             this.vuRight.Name = "vuRight";
@@ -283,7 +291,7 @@
             this.vuRight.OverrideBackColor = System.Drawing.Color.Empty;
             this.vuRight.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.vuRight.ShowTicks = true;
-            this.vuRight.Size = new System.Drawing.Size(189, 15);
+            this.vuRight.Size = new System.Drawing.Size(203, 15);
             this.vuRight.TabIndex = 1;
             this.vuRight.Value = 0D;
             this.vuRight.Vertical = false;
@@ -295,14 +303,14 @@
             this.vuLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vuLeft.Enabled = false;
             this.vuLeft.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
-            this.vuLeft.Location = new System.Drawing.Point(29, 16);
+            this.vuLeft.Location = new System.Drawing.Point(22, 15);
             this.vuLeft.Maximum = 10000D;
             this.vuLeft.Name = "vuLeft";
             this.vuLeft.NrTicks = 10;
             this.vuLeft.OverrideBackColor = System.Drawing.Color.Empty;
             this.vuLeft.OverrideElapsedBackColor = System.Drawing.Color.Empty;
             this.vuLeft.ShowTicks = true;
-            this.vuLeft.Size = new System.Drawing.Size(189, 16);
+            this.vuLeft.Size = new System.Drawing.Size(203, 16);
             this.vuLeft.TabIndex = 0;
             this.vuLeft.Value = 0D;
             this.vuLeft.Vertical = false;
@@ -312,12 +320,13 @@
             this.opmLabel1.AutoSize = true;
             this.opmLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel1.Location = new System.Drawing.Point(0, 13);
+            this.opmLabel1.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel1.Location = new System.Drawing.Point(0, 12);
             this.opmLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.opmLabel1.Name = "opmLabel1";
             this.opmLabel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel1.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel1.Size = new System.Drawing.Size(26, 22);
+            this.opmLabel1.Size = new System.Drawing.Size(19, 22);
             this.opmLabel1.TabIndex = 2;
             this.opmLabel1.Text = "L: 0";
             this.opmLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -327,12 +336,13 @@
             this.opmLabel2.AutoSize = true;
             this.opmLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel2.Location = new System.Drawing.Point(0, 35);
+            this.opmLabel2.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel2.Location = new System.Drawing.Point(0, 34);
             this.opmLabel2.Margin = new System.Windows.Forms.Padding(0);
             this.opmLabel2.Name = "opmLabel2";
             this.opmLabel2.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel2.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel2.Size = new System.Drawing.Size(26, 22);
+            this.opmLabel2.Size = new System.Drawing.Size(19, 22);
             this.opmLabel2.TabIndex = 3;
             this.opmLabel2.Text = "R: 0";
             this.opmLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -343,11 +353,12 @@
             this.pnlVuMeter.SetColumnSpan(this.lblSignalLevel, 2);
             this.lblSignalLevel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSignalLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblSignalLevel.Location = new System.Drawing.Point(29, 0);
+            this.lblSignalLevel.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.lblSignalLevel.Location = new System.Drawing.Point(22, 0);
             this.lblSignalLevel.Name = "lblSignalLevel";
             this.lblSignalLevel.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblSignalLevel.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblSignalLevel.Size = new System.Drawing.Size(223, 13);
+            this.lblSignalLevel.Size = new System.Drawing.Size(230, 12);
             this.lblSignalLevel.TabIndex = 6;
             this.lblSignalLevel.Text = "TXT_SIGNALLEVEL";
             // 
@@ -362,8 +373,8 @@
             this.pnlWaveform.Controls.Add(this.opmLabel9, 0, 3);
             this.pnlWaveform.Controls.Add(this.lblSignalWaveform, 1, 0);
             this.pnlWaveform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlWaveform.Location = new System.Drawing.Point(6, 70);
-            this.pnlWaveform.Margin = new System.Windows.Forms.Padding(6, 5, 3, 3);
+            this.pnlWaveform.Location = new System.Drawing.Point(6, 69);
+            this.pnlWaveform.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.pnlWaveform.Name = "pnlWaveform";
             this.pnlWaveform.OverrideBackColor = System.Drawing.Color.Empty;
             this.pnlWaveform.RowCount = 4;
@@ -380,7 +391,7 @@
             this.gpWaveform.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gpWaveform.FontSize = OPMedia.UI.Themes.FontSizes.Normal;
             this.gpWaveform.IsHistogram = false;
-            this.gpWaveform.Location = new System.Drawing.Point(40, 13);
+            this.gpWaveform.Location = new System.Drawing.Point(32, 12);
             this.gpWaveform.LogarithmicXAxis = false;
             this.gpWaveform.LogarithmicYAxis = false;
             this.gpWaveform.Margin = new System.Windows.Forms.Padding(0);
@@ -391,7 +402,7 @@
             this.pnlWaveform.SetRowSpan(this.gpWaveform, 3);
             this.gpWaveform.ShowXAxis = true;
             this.gpWaveform.ShowYAxis = false;
-            this.gpWaveform.Size = new System.Drawing.Size(224, 123);
+            this.gpWaveform.Size = new System.Drawing.Size(232, 124);
             this.gpWaveform.TabIndex = 2;
             // 
             // opmLabel7
@@ -399,12 +410,13 @@
             this.opmLabel7.AutoSize = true;
             this.opmLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel7.Location = new System.Drawing.Point(0, 13);
+            this.opmLabel7.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel7.Location = new System.Drawing.Point(0, 12);
             this.opmLabel7.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.opmLabel7.Name = "opmLabel7";
             this.opmLabel7.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel7.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel7.Size = new System.Drawing.Size(38, 13);
+            this.opmLabel7.Size = new System.Drawing.Size(30, 12);
             this.opmLabel7.TabIndex = 3;
             this.opmLabel7.Text = "+MAX";
             this.opmLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -414,12 +426,13 @@
             this.opmLabel8.AutoSize = true;
             this.opmLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel8.Location = new System.Drawing.Point(0, 26);
+            this.opmLabel8.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel8.Location = new System.Drawing.Point(0, 24);
             this.opmLabel8.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.opmLabel8.Name = "opmLabel8";
             this.opmLabel8.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel8.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel8.Size = new System.Drawing.Size(38, 97);
+            this.opmLabel8.Size = new System.Drawing.Size(30, 100);
             this.opmLabel8.TabIndex = 4;
             this.opmLabel8.Text = "0";
             this.opmLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -429,12 +442,13 @@
             this.opmLabel9.AutoSize = true;
             this.opmLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.opmLabel9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.opmLabel9.Location = new System.Drawing.Point(0, 123);
+            this.opmLabel9.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.opmLabel9.Location = new System.Drawing.Point(0, 124);
             this.opmLabel9.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.opmLabel9.Name = "opmLabel9";
             this.opmLabel9.OverrideBackColor = System.Drawing.Color.Empty;
             this.opmLabel9.OverrideForeColor = System.Drawing.Color.Empty;
-            this.opmLabel9.Size = new System.Drawing.Size(38, 13);
+            this.opmLabel9.Size = new System.Drawing.Size(30, 12);
             this.opmLabel9.TabIndex = 5;
             this.opmLabel9.Text = "-MAX";
             this.opmLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -444,11 +458,12 @@
             this.lblSignalWaveform.AutoSize = true;
             this.lblSignalWaveform.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSignalWaveform.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblSignalWaveform.Location = new System.Drawing.Point(43, 0);
+            this.lblSignalWaveform.FontSize = OPMedia.UI.Themes.FontSizes.Smallest;
+            this.lblSignalWaveform.Location = new System.Drawing.Point(35, 0);
             this.lblSignalWaveform.Name = "lblSignalWaveform";
             this.lblSignalWaveform.OverrideBackColor = System.Drawing.Color.Empty;
             this.lblSignalWaveform.OverrideForeColor = System.Drawing.Color.Empty;
-            this.lblSignalWaveform.Size = new System.Drawing.Size(218, 13);
+            this.lblSignalWaveform.Size = new System.Drawing.Size(226, 12);
             this.lblSignalWaveform.TabIndex = 6;
             this.lblSignalWaveform.Text = "TXT_SIGNALWAVEFORM";
             // 

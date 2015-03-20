@@ -52,7 +52,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer.Screens
 
             pnlVuMeter.Visible = showVU;
 
-            opmTableLayoutPanel1.RowStyles[0] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 58F : 0F);
+            opmTableLayoutPanel1.RowStyles[0] = new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, showVU ? 51F : 0F);
 
             pnlWaveform.Visible = showWaveform;
 

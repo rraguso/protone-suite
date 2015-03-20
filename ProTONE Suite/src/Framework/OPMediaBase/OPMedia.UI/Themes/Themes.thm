@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Themes>
   <Theme Name="Metro" IsDefault="false">
     <ThemeElement Name="BorderColor" Value="150, 150, 150" />
@@ -34,6 +34,7 @@
     <ThemeElement Name="CheckedMenuTextColor" Value="000, 000, 000" />
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
+    <ThemeElement Name="GradientGaugeColor1a" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="0" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
@@ -72,6 +73,7 @@
     <ThemeElement Name="CheckedMenuTextColor" Value="60, 60, 60" />
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
+    <ThemeElement Name="GradientGaugeColor1a" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="3" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
@@ -110,6 +112,7 @@
     <ThemeElement Name="CheckedMenuTextColor" Value="30, 57, 91" />
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
+    <ThemeElement Name="GradientGaugeColor1a" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="3" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
@@ -148,6 +151,7 @@
     <ThemeElement Name="CheckedMenuTextColor" Value="059, 059, 059" />
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
+    <ThemeElement Name="GradientGaugeColor1a" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="3" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
@@ -186,9 +190,11 @@
     <ThemeElement Name="CheckedMenuTextColor" Value="60, 60, 60" />
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
+    <ThemeElement Name="GradientGaugeColor1a" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="0" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
+    <ThemeElement Name="SkinResourcesFolder" Value="Silver" />    
   </Theme>
   <Theme Name="Metro Blue" IsDefault="false">
     <ThemeElement Name="BorderColor" Value="30, 57, 91" />
@@ -224,9 +230,11 @@
     <ThemeElement Name="CheckedMenuTextColor" Value="30, 57, 91" />
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
+    <ThemeElement Name="GradientGaugeColor1a" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="0" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
+    <ThemeElement Name="SkinResourcesFolder" Value="Blue" />    
   </Theme>
   <Theme Name="Metro Black" IsDefault="false">
     <ThemeElement Name="BorderColor" Value="25, 25, 25" />
@@ -260,10 +268,12 @@
     <ThemeElement Name="HighlightMenuTextColor" Value="240, 240, 240" />
     <ThemeElement Name="HighlightHeaderMenuTextColor" Value="059, 059, 059" />
     <ThemeElement Name="CheckedMenuTextColor" Value="059, 059, 059" />
-    <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
-    <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
+    <ThemeElement Name="GradientGaugeColor1" Value="128, 255, 128" />
+    <ThemeElement Name="GradientGaugeColor1a" Value="255, 255, 128" />
+    <ThemeElement Name="GradientGaugeColor2" Value="255, 128, 128" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="0" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
+    <ThemeElement Name="SkinResourcesFolder" Value="Black" />    
   </Theme>
 </Themes>

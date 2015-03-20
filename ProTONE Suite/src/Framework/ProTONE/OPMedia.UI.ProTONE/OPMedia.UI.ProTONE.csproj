@@ -135,6 +135,7 @@
     <Compile Include="Dialogs\StreamingServerChooserDlg.Designer.cs">
       <DependentUpon>StreamingServerChooserDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="SkinResources\SkinResources.cs" />
     <Compile Include="TrayNotificationTarget.cs" />
     <Compile Include="Configuration\FileTypesPanel.cs">
       <SubType>UserControl</SubType>
@@ -453,6 +454,24 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SkinResources\Black\btnOpenSettings.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnOpenSettings2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnLoad.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnLoad2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnOpenURL.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnOpenURL2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnOpenDisk.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnOpenDisk2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnNext.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnNext2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnPrev.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnPrev2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnPause.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnPause2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnStop.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnStop2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnPlay2.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnPlay.png" />
     <None Include="Resources\Tabs.png" />
     <None Include="Resources\Music_Note_Double_48.png" />
     <None Include="Resources\subtitles16.png" />
@@ -464,6 +483,7 @@
     <EmbeddedResource Include="Resources\btnPlayAfterPause.png" />
     <None Include="Resources\IconTime.png" />
     <None Include="Resources\icon-audio.png" />
+    <None Include="Resources\btnPlay2.png" />
     <Content Include="Resources\movedown.png" />
     <Content Include="Resources\moveup.png" />
     <None Include="Resources\btnCfgTimer.png" />
@@ -524,6 +544,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FileTypes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SkinResources\Blue\" />
+    <Folder Include="SkinResources\Metro\" />
+    <Folder Include="SkinResources\Silver\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

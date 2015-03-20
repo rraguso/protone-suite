@@ -81,7 +81,7 @@ namespace OPMedia.UI.ProTONE.Controls
                     if (i > (int)(0.8 * w))
                         c = ThemeManager.GradientGaugeColor2;
                     else if (i > (int)(0.5 * w))
-                        c = Color.Yellow;
+                        c = ThemeManager.GradientGaugeColor1a;
                     else
                         c = ThemeManager.GradientGaugeColor1;
 
@@ -97,7 +97,7 @@ namespace OPMedia.UI.ProTONE.Controls
                     if (j < (int)(0.2 * h))
                         c = ThemeManager.GradientGaugeColor2;
                     else if (j < (int)(0.5 * h))
-                        c = Color.Yellow;
+                        c = ThemeManager.GradientGaugeColor1a;
                     else
                         c = ThemeManager.GradientGaugeColor1;
 

@@ -169,8 +169,8 @@ namespace OPMedia.ProTONE
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(470, 270);
-            this.MinimumSize = new System.Drawing.Size(470, 270);
+            this.ClientSize = new System.Drawing.Size(470, 315);
+            this.MinimumSize = new System.Drawing.Size(470, 315);
             this.Name = "MainForm";
             this.Controls.SetChildIndex(this.pnlContent, 0);
             this.pnlContent.ResumeLayout(false);

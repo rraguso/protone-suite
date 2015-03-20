@@ -5,6 +5,12 @@ using System.Text;
 using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Drawing;
+using OPMedia.UI.Properties;
+using System.Resources;
+using OPMedia.UI.Themes;
+using OPMedia.Core.Logging;
+using System.IO;
 
 namespace OPMedia.UI
 {
@@ -61,6 +67,24 @@ namespace OPMedia.UI
                 }
             }
             catch { }
+        }
+
+        public static Image GetSkinResource(Assembly asm, string resourceName)
+        {
+            try
+            {
+                string fullSkinResourcePath = string.Format("{0}.SkinResources.{1}.{2}",
+                    asm.GetName().Name, ThemeManager.SkinResourcesFolder, resourceName);
+
+                using (Stream s = asm.GetManifestResourceStream(fullSkinResourcePath))
+                    return Bitmap.FromStream(s);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogException(ex);
+            }
+
+            return null;
         }
     }
 }

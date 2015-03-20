@@ -358,6 +358,52 @@ namespace OPMedia.UI.Controls
     }
     #endregion
 
+    #region OPMTriStateToolStripButton
+    public class OPMTriStateToolStripButton : ToolStripButton
+    {
+        public Image ActiveImage { get; set; }
+        public Image InactiveImage { get; set; }
+        public Image DisabledImage { get; set; }
+        public Image CheckedImage { get; set; }
+
+        public OPMTriStateToolStripButton()
+            : base()
+        {
+            this.ActiveImage = null;
+            this.InactiveImage = null;
+            this.CheckedImage = null;
+            this.DisabledImage = null;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ThemeManager.PrepareGraphics(e.Graphics);
+
+            Image imgDraw = null;
+
+            if (!Enabled)
+                imgDraw = this.DisabledImage;
+            else if (Selected)
+                imgDraw = this.ActiveImage;
+            else if (Checked)
+                imgDraw = this.CheckedImage;
+            else
+                imgDraw = this.InactiveImage;
+
+            if (imgDraw != null)
+            {
+                Bitmap bmp = new Bitmap(imgDraw);
+                bmp.MakeTransparent(this.ImageTransparentColor);
+
+                int ypos = 2 + (this.Height - this.Owner.ImageScalingSize.Height) / 2 - 2;
+                int xpos = 2 + (this.Width - this.Owner.ImageScalingSize.Width) / 2 - 2;
+
+                e.Graphics.DrawImageUnscaled(ImageProvider.ScaleImage(bmp, this.Owner.ImageScalingSize), new Point(xpos, ypos));
+            }
+        }
+    }
+    #endregion
+
     #region OPMToolStripDropDownButton
 
     public class OPMToolStripDropDownButton : ToolStripDropDownButton
