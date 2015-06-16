@@ -378,6 +378,15 @@ namespace OPMedia.Runtime.ProTONE.Rendering
             }
         }
 
+        bool _hasRenderingErrors = false;
+        public bool HasRenderingErrors
+        {
+            get
+            {
+                return _hasRenderingErrors;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -463,6 +472,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
+                _hasRenderingErrors = false;
                 renderingTechnology.RenderRegion = renderPanel;
 
                 if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Stopped)
@@ -478,6 +488,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
+                _hasRenderingErrors = false;
                 _position = 0;
 
                 if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
@@ -500,6 +511,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
+                _hasRenderingErrors = false;
                 _position = 0;
 
                 Logger.LogTrace("Media will be rendered using {0}", renderingTechnology.GetType().Name);
@@ -524,6 +536,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
+                _hasRenderingErrors = false;
+
                 if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running)
                 {
                     renderingTechnology.PauseRenderer();
@@ -539,6 +553,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
+                _hasRenderingErrors = false;
+
                 if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused)
                 {
                     _position = fromPosition;
@@ -556,6 +572,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering
         {
             try
             {
+                _hasRenderingErrors = false;
                 _position = 0;
 
                 if (renderingTechnology.FilterState == OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running ||
@@ -773,10 +790,13 @@ namespace OPMedia.Runtime.ProTONE.Rendering
 
         void ReportRenderingException(Exception ex)
         {
-            ErrorDispatcher.DispatchError(ex);
+            _hasRenderingErrors = true;
+
             try
             {
                 RenderingException rex = RenderingException.FromException(ex);
+                rex.RenderedFile = this.GetRenderFile();
+
                 RenderingExceptionEventArgs args = new RenderingExceptionEventArgs(rex);
                 FireMediaRenderingException(args);
 

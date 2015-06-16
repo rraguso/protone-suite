@@ -210,7 +210,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                         IBasicVideo basicVideo = mediaControl as IBasicVideo;
                         IMediaPosition mediaPosition = mediaControl as IMediaPosition;
 
-                        mediaControl.RenderFile(path);
+                        int hr = mediaControl.RenderFile(path);
+                        DsError.ThrowExceptionForHR(hr);
 
                         double val = 0;
                         DsError.ThrowExceptionForHR(mediaPosition.get_Duration(out val));

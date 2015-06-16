@@ -66,6 +66,9 @@ namespace OPMedia.UI.Controls
     public delegate void ItemRenameHandler(string newPath);
 
     public delegate bool LaunchMultipleItemsHandler(object sender, System.EventArgs e);
+
+    public delegate string QueryDisplayNameHandler(FileSystemInfo fsi);
+
     #endregion
 
     #region Main class
@@ -133,6 +136,8 @@ namespace OPMedia.UI.Controls
 
         public event QueryLinkedFilesHandler QueryLinkedFiles = null;
         public event ItemRenameHandler ItemRenamed = null;
+
+        public event QueryDisplayNameHandler QueryDisplayName = null;
 
         #endregion
 
@@ -1238,7 +1243,15 @@ namespace OPMedia.UI.Controls
 
             int imgIndex = GetIcon(fsi.FullName);
 
-            string[] data = new string[] { fsi.Name, BuildLastAccessTime(fsi), strLen, BuildAttributes(fsi) };
+            string[] data = new string[] 
+            { 
+                //fsi.Name, 
+                BuildDisplayName(fsi),
+
+                BuildLastAccessTime(fsi), 
+                strLen, 
+                BuildAttributes(fsi) 
+            };
 
             ListViewItem item = new ListViewItem(data);
             item.BackColor = ThemeManager.BackColor;
@@ -1249,6 +1262,22 @@ namespace OPMedia.UI.Controls
 
             this.Items.Add(item);
             
+        }
+
+        private string BuildDisplayName(FileSystemInfo fsi)
+        {
+            if (fsi is DirectoryInfo)
+                return fsi.Name;
+
+            if (fsi is FileInfo)
+            {
+                if (QueryDisplayName != null)
+                    return QueryDisplayName(fsi);
+
+                return fsi.Name;
+            }
+
+            return string.Empty;
         }
 
         private string BuildLastAccessTime(FileSystemInfo fsi)

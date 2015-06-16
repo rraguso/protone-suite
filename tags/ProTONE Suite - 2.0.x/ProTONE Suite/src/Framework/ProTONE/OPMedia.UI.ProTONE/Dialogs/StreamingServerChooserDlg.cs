@@ -15,7 +15,11 @@ namespace OPMedia.UI.ProTONE.Dialogs
 {
     public partial class StreamingServerChooserDlg : ToolForm
     {
-        public string Uri { get; set; }
+        public string Uri 
+        {
+            get { return txtSelectedURL.Text; }
+            //set { txtSelectedURL.Text = value; }
+        }
 
         Timer _tmrSearch = null;
 
@@ -31,7 +35,6 @@ namespace OPMedia.UI.ProTONE.Dialogs
 
             this.Load += new EventHandler(StreamingServerChooserDlg_Load);
 
-            lvServers.ItemSelectionChanged += new ListViewItemSelectionChangedEventHandler(lvServers_ItemSelectionChanged);
             lvServers.ColumnClick += new ColumnClickEventHandler(lvServers_ColumnClick);
         }
 
@@ -53,21 +56,6 @@ namespace OPMedia.UI.ProTONE.Dialogs
             lvServers.ShowSortGlyph(e.Column, _sortOrder);
         }
 
-        void lvServers_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            try
-            {
-                if (e.IsSelected)
-                {
-                    Uri = e.Item.SubItems[colURL.Index].Text;
-                    return;
-                }
-            }
-            catch { }
-
-            Uri = string.Empty;
-        }
-
         void StreamingServerChooserDlg_Load(object sender, EventArgs e)
         {
             lvServers.Items.Clear();
@@ -86,8 +74,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
                     cmbSearchgenre.Items.Add(genre);
                 }
 
-                this.txtSearchUrlPart.TextChanged += new System.EventHandler(this.txtSearchUrlPart_TextChanged);
-                this.txtSearchServerTitlePart.TextChanged += new System.EventHandler(this.txtSearchServerTitlePart_TextChanged);
+                this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
                 this.cmbSearchgenre.SelectedIndexChanged += new System.EventHandler(this.cmbSearchgenre_SelectedIndexChanged);
 
                 DisplayData();
@@ -102,6 +89,12 @@ namespace OPMedia.UI.ProTONE.Dialogs
             {
                 ListViewItem lvi = new ListViewItem(new string[] { "", rs.Url, rs.Title, rs.Genre });
                 lvServers.Items.Add(lvi);
+            }
+
+            if (lvServers.Items.Count > 0)
+            {
+                lvServers.Items[0].Selected = true;
+                lvServers.Items[0].Focused = true;
             }
         }
 
@@ -122,12 +115,7 @@ namespace OPMedia.UI.ProTONE.Dialogs
             StartSearchTimer();
         }
 
-        private void txtSearchServerTitlePart_TextChanged(object sender, EventArgs e)
-        {
-            StartSearchTimer();
-        }
-
-        private void txtSearchUrlPart_TextChanged(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             StartSearchTimer();
         }
@@ -154,11 +142,16 @@ namespace OPMedia.UI.ProTONE.Dialogs
         {
             if (_allData != null && _allData.RadioStations != null)
             {
+                string searchText = txtSearch.Text.ToLowerInvariant();
+                string searchGenre = cmbSearchgenre.Text.ToLowerInvariant();
+
                 var x = from rs in _allData.RadioStations 
                         where 
-                            (txtSearchUrlPart.Text.Length < 1 || rs.Url.ToLowerInvariant().Contains(txtSearchUrlPart.Text.ToLowerInvariant())) &&
-                            (txtSearchServerTitlePart.Text.Length < 1 || rs.Title.ToLowerInvariant().Contains(txtSearchServerTitlePart.Text.ToLowerInvariant())) &&
+                            (searchText.Length < 1 || 
+                                (rs.Url.ToLowerInvariant().Contains(searchText) || rs.Title.ToLowerInvariant().Contains(searchText))) &&
+                            
                             (cmbSearchgenre.Text.Length < 1 || rs.Genre == cmbSearchgenre.Text)
+
                         orderby rs.Genre ascending
                         select rs;
 
@@ -167,5 +160,33 @@ namespace OPMedia.UI.ProTONE.Dialogs
 
             return new List<RadioStation>();
         }
+
+        private void lvServers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string url = string.Empty;
+            try
+            {
+                url = lvServers.SelectedItems[0].SubItems[colURL.Index].Text;
+            }
+            catch { }
+
+            txtSelectedURL.Text = url;
+        }
+
+        void lvServers_DoubleClick(object sender, System.EventArgs e)
+        {
+            string url = string.Empty;
+            try
+            {
+                url = lvServers.SelectedItems[0].SubItems[colURL.Index].Text;
+            }
+            catch { }
+
+            txtSelectedURL.Text = url;
+
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            Close();
+        }
+
     }
 }

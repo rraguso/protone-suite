@@ -59,6 +59,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableCategory("TXT_MEDIAINFO")]
         [SingleSelectionBrowsable]
         [ReadOnly(true)]
+        [Browsable(true)]
         public override TimeSpan? Duration
         {
             get { return duration; }
@@ -69,6 +70,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableCategory("TXT_MEDIAINFO")]
         [SingleSelectionBrowsable]
         [ReadOnly(true)]
+        [Browsable(true)]
         public override VSize? VideoSize
         {
             get { return videoSize; }
@@ -79,6 +81,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
         [TranslatableCategory("TXT_MEDIAINFO")]
         [SingleSelectionBrowsable]
         [ReadOnly(true)]
+        [Browsable(true)]
         public override FrameRate? FrameRate
         {
             get { return frameRate; }

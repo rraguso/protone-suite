@@ -33,10 +33,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             InitMedia();
 
-            mediaPosition.put_Rate(1);
+            int hr = mediaPosition.put_Rate(1);
+            DsError.ThrowExceptionForHR(hr);
 
             // Run the graph to play the media file
-            mediaControl.Run();
+            hr = mediaControl.Run();
+            DsError.ThrowExceptionForHR(hr);
 
             // HACK: call GetMedialenght once here to ensure that durationScaleFactor is buuilt up
             double len = GetMediaLength();
@@ -64,7 +66,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             InitAudioSampleGrabber();
 
             // Render the output pin
-            _source.OutputPin.Render();
+            int hr = (int)_source.OutputPin.Render();
+            DsError.ThrowExceptionForHR(hr);
 
             rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
 
@@ -76,7 +79,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             try
             {
-                int hr = basicAudio.put_Volume((int)VolumeRange.Minimum);
+                hr = basicAudio.put_Volume((int)VolumeRange.Minimum);
                 isAudioAvailable = (hr >= 0);
 
                 CompleteAudioSampleGrabberIntialization();

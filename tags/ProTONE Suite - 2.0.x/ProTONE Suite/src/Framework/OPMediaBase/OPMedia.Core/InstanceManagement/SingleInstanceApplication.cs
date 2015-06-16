@@ -73,7 +73,7 @@ namespace OPMedia.Core.InstanceManagement
             }
             catch (Exception ex)
             {
-                ErrorDispatcher.DispatchError(ex);
+                ErrorDispatcher.DispatchFatalError(ex);
             }
 
             if (isPrimaryInstance)

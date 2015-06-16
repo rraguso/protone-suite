@@ -351,7 +351,7 @@ namespace OPMedia.ProTONE
                 TrayNotificationBox f = new TrayNotificationBox();
                 f.HideDelay = 3000;
                 f.FormClosed += new FormClosedEventHandler(f_FormClosed);
-                f.ShowSimple(info);
+                f.ShowSimple(info, true);
             }
         }
 

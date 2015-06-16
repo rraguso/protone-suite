@@ -65,10 +65,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             InitMedia();
             InitAudioAndVideo();
 
-            mediaPosition.put_Rate(1);
+            int hr = mediaPosition.put_Rate(1);
+            DsError.ThrowExceptionForHR(hr);
 
             // Run the graph to play the media file
-            mediaControl.Run();
+            hr = mediaControl.Run();
+            DsError.ThrowExceptionForHR(hr);
 
             rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
 
@@ -126,7 +128,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             InitAudioSampleGrabber();
 #endif
             
-            (mediaControl as IGraphBuilder).RenderFile(renderMediaName, null);
+            int hr = (mediaControl as IGraphBuilder).RenderFile(renderMediaName, null);
+            DsError.ThrowExceptionForHR(hr);
 
 #if HAVE_SAMPLES
             CompleteAudioSampleGrabberIntialization();

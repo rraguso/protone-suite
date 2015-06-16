@@ -314,7 +314,19 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
             Image img = ImageProvider.GetIcon(path, false);
             _il.Images.Add(img);
 
-            ListViewItem item = new ListViewItem(path);
+            string displayPath = path;
+
+            FileInfo fi = new FileInfo(path);
+            if (fi != null && fi.Name.ToUpperInvariant().EndsWith("CDA"))
+            {
+                CDAFileInfo cdfi = MediaFileInfo.FromPath(fi.FullName) as CDAFileInfo;
+                if (cdfi != null)
+                    displayPath = cdfi.DisplayName;
+            }
+            
+            ListViewItem item = new ListViewItem(displayPath);
+
+
             item.Tag = path;
             item.ImageIndex = _il.Images.Count - 1;
 
@@ -453,7 +465,7 @@ namespace OPMedia.Addons.Builtin.FileExplorer.SearchWizard.Controls
                 if (!theTask.UseAttributes || AttributesMatch(di.Attributes, false))
                 {
                     List<string> childFolders = new List<string>();
-                    childFolders.AddRange(Directory.EnumerateDirectories(di.Parent.FullName, theTask.SearchPattern, SearchOption.TopDirectoryOnly));
+                    childFolders.AddRange(Directory.EnumerateDirectories(di.FullName, theTask.SearchPattern, SearchOption.TopDirectoryOnly));
 
                     foreach (string fld in childFolders)
                     {

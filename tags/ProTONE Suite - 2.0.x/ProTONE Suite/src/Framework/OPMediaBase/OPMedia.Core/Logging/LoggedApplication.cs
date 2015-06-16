@@ -61,7 +61,7 @@ namespace OPMedia.Core.Logging
 
         private void OnApplicationThreadException(object sender, ThreadExceptionEventArgs e)
         {
-            ErrorDispatcher.DispatchError(e.Exception);
+            ErrorDispatcher.DispatchFatalError(e.Exception);
         }
 
         private void LogException(Exception ex)

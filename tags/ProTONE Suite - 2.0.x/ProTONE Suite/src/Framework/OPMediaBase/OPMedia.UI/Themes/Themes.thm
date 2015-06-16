@@ -35,6 +35,7 @@
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
+    <ThemeElement Name="ListActiveItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="0" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
   </Theme>
@@ -73,6 +74,7 @@
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
+    <ThemeElement Name="ListActiveItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="3" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
   </Theme>
@@ -111,6 +113,7 @@
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
+    <ThemeElement Name="ListActiveItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="3" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
   </Theme>
@@ -149,6 +152,7 @@
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
+    <ThemeElement Name="ListActiveItemColor" Value="255, 209, 24" />
     <ThemeElement Name="CornerSize" Value="3" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
   </Theme>
@@ -187,6 +191,7 @@
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
+    <ThemeElement Name="ListActiveItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="0" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
   </Theme>
@@ -225,6 +230,7 @@
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
+    <ThemeElement Name="ListActiveItemColor" Value="255, 000, 000" />
     <ThemeElement Name="CornerSize" Value="0" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
   </Theme>
@@ -263,6 +269,7 @@
     <ThemeElement Name="GradientGaugeColor1" Value="000, 255, 000" />
     <ThemeElement Name="GradientGaugeColor2" Value="255, 000, 000" />
     <ThemeElement Name="ListHotItemColor" Value="255, 000, 000" />
+    <ThemeElement Name="ListActiveItemColor" Value="255, 209, 24" />
     <ThemeElement Name="CornerSize" Value="0" />
     <ThemeElement Name="FormBorderWidth" Value="2" />
   </Theme>

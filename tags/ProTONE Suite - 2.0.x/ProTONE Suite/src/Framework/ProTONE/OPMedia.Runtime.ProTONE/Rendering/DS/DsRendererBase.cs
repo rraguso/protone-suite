@@ -98,7 +98,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 try
                 {
-                    mediaEvent.FreeEventParams(code, p1, p2);
+                    int hr = mediaEvent.FreeEventParams(code, p1, p2);
+                    DsError.ThrowExceptionForHR(hr);
 
                     Logger.LogHeavyTrace("HandleGraphEvent: code={0} p1={1} p2={2}", code, p1, p2);
                     HandleGraphEvent(code, p1, p2);
@@ -132,7 +133,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         protected override void DoPauseRenderer()
         {
             if (mediaControl != null)
-                mediaControl.Pause();
+            {
+                int hr = mediaControl.Pause();
+                DsError.ThrowExceptionForHR(hr);
+            }
         }
 
         protected override void DoStopRenderer()
@@ -232,13 +236,19 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         private void SetupVideoWindow()
         {
-            videoWindow.put_Owner(renderRegion.Handle);
-            videoWindow.put_MessageDrain(renderRegion.Handle);
-            videoWindow.put_WindowStyle((int)(WindowStyle.Child |
+            int hr = videoWindow.put_Owner(renderRegion.Handle);
+            DsError.ThrowExceptionForHR(hr);
+
+            hr = videoWindow.put_MessageDrain(renderRegion.Handle);
+            DsError.ThrowExceptionForHR(hr);
+
+            hr = videoWindow.put_WindowStyle((int)(WindowStyle.Child |
                 WindowStyle.ClipSiblings |
                 WindowStyle.ClipChildren));
+            DsError.ThrowExceptionForHR(hr);
 
-            mediaEvent.SetNotifyWindow(GraphNotifyWnd.Instance.Handle, (int)Messages.WM_GRAPH_EVENT, IntPtr.Zero);
+            hr = mediaEvent.SetNotifyWindow(GraphNotifyWnd.Instance.Handle, (int)Messages.WM_GRAPH_EVENT, IntPtr.Zero);
+            DsError.ThrowExceptionForHR(hr);
         }
 
 
@@ -277,7 +287,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             }
 
             renderRegion.SuspendLayout();
-            videoWindow.SetWindowPosition(left, top, width, height);
+            
+            int hr = videoWindow.SetWindowPosition(left, top, width, height);
+            DsError.ThrowExceptionForHR(hr);
+
             renderRegion.ResumeLayout();
         }
 
@@ -287,7 +300,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 SetMediaPosition(fromPosition);
 
             if (mediaControl != null)
-                mediaControl.Run();
+            {
+                int hr = mediaControl.Run();
+                DsError.ThrowExceptionForHR(hr);
+            }
         }
 
         protected override double GetMediaLength()
@@ -310,7 +326,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             if (mediaPosition != null)
             {
-                mediaPosition.get_CurrentPosition(out val);
+                int hr = mediaPosition.get_CurrentPosition(out val);
+                DsError.ThrowExceptionForHR(hr);
             }
 
             return val * durationScaleFactor;
@@ -320,7 +337,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             if (mediaPosition != null)
             {
-                mediaPosition.put_CurrentPosition(pos / durationScaleFactor);
+                int hr = mediaPosition.put_CurrentPosition(pos / durationScaleFactor);
+                DsError.ThrowExceptionForHR(hr);
             }
         }
 
@@ -329,7 +347,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             int val = -1;
             if (isAudioAvailable)
             {
-                basicAudio.get_Volume(out val);
+                int hr = basicAudio.get_Volume(out val);
+                DsError.ThrowExceptionForHR(hr);
             }
 
             return val;
@@ -344,7 +363,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 else if (vol > 0)
                     vol = 0;
 
-                basicAudio.put_Volume(vol);
+                int hr = basicAudio.put_Volume(vol);
+                DsError.ThrowExceptionForHR(hr);
             }
         }
 
@@ -353,7 +373,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             int val = 0;
             if (isAudioAvailable)
             {
-                basicAudio.get_Balance(out val);
+                int hr = basicAudio.get_Balance(out val);
+                DsError.ThrowExceptionForHR(hr);
             }
 
             return val;
@@ -368,7 +389,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 else if (b > 10000)
                     b = 10000;
 
-                basicAudio.put_Balance(b);
+                int hr = basicAudio.put_Balance(b);
+                DsError.ThrowExceptionForHR(hr);
             }
         }
         
@@ -387,8 +409,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             OABool seekFwd = OABool.False, seekBwd = OABool.False;
             if (mediaPosition != null)
             {
-                mediaPosition.CanSeekForward(out seekFwd);
-                mediaPosition.CanSeekBackward(out seekBwd);
+                int hr = mediaPosition.CanSeekForward(out seekFwd);
+                DsError.ThrowExceptionForHR(hr);
+                
+                hr = mediaPosition.CanSeekBackward(out seekBwd);
+                DsError.ThrowExceptionForHR(hr);
             }
 
             return (seekFwd != OABool.False && seekBwd != OABool.False);
@@ -399,7 +424,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             BaseClasses.FilterState fs = BaseClasses.FilterState.Stopped;
             if (mediaControl != null)
             {
-                mediaControl.GetState(0, out fs);
+                int hr = mediaControl.GetState(0, out fs);
+                DsError.ThrowExceptionForHR(hr);
             }
 
             return fs;
@@ -411,7 +437,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (isVideoAvailable && videoWindow != null)
             {
                 int hidden = (int)OABool.False;
-                videoWindow.IsCursorHidden(out hidden);
+                
+                int hr = videoWindow.IsCursorHidden(out hidden);
+                DsError.ThrowExceptionForHR(hr);
+
                 retVal = (hidden == (int)OABool.False);
             }
 
@@ -423,7 +452,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (isVideoAvailable && videoWindow != null)
             {
                 int hidden = (show) ? (int)OABool.False : (int)OABool.True;
-                videoWindow.HideCursor(hidden);
+                int hr = videoWindow.HideCursor(hidden);
+                DsError.ThrowExceptionForHR(hr);
             }
         }
         protected override void DoAdjustVideoSize(VideoSizeAdjustmentDirection direction, VideoSizeAdjustmentAction action)
@@ -500,7 +530,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                     return;
 
                 // Add it to the filter graph
-                graphBuilder.AddFilter(sampleGrabber as IBaseFilter, "ProTONE_SampleGrabber");
+                int hr = graphBuilder.AddFilter(sampleGrabber as IBaseFilter, "ProTONE_SampleGrabber");
+                DsError.ThrowExceptionForHR(hr);
 
                 AMMediaType mtAudio = new AMMediaType();
                 mtAudio.majorType = MediaType.Audio;
@@ -509,10 +540,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
                 _actualAudioFormat = null;
 
-                sampleGrabber.SetMediaType(mtAudio);
-                sampleGrabber.SetBufferSamples(true);
-                sampleGrabber.SetOneShot(false);
-                sampleGrabber.SetCallback(this, 1);
+                hr = sampleGrabber.SetMediaType(mtAudio);
+                DsError.ThrowExceptionForHR(hr);
+
+                hr = sampleGrabber.SetBufferSamples(true);
+                DsError.ThrowExceptionForHR(hr);
+
+                hr = sampleGrabber.SetOneShot(false);
+                DsError.ThrowExceptionForHR(hr);
+
+                hr = sampleGrabber.SetCallback(this, 1);
+                DsError.ThrowExceptionForHR(hr);
 
                 sampleAnalyzerMustStop.Reset();
                 sampleAnalyzerThread = new Thread(new ThreadStart(SampleAnalyzerLoop));
@@ -597,7 +635,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
                 if (sampleGrabber != null)
                 {
-                    (mediaControl as IGraphBuilder).RemoveFilter(sampleGrabber as IBaseFilter);
+                    int hr = (mediaControl as IGraphBuilder).RemoveFilter(sampleGrabber as IBaseFilter);
+                    DsError.ThrowExceptionForHR(hr);
 
                     Marshal.ReleaseComObject(sampleGrabber);
                     sampleGrabber = null;
@@ -904,7 +943,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             IFilterGraph graph = mediaControl as IFilterGraph;
             if (graph != null)
             {
-                mediaControl.Stop();
+                int hr = mediaControl.Stop();
+                DsError.ThrowExceptionForHR(hr);
 
                 IEnumFilters pEnum = null;
                 if (COMHelper.SUCCEEDED(graph.EnumFilters(out pEnum)) && pEnum != null)
