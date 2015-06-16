@@ -18,7 +18,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         public static void ThrowExceptionForHR(int hr)
         {
             if (hr < 0)
-                throw new COMException("Error: ", hr);
+            {
+                COMException ex = new COMException("Error: ", hr);
+                throw ex;
+            }
         }
 
         //public static void CheckHResult(string prefixMsg, int hr)
@@ -27,10 +30,10 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         //        throw new COMException(prefixMsg, hr);
         //}
 
-        public static string GetErrorMessageForHr(int hr)
-        {
-            return ErrorDispatcher.GetErrorMessageForException(new COMException("Error: ", hr), true);
-        }
+        //public static string GetErrorMessageForHr(int hr)
+        //{
+        //    return ErrorDispatcher.GetErrorMessageForException(new COMException("Error: ", hr), true);
+        //}
     }
 
     public static class Filters		// uuids.h  :  CLSID_*

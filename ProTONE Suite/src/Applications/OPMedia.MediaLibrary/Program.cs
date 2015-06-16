@@ -84,7 +84,7 @@ namespace OPMedia.MediaLibrary
             }
             catch (Exception ex)
             {
-                ErrorDispatcher.DispatchError(ex);
+                ErrorDispatcher.DispatchFatalError(ex);
             }
 
             Logger.StopLogger();

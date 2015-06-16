@@ -125,6 +125,25 @@ namespace OPMedia.Addons.Builtin.FileExplorer
             opmShellList.QueryLinkedFiles += new QueryLinkedFilesHandler(OnQueryLinkedFiles);
             opmShellList.ItemRenamed += new ItemRenameHandler(OnRenamed);
 
+            opmShellList.QueryDisplayName += (fsi) =>
+            {
+                if (fsi != null)
+                {
+                    FileInfo fi = fsi as FileInfo;
+                    if (fi != null && fi.Name.ToUpperInvariant().EndsWith("CDA"))
+                    {
+                        CDAFileInfo cdfi = MediaFileInfo.FromPath(fsi.FullName) as CDAFileInfo;
+                        if (cdfi != null)
+                            return cdfi.DisplayName;
+                    }
+
+                    return fsi.Name;
+                }
+
+                return string.Empty;
+            };
+
+
             this.HandleCreated += new EventHandler(AddonPanel_HandleCreated);
             this.Leave += new EventHandler(AddonPanel_Leave);
         }

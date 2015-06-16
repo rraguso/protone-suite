@@ -346,6 +346,11 @@ namespace OPMedia.UI.Controls
         private OPMToolTip _tip = null;
         private Control _ctl = null;
 
+        public int AutomaticDelay { get; set; }
+        public int AutoPopDelay { get; set; }
+        public int InitialDelay { get; set; }
+        public int ReshowDelay { get; set; }
+
         public void ShowSimpleToolTip(string text, Image img = null)
         {
             //Logger.LogTrace("ShowSimpleToolTip");
@@ -370,6 +375,12 @@ namespace OPMedia.UI.Controls
 
         public OPMToolTipManager(Control ctl)
         {
+            int autoDelay = 500;
+            this.AutomaticDelay = autoDelay; 
+            this.AutoPopDelay = 10 * autoDelay;
+            this.InitialDelay = 2 * autoDelay;
+            this.ReshowDelay = 2 * autoDelay;
+
             _ctl = ctl;
             _ctl.MouseMove += new MouseEventHandler(_ctl_MouseMove);
         }
@@ -398,7 +409,13 @@ namespace OPMedia.UI.Controls
             try
             {
                 RemoveAll();
+                
                 _tip = new OPMToolTip();
+                _tip.AutomaticDelay = this.AutomaticDelay;
+                _tip.AutoPopDelay = this.AutoPopDelay;
+                _tip.InitialDelay = this.InitialDelay;
+                _tip.ReshowDelay = this.ReshowDelay;
+
                 _tip.Disposed += new EventHandler(_tip_Disposed);
                 _tip.Popup += new PopupEventHandler(_tip_Popup);
 
