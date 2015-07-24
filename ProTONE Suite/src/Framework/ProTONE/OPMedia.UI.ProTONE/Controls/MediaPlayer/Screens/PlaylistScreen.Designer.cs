@@ -39,8 +39,8 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.dummyToolStripMenuItem = new OPMedia.UI.Controls.OPMToolStripMenuItem();
             this.lvPlaylist = new OPMedia.UI.Controls.OPMListView(ColumnHeaderStyle.None);
             this.colDummy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colIcon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colMisc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colIcon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colFile = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlLayout = new OPMedia.UI.Controls.OPMTableLayoutPanel();
@@ -79,18 +79,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.lvPlaylist.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvPlaylist.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colDummy,
-            this.colIcon,
             this.colMisc,
+            this.colIcon,
             this.colTime,
             this.colFile});
             this.lvPlaylist.ContextMenuStrip = this.cmsPlaylist;
             this.lvPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvPlaylist.Location = new System.Drawing.Point(0, 0);
-            this.lvPlaylist.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.lvPlaylist.Location = new System.Drawing.Point(0, 10);
+            this.lvPlaylist.Margin = new System.Windows.Forms.Padding(0, 10, 0, 2);
             this.lvPlaylist.MultiSelect = false;
             this.lvPlaylist.Name = "lvPlaylist";
             this.lvPlaylist.OverrideBackColor = System.Drawing.Color.Empty;
-            this.lvPlaylist.Size = new System.Drawing.Size(355, 206);
+            this.lvPlaylist.Size = new System.Drawing.Size(355, 196);
             this.lvPlaylist.TabIndex = 3;
             this.lvPlaylist.UseCompatibleStateImageBehavior = false;
             this.lvPlaylist.View = System.Windows.Forms.View.Details;

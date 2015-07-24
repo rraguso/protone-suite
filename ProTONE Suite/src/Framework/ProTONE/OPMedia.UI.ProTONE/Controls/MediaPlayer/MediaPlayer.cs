@@ -172,6 +172,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             {
                 MediaRenderer.DefaultInstance.FilterStateChanged += new FilterStateChangedHandler(OnMediaStateChanged);
                 MediaRenderer.DefaultInstance.MediaRendererHeartbeat += new MediaRendererEventHandler(OnMediaRendererHeartbeat);
+                MediaRenderer.DefaultInstance.MediaRenderingException += new MediaRenderingExceptionHandler(OnMediaRenderingException);
             }
         }
 
@@ -335,24 +336,35 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         public void NotifyGUI(string format, params object[] args)
         {
-            string text = Translator.Translate(format, args);
-
-            MediaRenderer.DefaultInstance.DisplayOsdMessage(text);
-
-            if (ProTONEConfig.MediaStateNotificationsEnabled)
+            if (MediaRenderer.DefaultInstance.HasRenderingErrors == false)
             {
-                TrayNotificationBox f = new TrayNotificationBox();
-                f.HideDelay = 6000;
-                f.AnimationType = AnimationType.Dissolve;
-                f.ShowSimple(text);
-
-                this.Focus();
-            }
+               string text = Translator.Translate(format, args);
+   
+               MediaRenderer.DefaultInstance.DisplayOsdMessage(text);
+   
+               if (ProTONEConfig.MediaStateNotificationsEnabled)
+               {
+                   TrayNotificationBox f = new TrayNotificationBox();
+                   f.HideDelay = 6000;
+                   f.AnimationType = AnimationType.Dissolve;
+                       f.ShowSimple(text, true);
+   
+                   this.Focus();
+               }
+           }
         }
 
         void pnlRendering_VolumeChanged(double newVal)
         {
             SetVolume(newVal);
+        }
+
+        void OnMediaRenderingException(RenderingExceptionEventArgs args)
+        {
+            ErrorDispatcher.DispatchError(args.RenderingException.ToString(), 
+                Translator.Translate("TXT_APP_NAME"));
+
+            args.Handled = true;
         }
 
         private void OnMediaStateChanged(FilterState oldState, string oldMedia, 
@@ -546,6 +558,25 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             dlg.FillFavoriteFoldersEvt += () => { return ProTONEConfig.GetFavoriteFolders("FavoriteFolders"); };
             dlg.AddToFavoriteFolders += (s) => { return ProTONEConfig.AddToFavoriteFolders(s); };
+
+            dlg.QueryDisplayName += (fsi) =>
+                {
+                    if (fsi != null)
+                    {
+                        FileInfo fi = fsi as FileInfo;
+                        if (fi != null && fi.Name.ToUpperInvariant().EndsWith("CDA"))
+                        {
+                            CDAFileInfo cdfi = MediaFileInfo.FromPath(fsi.FullName) as CDAFileInfo;
+                            if (cdfi != null)
+                                return cdfi.DisplayName;
+                        }
+
+                        return fsi.Name;
+                    }
+
+                    return string.Empty;
+                };
+
             dlg.ShowAddToFavorites = true;
 
             dlg.OpenDropDownOptions = new List<OpenOption>(new OpenOption[]
@@ -656,35 +687,42 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     MediaRenderer.DefaultInstance.StartRenderer();
                 }
 
-                if (_renderingFrame != null && (isVideoFile || isDVDVolume))
+                if (MediaRenderer.DefaultInstance.HasRenderingErrors == false)
                 {
-                    if (!_renderingFrame.Visible)
-                    {
-                        _renderingFrame.Show();
-                    }
-                }
-
-                SetVolume(pnlRendering.ProjectedVolume);
-
-                if (subItem != null && subItem.StartHint != null)
-                {
-                    NotifyGUI("TXT_OSD_PLAY", subItem);
+                   if (_renderingFrame != null && (isVideoFile || isDVDVolume))
+                   {
+                       if (!_renderingFrame.Visible)
+                       {
+                           _renderingFrame.Show();
+                       }
+                   }
+   
+                   SetVolume(pnlRendering.ProjectedVolume);
+   
+                   if (subItem != null && subItem.StartHint != null)
+                   {
+                       NotifyGUI("TXT_OSD_PLAY", subItem);
+                   }
+                   else
+                   {
+                       NotifyGUI("TXT_OSD_PLAY", name);
+                   }
+   
+                   if (isVideoFile)
+                   {
+                       if (_delayedSubtitleLookupTimer == null)
+                       {
+                           _delayedSubtitleLookupTimer = new System.Windows.Forms.Timer();
+                           _delayedSubtitleLookupTimer.Interval = 1000;
+                           _delayedSubtitleLookupTimer.Tick += new EventHandler(_delayedSubtitleLookupTimer_Tick);
+                       }
+   
+                       _delayedSubtitleLookupTimer.Start();
+                   }
                 }
                 else
                 {
-                    NotifyGUI("TXT_OSD_PLAY", name);
-                }
-
-                if (isVideoFile)
-                {
-                    if (_delayedSubtitleLookupTimer == null)
-                    {
-                        _delayedSubtitleLookupTimer = new System.Windows.Forms.Timer();
-                        _delayedSubtitleLookupTimer.Interval = 1000;
-                        _delayedSubtitleLookupTimer.Tick += new EventHandler(_delayedSubtitleLookupTimer_Tick);
-                    }
-
-                    _delayedSubtitleLookupTimer.Start();
+                    HideRenderingRegion();
                 }
             }
         }

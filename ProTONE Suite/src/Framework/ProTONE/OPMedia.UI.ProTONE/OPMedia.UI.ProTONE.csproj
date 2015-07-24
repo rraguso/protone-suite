@@ -135,6 +135,11 @@
     <Compile Include="Dialogs\StreamingServerChooserDlg.Designer.cs">
       <DependentUpon>StreamingServerChooserDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SkinResources\SkinResources.cs" />
     <Compile Include="TrayNotificationTarget.cs" />
     <Compile Include="Configuration\FileTypesPanel.cs">
@@ -255,11 +260,6 @@
     </Compile>
     <Compile Include="Controls\MediaPlayer\VolumeScale.Designer.cs">
       <DependentUpon>VolumeScale.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SubtitleDownload\SubtitleDownloadNotifyForm.cs">
       <SubType>Form</SubType>
@@ -435,13 +435,13 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Resources\notopened.png" />
-    <None Include="Resources\paused.png" />
-    <None Include="Resources\running.png" />
-    <None Include="Resources\stopped.png" />
+    <EmbeddedResource Include="SkinResources\Black\notopened.png" />
+    <EmbeddedResource Include="SkinResources\Black\paused.png" />
+    <EmbeddedResource Include="SkinResources\Black\running.png" />
+    <EmbeddedResource Include="SkinResources\Black\stopped.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Dialogs\ID3ArtworkDlg.resx">
@@ -454,23 +454,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SkinResources\Black\AudioMediaType.png" />
+    <EmbeddedResource Include="SkinResources\Black\VideoMediaType.png" />
     <EmbeddedResource Include="SkinResources\Black\btnOpenSettings.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnOpenSettings2.png" />
     <EmbeddedResource Include="SkinResources\Black\btnLoad.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnLoad2.png" />
     <EmbeddedResource Include="SkinResources\Black\btnOpenURL.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnOpenURL2.png" />
     <EmbeddedResource Include="SkinResources\Black\btnOpenDisk.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnOpenDisk2.png" />
     <EmbeddedResource Include="SkinResources\Black\btnNext.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnNext2.png" />
     <EmbeddedResource Include="SkinResources\Black\btnPrev.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnPrev2.png" />
     <EmbeddedResource Include="SkinResources\Black\btnPause.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnPause2.png" />
     <EmbeddedResource Include="SkinResources\Black\btnStop.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnStop2.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnPlay2.png" />
     <EmbeddedResource Include="SkinResources\Black\btnPlay.png" />
     <None Include="Resources\Tabs.png" />
     <None Include="Resources\Music_Note_Double_48.png" />
@@ -497,17 +490,17 @@
     <None Include="Resources\btnFullScreen.png" />
     <None Include="Resources\btnLoad.png" />
     <None Include="Resources\btnLoadPlaylist.png" />
-    <None Include="Resources\btnLoopPlay.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnLoopPlay.png" />
     <None Include="Resources\btnNext.png" />
     <None Include="Resources\btnOpenDisk.png" />
     <None Include="Resources\btnOpenSettings.png" />
     <None Include="Resources\btnPause.png" />
     <None Include="Resources\btnPlay.png" />
-    <None Include="Resources\btnPlaylistEnd.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnPlaylistEnd.png" />
     <None Include="Resources\btnPrev.png" />
     <None Include="Resources\btnSavePlaylist.png" />
     <None Include="Resources\btnStop.png" />
-    <None Include="Resources\btnToggleShuffle.png" />
+    <EmbeddedResource Include="SkinResources\Black\btnToggleShuffle.png" />
     <None Include="Resources\Addons.png" />
     <None Include="Resources\btnClear.png" />
     <None Include="Resources\diagnostics.png" />

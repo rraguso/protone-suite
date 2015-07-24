@@ -300,7 +300,8 @@ namespace OPMedia.UI.ProTONE.SubtitleDownload
                     TrayNotificationBox f = new TrayNotificationBox();
                     f.HideDelay = 6000;
                     f.AnimationType = AnimationType.Slide;
-                    f.ShowSimple(Translator.Translate("TXT_SUB_LOADED"));
+                    
+                    f.ShowSimple(Translator.Translate("TXT_SUB_LOADED"), false);
                 });
             }
         }
