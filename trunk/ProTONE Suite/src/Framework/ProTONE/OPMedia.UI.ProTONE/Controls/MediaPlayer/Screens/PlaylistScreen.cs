@@ -188,6 +188,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                 foreach (ListViewItem.ListViewSubItem lvsi in lvi.SubItems)
                 {
                     lvsi.Font = isActive ? ThemeManager.NormalBoldFont : ThemeManager.NormalFont;
+                    lvsi.ForeColor = isActive ? ThemeManager.ListActiveItemColor : ThemeManager.ForeColor;
                 }
             }
         }
@@ -360,18 +361,30 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
         internal string GetActiveFile()
         {
-            if (playlist.Count <= 0)
-                return null;
+            try
+            {
+                if (playlist.Count <= 0)
+                    return null;
+    
+                return GetActivePlaylistItem().Path;
+            }
+            catch { }
 
-            return GetActivePlaylistItem().Path;
+            return null;
         }
 
         internal string GetActiveFileTitle()
         {
-            if (playlist.Count <= 0)
-                return null;
+            try
+            {
+                if (playlist.Count <= 0)
+                    return null;
+    
+                return GetActivePlaylistItem().DisplayName;
+            }
+            catch { }
 
-            return GetActivePlaylistItem().DisplayName;
+            return null;
         }
 
         internal PlaylistItem GetActivePlaylistItem()

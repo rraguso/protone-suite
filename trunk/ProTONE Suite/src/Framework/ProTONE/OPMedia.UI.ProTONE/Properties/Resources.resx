@@ -145,9 +145,6 @@
   <data name="btnLoadPlaylist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\btnloadplaylist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnLoopPlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\btnloopplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\btnnext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,9 +163,6 @@
   <data name="btnPlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\btnplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnPlaylistEnd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\btnplaylistend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnPrev" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\btnprev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,9 +175,6 @@
   <data name="btnStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\btnstop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnToggleShuffle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\btntoggleshuffle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnVolDn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\btnvoldn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,9 +184,6 @@
   <data name="Diagnostics" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\diagnostics.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="notopened" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\notopened.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Miscellaneous" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\miscellaneous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -204,15 +192,6 @@
   </data>
   <data name="MoveUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\moveup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paused" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\paused.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="running" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\running.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stopped" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\stopped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="subtitles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\subtitles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
