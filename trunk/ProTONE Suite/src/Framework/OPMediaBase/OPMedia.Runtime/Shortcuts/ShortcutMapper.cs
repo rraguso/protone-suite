@@ -165,6 +165,9 @@ namespace OPMedia.Runtime.Shortcuts
 
         public static OPMShortcut MapCommand(Keys key)
         {
+            if (key == Keys.Space)
+                return OPMShortcut.CmdPlayPause;
+
             KeysConverter kc = new KeysConverter();
             string pressedKeys = kc.ConvertToInvariantString(key);
 

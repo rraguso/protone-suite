@@ -30,6 +30,34 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
 
         [Browsable(false)]
         [ReadOnly(true)]
+        public string DisplayName
+        {
+            get
+            {
+                string retVal1 = base.FileSystemInfo.Name;
+                string retVal2 = "";
+
+                if (string.IsNullOrEmpty(Artist) == false)
+                    retVal2 += Artist;
+
+                if (string.IsNullOrEmpty(retVal2) == false &&
+                    string.IsNullOrEmpty(Title) == false)
+                    retVal2 += " - ";
+
+                if (string.IsNullOrEmpty(Title) == false)
+                    retVal2 += Title;
+
+                if (string.IsNullOrEmpty(retVal2))
+                    return retVal1;
+
+                return string.Format("{0} ({1})",
+                    retVal1, retVal2);
+            }
+        }
+
+
+        [Browsable(false)]
+        [ReadOnly(true)]
         public new PlaylistItem BookmarkManager
         {
             get { return null; }
@@ -48,6 +76,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                     Track tr = _cdEntry.Tracks[_track - 1];
                     return tr.Title;
                 }
+                
                 return null;
             }
         }

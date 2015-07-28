@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OPMedia.MediaLibrary</RootNamespace>
     <AssemblyName>OPMedia.MediaLibrary</AssemblyName>
-    <ApplicationIcon>catalog.ico</ApplicationIcon>
+    <ApplicationIcon>Library.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -72,7 +72,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="catalog.ico" />
+    <Content Include="Library.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -202,9 +202,6 @@
   <ItemGroup>
     <Content Include="Resources\Addons.png" />
     <None Include="Resources\AddonsSettings.png" />
-    <None Include="Resources\Preview.bmp" />
-    <None Include="Resources\Properties.bmp" />
-    <None Include="Resources\Navigation.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -257,19 +257,19 @@ namespace OPMedia.Runtime.ProTONE.Playlists
                     img = ImageProvider.GetShell32Icon(Shell32Icon.DvdDisk, large);
                 }
                 else switch (mi.MediaType.ToUpperInvariant())
-                    {
-                        case "URL":
-                            img = ImageProvider.GetShell32Icon(Shell32Icon.Internet, large);
-                            break;
+                {
+                    case "URL":
+                        img = ImageProvider.GetShell32Icon(Shell32Icon.Internet, large);
+                        break;
 
-                        case "CDA":
-                            img = ImageProvider.GetShell32Icon(Shell32Icon.CompactDisk, large);
-                            break;
+                    case "CDA":
+                        img = ImageProvider.GetShell32Icon(Shell32Icon.CompactDisk, large);
+                        break;
 
-                        default:
-                            img = ImageProvider.GetIcon(mi.Path, large);
-                            break;
-                    }
+                    default:
+                        img = ImageProvider.GetIcon(mi.Path, large);
+                        break;
+                }
             }
 
             if (img == null)

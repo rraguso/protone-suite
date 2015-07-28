@@ -108,6 +108,14 @@ namespace OPMedia.UI.Controls.ThemedScrollBars
 
         #endregion
 
+        public static void SkinTopWindow(Control ctl)
+        {
+            foreach (Control child in ctl.Controls)
+                SkinTopWindow(child);
+
+            SkinWindow(ctl);
+        }
+
         public static void SkinWindow(Control ctrl)
         {
             if (SkinScrollCore.IsControlSupported(ctrl))
@@ -591,8 +599,8 @@ namespace OPMedia.UI.Controls.ThemedScrollBars
                     (ctrl is TextBox && (ctrl as TextBox).Multiline) ||
                     (ctrl is ListView) ||
                     ((ctrl is ScrollableControl) && ((ScrollableControl)ctrl).AutoScroll == true) ||
-                    false
-                    )
+                    false)
+
                     return true;
             }
             catch

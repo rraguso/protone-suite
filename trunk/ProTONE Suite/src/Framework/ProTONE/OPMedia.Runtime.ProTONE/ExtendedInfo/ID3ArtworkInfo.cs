@@ -5,7 +5,7 @@ using System.Text;
 using System.Drawing;
 using OPMedia.Core.TranslationSupport;
 using System.ComponentModel;
-using TagLib;
+
 using System.IO;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
@@ -13,6 +13,7 @@ using OPMedia.Core.Logging;
 using System.Runtime.Serialization.Formatters.Binary;
 using OPMedia.Runtime.FileInformation;
 using OPMedia.Core;
+using TagLib;
 
 namespace OPMedia.Runtime.ProTONE.ExtendedInfo
 {

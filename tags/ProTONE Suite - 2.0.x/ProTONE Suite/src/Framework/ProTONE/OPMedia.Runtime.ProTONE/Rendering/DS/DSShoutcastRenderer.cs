@@ -60,14 +60,16 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             // Add to the filter Graph
             _source.FilterGraph = (mediaControl) as IGraphBuilder;
 
-            // Render the output pin
-            int hr = (int)_source.OutputPin.Render();
-            DsError.ThrowExceptionForHR(hr);
-
             if (_source.OutputPin == null)
                 throw new RenderingException("Unable to stream media from URL: " + renderMediaName);
 
             rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
+
+            // Render the output pin
+            int hr = (int)_source.OutputPin.Render();
+            DsError.ThrowExceptionForHR(hr);
+
+            InitAudioSampleGrabber_v2();
 
             mediaPosition = mediaControl as IMediaPosition;
             videoWindow = null;
@@ -79,6 +81,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 hr = basicAudio.put_Volume((int)VolumeRange.Minimum);
                 isAudioAvailable = (hr >= 0);
+                CompleteAudioSampleGrabberIntialization();
             }
             catch
             {

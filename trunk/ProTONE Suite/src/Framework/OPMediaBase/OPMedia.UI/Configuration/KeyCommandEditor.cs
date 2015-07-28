@@ -131,7 +131,8 @@ namespace OPMedia.UI.Configuration
             KeysConverter kc = new KeysConverter();
             string key = kc.ConvertToInvariantString(args.KeyData);
 
-            if (!ShortcutMapper.IsConfigurableShortcut(cmd))
+            if ((args.KeyData == Keys.Space && ShortcutMapper.IsPlayer) || 
+                !ShortcutMapper.IsConfigurableShortcut(cmd))
             {
                 // Key combination currently assigned 
                 // to a non-configurable command (e.g. F1 = help)

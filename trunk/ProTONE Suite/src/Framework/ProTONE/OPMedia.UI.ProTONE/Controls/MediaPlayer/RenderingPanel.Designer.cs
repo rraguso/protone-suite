@@ -61,15 +61,14 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(3100, 66);
-            this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(100, 66);
+            this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(100, 54);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.OverrideBackColor = System.Drawing.Color.Empty;
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 3F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(481, 66);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(481, 54);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // pbTimeIcon
@@ -138,10 +137,10 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.playbackPanel.Margin = new System.Windows.Forms.Padding(0);
             this.playbackPanel.MediaName = "";
             this.playbackPanel.MediaType = OPMedia.Runtime.ProTONE.Rendering.Base.MediaTypes.None;
-            this.playbackPanel.MinimumSize = new System.Drawing.Size(200, 40);
+            this.playbackPanel.MinimumSize = new System.Drawing.Size(200, 30);
             this.playbackPanel.Name = "playbackPanel";
             this.playbackPanel.OverrideBackColor = System.Drawing.Color.Empty;
-            this.playbackPanel.Size = new System.Drawing.Size(481, 42);
+            this.playbackPanel.Size = new System.Drawing.Size(481, 30);
             this.playbackPanel.TabIndex = 2;
             this.playbackPanel.TotalSeconds = 0D;
             // 
@@ -151,9 +150,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.Controls.Add(this.tableLayoutPanel1);
             this.HasBorder = false;
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MinimumSize = new System.Drawing.Size(481, 68);
+            this.MinimumSize = new System.Drawing.Size(481, 55);
             this.Name = "RenderingPanel";
-            this.Size = new System.Drawing.Size(481, 68);
+            this.Size = new System.Drawing.Size(481, 55);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTimeIcon)).EndInit();

@@ -21,6 +21,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
     {
         private int bitrate = 128;
         private int metaInt = 8192;
+        private string contentType = "";
+
         private int receivedBytes;
         private Stream netStream;
         private bool connected = false;
@@ -58,21 +60,32 @@ namespace OPMedia.Runtime.ProTONE.Rendering.SHOUTCast
                 Dictionary<string, string> nvc = new Dictionary<string, string>();
                 foreach (string key in response.Headers.AllKeys)
                 {
-                    nvc.Add(key, response.Headers[key]);
+                    if (response.Headers[key] != null)
+                        nvc.Add(key.ToLowerInvariant(), response.Headers[key].ToLowerInvariant());
                 }
 
                 try
                 {
-                    metaInt = int.Parse(response.Headers["Icy-MetaInt"]);
+                    metaInt = int.Parse(nvc["icy-metaint"]);
                 }
                 catch { }
 
                 try
                 {
-                    bitrate = int.Parse(response.Headers["Icy-BR"]);
+                    bitrate = int.Parse(nvc["icy-br"]);
                 }
                 catch { }
-                
+
+                try
+                {
+                    contentType = nvc["content-type"];
+                }
+                catch { }
+
+                if (contentType != "audio/mpeg")
+                    throw new NotSupportedException(string.Format("The streaming server {0} has content-type: {1}, which is not supported.", 
+                        url, contentType));
+
                 receivedBytes = 0;
 
                 netStream = response.GetResponseStream();

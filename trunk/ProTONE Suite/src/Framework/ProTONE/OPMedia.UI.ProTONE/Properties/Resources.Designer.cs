@@ -63,6 +63,36 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap add2 {
+            get {
+                object obj = ResourceManager.GetObject("add2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Add3 {
+            get {
+                object obj = ResourceManager.GetObject("Add3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Addons {
             get {
                 object obj = ResourceManager.GetObject("Addons", resourceCulture);
@@ -73,9 +103,9 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap AudioSettings {
+        public static System.Drawing.Bitmap AudioMediaType {
             get {
-                object obj = ResourceManager.GetObject("AudioSettings", resourceCulture);
+                object obj = ResourceManager.GetObject("AudioMediaType", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,19 +213,9 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap btnMoveDown {
+        public static System.Drawing.Bitmap btnLoopPlay {
             get {
-                object obj = ResourceManager.GetObject("btnMoveDown", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap btnMoveUp {
-            get {
-                object obj = ResourceManager.GetObject("btnMoveUp", resourceCulture);
+                object obj = ResourceManager.GetObject("btnLoopPlay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +283,9 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap btnPlay2 {
+        public static System.Drawing.Bitmap btnPlayAfterPause {
             get {
-                object obj = ResourceManager.GetObject("btnPlay2", resourceCulture);
+                object obj = ResourceManager.GetObject("btnPlayAfterPause", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +293,9 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap btnPlayAfterPause {
+        public static System.Drawing.Bitmap btnPlaylistEnd {
             get {
-                object obj = ResourceManager.GetObject("btnPlayAfterPause", resourceCulture);
+                object obj = ResourceManager.GetObject("btnPlaylistEnd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +343,29 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap btnShowLogConsole1 {
+            get {
+                object obj = ResourceManager.GetObject("btnShowLogConsole1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap btnStop {
             get {
                 object obj = ResourceManager.GetObject("btnStop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap btnToggleShuffle {
+            get {
+                object obj = ResourceManager.GetObject("btnToggleShuffle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +393,49 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Diagnostics {
+        public static System.Drawing.Bitmap delete {
             get {
-                object obj = ResourceManager.GetObject("Diagnostics", resourceCulture);
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap delete2 {
+            get {
+                object obj = ResourceManager.GetObject("delete2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap delete3 {
+            get {
+                object obj = ResourceManager.GetObject("delete3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap diagnostics {
+            get {
+                object obj = ResourceManager.GetObject("diagnostics", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap file_tabs_icone_4362_48 {
+            get {
+                object obj = ResourceManager.GetObject("file_tabs_icone_4362_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +453,19 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap IconAudio {
+        public static System.Drawing.Bitmap GenVideoDoc_32x32_72 {
             get {
-                object obj = ResourceManager.GetObject("IconAudio", resourceCulture);
+                object obj = ResourceManager.GetObject("GenVideoDoc_32x32_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icon_audio {
+            get {
+                object obj = ResourceManager.GetObject("icon_audio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,6 +523,36 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Music_Note_Double_48 {
+            get {
+                object obj = ResourceManager.GetObject("Music_Note_Double_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap notopened {
+            get {
+                object obj = ResourceManager.GetObject("notopened", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap paused {
+            get {
+                object obj = ResourceManager.GetObject("paused", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Playlist {
             get {
                 object obj = ResourceManager.GetObject("Playlist", resourceCulture);
@@ -443,9 +563,29 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap running {
+            get {
+                object obj = ResourceManager.GetObject("running", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Scheduler {
             get {
                 object obj = ResourceManager.GetObject("Scheduler", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap stopped {
+            get {
+                object obj = ResourceManager.GetObject("stopped", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -483,9 +623,9 @@ namespace OPMedia.UI.ProTONE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap VideoSettings {
+        public static System.Drawing.Bitmap VideoMediaType {
             get {
-                object obj = ResourceManager.GetObject("VideoSettings", resourceCulture);
+                object obj = ResourceManager.GetObject("VideoMediaType", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

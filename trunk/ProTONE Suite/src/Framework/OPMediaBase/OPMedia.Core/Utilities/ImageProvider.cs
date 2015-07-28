@@ -212,6 +212,23 @@ namespace OPMedia.Core
 
         public static Image GetShell32Icon(Shell32Icon type, bool largeIcon)
         {
+            switch (type)
+            {
+                case Shell32Icon.DvdDisk:
+                    return Resources.DVD;
+
+                case Shell32Icon.CompactDisk:
+                    return Resources.CDA;
+
+                case Shell32Icon.Internet:
+                    return Resources.Internet;
+
+                default:
+                    break;
+
+            }
+
+
             // Use icons provided by Shell32.dll itself
             return GetIcon(Environment.SystemDirectory + PathUtils.DirectorySeparator + "shell32.dll",
                 (int)type, largeIcon);

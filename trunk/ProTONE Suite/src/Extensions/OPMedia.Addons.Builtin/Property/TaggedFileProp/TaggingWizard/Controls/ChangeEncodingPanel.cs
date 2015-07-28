@@ -38,7 +38,7 @@ namespace OPMedia.Addons.Builtin.TaggedFileProp.TaggingWizard
             _task.TaskType = TaskType.ChangeEncoding;
 
             encoderOptionsCtl.EncoderSettings = (_task as Task).EncoderSettings;
-            encoderOptionsCtl.DisplaySettings();
+            encoderOptionsCtl.DisplaySettings(false);
         }
     }
 }

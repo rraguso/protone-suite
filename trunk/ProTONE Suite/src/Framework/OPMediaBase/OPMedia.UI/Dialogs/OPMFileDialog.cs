@@ -41,6 +41,8 @@ namespace OPMedia.UI.Controls.Dialogs
         public bool ShowAddToFavorites { get; set; }
         public bool ShowNewFolder { get; set; }
 
+        public event QueryDisplayNameHandler QueryDisplayName = null;
+
         List<OpenOption> _openDropDownOptions = null;
         public List<OpenOption> OpenDropDownOptions 
         {
@@ -118,6 +120,9 @@ namespace OPMedia.UI.Controls.Dialogs
 
             lvExplorer.LaunchMultipleItems += new LaunchMultipleItemsHandler(lvExplorer_LaunchMultipleItems);
 
+            lvExplorer.QueryDisplayName += new QueryDisplayNameHandler(lvExplorer_QueryDisplayName);
+
+            
             ilDrives = new ImageList();
             ilDrives.ImageSize = new Size(16, 16);
             ilDrives.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
@@ -131,6 +136,21 @@ namespace OPMedia.UI.Controls.Dialogs
             _tt2 = new OPMToolTipManager(btnNewFolder);
 
             btnOK.OnDropDownClicked += new EventHandler(btnOK_OnDropDownClicked);
+        }
+
+        string lvExplorer_QueryDisplayName(FileSystemInfo fsi)
+        {
+            if (fsi != null)
+            {
+                if (this.QueryDisplayName != null)
+                {
+                    return QueryDisplayName(fsi);
+                }
+
+                return fsi.Name;
+            }
+
+            return string.Empty;
         }
 
         void btnOK_OnDropDownClicked(object sender, EventArgs e)

@@ -30,6 +30,22 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Helpers
             if (MustCancel())
                 return;
 
+            ID3FileInfoSlim ifiSlim = new ID3FileInfoSlim(MediaFileInfo.Empty);
+            ifiSlim.Album = track.Album;
+            ifiSlim.Artist = track.Artist;
+            ifiSlim.Genre = track.Genre;
+            ifiSlim.Title = track.Title;
+            ifiSlim.Track = (short)track.Index;
+
+            short year = 1900;
+            if (short.TryParse(track.Year, out year))
+                ifiSlim.Year = year;
+
+            EncodeBuffer(buff, destFile, generateTags, ifiSlim);
+        }
+
+        public void EncodeBuffer(byte[] buff, string destFile, bool generateTags, ID3FileInfoSlim ifiSlim)
+        {
             uint LameResult = Lame_encDll.beInitStream(Mp3ConversionOptions, ref m_InputSamples, ref m_OutBufferSize, ref m_hLameStream);
             if (LameResult != Lame_encDll.BE_ERR_SUCCESSFUL)
             {
@@ -91,19 +107,15 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Helpers
                 uint err = Lame_encDll.beWriteVBRHeader(destFile);
             }
 
-            if (!MustCancel() && generateTags)
+            if (!MustCancel() && generateTags && ifiSlim != null)
             {
                 ID3FileInfo ifi = new ID3FileInfo(destFile, false);
-                ifi.Album = StringUtils.Capitalize(track.Album, WordCasing.CapitalizeWords);
-                ifi.Artist = StringUtils.Capitalize(track.Artist, WordCasing.CapitalizeWords);
-                ifi.Genre = StringUtils.Capitalize(track.Genre, WordCasing.CapitalizeWords);
-                ifi.Title = StringUtils.Capitalize(track.Title, WordCasing.CapitalizeWords);
-                ifi.Track = (short)track.Index;
-                
-                short year = 1900;
-                short.TryParse(track.Year, out year);
-                ifi.Year = year;
-
+                ifi.Album = StringUtils.Capitalize(ifiSlim.Album, WordCasing.CapitalizeWords);
+                ifi.Artist = StringUtils.Capitalize(ifiSlim.Artist, WordCasing.CapitalizeWords);
+                ifi.Genre = StringUtils.Capitalize(ifiSlim.Genre, WordCasing.CapitalizeWords);
+                ifi.Title = StringUtils.Capitalize(ifiSlim.Title, WordCasing.CapitalizeWords);
+                ifi.Track = ifiSlim.Track.GetValueOrDefault();
+                ifi.Year = ifiSlim.Year.GetValueOrDefault();
                 ifi.Save();
             }
         }

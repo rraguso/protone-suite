@@ -73,11 +73,14 @@ namespace OPMedia.UI
         {
             try
             {
-                string fullSkinResourcePath = string.Format("{0}.SkinResources.{1}.{2}",
-                    asm.GetName().Name, ThemeManager.SkinResourcesFolder, resourceName);
+                string fullSkinResourcePath = string.Format("{0}.Resources.{1}.{2}",
+                    asm.GetName().Name, ThemeManager.ResourcesFolder, resourceName);
 
                 using (Stream s = asm.GetManifestResourceStream(fullSkinResourcePath))
-                    return Bitmap.FromStream(s);
+                {
+                    if (s != null)
+                        return Bitmap.FromStream(s);
+                }
             }
             catch (Exception ex)
             {

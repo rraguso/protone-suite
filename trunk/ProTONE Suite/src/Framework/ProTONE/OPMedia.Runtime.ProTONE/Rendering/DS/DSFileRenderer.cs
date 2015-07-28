@@ -65,12 +65,12 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             InitMedia();
             InitAudioAndVideo();
 
-            mediaPosition.put_Rate(1);
+            int hr = mediaPosition.put_Rate(1);
+            DsError.ThrowExceptionForHR(hr);
 
             // Run the graph to play the media file
-            mediaControl.Run();
-
-            rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
+            hr = mediaControl.Run();
+            DsError.ThrowExceptionForHR(hr);
 
             // HACK: call GetMedialenght once here to ensure that durationScaleFactor is buuilt up
             double len = GetMediaLength();
@@ -122,11 +122,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if ((mediaControl as IGraphBuilder) == null)
                 throw new RenderingException("Unable to render the file: " + renderMediaName);
 
-#if HAVE_SAMPLES
-            //InitAudioSampleGrabber();
-#endif
-            
-            (mediaControl as IGraphBuilder).RenderFile(renderMediaName, null);
+            int hr = (mediaControl as IGraphBuilder).RenderFile(renderMediaName, null);
+            DsError.ThrowExceptionForHR(hr);
 
 #if HAVE_SAMPLES
             InitAudioSampleGrabber_v2();

@@ -170,8 +170,7 @@ namespace OPMedia.UI.Controls
                     Image img = this.Image;
                     if (!Enabled)
                     {
-                        Bitmap bmp = new Bitmap(this.Image);
-                        ImageProcessing.GrayscaleFilter(ref bmp);
+                        Bitmap bmp = ImageProcessing.Grayscale(this.Image);
                         bmp.MakeTransparent(Color.Black);
                         img = bmp;
                     }
@@ -299,8 +298,7 @@ namespace OPMedia.UI.Controls
                         Image img = this.Image;
                         if (!Enabled)
                         {
-                            Bitmap bmp = new Bitmap(this.Image);
-                            ImageProcessing.GrayscaleFilter(ref bmp);
+                            Bitmap bmp = ImageProcessing.Grayscale(this.Image);
                             bmp.MakeTransparent(Color.Black);
                             img = bmp;
                         }
@@ -382,13 +380,33 @@ namespace OPMedia.UI.Controls
             Image imgDraw = null;
 
             if (!Enabled)
-                imgDraw = this.DisabledImage;
-            else if (Selected)
-                imgDraw = this.ActiveImage;
+            {
+                if (DisabledImage != null)
+                    imgDraw = this.DisabledImage;
+                else if (InactiveImage != null)
+                    imgDraw = ImageProcessing.Grayscale(InactiveImage, 0.5f);
+            }
             else if (Checked)
-                imgDraw = this.CheckedImage;
+            {
+                if (CheckedImage != null)
+                    imgDraw = this.CheckedImage;
+                else if (InactiveImage != null)
+                    imgDraw = ImageProcessing.ColorShift(InactiveImage, ThemeManager.CheckedMenuColor);
+            }
+            else if (Selected)
+            {
+                if (ActiveImage != null)
+                    imgDraw = this.ActiveImage;
+                else if (InactiveImage != null)
+                    imgDraw = ImageProcessing.ColorShift(InactiveImage, ThemeManager.CheckedMenuColor);
+            }
             else
                 imgDraw = this.InactiveImage;
+
+            if (imgDraw == null)
+                imgDraw = InactiveImage;
+            if (imgDraw == null)
+                imgDraw = base.Image;
 
             if (imgDraw != null)
             {
@@ -466,8 +484,7 @@ namespace OPMedia.UI.Controls
                         Image img = this.Image;
                         if (!Enabled)
                         {
-                            Bitmap bmp = new Bitmap(this.Image);
-                            ImageProcessing.GrayscaleFilter(ref bmp);
+                            Bitmap bmp = ImageProcessing.Grayscale(this.Image);
                             bmp.MakeTransparent(Color.Black);
                             img = bmp;
                         }
