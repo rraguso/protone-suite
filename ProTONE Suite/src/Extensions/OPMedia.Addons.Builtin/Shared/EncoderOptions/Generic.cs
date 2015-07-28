@@ -8,8 +8,8 @@ namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
 {
     public enum AudioMediaFormatType
     {
-        WAV = 0,
-        MP3,
+        MP3 = 0,
+        WAV,
         WMA,
         OGG
     }

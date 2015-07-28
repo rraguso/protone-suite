@@ -109,6 +109,15 @@ namespace OPMedia.UI.Themes
             }
         }
 
+        public static Color ListActiveItemColor
+        { 
+            get 
+            {
+
+                return ThemeElement("ListActiveItemColor", SafeColorFromString("255, 000, 000")); 
+            } 
+        }
+
         public static Color ListHotItemColor
         { get { return ThemeElement("ListHotItemColor", SafeColorFromString("255, 000, 000")); } }
 
@@ -231,12 +240,12 @@ namespace OPMedia.UI.Themes
         public static int FormBorderWidth
         { get { return ThemeElement("FormBorderWidth", 1); } }
 
-        public static string SkinResourcesFolder
+        public static string ResourcesFolder
         { 
             get 
             {
                 string currentTheme = AppConfig.AllowRealtimeGUISetup ? AppConfig.SkinType : "Black";
-                return ThemeElement("SkinResourcesFolder", currentTheme); 
+                return ThemeElement("ResourcesFolder", currentTheme); 
             } 
         }
 

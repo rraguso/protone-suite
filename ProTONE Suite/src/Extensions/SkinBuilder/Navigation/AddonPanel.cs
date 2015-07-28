@@ -671,7 +671,7 @@ namespace SkinBuilder.Navigation
                 }
                 catch (Exception ex)
                 {
-                    ErrorDispatcher.DispatchException(ex);
+                    ErrorDispatcher.DispatchError(ex);
                     DisplayThemeFile();
                 }
             }

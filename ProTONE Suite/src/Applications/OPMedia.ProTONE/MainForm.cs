@@ -138,6 +138,14 @@ namespace OPMedia.ProTONE
                 for (OPMShortcut cmd = OPMShortcut.CmdPlayPause; cmd <= OPMShortcut.CmdLoad; cmd++)
                 {
                     string name = cmd.ToString().Replace("Cmd", "btn");
+                    if (cmd == OPMShortcut.CmdPlayPause)
+                    {
+                        if (MediaRenderer.DefaultInstance.FilterState == FilterState.Running)
+                            name = "btnPause";
+                        else
+                            name = "btnPlay";
+                    }
+                    
 
                     Bitmap img = OPMedia.UI.ProTONE.Properties.Resources.ResourceManager.GetImage(name);
                     if (img != null)
@@ -188,6 +196,7 @@ namespace OPMedia.ProTONE
             }
 
             SetTitle(mediaPlayer.BuildTitle());
+            BuildThumbnailButtons(false);
         }
 
         [EventSink(EventNames.PerformTranslation)]
@@ -352,7 +361,7 @@ namespace OPMedia.ProTONE
                 TrayNotificationBox f = new TrayNotificationBox();
                 f.HideDelay = 3000;
                 f.FormClosed += new FormClosedEventHandler(f_FormClosed);
-                f.ShowSimple(info);
+                f.ShowSimple(info, true);
             }
         }
 

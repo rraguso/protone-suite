@@ -20,7 +20,7 @@ using OPMedia.Runtime.ProTONE.Configuration;
 
 namespace OPMedia.Runtime.ProTONE.Rendering.DS
 {
-    public class DSDvdRenderer : DsRendererBase
+    public class DSDvdRenderer : DsCustomRenderer
     {
         IDvdGraphBuilder dvdGraphBuilder = null;
         IDvdInfo2 dvdInfo = null;
@@ -52,34 +52,40 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 InitAudioAndVideo();
 
                 // Run the graph to play the media file
-                mediaControl.Run();
+                int hr = mediaControl.Run();
+                DsError.ThrowExceptionForHR(hr);
 
                 // Give enough time for the filter graph to be completely built
                 Thread.Sleep(500);
-
-                rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
             }
 
             if (hint == DvdRenderingStartHint.MainMenu)
             {
-                dvdControl2.ShowMenu(DvdMenuId.Title, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
+                int hr = dvdControl2.ShowMenu(DvdMenuId.Title, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
+                DsError.ThrowExceptionForHR(hr);
             }
             else if (hint == DvdRenderingStartHint.Beginning)
             {
+                int hr = 0;
+
                 if (ProTONEConfig.DisableDVDMenu)
-                    dvdControl2.PlayTitle(1, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
+                    hr = dvdControl2.PlayTitle(1, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
                 else
                     //dvdControl.PlayForwards(1f, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
-                    dvdControl2.ShowMenu(DvdMenuId.Title, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
+                    hr = dvdControl2.ShowMenu(DvdMenuId.Title, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
+
+                DsError.ThrowExceptionForHR(hr);
             }
             else if (hint.Location.ChapterNum == 0)
             {
-                dvdControl2.PlayTitle(hint.Location.TitleNum, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
+                int hr = dvdControl2.PlayTitle(hint.Location.TitleNum, DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
+                DsError.ThrowExceptionForHR(hr);
             }
             else
             {
-                dvdControl2.PlayChapterInTitle(hint.Location.TitleNum, hint.Location.ChapterNum,
+                int hr = dvdControl2.PlayChapterInTitle(hint.Location.TitleNum, hint.Location.ChapterNum,
                     DvdCmdFlags.Flush | DvdCmdFlags.Block, _lastCmd);
+                DsError.ThrowExceptionForHR(hr);
             }
 
             if (ProTONEConfig.PrefferedSubtitleLang > 0)
@@ -122,15 +128,26 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
             dvdControl2 = GetInterface(typeof(IDvdControl2)) as IDvdControl2;
 
-            dvdControl2.SetOption(DvdOptionFlag.HMSFTimeCodeEvents, true);	// use new HMSF timecode format
-            dvdControl2.SetOption(DvdOptionFlag.ResetOnStop, false);
-            dvdControl2.SetOption(DvdOptionFlag.AudioDuringFFwdRew, false);
+            int hr = dvdControl2.SetOption(DvdOptionFlag.HMSFTimeCodeEvents, true);	// use new HMSF timecode format
+            DsError.ThrowExceptionForHR(hr);
+            
+            hr = dvdControl2.SetOption(DvdOptionFlag.ResetOnStop, false);
+            DsError.ThrowExceptionForHR(hr);
+
+            hr = dvdControl2.SetOption(DvdOptionFlag.AudioDuringFFwdRew, false);
+            DsError.ThrowExceptionForHR(hr);
+            
             //dvdControl.SelectVideoModePreference(DvdPreferredDisplayMode.DisplayContentDefault);
 
             dvdGraphBuilder.GetFiltergraph(out mediaControl);
 
             if (mediaControl == null)
                 throw new RenderingException("Unable to render the file: " + renderMediaName);
+
+#if HAVE_SAMPLES
+            InitAudioSampleGrabber_v2();
+            CompleteAudioSampleGrabberIntialization();
+#endif
 
             mediaEvent = mediaControl as IMediaEventEx;
             mediaPosition = mediaControl as IMediaPosition;
@@ -157,7 +174,9 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             if ((dvdControl2 == null) || (menuMode != MenuMode.Buttons))
                 return;
-            dvdControl2.ActivateAtPosition(DsPOINT.FromPoint(e.Location));
+            
+            int hr = dvdControl2.ActivateAtPosition(DsPOINT.FromPoint(e.Location));
+            DsError.ThrowExceptionForHR(hr);
         }
 
         void renderRegion_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -165,49 +184,62 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if ((dvdControl2 == null) || (menuMode != MenuMode.Buttons))
                 return;
 
-            dvdControl2.SelectAtPosition(DsPOINT.FromPoint(e.Location));
+            int hr = dvdControl2.SelectAtPosition(DsPOINT.FromPoint(e.Location));
+            DsError.ThrowExceptionForHR(hr);
         }
 
-        protected override void  DoStopInternal(object state)
-        {
-            try
+        //protected override void  DoStopInternal(object state)
+        //{
+        //    try
+        //    {
+        //        if (mediaControl != null)
+        //        {
+        //            int hr = mediaControl.Stop();
+        //            DsError.ThrowExceptionForHR(hr);
+
+        //            if (dvdControl2 != null)
+        //            {
+        //                Marshal.ReleaseComObject(dvdControl2);
+        //                dvdControl2 = null;
+        //            }
+
+        //            if (dvdInfo != null)
+        //            {
+        //                Marshal.ReleaseComObject(dvdInfo);
+        //                dvdInfo = null;
+        //            }
+
+        //            if (dvdGraphBuilder != null)
+        //            {
+        //                Marshal.ReleaseComObject(dvdGraphBuilder);
+        //                dvdGraphBuilder = null;
+        //            }
+
+        //            mediaControl = null;
+        //            mediaPosition = null;
+        //            videoWindow = null;
+        //            basicVideo = null;
+        //            basicAudio = null;
+        //            mediaEvent = null;
+        //        }
+
+        //        GC.Collect();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // This is running on other thread than the DSRenderer,
+        //        // so its exceptions are not caught in MediaRenderer
+        //        ErrorDispatcher.DispatchError(ex);
+        //    }
+        //}
+
+        protected override void DoResumeRenderer(double fromPosition)
             {
                 if (mediaControl != null)
                 {
-                    mediaControl.Stop();
-
-                    if (mediaControl != null)
-                        Marshal.ReleaseComObject(mediaControl);
-
-                    dvdControl2 = null;
-                    if (dvdInfo != null)
-                        Marshal.ReleaseComObject(dvdInfo); dvdInfo = null;
-
-                    if (dvdGraphBuilder != null)
-                        Marshal.ReleaseComObject(dvdGraphBuilder); dvdGraphBuilder = null;
-
-                    mediaControl = null;
-                    mediaPosition = null;
-                    videoWindow = null;
-                    basicVideo = null;
-                    basicAudio = null;
-                    mediaEvent = null;
-                }
-
-                GC.Collect();
+                int hr = mediaControl.Run();
+                DsError.ThrowExceptionForHR(hr);
             }
-            catch (Exception ex)
-            {
-                // This is running on other thread than the DSRenderer,
-                // so its exceptions are not caught in MediaRenderer
-                ErrorDispatcher.DispatchError(ex);
-            }
-        }
-
-        protected override void DoResumeRenderer(double fromPosition)
-        {
-            if (mediaControl != null)
-                mediaControl.Run();
 
             if (fromPosition > 0)
                 SetMediaPosition(fromPosition);
@@ -234,7 +266,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             timeCode.bSeconds = (byte)tsNewPos.Seconds;
             timeCode.bFrames = 1;
 
-            dvdControl2.PlayAtTime(ref timeCode, DvdCmdFlags.None, _lastCmd);
+            int hr = dvdControl2.PlayAtTime(ref timeCode, DvdCmdFlags.None, _lastCmd);
+            DsError.ThrowExceptionForHR(hr);
         }
 
         protected override bool IsMediaSeekable()
@@ -304,7 +337,8 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 case EventCode.DvdNoFpPgc:
                     if (dvdControl2 != null)
                     {
-                        dvdControl2.PlayTitle(1, DvdCmdFlags.None, _lastCmd);
+                        int hr = dvdControl2.PlayTitle(1, DvdCmdFlags.None, _lastCmd);
+                        DsError.ThrowExceptionForHR(hr);
                     }
                     break;
                 }
@@ -330,8 +364,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             {
                 try
                 {
-                    dvdControl2.SelectSubpictureStream(sid, DvdCmdFlags.None, _lastCmd);
-                    dvdControl2.SetSubpictureState(true, DvdCmdFlags.None, _lastCmd);
+                    int hr = dvdControl2.SelectSubpictureStream(sid, DvdCmdFlags.None, _lastCmd);
+                    DsError.ThrowExceptionForHR(hr);
+                    
+                    hr = dvdControl2.SetSubpictureState(true, DvdCmdFlags.None, _lastCmd);
+                    DsError.ThrowExceptionForHR(hr);
                 }
                 catch (Exception exception)
                 {

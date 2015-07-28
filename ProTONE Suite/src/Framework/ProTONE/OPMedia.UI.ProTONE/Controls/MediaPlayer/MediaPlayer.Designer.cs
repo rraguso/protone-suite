@@ -36,9 +36,9 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
         {
             this.components = new System.ComponentModel.Container();
             this.layoutPanel = new OPMedia.UI.Controls.OPMTableLayoutPanel();
-            this.cmsOpenFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pnlScreens = new OPMedia.UI.ProTONE.Controls.MediaPlayer.MediaScreens();
             this.pnlRendering = new OPMedia.UI.ProTONE.Controls.MediaPlayer.RenderingPanel();
+            this.cmsOpenFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.layoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,11 +59,6 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.layoutPanel.Size = new System.Drawing.Size(573, 385);
             this.layoutPanel.TabIndex = 0;
             // 
-            // cmsOpenFiles
-            // 
-            this.cmsOpenFiles.Name = "cmsOpenFiles";
-            this.cmsOpenFiles.Size = new System.Drawing.Size(61, 4);
-            // 
             // pnlScreens
             // 
             this.pnlScreens.AllowDrop = true;
@@ -74,7 +69,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlScreens.MinimumSize = new System.Drawing.Size(160, 160);
             this.pnlScreens.Name = "pnlScreens";
             this.pnlScreens.SelectedIndex = 0;
-            this.pnlScreens.Size = new System.Drawing.Size(573, 317);
+            this.pnlScreens.Size = new System.Drawing.Size(573, 330);
             this.pnlScreens.TabIndex = 0;
             this.pnlScreens.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragDrop);
             this.pnlScreens.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlaylist_DragEnter);
@@ -94,13 +89,13 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlRendering.FontSize = OPMedia.UI.Themes.FontSizes.NormalBold;
             this.pnlRendering.HasBorder = false;
             this.pnlRendering.Highlight = false;
-            this.pnlRendering.Location = new System.Drawing.Point(0, 317);
+            this.pnlRendering.Location = new System.Drawing.Point(0, 330);
             this.pnlRendering.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlRendering.MinimumSize = new System.Drawing.Size(481, 68);
+            this.pnlRendering.MinimumSize = new System.Drawing.Size(481, 55);
             this.pnlRendering.Name = "pnlRendering";
             this.pnlRendering.OverrideBackColor = System.Drawing.Color.Empty;
             this.pnlRendering.ProjectedVolume = 5000;
-            this.pnlRendering.Size = new System.Drawing.Size(573, 68);
+            this.pnlRendering.Size = new System.Drawing.Size(573, 55);
             this.pnlRendering.TabIndex = 1;
             this.pnlRendering.TimeScaleEnabled = true;
             this.pnlRendering.TotalSeconds = 0D;
@@ -109,6 +104,11 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             this.pnlRendering.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlRendering_DragEnter);
             this.pnlRendering.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlRendering_DragOver);
             this.pnlRendering.DragLeave += new System.EventHandler(this.pnlRendering_DragLeave);
+            // 
+            // cmsOpenFiles
+            // 
+            this.cmsOpenFiles.Name = "cmsOpenFiles";
+            this.cmsOpenFiles.Size = new System.Drawing.Size(61, 4);
             // 
             // MediaPlayer
             // 

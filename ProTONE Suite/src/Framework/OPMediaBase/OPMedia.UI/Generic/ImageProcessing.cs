@@ -24,111 +24,125 @@ namespace OPMedia.UI.Generic
     {
        
 
-        public static void BrightnessFilter(ref Bitmap b, int nBrightness)
+        public static Bitmap Brightness(Image b, float brightness)
         {
-            if (nBrightness < -255 || nBrightness > 255)
-                return;
+            Bitmap bDest = new Bitmap(b.Width, b.Height, b.PixelFormat);
 
-            // GDI+ still lies to us - the return format is BGR, NOT RGB.
-            BitmapData bmData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+            float adjustedBrightness = brightness - 1.0f;
 
-            int stride = bmData.Stride;
-            System.IntPtr Scan0 = bmData.Scan0;
+            // Create the ImageAttributes object and apply the ColorMatrix
+            ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes();
+            ColorMatrix brightnessMatrix = new ColorMatrix(new float[][]{
+                new float[] {1, 0, 0, 0, 0},
+                new float[] {0, 1, 0, 0, 0},
+                new float[] {0, 0, 0, 0, 0},
+                new float[] {0, 0, 0, 1, 0},
+                new float[] {brightness, brightness, brightness, 0, 1}
+            });
+            attributes.SetColorMatrix(brightnessMatrix);
 
-            int nVal = 0;
-
-            unsafe
+            // Use a new Graphics object from the new image.
+            using (Graphics g = Graphics.FromImage(bDest))
             {
-                byte* p = (byte*)(void*)Scan0;
-
-                int nOffset = stride - b.Width * 3;
-                int nWidth = b.Width * 3;
-
-                for (int y = 0; y < b.Height; ++y)
-                {
-                    for (int x = 0; x < nWidth; ++x)
-                    {
-                        nVal = (int)(p[0] + nBrightness);
-
-                        if (nVal < 0) nVal = 0;
-                        if (nVal > 255) nVal = 255;
-
-                        p[0] = (byte)nVal;
-
-                        ++p;
-                    }
-                    p += nOffset;
-                }
+                // Draw the original image using the ImageAttributes created above.
+                g.DrawImage(b,
+                            new Rectangle(0, 0, b.Width, b.Height),
+                            0, 0, b.Width, b.Height,
+                            GraphicsUnit.Pixel,
+                            attributes);
             }
 
-            b.UnlockBits(bmData);
+            return bDest;
         }
 
-        public static void InversionFilter(ref Bitmap b)
+        public static Bitmap ColorShift(Image b, Color cs)
         {
-            // GDI+ still lies to us - the return format is BGR, NOT RGB.
-            BitmapData bmData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height), 
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+            Bitmap bDest = new Bitmap(b.Width, b.Height, b.PixelFormat);
 
-            int stride = bmData.Stride;
-            System.IntPtr Scan0 = bmData.Scan0;
+            // Create the ImageAttributes object and apply the ColorMatrix
+            ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes();
+            ColorMatrix shiftMatrix = new ColorMatrix(new float[][]{
+                new float[] {1, 0, 0, 0, 0},
+                new float[] {0, 1, 0, 0, 0},
+                new float[] {0, 0, 1, 0, 0},
+                new float[] {0, 0, 0, 1, 0},
+                new float[] {cs.R/255f, cs.G/255f, cs.B/255f, 0, 1}
+            });
+            attributes.SetColorMatrix(shiftMatrix);
 
-            unsafe
+            // Use a new Graphics object from the new image.
+            using (Graphics g = Graphics.FromImage(bDest))
             {
-                byte* p = (byte*)(void*)Scan0;
-
-                int nOffset = stride - b.Width * 3;
-                int nWidth = b.Width * 3;
-
-                for (int y = 0; y < b.Height; ++y)
-                {
-                    for (int x = 0; x < nWidth; ++x)
-                    {
-                        p[0] = (byte)(255 - p[0]);
-                        ++p;
-                    }
-                    p += nOffset;
-                }
+                // Draw the original image using the ImageAttributes created above.
+                g.DrawImage(b,
+                            new Rectangle(0, 0, b.Width, b.Height),
+                            0, 0, b.Width, b.Height,
+                            GraphicsUnit.Pixel,
+                            attributes);
             }
 
-            b.UnlockBits(bmData);
+            return bDest;
         }
 
-        public static void GrayscaleFilter(ref Bitmap b)
+        public static Bitmap Inversion(Image b)
         {
-            // GDI+ still lies to us - the return format is BGR, NOT RGB.
-            BitmapData bmData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+            Bitmap bDest = new Bitmap(b.Width, b.Height, b.PixelFormat);
 
-            int stride = bmData.Stride;
-            System.IntPtr Scan0 = bmData.Scan0;
+            // Create the ImageAttributes object and apply the ColorMatrix
+            ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes();
+            ColorMatrix inversionMatrix = new ColorMatrix(new float[][]{
+                new float[] {-1, 0, 0, 0, 0},
+                new float[] {0, -1, 0, 0, 0},
+                new float[] {0, 0, -1, 0, 0},
+                new float[] {0, 0, 0, 1, 0},
+                new float[] {.99f, .99f, .99f, 0, 1}
+            });
+            attributes.SetColorMatrix(inversionMatrix);
 
-            unsafe
+            // Use a new Graphics object from the new image.
+            using (Graphics g = Graphics.FromImage(bDest))
             {
-                byte* p = (byte*)(void*)Scan0;
-
-                int nOffset = stride - b.Width * 3;
-
-                byte red, green, blue;
-
-                for (int y = 0; y < b.Height; ++y)
-                {
-                    for (int x = 0; x < b.Width; ++x)
-                    {
-                        blue = p[0];
-                        green = p[1];
-                        red = p[2];
-
-                        p[0] = p[1] = p[2] = (byte)(.299 * red + .587 * green + .114 * blue);
-
-                        p += 3;
-                    }
-                    p += nOffset;
-                }
+                // Draw the original image using the ImageAttributes created above.
+                g.DrawImage(b,
+                            new Rectangle(0, 0, b.Width, b.Height),
+                            0, 0, b.Width, b.Height,
+                            GraphicsUnit.Pixel,
+                            attributes);
             }
 
-            b.UnlockBits(bmData);
+            return bDest;
+        }
+
+        public static Bitmap Grayscale(Image b, float brightnessAdjust = 1)
+        {
+            Bitmap bDest = new Bitmap(b.Width, b.Height, b.PixelFormat);
+
+            // Create the ImageAttributes object and apply the ColorMatrix
+            ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes();
+            ColorMatrix grayscaleMatrix = new ColorMatrix(new float[][]{
+                new float[] {0.299f, 0.299f, 0.299f, 0, 0},
+                new float[] {0.587f, 0.587f, 0.587f, 0, 0},
+                new float[] {0.114f, 0.114f, 0.114f, 0, 0},
+                new float[] {     0,      0,      0, 1, 0},
+                new float[] {     0,      0,      0, 0, 1}
+            });
+            attributes.SetColorMatrix(grayscaleMatrix);
+
+            // Use a new Graphics object from the new image.
+            using (Graphics g = Graphics.FromImage(bDest))
+            {
+                // Draw the original image using the ImageAttributes created above.
+                g.DrawImage(b,
+                            new Rectangle(0, 0, b.Width, b.Height),
+                            0, 0, b.Width, b.Height,
+                            GraphicsUnit.Pixel,
+                            attributes);
+            }
+
+            if (brightnessAdjust != 1.0f)
+                return Brightness(bDest, brightnessAdjust);
+
+            return bDest;
         }
 
         public static GraphicsPath GenerateCenteredArrow(Rectangle rcArrow)
@@ -247,20 +261,14 @@ namespace OPMedia.UI.Generic
 
             for (int i = 0; i < sizeX; i++)
             {
-                //Debug.Write("[");
-
                 for (int j = 0; j < sizeY; j++)
                 {
                     Color c = bmp.GetPixel(i, j);
-                    //Debug.Write(c.ToString() + ",");
-
                     if (c.ToArgb() == oldColor.ToArgb())
                     {
                         bmp.SetPixel(i, j, newColor);
                     }
                 }
-
-                //Debug.WriteLine("]");
             }
         }
 

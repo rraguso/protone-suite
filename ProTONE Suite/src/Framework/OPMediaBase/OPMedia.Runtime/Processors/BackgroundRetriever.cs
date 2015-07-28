@@ -107,7 +107,7 @@ namespace OPMedia.Runtime.Processors
             }
             catch (Exception ex)
             {
-                ErrorDispatcher.DispatchException(ex);
+                ErrorDispatcher.DispatchError(ex);
             }
 
             // DownloadInterval is in seconds
@@ -151,7 +151,7 @@ namespace OPMedia.Runtime.Processors
             }
             catch (Exception ex)
             {
-                ErrorDispatcher.DispatchException(ex);
+                ErrorDispatcher.DispatchError(ex);
             }
         }
     }

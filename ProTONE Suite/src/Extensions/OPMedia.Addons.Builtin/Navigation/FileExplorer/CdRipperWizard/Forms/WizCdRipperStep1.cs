@@ -17,7 +17,6 @@ using OPMedia.Runtime.ProTONE.Rendering.Cdda.Freedb;
 using OPMedia.Core.Configuration;
 using OPMedia.Runtime.ProTONE.FileInformation;
 using OPMedia.UI.Controls;
-using TagLib;
 using System.Threading;
 using OPMedia.Runtime.ProTONE.Configuration;
 using WF = System.Windows.Forms;

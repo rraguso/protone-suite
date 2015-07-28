@@ -18,9 +18,9 @@ namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
 
         List<EncoderConfiguratorCtl> panels = new List<EncoderConfiguratorCtl>();
 
-        public void DisplaySettings()
+        public void DisplaySettings(bool usedForCdRipper)
         {
-            InternalDisplaySettings();
+            InternalDisplaySettings(usedForCdRipper);
         }
 
         public EncoderOptionsCtl()
@@ -29,16 +29,17 @@ namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
             InitializeComponent();
         }
 
-        private void InternalDisplaySettings()
+        private void InternalDisplaySettings(bool usedForCdRipper)
         {
             cmbOutputFormat.Items.Clear();
 
-            AddPanel(new WavEncoderOptionsCtl());
-
             Mp3EncoderOptionsCtl ctl = new Mp3EncoderOptionsCtl();
+            ctl.UsedForCdRipper = usedForCdRipper;
             ctl.Mp3EncoderSettings = EncoderSettings.Mp3EncoderSettings;
 
             AddPanel(ctl);
+
+            AddPanel(new WavEncoderOptionsCtl());
 
             cmbOutputFormat.SelectedIndex = 0;
         }

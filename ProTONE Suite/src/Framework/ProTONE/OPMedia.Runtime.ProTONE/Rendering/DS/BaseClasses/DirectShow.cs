@@ -1241,6 +1241,43 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS.BaseClasses
         public ushort nBlockSize;
         public ushort nFramesPerBlock;
         public ushort nCodecDelay;
+
+        public static Mp3WaveFormat Stereo128K
+        {
+            get
+            {
+                // The following info is STANDARD to all audio CD's according to standard IEC 60908
+                Mp3WaveFormat mp3wf = new Mp3WaveFormat();
+                mp3wf.cbSize = 12; // MPEGLAYER3_WFX_EXTRA_BYTES
+                mp3wf.fdwFlags = 0; // MPEGLAYER3_FLAG_PADDING_ISO
+                mp3wf.nAvgBytesPerSec = (128 * 1024 / 8);
+                mp3wf.nBlockAlign = 1; // must be 1 for streamed MP3
+                mp3wf.nBlockSize = 522; // MP3_BLOCK_SIZE magic number
+                mp3wf.nChannels = 2; // Stereo
+                mp3wf.nCodecDelay = 0; // must be 0
+                mp3wf.nFramesPerBlock = 1; // must be 1
+                mp3wf.nSamplesPerSec = 44100; // 44.1 kHz
+                mp3wf.wBitsPerSample = 0; // must be 0
+                mp3wf.wFormatTag = 0x0055; // WAVE_FORMAT_MPEGLAYER3
+                mp3wf.wID = 1; // MPEGLAYER3_ID_MPEG
+
+                return mp3wf;
+            }
+        }
+
+        public WaveFormatEx ToWaveFormatEx()
+        {
+            WaveFormatEx wfex = WaveFormatEx.Cdda;
+            wfex.cbSize = 0;
+            wfex.wFormatTag = 1; // PCM
+            wfex.nChannels = this.nChannels;
+            wfex.wBitsPerSample = this.wBitsPerSample;
+            wfex.nSamplesPerSec = this.nSamplesPerSec;
+            wfex.nBlockAlign = (ushort)(wfex.nChannels * wfex.wBitsPerSample / 8);
+            wfex.nAvgBytesPerSec = wfex.nSamplesPerSec * wfex.nBlockAlign;
+
+            return wfex;
+        }
     }
 
     [Flags]

@@ -140,7 +140,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SkinResources\SkinResources.cs" />
     <Compile Include="TrayNotificationTarget.cs" />
     <Compile Include="Configuration\FileTypesPanel.cs">
       <SubType>UserControl</SubType>
@@ -422,9 +421,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btnCfgAudio.png" />
-    <None Include="Resources\btnCfgSubtitles.png" />
-    <None Include="Resources\btnCfgVideo.png" />
+    <EmbeddedResource Include="Resources\btnCfgAudio.png" />
+    <EmbeddedResource Include="Resources\btnCfgSubtitles.png" />
+    <EmbeddedResource Include="Resources\btnCfgVideo.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Dialogs\JumpToItemDlg.resx">
@@ -438,10 +437,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SkinResources\Black\notopened.png" />
-    <EmbeddedResource Include="SkinResources\Black\paused.png" />
-    <EmbeddedResource Include="SkinResources\Black\running.png" />
-    <EmbeddedResource Include="SkinResources\Black\stopped.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Dialogs\ID3ArtworkDlg.resx">
@@ -454,63 +449,59 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="SkinResources\Black\AudioMediaType.png" />
-    <EmbeddedResource Include="SkinResources\Black\VideoMediaType.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnOpenSettings.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnLoad.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnOpenURL.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnOpenDisk.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnNext.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnPrev.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnPause.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnStop.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnPlay.png" />
-    <None Include="Resources\Tabs.png" />
-    <None Include="Resources\Music_Note_Double_48.png" />
-    <None Include="Resources\subtitles16.png" />
-    <None Include="Resources\Playlist.png" />
-    <None Include="Resources\delete2.png" />
-    <None Include="Resources\delete3.png" />
-    <None Include="Resources\GenVideoDoc_32x32_72.png" />
-    <None Include="Resources\btnShowLogConsole.bmp" />
+    <EmbeddedResource Include="Resources\VideoMediaType.png" />
+    <EmbeddedResource Include="Resources\Stopped.png" />
+    <EmbeddedResource Include="Resources\running.png" />
+    <EmbeddedResource Include="Resources\Paused.png" />
+    <EmbeddedResource Include="Resources\notopened.png" />
+    <EmbeddedResource Include="Resources\Tabs.png" />
+    <EmbeddedResource Include="Resources\Music_Note_Double_48.png" />
+    <EmbeddedResource Include="Resources\subtitles16.png" />
+    <EmbeddedResource Include="Resources\Playlist.png" />
+    <EmbeddedResource Include="Resources\delete2.png" />
+    <EmbeddedResource Include="Resources\delete3.png" />
+    <EmbeddedResource Include="Resources\GenVideoDoc_32x32_72.png" />
+    <EmbeddedResource Include="Resources\btnShowLogConsole.bmp" />
     <EmbeddedResource Include="Resources\btnPlayAfterPause.png" />
-    <None Include="Resources\IconTime.png" />
-    <None Include="Resources\icon-audio.png" />
-    <None Include="Resources\btnPlay2.png" />
-    <Content Include="Resources\movedown.png" />
-    <Content Include="Resources\moveup.png" />
-    <None Include="Resources\btnCfgTimer.png" />
-    <None Include="Resources\btnFwd.png" />
-    <None Include="Resources\btnVolDn.png" />
-    <None Include="Resources\btnVolUp.png" />
-    <None Include="Resources\btnRew.png" />
-    <None Include="Resources\btnOpenURL.png" />
-    <None Include="Resources\Miscellaneous.png" />
-    <None Include="Resources\btnDelete.png" />
-    <None Include="Resources\btnFullScreen.png" />
-    <None Include="Resources\btnLoad.png" />
-    <None Include="Resources\btnLoadPlaylist.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnLoopPlay.png" />
-    <None Include="Resources\btnNext.png" />
-    <None Include="Resources\btnOpenDisk.png" />
-    <None Include="Resources\btnOpenSettings.png" />
-    <None Include="Resources\btnPause.png" />
-    <None Include="Resources\btnPlay.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnPlaylistEnd.png" />
-    <None Include="Resources\btnPrev.png" />
-    <None Include="Resources\btnSavePlaylist.png" />
-    <None Include="Resources\btnStop.png" />
-    <EmbeddedResource Include="SkinResources\Black\btnToggleShuffle.png" />
-    <None Include="Resources\Addons.png" />
-    <None Include="Resources\btnClear.png" />
-    <None Include="Resources\diagnostics.png" />
-    <None Include="Resources\add.png" />
-    <None Include="Resources\add2.png" />
-    <None Include="Resources\delete.png" />
-    <None Include="Resources\subtitles.png" />
+    <EmbeddedResource Include="Resources\IconTime.png" />
+    <EmbeddedResource Include="Resources\icon-audio.png" />
+    <EmbeddedResource Include="Resources\AudioMediaType.png" />
+    <EmbeddedResource Include="Resources\btnLoopPlay.png" />
+    <EmbeddedResource Include="Resources\btnPlaylistEnd.png" />
+    <EmbeddedResource Include="Resources\btnShowLogConsole.png" />
+    <EmbeddedResource Include="Resources\btnToggleShuffle.png" />
+    <EmbeddedResource Include="Resources\file-tabs-icone-4362-48.png" />
+    <EmbeddedResource Include="Resources\movedown.png" />
+    <EmbeddedResource Include="Resources\moveup.png" />
+    <EmbeddedResource Include="Resources\btnCfgTimer.png" />
+    <EmbeddedResource Include="Resources\btnFwd.png" />
+    <EmbeddedResource Include="Resources\btnVolDn.png" />
+    <EmbeddedResource Include="Resources\btnVolUp.png" />
+    <EmbeddedResource Include="Resources\btnRew.png" />
+    <EmbeddedResource Include="Resources\btnOpenURL.png" />
+    <EmbeddedResource Include="Resources\Miscellaneous.png" />
+    <EmbeddedResource Include="Resources\btnDelete.png" />
+    <EmbeddedResource Include="Resources\btnFullScreen.png" />
+    <EmbeddedResource Include="Resources\btnLoad.png" />
+    <EmbeddedResource Include="Resources\btnLoadPlaylist.png" />
+    <EmbeddedResource Include="Resources\btnNext.png" />
+    <EmbeddedResource Include="Resources\btnOpenDisk.png" />
+    <EmbeddedResource Include="Resources\btnOpenSettings.png" />
+    <EmbeddedResource Include="Resources\btnPause.png" />
+    <EmbeddedResource Include="Resources\btnPlay.png" />
+    <EmbeddedResource Include="Resources\btnPrev.png" />
+    <EmbeddedResource Include="Resources\btnSavePlaylist.png" />
+    <EmbeddedResource Include="Resources\btnStop.png" />
+    <EmbeddedResource Include="Resources\Addons.png" />
+    <EmbeddedResource Include="Resources\btnClear.png" />
+    <EmbeddedResource Include="Resources\diagnostics.png" />
+    <EmbeddedResource Include="Resources\add.png" />
+    <EmbeddedResource Include="Resources\add2.png" />
+    <EmbeddedResource Include="Resources\delete.png" />
+    <EmbeddedResource Include="Resources\subtitles.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Monitor.png" />
+    <EmbeddedResource Include="Resources\Monitor.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -530,19 +521,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Scheduler.png" />
+    <EmbeddedResource Include="Resources\Scheduler.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Add3.png" />
+    <EmbeddedResource Include="Resources\Add3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FileTypes.png" />
+    <EmbeddedResource Include="Resources\FileTypes.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SkinResources\Blue\" />
-    <Folder Include="SkinResources\Metro\" />
-    <Folder Include="SkinResources\Silver\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

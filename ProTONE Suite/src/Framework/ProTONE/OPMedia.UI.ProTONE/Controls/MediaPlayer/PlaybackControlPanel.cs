@@ -103,18 +103,21 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             string sElapsed = "", sTotal = "";
 
             if (_elapsedSeconds > 0)
-            {
                 sElapsed = string.Format("{0}", TimeSpan.FromSeconds((int)_elapsedSeconds));
-            
-                if (_totalSeconds > 0)
-                    sTotal = string.Format(" ({0})", TimeSpan.FromSeconds((int)_totalSeconds));
-
-                tslTime.Text = sElapsed + sTotal;
-            }
             else
+                sElapsed = "00:00:00";
+
+            if (_totalSeconds >= 0)
             {
-                tslTime.Text = string.Empty;
+                if (_totalSeconds > 0)
+                    sTotal = string.Format(" / {0}", TimeSpan.FromSeconds((int)_totalSeconds));
+                else
+                    sTotal = " / 00:00:00";
             }
+
+            tslTime.Text = sElapsed + sTotal;
+            tslTime.Font = ThemeManager.VeryLargeFont;
+            tslTime.ForeColor = ThemeManager.BorderColor;
         }
 
         public double TotalSeconds
@@ -156,33 +159,17 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             tsmLoopPlay.Checked = ProTONEConfig.LoopPlay;
             tsmPlaylistEnd.Checked = SystemScheduler.PlaylistEventEnabled;
             tsmToggleShuffle.Checked = ProTONEConfig.ShufflePlaylist;
-
-            foreach (var x in opmToolStrip1.Items)
-            {
-                if (x is OPMToolStripSeparator)
-                    continue;
-
-                Padding origM = (x as ToolStripItem).Margin;
-                origM.Top = 2 + ThemeManager.FormBorderWidth;
-                origM.Bottom = 0;
-
-                (x as ToolStripItem).Margin = origM;
-            }
-
-            tsmPlayPause.InactiveImage = SkinResources.btnPlay;
-            //tsmPlayPause.ActiveImage = SkinResources.btnPlay2;
-            //tsmPlayPause.Enabled = false;
-
-
-            tsmStop.InactiveImage = SkinResources.btnStop;
-            tsmNext.InactiveImage = SkinResources.btnNext;
-            tsmPrev.InactiveImage = SkinResources.btnPrev;
-            tsmOpenDisk.InactiveImage = SkinResources.btnOpenDisk;
-            tsmOpenURL.InactiveImage = SkinResources.btnOpenURL;
-            tsmLoad.InactiveImage = SkinResources.btnLoad;
-            tsmOpenSettings.InactiveImage = SkinResources.btnOpenSettings;
-
-            tsmLoopPlay.InactiveImage = SkinResources.btnLoopPlay;
+            tsmPlayPause.InactiveImage = Resources.btnPlay;
+            tsmStop.InactiveImage = Resources.btnStop;
+            tsmNext.InactiveImage = Resources.btnNext;
+            tsmPrev.InactiveImage = Resources.btnPrev;
+            tsmOpenDisk.InactiveImage = Resources.btnOpenDisk;
+            tsmOpenURL.InactiveImage = Resources.btnOpenURL;
+            tsmLoad.InactiveImage = Resources.btnLoad;
+            tsmOpenSettings.InactiveImage = Resources.btnOpenSettings;
+            tsmLoopPlay.InactiveImage = Resources.btnLoopPlay;
+            tsmToggleShuffle.InactiveImage = Resources.btnToggleShuffle;
+            tsmPlaylistEnd.InactiveImage = Resources.btnPlaylistEnd;
         }
 
         private void OnButtonPressed(object sender, EventArgs e)
@@ -271,7 +258,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             Image img = null;
             if (!string.IsNullOrEmpty(_mediaName))
             {
-                img = SkinResources.GetImage(_FilterState.ToString().ToLowerInvariant());
+                img = Resources.ResourceManager.GetImage(_FilterState.ToString().ToLowerInvariant());
             }
 
             tslFilterState.Image = img;
@@ -287,15 +274,15 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
             switch(_FilterState)
             {
                 case Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Paused:
-                    img = SkinResources.btnPlay;
+                    img = Resources.btnPlay;
                     break;
 
                 case Runtime.ProTONE.Rendering.DS.BaseClasses.FilterState.Running:
-                    img = SkinResources.btnPause;
+                    img = Resources.btnPause;
                     break;
 
                 default:
-                    img = SkinResources.btnPlay;
+                    img = Resources.btnPlay;
                     break;
             }
 
@@ -321,18 +308,18 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
                     break;
 
                 case MediaTypes.Audio:
-                    tslAudioOn.Image = SkinResources.AudioMediaType;
+                    tslAudioOn.Image = Resources.AudioMediaType;
                     tslVideoOn.Image = null;
                     break;
 
                 case MediaTypes.Video:
                     tslAudioOn.Image = null;
-                    tslAudioOn.Image = SkinResources.VideoMediaType;
+                    tslAudioOn.Image = Resources.VideoMediaType;
                     break;
 
                 case MediaTypes.Both:
-                    tslAudioOn.Image = SkinResources.AudioMediaType;
-                    tslVideoOn.Image = SkinResources.VideoMediaType;
+                    tslAudioOn.Image = Resources.AudioMediaType;
+                    tslVideoOn.Image = Resources.VideoMediaType;
                     break;
             }
 

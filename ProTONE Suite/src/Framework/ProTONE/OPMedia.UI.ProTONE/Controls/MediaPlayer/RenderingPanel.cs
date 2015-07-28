@@ -153,7 +153,7 @@ namespace OPMedia.UI.ProTONE.Controls.MediaPlayer
 
             this.FontSize = FontSizes.Large;
 
-            pbVolIcon.Image = Resources.IconAudio;
+            pbVolIcon.Image = Resources.icon_audio;
             pbTimeIcon.Image = Resources.IconTime;
         }
 

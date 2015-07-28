@@ -49,7 +49,7 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Forms
             txtDestFolder.Text = (BkgTask as Task).OutputFolder;
 
             encoderOptionsCtl.EncoderSettings = (BkgTask as Task).EncoderSettings;
-            encoderOptionsCtl.DisplaySettings();
+            encoderOptionsCtl.DisplaySettings(true);
         }
 
         private void opmButton1_Click(object sender, EventArgs e)

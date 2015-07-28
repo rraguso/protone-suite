@@ -15,11 +15,14 @@ namespace OPMedia.Addons.Builtin.Navigation.FileExplorer.CdRipperWizard.Helpers
         public override void Grab(CDDrive cd, Track track, string destFile, bool generateTags)
         {
             byte[] buff = base.GetTrackData(cd, track);
+            WriteBuffer(buff, WaveFormatEx.Cdda, destFile);
+        }
+
+        public void WriteBuffer(byte[] buff, WaveFormatEx wfex, string destFile)
+        {
             using (FileStream fs = new FileStream(destFile, FileMode.Create, FileAccess.Write, FileShare.None))
             using (BinaryWriter bw = new BinaryWriter(fs))
             {
-                WaveFormatEx wfex = WaveFormatEx.Cdda;
-
                 bw.Write(RIFF_TAG);
                 bw.Write((uint)(WaveHeaderSize + buff.Length));
                 bw.Write(WAVE_TAG);

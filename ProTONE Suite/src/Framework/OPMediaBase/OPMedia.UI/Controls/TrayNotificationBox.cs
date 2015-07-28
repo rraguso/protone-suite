@@ -34,6 +34,8 @@ namespace OPMedia.UI.Controls
 
     public partial class TrayNotificationBox : Form
     {
+        private static int __count = 0;
+
         OPMToolTipData data = null;
 
         TransparencyState _ts = TransparencyState.Increasing;
@@ -49,8 +51,12 @@ namespace OPMedia.UI.Controls
         public AnimationType AnimationType { get; set; }
         public int HideDelay { get; set; }
 
-        public void ShowSimple(string text, Image img = null)
+        bool _forceShowNearTray = false;
+
+        public void ShowSimple(string text, bool showNearTray, Image img = null)
         {
+            _forceShowNearTray = showNearTray;
+
             Dictionary<string, string> d = null;
             if (text != null)
             {
@@ -64,6 +70,8 @@ namespace OPMedia.UI.Controls
 
         public void Show(string title, Dictionary<string, string> values = null, Image img = null)
         {
+            __count++;
+
             AssignData(title, values, img);
             User32.ShowWindow(Handle, ShowWindowStyles.SW_SHOWNOACTIVATE);
             User32.SetWindowOnTop(Handle, false);
@@ -83,6 +91,7 @@ namespace OPMedia.UI.Controls
             this.ShowInTaskbar = false;
             this.Paint += new PaintEventHandler(TrayNotificationBox_Paint);
             this.HandleCreated += new EventHandler(TrayNotificationBox_HandleCreated);
+            this.Click += new EventHandler(TrayNotificationBox_Click);
         }
 
         void TrayNotificationBox_HandleCreated(object sender, EventArgs e)
@@ -196,7 +205,14 @@ namespace OPMedia.UI.Controls
             _tmrHide.Stop();
             _tmrHide.Tick -= new EventHandler(_tmrHide_Tick);
 
+            __count--;
             this.Close();
+        }
+
+        void TrayNotificationBox_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("(TEST) TrayNotificationBox_Click");
+            _tmrHide_Tick(sender, e);
         }
 
         private void InitializeComponent()
@@ -221,15 +237,38 @@ namespace OPMedia.UI.Controls
 
         private Point CalculateLocation()
         {
-            Point mousePosition = MousePosition;
+            Form frmCenter = null;
 
-            int x = Screen.FromPoint(mousePosition).WorkingArea.Right - base.Size.Width - 1;
-            int y = Screen.FromPoint(mousePosition).WorkingArea.Bottom - base.Size.Height - 1;
-
-            if (AnimationType == UI.Controls.AnimationType.Slide)
+            if (_forceShowNearTray == false)
             {
-                y = Screen.FromPoint(mousePosition).WorkingArea.Bottom;
-                showLocation = y;
+                if (MainThread.ModalForm != null)
+                    frmCenter = MainThread.ModalForm;
+                else if (MainThread.MainWindow != null)
+                    frmCenter = MainThread.MainWindow;
+            }
+
+            int x = 0, y = 0;
+
+            if (frmCenter != null)
+            {
+                x = frmCenter.Location.X + (frmCenter.Width - base.Size.Width - 1) / 2;
+                y = frmCenter.Location.Y + (frmCenter.Height - base.Size.Height - 1) / 2;
+                //y += (__count - 1) * base.Size.Height;
+            }
+            else
+            {
+                Point mousePosition = MousePosition;
+
+                x = Screen.FromPoint(mousePosition).WorkingArea.Right - base.Size.Width - 1;
+                y = Screen.FromPoint(mousePosition).WorkingArea.Bottom - base.Size.Height - 1;
+
+                if (AnimationType == UI.Controls.AnimationType.Slide)
+                {
+                   y = Screen.FromPoint(mousePosition).WorkingArea.Bottom;
+                   showLocation = y;
+                }
+
+                //y -= (__count - 1) * base.Size.Height;
             }
 
             return new Point(x, y);

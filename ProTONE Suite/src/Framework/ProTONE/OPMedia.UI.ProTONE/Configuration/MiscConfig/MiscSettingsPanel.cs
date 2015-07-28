@@ -62,7 +62,7 @@ namespace OPMedia.UI.ProTONE.Configuration
 
             tabMisc.ImageList.Images.Add(OPMedia.UI.Properties.Resources.Favorites16);
             tabMisc.ImageList.Images.Add(OPMedia.Core.Properties.Resources.ir_remote);
-            tabMisc.ImageList.Images.Add(Resources.Diagnostics);
+            tabMisc.ImageList.Images.Add(Resources.diagnostics);
 
             int i = 0;
             foreach (OPMTabPage tp in tabMisc.TabPages)

@@ -18,8 +18,39 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         public static void ThrowExceptionForHR(int hr)
         {
             if (hr < 0)
-                throw new COMException("Error: ", hr);
+            {
+                string s = GetErrorText(hr);
+                COMException ex = null;
+                
+                if (string.IsNullOrEmpty(s))
+                    ex = new COMException("COM Error", hr);
+                else
+                    ex = new COMException(s, hr);
+
+                throw ex;
+            }
         }
+
+        static string GetErrorText(int hr)
+        {
+            string _text = "";
+            int _length = 160;
+            StringBuilder sb = new StringBuilder(_length);
+
+            try
+            {
+                if (Quartz.AMGetErrorText(hr, sb, _length) > 0)
+                {
+                    _text = sb.ToString();
+                }
+            }
+            catch
+            {
+            }
+
+            return _text;
+        }
+
 
         //public static void CheckHResult(string prefixMsg, int hr)
         //{
@@ -27,15 +58,17 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         //        throw new COMException(prefixMsg, hr);
         //}
 
-        public static string GetErrorMessageForHr(int hr)
-        {
-            return ErrorDispatcher.GetErrorMessageForException(new COMException("Error: ", hr), true);
-        }
+        //public static string GetErrorMessageForHr(int hr)
+        //{
+        //    return ErrorDispatcher.GetErrorMessageForException(new COMException("Error: ", hr), true);
+        //}
     }
 
     public static class Filters		// uuids.h  :  CLSID_*
     {
         public static readonly Guid FileSource = new Guid("e436ebb5-524f-11ce-9f53-0020af0ba770");
+
+        public static readonly Guid FileSink = new Guid("8596E5F0-0DA5-11D0-BD21-00A0C911CE86");
 
         /// <summary> CLSID_SystemDeviceEnum for ICreateDevEnum </summary>
         public static readonly Guid SystemDeviceEnum = new Guid(0x62BE5D10, 0x60EB, 0x11d0, 0xBD, 0x3B, 0x00, 0xA0, 0xC9, 0x11, 0xCE, 0x86);

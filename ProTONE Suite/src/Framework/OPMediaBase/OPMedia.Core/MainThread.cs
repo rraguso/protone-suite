@@ -55,11 +55,11 @@ namespace OPMedia.Core
             IntPtr handle = _control.Handle;
         }
 
-        public static void Initialize(Form mainForm)
+        public static void Initialize(Form form)
         {
             if (_instance == null)
             {
-                _instance = new MainThread(mainForm);
+                _instance = new MainThread(form);
             }
         }
 

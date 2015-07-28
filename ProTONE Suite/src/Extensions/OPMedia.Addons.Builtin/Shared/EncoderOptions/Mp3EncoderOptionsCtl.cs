@@ -13,6 +13,8 @@ namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
 {
     public partial class Mp3EncoderOptionsCtl : EncoderConfiguratorCtl
     {
+        public bool UsedForCdRipper { get; set; }
+        
         public override AudioMediaFormatType OutputFormat
         {
             get
@@ -45,7 +47,11 @@ namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
         public Mp3EncoderOptionsCtl() 
         {
             InitializeComponent();
+            this.Load += new EventHandler(Mp3EncoderOptionsCtl_Load);
+        }
 
+        void Mp3EncoderOptionsCtl_Load(object sender, EventArgs e)
+        {
             cmbChannelMode.Items.Clear();
             foreach (var x in Enum.GetValues(typeof(MpegMode)))
             {
@@ -53,8 +59,15 @@ namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
                 {
                     case MpegMode.JOINT_STEREO:
                     case MpegMode.STEREO:
-                    case MpegMode.MONO:
                         cmbChannelMode.Items.Add(x);
+                        break;
+
+                    case MpegMode.MONO:
+                        {
+                            // Mono not available if ripping CD tracks.
+                            if (UsedForCdRipper == false)
+                                cmbChannelMode.Items.Add(x);
+                        }
                         break;
                 }
 
@@ -66,11 +79,7 @@ namespace OPMedia.Addons.Builtin.Shared.EncoderOptions
                 cmbVbrMode.Items.Add(x);
             }
 
-            this.Load += new EventHandler(Mp3EncoderOptionsCtl_Load);
-        }
 
-        void Mp3EncoderOptionsCtl_Load(object sender, EventArgs e)
-        {
             // ---- 1 ----
             grpOptionsVBR.Visible = (Mp3ConversionOptions.format.bEnableVBR != 0);
             cmbBitrateMode.SelectedIndex = Mp3ConversionOptions.format.bEnableVBR;

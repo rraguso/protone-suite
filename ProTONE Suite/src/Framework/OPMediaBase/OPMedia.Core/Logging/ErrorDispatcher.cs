@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 using System.Security;
 using OPMedia.Core;
+using OPMedia.Core.TranslationSupport;
 
 namespace OPMedia.Core.Logging
 {
@@ -14,7 +15,7 @@ namespace OPMedia.Core.Logging
         const string ExcFormat = "";
         const string ErrFormat = "";
 
-        public static void DispatchException(Exception ex)
+        public static void DispatchFatalError(Exception ex)
         {
             Logger.LogException(ex);
 
@@ -23,30 +24,33 @@ namespace OPMedia.Core.Logging
                 "The application has encountered a fatal error.\nWe are sorry for the inconvenience. Details: \n\n" + msg + "\n\n" +
                 "It is strongly recommended to restart the application now.\n" +
                 "If the problem persists after restart, activate application logging and send the log files to OPMedia Research",
-                "FATAL ERROR");
+                Application.ProductName);
         }
 
-        public static void DispatchError(string msg, string title)
+        public static void DispatchFatalError(string msg, string title)
         {
             Logger.LogError(msg);
-            InnerDisplayNonFatalError(msg, title);
+            InnerDisplayFatalError(
+                "The application has encountered a fatal error.\nWe are sorry for the inconvenience. Details: \n\n" + msg + "\n\n" +
+                "It is strongly recommended to restart the application now.\n" +
+                "If the problem persists after restart, activate application logging and send the log files to OPMedia Research",
+                Application.ProductName);
         }
 
         public static void DispatchError(Exception ex)
         {
             Logger.LogException(ex);
-
             string msg = GetErrorMessageForException(ex);
-            InnerDisplayNonFatalError(
-                "The application has encountered a non-fatal error.\nWe are sorry for the inconvenience. Details: \n\n" + msg,
-                Application.ProductName);
+
+            InnerDisplayNonFatalError(msg, Translator.Translate("TXT_APP_NAME"));
         }
 
-        public static void DispatchFatalError(string message, string title)
+        public static void DispatchError(string msg, string title)
         {
-            Logger.LogError(message);
-            InnerDisplayFatalError(message, title);
+            Logger.LogError(msg);
+            InnerDisplayNonFatalError(msg, Translator.Translate("TXT_APP_NAME"));
         }
+
 
         private static void InnerDisplayFatalError(string message, string title)
         {
@@ -55,7 +59,7 @@ namespace OPMedia.Core.Logging
 
         private static void InnerDisplayNonFatalError(string message, string title)
         {
-            EventDispatch.DispatchEvent(EventNames.ShowMessageBox, message, title, MessageBoxIcon.Error);
+            EventDispatch.DispatchEvent(EventNames.ShowMessageBox, message, title, MessageBoxIcon.Warning);
         }
 
         private static string GetErrorMessageForException(Exception ex)
@@ -80,7 +84,6 @@ namespace OPMedia.Core.Logging
                     msg = sb.ToString();
                 }
             }
-
             return msg;
         }
     }

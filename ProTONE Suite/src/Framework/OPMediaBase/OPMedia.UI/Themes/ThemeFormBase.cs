@@ -246,6 +246,12 @@ namespace OPMedia.UI.Themes
             if (!DesignMode)
             {
                 MainThread.Initialize(this);
+
+                //ThreadPool.QueueUserWorkItem((c) =>
+                //{
+                //    Thread.Sleep(1000);
+                //    MainThread.Send((c2) => ScrollBarSkinner.SkinTopWindow(this));
+                //});
             }
 
             base.AutoScaleDimensions = new SizeF(1, 1);
@@ -521,7 +527,6 @@ namespace OPMedia.UI.Themes
             ApplyScrollBarTheme();
 
             ThemeManager.SetDoubleBuffer(this);
-
         }
 
         FormWindowState _previousState = FormWindowState.Normal;

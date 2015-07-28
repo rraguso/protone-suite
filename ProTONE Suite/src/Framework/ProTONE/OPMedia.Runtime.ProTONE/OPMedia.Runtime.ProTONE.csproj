@@ -60,7 +60,8 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
-    <Reference Include="taglib-sharp">
+    <Reference Include="taglib-sharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\externals\taglib-sharp.dll</HintPath>
     </Reference>
     <Reference Include="XmlRpc">
@@ -69,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ProTONEConfig.cs" />
-    <Compile Include="Compression\LameEncoder.cs" />
     <Compile Include="DirectX\DirectXConfig.cs" />
     <Compile Include="ExtendedInfo\ID3ArtworkInfo.cs" />
     <Compile Include="ExtendedInfo\Bookmark.cs" />
@@ -200,11 +200,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="lame_enc.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
