@@ -146,6 +146,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (mediaControl == null)
                 throw new RenderingException("Unable to render the file: " + renderMediaName);
 
+#if HAVE_SAMPLES
+            InitAudioSampleGrabber_v2();
+            CompleteAudioSampleGrabberIntialization();
+#endif
+
             mediaEvent = mediaControl as IMediaEventEx;
             mediaPosition = mediaControl as IMediaPosition;
             videoWindow = mediaControl as IVideoWindow;

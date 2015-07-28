@@ -505,14 +505,15 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
 
         protected ISampleGrabber sampleGrabber = null;
         protected WaveFormatEx _actualAudioFormat = null;
-        Thread sampleAnalyzerThread = null;
+        protected Thread sampleAnalyzerThread = null;
 
         ConcurrentQueue<AudioSample> samples = new ConcurrentQueue<AudioSample>();
         ConcurrentQueue<AudioSample> samples2 = new ConcurrentQueue<AudioSample>();
         
-        ManualResetEvent sampleAnalyzerMustStop = new ManualResetEvent(false);
-        ManualResetEvent sampleGrabberConfigured = new ManualResetEvent(false);
+        protected ManualResetEvent sampleAnalyzerMustStop = new ManualResetEvent(false);
+        protected ManualResetEvent sampleGrabberConfigured = new ManualResetEvent(false);
 
+        /*
         protected void InitAudioSampleGrabber()
         {
             // Get the graph builder
@@ -558,6 +559,125 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
                 sampleAnalyzerThread.Start();
             }
             catch(Exception ex)
+            {
+                Logger.LogException(ex);
+            }
+
+            rotEntry = new DsROTEntry(graphBuilder as IFilterGraph);
+        }*/
+
+        protected void InitAudioSampleGrabber_v2()
+        {
+            // Get the graph builder
+            IGraphBuilder graphBuilder = (mediaControl as IGraphBuilder);
+            if (graphBuilder == null)
+                return;
+
+            try
+            {
+                // Build the sample grabber
+                sampleGrabber = Activator.CreateInstance(Type.GetTypeFromCLSID(Filters.SampleGrabber, true))
+                    as ISampleGrabber;
+
+                if (sampleGrabber == null)
+                    return;
+
+                // Add it to the filter graph
+                int hr = graphBuilder.AddFilter(sampleGrabber as IBaseFilter, "ProTONE_SampleGrabber_v2");
+                DsError.ThrowExceptionForHR(hr);
+
+                IBaseFilter ffdAudioDecoder = null;
+
+                IPin ffdAudioDecoderOutput = null;
+                IPin soundDeviceInput = null;
+                IPin sampleGrabberInput = null;
+                IPin sampleGrabberOutput = null;
+                IntPtr pSoundDeviceInput = IntPtr.Zero;
+
+                // When using FFDShow, typically we'll find
+                // a ffdshow Audio Decoder connected to the sound device filter
+                // 
+                // i.e. [ffdshow Audio Decoder] --> [DirectSound Device]
+                //
+                // Our audio sample grabber supports only PCM sample input and output.
+                // Its entire processing is based on this assumption.
+                // 
+                // Thus need to insert the audio sample grabber between the ffdshow Audio Decoder and the sound device
+                // because this is the only place where we can find PCM samples. The sound device only accepts PCM.
+                //
+                // So we need to turn this graph:
+                //
+                // .. -->[ffdshow Audio Decoder]-->[DirectSound Device] 
+                //
+                // into this:
+                //
+                // .. -->[ffdshow Audio Decoder]-->[Sample grabber]-->[DirectSound Device] 
+                //
+                // Actions to do to achieve the graph change:
+                //
+                // 1. Locate the ffdshow Audio Decoder in the graph
+                // 2. Find its output pin and the pin that it's connected to
+                // 3. Locate the input and output pins of sample grabber
+                // 4. Disconnect the ffdshow Audio Decoder and its correspondent (sound device input pin)
+                // 5. Connect the ffdshow Audio Decoder to sample grabber input
+                // 6. Connect the sample grabber output to sound device input
+                // that's all.
+
+                // --------------
+                // 1. Locate the ffdshow Audio Decoder in the graph
+                hr = graphBuilder.FindFilterByName("ffdshow Audio Decoder", out ffdAudioDecoder);
+                DsError.ThrowExceptionForHR(hr);
+
+                // 2. Find its output pin and the pin that it's connected to
+                hr = ffdAudioDecoder.FindPin("Out", out ffdAudioDecoderOutput);
+                DsError.ThrowExceptionForHR(hr);
+
+                hr = ffdAudioDecoderOutput.ConnectedTo(out pSoundDeviceInput);
+                DsError.ThrowExceptionForHR(hr);
+
+                soundDeviceInput = new DSPin(pSoundDeviceInput).Value;
+
+                // 3. Locate the input and output pins of sample grabber
+                hr = (sampleGrabber as IBaseFilter).FindPin("In", out sampleGrabberInput);
+                DsError.ThrowExceptionForHR(hr);
+
+                hr = (sampleGrabber as IBaseFilter).FindPin("Out", out sampleGrabberOutput);
+                DsError.ThrowExceptionForHR(hr);
+
+                // 4. Disconnect the ffdshow Audio Decoder and its correspondent (sound device input pin)
+                hr = ffdAudioDecoderOutput.Disconnect();
+                DsError.ThrowExceptionForHR(hr);
+
+                hr = soundDeviceInput.Disconnect();
+                DsError.ThrowExceptionForHR(hr);
+
+                // 5. Connect the ffdshow Audio Decoder to sample grabber input
+                hr = graphBuilder.Connect(ffdAudioDecoderOutput, sampleGrabberInput);
+                DsError.ThrowExceptionForHR(hr);
+
+                // 6. Connect the sample grabber output to sound device input
+                hr = graphBuilder.Connect(sampleGrabberOutput, soundDeviceInput);
+                DsError.ThrowExceptionForHR(hr);
+
+
+                AMMediaType mtAudio = new AMMediaType();
+                mtAudio.majorType = MediaType.Audio;
+                mtAudio.subType = MediaSubType.PCM;
+                mtAudio.formatPtr = IntPtr.Zero;
+
+                _actualAudioFormat = null;
+
+                sampleGrabber.SetMediaType(mtAudio);
+                sampleGrabber.SetBufferSamples(true);
+                sampleGrabber.SetOneShot(false);
+                sampleGrabber.SetCallback(this, 1);
+
+                sampleAnalyzerMustStop.Reset();
+                sampleAnalyzerThread = new Thread(new ThreadStart(SampleAnalyzerLoop));
+                sampleAnalyzerThread.Priority = ThreadPriority.Highest;
+                sampleAnalyzerThread.Start();
+            }
+            catch (Exception ex)
             {
                 Logger.LogException(ex);
             }
@@ -630,8 +750,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
         {
             try
             {
-                sampleAnalyzerMustStop.Set(); // This will cause the thread to stop
-                sampleAnalyzerThread.Join(200);
+                if (sampleAnalyzerMustStop != null)
+                    sampleAnalyzerMustStop.Set(); // This will cause the thread to stop
+
+                if (sampleAnalyzerThread != null)
+                    sampleAnalyzerThread.Join(200);
 
                 if (sampleGrabber != null)
                 {
@@ -720,7 +843,7 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             return 0; 
         }
 
-        private void SampleAnalyzerLoop()
+        protected void SampleAnalyzerLoop()
         {
             while (sampleAnalyzerMustStop.WaitOne(0) == false)
             {

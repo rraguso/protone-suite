@@ -50,7 +50,7 @@ namespace OPMedia.Runtime.ProTONE.FileInformation
                 if (string.IsNullOrEmpty(retVal2))
                     return retVal1;
 
-                return string.Format("{0} / {1}",
+                return string.Format("{0} ({1})",
                     retVal1, retVal2);
             }
         }

@@ -63,11 +63,11 @@ namespace OPMedia.Runtime.ProTONE.Rendering.DS
             if (_source.OutputPin == null)
                 throw new RenderingException("Unable to render the file: " + renderMediaName);
 
-            InitAudioSampleGrabber();
-
             // Render the output pin
             int hr = (int)_source.OutputPin.Render();
             DsError.ThrowExceptionForHR(hr);
+
+            InitAudioSampleGrabber_v2();
 
             rotEntry = new DsROTEntry(mediaControl as IFilterGraph);
 
